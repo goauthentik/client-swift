@@ -1,0 +1,16 @@
+# SourceType
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **String** |  | 
+**slug** | **String** |  | 
+**urlsCustomizable** | **Bool** |  | 
+**requestTokenUrl** | **String** |  | [readonly] 
+**authorizationUrl** | **String** |  | [readonly] 
+**accessTokenUrl** | **String** |  | [readonly] 
+**profileUrl** | **String** |  | [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

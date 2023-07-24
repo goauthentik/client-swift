@@ -1,0 +1,12 @@
+templateDir: /local/templates/
+additionalProperties:
+  disallowAdditionalPropertiesIfNotPresent: false
+  enumUnknownDefaultCase: true
+  projectName: authentikAPI
+  podAuthors: authentik Team
+  podHomepage: https://goauthentik.io/
+  podSummary: authentik Swift API Client
+files:
+  README.mustache:
+    templateType: SupportingFiles
+    destinationFilename: README.md
