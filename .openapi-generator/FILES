@@ -53,10 +53,6 @@ authentikAPI/Classes/OpenAPIs/Models/AuthenticatorDuoStage.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorDuoStageDeviceImportResponse.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorDuoStageManualDeviceImportRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorDuoStageRequest.swift
-authentikAPI/Classes/OpenAPIs/Models/AuthenticatorMobileChallenge.swift
-authentikAPI/Classes/OpenAPIs/Models/AuthenticatorMobileChallengeResponseRequest.swift
-authentikAPI/Classes/OpenAPIs/Models/AuthenticatorMobileStage.swift
-authentikAPI/Classes/OpenAPIs/Models/AuthenticatorMobileStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorSMSChallenge.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorSMSChallengeResponseRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/AuthenticatorSMSStage.swift
@@ -194,8 +190,6 @@ authentikAPI/Classes/OpenAPIs/Models/LoginChallengeTypes.swift
 authentikAPI/Classes/OpenAPIs/Models/LoginMetrics.swift
 authentikAPI/Classes/OpenAPIs/Models/LoginSource.swift
 authentikAPI/Classes/OpenAPIs/Models/Metadata.swift
-authentikAPI/Classes/OpenAPIs/Models/MobileDevice.swift
-authentikAPI/Classes/OpenAPIs/Models/MobileDeviceRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/ModelEnum.swift
 authentikAPI/Classes/OpenAPIs/Models/NameIdPolicyEnum.swift
 authentikAPI/Classes/OpenAPIs/Models/NotConfiguredActionEnum.swift
@@ -229,7 +223,6 @@ authentikAPI/Classes/OpenAPIs/Models/PaginatedApplicationListPagination.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticateWebAuthnStageList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatedSessionList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatorDuoStageList.swift
-authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatorMobileStageList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatorSMSStageList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatorStaticStageList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedAuthenticatorTOTPStageList.swift
@@ -260,7 +253,6 @@ authentikAPI/Classes/OpenAPIs/Models/PaginatedLDAPPropertyMappingList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedLDAPProviderList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedLDAPSourceList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedLicenseList.swift
-authentikAPI/Classes/OpenAPIs/Models/PaginatedMobileDeviceList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedNotificationList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedNotificationRuleList.swift
 authentikAPI/Classes/OpenAPIs/Models/PaginatedNotificationTransportList.swift
@@ -321,7 +313,6 @@ authentikAPI/Classes/OpenAPIs/Models/PasswordStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedApplicationRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticateWebAuthnStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticatorDuoStageRequest.swift
-authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticatorMobileStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticatorSMSStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticatorStaticStageRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedAuthenticatorTOTPStageRequest.swift
@@ -350,7 +341,6 @@ authentikAPI/Classes/OpenAPIs/Models/PatchedLDAPPropertyMappingRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedLDAPProviderRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedLDAPSourceRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedLicenseRequest.swift
-authentikAPI/Classes/OpenAPIs/Models/PatchedMobileDeviceRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedNotificationRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedNotificationRuleRequest.swift
 authentikAPI/Classes/OpenAPIs/Models/PatchedNotificationTransportRequest.swift
@@ -548,10 +538,6 @@ docs/AuthenticatorDuoStage.md
 docs/AuthenticatorDuoStageDeviceImportResponse.md
 docs/AuthenticatorDuoStageManualDeviceImportRequest.md
 docs/AuthenticatorDuoStageRequest.md
-docs/AuthenticatorMobileChallenge.md
-docs/AuthenticatorMobileChallengeResponseRequest.md
-docs/AuthenticatorMobileStage.md
-docs/AuthenticatorMobileStageRequest.md
 docs/AuthenticatorSMSChallenge.md
 docs/AuthenticatorSMSChallengeResponseRequest.md
 docs/AuthenticatorSMSStage.md
@@ -696,8 +682,6 @@ docs/LoginMetrics.md
 docs/LoginSource.md
 docs/ManagedAPI.md
 docs/Metadata.md
-docs/MobileDevice.md
-docs/MobileDeviceRequest.md
 docs/ModelEnum.md
 docs/NameIdPolicyEnum.md
 docs/NotConfiguredActionEnum.md
@@ -733,7 +717,6 @@ docs/PaginatedApplicationListPagination.md
 docs/PaginatedAuthenticateWebAuthnStageList.md
 docs/PaginatedAuthenticatedSessionList.md
 docs/PaginatedAuthenticatorDuoStageList.md
-docs/PaginatedAuthenticatorMobileStageList.md
 docs/PaginatedAuthenticatorSMSStageList.md
 docs/PaginatedAuthenticatorStaticStageList.md
 docs/PaginatedAuthenticatorTOTPStageList.md
@@ -764,7 +747,6 @@ docs/PaginatedLDAPPropertyMappingList.md
 docs/PaginatedLDAPProviderList.md
 docs/PaginatedLDAPSourceList.md
 docs/PaginatedLicenseList.md
-docs/PaginatedMobileDeviceList.md
 docs/PaginatedNotificationList.md
 docs/PaginatedNotificationRuleList.md
 docs/PaginatedNotificationTransportList.md
@@ -825,7 +807,6 @@ docs/PasswordStageRequest.md
 docs/PatchedApplicationRequest.md
 docs/PatchedAuthenticateWebAuthnStageRequest.md
 docs/PatchedAuthenticatorDuoStageRequest.md
-docs/PatchedAuthenticatorMobileStageRequest.md
 docs/PatchedAuthenticatorSMSStageRequest.md
 docs/PatchedAuthenticatorStaticStageRequest.md
 docs/PatchedAuthenticatorTOTPStageRequest.md
@@ -854,7 +835,6 @@ docs/PatchedLDAPPropertyMappingRequest.md
 docs/PatchedLDAPProviderRequest.md
 docs/PatchedLDAPSourceRequest.md
 docs/PatchedLicenseRequest.md
-docs/PatchedMobileDeviceRequest.md
 docs/PatchedNotificationRequest.md
 docs/PatchedNotificationRuleRequest.md
 docs/PatchedNotificationTransportRequest.md
