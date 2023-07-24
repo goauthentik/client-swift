@@ -7,7 +7,7 @@ targets:
     sources: [authentikAPI]
     info:
       path: ./Info.plist
-      version: 2023.6.1
+      version: 3.2023061.6
     settings:
       APPLICATION_EXTENSION_API_ONLY: true
     scheme: {}

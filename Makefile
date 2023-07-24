@@ -15,7 +15,7 @@ build:
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-generator-cli:v6.2.0 generate \
-		--additional-properties=npmVersion=${NPM_VERSION} \
+		--additional-properties=podVersion=${VERSION} \
 		-i /local/schema.yml \
 		-g swift5 \
 		-o /local \
