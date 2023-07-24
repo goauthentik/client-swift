@@ -22,6 +22,7 @@ build:
 		-c /local/config.yaml
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
+	rm -f diff.test
 
 diff:
 	docker run \
