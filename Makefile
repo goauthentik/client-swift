@@ -22,14 +22,13 @@ build:
 		-c /local/config.yaml
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
-	rm -f diff.test
 
 diff:
 	docker run \
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-diff:2.1.0-beta.6 \
-		--markdown /local/diff.test \
+		--markdown /local/diff.xccheckout \
 		/local/schema-old.yml /local/schema.yml
 	rm -f schema-old.yml
 
