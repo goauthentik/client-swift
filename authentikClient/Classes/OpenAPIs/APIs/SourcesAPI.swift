@@ -19,7 +19,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -44,7 +44,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -55,7 +55,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -73,7 +73,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSourceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSourceList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllListWithRequestBuilder(managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -101,7 +101,7 @@ open class SourcesAPI {
      */
     open class func sourcesAllListWithRequestBuilder(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil) -> RequestBuilder<PaginatedSourceList> {
         let localVariablePath = "/sources/all/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -121,7 +121,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedSourceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedSourceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -133,7 +133,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Source?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Source?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -158,7 +158,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -169,7 +169,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Source>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Source>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -183,7 +183,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllSetIconCreateWithRequestBuilder(slug: slug, file: file, clear: clear).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -210,7 +210,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
             "file": file?.encodeToJSON(),
             "clear": clear?.encodeToJSON(),
@@ -227,7 +227,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -240,7 +240,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllSetIconUrlCreateWithRequestBuilder(slug: slug, filePathRequest: filePathRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -266,7 +266,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: filePathRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -277,7 +277,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -288,7 +288,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllTypesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllTypesList(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllTypesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -309,7 +309,7 @@ open class SourcesAPI {
      */
     open class func sourcesAllTypesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/sources/all/types/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -320,7 +320,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -332,7 +332,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -357,7 +357,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -368,7 +368,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -379,7 +379,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesAllUserSettingsList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UserSetting]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesAllUserSettingsList(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UserSetting]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesAllUserSettingsListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -400,7 +400,7 @@ open class SourcesAPI {
      */
     open class func sourcesAllUserSettingsListWithRequestBuilder() -> RequestBuilder<[UserSetting]> {
         let localVariablePath = "/sources/all/user_settings/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -411,7 +411,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UserSetting]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UserSetting]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -423,7 +423,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapCreate(lDAPSourceRequest: LDAPSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapCreate(lDAPSourceRequest: LDAPSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapCreateWithRequestBuilder(lDAPSourceRequest: lDAPSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -445,7 +445,7 @@ open class SourcesAPI {
      */
     open class func sourcesLdapCreateWithRequestBuilder(lDAPSourceRequest: LDAPSourceRequest) -> RequestBuilder<LDAPSource> {
         let localVariablePath = "/sources/ldap/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: lDAPSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -456,7 +456,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -468,7 +468,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapDebugRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPDebug?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapDebugRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPDebug?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapDebugRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -493,7 +493,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -504,7 +504,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPDebug>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPDebug>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -516,7 +516,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -541,7 +541,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -552,7 +552,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -589,7 +589,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapList(additionalGroupDn: String? = nil, additionalUserDn: String? = nil, baseDn: String? = nil, bindCn: String? = nil, clientCertificate: UUID? = nil, enabled: Bool? = nil, groupMembershipField: String? = nil, groupObjectFilter: String? = nil, name: String? = nil, objectUniquenessField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, peerCertificate: UUID? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, search: String? = nil, serverUri: String? = nil, slug: String? = nil, sni: Bool? = nil, startTls: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, userObjectFilter: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPSourceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapList(additionalGroupDn: String? = nil, additionalUserDn: String? = nil, baseDn: String? = nil, bindCn: String? = nil, clientCertificate: UUID? = nil, enabled: Bool? = nil, groupMembershipField: String? = nil, groupObjectFilter: String? = nil, name: String? = nil, objectUniquenessField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, peerCertificate: UUID? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, search: String? = nil, serverUri: String? = nil, slug: String? = nil, sni: Bool? = nil, startTls: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, userObjectFilter: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPSourceList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapListWithRequestBuilder(additionalGroupDn: additionalGroupDn, additionalUserDn: additionalUserDn, baseDn: baseDn, bindCn: bindCn, clientCertificate: clientCertificate, enabled: enabled, groupMembershipField: groupMembershipField, groupObjectFilter: groupObjectFilter, name: name, objectUniquenessField: objectUniquenessField, ordering: ordering, page: page, pageSize: pageSize, peerCertificate: peerCertificate, propertyMappings: propertyMappings, propertyMappingsGroup: propertyMappingsGroup, search: search, serverUri: serverUri, slug: slug, sni: sni, startTls: startTls, syncGroups: syncGroups, syncParentGroup: syncParentGroup, syncUsers: syncUsers, syncUsersPassword: syncUsersPassword, userObjectFilter: userObjectFilter).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -636,7 +636,7 @@ open class SourcesAPI {
      */
     open class func sourcesLdapListWithRequestBuilder(additionalGroupDn: String? = nil, additionalUserDn: String? = nil, baseDn: String? = nil, bindCn: String? = nil, clientCertificate: UUID? = nil, enabled: Bool? = nil, groupMembershipField: String? = nil, groupObjectFilter: String? = nil, name: String? = nil, objectUniquenessField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, peerCertificate: UUID? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, search: String? = nil, serverUri: String? = nil, slug: String? = nil, sni: Bool? = nil, startTls: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, userObjectFilter: String? = nil) -> RequestBuilder<PaginatedLDAPSourceList> {
         let localVariablePath = "/sources/ldap/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -675,7 +675,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPSourceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPSourceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -688,7 +688,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapPartialUpdate(slug: String, patchedLDAPSourceRequest: PatchedLDAPSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapPartialUpdate(slug: String, patchedLDAPSourceRequest: PatchedLDAPSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapPartialUpdateWithRequestBuilder(slug: slug, patchedLDAPSourceRequest: patchedLDAPSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -714,7 +714,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedLDAPSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -725,7 +725,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -737,7 +737,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -762,7 +762,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -773,7 +773,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -785,7 +785,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapSyncStatusList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [Task]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapSyncStatusList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Task]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapSyncStatusListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -810,7 +810,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -821,7 +821,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Task]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[Task]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -834,7 +834,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapUpdate(slug: String, lDAPSourceRequest: LDAPSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapUpdate(slug: String, lDAPSourceRequest: LDAPSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapUpdateWithRequestBuilder(slug: slug, lDAPSourceRequest: lDAPSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -860,7 +860,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: lDAPSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -871,7 +871,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -883,7 +883,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesLdapUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesLdapUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -908,7 +908,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -919,7 +919,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -931,7 +931,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthCreate(oAuthSourceRequest: OAuthSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthCreate(oAuthSourceRequest: OAuthSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthCreateWithRequestBuilder(oAuthSourceRequest: oAuthSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -953,7 +953,7 @@ open class SourcesAPI {
      */
     open class func sourcesOauthCreateWithRequestBuilder(oAuthSourceRequest: OAuthSourceRequest) -> RequestBuilder<OAuthSource> {
         let localVariablePath = "/sources/oauth/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: oAuthSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -964,7 +964,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -976,7 +976,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1001,7 +1001,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1012,7 +1012,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1061,7 +1061,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthList(accessTokenUrl: String? = nil, additionalScopes: String? = nil, authenticationFlow: UUID? = nil, authorizationUrl: String? = nil, consumerKey: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, hasJwks: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesOauthList? = nil, profileUrl: String? = nil, providerType: String? = nil, requestTokenUrl: String? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesOauthList? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedOAuthSourceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthList(accessTokenUrl: String? = nil, additionalScopes: String? = nil, authenticationFlow: UUID? = nil, authorizationUrl: String? = nil, consumerKey: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, hasJwks: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesOauthList? = nil, profileUrl: String? = nil, providerType: String? = nil, requestTokenUrl: String? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesOauthList? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedOAuthSourceList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthListWithRequestBuilder(accessTokenUrl: accessTokenUrl, additionalScopes: additionalScopes, authenticationFlow: authenticationFlow, authorizationUrl: authorizationUrl, consumerKey: consumerKey, enabled: enabled, enrollmentFlow: enrollmentFlow, hasJwks: hasJwks, name: name, ordering: ordering, page: page, pageSize: pageSize, policyEngineMode: policyEngineMode, profileUrl: profileUrl, providerType: providerType, requestTokenUrl: requestTokenUrl, search: search, slug: slug, userMatchingMode: userMatchingMode).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1101,7 +1101,7 @@ open class SourcesAPI {
      */
     open class func sourcesOauthListWithRequestBuilder(accessTokenUrl: String? = nil, additionalScopes: String? = nil, authenticationFlow: UUID? = nil, authorizationUrl: String? = nil, consumerKey: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, hasJwks: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesOauthList? = nil, profileUrl: String? = nil, providerType: String? = nil, requestTokenUrl: String? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesOauthList? = nil) -> RequestBuilder<PaginatedOAuthSourceList> {
         let localVariablePath = "/sources/oauth/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1133,7 +1133,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedOAuthSourceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedOAuthSourceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1146,7 +1146,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthPartialUpdate(slug: String, patchedOAuthSourceRequest: PatchedOAuthSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthPartialUpdate(slug: String, patchedOAuthSourceRequest: PatchedOAuthSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthPartialUpdateWithRequestBuilder(slug: slug, patchedOAuthSourceRequest: patchedOAuthSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1172,7 +1172,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedOAuthSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1183,7 +1183,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1195,7 +1195,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1220,7 +1220,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1231,7 +1231,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1243,7 +1243,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthSourceTypesList(name: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [SourceType]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthSourceTypesList(name: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [SourceType]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthSourceTypesListWithRequestBuilder(name: name).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1265,7 +1265,7 @@ open class SourcesAPI {
      */
     open class func sourcesOauthSourceTypesListWithRequestBuilder(name: String? = nil) -> RequestBuilder<[SourceType]> {
         let localVariablePath = "/sources/oauth/source_types/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1279,7 +1279,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[SourceType]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[SourceType]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1292,7 +1292,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthUpdate(slug: String, oAuthSourceRequest: OAuthSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthUpdate(slug: String, oAuthSourceRequest: OAuthSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: OAuthSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthUpdateWithRequestBuilder(slug: slug, oAuthSourceRequest: oAuthSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1318,7 +1318,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: oAuthSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1329,7 +1329,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OAuthSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1341,7 +1341,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesOauthUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesOauthUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesOauthUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1366,7 +1366,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1377,7 +1377,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1389,7 +1389,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexCreate(plexSourceRequest: PlexSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexCreate(plexSourceRequest: PlexSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexCreateWithRequestBuilder(plexSourceRequest: plexSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1411,7 +1411,7 @@ open class SourcesAPI {
      */
     open class func sourcesPlexCreateWithRequestBuilder(plexSourceRequest: PlexSourceRequest) -> RequestBuilder<PlexSource> {
         let localVariablePath = "/sources/plex/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1422,7 +1422,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1434,7 +1434,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1459,7 +1459,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1470,7 +1470,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1513,7 +1513,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexList(allowFriends: Bool? = nil, authenticationFlow: UUID? = nil, clientId: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesPlexList? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesPlexList? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPlexSourceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexList(allowFriends: Bool? = nil, authenticationFlow: UUID? = nil, clientId: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesPlexList? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesPlexList? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPlexSourceList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexListWithRequestBuilder(allowFriends: allowFriends, authenticationFlow: authenticationFlow, clientId: clientId, enabled: enabled, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, policyEngineMode: policyEngineMode, search: search, slug: slug, userMatchingMode: userMatchingMode).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1547,7 +1547,7 @@ open class SourcesAPI {
      */
     open class func sourcesPlexListWithRequestBuilder(allowFriends: Bool? = nil, authenticationFlow: UUID? = nil, clientId: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesPlexList? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesPlexList? = nil) -> RequestBuilder<PaginatedPlexSourceList> {
         let localVariablePath = "/sources/plex/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1573,7 +1573,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPlexSourceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPlexSourceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1586,7 +1586,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexPartialUpdate(slug: String, patchedPlexSourceRequest: PatchedPlexSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexPartialUpdate(slug: String, patchedPlexSourceRequest: PatchedPlexSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexPartialUpdateWithRequestBuilder(slug: slug, patchedPlexSourceRequest: patchedPlexSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1612,7 +1612,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPlexSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1623,7 +1623,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1636,7 +1636,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexRedeemTokenAuthenticatedCreate(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexRedeemTokenAuthenticatedCreate(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexRedeemTokenAuthenticatedCreateWithRequestBuilder(plexTokenRedeemRequest: plexTokenRedeemRequest, slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1659,7 +1659,7 @@ open class SourcesAPI {
      */
     open class func sourcesPlexRedeemTokenAuthenticatedCreateWithRequestBuilder(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil) -> RequestBuilder<Void> {
         let localVariablePath = "/sources/plex/redeem_token_authenticated/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexTokenRedeemRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1673,7 +1673,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1686,7 +1686,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexRedeemTokenCreate(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: RedirectChallenge?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexRedeemTokenCreate(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RedirectChallenge?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexRedeemTokenCreateWithRequestBuilder(plexTokenRedeemRequest: plexTokenRedeemRequest, slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1709,7 +1709,7 @@ open class SourcesAPI {
      */
     open class func sourcesPlexRedeemTokenCreateWithRequestBuilder(plexTokenRedeemRequest: PlexTokenRedeemRequest, slug: String? = nil) -> RequestBuilder<RedirectChallenge> {
         let localVariablePath = "/sources/plex/redeem_token/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexTokenRedeemRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1723,7 +1723,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RedirectChallenge>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RedirectChallenge>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1735,7 +1735,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1760,7 +1760,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1771,7 +1771,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1784,7 +1784,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexUpdate(slug: String, plexSourceRequest: PlexSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexUpdate(slug: String, plexSourceRequest: PlexSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexUpdateWithRequestBuilder(slug: slug, plexSourceRequest: plexSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1810,7 +1810,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1821,7 +1821,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1833,7 +1833,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesPlexUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesPlexUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesPlexUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1858,7 +1858,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1869,7 +1869,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1881,7 +1881,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlCreate(sAMLSourceRequest: SAMLSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlCreate(sAMLSourceRequest: SAMLSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlCreateWithRequestBuilder(sAMLSourceRequest: sAMLSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1903,7 +1903,7 @@ open class SourcesAPI {
      */
     open class func sourcesSamlCreateWithRequestBuilder(sAMLSourceRequest: SAMLSourceRequest) -> RequestBuilder<SAMLSource> {
         let localVariablePath = "/sources/saml/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sAMLSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1914,7 +1914,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1926,7 +1926,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1951,7 +1951,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1962,7 +1962,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2057,7 +2057,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLSourceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLSourceList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlListWithRequestBuilder(allowIdpInitiated: allowIdpInitiated, authenticationFlow: authenticationFlow, bindingType: bindingType, digestAlgorithm: digestAlgorithm, enabled: enabled, enrollmentFlow: enrollmentFlow, issuer: issuer, managed: managed, name: name, nameIdPolicy: nameIdPolicy, ordering: ordering, page: page, pageSize: pageSize, policyEngineMode: policyEngineMode, preAuthenticationFlow: preAuthenticationFlow, search: search, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, sloUrl: sloUrl, slug: slug, ssoUrl: ssoUrl, temporaryUserDeleteAfter: temporaryUserDeleteAfter, userMatchingMode: userMatchingMode, verificationKp: verificationKp).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2102,7 +2102,7 @@ open class SourcesAPI {
      */
     open class func sourcesSamlListWithRequestBuilder(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil) -> RequestBuilder<PaginatedSAMLSourceList> {
         let localVariablePath = "/sources/saml/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2139,7 +2139,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedSAMLSourceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedSAMLSourceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2151,7 +2151,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlMetadataRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLMetadata?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlMetadataRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLMetadata?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlMetadataRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2176,7 +2176,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2187,7 +2187,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLMetadata>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLMetadata>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2200,7 +2200,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlPartialUpdate(slug: String, patchedSAMLSourceRequest: PatchedSAMLSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlPartialUpdate(slug: String, patchedSAMLSourceRequest: PatchedSAMLSourceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlPartialUpdateWithRequestBuilder(slug: slug, patchedSAMLSourceRequest: patchedSAMLSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2226,7 +2226,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedSAMLSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2237,7 +2237,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2249,7 +2249,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2274,7 +2274,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2285,7 +2285,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2298,7 +2298,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlUpdate(slug: String, sAMLSourceRequest: SAMLSourceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlUpdate(slug: String, sAMLSourceRequest: SAMLSourceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLSource?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlUpdateWithRequestBuilder(slug: slug, sAMLSourceRequest: sAMLSourceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2324,7 +2324,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sAMLSourceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2335,7 +2335,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLSource>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2347,7 +2347,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesSamlUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesSamlUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesSamlUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2372,7 +2372,7 @@ open class SourcesAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2383,7 +2383,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2395,7 +2395,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2420,7 +2420,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2431,7 +2431,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2447,7 +2447,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, user: user).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2473,7 +2473,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsAllListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil) -> RequestBuilder<PaginatedUserSourceConnectionList> {
         let localVariablePath = "/sources/user_connections/all/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2491,7 +2491,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserSourceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserSourceConnectionList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2503,7 +2503,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllPartialUpdate(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllPartialUpdate(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllPartialUpdateWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2528,7 +2528,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2539,7 +2539,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2551,7 +2551,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2576,7 +2576,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2587,7 +2587,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2599,7 +2599,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllUpdate(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllUpdate(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllUpdateWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2624,7 +2624,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2635,7 +2635,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2647,7 +2647,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsAllUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsAllUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsAllUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2672,7 +2672,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2683,7 +2683,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2695,7 +2695,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthCreate(userOAuthSourceConnectionRequest: UserOAuthSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthCreate(userOAuthSourceConnectionRequest: UserOAuthSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthCreateWithRequestBuilder(userOAuthSourceConnectionRequest: userOAuthSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2717,7 +2717,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsOauthCreateWithRequestBuilder(userOAuthSourceConnectionRequest: UserOAuthSourceConnectionRequest) -> RequestBuilder<UserOAuthSourceConnection> {
         let localVariablePath = "/sources/user_connections/oauth/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userOAuthSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2728,7 +2728,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2740,7 +2740,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2765,7 +2765,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2776,7 +2776,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2792,7 +2792,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserOAuthSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserOAuthSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2818,7 +2818,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsOauthListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil) -> RequestBuilder<PaginatedUserOAuthSourceConnectionList> {
         let localVariablePath = "/sources/user_connections/oauth/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2836,7 +2836,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserOAuthSourceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserOAuthSourceConnectionList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2849,7 +2849,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthPartialUpdate(id: Int, patchedUserOAuthSourceConnectionRequest: PatchedUserOAuthSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthPartialUpdate(id: Int, patchedUserOAuthSourceConnectionRequest: PatchedUserOAuthSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthPartialUpdateWithRequestBuilder(id: id, patchedUserOAuthSourceConnectionRequest: patchedUserOAuthSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2875,7 +2875,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserOAuthSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2886,7 +2886,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2898,7 +2898,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2923,7 +2923,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2934,7 +2934,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2947,7 +2947,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthUpdate(id: Int, userOAuthSourceConnectionRequest: UserOAuthSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthUpdate(id: Int, userOAuthSourceConnectionRequest: UserOAuthSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserOAuthSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthUpdateWithRequestBuilder(id: id, userOAuthSourceConnectionRequest: userOAuthSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2973,7 +2973,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userOAuthSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2984,7 +2984,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserOAuthSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2996,7 +2996,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsOauthUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsOauthUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsOauthUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3021,7 +3021,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3032,7 +3032,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3044,7 +3044,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexCreate(plexSourceConnectionRequest: PlexSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexCreate(plexSourceConnectionRequest: PlexSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexCreateWithRequestBuilder(plexSourceConnectionRequest: plexSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3066,7 +3066,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsPlexCreateWithRequestBuilder(plexSourceConnectionRequest: PlexSourceConnectionRequest) -> RequestBuilder<PlexSourceConnection> {
         let localVariablePath = "/sources/user_connections/plex/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3077,7 +3077,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3089,7 +3089,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3114,7 +3114,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3125,7 +3125,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3141,7 +3141,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPlexSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPlexSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3167,7 +3167,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsPlexListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil) -> RequestBuilder<PaginatedPlexSourceConnectionList> {
         let localVariablePath = "/sources/user_connections/plex/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3185,7 +3185,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPlexSourceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPlexSourceConnectionList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3198,7 +3198,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexPartialUpdate(id: Int, patchedPlexSourceConnectionRequest: PatchedPlexSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexPartialUpdate(id: Int, patchedPlexSourceConnectionRequest: PatchedPlexSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexPartialUpdateWithRequestBuilder(id: id, patchedPlexSourceConnectionRequest: patchedPlexSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3224,7 +3224,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPlexSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3235,7 +3235,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3247,7 +3247,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3272,7 +3272,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3283,7 +3283,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3296,7 +3296,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexUpdate(id: Int, plexSourceConnectionRequest: PlexSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexUpdate(id: Int, plexSourceConnectionRequest: PlexSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlexSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexUpdateWithRequestBuilder(id: id, plexSourceConnectionRequest: plexSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3322,7 +3322,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: plexSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3333,7 +3333,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PlexSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3345,7 +3345,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsPlexUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsPlexUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsPlexUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3370,7 +3370,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3381,7 +3381,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3393,7 +3393,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlCreate(userSAMLSourceConnectionRequest: UserSAMLSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlCreate(userSAMLSourceConnectionRequest: UserSAMLSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlCreateWithRequestBuilder(userSAMLSourceConnectionRequest: userSAMLSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3415,7 +3415,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsSamlCreateWithRequestBuilder(userSAMLSourceConnectionRequest: UserSAMLSourceConnectionRequest) -> RequestBuilder<UserSAMLSourceConnection> {
         let localVariablePath = "/sources/user_connections/saml/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userSAMLSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3426,7 +3426,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3438,7 +3438,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3463,7 +3463,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3474,7 +3474,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3490,7 +3490,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserSAMLSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserSAMLSourceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3516,7 +3516,7 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsSamlListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil) -> RequestBuilder<PaginatedUserSAMLSourceConnectionList> {
         let localVariablePath = "/sources/user_connections/saml/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3534,7 +3534,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserSAMLSourceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserSAMLSourceConnectionList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3547,7 +3547,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlPartialUpdate(id: Int, patchedUserSAMLSourceConnectionRequest: PatchedUserSAMLSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlPartialUpdate(id: Int, patchedUserSAMLSourceConnectionRequest: PatchedUserSAMLSourceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlPartialUpdateWithRequestBuilder(id: id, patchedUserSAMLSourceConnectionRequest: patchedUserSAMLSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3573,7 +3573,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserSAMLSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3584,7 +3584,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3596,7 +3596,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3621,7 +3621,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3632,7 +3632,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3645,7 +3645,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlUpdate(id: Int, userSAMLSourceConnectionRequest: UserSAMLSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlUpdate(id: Int, userSAMLSourceConnectionRequest: UserSAMLSourceConnectionRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSAMLSourceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlUpdateWithRequestBuilder(id: id, userSAMLSourceConnectionRequest: userSAMLSourceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3671,7 +3671,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userSAMLSourceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3682,7 +3682,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSAMLSourceConnection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3694,7 +3694,7 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesUserConnectionsSamlUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func sourcesUserConnectionsSamlUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return sourcesUserConnectionsSamlUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3719,7 +3719,7 @@ open class SourcesAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3730,7 +3730,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

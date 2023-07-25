@@ -20,7 +20,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsCheckAccessRetrieve(slug: String, forUser: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyTestResult?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsCheckAccessRetrieve(slug: String, forUser: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyTestResult?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsCheckAccessRetrieveWithRequestBuilder(slug: slug, forUser: forUser).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -46,7 +46,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -60,7 +60,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyTestResult>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyTestResult>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -72,7 +72,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsCreate(applicationRequest: ApplicationRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsCreate(applicationRequest: ApplicationRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsCreateWithRequestBuilder(applicationRequest: applicationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -94,7 +94,7 @@ open class CoreAPI {
      */
     open class func coreApplicationsCreateWithRequestBuilder(applicationRequest: ApplicationRequest) -> RequestBuilder<Application> {
         let localVariablePath = "/core/applications/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: applicationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -105,7 +105,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -117,7 +117,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -142,7 +142,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -153,7 +153,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -175,7 +175,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsListWithRequestBuilder(group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -207,7 +207,7 @@ open class CoreAPI {
      */
     open class func coreApplicationsListWithRequestBuilder(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
         let localVariablePath = "/core/applications/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -231,7 +231,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedApplicationList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedApplicationList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -243,7 +243,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsMetricsList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [Coordinate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsMetricsList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Coordinate]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsMetricsListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -268,7 +268,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -279,7 +279,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Coordinate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[Coordinate]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -292,7 +292,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsPartialUpdate(slug: String, patchedApplicationRequest: PatchedApplicationRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsPartialUpdate(slug: String, patchedApplicationRequest: PatchedApplicationRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsPartialUpdateWithRequestBuilder(slug: slug, patchedApplicationRequest: patchedApplicationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -318,7 +318,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedApplicationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -329,7 +329,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -341,7 +341,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -366,7 +366,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -377,7 +377,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -391,7 +391,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsSetIconCreateWithRequestBuilder(slug: slug, file: file, clear: clear).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -418,7 +418,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
             "file": file?.encodeToJSON(),
             "clear": clear?.encodeToJSON(),
@@ -435,7 +435,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -448,7 +448,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsSetIconUrlCreateWithRequestBuilder(slug: slug, filePathRequest: filePathRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -474,7 +474,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: filePathRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -485,7 +485,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -498,7 +498,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsUpdate(slug: String, applicationRequest: ApplicationRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsUpdate(slug: String, applicationRequest: ApplicationRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Application?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsUpdateWithRequestBuilder(slug: slug, applicationRequest: applicationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -524,7 +524,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: applicationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -535,7 +535,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Application>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -547,7 +547,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreApplicationsUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreApplicationsUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -572,7 +572,7 @@ open class CoreAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -583,7 +583,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -595,7 +595,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreAuthenticatedSessionsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreAuthenticatedSessionsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreAuthenticatedSessionsDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -620,7 +620,7 @@ open class CoreAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -631,7 +631,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -649,7 +649,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreAuthenticatedSessionsList(lastIp: String? = nil, lastUserAgent: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatedSessionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreAuthenticatedSessionsList(lastIp: String? = nil, lastUserAgent: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatedSessionList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreAuthenticatedSessionsListWithRequestBuilder(lastIp: lastIp, lastUserAgent: lastUserAgent, ordering: ordering, page: page, pageSize: pageSize, search: search, userUsername: userUsername).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -677,7 +677,7 @@ open class CoreAPI {
      */
     open class func coreAuthenticatedSessionsListWithRequestBuilder(lastIp: String? = nil, lastUserAgent: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil) -> RequestBuilder<PaginatedAuthenticatedSessionList> {
         let localVariablePath = "/core/authenticated_sessions/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -697,7 +697,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatedSessionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatedSessionList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -709,7 +709,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreAuthenticatedSessionsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatedSession?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreAuthenticatedSessionsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatedSession?, _ error: Error?) -> Void)) -> RequestTask {
         return coreAuthenticatedSessionsRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -734,7 +734,7 @@ open class CoreAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -745,7 +745,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatedSession>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatedSession>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -757,7 +757,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreAuthenticatedSessionsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreAuthenticatedSessionsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreAuthenticatedSessionsUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -782,7 +782,7 @@ open class CoreAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -793,7 +793,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -806,7 +806,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsAddUserCreate(groupUuid: UUID, userAccountRequest: UserAccountRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsAddUserCreate(groupUuid: UUID, userAccountRequest: UserAccountRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsAddUserCreateWithRequestBuilder(groupUuid: groupUuid, userAccountRequest: userAccountRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -832,7 +832,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userAccountRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -843,7 +843,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -855,7 +855,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsCreate(groupRequest: GroupRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsCreate(groupRequest: GroupRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsCreateWithRequestBuilder(groupRequest: groupRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -877,7 +877,7 @@ open class CoreAPI {
      */
     open class func coreGroupsCreateWithRequestBuilder(groupRequest: GroupRequest) -> RequestBuilder<Group> {
         let localVariablePath = "/core/groups/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: groupRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -888,7 +888,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -900,7 +900,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsDestroy(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsDestroy(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsDestroyWithRequestBuilder(groupUuid: groupUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -925,7 +925,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -936,7 +936,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -956,7 +956,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsList(attributes: String? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedGroupList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsList(attributes: String? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedGroupList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsListWithRequestBuilder(attributes: attributes, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -986,7 +986,7 @@ open class CoreAPI {
      */
     open class func coreGroupsListWithRequestBuilder(attributes: String? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedGroupList> {
         let localVariablePath = "/core/groups/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1008,7 +1008,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedGroupList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedGroupList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1021,7 +1021,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsPartialUpdate(groupUuid: UUID, patchedGroupRequest: PatchedGroupRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsPartialUpdate(groupUuid: UUID, patchedGroupRequest: PatchedGroupRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsPartialUpdateWithRequestBuilder(groupUuid: groupUuid, patchedGroupRequest: patchedGroupRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1047,7 +1047,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedGroupRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1058,7 +1058,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1071,7 +1071,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsRemoveUserCreate(groupUuid: UUID, userAccountRequest: UserAccountRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsRemoveUserCreate(groupUuid: UUID, userAccountRequest: UserAccountRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsRemoveUserCreateWithRequestBuilder(groupUuid: groupUuid, userAccountRequest: userAccountRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1097,7 +1097,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userAccountRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1108,7 +1108,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1120,7 +1120,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsRetrieve(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsRetrieve(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsRetrieveWithRequestBuilder(groupUuid: groupUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1145,7 +1145,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1156,7 +1156,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1169,7 +1169,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsUpdate(groupUuid: UUID, groupRequest: GroupRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsUpdate(groupUuid: UUID, groupRequest: GroupRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Group?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsUpdateWithRequestBuilder(groupUuid: groupUuid, groupRequest: groupRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1195,7 +1195,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: groupRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1206,7 +1206,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Group>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1218,7 +1218,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreGroupsUsedByList(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreGroupsUsedByList(groupUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreGroupsUsedByListWithRequestBuilder(groupUuid: groupUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1243,7 +1243,7 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1254,7 +1254,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1266,7 +1266,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsCreate(tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsCreate(tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsCreateWithRequestBuilder(tenantRequest: tenantRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1288,7 +1288,7 @@ open class CoreAPI {
      */
     open class func coreTenantsCreateWithRequestBuilder(tenantRequest: TenantRequest) -> RequestBuilder<Tenant> {
         let localVariablePath = "/core/tenants/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tenantRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1299,7 +1299,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1310,7 +1310,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsCurrentRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CurrentTenant?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsCurrentRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: CurrentTenant?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsCurrentRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1331,7 +1331,7 @@ open class CoreAPI {
      */
     open class func coreTenantsCurrentRetrieveWithRequestBuilder() -> RequestBuilder<CurrentTenant> {
         let localVariablePath = "/core/tenants/current/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1342,7 +1342,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CurrentTenant>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CurrentTenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1354,7 +1354,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsDestroy(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsDestroy(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsDestroyWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1379,7 +1379,7 @@ open class CoreAPI {
         let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
         let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1390,7 +1390,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1419,7 +1419,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsList(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedTenantList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsList(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedTenantList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsListWithRequestBuilder(brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, eventRetention: eventRetention, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantUuid: tenantUuid, webCertificate: webCertificate).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1458,7 +1458,7 @@ open class CoreAPI {
      */
     open class func coreTenantsListWithRequestBuilder(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil) -> RequestBuilder<PaginatedTenantList> {
         let localVariablePath = "/core/tenants/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1489,7 +1489,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedTenantList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedTenantList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1502,7 +1502,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsPartialUpdate(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsPartialUpdate(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsPartialUpdateWithRequestBuilder(tenantUuid: tenantUuid, patchedTenantRequest: patchedTenantRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1528,7 +1528,7 @@ open class CoreAPI {
         let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
         let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedTenantRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1539,7 +1539,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1551,7 +1551,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsRetrieve(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsRetrieve(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsRetrieveWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1576,7 +1576,7 @@ open class CoreAPI {
         let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
         let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1587,7 +1587,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1600,7 +1600,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsUpdate(tenantUuid: UUID, tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsUpdate(tenantUuid: UUID, tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsUpdateWithRequestBuilder(tenantUuid: tenantUuid, tenantRequest: tenantRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1626,7 +1626,7 @@ open class CoreAPI {
         let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
         let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tenantRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1637,7 +1637,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1649,7 +1649,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTenantsUsedByList(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTenantsUsedByList(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTenantsUsedByListWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1674,7 +1674,7 @@ open class CoreAPI {
         let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
         let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1685,7 +1685,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1697,7 +1697,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensCreate(tokenRequest: TokenRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensCreate(tokenRequest: TokenRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensCreateWithRequestBuilder(tokenRequest: tokenRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1719,7 +1719,7 @@ open class CoreAPI {
      */
     open class func coreTokensCreateWithRequestBuilder(tokenRequest: TokenRequest) -> RequestBuilder<Token> {
         let localVariablePath = "/core/tokens/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tokenRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1730,7 +1730,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1742,7 +1742,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensDestroy(identifier: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensDestroy(identifier: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensDestroyWithRequestBuilder(identifier: identifier).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1767,7 +1767,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1778,7 +1778,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1810,7 +1810,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensList(description: String? = nil, expires: Date? = nil, expiring: Bool? = nil, identifier: String? = nil, intent: Intent_coreTokensList? = nil, managed: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedTokenList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensList(description: String? = nil, expires: Date? = nil, expiring: Bool? = nil, identifier: String? = nil, intent: Intent_coreTokensList? = nil, managed: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedTokenList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensListWithRequestBuilder(description: description, expires: expires, expiring: expiring, identifier: identifier, intent: intent, managed: managed, ordering: ordering, page: page, pageSize: pageSize, search: search, userUsername: userUsername).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1842,7 +1842,7 @@ open class CoreAPI {
      */
     open class func coreTokensListWithRequestBuilder(description: String? = nil, expires: Date? = nil, expiring: Bool? = nil, identifier: String? = nil, intent: Intent_coreTokensList? = nil, managed: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil) -> RequestBuilder<PaginatedTokenList> {
         let localVariablePath = "/core/tokens/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1866,7 +1866,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedTokenList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedTokenList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1879,7 +1879,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensPartialUpdate(identifier: String, patchedTokenRequest: PatchedTokenRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensPartialUpdate(identifier: String, patchedTokenRequest: PatchedTokenRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensPartialUpdateWithRequestBuilder(identifier: identifier, patchedTokenRequest: patchedTokenRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1905,7 +1905,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedTokenRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1916,7 +1916,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1928,7 +1928,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensRetrieve(identifier: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensRetrieve(identifier: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensRetrieveWithRequestBuilder(identifier: identifier).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1953,7 +1953,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1964,7 +1964,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1977,7 +1977,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensSetKeyCreate(identifier: String, tokenSetKeyRequest: TokenSetKeyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensSetKeyCreate(identifier: String, tokenSetKeyRequest: TokenSetKeyRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensSetKeyCreateWithRequestBuilder(identifier: identifier, tokenSetKeyRequest: tokenSetKeyRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2003,7 +2003,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tokenSetKeyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2014,7 +2014,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2027,7 +2027,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensUpdate(identifier: String, tokenRequest: TokenRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensUpdate(identifier: String, tokenRequest: TokenRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Token?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensUpdateWithRequestBuilder(identifier: identifier, tokenRequest: tokenRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2053,7 +2053,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tokenRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2064,7 +2064,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Token>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2076,7 +2076,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensUsedByList(identifier: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensUsedByList(identifier: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensUsedByListWithRequestBuilder(identifier: identifier).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2101,7 +2101,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2112,7 +2112,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2124,7 +2124,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreTokensViewKeyRetrieve(identifier: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: TokenView?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreTokensViewKeyRetrieve(identifier: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: TokenView?, _ error: Error?) -> Void)) -> RequestTask {
         return coreTokensViewKeyRetrieveWithRequestBuilder(identifier: identifier).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2149,7 +2149,7 @@ open class CoreAPI {
         let identifierPreEscape = "\(APIHelper.mapValueToPathItem(identifier))"
         let identifierPostEscape = identifierPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{identifier}", with: identifierPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2160,7 +2160,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<TokenView>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<TokenView>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2172,7 +2172,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUserConsentDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUserConsentDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUserConsentDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2197,7 +2197,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2208,7 +2208,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2225,7 +2225,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUserConsentList(application: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserConsentList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUserConsentList(application: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserConsentList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUserConsentListWithRequestBuilder(application: application, ordering: ordering, page: page, pageSize: pageSize, search: search, user: user).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2252,7 +2252,7 @@ open class CoreAPI {
      */
     open class func coreUserConsentListWithRequestBuilder(application: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil) -> RequestBuilder<PaginatedUserConsentList> {
         let localVariablePath = "/core/user_consent/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2271,7 +2271,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserConsentList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserConsentList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2283,7 +2283,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUserConsentRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserConsent?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUserConsentRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserConsent?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUserConsentRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2308,7 +2308,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2319,7 +2319,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserConsent>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserConsent>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2331,7 +2331,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUserConsentUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUserConsentUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUserConsentUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2356,7 +2356,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2367,7 +2367,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2379,7 +2379,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersCreate(userRequest: UserRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersCreate(userRequest: UserRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersCreateWithRequestBuilder(userRequest: userRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2401,7 +2401,7 @@ open class CoreAPI {
      */
     open class func coreUsersCreateWithRequestBuilder(userRequest: UserRequest) -> RequestBuilder<User> {
         let localVariablePath = "/core/users/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2412,7 +2412,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2424,7 +2424,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2449,7 +2449,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2460,7 +2460,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2472,7 +2472,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersImpersonateCreate(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersImpersonateCreate(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersImpersonateCreateWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2497,7 +2497,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2508,7 +2508,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2519,7 +2519,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersImpersonateEndRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersImpersonateEndRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersImpersonateEndRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2540,7 +2540,7 @@ open class CoreAPI {
      */
     open class func coreUsersImpersonateEndRetrieveWithRequestBuilder() -> RequestBuilder<Void> {
         let localVariablePath = "/core/users/impersonate_end/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2551,7 +2551,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2588,7 +2588,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersListWithRequestBuilder(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2625,7 +2625,7 @@ open class CoreAPI {
      */
     open class func coreUsersListWithRequestBuilder(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2654,7 +2654,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2665,7 +2665,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersMeRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SessionUser?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersMeRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SessionUser?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersMeRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2686,7 +2686,7 @@ open class CoreAPI {
      */
     open class func coreUsersMeRetrieveWithRequestBuilder() -> RequestBuilder<SessionUser> {
         let localVariablePath = "/core/users/me/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2697,7 +2697,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SessionUser>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SessionUser>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2709,7 +2709,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersMetricsRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserMetrics?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersMetricsRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserMetrics?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersMetricsRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2734,7 +2734,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2745,7 +2745,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserMetrics>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserMetrics>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2758,7 +2758,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersPartialUpdate(id: Int, patchedUserRequest: PatchedUserRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersPartialUpdate(id: Int, patchedUserRequest: PatchedUserRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersPartialUpdateWithRequestBuilder(id: id, patchedUserRequest: patchedUserRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2784,7 +2784,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2795,7 +2795,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2807,7 +2807,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersPathsRetrieve(search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserPath?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersPathsRetrieve(search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserPath?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersPathsRetrieveWithRequestBuilder(search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2829,7 +2829,7 @@ open class CoreAPI {
      */
     open class func coreUsersPathsRetrieveWithRequestBuilder(search: String? = nil) -> RequestBuilder<UserPath> {
         let localVariablePath = "/core/users/paths/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2843,7 +2843,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserPath>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserPath>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2856,7 +2856,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersRecoveryEmailRetrieve(emailStage: String, id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersRecoveryEmailRetrieve(emailStage: String, id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersRecoveryEmailRetrieveWithRequestBuilder(emailStage: emailStage, id: id).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2882,7 +2882,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2896,7 +2896,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2908,7 +2908,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersRecoveryRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Link?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersRecoveryRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Link?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersRecoveryRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2933,7 +2933,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2944,7 +2944,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Link>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Link>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2956,7 +2956,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2981,7 +2981,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2992,7 +2992,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3004,7 +3004,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersServiceAccountCreate(userServiceAccountRequest: UserServiceAccountRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserServiceAccountResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersServiceAccountCreate(userServiceAccountRequest: UserServiceAccountRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserServiceAccountResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersServiceAccountCreateWithRequestBuilder(userServiceAccountRequest: userServiceAccountRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3026,7 +3026,7 @@ open class CoreAPI {
      */
     open class func coreUsersServiceAccountCreateWithRequestBuilder(userServiceAccountRequest: UserServiceAccountRequest) -> RequestBuilder<UserServiceAccountResponse> {
         let localVariablePath = "/core/users/service_account/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userServiceAccountRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3037,7 +3037,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserServiceAccountResponse>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserServiceAccountResponse>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3050,7 +3050,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersSetPasswordCreate(id: Int, userPasswordSetRequest: UserPasswordSetRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersSetPasswordCreate(id: Int, userPasswordSetRequest: UserPasswordSetRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersSetPasswordCreateWithRequestBuilder(id: id, userPasswordSetRequest: userPasswordSetRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3076,7 +3076,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userPasswordSetRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3087,7 +3087,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3100,7 +3100,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersUpdate(id: Int, userRequest: UserRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersUpdate(id: Int, userRequest: UserRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersUpdateWithRequestBuilder(id: id, userRequest: userRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3126,7 +3126,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3137,7 +3137,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3149,7 +3149,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3174,7 +3174,7 @@ open class CoreAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3185,7 +3185,7 @@ open class CoreAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

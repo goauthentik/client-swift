@@ -59,7 +59,7 @@ PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Property Mapping.
 
@@ -108,7 +108,7 @@ PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let managedIsnull = true // Bool |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -165,7 +165,7 @@ PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Property Mapping.
 
@@ -214,7 +214,7 @@ Test Property Mapping
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Property Mapping.
 let policyTestRequest = PolicyTestRequest(user: 123, context: "TODO") // PolicyTestRequest | 
@@ -267,7 +267,7 @@ Get all creatable property-mapping types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 PropertymappingsAPI.propertymappingsAllTypesList() { (response, error) in
@@ -312,7 +312,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Property Mapping.
 
@@ -361,7 +361,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let lDAPPropertyMappingRequest = LDAPPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", objectField: "objectField_example") // LDAPPropertyMappingRequest | 
 
@@ -410,7 +410,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this LDAP Property Mapping.
 
@@ -459,7 +459,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let expression = "expression_example" // String |  (optional)
 let managed = ["inner_example"] // [String] |  (optional)
@@ -524,7 +524,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this LDAP Property Mapping.
 let patchedLDAPPropertyMappingRequest = PatchedLDAPPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", objectField: "objectField_example") // PatchedLDAPPropertyMappingRequest |  (optional)
@@ -575,7 +575,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this LDAP Property Mapping.
 
@@ -624,7 +624,7 @@ LDAP PropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this LDAP Property Mapping.
 let lDAPPropertyMappingRequest = LDAPPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", objectField: "objectField_example") // LDAPPropertyMappingRequest | 
@@ -675,7 +675,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this LDAP Property Mapping.
 
@@ -724,7 +724,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let notificationWebhookMappingRequest = NotificationWebhookMappingRequest(name: "name_example", expression: "expression_example") // NotificationWebhookMappingRequest | 
 
@@ -773,7 +773,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Webhook Mapping.
 
@@ -822,7 +822,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -879,7 +879,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Webhook Mapping.
 let patchedNotificationWebhookMappingRequest = PatchedNotificationWebhookMappingRequest(name: "name_example", expression: "expression_example") // PatchedNotificationWebhookMappingRequest |  (optional)
@@ -930,7 +930,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Webhook Mapping.
 
@@ -979,7 +979,7 @@ NotificationWebhookMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Webhook Mapping.
 let notificationWebhookMappingRequest = NotificationWebhookMappingRequest(name: "name_example", expression: "expression_example") // NotificationWebhookMappingRequest | 
@@ -1030,7 +1030,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Webhook Mapping.
 
@@ -1079,7 +1079,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let sAMLPropertyMappingRequest = SAMLPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", samlName: "samlName_example", friendlyName: "friendlyName_example") // SAMLPropertyMappingRequest | 
 
@@ -1128,7 +1128,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SAML Property Mapping.
 
@@ -1177,7 +1177,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let expression = "expression_example" // String |  (optional)
 let friendlyName = "friendlyName_example" // String |  (optional)
@@ -1244,7 +1244,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SAML Property Mapping.
 let patchedSAMLPropertyMappingRequest = PatchedSAMLPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", samlName: "samlName_example", friendlyName: "friendlyName_example") // PatchedSAMLPropertyMappingRequest |  (optional)
@@ -1295,7 +1295,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SAML Property Mapping.
 
@@ -1344,7 +1344,7 @@ SAMLPropertyMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SAML Property Mapping.
 let sAMLPropertyMappingRequest = SAMLPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", samlName: "samlName_example", friendlyName: "friendlyName_example") // SAMLPropertyMappingRequest | 
@@ -1395,7 +1395,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SAML Property Mapping.
 
@@ -1444,7 +1444,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let sCIMMappingRequest = SCIMMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // SCIMMappingRequest | 
 
@@ -1493,7 +1493,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SCIM Mapping.
 
@@ -1542,7 +1542,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let expression = "expression_example" // String |  (optional)
 let managed = ["inner_example"] // [String] |  (optional)
@@ -1605,7 +1605,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SCIM Mapping.
 let patchedSCIMMappingRequest = PatchedSCIMMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // PatchedSCIMMappingRequest |  (optional)
@@ -1656,7 +1656,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SCIM Mapping.
 
@@ -1705,7 +1705,7 @@ SCIMMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SCIM Mapping.
 let sCIMMappingRequest = SCIMMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // SCIMMappingRequest | 
@@ -1756,7 +1756,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this SCIM Mapping.
 
@@ -1805,7 +1805,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let scopeMappingRequest = ScopeMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", scopeName: "scopeName_example", description: "description_example") // ScopeMappingRequest | 
 
@@ -1854,7 +1854,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Scope Mapping.
 
@@ -1903,7 +1903,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let managed = ["inner_example"] // [String] |  (optional)
 let name = "name_example" // String |  (optional)
@@ -1964,7 +1964,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Scope Mapping.
 let patchedScopeMappingRequest = PatchedScopeMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", scopeName: "scopeName_example", description: "description_example") // PatchedScopeMappingRequest |  (optional)
@@ -2015,7 +2015,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Scope Mapping.
 
@@ -2064,7 +2064,7 @@ ScopeMapping Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Scope Mapping.
 let scopeMappingRequest = ScopeMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", scopeName: "scopeName_example", description: "description_example") // ScopeMappingRequest | 
@@ -2115,7 +2115,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let pmUuid = 987 // UUID | A UUID string identifying this Scope Mapping.
 

@@ -28,7 +28,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseRequest = LicenseRequest(key: "key_example") // LicenseRequest | 
 
@@ -77,7 +77,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseUuid = 987 // UUID | A UUID string identifying this license.
 
@@ -126,7 +126,7 @@ Forecast how many users will be required in a year
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 EnterpriseAPI.enterpriseLicenseForecastRetrieve() { (response, error) in
@@ -171,7 +171,7 @@ Get install_id
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 EnterpriseAPI.enterpriseLicenseGetInstallIdRetrieve() { (response, error) in
@@ -216,7 +216,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -273,7 +273,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseUuid = 987 // UUID | A UUID string identifying this license.
 let patchedLicenseRequest = PatchedLicenseRequest(key: "key_example") // PatchedLicenseRequest |  (optional)
@@ -324,7 +324,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseUuid = 987 // UUID | A UUID string identifying this license.
 
@@ -373,7 +373,7 @@ Get the total license status
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 EnterpriseAPI.enterpriseLicenseSummaryRetrieve() { (response, error) in
@@ -418,7 +418,7 @@ License Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseUuid = 987 // UUID | A UUID string identifying this license.
 let licenseRequest = LicenseRequest(key: "key_example") // LicenseRequest | 
@@ -469,7 +469,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let licenseUuid = 987 // UUID | A UUID string identifying this license.
 

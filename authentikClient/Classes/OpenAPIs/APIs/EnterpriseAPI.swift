@@ -19,7 +19,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseCreate(licenseRequest: LicenseRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseCreate(licenseRequest: LicenseRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseCreateWithRequestBuilder(licenseRequest: licenseRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -41,7 +41,7 @@ open class EnterpriseAPI {
      */
     open class func enterpriseLicenseCreateWithRequestBuilder(licenseRequest: LicenseRequest) -> RequestBuilder<License> {
         let localVariablePath = "/enterprise/license/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: licenseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -52,7 +52,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -64,7 +64,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseDestroy(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseDestroy(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseDestroyWithRequestBuilder(licenseUuid: licenseUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -89,7 +89,7 @@ open class EnterpriseAPI {
         let licenseUuidPreEscape = "\(APIHelper.mapValueToPathItem(licenseUuid))"
         let licenseUuidPostEscape = licenseUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{license_uuid}", with: licenseUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -100,7 +100,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -111,7 +111,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseForecastRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LicenseForecast?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseForecastRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LicenseForecast?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseForecastRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -132,7 +132,7 @@ open class EnterpriseAPI {
      */
     open class func enterpriseLicenseForecastRetrieveWithRequestBuilder() -> RequestBuilder<LicenseForecast> {
         let localVariablePath = "/enterprise/license/forecast/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -143,7 +143,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LicenseForecast>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LicenseForecast>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -154,7 +154,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseGetInstallIdRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: InstallID?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseGetInstallIdRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: InstallID?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseGetInstallIdRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -175,7 +175,7 @@ open class EnterpriseAPI {
      */
     open class func enterpriseLicenseGetInstallIdRetrieveWithRequestBuilder() -> RequestBuilder<InstallID> {
         let localVariablePath = "/enterprise/license/get_install_id/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -186,7 +186,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InstallID>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InstallID>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -202,7 +202,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLicenseList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLicenseList?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -228,7 +228,7 @@ open class EnterpriseAPI {
      */
     open class func enterpriseLicenseListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedLicenseList> {
         let localVariablePath = "/enterprise/license/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -246,7 +246,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedLicenseList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLicenseList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -259,7 +259,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicensePartialUpdate(licenseUuid: UUID, patchedLicenseRequest: PatchedLicenseRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicensePartialUpdate(licenseUuid: UUID, patchedLicenseRequest: PatchedLicenseRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicensePartialUpdateWithRequestBuilder(licenseUuid: licenseUuid, patchedLicenseRequest: patchedLicenseRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -285,7 +285,7 @@ open class EnterpriseAPI {
         let licenseUuidPreEscape = "\(APIHelper.mapValueToPathItem(licenseUuid))"
         let licenseUuidPostEscape = licenseUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{license_uuid}", with: licenseUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedLicenseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -296,7 +296,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -308,7 +308,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseRetrieve(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseRetrieve(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseRetrieveWithRequestBuilder(licenseUuid: licenseUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -333,7 +333,7 @@ open class EnterpriseAPI {
         let licenseUuidPreEscape = "\(APIHelper.mapValueToPathItem(licenseUuid))"
         let licenseUuidPostEscape = licenseUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{license_uuid}", with: licenseUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -344,7 +344,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -355,7 +355,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseSummaryRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LicenseSummary?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseSummaryRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LicenseSummary?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseSummaryRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -376,7 +376,7 @@ open class EnterpriseAPI {
      */
     open class func enterpriseLicenseSummaryRetrieveWithRequestBuilder() -> RequestBuilder<LicenseSummary> {
         let localVariablePath = "/enterprise/license/summary/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -387,7 +387,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LicenseSummary>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LicenseSummary>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -400,7 +400,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseUpdate(licenseUuid: UUID, licenseRequest: LicenseRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseUpdate(licenseUuid: UUID, licenseRequest: LicenseRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: License?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseUpdateWithRequestBuilder(licenseUuid: licenseUuid, licenseRequest: licenseRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -426,7 +426,7 @@ open class EnterpriseAPI {
         let licenseUuidPreEscape = "\(APIHelper.mapValueToPathItem(licenseUuid))"
         let licenseUuidPostEscape = licenseUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{license_uuid}", with: licenseUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: licenseRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -437,7 +437,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<License>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -449,7 +449,7 @@ open class EnterpriseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func enterpriseLicenseUsedByList(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func enterpriseLicenseUsedByList(licenseUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return enterpriseLicenseUsedByListWithRequestBuilder(licenseUuid: licenseUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -474,7 +474,7 @@ open class EnterpriseAPI {
         let licenseUuidPreEscape = "\(APIHelper.mapValueToPathItem(licenseUuid))"
         let licenseUuidPostEscape = licenseUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{license_uuid}", with: licenseUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -485,7 +485,7 @@ open class EnterpriseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

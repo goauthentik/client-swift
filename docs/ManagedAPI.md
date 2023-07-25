@@ -27,7 +27,7 @@ Apply a blueprint
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 
@@ -76,7 +76,7 @@ Get blueprints
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 ManagedAPI.managedBlueprintsAvailableList() { (response, error) in
@@ -121,7 +121,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let blueprintInstanceRequest = BlueprintInstanceRequest(name: "name_example", path: "path_example", context: "TODO", enabled: false, content: "content_example") // BlueprintInstanceRequest | 
 
@@ -170,7 +170,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 
@@ -219,7 +219,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -278,7 +278,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 let patchedBlueprintInstanceRequest = PatchedBlueprintInstanceRequest(name: "name_example", path: "path_example", context: "TODO", enabled: false, content: "content_example") // PatchedBlueprintInstanceRequest |  (optional)
@@ -329,7 +329,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 
@@ -378,7 +378,7 @@ Blueprint instances
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 let blueprintInstanceRequest = BlueprintInstanceRequest(name: "name_example", path: "path_example", context: "TODO", enabled: false, content: "content_example") // BlueprintInstanceRequest | 
@@ -429,7 +429,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let instanceUuid = 987 // UUID | A UUID string identifying this Blueprint Instance.
 

@@ -87,7 +87,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -136,7 +136,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let managed = "managed_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
@@ -197,7 +197,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -246,7 +246,7 @@ Set source icon
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let file = URL(string: "https://example.com")! // URL |  (optional)
@@ -299,7 +299,7 @@ Set source icon (as URL)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
@@ -350,7 +350,7 @@ Get all creatable source types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 SourcesAPI.sourcesAllTypesList() { (response, error) in
@@ -395,7 +395,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -444,7 +444,7 @@ Get all sources the user can configure
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 SourcesAPI.sourcesAllUserSettingsList() { (response, error) in
@@ -489,7 +489,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", objectUniquenessField: "objectUniquenessField_example", syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, propertyMappings: [123], propertyMappingsGroup: [123]) // LDAPSourceRequest | 
 
@@ -538,7 +538,7 @@ Get raw LDAP data to debug
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -587,7 +587,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -636,7 +636,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let additionalGroupDn = "additionalGroupDn_example" // String |  (optional)
 let additionalUserDn = "additionalUserDn_example" // String |  (optional)
@@ -735,7 +735,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let patchedLDAPSourceRequest = PatchedLDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", objectUniquenessField: "objectUniquenessField_example", syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, propertyMappings: [123], propertyMappingsGroup: [123]) // PatchedLDAPSourceRequest |  (optional)
@@ -786,7 +786,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -835,7 +835,7 @@ Get source's sync status
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -884,7 +884,7 @@ LDAP Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", objectUniquenessField: "objectUniquenessField_example", syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, propertyMappings: [123], propertyMappingsGroup: [123]) // LDAPSourceRequest | 
@@ -935,7 +935,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -984,7 +984,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO") // OAuthSourceRequest | 
 
@@ -1033,7 +1033,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1082,7 +1082,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let accessTokenUrl = "accessTokenUrl_example" // String |  (optional)
 let additionalScopes = "additionalScopes_example" // String |  (optional)
@@ -1167,7 +1167,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let patchedOAuthSourceRequest = PatchedOAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO") // PatchedOAuthSourceRequest |  (optional)
@@ -1218,7 +1218,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1267,7 +1267,7 @@ Get all creatable source types. If ?name is set, only returns the type for <name
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 
@@ -1316,7 +1316,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO") // OAuthSourceRequest | 
@@ -1367,7 +1367,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1416,7 +1416,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
 
@@ -1465,7 +1465,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1514,7 +1514,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let allowFriends = true // Bool |  (optional)
 let authenticationFlow = 987 // UUID |  (optional)
@@ -1587,7 +1587,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let patchedPlexSourceRequest = PatchedPlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PatchedPlexSourceRequest |  (optional)
@@ -1638,7 +1638,7 @@ Redeem a plex token for an authenticated user, creating a connection
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let plexTokenRedeemRequest = PlexTokenRedeemRequest(plexToken: "plexToken_example") // PlexTokenRedeemRequest | 
 let slug = "slug_example" // String |  (optional)
@@ -1689,7 +1689,7 @@ Redeem a plex token, check it's access to resources against what's allowed for t
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let plexTokenRedeemRequest = PlexTokenRedeemRequest(plexToken: "plexToken_example") // PlexTokenRedeemRequest | 
 let slug = "slug_example" // String |  (optional)
@@ -1740,7 +1740,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1789,7 +1789,7 @@ Plex source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
@@ -1840,7 +1840,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1889,7 +1889,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: NameIdPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example") // SAMLSourceRequest | 
 
@@ -1938,7 +1938,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -1987,7 +1987,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let allowIdpInitiated = true // Bool |  (optional)
 let authenticationFlow = 987 // UUID |  (optional)
@@ -2082,7 +2082,7 @@ Return metadata as XML string
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -2131,7 +2131,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let patchedSAMLSourceRequest = PatchedSAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: NameIdPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example") // PatchedSAMLSourceRequest |  (optional)
@@ -2182,7 +2182,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -2231,7 +2231,7 @@ SAMLSource Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: NameIdPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example") // SAMLSourceRequest | 
@@ -2282,7 +2282,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let slug = "slug_example" // String | 
 
@@ -2331,7 +2331,7 @@ User-source connection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this user source connection.
 
@@ -2380,7 +2380,7 @@ User-source connection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -2437,7 +2437,7 @@ User-source connection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this user source connection.
 
@@ -2486,7 +2486,7 @@ User-source connection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this user source connection.
 
@@ -2535,7 +2535,7 @@ User-source connection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this user source connection.
 
@@ -2584,7 +2584,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this user source connection.
 
@@ -2633,7 +2633,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, identifier: "identifier_example", accessToken: "accessToken_example") // UserOAuthSourceConnectionRequest | 
 
@@ -2682,7 +2682,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
 
@@ -2731,7 +2731,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -2788,7 +2788,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
 let patchedUserOAuthSourceConnectionRequest = PatchedUserOAuthSourceConnectionRequest(user: 123, identifier: "identifier_example", accessToken: "accessToken_example") // PatchedUserOAuthSourceConnectionRequest |  (optional)
@@ -2839,7 +2839,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
 
@@ -2888,7 +2888,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
 let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, identifier: "identifier_example", accessToken: "accessToken_example") // UserOAuthSourceConnectionRequest | 
@@ -2939,7 +2939,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
 
@@ -2988,7 +2988,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let plexSourceConnectionRequest = PlexSourceConnectionRequest(identifier: "identifier_example", plexToken: "plexToken_example") // PlexSourceConnectionRequest | 
 
@@ -3037,7 +3037,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User Plex Source Connection.
 
@@ -3086,7 +3086,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3143,7 +3143,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User Plex Source Connection.
 let patchedPlexSourceConnectionRequest = PatchedPlexSourceConnectionRequest(identifier: "identifier_example", plexToken: "plexToken_example") // PatchedPlexSourceConnectionRequest |  (optional)
@@ -3194,7 +3194,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User Plex Source Connection.
 
@@ -3243,7 +3243,7 @@ Plex Source connection Serializer
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User Plex Source Connection.
 let plexSourceConnectionRequest = PlexSourceConnectionRequest(identifier: "identifier_example", plexToken: "plexToken_example") // PlexSourceConnectionRequest | 
@@ -3294,7 +3294,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User Plex Source Connection.
 
@@ -3343,7 +3343,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let userSAMLSourceConnectionRequest = UserSAMLSourceConnectionRequest(user: 123, identifier: "identifier_example") // UserSAMLSourceConnectionRequest | 
 
@@ -3392,7 +3392,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User SAML Source Connection.
 
@@ -3441,7 +3441,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3498,7 +3498,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User SAML Source Connection.
 let patchedUserSAMLSourceConnectionRequest = PatchedUserSAMLSourceConnectionRequest(user: 123, identifier: "identifier_example") // PatchedUserSAMLSourceConnectionRequest |  (optional)
@@ -3549,7 +3549,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User SAML Source Connection.
 
@@ -3598,7 +3598,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User SAML Source Connection.
 let userSAMLSourceConnectionRequest = UserSAMLSourceConnectionRequest(user: 123, identifier: "identifier_example") // UserSAMLSourceConnectionRequest | 
@@ -3649,7 +3649,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User SAML Source Connection.
 

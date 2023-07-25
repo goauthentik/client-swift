@@ -1,10 +1,10 @@
-name: authentik
+name: authentikClient
 targets:
-  authentik:
+  authentikClient:
     type: framework
     platform: iOS
     deploymentTarget: "9.0"
-    sources: [authentik]
+    sources: [authentikClient]
     info:
       path: ./Info.plist
       version: 2023.6.1

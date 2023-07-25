@@ -19,7 +19,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsCreate(flowStageBindingRequest: FlowStageBindingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsCreate(flowStageBindingRequest: FlowStageBindingRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsCreateWithRequestBuilder(flowStageBindingRequest: flowStageBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -41,7 +41,7 @@ open class FlowsAPI {
      */
     open class func flowsBindingsCreateWithRequestBuilder(flowStageBindingRequest: FlowStageBindingRequest) -> RequestBuilder<FlowStageBinding> {
         let localVariablePath = "/flows/bindings/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: flowStageBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -52,7 +52,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -64,7 +64,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsDestroy(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsDestroy(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsDestroyWithRequestBuilder(fsbUuid: fsbUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -89,7 +89,7 @@ open class FlowsAPI {
         let fsbUuidPreEscape = "\(APIHelper.mapValueToPathItem(fsbUuid))"
         let fsbUuidPostEscape = fsbUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{fsb_uuid}", with: fsbUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -100,7 +100,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -142,7 +142,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsList(evaluateOnPlan: Bool? = nil, fsbUuid: UUID? = nil, invalidResponseAction: InvalidResponseAction_flowsBindingsList? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policies: [UUID]? = nil, policyEngineMode: PolicyEngineMode_flowsBindingsList? = nil, reEvaluatePolicies: Bool? = nil, search: String? = nil, stage: UUID? = nil, target: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedFlowStageBindingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsList(evaluateOnPlan: Bool? = nil, fsbUuid: UUID? = nil, invalidResponseAction: InvalidResponseAction_flowsBindingsList? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policies: [UUID]? = nil, policyEngineMode: PolicyEngineMode_flowsBindingsList? = nil, reEvaluatePolicies: Bool? = nil, search: String? = nil, stage: UUID? = nil, target: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedFlowStageBindingList?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsListWithRequestBuilder(evaluateOnPlan: evaluateOnPlan, fsbUuid: fsbUuid, invalidResponseAction: invalidResponseAction, order: order, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policies: policies, policyEngineMode: policyEngineMode, reEvaluatePolicies: reEvaluatePolicies, search: search, stage: stage, target: target).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -177,7 +177,7 @@ open class FlowsAPI {
      */
     open class func flowsBindingsListWithRequestBuilder(evaluateOnPlan: Bool? = nil, fsbUuid: UUID? = nil, invalidResponseAction: InvalidResponseAction_flowsBindingsList? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policies: [UUID]? = nil, policyEngineMode: PolicyEngineMode_flowsBindingsList? = nil, reEvaluatePolicies: Bool? = nil, search: String? = nil, stage: UUID? = nil, target: UUID? = nil) -> RequestBuilder<PaginatedFlowStageBindingList> {
         let localVariablePath = "/flows/bindings/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -204,7 +204,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedFlowStageBindingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedFlowStageBindingList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -217,7 +217,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsPartialUpdate(fsbUuid: UUID, patchedFlowStageBindingRequest: PatchedFlowStageBindingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsPartialUpdate(fsbUuid: UUID, patchedFlowStageBindingRequest: PatchedFlowStageBindingRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsPartialUpdateWithRequestBuilder(fsbUuid: fsbUuid, patchedFlowStageBindingRequest: patchedFlowStageBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -243,7 +243,7 @@ open class FlowsAPI {
         let fsbUuidPreEscape = "\(APIHelper.mapValueToPathItem(fsbUuid))"
         let fsbUuidPostEscape = fsbUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{fsb_uuid}", with: fsbUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedFlowStageBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -254,7 +254,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -266,7 +266,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsRetrieve(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsRetrieve(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsRetrieveWithRequestBuilder(fsbUuid: fsbUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -291,7 +291,7 @@ open class FlowsAPI {
         let fsbUuidPreEscape = "\(APIHelper.mapValueToPathItem(fsbUuid))"
         let fsbUuidPostEscape = fsbUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{fsb_uuid}", with: fsbUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -302,7 +302,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -315,7 +315,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsUpdate(fsbUuid: UUID, flowStageBindingRequest: FlowStageBindingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsUpdate(fsbUuid: UUID, flowStageBindingRequest: FlowStageBindingRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowStageBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsUpdateWithRequestBuilder(fsbUuid: fsbUuid, flowStageBindingRequest: flowStageBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -341,7 +341,7 @@ open class FlowsAPI {
         let fsbUuidPreEscape = "\(APIHelper.mapValueToPathItem(fsbUuid))"
         let fsbUuidPostEscape = fsbUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{fsb_uuid}", with: fsbUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: flowStageBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -352,7 +352,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowStageBinding>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -364,7 +364,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsBindingsUsedByList(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsBindingsUsedByList(fsbUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsBindingsUsedByListWithRequestBuilder(fsbUuid: fsbUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -389,7 +389,7 @@ open class FlowsAPI {
         let fsbUuidPreEscape = "\(APIHelper.mapValueToPathItem(fsbUuid))"
         let fsbUuidPostEscape = fsbUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{fsb_uuid}", with: fsbUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -400,7 +400,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -413,7 +413,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsExecutorGet(flowSlug: String, query: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ChallengeTypes?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsExecutorGet(flowSlug: String, query: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: ChallengeTypes?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsExecutorGetWithRequestBuilder(flowSlug: flowSlug, query: query).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -439,7 +439,7 @@ open class FlowsAPI {
         let flowSlugPreEscape = "\(APIHelper.mapValueToPathItem(flowSlug))"
         let flowSlugPostEscape = flowSlugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{flow_slug}", with: flowSlugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -453,7 +453,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ChallengeTypes>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ChallengeTypes>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -467,7 +467,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsExecutorSolve(flowSlug: String, query: String, flowChallengeResponseRequest: FlowChallengeResponseRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ChallengeTypes?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsExecutorSolve(flowSlug: String, query: String, flowChallengeResponseRequest: FlowChallengeResponseRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: ChallengeTypes?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsExecutorSolveWithRequestBuilder(flowSlug: flowSlug, query: query, flowChallengeResponseRequest: flowChallengeResponseRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -494,7 +494,7 @@ open class FlowsAPI {
         let flowSlugPreEscape = "\(APIHelper.mapValueToPathItem(flowSlug))"
         let flowSlugPostEscape = flowSlugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{flow_slug}", with: flowSlugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: flowChallengeResponseRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -508,7 +508,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ChallengeTypes>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ChallengeTypes>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -520,7 +520,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInspectorGet(flowSlug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowInspection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInspectorGet(flowSlug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowInspection?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInspectorGetWithRequestBuilder(flowSlug: flowSlug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -545,7 +545,7 @@ open class FlowsAPI {
         let flowSlugPreEscape = "\(APIHelper.mapValueToPathItem(flowSlug))"
         let flowSlugPostEscape = flowSlugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{flow_slug}", with: flowSlugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -556,7 +556,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowInspection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowInspection>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -567,7 +567,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesCacheClearCreate(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesCacheClearCreate(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesCacheClearCreateWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -588,7 +588,7 @@ open class FlowsAPI {
      */
     open class func flowsInstancesCacheClearCreateWithRequestBuilder() -> RequestBuilder<Void> {
         let localVariablePath = "/flows/instances/cache_clear/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -599,7 +599,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -610,7 +610,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesCacheInfoRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Cache?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesCacheInfoRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cache?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesCacheInfoRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -631,7 +631,7 @@ open class FlowsAPI {
      */
     open class func flowsInstancesCacheInfoRetrieveWithRequestBuilder() -> RequestBuilder<Cache> {
         let localVariablePath = "/flows/instances/cache_info/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -642,7 +642,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Cache>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Cache>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -654,7 +654,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesCreate(flowRequest: FlowRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesCreate(flowRequest: FlowRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesCreateWithRequestBuilder(flowRequest: flowRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -676,7 +676,7 @@ open class FlowsAPI {
      */
     open class func flowsInstancesCreateWithRequestBuilder(flowRequest: FlowRequest) -> RequestBuilder<Flow> {
         let localVariablePath = "/flows/instances/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: flowRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -687,7 +687,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -699,7 +699,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesDestroy(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesDestroyWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -724,7 +724,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -735,7 +735,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -747,7 +747,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesDiagramRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowDiagram?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesDiagramRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowDiagram?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesDiagramRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -772,7 +772,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -783,7 +783,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowDiagram>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowDiagram>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -795,7 +795,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesExecuteRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Link?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesExecuteRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Link?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesExecuteRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -820,7 +820,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -831,7 +831,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Link>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Link>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -843,7 +843,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesExportRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesExportRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesExportRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -868,7 +868,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -879,7 +879,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -892,7 +892,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesImportCreate(file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: FlowImportResult?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesImportCreate(file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: FlowImportResult?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesImportCreateWithRequestBuilder(file: file, clear: clear).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -915,7 +915,7 @@ open class FlowsAPI {
      */
     open class func flowsInstancesImportCreateWithRequestBuilder(file: URL? = nil, clear: Bool? = nil) -> RequestBuilder<FlowImportResult> {
         let localVariablePath = "/flows/instances/import/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
             "file": file?.encodeToJSON(),
             "clear": clear?.encodeToJSON(),
@@ -932,7 +932,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<FlowImportResult>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FlowImportResult>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -974,7 +974,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesList(deniedAction: DeniedAction_flowsInstancesList? = nil, designation: Designation_flowsInstancesList? = nil, flowUuid: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedFlowList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesList(deniedAction: DeniedAction_flowsInstancesList? = nil, designation: Designation_flowsInstancesList? = nil, flowUuid: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedFlowList?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesListWithRequestBuilder(deniedAction: deniedAction, designation: designation, flowUuid: flowUuid, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1004,7 +1004,7 @@ open class FlowsAPI {
      */
     open class func flowsInstancesListWithRequestBuilder(deniedAction: DeniedAction_flowsInstancesList? = nil, designation: Designation_flowsInstancesList? = nil, flowUuid: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil) -> RequestBuilder<PaginatedFlowList> {
         let localVariablePath = "/flows/instances/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1026,7 +1026,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedFlowList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedFlowList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1039,7 +1039,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesPartialUpdate(slug: String, patchedFlowRequest: PatchedFlowRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesPartialUpdate(slug: String, patchedFlowRequest: PatchedFlowRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesPartialUpdateWithRequestBuilder(slug: slug, patchedFlowRequest: patchedFlowRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1065,7 +1065,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedFlowRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1076,7 +1076,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1088,7 +1088,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1113,7 +1113,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1124,7 +1124,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1138,7 +1138,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesSetBackgroundCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesSetBackgroundCreate(slug: String, file: URL? = nil, clear: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesSetBackgroundCreateWithRequestBuilder(slug: slug, file: file, clear: clear).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1165,7 +1165,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
             "file": file?.encodeToJSON(),
             "clear": clear?.encodeToJSON(),
@@ -1182,7 +1182,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1195,7 +1195,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesSetBackgroundUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesSetBackgroundUrlCreate(slug: String, filePathRequest: FilePathRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesSetBackgroundUrlCreateWithRequestBuilder(slug: slug, filePathRequest: filePathRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1221,7 +1221,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: filePathRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1232,7 +1232,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1245,7 +1245,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesUpdate(slug: String, flowRequest: FlowRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesUpdate(slug: String, flowRequest: FlowRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Flow?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesUpdateWithRequestBuilder(slug: slug, flowRequest: flowRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1271,7 +1271,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: flowRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1282,7 +1282,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Flow>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1294,7 +1294,7 @@ open class FlowsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func flowsInstancesUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func flowsInstancesUsedByList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return flowsInstancesUsedByListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1319,7 +1319,7 @@ open class FlowsAPI {
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1330,7 +1330,7 @@ open class FlowsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

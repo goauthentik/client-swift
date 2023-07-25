@@ -80,7 +80,7 @@ Get all devices for current user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let user = 987 // Int |  (optional)
 
@@ -129,7 +129,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
 
@@ -178,7 +178,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 
@@ -227,7 +227,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -284,7 +284,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(name: "name_example") // PatchedDuoDeviceRequest |  (optional)
@@ -335,7 +335,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 
@@ -384,7 +384,7 @@ Viewset for Duo authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
@@ -435,7 +435,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
 
@@ -484,7 +484,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 
@@ -533,7 +533,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -590,7 +590,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(name: "name_example") // PatchedSMSDeviceRequest |  (optional)
@@ -641,7 +641,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 
@@ -690,7 +690,7 @@ Viewset for sms authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
@@ -741,7 +741,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
 
@@ -790,7 +790,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 
@@ -839,7 +839,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -896,7 +896,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
@@ -947,7 +947,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 
@@ -996,7 +996,7 @@ Viewset for static authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
@@ -1047,7 +1047,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
 
@@ -1096,7 +1096,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 
@@ -1145,7 +1145,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -1202,7 +1202,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
@@ -1253,7 +1253,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 
@@ -1302,7 +1302,7 @@ Viewset for totp authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
@@ -1353,7 +1353,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
 
@@ -1402,7 +1402,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 
@@ -1451,7 +1451,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -1508,7 +1508,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
@@ -1559,7 +1559,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 
@@ -1608,7 +1608,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
@@ -1659,7 +1659,7 @@ Get all devices for current user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 AuthenticatorsAPI.authenticatorsAllList() { (response, error) in
@@ -1704,7 +1704,7 @@ Viewset for Duo authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 
@@ -1753,7 +1753,7 @@ Viewset for Duo authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -1810,7 +1810,7 @@ Viewset for Duo authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(name: "name_example") // PatchedDuoDeviceRequest |  (optional)
@@ -1861,7 +1861,7 @@ Viewset for Duo authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 
@@ -1910,7 +1910,7 @@ Viewset for Duo authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
@@ -1961,7 +1961,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
 
@@ -2010,7 +2010,7 @@ Viewset for sms authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 
@@ -2059,7 +2059,7 @@ Viewset for sms authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2116,7 +2116,7 @@ Viewset for sms authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(name: "name_example") // PatchedSMSDeviceRequest |  (optional)
@@ -2167,7 +2167,7 @@ Viewset for sms authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 
@@ -2216,7 +2216,7 @@ Viewset for sms authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
@@ -2267,7 +2267,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
 
@@ -2316,7 +2316,7 @@ Viewset for static authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 
@@ -2365,7 +2365,7 @@ Viewset for static authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2422,7 +2422,7 @@ Viewset for static authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
@@ -2473,7 +2473,7 @@ Viewset for static authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 
@@ -2522,7 +2522,7 @@ Viewset for static authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
@@ -2573,7 +2573,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this static device.
 
@@ -2622,7 +2622,7 @@ Viewset for totp authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 
@@ -2671,7 +2671,7 @@ Viewset for totp authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2728,7 +2728,7 @@ Viewset for totp authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
@@ -2779,7 +2779,7 @@ Viewset for totp authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 
@@ -2828,7 +2828,7 @@ Viewset for totp authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
@@ -2879,7 +2879,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP device.
 
@@ -2928,7 +2928,7 @@ Viewset for WebAuthn authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 
@@ -2977,7 +2977,7 @@ Viewset for WebAuthn authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -3034,7 +3034,7 @@ Viewset for WebAuthn authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
@@ -3085,7 +3085,7 @@ Viewset for WebAuthn authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 
@@ -3134,7 +3134,7 @@ Viewset for WebAuthn authenticator devices
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
@@ -3185,7 +3185,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
 

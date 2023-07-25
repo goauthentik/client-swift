@@ -18,7 +18,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsActionsList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsActionsList(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsActionsListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -39,7 +39,7 @@ open class EventsAPI {
      */
     open class func eventsEventsActionsListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/events/events/actions/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -50,7 +50,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -62,7 +62,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsCreate(eventRequest: EventRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsCreate(eventRequest: EventRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsCreateWithRequestBuilder(eventRequest: eventRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -84,7 +84,7 @@ open class EventsAPI {
      */
     open class func eventsEventsCreateWithRequestBuilder(eventRequest: EventRequest) -> RequestBuilder<Event> {
         let localVariablePath = "/events/events/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: eventRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -95,7 +95,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -107,7 +107,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsDestroy(eventUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsDestroy(eventUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsDestroyWithRequestBuilder(eventUuid: eventUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -132,7 +132,7 @@ open class EventsAPI {
         let eventUuidPreEscape = "\(APIHelper.mapValueToPathItem(eventUuid))"
         let eventUuidPostEscape = eventUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{event_uuid}", with: eventUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -143,7 +143,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -166,7 +166,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEventList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEventList?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsListWithRequestBuilder(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantName: tenantName, username: username).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -199,7 +199,7 @@ open class EventsAPI {
      */
     open class func eventsEventsListWithRequestBuilder(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil) -> RequestBuilder<PaginatedEventList> {
         let localVariablePath = "/events/events/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -224,7 +224,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedEventList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedEventList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -237,7 +237,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsPartialUpdate(eventUuid: UUID, patchedEventRequest: PatchedEventRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsPartialUpdate(eventUuid: UUID, patchedEventRequest: PatchedEventRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsPartialUpdateWithRequestBuilder(eventUuid: eventUuid, patchedEventRequest: patchedEventRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -263,7 +263,7 @@ open class EventsAPI {
         let eventUuidPreEscape = "\(APIHelper.mapValueToPathItem(eventUuid))"
         let eventUuidPostEscape = eventUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{event_uuid}", with: eventUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedEventRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -274,7 +274,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -287,7 +287,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsPerMonthList(action: String? = nil, query: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [Coordinate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsPerMonthList(action: String? = nil, query: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Coordinate]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsPerMonthListWithRequestBuilder(action: action, query: query).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -310,7 +310,7 @@ open class EventsAPI {
      */
     open class func eventsEventsPerMonthListWithRequestBuilder(action: String? = nil, query: String? = nil) -> RequestBuilder<[Coordinate]> {
         let localVariablePath = "/events/events/per_month/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -325,7 +325,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Coordinate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[Coordinate]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -337,7 +337,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsRetrieve(eventUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsRetrieve(eventUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsRetrieveWithRequestBuilder(eventUuid: eventUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -362,7 +362,7 @@ open class EventsAPI {
         let eventUuidPreEscape = "\(APIHelper.mapValueToPathItem(eventUuid))"
         let eventUuidPostEscape = eventUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{event_uuid}", with: eventUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -373,7 +373,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -386,7 +386,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsTopPerUserList(action: String? = nil, topN: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [EventTopPerUser]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsTopPerUserList(action: String? = nil, topN: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [EventTopPerUser]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsTopPerUserListWithRequestBuilder(action: action, topN: topN).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -409,7 +409,7 @@ open class EventsAPI {
      */
     open class func eventsEventsTopPerUserListWithRequestBuilder(action: String? = nil, topN: Int? = nil) -> RequestBuilder<[EventTopPerUser]> {
         let localVariablePath = "/events/events/top_per_user/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -424,7 +424,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[EventTopPerUser]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[EventTopPerUser]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -437,7 +437,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsEventsUpdate(eventUuid: UUID, eventRequest: EventRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsEventsUpdate(eventUuid: UUID, eventRequest: EventRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Event?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsEventsUpdateWithRequestBuilder(eventUuid: eventUuid, eventRequest: eventRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -463,7 +463,7 @@ open class EventsAPI {
         let eventUuidPreEscape = "\(APIHelper.mapValueToPathItem(eventUuid))"
         let eventUuidPostEscape = eventUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{event_uuid}", with: eventUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: eventRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -474,7 +474,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Event>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -486,7 +486,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -511,7 +511,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -522,7 +522,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -552,7 +552,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsList(body: String? = nil, created: Date? = nil, event: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, seen: Bool? = nil, severity: Severity_eventsNotificationsList? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsList(body: String? = nil, created: Date? = nil, event: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, seen: Bool? = nil, severity: Severity_eventsNotificationsList? = nil, user: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationList?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsListWithRequestBuilder(body: body, created: created, event: event, ordering: ordering, page: page, pageSize: pageSize, search: search, seen: seen, severity: severity, user: user).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -583,7 +583,7 @@ open class EventsAPI {
      */
     open class func eventsNotificationsListWithRequestBuilder(body: String? = nil, created: Date? = nil, event: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, seen: Bool? = nil, severity: Severity_eventsNotificationsList? = nil, user: Int? = nil) -> RequestBuilder<PaginatedNotificationList> {
         let localVariablePath = "/events/notifications/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -606,7 +606,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -617,7 +617,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsMarkAllSeenCreate(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsMarkAllSeenCreate(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsMarkAllSeenCreateWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -638,7 +638,7 @@ open class EventsAPI {
      */
     open class func eventsNotificationsMarkAllSeenCreateWithRequestBuilder() -> RequestBuilder<Void> {
         let localVariablePath = "/events/notifications/mark_all_seen/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -649,7 +649,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -662,7 +662,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsPartialUpdate(uuid: UUID, patchedNotificationRequest: PatchedNotificationRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsPartialUpdate(uuid: UUID, patchedNotificationRequest: PatchedNotificationRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsPartialUpdateWithRequestBuilder(uuid: uuid, patchedNotificationRequest: patchedNotificationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -688,7 +688,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedNotificationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -699,7 +699,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -711,7 +711,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -736,7 +736,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -747,7 +747,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -760,7 +760,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsUpdate(uuid: UUID, notificationRequest: NotificationRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsUpdate(uuid: UUID, notificationRequest: NotificationRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Notification?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsUpdateWithRequestBuilder(uuid: uuid, notificationRequest: notificationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -786,7 +786,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -797,7 +797,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Notification>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -809,7 +809,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsNotificationsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsNotificationsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsNotificationsUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -834,7 +834,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -845,7 +845,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -857,7 +857,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesCreate(notificationRuleRequest: NotificationRuleRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesCreate(notificationRuleRequest: NotificationRuleRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesCreateWithRequestBuilder(notificationRuleRequest: notificationRuleRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -879,7 +879,7 @@ open class EventsAPI {
      */
     open class func eventsRulesCreateWithRequestBuilder(notificationRuleRequest: NotificationRuleRequest) -> RequestBuilder<NotificationRule> {
         let localVariablePath = "/events/rules/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationRuleRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -890,7 +890,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -902,7 +902,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesDestroy(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesDestroy(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesDestroyWithRequestBuilder(pbmUuid: pbmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -927,7 +927,7 @@ open class EventsAPI {
         let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
         let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -938,7 +938,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -965,7 +965,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesList(groupName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, severity: Severity_eventsRulesList? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationRuleList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesList(groupName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, severity: Severity_eventsRulesList? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationRuleList?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesListWithRequestBuilder(groupName: groupName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, severity: severity).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -993,7 +993,7 @@ open class EventsAPI {
      */
     open class func eventsRulesListWithRequestBuilder(groupName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, severity: Severity_eventsRulesList? = nil) -> RequestBuilder<PaginatedNotificationRuleList> {
         let localVariablePath = "/events/rules/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1013,7 +1013,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationRuleList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationRuleList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1026,7 +1026,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesPartialUpdate(pbmUuid: UUID, patchedNotificationRuleRequest: PatchedNotificationRuleRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesPartialUpdate(pbmUuid: UUID, patchedNotificationRuleRequest: PatchedNotificationRuleRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesPartialUpdateWithRequestBuilder(pbmUuid: pbmUuid, patchedNotificationRuleRequest: patchedNotificationRuleRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1052,7 +1052,7 @@ open class EventsAPI {
         let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
         let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedNotificationRuleRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1063,7 +1063,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1075,7 +1075,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesRetrieve(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesRetrieve(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesRetrieveWithRequestBuilder(pbmUuid: pbmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1100,7 +1100,7 @@ open class EventsAPI {
         let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
         let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1111,7 +1111,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1124,7 +1124,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesUpdate(pbmUuid: UUID, notificationRuleRequest: NotificationRuleRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesUpdate(pbmUuid: UUID, notificationRuleRequest: NotificationRuleRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationRule?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesUpdateWithRequestBuilder(pbmUuid: pbmUuid, notificationRuleRequest: notificationRuleRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1150,7 +1150,7 @@ open class EventsAPI {
         let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
         let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationRuleRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1161,7 +1161,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationRule>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1173,7 +1173,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsRulesUsedByList(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsRulesUsedByList(pbmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsRulesUsedByListWithRequestBuilder(pbmUuid: pbmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1198,7 +1198,7 @@ open class EventsAPI {
         let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
         let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1209,7 +1209,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1221,7 +1221,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsCreate(notificationTransportRequest: NotificationTransportRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsCreate(notificationTransportRequest: NotificationTransportRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsCreateWithRequestBuilder(notificationTransportRequest: notificationTransportRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1243,7 +1243,7 @@ open class EventsAPI {
      */
     open class func eventsTransportsCreateWithRequestBuilder(notificationTransportRequest: NotificationTransportRequest) -> RequestBuilder<NotificationTransport> {
         let localVariablePath = "/events/transports/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationTransportRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1254,7 +1254,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1266,7 +1266,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1291,7 +1291,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1302,7 +1302,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1331,7 +1331,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsList(mode: Mode_eventsTransportsList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sendOnce: Bool? = nil, webhookUrl: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationTransportList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsList(mode: Mode_eventsTransportsList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sendOnce: Bool? = nil, webhookUrl: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationTransportList?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsListWithRequestBuilder(mode: mode, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, sendOnce: sendOnce, webhookUrl: webhookUrl).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1360,7 +1360,7 @@ open class EventsAPI {
      */
     open class func eventsTransportsListWithRequestBuilder(mode: Mode_eventsTransportsList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sendOnce: Bool? = nil, webhookUrl: String? = nil) -> RequestBuilder<PaginatedNotificationTransportList> {
         let localVariablePath = "/events/transports/"
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1381,7 +1381,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationTransportList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationTransportList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1394,7 +1394,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsPartialUpdate(uuid: UUID, patchedNotificationTransportRequest: PatchedNotificationTransportRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsPartialUpdate(uuid: UUID, patchedNotificationTransportRequest: PatchedNotificationTransportRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsPartialUpdateWithRequestBuilder(uuid: uuid, patchedNotificationTransportRequest: patchedNotificationTransportRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1420,7 +1420,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedNotificationTransportRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1431,7 +1431,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1443,7 +1443,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1468,7 +1468,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1479,7 +1479,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1491,7 +1491,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsTestCreate(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransportTest?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsTestCreate(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransportTest?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsTestCreateWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1516,7 +1516,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1527,7 +1527,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationTransportTest>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationTransportTest>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1540,7 +1540,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsUpdate(uuid: UUID, notificationTransportRequest: NotificationTransportRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsUpdate(uuid: UUID, notificationTransportRequest: NotificationTransportRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationTransport?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsUpdateWithRequestBuilder(uuid: uuid, notificationTransportRequest: notificationTransportRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1566,7 +1566,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationTransportRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1577,7 +1577,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationTransport>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1589,7 +1589,7 @@ open class EventsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eventsTransportsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func eventsTransportsUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return eventsTransportsUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1614,7 +1614,7 @@ open class EventsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPI.basePath + localVariablePath
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1625,7 +1625,7 @@ open class EventsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

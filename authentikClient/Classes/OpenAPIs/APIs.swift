@@ -6,14 +6,14 @@
 
 import Foundation
 
-// We reverted the change of authentikAPI to authentik introduced in https://github.com/OpenAPITools/openapi-generator/pull/9624
+// We reverted the change of authentikClientAPI to authentikClient introduced in https://github.com/OpenAPITools/openapi-generator/pull/9624
 // Because it was causing the following issue https://github.com/OpenAPITools/openapi-generator/issues/9953
 // If you are affected by this issue, please consider removing the following two lines,
 // By setting the option removeMigrationProjectNameClass to true in the generator
-@available(*, deprecated, renamed: "authentikAPI")
-public typealias authentik = authentikAPI
+@available(*, deprecated, renamed: "authentikClientAPI")
+public typealias authentikClient = authentikClientAPI
 
-open class authentikAPI {
+open class authentikClientAPI {
     public static var basePath = "http://localhost/api/v3"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
@@ -42,7 +42,7 @@ open class RequestBuilder<T> {
         self.headers = headers
         self.requiresAuthentication = requiresAuthentication
 
-        addHeaders(authentikAPI.customHeaders)
+        addHeaders(authentikClientAPI.customHeaders)
     }
 
     open func addHeaders(_ aHeaders: [String: String]) {
@@ -52,7 +52,7 @@ open class RequestBuilder<T> {
     }
 
     @discardableResult
-    open func execute(_ apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
+    open func execute(_ apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
         return requestTask
     }
 
@@ -64,7 +64,7 @@ open class RequestBuilder<T> {
     }
 
     open func addCredential() -> Self {
-        credential = authentikAPI.credential
+        credential = authentikClientAPI.credential
         return self
     }
 }

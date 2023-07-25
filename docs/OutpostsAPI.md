@@ -53,7 +53,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let outpostRequest = OutpostRequest(name: "name_example", type: OutpostTypeEnum(), providers: [123], serviceConnection: 123, config: "TODO", managed: "managed_example") // OutpostRequest | 
 
@@ -102,7 +102,7 @@ Global default outpost config
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 OutpostsAPI.outpostsInstancesDefaultSettingsRetrieve() { (response, error) in
@@ -147,7 +147,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 
@@ -196,7 +196,7 @@ Get outposts current health
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 let managedIcontains = "managedIcontains_example" // String |  (optional)
@@ -265,7 +265,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let managedIcontains = "managedIcontains_example" // String |  (optional)
 let managedIexact = "managedIexact_example" // String |  (optional)
@@ -336,7 +336,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 let patchedOutpostRequest = PatchedOutpostRequest(name: "name_example", type: OutpostTypeEnum(), providers: [123], serviceConnection: 123, config: "TODO", managed: "managed_example") // PatchedOutpostRequest |  (optional)
@@ -387,7 +387,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 
@@ -436,7 +436,7 @@ Outpost Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 let outpostRequest = OutpostRequest(name: "name_example", type: OutpostTypeEnum(), providers: [123], serviceConnection: 123, config: "TODO", managed: "managed_example") // OutpostRequest | 
@@ -487,7 +487,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this outpost.
 
@@ -536,7 +536,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -593,7 +593,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 
@@ -642,7 +642,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -699,7 +699,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 
@@ -748,7 +748,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -805,7 +805,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 
@@ -854,7 +854,7 @@ ServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Outpost Service-Connection.
 
@@ -903,7 +903,7 @@ ServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -960,7 +960,7 @@ ServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Outpost Service-Connection.
 
@@ -1009,7 +1009,7 @@ Get the service connection's state
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Outpost Service-Connection.
 
@@ -1058,7 +1058,7 @@ Get all creatable service connection types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 
 OutpostsAPI.outpostsServiceConnectionsAllTypesList() { (response, error) in
@@ -1103,7 +1103,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Outpost Service-Connection.
 
@@ -1152,7 +1152,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let dockerServiceConnectionRequest = DockerServiceConnectionRequest(name: "name_example", local: false, url: "url_example", tlsVerification: 123, tlsAuthentication: 123) // DockerServiceConnectionRequest | 
 
@@ -1201,7 +1201,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Docker Service-Connection.
 
@@ -1250,7 +1250,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let local = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
@@ -1315,7 +1315,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Docker Service-Connection.
 let patchedDockerServiceConnectionRequest = PatchedDockerServiceConnectionRequest(name: "name_example", local: false, url: "url_example", tlsVerification: 123, tlsAuthentication: 123) // PatchedDockerServiceConnectionRequest |  (optional)
@@ -1366,7 +1366,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Docker Service-Connection.
 
@@ -1415,7 +1415,7 @@ DockerServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Docker Service-Connection.
 let dockerServiceConnectionRequest = DockerServiceConnectionRequest(name: "name_example", local: false, url: "url_example", tlsVerification: 123, tlsAuthentication: 123) // DockerServiceConnectionRequest | 
@@ -1466,7 +1466,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Docker Service-Connection.
 
@@ -1515,7 +1515,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let kubernetesServiceConnectionRequest = KubernetesServiceConnectionRequest(name: "name_example", local: false, kubeconfig: "TODO", verifySsl: false) // KubernetesServiceConnectionRequest | 
 
@@ -1564,7 +1564,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Kubernetes Service-Connection.
 
@@ -1613,7 +1613,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let local = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
@@ -1672,7 +1672,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Kubernetes Service-Connection.
 let patchedKubernetesServiceConnectionRequest = PatchedKubernetesServiceConnectionRequest(name: "name_example", local: false, kubeconfig: "TODO", verifySsl: false) // PatchedKubernetesServiceConnectionRequest |  (optional)
@@ -1723,7 +1723,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Kubernetes Service-Connection.
 
@@ -1772,7 +1772,7 @@ KubernetesServiceConnection Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Kubernetes Service-Connection.
 let kubernetesServiceConnectionRequest = KubernetesServiceConnectionRequest(name: "name_example", local: false, kubeconfig: "TODO", verifySsl: false) // KubernetesServiceConnectionRequest | 
@@ -1823,7 +1823,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentik
+import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Kubernetes Service-Connection.
 
