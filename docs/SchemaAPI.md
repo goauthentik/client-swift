@@ -19,7 +19,7 @@ OpenApi3 schema for this API. Format can be selected via content negotiation.  -
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let format = "format_example" // String |  (optional)
 let lang = "lang_example" // String |  (optional)

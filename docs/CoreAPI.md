@@ -79,7 +79,7 @@ Check access to a single application by slug
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let forUser = 987 // Int |  (optional)
@@ -130,7 +130,7 @@ Application Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
 
@@ -179,7 +179,7 @@ Application Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -228,7 +228,7 @@ Custom list method that checks Policy based access instead of guardian
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let group = "group_example" // String |  (optional)
 let metaDescription = "metaDescription_example" // String |  (optional)
@@ -297,7 +297,7 @@ Metrics for application logins
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -346,7 +346,7 @@ Application Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let patchedApplicationRequest = PatchedApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // PatchedApplicationRequest |  (optional)
@@ -397,7 +397,7 @@ Application Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -446,7 +446,7 @@ Set application icon
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let file = URL(string: "https://example.com")! // URL |  (optional)
@@ -499,7 +499,7 @@ Set application icon (as URL)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
@@ -550,7 +550,7 @@ Application Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
@@ -601,7 +601,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -650,7 +650,7 @@ AuthenticatedSession Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
 
@@ -699,7 +699,7 @@ AuthenticatedSession Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let lastIp = "lastIp_example" // String |  (optional)
 let lastUserAgent = "lastUserAgent_example" // String |  (optional)
@@ -760,7 +760,7 @@ AuthenticatedSession Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
 
@@ -809,7 +809,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
 
@@ -858,7 +858,7 @@ Add user to group
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 let userAccountRequest = UserAccountRequest(pk: 123) // UserAccountRequest | 
@@ -909,7 +909,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // GroupRequest | 
 
@@ -958,7 +958,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 
@@ -1007,7 +1007,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let attributes = "attributes_example" // String | Attributes (optional)
 let isSuperuser = true // Bool |  (optional)
@@ -1072,7 +1072,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // PatchedGroupRequest |  (optional)
@@ -1123,7 +1123,7 @@ Add user to group
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 let userAccountRequest = UserAccountRequest(pk: 123) // UserAccountRequest | 
@@ -1174,7 +1174,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 
@@ -1223,7 +1223,7 @@ Group Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // GroupRequest | 
@@ -1274,7 +1274,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupUuid = 987 // UUID | A UUID string identifying this group.
 
@@ -1323,7 +1323,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantRequest = TenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // TenantRequest | 
 
@@ -1372,7 +1372,7 @@ Get current tenant
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 CoreAPI.coreTenantsCurrentRetrieve() { (response, error) in
@@ -1417,7 +1417,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
 
@@ -1466,7 +1466,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let brandingFavicon = "brandingFavicon_example" // String |  (optional)
 let brandingLogo = "brandingLogo_example" // String |  (optional)
@@ -1549,7 +1549,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
 let patchedTenantRequest = PatchedTenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // PatchedTenantRequest |  (optional)
@@ -1600,7 +1600,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
 
@@ -1649,7 +1649,7 @@ Tenant Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
 let tenantRequest = TenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // TenantRequest | 
@@ -1700,7 +1700,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
 
@@ -1749,7 +1749,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let tokenRequest = TokenRequest(managed: "managed_example", identifier: "identifier_example", intent: IntentEnum(), user: 123, description: "description_example", expires: Date(), expiring: false) // TokenRequest | 
 
@@ -1798,7 +1798,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 
@@ -1847,7 +1847,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let description = "description_example" // String |  (optional)
 let expires = Date() // Date |  (optional)
@@ -1916,7 +1916,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 let patchedTokenRequest = PatchedTokenRequest(managed: "managed_example", identifier: "identifier_example", intent: IntentEnum(), user: 123, description: "description_example", expires: Date(), expiring: false) // PatchedTokenRequest |  (optional)
@@ -1967,7 +1967,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 
@@ -2016,7 +2016,7 @@ Set token key. Action is logged as event. `authentik_core.set_token_key` permiss
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 let tokenSetKeyRequest = TokenSetKeyRequest(key: "key_example") // TokenSetKeyRequest | 
@@ -2067,7 +2067,7 @@ Token Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 let tokenRequest = TokenRequest(managed: "managed_example", identifier: "identifier_example", intent: IntentEnum(), user: 123, description: "description_example", expires: Date(), expiring: false) // TokenRequest | 
@@ -2118,7 +2118,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 
@@ -2167,7 +2167,7 @@ Return token key and log access
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String | 
 
@@ -2216,7 +2216,7 @@ UserConsent Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User Consent.
 
@@ -2265,7 +2265,7 @@ UserConsent Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let application = 987 // UUID |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2324,7 +2324,7 @@ UserConsent Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User Consent.
 
@@ -2373,7 +2373,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User Consent.
 
@@ -2422,7 +2422,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
 
@@ -2471,7 +2471,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 
@@ -2520,7 +2520,7 @@ Impersonate a user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 
@@ -2569,7 +2569,7 @@ End Impersonation a user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 CoreAPI.coreUsersImpersonateEndRetrieve() { (response, error) in
@@ -2614,7 +2614,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let attributes = "attributes_example" // String | Attributes (optional)
 let email = "email_example" // String |  (optional)
@@ -2693,7 +2693,7 @@ Get information about current user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 CoreAPI.coreUsersMeRetrieve() { (response, error) in
@@ -2738,7 +2738,7 @@ User metrics per 1h
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 
@@ -2787,7 +2787,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 let patchedUserRequest = PatchedUserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // PatchedUserRequest |  (optional)
@@ -2838,7 +2838,7 @@ Get all user paths
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let search = "search_example" // String |  (optional)
 
@@ -2887,7 +2887,7 @@ Create a temporary link that a user can use to recover their accounts
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let emailStage = "emailStage_example" // String | 
 let id = 987 // Int | A unique integer value identifying this User.
@@ -2938,7 +2938,7 @@ Create a temporary link that a user can use to recover their accounts
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 
@@ -2987,7 +2987,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 
@@ -3036,7 +3036,7 @@ Create a new user account that is marked as a service account
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userServiceAccountRequest = UserServiceAccountRequest(name: "name_example", createGroup: false, expiring: false, expires: Date()) // UserServiceAccountRequest | 
 
@@ -3085,7 +3085,7 @@ Set password for user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 let userPasswordSetRequest = UserPasswordSetRequest(password: "password_example") // UserPasswordSetRequest | 
@@ -3136,7 +3136,7 @@ User Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
@@ -3187,7 +3187,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this User.
 

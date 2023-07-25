@@ -43,7 +43,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let flowStageBindingRequest = FlowStageBindingRequest(target: 123, stage: 123, evaluateOnPlan: false, reEvaluatePolicies: false, order: 123, policyEngineMode: PolicyEngineMode(), invalidResponseAction: InvalidResponseActionEnum()) // FlowStageBindingRequest | 
 
@@ -92,7 +92,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fsbUuid = 987 // UUID | A UUID string identifying this Flow Stage Binding.
 
@@ -141,7 +141,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let evaluateOnPlan = true // Bool |  (optional)
 let fsbUuid = 987 // UUID |  (optional)
@@ -216,7 +216,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fsbUuid = 987 // UUID | A UUID string identifying this Flow Stage Binding.
 let patchedFlowStageBindingRequest = PatchedFlowStageBindingRequest(target: 123, stage: 123, evaluateOnPlan: false, reEvaluatePolicies: false, order: 123, policyEngineMode: PolicyEngineMode(), invalidResponseAction: InvalidResponseActionEnum()) // PatchedFlowStageBindingRequest |  (optional)
@@ -267,7 +267,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fsbUuid = 987 // UUID | A UUID string identifying this Flow Stage Binding.
 
@@ -316,7 +316,7 @@ FlowStageBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fsbUuid = 987 // UUID | A UUID string identifying this Flow Stage Binding.
 let flowStageBindingRequest = FlowStageBindingRequest(target: 123, stage: 123, evaluateOnPlan: false, reEvaluatePolicies: false, order: 123, policyEngineMode: PolicyEngineMode(), invalidResponseAction: InvalidResponseActionEnum()) // FlowStageBindingRequest | 
@@ -367,7 +367,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fsbUuid = 987 // UUID | A UUID string identifying this Flow Stage Binding.
 
@@ -416,7 +416,7 @@ Get the next pending challenge from the currently active flow.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let flowSlug = "flowSlug_example" // String | 
 let query = "query_example" // String | Querystring as received
@@ -467,7 +467,7 @@ Solve the previously retrieved challenge and advanced to the next stage.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let flowSlug = "flowSlug_example" // String | 
 let query = "query_example" // String | Querystring as received
@@ -520,7 +520,7 @@ Get current flow state and record it
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let flowSlug = "flowSlug_example" // String | 
 
@@ -569,7 +569,7 @@ Clear flow cache
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 FlowsAPI.flowsInstancesCacheClearCreate() { (response, error) in
@@ -614,7 +614,7 @@ Info about cached flows
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 FlowsAPI.flowsInstancesCacheInfoRetrieve() { (response, error) in
@@ -659,7 +659,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
 
@@ -708,7 +708,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -757,7 +757,7 @@ Return diagram for flow with slug `slug`, in the format used by flowchart.js
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -806,7 +806,7 @@ Execute flow for current user
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -855,7 +855,7 @@ Export flow to .yaml file
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -904,7 +904,7 @@ Import flow from .yaml file
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let file = URL(string: "https://example.com")! // URL |  (optional)
 let clear = true // Bool |  (optional) (default to false)
@@ -955,7 +955,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let deniedAction = "deniedAction_example" // String | Configure what should happen when a flow denies access to a user.  * `message_continue` - Message Continue * `message` - Message * `continue` - Continue (optional)
 let designation = "designation_example" // String | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik.  * `authentication` - Authentication * `authorization` - Authorization * `invalidation` - Invalidation * `enrollment` - Enrollment * `unenrollment` - Unrenollment * `recovery` - Recovery * `stage_configuration` - Stage Configuration (optional)
@@ -1020,7 +1020,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let patchedFlowRequest = PatchedFlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // PatchedFlowRequest |  (optional)
@@ -1071,7 +1071,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 
@@ -1120,7 +1120,7 @@ Set Flow background
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let file = URL(string: "https://example.com")! // URL |  (optional)
@@ -1173,7 +1173,7 @@ Set Flow background (as URL)
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
@@ -1224,7 +1224,7 @@ Flow Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
@@ -1275,7 +1275,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let slug = "slug_example" // String | 
 

@@ -176,7 +176,7 @@ Stage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this stage.
 
@@ -225,7 +225,7 @@ Stage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -282,7 +282,7 @@ Stage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this stage.
 
@@ -331,7 +331,7 @@ Get all creatable stage types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 StagesAPI.stagesAllTypesList() { (response, error) in
@@ -376,7 +376,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this stage.
 
@@ -425,7 +425,7 @@ Get all stages the user can configure
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 StagesAPI.stagesAllUserSettingsList() { (response, error) in
@@ -470,7 +470,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
 
@@ -519,7 +519,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 
@@ -568,7 +568,7 @@ Check enrollment status of user details in current session
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 
@@ -617,7 +617,7 @@ Import duo devices into authentik
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 let authenticatorDuoStageManualDeviceImportRequest = AuthenticatorDuoStageManualDeviceImportRequest(duoUserId: "duoUserId_example", username: "username_example") // AuthenticatorDuoStageManualDeviceImportRequest | 
@@ -668,7 +668,7 @@ Import duo devices into authentik
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 
@@ -717,7 +717,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let apiHostname = "apiHostname_example" // String |  (optional)
 let clientId = "clientId_example" // String |  (optional)
@@ -780,7 +780,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 let patchedAuthenticatorDuoStageRequest = PatchedAuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // PatchedAuthenticatorDuoStageRequest |  (optional)
@@ -831,7 +831,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 
@@ -880,7 +880,7 @@ AuthenticatorDuoStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
@@ -931,7 +931,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
 
@@ -980,7 +980,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
 
@@ -1029,7 +1029,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
 
@@ -1078,7 +1078,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let accountSid = "accountSid_example" // String |  (optional)
 let auth = "auth_example" // String |  (optional)
@@ -1157,7 +1157,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
 let patchedAuthenticatorSMSStageRequest = PatchedAuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // PatchedAuthenticatorSMSStageRequest |  (optional)
@@ -1208,7 +1208,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
 
@@ -1257,7 +1257,7 @@ AuthenticatorSMSStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
 let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
@@ -1308,7 +1308,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
 
@@ -1357,7 +1357,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // AuthenticatorStaticStageRequest | 
 
@@ -1406,7 +1406,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
 
@@ -1455,7 +1455,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let configureFlow = 987 // UUID |  (optional)
 let friendlyName = "friendlyName_example" // String |  (optional)
@@ -1520,7 +1520,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
 let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
@@ -1571,7 +1571,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
 
@@ -1620,7 +1620,7 @@ AuthenticatorStaticStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
 let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // AuthenticatorStaticStageRequest | 
@@ -1671,7 +1671,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
 
@@ -1720,7 +1720,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
 
@@ -1769,7 +1769,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
 
@@ -1818,7 +1818,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let configureFlow = 987 // UUID |  (optional)
 let digits = 987 // Int | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator (optional)
@@ -1883,7 +1883,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
 let patchedAuthenticatorTOTPStageRequest = PatchedAuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // PatchedAuthenticatorTOTPStageRequest |  (optional)
@@ -1934,7 +1934,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
 
@@ -1983,7 +1983,7 @@ AuthenticatorTOTPStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
 let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
@@ -2034,7 +2034,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
 
@@ -2083,7 +2083,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
 
@@ -2132,7 +2132,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
 
@@ -2181,7 +2181,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let configurationStages = [123] // [UUID] |  (optional)
 let name = "name_example" // String |  (optional)
@@ -2242,7 +2242,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
 let patchedAuthenticatorValidateStageRequest = PatchedAuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // PatchedAuthenticatorValidateStageRequest |  (optional)
@@ -2293,7 +2293,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
 
@@ -2342,7 +2342,7 @@ AuthenticatorValidateStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
 let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
@@ -2393,7 +2393,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
 
@@ -2442,7 +2442,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
 
@@ -2491,7 +2491,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
 
@@ -2540,7 +2540,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let authenticatorAttachment = "authenticatorAttachment_example" // String | * `platform` - Platform * `cross-platform` - Cross Platform (optional)
 let configureFlow = 987 // UUID |  (optional)
@@ -2609,7 +2609,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
 let patchedAuthenticateWebAuthnStageRequest = PatchedAuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // PatchedAuthenticateWebAuthnStageRequest |  (optional)
@@ -2660,7 +2660,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
 
@@ -2709,7 +2709,7 @@ AuthenticateWebAuthnStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
 let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
@@ -2760,7 +2760,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
 
@@ -2809,7 +2809,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
 
@@ -2858,7 +2858,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
 
@@ -2907,7 +2907,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2966,7 +2966,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
 let patchedCaptchaStageRequest = PatchedCaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // PatchedCaptchaStageRequest |  (optional)
@@ -3017,7 +3017,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
 
@@ -3066,7 +3066,7 @@ CaptchaStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
 let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
@@ -3117,7 +3117,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
 
@@ -3166,7 +3166,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
 
@@ -3215,7 +3215,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
 
@@ -3264,7 +3264,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let consentExpireIn = "consentExpireIn_example" // String |  (optional)
 let mode = "mode_example" // String | * `always_require` - Always Require * `permanent` - Permanent * `expiring` - Expiring (optional)
@@ -3327,7 +3327,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
 let patchedConsentStageRequest = PatchedConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // PatchedConsentStageRequest |  (optional)
@@ -3378,7 +3378,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
 
@@ -3427,7 +3427,7 @@ ConsentStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
 let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
@@ -3478,7 +3478,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
 
@@ -3527,7 +3527,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // DenyStageRequest | 
 
@@ -3576,7 +3576,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
 
@@ -3625,7 +3625,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -3684,7 +3684,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
 let patchedDenyStageRequest = PatchedDenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedDenyStageRequest |  (optional)
@@ -3735,7 +3735,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
 
@@ -3784,7 +3784,7 @@ DenyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
 let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // DenyStageRequest | 
@@ -3835,7 +3835,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
 
@@ -3884,7 +3884,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
 
@@ -3933,7 +3933,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
 
@@ -3982,7 +3982,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -4043,7 +4043,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
 let patchedDummyStageRequest = PatchedDummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // PatchedDummyStageRequest |  (optional)
@@ -4094,7 +4094,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
 
@@ -4143,7 +4143,7 @@ DummyStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
 let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
@@ -4194,7 +4194,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
 
@@ -4243,7 +4243,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
 
@@ -4292,7 +4292,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
 
@@ -4341,7 +4341,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let activateUserOnSuccess = true // Bool |  (optional)
 let fromAddress = "fromAddress_example" // String |  (optional)
@@ -4422,7 +4422,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
 let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
@@ -4473,7 +4473,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
 
@@ -4522,7 +4522,7 @@ Get all available templates, including custom templates
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 StagesAPI.stagesEmailTemplatesList() { (response, error) in
@@ -4567,7 +4567,7 @@ EmailStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
 let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
@@ -4618,7 +4618,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
 
@@ -4667,7 +4667,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // IdentificationStageRequest | 
 
@@ -4716,7 +4716,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
 
@@ -4765,7 +4765,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let caseInsensitiveMatching = true // Bool |  (optional)
 let enrollmentFlow = 987 // UUID |  (optional)
@@ -4836,7 +4836,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
 let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // PatchedIdentificationStageRequest |  (optional)
@@ -4887,7 +4887,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
 
@@ -4936,7 +4936,7 @@ IdentificationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
 let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // IdentificationStageRequest | 
@@ -4987,7 +4987,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
 
@@ -5036,7 +5036,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let invitationRequest = InvitationRequest(name: "name_example", expires: Date(), fixedData: "TODO", singleUse: false, flow: 123) // InvitationRequest | 
 
@@ -5085,7 +5085,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let inviteUuid = 987 // UUID | A UUID string identifying this Invitation.
 
@@ -5134,7 +5134,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let createdByUsername = "createdByUsername_example" // String |  (optional)
 let expires = Date() // Date |  (optional)
@@ -5197,7 +5197,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let inviteUuid = 987 // UUID | A UUID string identifying this Invitation.
 let patchedInvitationRequest = PatchedInvitationRequest(name: "name_example", expires: Date(), fixedData: "TODO", singleUse: false, flow: 123) // PatchedInvitationRequest |  (optional)
@@ -5248,7 +5248,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let inviteUuid = 987 // UUID | A UUID string identifying this Invitation.
 
@@ -5297,7 +5297,7 @@ Invitation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let inviteUuid = 987 // UUID | A UUID string identifying this Invitation.
 let invitationRequest = InvitationRequest(name: "name_example", expires: Date(), fixedData: "TODO", singleUse: false, flow: 123) // InvitationRequest | 
@@ -5348,7 +5348,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let inviteUuid = 987 // UUID | A UUID string identifying this Invitation.
 
@@ -5397,7 +5397,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
 
@@ -5446,7 +5446,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
 
@@ -5495,7 +5495,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let continueFlowWithoutInvitation = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
@@ -5558,7 +5558,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
 let patchedInvitationStageRequest = PatchedInvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // PatchedInvitationStageRequest |  (optional)
@@ -5609,7 +5609,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
 
@@ -5658,7 +5658,7 @@ InvitationStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
 let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
@@ -5709,7 +5709,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
 
@@ -5758,7 +5758,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
 
@@ -5807,7 +5807,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
 
@@ -5856,7 +5856,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let configureFlow = 987 // UUID |  (optional)
 let failedAttemptsBeforeCancel = 987 // Int |  (optional)
@@ -5917,7 +5917,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
 let patchedPasswordStageRequest = PatchedPasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PatchedPasswordStageRequest |  (optional)
@@ -5968,7 +5968,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
 
@@ -6017,7 +6017,7 @@ PasswordStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
 let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
@@ -6068,7 +6068,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
 
@@ -6117,7 +6117,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
@@ -6166,7 +6166,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
 
@@ -6215,7 +6215,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fieldKey = "fieldKey_example" // String |  (optional)
 let label = "label_example" // String |  (optional)
@@ -6280,7 +6280,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
 let patchedPromptRequest = PatchedPromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PatchedPromptRequest |  (optional)
@@ -6331,7 +6331,7 @@ Preview a prompt as a challenge, just like a flow would receive
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
@@ -6380,7 +6380,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
 
@@ -6429,7 +6429,7 @@ Prompt Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
 let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
@@ -6480,7 +6480,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
 
@@ -6529,7 +6529,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
 
@@ -6578,7 +6578,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
 
@@ -6627,7 +6627,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let fields = [123] // [UUID] |  (optional)
 let name = "name_example" // String |  (optional)
@@ -6690,7 +6690,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
 let patchedPromptStageRequest = PatchedPromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PatchedPromptStageRequest |  (optional)
@@ -6741,7 +6741,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
 
@@ -6790,7 +6790,7 @@ PromptStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
 let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
@@ -6841,7 +6841,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
 
@@ -6890,7 +6890,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
 
@@ -6939,7 +6939,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
 
@@ -6988,7 +6988,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -7047,7 +7047,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
 let patchedUserDeleteStageRequest = PatchedUserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserDeleteStageRequest |  (optional)
@@ -7098,7 +7098,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
 
@@ -7147,7 +7147,7 @@ UserDeleteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
 let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
@@ -7198,7 +7198,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
 
@@ -7247,7 +7247,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
 
@@ -7296,7 +7296,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
 
@@ -7345,7 +7345,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -7410,7 +7410,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
 let patchedUserLoginStageRequest = PatchedUserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // PatchedUserLoginStageRequest |  (optional)
@@ -7461,7 +7461,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
 
@@ -7510,7 +7510,7 @@ UserLoginStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
 let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
@@ -7561,7 +7561,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
 
@@ -7610,7 +7610,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
 
@@ -7659,7 +7659,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
 
@@ -7708,7 +7708,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -7767,7 +7767,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
 let patchedUserLogoutStageRequest = PatchedUserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserLogoutStageRequest |  (optional)
@@ -7818,7 +7818,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
 
@@ -7867,7 +7867,7 @@ UserLogoutStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
 let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
@@ -7918,7 +7918,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
 
@@ -7967,7 +7967,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
 
@@ -8016,7 +8016,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
 
@@ -8065,7 +8065,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let createUsersAsInactive = true // Bool |  (optional)
 let createUsersGroup = 987 // UUID |  (optional)
@@ -8132,7 +8132,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
 let patchedUserWriteStageRequest = PatchedUserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // PatchedUserWriteStageRequest |  (optional)
@@ -8183,7 +8183,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
 
@@ -8232,7 +8232,7 @@ UserWriteStage Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
 let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
@@ -8283,7 +8283,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
 

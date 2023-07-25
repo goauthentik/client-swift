@@ -30,7 +30,7 @@ AccessToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Access Token.
 
@@ -79,7 +79,7 @@ AccessToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -138,7 +138,7 @@ AccessToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Access Token.
 
@@ -187,7 +187,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Access Token.
 
@@ -236,7 +236,7 @@ AuthorizationCode Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Authorization Code.
 
@@ -285,7 +285,7 @@ AuthorizationCode Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -344,7 +344,7 @@ AuthorizationCode Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Authorization Code.
 
@@ -393,7 +393,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Authorization Code.
 
@@ -442,7 +442,7 @@ RefreshToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Refresh Token.
 
@@ -491,7 +491,7 @@ RefreshToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -550,7 +550,7 @@ RefreshToken Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Refresh Token.
 
@@ -599,7 +599,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2 Refresh Token.
 

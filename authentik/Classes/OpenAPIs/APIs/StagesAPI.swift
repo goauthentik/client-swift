@@ -19,7 +19,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -44,7 +44,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -55,7 +55,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -71,7 +71,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -97,7 +97,7 @@ open class StagesAPI {
      */
     open class func stagesAllListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedStageList> {
         let localVariablePath = "/stages/all/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -115,7 +115,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -127,7 +127,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Stage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Stage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -152,7 +152,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -163,7 +163,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Stage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Stage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -174,7 +174,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllTypesList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllTypesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllTypesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -195,7 +195,7 @@ open class StagesAPI {
      */
     open class func stagesAllTypesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/stages/all/types/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -206,7 +206,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -218,7 +218,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -243,7 +243,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -254,7 +254,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -265,7 +265,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAllUserSettingsList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UserSetting]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAllUserSettingsList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UserSetting]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAllUserSettingsListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -286,7 +286,7 @@ open class StagesAPI {
      */
     open class func stagesAllUserSettingsListWithRequestBuilder() -> RequestBuilder<[UserSetting]> {
         let localVariablePath = "/stages/all/user_settings/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -297,7 +297,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UserSetting]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UserSetting]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -309,7 +309,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoCreate(authenticatorDuoStageRequest: AuthenticatorDuoStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoCreate(authenticatorDuoStageRequest: AuthenticatorDuoStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoCreateWithRequestBuilder(authenticatorDuoStageRequest: authenticatorDuoStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -331,7 +331,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorDuoCreateWithRequestBuilder(authenticatorDuoStageRequest: AuthenticatorDuoStageRequest) -> RequestBuilder<AuthenticatorDuoStage> {
         let localVariablePath = "/stages/authenticator/duo/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorDuoStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -342,7 +342,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -354,7 +354,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -379,7 +379,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -390,7 +390,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -402,7 +402,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoEnrollmentStatusCreate(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DuoDeviceEnrollmentStatus?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoEnrollmentStatusCreate(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DuoDeviceEnrollmentStatus?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoEnrollmentStatusCreateWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -427,7 +427,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -438,7 +438,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DuoDeviceEnrollmentStatus>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DuoDeviceEnrollmentStatus>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -451,7 +451,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoImportDeviceManualCreate(stageUuid: UUID, authenticatorDuoStageManualDeviceImportRequest: AuthenticatorDuoStageManualDeviceImportRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoImportDeviceManualCreate(stageUuid: UUID, authenticatorDuoStageManualDeviceImportRequest: AuthenticatorDuoStageManualDeviceImportRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoImportDeviceManualCreateWithRequestBuilder(stageUuid: stageUuid, authenticatorDuoStageManualDeviceImportRequest: authenticatorDuoStageManualDeviceImportRequest).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -477,7 +477,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorDuoStageManualDeviceImportRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -488,7 +488,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -500,7 +500,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoImportDevicesAutomaticCreate(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStageDeviceImportResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoImportDevicesAutomaticCreate(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStageDeviceImportResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoImportDevicesAutomaticCreateWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -525,7 +525,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -536,7 +536,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStageDeviceImportResponse>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStageDeviceImportResponse>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -555,7 +555,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoList(apiHostname: String? = nil, clientId: String? = nil, configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorDuoStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoList(apiHostname: String? = nil, clientId: String? = nil, configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorDuoStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoListWithRequestBuilder(apiHostname: apiHostname, clientId: clientId, configureFlow: configureFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -584,7 +584,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorDuoListWithRequestBuilder(apiHostname: String? = nil, clientId: String? = nil, configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedAuthenticatorDuoStageList> {
         let localVariablePath = "/stages/authenticator/duo/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -605,7 +605,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorDuoStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorDuoStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -618,7 +618,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoPartialUpdate(stageUuid: UUID, patchedAuthenticatorDuoStageRequest: PatchedAuthenticatorDuoStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoPartialUpdate(stageUuid: UUID, patchedAuthenticatorDuoStageRequest: PatchedAuthenticatorDuoStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorDuoStageRequest: patchedAuthenticatorDuoStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -644,7 +644,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorDuoStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -655,7 +655,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -667,7 +667,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -692,7 +692,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -703,7 +703,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -716,7 +716,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoUpdate(stageUuid: UUID, authenticatorDuoStageRequest: AuthenticatorDuoStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoUpdate(stageUuid: UUID, authenticatorDuoStageRequest: AuthenticatorDuoStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorDuoStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorDuoStageRequest: authenticatorDuoStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -742,7 +742,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorDuoStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -753,7 +753,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorDuoStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -765,7 +765,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorDuoUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorDuoUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorDuoUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -790,7 +790,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -801,7 +801,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -813,7 +813,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsCreate(authenticatorSMSStageRequest: AuthenticatorSMSStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsCreate(authenticatorSMSStageRequest: AuthenticatorSMSStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsCreateWithRequestBuilder(authenticatorSMSStageRequest: authenticatorSMSStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -835,7 +835,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorSmsCreateWithRequestBuilder(authenticatorSMSStageRequest: AuthenticatorSMSStageRequest) -> RequestBuilder<AuthenticatorSMSStage> {
         let localVariablePath = "/stages/authenticator/sms/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorSMSStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -846,7 +846,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -858,7 +858,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -883,7 +883,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -894,7 +894,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -937,7 +937,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsList(accountSid: String? = nil, auth: String? = nil, authPassword: String? = nil, authType: AuthType_stagesAuthenticatorSmsList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, fromNumber: String? = nil, mapping: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, provider: Provider_stagesAuthenticatorSmsList? = nil, search: String? = nil, stageUuid: UUID? = nil, verifyOnly: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorSMSStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsList(accountSid: String? = nil, auth: String? = nil, authPassword: String? = nil, authType: AuthType_stagesAuthenticatorSmsList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, fromNumber: String? = nil, mapping: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, provider: Provider_stagesAuthenticatorSmsList? = nil, search: String? = nil, stageUuid: UUID? = nil, verifyOnly: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorSMSStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsListWithRequestBuilder(accountSid: accountSid, auth: auth, authPassword: authPassword, authType: authType, configureFlow: configureFlow, friendlyName: friendlyName, fromNumber: fromNumber, mapping: mapping, name: name, ordering: ordering, page: page, pageSize: pageSize, provider: provider, search: search, stageUuid: stageUuid, verifyOnly: verifyOnly).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -974,7 +974,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorSmsListWithRequestBuilder(accountSid: String? = nil, auth: String? = nil, authPassword: String? = nil, authType: AuthType_stagesAuthenticatorSmsList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, fromNumber: String? = nil, mapping: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, provider: Provider_stagesAuthenticatorSmsList? = nil, search: String? = nil, stageUuid: UUID? = nil, verifyOnly: Bool? = nil) -> RequestBuilder<PaginatedAuthenticatorSMSStageList> {
         let localVariablePath = "/stages/authenticator/sms/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1003,7 +1003,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorSMSStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorSMSStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1016,7 +1016,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsPartialUpdate(stageUuid: UUID, patchedAuthenticatorSMSStageRequest: PatchedAuthenticatorSMSStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsPartialUpdate(stageUuid: UUID, patchedAuthenticatorSMSStageRequest: PatchedAuthenticatorSMSStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorSMSStageRequest: patchedAuthenticatorSMSStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1042,7 +1042,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorSMSStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1053,7 +1053,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1065,7 +1065,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1090,7 +1090,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1101,7 +1101,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1114,7 +1114,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsUpdate(stageUuid: UUID, authenticatorSMSStageRequest: AuthenticatorSMSStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsUpdate(stageUuid: UUID, authenticatorSMSStageRequest: AuthenticatorSMSStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorSMSStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorSMSStageRequest: authenticatorSMSStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1140,7 +1140,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorSMSStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1151,7 +1151,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorSMSStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1163,7 +1163,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorSmsUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorSmsUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorSmsUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1188,7 +1188,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1199,7 +1199,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1211,7 +1211,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticCreate(authenticatorStaticStageRequest: AuthenticatorStaticStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticCreate(authenticatorStaticStageRequest: AuthenticatorStaticStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticCreateWithRequestBuilder(authenticatorStaticStageRequest: authenticatorStaticStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1233,7 +1233,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorStaticCreateWithRequestBuilder(authenticatorStaticStageRequest: AuthenticatorStaticStageRequest) -> RequestBuilder<AuthenticatorStaticStage> {
         let localVariablePath = "/stages/authenticator/static/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorStaticStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1244,7 +1244,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1256,7 +1256,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1281,7 +1281,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1292,7 +1292,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1312,7 +1312,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, tokenCount: tokenCount).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1342,7 +1342,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil) -> RequestBuilder<PaginatedAuthenticatorStaticStageList> {
         let localVariablePath = "/stages/authenticator/static/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1364,7 +1364,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorStaticStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorStaticStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1377,7 +1377,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticPartialUpdate(stageUuid: UUID, patchedAuthenticatorStaticStageRequest: PatchedAuthenticatorStaticStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticPartialUpdate(stageUuid: UUID, patchedAuthenticatorStaticStageRequest: PatchedAuthenticatorStaticStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorStaticStageRequest: patchedAuthenticatorStaticStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1403,7 +1403,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorStaticStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1414,7 +1414,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1426,7 +1426,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1451,7 +1451,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1462,7 +1462,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1475,7 +1475,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticUpdate(stageUuid: UUID, authenticatorStaticStageRequest: AuthenticatorStaticStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticUpdate(stageUuid: UUID, authenticatorStaticStageRequest: AuthenticatorStaticStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorStaticStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorStaticStageRequest: authenticatorStaticStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1501,7 +1501,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorStaticStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1512,7 +1512,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorStaticStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1524,7 +1524,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorStaticUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorStaticUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1549,7 +1549,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1560,7 +1560,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1572,7 +1572,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpCreate(authenticatorTOTPStageRequest: AuthenticatorTOTPStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpCreate(authenticatorTOTPStageRequest: AuthenticatorTOTPStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpCreateWithRequestBuilder(authenticatorTOTPStageRequest: authenticatorTOTPStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1594,7 +1594,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorTotpCreateWithRequestBuilder(authenticatorTOTPStageRequest: AuthenticatorTOTPStageRequest) -> RequestBuilder<AuthenticatorTOTPStage> {
         let localVariablePath = "/stages/authenticator/totp/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorTOTPStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1605,7 +1605,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1617,7 +1617,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1642,7 +1642,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1653,7 +1653,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1681,7 +1681,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpList(configureFlow: UUID? = nil, digits: Digits_stagesAuthenticatorTotpList? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorTOTPStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpList(configureFlow: UUID? = nil, digits: Digits_stagesAuthenticatorTotpList? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorTOTPStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpListWithRequestBuilder(configureFlow: configureFlow, digits: digits, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1711,7 +1711,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorTotpListWithRequestBuilder(configureFlow: UUID? = nil, digits: Digits_stagesAuthenticatorTotpList? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedAuthenticatorTOTPStageList> {
         let localVariablePath = "/stages/authenticator/totp/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1733,7 +1733,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorTOTPStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorTOTPStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1746,7 +1746,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpPartialUpdate(stageUuid: UUID, patchedAuthenticatorTOTPStageRequest: PatchedAuthenticatorTOTPStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpPartialUpdate(stageUuid: UUID, patchedAuthenticatorTOTPStageRequest: PatchedAuthenticatorTOTPStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorTOTPStageRequest: patchedAuthenticatorTOTPStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1772,7 +1772,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorTOTPStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1783,7 +1783,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1795,7 +1795,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1820,7 +1820,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1831,7 +1831,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1844,7 +1844,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpUpdate(stageUuid: UUID, authenticatorTOTPStageRequest: AuthenticatorTOTPStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpUpdate(stageUuid: UUID, authenticatorTOTPStageRequest: AuthenticatorTOTPStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorTOTPStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorTOTPStageRequest: authenticatorTOTPStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1870,7 +1870,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorTOTPStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1881,7 +1881,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorTOTPStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1893,7 +1893,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorTotpUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorTotpUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorTotpUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1918,7 +1918,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1929,7 +1929,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1941,7 +1941,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateCreate(authenticatorValidateStageRequest: AuthenticatorValidateStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateCreate(authenticatorValidateStageRequest: AuthenticatorValidateStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateCreateWithRequestBuilder(authenticatorValidateStageRequest: authenticatorValidateStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1963,7 +1963,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorValidateCreateWithRequestBuilder(authenticatorValidateStageRequest: AuthenticatorValidateStageRequest) -> RequestBuilder<AuthenticatorValidateStage> {
         let localVariablePath = "/stages/authenticator/validate/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorValidateStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1974,7 +1974,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1986,7 +1986,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2011,7 +2011,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2022,7 +2022,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2049,7 +2049,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateList(configurationStages: [UUID]? = nil, name: String? = nil, notConfiguredAction: NotConfiguredAction_stagesAuthenticatorValidateList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorValidateStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateList(configurationStages: [UUID]? = nil, name: String? = nil, notConfiguredAction: NotConfiguredAction_stagesAuthenticatorValidateList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorValidateStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateListWithRequestBuilder(configurationStages: configurationStages, name: name, notConfiguredAction: notConfiguredAction, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2077,7 +2077,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorValidateListWithRequestBuilder(configurationStages: [UUID]? = nil, name: String? = nil, notConfiguredAction: NotConfiguredAction_stagesAuthenticatorValidateList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedAuthenticatorValidateStageList> {
         let localVariablePath = "/stages/authenticator/validate/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2097,7 +2097,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorValidateStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorValidateStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2110,7 +2110,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidatePartialUpdate(stageUuid: UUID, patchedAuthenticatorValidateStageRequest: PatchedAuthenticatorValidateStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidatePartialUpdate(stageUuid: UUID, patchedAuthenticatorValidateStageRequest: PatchedAuthenticatorValidateStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidatePartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorValidateStageRequest: patchedAuthenticatorValidateStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2136,7 +2136,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorValidateStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2147,7 +2147,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2159,7 +2159,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2184,7 +2184,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2195,7 +2195,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2208,7 +2208,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateUpdate(stageUuid: UUID, authenticatorValidateStageRequest: AuthenticatorValidateStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateUpdate(stageUuid: UUID, authenticatorValidateStageRequest: AuthenticatorValidateStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorValidateStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorValidateStageRequest: authenticatorValidateStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2234,7 +2234,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorValidateStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2245,7 +2245,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorValidateStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2257,7 +2257,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorValidateUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorValidateUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorValidateUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2282,7 +2282,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2293,7 +2293,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2305,7 +2305,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnCreateWithRequestBuilder(authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2327,7 +2327,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorWebauthnCreateWithRequestBuilder(authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest) -> RequestBuilder<AuthenticateWebAuthnStage> {
         let localVariablePath = "/stages/authenticator/webauthn/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticateWebAuthnStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2338,7 +2338,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2350,7 +2350,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2375,7 +2375,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2386,7 +2386,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2434,7 +2434,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnList(authenticatorAttachment: AuthenticatorAttachment_stagesAuthenticatorWebauthnList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, residentKeyRequirement: ResidentKeyRequirement_stagesAuthenticatorWebauthnList? = nil, search: String? = nil, stageUuid: UUID? = nil, userVerification: UserVerification_stagesAuthenticatorWebauthnList? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticateWebAuthnStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnList(authenticatorAttachment: AuthenticatorAttachment_stagesAuthenticatorWebauthnList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, residentKeyRequirement: ResidentKeyRequirement_stagesAuthenticatorWebauthnList? = nil, search: String? = nil, stageUuid: UUID? = nil, userVerification: UserVerification_stagesAuthenticatorWebauthnList? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticateWebAuthnStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnListWithRequestBuilder(authenticatorAttachment: authenticatorAttachment, configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, residentKeyRequirement: residentKeyRequirement, search: search, stageUuid: stageUuid, userVerification: userVerification).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2466,7 +2466,7 @@ open class StagesAPI {
      */
     open class func stagesAuthenticatorWebauthnListWithRequestBuilder(authenticatorAttachment: AuthenticatorAttachment_stagesAuthenticatorWebauthnList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, residentKeyRequirement: ResidentKeyRequirement_stagesAuthenticatorWebauthnList? = nil, search: String? = nil, stageUuid: UUID? = nil, userVerification: UserVerification_stagesAuthenticatorWebauthnList? = nil) -> RequestBuilder<PaginatedAuthenticateWebAuthnStageList> {
         let localVariablePath = "/stages/authenticator/webauthn/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2490,7 +2490,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticateWebAuthnStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticateWebAuthnStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2503,7 +2503,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnPartialUpdate(stageUuid: UUID, patchedAuthenticateWebAuthnStageRequest: PatchedAuthenticateWebAuthnStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnPartialUpdate(stageUuid: UUID, patchedAuthenticateWebAuthnStageRequest: PatchedAuthenticateWebAuthnStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticateWebAuthnStageRequest: patchedAuthenticateWebAuthnStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2529,7 +2529,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticateWebAuthnStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2540,7 +2540,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2552,7 +2552,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2577,7 +2577,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2588,7 +2588,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2601,7 +2601,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnUpdate(stageUuid: UUID, authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnUpdate(stageUuid: UUID, authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnUpdateWithRequestBuilder(stageUuid: stageUuid, authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2627,7 +2627,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticateWebAuthnStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2638,7 +2638,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticateWebAuthnStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2650,7 +2650,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorWebauthnUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesAuthenticatorWebauthnUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesAuthenticatorWebauthnUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2675,7 +2675,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2686,7 +2686,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2698,7 +2698,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaCreate(captchaStageRequest: CaptchaStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaCreate(captchaStageRequest: CaptchaStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaCreateWithRequestBuilder(captchaStageRequest: captchaStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2720,7 +2720,7 @@ open class StagesAPI {
      */
     open class func stagesCaptchaCreateWithRequestBuilder(captchaStageRequest: CaptchaStageRequest) -> RequestBuilder<CaptchaStage> {
         let localVariablePath = "/stages/captcha/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: captchaStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2731,7 +2731,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2743,7 +2743,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2768,7 +2768,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2779,7 +2779,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2796,7 +2796,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, publicKey: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedCaptchaStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, publicKey: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedCaptchaStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, publicKey: publicKey, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2823,7 +2823,7 @@ open class StagesAPI {
      */
     open class func stagesCaptchaListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, publicKey: String? = nil, search: String? = nil) -> RequestBuilder<PaginatedCaptchaStageList> {
         let localVariablePath = "/stages/captcha/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2842,7 +2842,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedCaptchaStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedCaptchaStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2855,7 +2855,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaPartialUpdate(stageUuid: UUID, patchedCaptchaStageRequest: PatchedCaptchaStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaPartialUpdate(stageUuid: UUID, patchedCaptchaStageRequest: PatchedCaptchaStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedCaptchaStageRequest: patchedCaptchaStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2881,7 +2881,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedCaptchaStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2892,7 +2892,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2904,7 +2904,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2929,7 +2929,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2940,7 +2940,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2953,7 +2953,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaUpdate(stageUuid: UUID, captchaStageRequest: CaptchaStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaUpdate(stageUuid: UUID, captchaStageRequest: CaptchaStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CaptchaStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaUpdateWithRequestBuilder(stageUuid: stageUuid, captchaStageRequest: captchaStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2979,7 +2979,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: captchaStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2990,7 +2990,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CaptchaStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3002,7 +3002,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesCaptchaUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesCaptchaUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesCaptchaUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3027,7 +3027,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3038,7 +3038,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3050,7 +3050,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentCreate(consentStageRequest: ConsentStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentCreate(consentStageRequest: ConsentStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentCreateWithRequestBuilder(consentStageRequest: consentStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3072,7 +3072,7 @@ open class StagesAPI {
      */
     open class func stagesConsentCreateWithRequestBuilder(consentStageRequest: ConsentStageRequest) -> RequestBuilder<ConsentStage> {
         let localVariablePath = "/stages/consent/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: consentStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3083,7 +3083,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3095,7 +3095,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3120,7 +3120,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3131,7 +3131,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3159,7 +3159,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentList(consentExpireIn: String? = nil, mode: Mode_stagesConsentList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedConsentStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentList(consentExpireIn: String? = nil, mode: Mode_stagesConsentList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedConsentStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentListWithRequestBuilder(consentExpireIn: consentExpireIn, mode: mode, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3188,7 +3188,7 @@ open class StagesAPI {
      */
     open class func stagesConsentListWithRequestBuilder(consentExpireIn: String? = nil, mode: Mode_stagesConsentList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedConsentStageList> {
         let localVariablePath = "/stages/consent/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3209,7 +3209,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedConsentStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedConsentStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3222,7 +3222,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentPartialUpdate(stageUuid: UUID, patchedConsentStageRequest: PatchedConsentStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentPartialUpdate(stageUuid: UUID, patchedConsentStageRequest: PatchedConsentStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedConsentStageRequest: patchedConsentStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3248,7 +3248,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedConsentStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3259,7 +3259,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3271,7 +3271,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3296,7 +3296,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3307,7 +3307,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3320,7 +3320,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentUpdate(stageUuid: UUID, consentStageRequest: ConsentStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentUpdate(stageUuid: UUID, consentStageRequest: ConsentStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ConsentStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentUpdateWithRequestBuilder(stageUuid: stageUuid, consentStageRequest: consentStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3346,7 +3346,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: consentStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3357,7 +3357,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ConsentStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3369,7 +3369,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesConsentUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesConsentUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesConsentUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3394,7 +3394,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3405,7 +3405,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3417,7 +3417,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyCreate(denyStageRequest: DenyStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyCreate(denyStageRequest: DenyStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyCreateWithRequestBuilder(denyStageRequest: denyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3439,7 +3439,7 @@ open class StagesAPI {
      */
     open class func stagesDenyCreateWithRequestBuilder(denyStageRequest: DenyStageRequest) -> RequestBuilder<DenyStage> {
         let localVariablePath = "/stages/deny/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: denyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3450,7 +3450,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3462,7 +3462,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3487,7 +3487,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3498,7 +3498,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3515,7 +3515,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3542,7 +3542,7 @@ open class StagesAPI {
      */
     open class func stagesDenyListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedDenyStageList> {
         let localVariablePath = "/stages/deny/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3561,7 +3561,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedDenyStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDenyStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3574,7 +3574,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyPartialUpdate(stageUuid: UUID, patchedDenyStageRequest: PatchedDenyStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyPartialUpdate(stageUuid: UUID, patchedDenyStageRequest: PatchedDenyStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedDenyStageRequest: patchedDenyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3600,7 +3600,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDenyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3611,7 +3611,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3623,7 +3623,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3648,7 +3648,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3659,7 +3659,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3672,7 +3672,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyUpdate(stageUuid: UUID, denyStageRequest: DenyStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyUpdate(stageUuid: UUID, denyStageRequest: DenyStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DenyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyUpdateWithRequestBuilder(stageUuid: stageUuid, denyStageRequest: denyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3698,7 +3698,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: denyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3709,7 +3709,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DenyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3721,7 +3721,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDenyUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDenyUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3746,7 +3746,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3757,7 +3757,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3769,7 +3769,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyCreate(dummyStageRequest: DummyStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyCreate(dummyStageRequest: DummyStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyCreateWithRequestBuilder(dummyStageRequest: dummyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3791,7 +3791,7 @@ open class StagesAPI {
      */
     open class func stagesDummyCreateWithRequestBuilder(dummyStageRequest: DummyStageRequest) -> RequestBuilder<DummyStage> {
         let localVariablePath = "/stages/dummy/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dummyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3802,7 +3802,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3814,7 +3814,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -3839,7 +3839,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3850,7 +3850,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3868,7 +3868,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, throwError: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDummyStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, throwError: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDummyStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, throwError: throwError).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3896,7 +3896,7 @@ open class StagesAPI {
      */
     open class func stagesDummyListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, throwError: Bool? = nil) -> RequestBuilder<PaginatedDummyStageList> {
         let localVariablePath = "/stages/dummy/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3916,7 +3916,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedDummyStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDummyStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3929,7 +3929,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyPartialUpdate(stageUuid: UUID, patchedDummyStageRequest: PatchedDummyStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyPartialUpdate(stageUuid: UUID, patchedDummyStageRequest: PatchedDummyStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedDummyStageRequest: patchedDummyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3955,7 +3955,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDummyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3966,7 +3966,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3978,7 +3978,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4003,7 +4003,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4014,7 +4014,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4027,7 +4027,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyUpdate(stageUuid: UUID, dummyStageRequest: DummyStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyUpdate(stageUuid: UUID, dummyStageRequest: DummyStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyUpdateWithRequestBuilder(stageUuid: stageUuid, dummyStageRequest: dummyStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4053,7 +4053,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dummyStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4064,7 +4064,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4076,7 +4076,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDummyUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesDummyUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesDummyUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4101,7 +4101,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4112,7 +4112,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4124,7 +4124,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailCreate(emailStageRequest: EmailStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailCreate(emailStageRequest: EmailStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailCreateWithRequestBuilder(emailStageRequest: emailStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4146,7 +4146,7 @@ open class StagesAPI {
      */
     open class func stagesEmailCreateWithRequestBuilder(emailStageRequest: EmailStageRequest) -> RequestBuilder<EmailStage> {
         let localVariablePath = "/stages/email/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: emailStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4157,7 +4157,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4169,7 +4169,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -4194,7 +4194,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4205,7 +4205,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4233,7 +4233,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailList(activateUserOnSuccess: Bool? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, port: Int? = nil, search: String? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: Int? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEmailStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailList(activateUserOnSuccess: Bool? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, port: Int? = nil, search: String? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: Int? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEmailStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailListWithRequestBuilder(activateUserOnSuccess: activateUserOnSuccess, fromAddress: fromAddress, host: host, name: name, ordering: ordering, page: page, pageSize: pageSize, port: port, search: search, subject: subject, template: template, timeout: timeout, tokenExpiry: tokenExpiry, useGlobalSettings: useGlobalSettings, useSsl: useSsl, useTls: useTls, username: username).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4271,7 +4271,7 @@ open class StagesAPI {
      */
     open class func stagesEmailListWithRequestBuilder(activateUserOnSuccess: Bool? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, port: Int? = nil, search: String? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: Int? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil) -> RequestBuilder<PaginatedEmailStageList> {
         let localVariablePath = "/stages/email/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4301,7 +4301,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedEmailStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedEmailStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4314,7 +4314,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailPartialUpdate(stageUuid: UUID, patchedEmailStageRequest: PatchedEmailStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailPartialUpdate(stageUuid: UUID, patchedEmailStageRequest: PatchedEmailStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedEmailStageRequest: patchedEmailStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4340,7 +4340,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedEmailStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4351,7 +4351,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4363,7 +4363,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4388,7 +4388,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4399,7 +4399,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4410,7 +4410,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailTemplatesList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailTemplatesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailTemplatesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4431,7 +4431,7 @@ open class StagesAPI {
      */
     open class func stagesEmailTemplatesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/stages/email/templates/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4442,7 +4442,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4455,7 +4455,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailUpdate(stageUuid: UUID, emailStageRequest: EmailStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailUpdate(stageUuid: UUID, emailStageRequest: EmailStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EmailStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailUpdateWithRequestBuilder(stageUuid: stageUuid, emailStageRequest: emailStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4481,7 +4481,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: emailStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4492,7 +4492,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EmailStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4504,7 +4504,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesEmailUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesEmailUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesEmailUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4529,7 +4529,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4540,7 +4540,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4552,7 +4552,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationCreate(identificationStageRequest: IdentificationStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationCreate(identificationStageRequest: IdentificationStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationCreateWithRequestBuilder(identificationStageRequest: identificationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4574,7 +4574,7 @@ open class StagesAPI {
      */
     open class func stagesIdentificationCreateWithRequestBuilder(identificationStageRequest: IdentificationStageRequest) -> RequestBuilder<IdentificationStage> {
         let localVariablePath = "/stages/identification/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: identificationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4585,7 +4585,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4597,7 +4597,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -4622,7 +4622,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4633,7 +4633,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4656,7 +4656,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationList(caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationList(caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationListWithRequestBuilder(caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4689,7 +4689,7 @@ open class StagesAPI {
      */
     open class func stagesIdentificationListWithRequestBuilder(caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil) -> RequestBuilder<PaginatedIdentificationStageList> {
         let localVariablePath = "/stages/identification/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4714,7 +4714,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedIdentificationStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedIdentificationStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4727,7 +4727,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationPartialUpdate(stageUuid: UUID, patchedIdentificationStageRequest: PatchedIdentificationStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationPartialUpdate(stageUuid: UUID, patchedIdentificationStageRequest: PatchedIdentificationStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedIdentificationStageRequest: patchedIdentificationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4753,7 +4753,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedIdentificationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4764,7 +4764,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4776,7 +4776,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4801,7 +4801,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4812,7 +4812,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4825,7 +4825,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationUpdate(stageUuid: UUID, identificationStageRequest: IdentificationStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationUpdate(stageUuid: UUID, identificationStageRequest: IdentificationStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: IdentificationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationUpdateWithRequestBuilder(stageUuid: stageUuid, identificationStageRequest: identificationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4851,7 +4851,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: identificationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4862,7 +4862,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<IdentificationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4874,7 +4874,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesIdentificationUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesIdentificationUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesIdentificationUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4899,7 +4899,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4910,7 +4910,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4922,7 +4922,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsCreate(invitationRequest: InvitationRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsCreate(invitationRequest: InvitationRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsCreateWithRequestBuilder(invitationRequest: invitationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -4944,7 +4944,7 @@ open class StagesAPI {
      */
     open class func stagesInvitationInvitationsCreateWithRequestBuilder(invitationRequest: InvitationRequest) -> RequestBuilder<Invitation> {
         let localVariablePath = "/stages/invitation/invitations/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invitationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -4955,7 +4955,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -4967,7 +4967,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsDestroy(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsDestroy(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsDestroyWithRequestBuilder(inviteUuid: inviteUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -4992,7 +4992,7 @@ open class StagesAPI {
         let inviteUuidPreEscape = "\(APIHelper.mapValueToPathItem(inviteUuid))"
         let inviteUuidPostEscape = inviteUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{invite_uuid}", with: inviteUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5003,7 +5003,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5022,7 +5022,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsList(createdByUsername: String? = nil, expires: Date? = nil, flowSlug: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedInvitationList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsList(createdByUsername: String? = nil, expires: Date? = nil, flowSlug: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedInvitationList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsListWithRequestBuilder(createdByUsername: createdByUsername, expires: expires, flowSlug: flowSlug, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5051,7 +5051,7 @@ open class StagesAPI {
      */
     open class func stagesInvitationInvitationsListWithRequestBuilder(createdByUsername: String? = nil, expires: Date? = nil, flowSlug: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedInvitationList> {
         let localVariablePath = "/stages/invitation/invitations/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5072,7 +5072,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedInvitationList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedInvitationList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5085,7 +5085,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsPartialUpdate(inviteUuid: UUID, patchedInvitationRequest: PatchedInvitationRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsPartialUpdate(inviteUuid: UUID, patchedInvitationRequest: PatchedInvitationRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsPartialUpdateWithRequestBuilder(inviteUuid: inviteUuid, patchedInvitationRequest: patchedInvitationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5111,7 +5111,7 @@ open class StagesAPI {
         let inviteUuidPreEscape = "\(APIHelper.mapValueToPathItem(inviteUuid))"
         let inviteUuidPostEscape = inviteUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{invite_uuid}", with: inviteUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedInvitationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5122,7 +5122,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5134,7 +5134,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsRetrieve(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsRetrieve(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsRetrieveWithRequestBuilder(inviteUuid: inviteUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5159,7 +5159,7 @@ open class StagesAPI {
         let inviteUuidPreEscape = "\(APIHelper.mapValueToPathItem(inviteUuid))"
         let inviteUuidPostEscape = inviteUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{invite_uuid}", with: inviteUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5170,7 +5170,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5183,7 +5183,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsUpdate(inviteUuid: UUID, invitationRequest: InvitationRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsUpdate(inviteUuid: UUID, invitationRequest: InvitationRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Invitation?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsUpdateWithRequestBuilder(inviteUuid: inviteUuid, invitationRequest: invitationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5209,7 +5209,7 @@ open class StagesAPI {
         let inviteUuidPreEscape = "\(APIHelper.mapValueToPathItem(inviteUuid))"
         let inviteUuidPostEscape = inviteUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{invite_uuid}", with: inviteUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invitationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5220,7 +5220,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Invitation>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5232,7 +5232,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationInvitationsUsedByList(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationInvitationsUsedByList(inviteUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationInvitationsUsedByListWithRequestBuilder(inviteUuid: inviteUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5257,7 +5257,7 @@ open class StagesAPI {
         let inviteUuidPreEscape = "\(APIHelper.mapValueToPathItem(inviteUuid))"
         let inviteUuidPostEscape = inviteUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{invite_uuid}", with: inviteUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5268,7 +5268,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5280,7 +5280,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesCreate(invitationStageRequest: InvitationStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesCreate(invitationStageRequest: InvitationStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesCreateWithRequestBuilder(invitationStageRequest: invitationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5302,7 +5302,7 @@ open class StagesAPI {
      */
     open class func stagesInvitationStagesCreateWithRequestBuilder(invitationStageRequest: InvitationStageRequest) -> RequestBuilder<InvitationStage> {
         let localVariablePath = "/stages/invitation/stages/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invitationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5313,7 +5313,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5325,7 +5325,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -5350,7 +5350,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5361,7 +5361,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5380,7 +5380,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesList(continueFlowWithoutInvitation: Bool? = nil, name: String? = nil, noFlows: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedInvitationStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesList(continueFlowWithoutInvitation: Bool? = nil, name: String? = nil, noFlows: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedInvitationStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesListWithRequestBuilder(continueFlowWithoutInvitation: continueFlowWithoutInvitation, name: name, noFlows: noFlows, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5409,7 +5409,7 @@ open class StagesAPI {
      */
     open class func stagesInvitationStagesListWithRequestBuilder(continueFlowWithoutInvitation: Bool? = nil, name: String? = nil, noFlows: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedInvitationStageList> {
         let localVariablePath = "/stages/invitation/stages/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5430,7 +5430,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedInvitationStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedInvitationStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5443,7 +5443,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesPartialUpdate(stageUuid: UUID, patchedInvitationStageRequest: PatchedInvitationStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesPartialUpdate(stageUuid: UUID, patchedInvitationStageRequest: PatchedInvitationStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedInvitationStageRequest: patchedInvitationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5469,7 +5469,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedInvitationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5480,7 +5480,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5492,7 +5492,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5517,7 +5517,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5528,7 +5528,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5541,7 +5541,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesUpdate(stageUuid: UUID, invitationStageRequest: InvitationStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesUpdate(stageUuid: UUID, invitationStageRequest: InvitationStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: InvitationStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesUpdateWithRequestBuilder(stageUuid: stageUuid, invitationStageRequest: invitationStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5567,7 +5567,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invitationStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5578,7 +5578,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<InvitationStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5590,7 +5590,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesInvitationStagesUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesInvitationStagesUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesInvitationStagesUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5615,7 +5615,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5626,7 +5626,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5638,7 +5638,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordCreate(passwordStageRequest: PasswordStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordCreate(passwordStageRequest: PasswordStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordCreateWithRequestBuilder(passwordStageRequest: passwordStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5660,7 +5660,7 @@ open class StagesAPI {
      */
     open class func stagesPasswordCreateWithRequestBuilder(passwordStageRequest: PasswordStageRequest) -> RequestBuilder<PasswordStage> {
         let localVariablePath = "/stages/password/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5671,7 +5671,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5683,7 +5683,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -5708,7 +5708,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5719,7 +5719,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5737,7 +5737,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordList(configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordList(configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordListWithRequestBuilder(configureFlow: configureFlow, failedAttemptsBeforeCancel: failedAttemptsBeforeCancel, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5765,7 +5765,7 @@ open class StagesAPI {
      */
     open class func stagesPasswordListWithRequestBuilder(configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedPasswordStageList> {
         let localVariablePath = "/stages/password/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5785,7 +5785,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5798,7 +5798,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordPartialUpdate(stageUuid: UUID, patchedPasswordStageRequest: PatchedPasswordStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordPartialUpdate(stageUuid: UUID, patchedPasswordStageRequest: PatchedPasswordStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedPasswordStageRequest: patchedPasswordStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5824,7 +5824,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPasswordStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5835,7 +5835,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5847,7 +5847,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5872,7 +5872,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5883,7 +5883,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5896,7 +5896,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordUpdate(stageUuid: UUID, passwordStageRequest: PasswordStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordUpdate(stageUuid: UUID, passwordStageRequest: PasswordStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordUpdateWithRequestBuilder(stageUuid: stageUuid, passwordStageRequest: passwordStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5922,7 +5922,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5933,7 +5933,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5945,7 +5945,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPasswordUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPasswordUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPasswordUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -5970,7 +5970,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -5981,7 +5981,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -5993,7 +5993,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsCreate(promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsCreate(promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsCreateWithRequestBuilder(promptRequest: promptRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6015,7 +6015,7 @@ open class StagesAPI {
      */
     open class func stagesPromptPromptsCreateWithRequestBuilder(promptRequest: PromptRequest) -> RequestBuilder<Prompt> {
         let localVariablePath = "/stages/prompt/prompts/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: promptRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6026,7 +6026,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6038,7 +6038,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsDestroy(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsDestroy(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsDestroyWithRequestBuilder(promptUuid: promptUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -6063,7 +6063,7 @@ open class StagesAPI {
         let promptUuidPreEscape = "\(APIHelper.mapValueToPathItem(promptUuid))"
         let promptUuidPostEscape = promptUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{prompt_uuid}", with: promptUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6074,7 +6074,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6118,7 +6118,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsList(fieldKey: String? = nil, label: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, placeholder: String? = nil, search: String? = nil, type: ModelType_stagesPromptPromptsList? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPromptList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsList(fieldKey: String? = nil, label: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, placeholder: String? = nil, search: String? = nil, type: ModelType_stagesPromptPromptsList? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPromptList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsListWithRequestBuilder(fieldKey: fieldKey, label: label, name: name, ordering: ordering, page: page, pageSize: pageSize, placeholder: placeholder, search: search, type: type).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6148,7 +6148,7 @@ open class StagesAPI {
      */
     open class func stagesPromptPromptsListWithRequestBuilder(fieldKey: String? = nil, label: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, placeholder: String? = nil, search: String? = nil, type: ModelType_stagesPromptPromptsList? = nil) -> RequestBuilder<PaginatedPromptList> {
         let localVariablePath = "/stages/prompt/prompts/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6170,7 +6170,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPromptList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPromptList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6183,7 +6183,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsPartialUpdate(promptUuid: UUID, patchedPromptRequest: PatchedPromptRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsPartialUpdate(promptUuid: UUID, patchedPromptRequest: PatchedPromptRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsPartialUpdateWithRequestBuilder(promptUuid: promptUuid, patchedPromptRequest: patchedPromptRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6209,7 +6209,7 @@ open class StagesAPI {
         let promptUuidPreEscape = "\(APIHelper.mapValueToPathItem(promptUuid))"
         let promptUuidPostEscape = promptUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{prompt_uuid}", with: promptUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPromptRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6220,7 +6220,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6232,7 +6232,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsPreviewCreate(promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PromptChallenge?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsPreviewCreate(promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PromptChallenge?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsPreviewCreateWithRequestBuilder(promptRequest: promptRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6254,7 +6254,7 @@ open class StagesAPI {
      */
     open class func stagesPromptPromptsPreviewCreateWithRequestBuilder(promptRequest: PromptRequest) -> RequestBuilder<PromptChallenge> {
         let localVariablePath = "/stages/prompt/prompts/preview/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: promptRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6265,7 +6265,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PromptChallenge>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PromptChallenge>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6277,7 +6277,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsRetrieve(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsRetrieve(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsRetrieveWithRequestBuilder(promptUuid: promptUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6302,7 +6302,7 @@ open class StagesAPI {
         let promptUuidPreEscape = "\(APIHelper.mapValueToPathItem(promptUuid))"
         let promptUuidPostEscape = promptUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{prompt_uuid}", with: promptUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6313,7 +6313,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6326,7 +6326,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsUpdate(promptUuid: UUID, promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsUpdate(promptUuid: UUID, promptRequest: PromptRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Prompt?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsUpdateWithRequestBuilder(promptUuid: promptUuid, promptRequest: promptRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6352,7 +6352,7 @@ open class StagesAPI {
         let promptUuidPreEscape = "\(APIHelper.mapValueToPathItem(promptUuid))"
         let promptUuidPostEscape = promptUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{prompt_uuid}", with: promptUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: promptRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6363,7 +6363,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Prompt>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6375,7 +6375,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptPromptsUsedByList(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptPromptsUsedByList(promptUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptPromptsUsedByListWithRequestBuilder(promptUuid: promptUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6400,7 +6400,7 @@ open class StagesAPI {
         let promptUuidPreEscape = "\(APIHelper.mapValueToPathItem(promptUuid))"
         let promptUuidPostEscape = promptUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{prompt_uuid}", with: promptUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6411,7 +6411,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6423,7 +6423,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesCreate(promptStageRequest: PromptStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesCreate(promptStageRequest: PromptStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesCreateWithRequestBuilder(promptStageRequest: promptStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6445,7 +6445,7 @@ open class StagesAPI {
      */
     open class func stagesPromptStagesCreateWithRequestBuilder(promptStageRequest: PromptStageRequest) -> RequestBuilder<PromptStage> {
         let localVariablePath = "/stages/prompt/stages/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: promptStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6456,7 +6456,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6468,7 +6468,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -6493,7 +6493,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6504,7 +6504,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6523,7 +6523,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesList(fields: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, validationPolicies: [UUID]? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPromptStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesList(fields: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, validationPolicies: [UUID]? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPromptStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesListWithRequestBuilder(fields: fields, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, validationPolicies: validationPolicies).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6552,7 +6552,7 @@ open class StagesAPI {
      */
     open class func stagesPromptStagesListWithRequestBuilder(fields: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, validationPolicies: [UUID]? = nil) -> RequestBuilder<PaginatedPromptStageList> {
         let localVariablePath = "/stages/prompt/stages/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6573,7 +6573,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPromptStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPromptStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6586,7 +6586,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesPartialUpdate(stageUuid: UUID, patchedPromptStageRequest: PatchedPromptStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesPartialUpdate(stageUuid: UUID, patchedPromptStageRequest: PatchedPromptStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedPromptStageRequest: patchedPromptStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6612,7 +6612,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPromptStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6623,7 +6623,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6635,7 +6635,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6660,7 +6660,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6671,7 +6671,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6684,7 +6684,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesUpdate(stageUuid: UUID, promptStageRequest: PromptStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesUpdate(stageUuid: UUID, promptStageRequest: PromptStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PromptStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesUpdateWithRequestBuilder(stageUuid: stageUuid, promptStageRequest: promptStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6710,7 +6710,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: promptStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6721,7 +6721,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PromptStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6733,7 +6733,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesPromptStagesUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesPromptStagesUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesPromptStagesUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6758,7 +6758,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6769,7 +6769,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6781,7 +6781,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteCreate(userDeleteStageRequest: UserDeleteStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteCreate(userDeleteStageRequest: UserDeleteStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteCreateWithRequestBuilder(userDeleteStageRequest: userDeleteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6803,7 +6803,7 @@ open class StagesAPI {
      */
     open class func stagesUserDeleteCreateWithRequestBuilder(userDeleteStageRequest: UserDeleteStageRequest) -> RequestBuilder<UserDeleteStage> {
         let localVariablePath = "/stages/user_delete/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userDeleteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6814,7 +6814,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6826,7 +6826,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -6851,7 +6851,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6862,7 +6862,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6879,7 +6879,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserDeleteStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserDeleteStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6906,7 +6906,7 @@ open class StagesAPI {
      */
     open class func stagesUserDeleteListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedUserDeleteStageList> {
         let localVariablePath = "/stages/user_delete/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6925,7 +6925,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserDeleteStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserDeleteStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6938,7 +6938,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeletePartialUpdate(stageUuid: UUID, patchedUserDeleteStageRequest: PatchedUserDeleteStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeletePartialUpdate(stageUuid: UUID, patchedUserDeleteStageRequest: PatchedUserDeleteStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeletePartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedUserDeleteStageRequest: patchedUserDeleteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -6964,7 +6964,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserDeleteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -6975,7 +6975,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -6987,7 +6987,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7012,7 +7012,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7023,7 +7023,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7036,7 +7036,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteUpdate(stageUuid: UUID, userDeleteStageRequest: UserDeleteStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteUpdate(stageUuid: UUID, userDeleteStageRequest: UserDeleteStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserDeleteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteUpdateWithRequestBuilder(stageUuid: stageUuid, userDeleteStageRequest: userDeleteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7062,7 +7062,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userDeleteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7073,7 +7073,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserDeleteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7085,7 +7085,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserDeleteUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserDeleteUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserDeleteUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7110,7 +7110,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7121,7 +7121,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7133,7 +7133,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginCreate(userLoginStageRequest: UserLoginStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginCreate(userLoginStageRequest: UserLoginStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginCreateWithRequestBuilder(userLoginStageRequest: userLoginStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7155,7 +7155,7 @@ open class StagesAPI {
      */
     open class func stagesUserLoginCreateWithRequestBuilder(userLoginStageRequest: UserLoginStageRequest) -> RequestBuilder<UserLoginStage> {
         let localVariablePath = "/stages/user_login/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userLoginStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7166,7 +7166,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7178,7 +7178,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -7203,7 +7203,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7214,7 +7214,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7234,7 +7234,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7264,7 +7264,7 @@ open class StagesAPI {
      */
     open class func stagesUserLoginListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil) -> RequestBuilder<PaginatedUserLoginStageList> {
         let localVariablePath = "/stages/user_login/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7286,7 +7286,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserLoginStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserLoginStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7299,7 +7299,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginPartialUpdate(stageUuid: UUID, patchedUserLoginStageRequest: PatchedUserLoginStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginPartialUpdate(stageUuid: UUID, patchedUserLoginStageRequest: PatchedUserLoginStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedUserLoginStageRequest: patchedUserLoginStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7325,7 +7325,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserLoginStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7336,7 +7336,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7348,7 +7348,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7373,7 +7373,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7384,7 +7384,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7397,7 +7397,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginUpdate(stageUuid: UUID, userLoginStageRequest: UserLoginStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginUpdate(stageUuid: UUID, userLoginStageRequest: UserLoginStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLoginStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginUpdateWithRequestBuilder(stageUuid: stageUuid, userLoginStageRequest: userLoginStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7423,7 +7423,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userLoginStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7434,7 +7434,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLoginStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7446,7 +7446,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLoginUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLoginUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7471,7 +7471,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7482,7 +7482,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7494,7 +7494,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutCreate(userLogoutStageRequest: UserLogoutStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutCreate(userLogoutStageRequest: UserLogoutStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutCreateWithRequestBuilder(userLogoutStageRequest: userLogoutStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7516,7 +7516,7 @@ open class StagesAPI {
      */
     open class func stagesUserLogoutCreateWithRequestBuilder(userLogoutStageRequest: UserLogoutStageRequest) -> RequestBuilder<UserLogoutStage> {
         let localVariablePath = "/stages/user_logout/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userLogoutStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7527,7 +7527,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7539,7 +7539,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -7564,7 +7564,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7575,7 +7575,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7592,7 +7592,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLogoutStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLogoutStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7619,7 +7619,7 @@ open class StagesAPI {
      */
     open class func stagesUserLogoutListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedUserLogoutStageList> {
         let localVariablePath = "/stages/user_logout/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7638,7 +7638,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserLogoutStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserLogoutStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7651,7 +7651,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutPartialUpdate(stageUuid: UUID, patchedUserLogoutStageRequest: PatchedUserLogoutStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutPartialUpdate(stageUuid: UUID, patchedUserLogoutStageRequest: PatchedUserLogoutStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedUserLogoutStageRequest: patchedUserLogoutStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7677,7 +7677,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserLogoutStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7688,7 +7688,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7700,7 +7700,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7725,7 +7725,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7736,7 +7736,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7749,7 +7749,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutUpdate(stageUuid: UUID, userLogoutStageRequest: UserLogoutStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutUpdate(stageUuid: UUID, userLogoutStageRequest: UserLogoutStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserLogoutStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutUpdateWithRequestBuilder(stageUuid: stageUuid, userLogoutStageRequest: userLogoutStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7775,7 +7775,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userLogoutStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7786,7 +7786,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserLogoutStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7798,7 +7798,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLogoutUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserLogoutUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserLogoutUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7823,7 +7823,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7834,7 +7834,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7846,7 +7846,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteCreate(userWriteStageRequest: UserWriteStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteCreate(userWriteStageRequest: UserWriteStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteCreateWithRequestBuilder(userWriteStageRequest: userWriteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7868,7 +7868,7 @@ open class StagesAPI {
      */
     open class func stagesUserWriteCreateWithRequestBuilder(userWriteStageRequest: UserWriteStageRequest) -> RequestBuilder<UserWriteStage> {
         let localVariablePath = "/stages/user_write/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userWriteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7879,7 +7879,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7891,7 +7891,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -7916,7 +7916,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -7927,7 +7927,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -7957,7 +7957,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteListWithRequestBuilder(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -7988,7 +7988,7 @@ open class StagesAPI {
      */
     open class func stagesUserWriteListWithRequestBuilder(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil) -> RequestBuilder<PaginatedUserWriteStageList> {
         let localVariablePath = "/stages/user_write/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -8011,7 +8011,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserWriteStageList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserWriteStageList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -8024,7 +8024,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWritePartialUpdate(stageUuid: UUID, patchedUserWriteStageRequest: PatchedUserWriteStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWritePartialUpdate(stageUuid: UUID, patchedUserWriteStageRequest: PatchedUserWriteStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWritePartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedUserWriteStageRequest: patchedUserWriteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -8050,7 +8050,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserWriteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -8061,7 +8061,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -8073,7 +8073,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -8098,7 +8098,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -8109,7 +8109,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -8122,7 +8122,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteUpdate(stageUuid: UUID, userWriteStageRequest: UserWriteStageRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteUpdate(stageUuid: UUID, userWriteStageRequest: UserWriteStageRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: UserWriteStage?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteUpdateWithRequestBuilder(stageUuid: stageUuid, userWriteStageRequest: userWriteStageRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -8148,7 +8148,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userWriteStageRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -8159,7 +8159,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserWriteStage>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -8171,7 +8171,7 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func stagesUserWriteUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return stagesUserWriteUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -8196,7 +8196,7 @@ open class StagesAPI {
         let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
         let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -8207,7 +8207,7 @@ open class StagesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

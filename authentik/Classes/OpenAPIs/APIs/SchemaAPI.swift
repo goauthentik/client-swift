@@ -131,7 +131,7 @@ open class SchemaAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func schemaRetrieve(format: Format_schemaRetrieve? = nil, lang: Lang_schemaRetrieve? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [String: AnyCodable]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func schemaRetrieve(format: Format_schemaRetrieve? = nil, lang: Lang_schemaRetrieve? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [String: AnyCodable]?, _ error: Error?) -> Void)) -> RequestTask {
         return schemaRetrieveWithRequestBuilder(format: format, lang: lang).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -154,7 +154,7 @@ open class SchemaAPI {
      */
     open class func schemaRetrieveWithRequestBuilder(format: Format_schemaRetrieve? = nil, lang: Lang_schemaRetrieve? = nil) -> RequestBuilder<[String: AnyCodable]> {
         let localVariablePath = "/schema/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -169,7 +169,7 @@ open class SchemaAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String: AnyCodable]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -19,7 +19,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsApplyCreate(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsApplyCreate(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsApplyCreateWithRequestBuilder(instanceUuid: instanceUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -44,7 +44,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -55,7 +55,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -66,7 +66,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsAvailableList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [BlueprintFile]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsAvailableList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [BlueprintFile]?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsAvailableListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -87,7 +87,7 @@ open class ManagedAPI {
      */
     open class func managedBlueprintsAvailableListWithRequestBuilder() -> RequestBuilder<[BlueprintFile]> {
         let localVariablePath = "/managed/blueprints/available/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -98,7 +98,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[BlueprintFile]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[BlueprintFile]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -110,7 +110,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsCreate(blueprintInstanceRequest: BlueprintInstanceRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsCreate(blueprintInstanceRequest: BlueprintInstanceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsCreateWithRequestBuilder(blueprintInstanceRequest: blueprintInstanceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -132,7 +132,7 @@ open class ManagedAPI {
      */
     open class func managedBlueprintsCreateWithRequestBuilder(blueprintInstanceRequest: BlueprintInstanceRequest) -> RequestBuilder<BlueprintInstance> {
         let localVariablePath = "/managed/blueprints/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: blueprintInstanceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -143,7 +143,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -155,7 +155,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsDestroy(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsDestroy(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsDestroyWithRequestBuilder(instanceUuid: instanceUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -180,7 +180,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -191,7 +191,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -208,7 +208,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedBlueprintInstanceList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedBlueprintInstanceList?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -235,7 +235,7 @@ open class ManagedAPI {
      */
     open class func managedBlueprintsListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, search: String? = nil) -> RequestBuilder<PaginatedBlueprintInstanceList> {
         let localVariablePath = "/managed/blueprints/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -254,7 +254,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedBlueprintInstanceList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedBlueprintInstanceList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -267,7 +267,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsPartialUpdate(instanceUuid: UUID, patchedBlueprintInstanceRequest: PatchedBlueprintInstanceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsPartialUpdate(instanceUuid: UUID, patchedBlueprintInstanceRequest: PatchedBlueprintInstanceRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsPartialUpdateWithRequestBuilder(instanceUuid: instanceUuid, patchedBlueprintInstanceRequest: patchedBlueprintInstanceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -293,7 +293,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedBlueprintInstanceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -304,7 +304,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -316,7 +316,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsRetrieve(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsRetrieve(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsRetrieveWithRequestBuilder(instanceUuid: instanceUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -341,7 +341,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -352,7 +352,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -365,7 +365,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsUpdate(instanceUuid: UUID, blueprintInstanceRequest: BlueprintInstanceRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsUpdate(instanceUuid: UUID, blueprintInstanceRequest: BlueprintInstanceRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: BlueprintInstance?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsUpdateWithRequestBuilder(instanceUuid: instanceUuid, blueprintInstanceRequest: blueprintInstanceRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -391,7 +391,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: blueprintInstanceRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -402,7 +402,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BlueprintInstance>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -414,7 +414,7 @@ open class ManagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func managedBlueprintsUsedByList(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func managedBlueprintsUsedByList(instanceUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return managedBlueprintsUsedByListWithRequestBuilder(instanceUuid: instanceUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -439,7 +439,7 @@ open class ManagedAPI {
         let instanceUuidPreEscape = "\(APIHelper.mapValueToPathItem(instanceUuid))"
         let instanceUuidPostEscape = instanceUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{instance_uuid}", with: instanceUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -450,7 +450,7 @@ open class ManagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

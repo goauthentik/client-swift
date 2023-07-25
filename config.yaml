@@ -2,7 +2,7 @@ templateDir: /local/templates/
 additionalProperties:
   disallowAdditionalPropertiesIfNotPresent: false
   enumUnknownDefaultCase: true
-  projectName: authentikAPI
+  projectName: authentik
   podAuthors: authentik Team
   podHomepage: https://goauthentik.io/
   podSummary: authentik Swift API Client

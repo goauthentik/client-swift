@@ -28,7 +28,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let certificateKeyPairRequest = CertificateKeyPairRequest(name: "name_example", certificateData: "certificateData_example", keyData: "keyData_example") // CertificateKeyPairRequest | 
 
@@ -77,7 +77,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 
@@ -126,7 +126,7 @@ Generate a new, self-signed certificate-key pair
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let certificateGenerationRequest = CertificateGenerationRequest(commonName: "commonName_example", subjectAltName: "subjectAltName_example", validityDays: 123) // CertificateGenerationRequest | 
 
@@ -175,7 +175,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let hasKey = true // Bool | Only return certificate-key pairs with keys (optional)
 let includeDetails = true // Bool |  (optional) (default to true)
@@ -238,7 +238,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 let patchedCertificateKeyPairRequest = PatchedCertificateKeyPairRequest(name: "name_example", certificateData: "certificateData_example", keyData: "keyData_example") // PatchedCertificateKeyPairRequest |  (optional)
@@ -289,7 +289,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 
@@ -338,7 +338,7 @@ CertificateKeyPair Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 let certificateKeyPairRequest = CertificateKeyPairRequest(name: "name_example", certificateData: "certificateData_example", keyData: "keyData_example") // CertificateKeyPairRequest | 
@@ -389,7 +389,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 
@@ -438,7 +438,7 @@ Return certificate-key pairs certificate and log access
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 let download = true // Bool |  (optional)
@@ -489,7 +489,7 @@ Return certificate-key pairs private key and log access
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let kpUuid = 987 // UUID | A UUID string identifying this Certificate-Key Pair.
 let download = true // Bool |  (optional)

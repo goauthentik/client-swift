@@ -71,7 +71,7 @@ Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this provider.
 
@@ -120,7 +120,7 @@ Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let applicationIsnull = true // Bool |  (optional)
 let backchannelOnly = true // Bool |  (optional)
@@ -179,7 +179,7 @@ Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this provider.
 
@@ -228,7 +228,7 @@ Get all creatable provider types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 ProvidersAPI.providersAllTypesList() { (response, error) in
@@ -273,7 +273,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this provider.
 
@@ -322,7 +322,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
 
@@ -371,7 +371,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 
@@ -420,7 +420,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let applicationIsnull = true // Bool |  (optional)
 let authorizationFlowSlugIexact = "authorizationFlowSlugIexact_example" // String |  (optional)
@@ -497,7 +497,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 let patchedLDAPProviderRequest = PatchedLDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // PatchedLDAPProviderRequest |  (optional)
@@ -548,7 +548,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 
@@ -597,7 +597,7 @@ LDAPProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
@@ -648,7 +648,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
 
@@ -697,7 +697,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // OAuth2ProviderRequest | 
 
@@ -746,7 +746,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 
@@ -795,7 +795,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let accessCodeValidity = "accessCodeValidity_example" // String |  (optional)
 let accessTokenValidity = "accessTokenValidity_example" // String |  (optional)
@@ -878,7 +878,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 let patchedOAuth2ProviderRequest = PatchedOAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // PatchedOAuth2ProviderRequest |  (optional)
@@ -929,7 +929,7 @@ Preview user data for provider
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 
@@ -978,7 +978,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 
@@ -1027,7 +1027,7 @@ Get Providers setup URLs
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 
@@ -1076,7 +1076,7 @@ OAuth2Provider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // OAuth2ProviderRequest | 
@@ -1127,7 +1127,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
 
@@ -1176,7 +1176,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
 
@@ -1225,7 +1225,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 
@@ -1274,7 +1274,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let applicationIsnull = true // Bool |  (optional)
 let authorizationFlowSlugIexact = "authorizationFlowSlugIexact_example" // String |  (optional)
@@ -1361,7 +1361,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 let patchedProxyProviderRequest = PatchedProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // PatchedProxyProviderRequest |  (optional)
@@ -1412,7 +1412,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 
@@ -1461,7 +1461,7 @@ ProxyProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
@@ -1512,7 +1512,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
 
@@ -1561,7 +1561,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example") // RadiusProviderRequest | 
 
@@ -1610,7 +1610,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 
@@ -1659,7 +1659,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let applicationIsnull = true // Bool |  (optional)
 let authorizationFlowSlugIexact = "authorizationFlowSlugIexact_example" // String |  (optional)
@@ -1722,7 +1722,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 let patchedRadiusProviderRequest = PatchedRadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example") // PatchedRadiusProviderRequest |  (optional)
@@ -1773,7 +1773,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 
@@ -1822,7 +1822,7 @@ RadiusProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example") // RadiusProviderRequest | 
@@ -1873,7 +1873,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
 
@@ -1922,7 +1922,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // SAMLProviderRequest | 
 
@@ -1971,7 +1971,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 
@@ -2020,7 +2020,7 @@ Create provider from SAML Metadata
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let name = "name_example" // String | 
 let authorizationFlow = "authorizationFlow_example" // String | Visible in the URL.
@@ -2073,7 +2073,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let acsUrl = "acsUrl_example" // String |  (optional)
 let assertionValidNotBefore = "assertionValidNotBefore_example" // String |  (optional)
@@ -2164,7 +2164,7 @@ Return metadata as XML string
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 let download = true // Bool |  (optional)
@@ -2217,7 +2217,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // PatchedSAMLProviderRequest |  (optional)
@@ -2268,7 +2268,7 @@ Preview user data for provider
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 
@@ -2317,7 +2317,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 
@@ -2366,7 +2366,7 @@ SAMLProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // SAMLProviderRequest | 
@@ -2417,7 +2417,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
 
@@ -2466,7 +2466,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // SCIMProviderRequest | 
 
@@ -2515,7 +2515,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 
@@ -2564,7 +2564,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let excludeUsersServiceAccount = true // Bool |  (optional)
 let filterGroup = 987 // UUID |  (optional)
@@ -2627,7 +2627,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // PatchedSCIMProviderRequest |  (optional)
@@ -2678,7 +2678,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 
@@ -2727,7 +2727,7 @@ Get provider's sync status
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 
@@ -2776,7 +2776,7 @@ SCIMProvider Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // SCIMProviderRequest | 
@@ -2827,7 +2827,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
 

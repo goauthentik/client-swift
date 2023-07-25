@@ -28,7 +28,7 @@ Read-only view list all installed apps
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminAppsList() { (response, error) in
@@ -73,7 +73,7 @@ Login Metrics per 1h
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminMetricsRetrieve() { (response, error) in
@@ -118,7 +118,7 @@ Read-only view list all installed models
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminModelsList() { (response, error) in
@@ -163,7 +163,7 @@ Get system information.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminSystemCreate() { (response, error) in
@@ -208,7 +208,7 @@ Get system information.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminSystemRetrieve() { (response, error) in
@@ -253,7 +253,7 @@ List system tasks
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminSystemTasksList() { (response, error) in
@@ -298,7 +298,7 @@ Get a single system task
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = "id_example" // String | 
 
@@ -347,7 +347,7 @@ Retry task
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let id = "id_example" // String | 
 
@@ -396,7 +396,7 @@ Get running and latest version.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminVersionRetrieve() { (response, error) in
@@ -441,7 +441,7 @@ Get currently connected worker count.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 AdminAPI.adminWorkersRetrieve() { (response, error) in

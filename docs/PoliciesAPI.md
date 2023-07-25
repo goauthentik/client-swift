@@ -79,7 +79,7 @@ Clear policy cache
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 PoliciesAPI.policiesAllCacheClearCreate() { (response, error) in
@@ -124,7 +124,7 @@ Info about cached policies
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 PoliciesAPI.policiesAllCacheInfoRetrieve() { (response, error) in
@@ -169,7 +169,7 @@ Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Policy.
 
@@ -218,7 +218,7 @@ Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let bindingsIsnull = true // Bool |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -277,7 +277,7 @@ Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Policy.
 
@@ -326,7 +326,7 @@ Test policy
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Policy.
 let policyTestRequest = PolicyTestRequest(user: 123, context: "TODO") // PolicyTestRequest | 
@@ -377,7 +377,7 @@ Get all creatable policy types
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 PoliciesAPI.policiesAllTypesList() { (response, error) in
@@ -422,7 +422,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Policy.
 
@@ -471,7 +471,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PolicyBindingRequest | 
 
@@ -520,7 +520,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
 
@@ -569,7 +569,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let enabled = true // Bool |  (optional)
 let order = 987 // Int |  (optional)
@@ -638,7 +638,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
 let patchedPolicyBindingRequest = PatchedPolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PatchedPolicyBindingRequest |  (optional)
@@ -689,7 +689,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
 
@@ -738,7 +738,7 @@ PolicyBinding Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
 let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PolicyBindingRequest | 
@@ -789,7 +789,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
 
@@ -838,7 +838,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let dummyPolicyRequest = DummyPolicyRequest(name: "name_example", executionLogging: false, result: false, waitMin: 123, waitMax: 123) // DummyPolicyRequest | 
 
@@ -887,7 +887,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Dummy Policy.
 
@@ -936,7 +936,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let created = Date() // Date |  (optional)
 let executionLogging = true // Bool |  (optional)
@@ -1007,7 +1007,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Dummy Policy.
 let patchedDummyPolicyRequest = PatchedDummyPolicyRequest(name: "name_example", executionLogging: false, result: false, waitMin: 123, waitMax: 123) // PatchedDummyPolicyRequest |  (optional)
@@ -1058,7 +1058,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Dummy Policy.
 
@@ -1107,7 +1107,7 @@ Dummy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Dummy Policy.
 let dummyPolicyRequest = DummyPolicyRequest(name: "name_example", executionLogging: false, result: false, waitMin: 123, waitMax: 123) // DummyPolicyRequest | 
@@ -1158,7 +1158,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Dummy Policy.
 
@@ -1207,7 +1207,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventMatcherPolicyRequest = EventMatcherPolicyRequest(name: "name_example", executionLogging: false, action: EventActions(), clientIp: "clientIp_example", app: AppEnum(), model: ModelEnum()) // EventMatcherPolicyRequest | 
 
@@ -1256,7 +1256,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Event Matcher Policy.
 
@@ -1305,7 +1305,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let action = "action_example" // String | Match created events with this action type. When left empty, all action types will be matched.  * `login` - Login * `login_failed` - Login Failed * `logout` - Logout * `user_write` - User Write * `suspicious_request` - Suspicious Request * `password_set` - Password Set * `secret_view` - Secret View * `secret_rotate` - Secret Rotate * `invitation_used` - Invite Used * `authorize_application` - Authorize Application * `source_linked` - Source Linked * `impersonation_started` - Impersonation Started * `impersonation_ended` - Impersonation Ended * `flow_execution` - Flow Execution * `policy_execution` - Policy Execution * `policy_exception` - Policy Exception * `property_mapping_exception` - Property Mapping Exception * `system_task_execution` - System Task Execution * `system_task_exception` - System Task Exception * `system_exception` - System Exception * `configuration_error` - Configuration Error * `model_created` - Model Created * `model_updated` - Model Updated * `model_deleted` - Model Deleted * `email_sent` - Email Sent * `update_available` - Update Available * `custom_` - Custom Prefix (optional)
 let app = "app_example" // String |  (optional)
@@ -1378,7 +1378,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Event Matcher Policy.
 let patchedEventMatcherPolicyRequest = PatchedEventMatcherPolicyRequest(name: "name_example", executionLogging: false, action: EventActions(), clientIp: "clientIp_example", app: AppEnum(), model: ModelEnum()) // PatchedEventMatcherPolicyRequest |  (optional)
@@ -1429,7 +1429,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Event Matcher Policy.
 
@@ -1478,7 +1478,7 @@ Event Matcher Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Event Matcher Policy.
 let eventMatcherPolicyRequest = EventMatcherPolicyRequest(name: "name_example", executionLogging: false, action: EventActions(), clientIp: "clientIp_example", app: AppEnum(), model: ModelEnum()) // EventMatcherPolicyRequest | 
@@ -1529,7 +1529,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Event Matcher Policy.
 
@@ -1578,7 +1578,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let expressionPolicyRequest = ExpressionPolicyRequest(name: "name_example", executionLogging: false, expression: "expression_example") // ExpressionPolicyRequest | 
 
@@ -1627,7 +1627,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Expression Policy.
 
@@ -1676,7 +1676,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let created = Date() // Date |  (optional)
 let executionLogging = true // Bool |  (optional)
@@ -1743,7 +1743,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Expression Policy.
 let patchedExpressionPolicyRequest = PatchedExpressionPolicyRequest(name: "name_example", executionLogging: false, expression: "expression_example") // PatchedExpressionPolicyRequest |  (optional)
@@ -1794,7 +1794,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Expression Policy.
 
@@ -1843,7 +1843,7 @@ Source Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Expression Policy.
 let expressionPolicyRequest = ExpressionPolicyRequest(name: "name_example", executionLogging: false, expression: "expression_example") // ExpressionPolicyRequest | 
@@ -1894,7 +1894,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Expression Policy.
 
@@ -1943,7 +1943,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let passwordPolicyRequest = PasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", amountDigits: 123, amountUppercase: 123, amountLowercase: 123, amountSymbols: 123, lengthMin: 123, symbolCharset: "symbolCharset_example", errorMessage: "errorMessage_example", checkStaticRules: false, checkHaveIBeenPwned: false, checkZxcvbn: false, hibpAllowedCount: 123, zxcvbnScoreThreshold: 123) // PasswordPolicyRequest | 
 
@@ -1992,7 +1992,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Policy.
 
@@ -2041,7 +2041,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let passwordExpiryPolicyRequest = PasswordExpiryPolicyRequest(name: "name_example", executionLogging: false, days: 123, denyOnly: false) // PasswordExpiryPolicyRequest | 
 
@@ -2090,7 +2090,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Expiry Policy.
 
@@ -2139,7 +2139,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let created = Date() // Date |  (optional)
 let days = 987 // Int |  (optional)
@@ -2208,7 +2208,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Expiry Policy.
 let patchedPasswordExpiryPolicyRequest = PatchedPasswordExpiryPolicyRequest(name: "name_example", executionLogging: false, days: 123, denyOnly: false) // PatchedPasswordExpiryPolicyRequest |  (optional)
@@ -2259,7 +2259,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Expiry Policy.
 
@@ -2308,7 +2308,7 @@ Password Expiry Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Expiry Policy.
 let passwordExpiryPolicyRequest = PasswordExpiryPolicyRequest(name: "name_example", executionLogging: false, days: 123, denyOnly: false) // PasswordExpiryPolicyRequest | 
@@ -2359,7 +2359,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Expiry Policy.
 
@@ -2408,7 +2408,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let amountDigits = 987 // Int |  (optional)
 let amountLowercase = 987 // Int |  (optional)
@@ -2499,7 +2499,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Policy.
 let patchedPasswordPolicyRequest = PatchedPasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", amountDigits: 123, amountUppercase: 123, amountLowercase: 123, amountSymbols: 123, lengthMin: 123, symbolCharset: "symbolCharset_example", errorMessage: "errorMessage_example", checkStaticRules: false, checkHaveIBeenPwned: false, checkZxcvbn: false, hibpAllowedCount: 123, zxcvbnScoreThreshold: 123) // PatchedPasswordPolicyRequest |  (optional)
@@ -2550,7 +2550,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Policy.
 
@@ -2599,7 +2599,7 @@ Password Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Policy.
 let passwordPolicyRequest = PasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", amountDigits: 123, amountUppercase: 123, amountLowercase: 123, amountSymbols: 123, lengthMin: 123, symbolCharset: "symbolCharset_example", errorMessage: "errorMessage_example", checkStaticRules: false, checkHaveIBeenPwned: false, checkZxcvbn: false, hibpAllowedCount: 123, zxcvbnScoreThreshold: 123) // PasswordPolicyRequest | 
@@ -2650,7 +2650,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Password Policy.
 
@@ -2699,7 +2699,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let reputationPolicyRequest = ReputationPolicyRequest(name: "name_example", executionLogging: false, checkIp: false, checkUsername: false, threshold: 123) // ReputationPolicyRequest | 
 
@@ -2748,7 +2748,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Reputation Policy.
 
@@ -2797,7 +2797,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let checkIp = true // Bool |  (optional)
 let checkUsername = true // Bool |  (optional)
@@ -2868,7 +2868,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Reputation Policy.
 let patchedReputationPolicyRequest = PatchedReputationPolicyRequest(name: "name_example", executionLogging: false, checkIp: false, checkUsername: false, threshold: 123) // PatchedReputationPolicyRequest |  (optional)
@@ -2919,7 +2919,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Reputation Policy.
 
@@ -2968,7 +2968,7 @@ Reputation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
 
@@ -3017,7 +3017,7 @@ Reputation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let identifier = "identifier_example" // String |  (optional)
 let ip = "ip_example" // String |  (optional)
@@ -3078,7 +3078,7 @@ Reputation Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
 
@@ -3127,7 +3127,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
 
@@ -3176,7 +3176,7 @@ Reputation Policy Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Reputation Policy.
 let reputationPolicyRequest = ReputationPolicyRequest(name: "name_example", executionLogging: false, checkIp: false, checkUsername: false, threshold: 123) // ReputationPolicyRequest | 
@@ -3227,7 +3227,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let policyUuid = 987 // UUID | A UUID string identifying this Reputation Policy.
 

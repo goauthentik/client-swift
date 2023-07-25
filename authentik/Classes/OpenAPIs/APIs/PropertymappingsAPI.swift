@@ -19,7 +19,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -44,7 +44,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -55,7 +55,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -71,7 +71,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllList(managedIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllList(managedIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllListWithRequestBuilder(managedIsnull: managedIsnull, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -97,7 +97,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsAllListWithRequestBuilder(managedIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedPropertyMappingList> {
         let localVariablePath = "/propertymappings/all/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -115,7 +115,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPropertyMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPropertyMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -127,7 +127,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -152,7 +152,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -163,7 +163,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -177,7 +177,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllTestCreate(pmUuid: UUID, policyTestRequest: PolicyTestRequest, formatResult: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingTestResult?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllTestCreate(pmUuid: UUID, policyTestRequest: PolicyTestRequest, formatResult: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingTestResult?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllTestCreateWithRequestBuilder(pmUuid: pmUuid, policyTestRequest: policyTestRequest, formatResult: formatResult).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -204,7 +204,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyTestRequest)
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -218,7 +218,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PropertyMappingTestResult>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PropertyMappingTestResult>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -229,7 +229,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllTypesList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllTypesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllTypesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -250,7 +250,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsAllTypesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/propertymappings/all/types/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -261,7 +261,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -273,7 +273,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsAllUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsAllUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsAllUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -298,7 +298,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -309,7 +309,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -321,7 +321,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapCreate(lDAPPropertyMappingRequest: LDAPPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapCreate(lDAPPropertyMappingRequest: LDAPPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapCreateWithRequestBuilder(lDAPPropertyMappingRequest: lDAPPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -343,7 +343,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsLdapCreateWithRequestBuilder(lDAPPropertyMappingRequest: LDAPPropertyMappingRequest) -> RequestBuilder<LDAPPropertyMapping> {
         let localVariablePath = "/propertymappings/ldap/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: lDAPPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -354,7 +354,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -366,7 +366,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -391,7 +391,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -402,7 +402,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -422,7 +422,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapList(expression: String? = nil, managed: [String]? = nil, name: String? = nil, objectField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapList(expression: String? = nil, managed: [String]? = nil, name: String? = nil, objectField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapListWithRequestBuilder(expression: expression, managed: managed, name: name, objectField: objectField, ordering: ordering, page: page, pageSize: pageSize, pmUuid: pmUuid, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -452,7 +452,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsLdapListWithRequestBuilder(expression: String? = nil, managed: [String]? = nil, name: String? = nil, objectField: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil) -> RequestBuilder<PaginatedLDAPPropertyMappingList> {
         let localVariablePath = "/propertymappings/ldap/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -474,7 +474,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPPropertyMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPPropertyMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -487,7 +487,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapPartialUpdate(pmUuid: UUID, patchedLDAPPropertyMappingRequest: PatchedLDAPPropertyMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapPartialUpdate(pmUuid: UUID, patchedLDAPPropertyMappingRequest: PatchedLDAPPropertyMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedLDAPPropertyMappingRequest: patchedLDAPPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -513,7 +513,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedLDAPPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -524,7 +524,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -536,7 +536,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -561,7 +561,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -572,7 +572,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -585,7 +585,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapUpdate(pmUuid: UUID, lDAPPropertyMappingRequest: LDAPPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapUpdate(pmUuid: UUID, lDAPPropertyMappingRequest: LDAPPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapUpdateWithRequestBuilder(pmUuid: pmUuid, lDAPPropertyMappingRequest: lDAPPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -611,7 +611,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: lDAPPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -622,7 +622,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -634,7 +634,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsLdapUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsLdapUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsLdapUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -659,7 +659,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -670,7 +670,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -682,7 +682,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationCreate(notificationWebhookMappingRequest: NotificationWebhookMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationCreate(notificationWebhookMappingRequest: NotificationWebhookMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationCreateWithRequestBuilder(notificationWebhookMappingRequest: notificationWebhookMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -704,7 +704,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsNotificationCreateWithRequestBuilder(notificationWebhookMappingRequest: NotificationWebhookMappingRequest) -> RequestBuilder<NotificationWebhookMapping> {
         let localVariablePath = "/propertymappings/notification/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationWebhookMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -715,7 +715,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -727,7 +727,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -752,7 +752,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -763,7 +763,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -779,7 +779,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationWebhookMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedNotificationWebhookMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -805,7 +805,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsNotificationListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedNotificationWebhookMappingList> {
         let localVariablePath = "/propertymappings/notification/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -823,7 +823,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationWebhookMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedNotificationWebhookMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -836,7 +836,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationPartialUpdate(pmUuid: UUID, patchedNotificationWebhookMappingRequest: PatchedNotificationWebhookMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationPartialUpdate(pmUuid: UUID, patchedNotificationWebhookMappingRequest: PatchedNotificationWebhookMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedNotificationWebhookMappingRequest: patchedNotificationWebhookMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -862,7 +862,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedNotificationWebhookMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -873,7 +873,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -885,7 +885,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -910,7 +910,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -921,7 +921,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -934,7 +934,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationUpdate(pmUuid: UUID, notificationWebhookMappingRequest: NotificationWebhookMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationUpdate(pmUuid: UUID, notificationWebhookMappingRequest: NotificationWebhookMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: NotificationWebhookMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationUpdateWithRequestBuilder(pmUuid: pmUuid, notificationWebhookMappingRequest: notificationWebhookMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -960,7 +960,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: notificationWebhookMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -971,7 +971,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<NotificationWebhookMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -983,7 +983,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsNotificationUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsNotificationUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsNotificationUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1008,7 +1008,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1019,7 +1019,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1031,7 +1031,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlCreate(sAMLPropertyMappingRequest: SAMLPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlCreate(sAMLPropertyMappingRequest: SAMLPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlCreateWithRequestBuilder(sAMLPropertyMappingRequest: sAMLPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1053,7 +1053,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsSamlCreateWithRequestBuilder(sAMLPropertyMappingRequest: SAMLPropertyMappingRequest) -> RequestBuilder<SAMLPropertyMapping> {
         let localVariablePath = "/propertymappings/saml/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sAMLPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1064,7 +1064,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1076,7 +1076,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1101,7 +1101,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1112,7 +1112,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1133,7 +1133,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlList(expression: String? = nil, friendlyName: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, samlName: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlList(expression: String? = nil, friendlyName: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, samlName: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlListWithRequestBuilder(expression: expression, friendlyName: friendlyName, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, pmUuid: pmUuid, samlName: samlName, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1164,7 +1164,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsSamlListWithRequestBuilder(expression: String? = nil, friendlyName: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, samlName: String? = nil, search: String? = nil) -> RequestBuilder<PaginatedSAMLPropertyMappingList> {
         let localVariablePath = "/propertymappings/saml/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1187,7 +1187,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedSAMLPropertyMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedSAMLPropertyMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1200,7 +1200,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlPartialUpdate(pmUuid: UUID, patchedSAMLPropertyMappingRequest: PatchedSAMLPropertyMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlPartialUpdate(pmUuid: UUID, patchedSAMLPropertyMappingRequest: PatchedSAMLPropertyMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedSAMLPropertyMappingRequest: patchedSAMLPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1226,7 +1226,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedSAMLPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1237,7 +1237,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1249,7 +1249,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1274,7 +1274,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1285,7 +1285,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1298,7 +1298,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlUpdate(pmUuid: UUID, sAMLPropertyMappingRequest: SAMLPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlUpdate(pmUuid: UUID, sAMLPropertyMappingRequest: SAMLPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SAMLPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlUpdateWithRequestBuilder(pmUuid: pmUuid, sAMLPropertyMappingRequest: sAMLPropertyMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1324,7 +1324,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sAMLPropertyMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1335,7 +1335,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLPropertyMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1347,7 +1347,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsSamlUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsSamlUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsSamlUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1372,7 +1372,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1383,7 +1383,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1395,7 +1395,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimCreate(sCIMMappingRequest: SCIMMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimCreate(sCIMMappingRequest: SCIMMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimCreateWithRequestBuilder(sCIMMappingRequest: sCIMMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1417,7 +1417,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsScimCreateWithRequestBuilder(sCIMMappingRequest: SCIMMappingRequest) -> RequestBuilder<SCIMMapping> {
         let localVariablePath = "/propertymappings/scim/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sCIMMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1428,7 +1428,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1440,7 +1440,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1465,7 +1465,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1476,7 +1476,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1495,7 +1495,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimList(expression: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSCIMMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimList(expression: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSCIMMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimListWithRequestBuilder(expression: expression, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, pmUuid: pmUuid, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1524,7 +1524,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsScimListWithRequestBuilder(expression: String? = nil, managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pmUuid: UUID? = nil, search: String? = nil) -> RequestBuilder<PaginatedSCIMMappingList> {
         let localVariablePath = "/propertymappings/scim/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1545,7 +1545,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedSCIMMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedSCIMMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1558,7 +1558,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimPartialUpdate(pmUuid: UUID, patchedSCIMMappingRequest: PatchedSCIMMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimPartialUpdate(pmUuid: UUID, patchedSCIMMappingRequest: PatchedSCIMMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedSCIMMappingRequest: patchedSCIMMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1584,7 +1584,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedSCIMMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1595,7 +1595,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1607,7 +1607,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1632,7 +1632,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1643,7 +1643,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1656,7 +1656,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimUpdate(pmUuid: UUID, sCIMMappingRequest: SCIMMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimUpdate(pmUuid: UUID, sCIMMappingRequest: SCIMMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimUpdateWithRequestBuilder(pmUuid: pmUuid, sCIMMappingRequest: sCIMMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1682,7 +1682,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sCIMMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1693,7 +1693,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SCIMMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1705,7 +1705,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScimUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScimUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScimUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1730,7 +1730,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1741,7 +1741,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1753,7 +1753,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeCreate(scopeMappingRequest: ScopeMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeCreate(scopeMappingRequest: ScopeMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeCreateWithRequestBuilder(scopeMappingRequest: scopeMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1775,7 +1775,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsScopeCreateWithRequestBuilder(scopeMappingRequest: ScopeMappingRequest) -> RequestBuilder<ScopeMapping> {
         let localVariablePath = "/propertymappings/scope/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: scopeMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1786,7 +1786,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1798,7 +1798,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1823,7 +1823,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1834,7 +1834,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1852,7 +1852,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeList(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, scopeName: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedScopeMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeList(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, scopeName: String? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedScopeMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeListWithRequestBuilder(managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, scopeName: scopeName, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1880,7 +1880,7 @@ open class PropertymappingsAPI {
      */
     open class func propertymappingsScopeListWithRequestBuilder(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, scopeName: String? = nil, search: String? = nil) -> RequestBuilder<PaginatedScopeMappingList> {
         let localVariablePath = "/propertymappings/scope/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1900,7 +1900,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedScopeMappingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedScopeMappingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1913,7 +1913,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopePartialUpdate(pmUuid: UUID, patchedScopeMappingRequest: PatchedScopeMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopePartialUpdate(pmUuid: UUID, patchedScopeMappingRequest: PatchedScopeMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopePartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedScopeMappingRequest: patchedScopeMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1939,7 +1939,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedScopeMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1950,7 +1950,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1962,7 +1962,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1987,7 +1987,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1998,7 +1998,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2011,7 +2011,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeUpdate(pmUuid: UUID, scopeMappingRequest: ScopeMappingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeUpdate(pmUuid: UUID, scopeMappingRequest: ScopeMappingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ScopeMapping?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeUpdateWithRequestBuilder(pmUuid: pmUuid, scopeMappingRequest: scopeMappingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2037,7 +2037,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: scopeMappingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2048,7 +2048,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ScopeMapping>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2060,7 +2060,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsScopeUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsScopeUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsScopeUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2085,7 +2085,7 @@ open class PropertymappingsAPI {
         let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
         let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2096,7 +2096,7 @@ open class PropertymappingsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

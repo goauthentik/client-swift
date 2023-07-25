@@ -19,7 +19,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesCreate(outpostRequest: OutpostRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesCreate(outpostRequest: OutpostRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesCreateWithRequestBuilder(outpostRequest: outpostRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -41,7 +41,7 @@ open class OutpostsAPI {
      */
     open class func outpostsInstancesCreateWithRequestBuilder(outpostRequest: OutpostRequest) -> RequestBuilder<Outpost> {
         let localVariablePath = "/outposts/instances/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: outpostRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -52,7 +52,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -63,7 +63,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesDefaultSettingsRetrieve(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: OutpostDefaultConfig?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesDefaultSettingsRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: OutpostDefaultConfig?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesDefaultSettingsRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -84,7 +84,7 @@ open class OutpostsAPI {
      */
     open class func outpostsInstancesDefaultSettingsRetrieveWithRequestBuilder() -> RequestBuilder<OutpostDefaultConfig> {
         let localVariablePath = "/outposts/instances/default_settings/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -95,7 +95,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<OutpostDefaultConfig>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<OutpostDefaultConfig>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -107,7 +107,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -132,7 +132,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -143,7 +143,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -165,7 +165,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesHealthList(uuid: UUID, managedIcontains: String? = nil, managedIexact: String? = nil, nameIcontains: String? = nil, nameIexact: String? = nil, ordering: String? = nil, providersIsnull: Bool? = nil, providersByPk: [Int]? = nil, search: String? = nil, serviceConnectionNameIcontains: String? = nil, serviceConnectionNameIexact: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [OutpostHealth]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesHealthList(uuid: UUID, managedIcontains: String? = nil, managedIexact: String? = nil, nameIcontains: String? = nil, nameIexact: String? = nil, ordering: String? = nil, providersIsnull: Bool? = nil, providersByPk: [Int]? = nil, search: String? = nil, serviceConnectionNameIcontains: String? = nil, serviceConnectionNameIexact: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [OutpostHealth]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesHealthListWithRequestBuilder(uuid: uuid, managedIcontains: managedIcontains, managedIexact: managedIexact, nameIcontains: nameIcontains, nameIexact: nameIexact, ordering: ordering, providersIsnull: providersIsnull, providersByPk: providersByPk, search: search, serviceConnectionNameIcontains: serviceConnectionNameIcontains, serviceConnectionNameIexact: serviceConnectionNameIexact).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -200,7 +200,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -223,7 +223,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[OutpostHealth]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[OutpostHealth]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -246,7 +246,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesList(managedIcontains: String? = nil, managedIexact: String? = nil, nameIcontains: String? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providersIsnull: Bool? = nil, providersByPk: [Int]? = nil, search: String? = nil, serviceConnectionNameIcontains: String? = nil, serviceConnectionNameIexact: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedOutpostList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesList(managedIcontains: String? = nil, managedIexact: String? = nil, nameIcontains: String? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providersIsnull: Bool? = nil, providersByPk: [Int]? = nil, search: String? = nil, serviceConnectionNameIcontains: String? = nil, serviceConnectionNameIexact: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedOutpostList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesListWithRequestBuilder(managedIcontains: managedIcontains, managedIexact: managedIexact, nameIcontains: nameIcontains, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, providersIsnull: providersIsnull, providersByPk: providersByPk, search: search, serviceConnectionNameIcontains: serviceConnectionNameIcontains, serviceConnectionNameIexact: serviceConnectionNameIexact).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -279,7 +279,7 @@ open class OutpostsAPI {
      */
     open class func outpostsInstancesListWithRequestBuilder(managedIcontains: String? = nil, managedIexact: String? = nil, nameIcontains: String? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providersIsnull: Bool? = nil, providersByPk: [Int]? = nil, search: String? = nil, serviceConnectionNameIcontains: String? = nil, serviceConnectionNameIexact: String? = nil) -> RequestBuilder<PaginatedOutpostList> {
         let localVariablePath = "/outposts/instances/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -304,7 +304,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedOutpostList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedOutpostList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -317,7 +317,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesPartialUpdate(uuid: UUID, patchedOutpostRequest: PatchedOutpostRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesPartialUpdate(uuid: UUID, patchedOutpostRequest: PatchedOutpostRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesPartialUpdateWithRequestBuilder(uuid: uuid, patchedOutpostRequest: patchedOutpostRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -343,7 +343,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedOutpostRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -354,7 +354,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -366,7 +366,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -391,7 +391,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -402,7 +402,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -415,7 +415,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesUpdate(uuid: UUID, outpostRequest: OutpostRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesUpdate(uuid: UUID, outpostRequest: OutpostRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Outpost?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesUpdateWithRequestBuilder(uuid: uuid, outpostRequest: outpostRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -441,7 +441,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: outpostRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -452,7 +452,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Outpost>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -464,7 +464,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsInstancesUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsInstancesUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsInstancesUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -489,7 +489,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -500,7 +500,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -516,7 +516,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsLdapList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsLdapList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLDAPOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsLdapListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -542,7 +542,7 @@ open class OutpostsAPI {
      */
     open class func outpostsLdapListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedLDAPOutpostConfigList> {
         let localVariablePath = "/outposts/ldap/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -560,7 +560,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPOutpostConfigList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLDAPOutpostConfigList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -572,7 +572,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsLdapRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsLdapRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsLdapRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -597,7 +597,7 @@ open class OutpostsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -608,7 +608,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<LDAPOutpostConfig>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPOutpostConfig>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -624,7 +624,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsProxyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedProxyOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsProxyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedProxyOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsProxyListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -650,7 +650,7 @@ open class OutpostsAPI {
      */
     open class func outpostsProxyListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedProxyOutpostConfigList> {
         let localVariablePath = "/outposts/proxy/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -668,7 +668,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedProxyOutpostConfigList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedProxyOutpostConfigList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -680,7 +680,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsProxyRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ProxyOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsProxyRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ProxyOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsProxyRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -705,7 +705,7 @@ open class OutpostsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -716,7 +716,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ProxyOutpostConfig>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ProxyOutpostConfig>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -732,7 +732,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsRadiusList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRadiusOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsRadiusList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRadiusOutpostConfigList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsRadiusListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -758,7 +758,7 @@ open class OutpostsAPI {
      */
     open class func outpostsRadiusListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedRadiusOutpostConfigList> {
         let localVariablePath = "/outposts/radius/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -776,7 +776,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedRadiusOutpostConfigList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedRadiusOutpostConfigList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -788,7 +788,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsRadiusRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: RadiusOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsRadiusRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: RadiusOutpostConfig?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsRadiusRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -813,7 +813,7 @@ open class OutpostsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -824,7 +824,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<RadiusOutpostConfig>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<RadiusOutpostConfig>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -836,7 +836,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -861,7 +861,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -872,7 +872,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -888,7 +888,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -914,7 +914,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsAllListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedServiceConnectionList> {
         let localVariablePath = "/outposts/service_connections/all/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -932,7 +932,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedServiceConnectionList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedServiceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -944,7 +944,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -969,7 +969,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -980,7 +980,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -992,7 +992,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllStateRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceConnectionState?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllStateRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceConnectionState?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllStateRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1017,7 +1017,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1028,7 +1028,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceConnectionState>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceConnectionState>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1039,7 +1039,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllTypesList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllTypesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllTypesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1060,7 +1060,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsAllTypesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/outposts/service_connections/all/types/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1071,7 +1071,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1083,7 +1083,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsAllUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsAllUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsAllUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1108,7 +1108,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1119,7 +1119,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1131,7 +1131,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerCreate(dockerServiceConnectionRequest: DockerServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerCreate(dockerServiceConnectionRequest: DockerServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerCreateWithRequestBuilder(dockerServiceConnectionRequest: dockerServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1153,7 +1153,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsDockerCreateWithRequestBuilder(dockerServiceConnectionRequest: DockerServiceConnectionRequest) -> RequestBuilder<DockerServiceConnection> {
         let localVariablePath = "/outposts/service_connections/docker/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dockerServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1164,7 +1164,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1176,7 +1176,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1201,7 +1201,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1212,7 +1212,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1232,7 +1232,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerList(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tlsAuthentication: UUID? = nil, tlsVerification: UUID? = nil, url: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDockerServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerList(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tlsAuthentication: UUID? = nil, tlsVerification: UUID? = nil, url: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDockerServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerListWithRequestBuilder(local: local, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, tlsAuthentication: tlsAuthentication, tlsVerification: tlsVerification, url: url).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1262,7 +1262,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsDockerListWithRequestBuilder(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tlsAuthentication: UUID? = nil, tlsVerification: UUID? = nil, url: String? = nil) -> RequestBuilder<PaginatedDockerServiceConnectionList> {
         let localVariablePath = "/outposts/service_connections/docker/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1284,7 +1284,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedDockerServiceConnectionList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDockerServiceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1297,7 +1297,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerPartialUpdate(uuid: UUID, patchedDockerServiceConnectionRequest: PatchedDockerServiceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerPartialUpdate(uuid: UUID, patchedDockerServiceConnectionRequest: PatchedDockerServiceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerPartialUpdateWithRequestBuilder(uuid: uuid, patchedDockerServiceConnectionRequest: patchedDockerServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1323,7 +1323,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDockerServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1334,7 +1334,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1346,7 +1346,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1371,7 +1371,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1382,7 +1382,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1395,7 +1395,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerUpdate(uuid: UUID, dockerServiceConnectionRequest: DockerServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerUpdate(uuid: UUID, dockerServiceConnectionRequest: DockerServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DockerServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerUpdateWithRequestBuilder(uuid: uuid, dockerServiceConnectionRequest: dockerServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1421,7 +1421,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dockerServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1432,7 +1432,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DockerServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1444,7 +1444,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsDockerUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsDockerUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsDockerUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1469,7 +1469,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1480,7 +1480,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1492,7 +1492,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesCreate(kubernetesServiceConnectionRequest: KubernetesServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesCreate(kubernetesServiceConnectionRequest: KubernetesServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesCreateWithRequestBuilder(kubernetesServiceConnectionRequest: kubernetesServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1514,7 +1514,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsKubernetesCreateWithRequestBuilder(kubernetesServiceConnectionRequest: KubernetesServiceConnectionRequest) -> RequestBuilder<KubernetesServiceConnection> {
         let localVariablePath = "/outposts/service_connections/kubernetes/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: kubernetesServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1525,7 +1525,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1537,7 +1537,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1562,7 +1562,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1573,7 +1573,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1590,7 +1590,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesList(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedKubernetesServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesList(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedKubernetesServiceConnectionList?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesListWithRequestBuilder(local: local, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1617,7 +1617,7 @@ open class OutpostsAPI {
      */
     open class func outpostsServiceConnectionsKubernetesListWithRequestBuilder(local: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedKubernetesServiceConnectionList> {
         let localVariablePath = "/outposts/service_connections/kubernetes/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1636,7 +1636,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedKubernetesServiceConnectionList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedKubernetesServiceConnectionList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1649,7 +1649,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesPartialUpdate(uuid: UUID, patchedKubernetesServiceConnectionRequest: PatchedKubernetesServiceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesPartialUpdate(uuid: UUID, patchedKubernetesServiceConnectionRequest: PatchedKubernetesServiceConnectionRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesPartialUpdateWithRequestBuilder(uuid: uuid, patchedKubernetesServiceConnectionRequest: patchedKubernetesServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1675,7 +1675,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedKubernetesServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1686,7 +1686,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1698,7 +1698,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1723,7 +1723,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1734,7 +1734,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1747,7 +1747,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesUpdate(uuid: UUID, kubernetesServiceConnectionRequest: KubernetesServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesUpdate(uuid: UUID, kubernetesServiceConnectionRequest: KubernetesServiceConnectionRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: KubernetesServiceConnection?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesUpdateWithRequestBuilder(uuid: uuid, kubernetesServiceConnectionRequest: kubernetesServiceConnectionRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1773,7 +1773,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: kubernetesServiceConnectionRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1784,7 +1784,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<KubernetesServiceConnection>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1796,7 +1796,7 @@ open class OutpostsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func outpostsServiceConnectionsKubernetesUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func outpostsServiceConnectionsKubernetesUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return outpostsServiceConnectionsKubernetesUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1821,7 +1821,7 @@ open class OutpostsAPI {
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1832,7 +1832,7 @@ open class OutpostsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

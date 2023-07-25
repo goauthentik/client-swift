@@ -19,7 +19,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsCreate(certificateKeyPairRequest: CertificateKeyPairRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsCreate(certificateKeyPairRequest: CertificateKeyPairRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsCreateWithRequestBuilder(certificateKeyPairRequest: certificateKeyPairRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -41,7 +41,7 @@ open class CryptoAPI {
      */
     open class func cryptoCertificatekeypairsCreateWithRequestBuilder(certificateKeyPairRequest: CertificateKeyPairRequest) -> RequestBuilder<CertificateKeyPair> {
         let localVariablePath = "/crypto/certificatekeypairs/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: certificateKeyPairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -52,7 +52,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -64,7 +64,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsDestroy(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsDestroy(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsDestroyWithRequestBuilder(kpUuid: kpUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -89,7 +89,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -100,7 +100,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -112,7 +112,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsGenerateCreate(certificateGenerationRequest: CertificateGenerationRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsGenerateCreate(certificateGenerationRequest: CertificateGenerationRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsGenerateCreateWithRequestBuilder(certificateGenerationRequest: certificateGenerationRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -134,7 +134,7 @@ open class CryptoAPI {
      */
     open class func cryptoCertificatekeypairsGenerateCreateWithRequestBuilder(certificateGenerationRequest: CertificateGenerationRequest) -> RequestBuilder<CertificateKeyPair> {
         let localVariablePath = "/crypto/certificatekeypairs/generate/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: certificateGenerationRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -145,7 +145,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -164,7 +164,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, includeDetails: Bool? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedCertificateKeyPairList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, includeDetails: Bool? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedCertificateKeyPairList?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsListWithRequestBuilder(hasKey: hasKey, includeDetails: includeDetails, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -193,7 +193,7 @@ open class CryptoAPI {
      */
     open class func cryptoCertificatekeypairsListWithRequestBuilder(hasKey: Bool? = nil, includeDetails: Bool? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedCertificateKeyPairList> {
         let localVariablePath = "/crypto/certificatekeypairs/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -214,7 +214,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedCertificateKeyPairList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedCertificateKeyPairList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -227,7 +227,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsPartialUpdate(kpUuid: UUID, patchedCertificateKeyPairRequest: PatchedCertificateKeyPairRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsPartialUpdate(kpUuid: UUID, patchedCertificateKeyPairRequest: PatchedCertificateKeyPairRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsPartialUpdateWithRequestBuilder(kpUuid: kpUuid, patchedCertificateKeyPairRequest: patchedCertificateKeyPairRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -253,7 +253,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedCertificateKeyPairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -264,7 +264,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -276,7 +276,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsRetrieve(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsRetrieve(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsRetrieveWithRequestBuilder(kpUuid: kpUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -301,7 +301,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -312,7 +312,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -325,7 +325,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsUpdate(kpUuid: UUID, certificateKeyPairRequest: CertificateKeyPairRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsUpdate(kpUuid: UUID, certificateKeyPairRequest: CertificateKeyPairRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateKeyPair?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsUpdateWithRequestBuilder(kpUuid: kpUuid, certificateKeyPairRequest: certificateKeyPairRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -351,7 +351,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: certificateKeyPairRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -362,7 +362,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateKeyPair>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -374,7 +374,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsUsedByList(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsUsedByList(kpUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsUsedByListWithRequestBuilder(kpUuid: kpUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -399,7 +399,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -410,7 +410,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -423,7 +423,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsViewCertificateRetrieve(kpUuid: UUID, download: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateData?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsViewCertificateRetrieve(kpUuid: UUID, download: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateData?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsViewCertificateRetrieveWithRequestBuilder(kpUuid: kpUuid, download: download).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -449,7 +449,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -463,7 +463,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateData>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateData>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -476,7 +476,7 @@ open class CryptoAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func cryptoCertificatekeypairsViewPrivateKeyRetrieve(kpUuid: UUID, download: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateData?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func cryptoCertificatekeypairsViewPrivateKeyRetrieve(kpUuid: UUID, download: Bool? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: CertificateData?, _ error: Error?) -> Void)) -> RequestTask {
         return cryptoCertificatekeypairsViewPrivateKeyRetrieveWithRequestBuilder(kpUuid: kpUuid, download: download).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -502,7 +502,7 @@ open class CryptoAPI {
         let kpUuidPreEscape = "\(APIHelper.mapValueToPathItem(kpUuid))"
         let kpUuidPostEscape = kpUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{kp_uuid}", with: kpUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -516,7 +516,7 @@ open class CryptoAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CertificateData>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CertificateData>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

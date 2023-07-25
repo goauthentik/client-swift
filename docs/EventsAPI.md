@@ -49,7 +49,7 @@ Get all actions
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 EventsAPI.eventsEventsActionsList() { (response, error) in
@@ -94,7 +94,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
 
@@ -143,7 +143,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
 
@@ -192,7 +192,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let action = "action_example" // String |  (optional)
 let clientIp = "clientIp_example" // String |  (optional)
@@ -263,7 +263,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
 let patchedEventRequest = PatchedEventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // PatchedEventRequest |  (optional)
@@ -314,7 +314,7 @@ Get the count of events per month
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let action = "action_example" // String |  (optional)
 let query = "query_example" // String |  (optional)
@@ -365,7 +365,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
 
@@ -414,7 +414,7 @@ Get the top_n events grouped by user count
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let action = "action_example" // String |  (optional)
 let topN = 987 // Int |  (optional)
@@ -465,7 +465,7 @@ Event Read-Only Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
 let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
@@ -516,7 +516,7 @@ Notification Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
 
@@ -565,7 +565,7 @@ Notification Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let body = "body_example" // String |  (optional)
 let created = Date() // Date |  (optional)
@@ -632,7 +632,7 @@ Mark all the user's notifications as seen
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 EventsAPI.eventsNotificationsMarkAllSeenCreate() { (response, error) in
@@ -677,7 +677,7 @@ Notification Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
 let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
@@ -728,7 +728,7 @@ Notification Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
 
@@ -777,7 +777,7 @@ Notification Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
 let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // NotificationRequest |  (optional)
@@ -828,7 +828,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
 
@@ -877,7 +877,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // NotificationRuleRequest | 
 
@@ -926,7 +926,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
 
@@ -975,7 +975,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let groupName = "groupName_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
@@ -1036,7 +1036,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
 let patchedNotificationRuleRequest = PatchedNotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // PatchedNotificationRuleRequest |  (optional)
@@ -1087,7 +1087,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
 
@@ -1136,7 +1136,7 @@ NotificationRule Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
 let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // NotificationRuleRequest | 
@@ -1187,7 +1187,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
 
@@ -1236,7 +1236,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // NotificationTransportRequest | 
 
@@ -1285,7 +1285,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 
@@ -1334,7 +1334,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let mode = "mode_example" // String | * `local` - authentik inbuilt notifications * `webhook` - Generic Webhook * `webhook_slack` - Slack Webhook (Slack/Discord) * `email` - Email (optional)
 let name = "name_example" // String |  (optional)
@@ -1397,7 +1397,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 let patchedNotificationTransportRequest = PatchedNotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // PatchedNotificationTransportRequest |  (optional)
@@ -1448,7 +1448,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 
@@ -1497,7 +1497,7 @@ Send example notification using selected transport. Requires Modify permissions.
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 
@@ -1546,7 +1546,7 @@ NotificationTransport Viewset
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // NotificationTransportRequest | 
@@ -1597,7 +1597,7 @@ Get a list of all objects that use this object
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
 

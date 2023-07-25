@@ -18,7 +18,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllCacheClearCreate(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllCacheClearCreate(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllCacheClearCreateWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -39,7 +39,7 @@ open class PoliciesAPI {
      */
     open class func policiesAllCacheClearCreateWithRequestBuilder() -> RequestBuilder<Void> {
         let localVariablePath = "/policies/all/cache_clear/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -50,7 +50,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -61,7 +61,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllCacheInfoRetrieve(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Cache?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllCacheInfoRetrieve(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Cache?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllCacheInfoRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -82,7 +82,7 @@ open class PoliciesAPI {
      */
     open class func policiesAllCacheInfoRetrieveWithRequestBuilder() -> RequestBuilder<Cache> {
         let localVariablePath = "/policies/all/cache_info/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -93,7 +93,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Cache>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Cache>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -105,7 +105,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -130,7 +130,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -141,7 +141,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -158,7 +158,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllList(bindingsIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, promptstageIsnull: Bool? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllList(bindingsIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, promptstageIsnull: Bool? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllListWithRequestBuilder(bindingsIsnull: bindingsIsnull, ordering: ordering, page: page, pageSize: pageSize, promptstageIsnull: promptstageIsnull, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -185,7 +185,7 @@ open class PoliciesAPI {
      */
     open class func policiesAllListWithRequestBuilder(bindingsIsnull: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, promptstageIsnull: Bool? = nil, search: String? = nil) -> RequestBuilder<PaginatedPolicyList> {
         let localVariablePath = "/policies/all/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -204,7 +204,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -216,7 +216,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Policy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Policy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -241,7 +241,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -252,7 +252,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Policy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Policy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -265,7 +265,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllTestCreate(policyUuid: UUID, policyTestRequest: PolicyTestRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyTestResult?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllTestCreate(policyUuid: UUID, policyTestRequest: PolicyTestRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyTestResult?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllTestCreateWithRequestBuilder(policyUuid: policyUuid, policyTestRequest: policyTestRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -291,7 +291,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyTestRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -302,7 +302,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyTestResult>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyTestResult>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -313,7 +313,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllTypesList(apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllTypesList(apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [TypeCreate]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllTypesListWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -334,7 +334,7 @@ open class PoliciesAPI {
      */
     open class func policiesAllTypesListWithRequestBuilder() -> RequestBuilder<[TypeCreate]> {
         let localVariablePath = "/policies/all/types/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -345,7 +345,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[TypeCreate]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -357,7 +357,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesAllUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesAllUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesAllUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -382,7 +382,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -393,7 +393,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -405,7 +405,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsCreate(policyBindingRequest: PolicyBindingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsCreate(policyBindingRequest: PolicyBindingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsCreateWithRequestBuilder(policyBindingRequest: policyBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -427,7 +427,7 @@ open class PoliciesAPI {
      */
     open class func policiesBindingsCreateWithRequestBuilder(policyBindingRequest: PolicyBindingRequest) -> RequestBuilder<PolicyBinding> {
         let localVariablePath = "/policies/bindings/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -438,7 +438,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -450,7 +450,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsDestroy(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsDestroy(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsDestroyWithRequestBuilder(policyBindingUuid: policyBindingUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -475,7 +475,7 @@ open class PoliciesAPI {
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -486,7 +486,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -508,7 +508,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPolicyBindingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPolicyBindingList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsListWithRequestBuilder(enabled: enabled, order: order, ordering: ordering, page: page, pageSize: pageSize, policy: policy, policyIsnull: policyIsnull, search: search, target: target, targetIn: targetIn, timeout: timeout).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -540,7 +540,7 @@ open class PoliciesAPI {
      */
     open class func policiesBindingsListWithRequestBuilder(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil) -> RequestBuilder<PaginatedPolicyBindingList> {
         let localVariablePath = "/policies/bindings/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -564,7 +564,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPolicyBindingList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPolicyBindingList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -577,7 +577,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsPartialUpdate(policyBindingUuid: UUID, patchedPolicyBindingRequest: PatchedPolicyBindingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsPartialUpdate(policyBindingUuid: UUID, patchedPolicyBindingRequest: PatchedPolicyBindingRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsPartialUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, patchedPolicyBindingRequest: patchedPolicyBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -603,7 +603,7 @@ open class PoliciesAPI {
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPolicyBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -614,7 +614,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -626,7 +626,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsRetrieve(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsRetrieve(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsRetrieveWithRequestBuilder(policyBindingUuid: policyBindingUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -651,7 +651,7 @@ open class PoliciesAPI {
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -662,7 +662,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -675,7 +675,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsUpdate(policyBindingUuid: UUID, policyBindingRequest: PolicyBindingRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsUpdate(policyBindingUuid: UUID, policyBindingRequest: PolicyBindingRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PolicyBinding?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, policyBindingRequest: policyBindingRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -701,7 +701,7 @@ open class PoliciesAPI {
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyBindingRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -712,7 +712,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -724,7 +724,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesBindingsUsedByList(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesBindingsUsedByList(policyBindingUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesBindingsUsedByListWithRequestBuilder(policyBindingUuid: policyBindingUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -749,7 +749,7 @@ open class PoliciesAPI {
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -760,7 +760,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -772,7 +772,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyCreate(dummyPolicyRequest: DummyPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyCreate(dummyPolicyRequest: DummyPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyCreateWithRequestBuilder(dummyPolicyRequest: dummyPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -794,7 +794,7 @@ open class PoliciesAPI {
      */
     open class func policiesDummyCreateWithRequestBuilder(dummyPolicyRequest: DummyPolicyRequest) -> RequestBuilder<DummyPolicy> {
         let localVariablePath = "/policies/dummy/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dummyPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -805,7 +805,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -817,7 +817,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -842,7 +842,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -853,7 +853,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -876,7 +876,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyList(created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, result: Bool? = nil, search: String? = nil, waitMax: Int? = nil, waitMin: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDummyPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyList(created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, result: Bool? = nil, search: String? = nil, waitMax: Int? = nil, waitMin: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDummyPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyListWithRequestBuilder(created: created, executionLogging: executionLogging, lastUpdated: lastUpdated, name: name, ordering: ordering, page: page, pageSize: pageSize, policyUuid: policyUuid, result: result, search: search, waitMax: waitMax, waitMin: waitMin).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -909,7 +909,7 @@ open class PoliciesAPI {
      */
     open class func policiesDummyListWithRequestBuilder(created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, result: Bool? = nil, search: String? = nil, waitMax: Int? = nil, waitMin: Int? = nil) -> RequestBuilder<PaginatedDummyPolicyList> {
         let localVariablePath = "/policies/dummy/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -934,7 +934,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedDummyPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDummyPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -947,7 +947,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyPartialUpdate(policyUuid: UUID, patchedDummyPolicyRequest: PatchedDummyPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyPartialUpdate(policyUuid: UUID, patchedDummyPolicyRequest: PatchedDummyPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedDummyPolicyRequest: patchedDummyPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -973,7 +973,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDummyPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -984,7 +984,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -996,7 +996,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1021,7 +1021,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1032,7 +1032,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1045,7 +1045,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyUpdate(policyUuid: UUID, dummyPolicyRequest: DummyPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyUpdate(policyUuid: UUID, dummyPolicyRequest: DummyPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: DummyPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyUpdateWithRequestBuilder(policyUuid: policyUuid, dummyPolicyRequest: dummyPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1071,7 +1071,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dummyPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1082,7 +1082,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DummyPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1094,7 +1094,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesDummyUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesDummyUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesDummyUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1119,7 +1119,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1130,7 +1130,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1142,7 +1142,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherCreate(eventMatcherPolicyRequest: EventMatcherPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherCreate(eventMatcherPolicyRequest: EventMatcherPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherCreateWithRequestBuilder(eventMatcherPolicyRequest: eventMatcherPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1164,7 +1164,7 @@ open class PoliciesAPI {
      */
     open class func policiesEventMatcherCreateWithRequestBuilder(eventMatcherPolicyRequest: EventMatcherPolicyRequest) -> RequestBuilder<EventMatcherPolicy> {
         let localVariablePath = "/policies/event_matcher/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: eventMatcherPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1175,7 +1175,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1187,7 +1187,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1212,7 +1212,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1223,7 +1223,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1280,7 +1280,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherList(action: Action_policiesEventMatcherList? = nil, app: String? = nil, clientIp: String? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, model: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEventMatcherPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherList(action: Action_policiesEventMatcherList? = nil, app: String? = nil, clientIp: String? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, model: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedEventMatcherPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherListWithRequestBuilder(action: action, app: app, clientIp: clientIp, created: created, executionLogging: executionLogging, lastUpdated: lastUpdated, model: model, name: name, ordering: ordering, page: page, pageSize: pageSize, policyUuid: policyUuid, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1314,7 +1314,7 @@ open class PoliciesAPI {
      */
     open class func policiesEventMatcherListWithRequestBuilder(action: Action_policiesEventMatcherList? = nil, app: String? = nil, clientIp: String? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, model: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil) -> RequestBuilder<PaginatedEventMatcherPolicyList> {
         let localVariablePath = "/policies/event_matcher/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1340,7 +1340,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedEventMatcherPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedEventMatcherPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1353,7 +1353,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherPartialUpdate(policyUuid: UUID, patchedEventMatcherPolicyRequest: PatchedEventMatcherPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherPartialUpdate(policyUuid: UUID, patchedEventMatcherPolicyRequest: PatchedEventMatcherPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedEventMatcherPolicyRequest: patchedEventMatcherPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1379,7 +1379,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedEventMatcherPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1390,7 +1390,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1402,7 +1402,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1427,7 +1427,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1438,7 +1438,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1451,7 +1451,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherUpdate(policyUuid: UUID, eventMatcherPolicyRequest: EventMatcherPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherUpdate(policyUuid: UUID, eventMatcherPolicyRequest: EventMatcherPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: EventMatcherPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherUpdateWithRequestBuilder(policyUuid: policyUuid, eventMatcherPolicyRequest: eventMatcherPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1477,7 +1477,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: eventMatcherPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1488,7 +1488,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EventMatcherPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1500,7 +1500,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesEventMatcherUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesEventMatcherUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesEventMatcherUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1525,7 +1525,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1536,7 +1536,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1548,7 +1548,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionCreate(expressionPolicyRequest: ExpressionPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionCreate(expressionPolicyRequest: ExpressionPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionCreateWithRequestBuilder(expressionPolicyRequest: expressionPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1570,7 +1570,7 @@ open class PoliciesAPI {
      */
     open class func policiesExpressionCreateWithRequestBuilder(expressionPolicyRequest: ExpressionPolicyRequest) -> RequestBuilder<ExpressionPolicy> {
         let localVariablePath = "/policies/expression/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: expressionPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1581,7 +1581,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1593,7 +1593,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1618,7 +1618,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1629,7 +1629,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1650,7 +1650,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionList(created: Date? = nil, executionLogging: Bool? = nil, expression: String? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedExpressionPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionList(created: Date? = nil, executionLogging: Bool? = nil, expression: String? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedExpressionPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionListWithRequestBuilder(created: created, executionLogging: executionLogging, expression: expression, lastUpdated: lastUpdated, name: name, ordering: ordering, page: page, pageSize: pageSize, policyUuid: policyUuid, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1681,7 +1681,7 @@ open class PoliciesAPI {
      */
     open class func policiesExpressionListWithRequestBuilder(created: Date? = nil, executionLogging: Bool? = nil, expression: String? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil) -> RequestBuilder<PaginatedExpressionPolicyList> {
         let localVariablePath = "/policies/expression/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1704,7 +1704,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedExpressionPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedExpressionPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1717,7 +1717,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionPartialUpdate(policyUuid: UUID, patchedExpressionPolicyRequest: PatchedExpressionPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionPartialUpdate(policyUuid: UUID, patchedExpressionPolicyRequest: PatchedExpressionPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedExpressionPolicyRequest: patchedExpressionPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1743,7 +1743,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedExpressionPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1754,7 +1754,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1766,7 +1766,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1791,7 +1791,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1802,7 +1802,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1815,7 +1815,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionUpdate(policyUuid: UUID, expressionPolicyRequest: ExpressionPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionUpdate(policyUuid: UUID, expressionPolicyRequest: ExpressionPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ExpressionPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionUpdateWithRequestBuilder(policyUuid: policyUuid, expressionPolicyRequest: expressionPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1841,7 +1841,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: expressionPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1852,7 +1852,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ExpressionPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1864,7 +1864,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesExpressionUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesExpressionUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesExpressionUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1889,7 +1889,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1900,7 +1900,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1912,7 +1912,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordCreate(passwordPolicyRequest: PasswordPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordCreate(passwordPolicyRequest: PasswordPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordCreateWithRequestBuilder(passwordPolicyRequest: passwordPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1934,7 +1934,7 @@ open class PoliciesAPI {
      */
     open class func policiesPasswordCreateWithRequestBuilder(passwordPolicyRequest: PasswordPolicyRequest) -> RequestBuilder<PasswordPolicy> {
         let localVariablePath = "/policies/password/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1945,7 +1945,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -1957,7 +1957,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -1982,7 +1982,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -1993,7 +1993,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2005,7 +2005,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryCreate(passwordExpiryPolicyRequest: PasswordExpiryPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryCreate(passwordExpiryPolicyRequest: PasswordExpiryPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryCreateWithRequestBuilder(passwordExpiryPolicyRequest: passwordExpiryPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2027,7 +2027,7 @@ open class PoliciesAPI {
      */
     open class func policiesPasswordExpiryCreateWithRequestBuilder(passwordExpiryPolicyRequest: PasswordExpiryPolicyRequest) -> RequestBuilder<PasswordExpiryPolicy> {
         let localVariablePath = "/policies/password_expiry/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordExpiryPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2038,7 +2038,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2050,7 +2050,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2075,7 +2075,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2086,7 +2086,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2108,7 +2108,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryList(created: Date? = nil, days: Int? = nil, denyOnly: Bool? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordExpiryPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryList(created: Date? = nil, days: Int? = nil, denyOnly: Bool? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordExpiryPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryListWithRequestBuilder(created: created, days: days, denyOnly: denyOnly, executionLogging: executionLogging, lastUpdated: lastUpdated, name: name, ordering: ordering, page: page, pageSize: pageSize, policyUuid: policyUuid, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2140,7 +2140,7 @@ open class PoliciesAPI {
      */
     open class func policiesPasswordExpiryListWithRequestBuilder(created: Date? = nil, days: Int? = nil, denyOnly: Bool? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil) -> RequestBuilder<PaginatedPasswordExpiryPolicyList> {
         let localVariablePath = "/policies/password_expiry/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2164,7 +2164,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordExpiryPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordExpiryPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2177,7 +2177,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryPartialUpdate(policyUuid: UUID, patchedPasswordExpiryPolicyRequest: PatchedPasswordExpiryPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryPartialUpdate(policyUuid: UUID, patchedPasswordExpiryPolicyRequest: PatchedPasswordExpiryPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedPasswordExpiryPolicyRequest: patchedPasswordExpiryPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2203,7 +2203,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPasswordExpiryPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2214,7 +2214,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2226,7 +2226,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2251,7 +2251,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2262,7 +2262,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2275,7 +2275,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryUpdate(policyUuid: UUID, passwordExpiryPolicyRequest: PasswordExpiryPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryUpdate(policyUuid: UUID, passwordExpiryPolicyRequest: PasswordExpiryPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordExpiryPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryUpdateWithRequestBuilder(policyUuid: policyUuid, passwordExpiryPolicyRequest: passwordExpiryPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2301,7 +2301,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordExpiryPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2312,7 +2312,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordExpiryPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2324,7 +2324,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordExpiryUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordExpiryUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordExpiryUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2349,7 +2349,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2360,7 +2360,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2393,7 +2393,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordList(amountDigits: Int? = nil, amountLowercase: Int? = nil, amountSymbols: Int? = nil, amountUppercase: Int? = nil, checkHaveIBeenPwned: Bool? = nil, checkStaticRules: Bool? = nil, checkZxcvbn: Bool? = nil, created: Date? = nil, errorMessage: String? = nil, executionLogging: Bool? = nil, hibpAllowedCount: Int? = nil, lastUpdated: Date? = nil, lengthMin: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordField: String? = nil, policyUuid: UUID? = nil, search: String? = nil, symbolCharset: String? = nil, zxcvbnScoreThreshold: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordList(amountDigits: Int? = nil, amountLowercase: Int? = nil, amountSymbols: Int? = nil, amountUppercase: Int? = nil, checkHaveIBeenPwned: Bool? = nil, checkStaticRules: Bool? = nil, checkZxcvbn: Bool? = nil, created: Date? = nil, errorMessage: String? = nil, executionLogging: Bool? = nil, hibpAllowedCount: Int? = nil, lastUpdated: Date? = nil, lengthMin: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordField: String? = nil, policyUuid: UUID? = nil, search: String? = nil, symbolCharset: String? = nil, zxcvbnScoreThreshold: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPasswordPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordListWithRequestBuilder(amountDigits: amountDigits, amountLowercase: amountLowercase, amountSymbols: amountSymbols, amountUppercase: amountUppercase, checkHaveIBeenPwned: checkHaveIBeenPwned, checkStaticRules: checkStaticRules, checkZxcvbn: checkZxcvbn, created: created, errorMessage: errorMessage, executionLogging: executionLogging, hibpAllowedCount: hibpAllowedCount, lastUpdated: lastUpdated, lengthMin: lengthMin, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordField: passwordField, policyUuid: policyUuid, search: search, symbolCharset: symbolCharset, zxcvbnScoreThreshold: zxcvbnScoreThreshold).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2436,7 +2436,7 @@ open class PoliciesAPI {
      */
     open class func policiesPasswordListWithRequestBuilder(amountDigits: Int? = nil, amountLowercase: Int? = nil, amountSymbols: Int? = nil, amountUppercase: Int? = nil, checkHaveIBeenPwned: Bool? = nil, checkStaticRules: Bool? = nil, checkZxcvbn: Bool? = nil, created: Date? = nil, errorMessage: String? = nil, executionLogging: Bool? = nil, hibpAllowedCount: Int? = nil, lastUpdated: Date? = nil, lengthMin: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordField: String? = nil, policyUuid: UUID? = nil, search: String? = nil, symbolCharset: String? = nil, zxcvbnScoreThreshold: Int? = nil) -> RequestBuilder<PaginatedPasswordPolicyList> {
         let localVariablePath = "/policies/password/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2471,7 +2471,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPasswordPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2484,7 +2484,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordPartialUpdate(policyUuid: UUID, patchedPasswordPolicyRequest: PatchedPasswordPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordPartialUpdate(policyUuid: UUID, patchedPasswordPolicyRequest: PatchedPasswordPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedPasswordPolicyRequest: patchedPasswordPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2510,7 +2510,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPasswordPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2521,7 +2521,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2533,7 +2533,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2558,7 +2558,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2569,7 +2569,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2582,7 +2582,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordUpdate(policyUuid: UUID, passwordPolicyRequest: PasswordPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordUpdate(policyUuid: UUID, passwordPolicyRequest: PasswordPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PasswordPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordUpdateWithRequestBuilder(policyUuid: policyUuid, passwordPolicyRequest: passwordPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2608,7 +2608,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: passwordPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2619,7 +2619,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PasswordPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2631,7 +2631,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesPasswordUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesPasswordUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesPasswordUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2656,7 +2656,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2667,7 +2667,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2679,7 +2679,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationCreate(reputationPolicyRequest: ReputationPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationCreate(reputationPolicyRequest: ReputationPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationCreateWithRequestBuilder(reputationPolicyRequest: reputationPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2701,7 +2701,7 @@ open class PoliciesAPI {
      */
     open class func policiesReputationCreateWithRequestBuilder(reputationPolicyRequest: ReputationPolicyRequest) -> RequestBuilder<ReputationPolicy> {
         let localVariablePath = "/policies/reputation/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reputationPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2712,7 +2712,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2724,7 +2724,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationDestroy(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationDestroyWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2749,7 +2749,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2760,7 +2760,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2783,7 +2783,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationList(checkIp: Bool? = nil, checkUsername: Bool? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, threshold: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedReputationPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationList(checkIp: Bool? = nil, checkUsername: Bool? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, threshold: Int? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedReputationPolicyList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationListWithRequestBuilder(checkIp: checkIp, checkUsername: checkUsername, created: created, executionLogging: executionLogging, lastUpdated: lastUpdated, name: name, ordering: ordering, page: page, pageSize: pageSize, policyUuid: policyUuid, search: search, threshold: threshold).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2816,7 +2816,7 @@ open class PoliciesAPI {
      */
     open class func policiesReputationListWithRequestBuilder(checkIp: Bool? = nil, checkUsername: Bool? = nil, created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policyUuid: UUID? = nil, search: String? = nil, threshold: Int? = nil) -> RequestBuilder<PaginatedReputationPolicyList> {
         let localVariablePath = "/policies/reputation/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2841,7 +2841,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedReputationPolicyList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedReputationPolicyList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2854,7 +2854,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationPartialUpdate(policyUuid: UUID, patchedReputationPolicyRequest: PatchedReputationPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationPartialUpdate(policyUuid: UUID, patchedReputationPolicyRequest: PatchedReputationPolicyRequest? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationPartialUpdateWithRequestBuilder(policyUuid: policyUuid, patchedReputationPolicyRequest: patchedReputationPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2880,7 +2880,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedReputationPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2891,7 +2891,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2903,7 +2903,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationRetrieve(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationRetrieveWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2928,7 +2928,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2939,7 +2939,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -2951,7 +2951,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationScoresDestroy(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationScoresDestroy(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationScoresDestroyWithRequestBuilder(reputationUuid: reputationUuid).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2976,7 +2976,7 @@ open class PoliciesAPI {
         let reputationUuidPreEscape = "\(APIHelper.mapValueToPathItem(reputationUuid))"
         let reputationUuidPostEscape = reputationUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{reputation_uuid}", with: reputationUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -2987,7 +2987,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPIAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3005,7 +3005,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationScoresList(identifier: String? = nil, ip: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, score: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedReputationList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationScoresList(identifier: String? = nil, ip: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, score: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedReputationList?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationScoresListWithRequestBuilder(identifier: identifier, ip: ip, ordering: ordering, page: page, pageSize: pageSize, score: score, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3033,7 +3033,7 @@ open class PoliciesAPI {
      */
     open class func policiesReputationScoresListWithRequestBuilder(identifier: String? = nil, ip: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, score: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedReputationList> {
         let localVariablePath = "/policies/reputation/scores/"
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3053,7 +3053,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedReputationList>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedReputationList>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3065,7 +3065,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationScoresRetrieve(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Reputation?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationScoresRetrieve(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: Reputation?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationScoresRetrieveWithRequestBuilder(reputationUuid: reputationUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3090,7 +3090,7 @@ open class PoliciesAPI {
         let reputationUuidPreEscape = "\(APIHelper.mapValueToPathItem(reputationUuid))"
         let reputationUuidPostEscape = reputationUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{reputation_uuid}", with: reputationUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3101,7 +3101,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Reputation>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Reputation>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3113,7 +3113,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationScoresUsedByList(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationScoresUsedByList(reputationUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationScoresUsedByListWithRequestBuilder(reputationUuid: reputationUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3138,7 +3138,7 @@ open class PoliciesAPI {
         let reputationUuidPreEscape = "\(APIHelper.mapValueToPathItem(reputationUuid))"
         let reputationUuidPostEscape = reputationUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{reputation_uuid}", with: reputationUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3149,7 +3149,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3162,7 +3162,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationUpdate(policyUuid: UUID, reputationPolicyRequest: ReputationPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationUpdate(policyUuid: UUID, reputationPolicyRequest: ReputationPolicyRequest, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: ReputationPolicy?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationUpdateWithRequestBuilder(policyUuid: policyUuid, reputationPolicyRequest: reputationPolicyRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3188,7 +3188,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reputationPolicyRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3199,7 +3199,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ReputationPolicy>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -3211,7 +3211,7 @@ open class PoliciesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func policiesReputationUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func policiesReputationUsedByList(policyUuid: UUID, apiResponseQueue: DispatchQueue = authentikAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
         return policiesReputationUsedByListWithRequestBuilder(policyUuid: policyUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -3236,7 +3236,7 @@ open class PoliciesAPI {
         let policyUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyUuid))"
         let policyUuidPostEscape = policyUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_uuid}", with: policyUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikAPIAPI.basePath + localVariablePath
+        let localVariableURLString = authentikAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -3247,7 +3247,7 @@ open class PoliciesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPIAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

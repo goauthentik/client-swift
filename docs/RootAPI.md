@@ -19,7 +19,7 @@ Retrieve public configuration options
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikAPI
+import authentik
 
 
 RootAPI.rootConfigRetrieve() { (response, error) in
