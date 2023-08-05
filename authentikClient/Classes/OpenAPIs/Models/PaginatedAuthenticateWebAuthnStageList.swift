@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedAuthenticateWebAuthnStageList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [AuthenticateWebAuthnStage]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [AuthenticateWebAuthnStage]) {
+    public init(pagination: Pagination, results: [AuthenticateWebAuthnStage]) {
         self.pagination = pagination
         self.results = results
     }

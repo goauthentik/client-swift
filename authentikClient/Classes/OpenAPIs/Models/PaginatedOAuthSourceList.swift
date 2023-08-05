@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedOAuthSourceList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [OAuthSource]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [OAuthSource]) {
+    public init(pagination: Pagination, results: [OAuthSource]) {
         self.pagination = pagination
         self.results = results
     }

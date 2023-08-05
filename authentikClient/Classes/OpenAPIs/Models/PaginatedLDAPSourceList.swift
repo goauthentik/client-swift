@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedLDAPSourceList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [LDAPSource]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [LDAPSource]) {
+    public init(pagination: Pagination, results: [LDAPSource]) {
         self.pagination = pagination
         self.results = results
     }

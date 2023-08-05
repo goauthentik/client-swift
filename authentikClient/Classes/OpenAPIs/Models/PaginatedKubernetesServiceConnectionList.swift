@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedKubernetesServiceConnectionList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [KubernetesServiceConnection]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [KubernetesServiceConnection]) {
+    public init(pagination: Pagination, results: [KubernetesServiceConnection]) {
         self.pagination = pagination
         self.results = results
     }

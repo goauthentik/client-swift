@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedSAMLPropertyMappingList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [SAMLPropertyMapping]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [SAMLPropertyMapping]) {
+    public init(pagination: Pagination, results: [SAMLPropertyMapping]) {
         self.pagination = pagination
         self.results = results
     }

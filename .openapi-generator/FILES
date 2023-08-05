@@ -219,7 +219,6 @@ authentikClient/Classes/OpenAPIs/Models/OutpostHealth.swift
 authentikClient/Classes/OpenAPIs/Models/OutpostRequest.swift
 authentikClient/Classes/OpenAPIs/Models/OutpostTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedApplicationList.swift
-authentikClient/Classes/OpenAPIs/Models/PaginatedApplicationListPagination.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedAuthenticateWebAuthnStageList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedAuthenticatedSessionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedAuthenticatorDuoStageList.swift
@@ -302,6 +301,7 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedUserSAMLSourceConnectionList.sw
 authentikClient/Classes/OpenAPIs/Models/PaginatedUserSourceConnectionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedUserWriteStageList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedWebAuthnDeviceList.swift
+authentikClient/Classes/OpenAPIs/Models/Pagination.swift
 authentikClient/Classes/OpenAPIs/Models/PasswordChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/PasswordChallengeResponseRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PasswordExpiryPolicy.swift
@@ -713,7 +713,6 @@ docs/OutpostRequest.md
 docs/OutpostTypeEnum.md
 docs/OutpostsAPI.md
 docs/PaginatedApplicationList.md
-docs/PaginatedApplicationListPagination.md
 docs/PaginatedAuthenticateWebAuthnStageList.md
 docs/PaginatedAuthenticatedSessionList.md
 docs/PaginatedAuthenticatorDuoStageList.md
@@ -796,6 +795,7 @@ docs/PaginatedUserSAMLSourceConnectionList.md
 docs/PaginatedUserSourceConnectionList.md
 docs/PaginatedUserWriteStageList.md
 docs/PaginatedWebAuthnDeviceList.md
+docs/Pagination.md
 docs/PasswordChallenge.md
 docs/PasswordChallengeResponseRequest.md
 docs/PasswordExpiryPolicy.md

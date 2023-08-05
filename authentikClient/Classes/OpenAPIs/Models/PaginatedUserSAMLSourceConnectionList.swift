@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedUserSAMLSourceConnectionList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [UserSAMLSourceConnection]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [UserSAMLSourceConnection]) {
+    public init(pagination: Pagination, results: [UserSAMLSourceConnection]) {
         self.pagination = pagination
         self.results = results
     }

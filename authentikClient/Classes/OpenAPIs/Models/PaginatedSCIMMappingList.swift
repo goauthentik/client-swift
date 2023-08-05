@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedSCIMMappingList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [SCIMMapping]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [SCIMMapping]) {
+    public init(pagination: Pagination, results: [SCIMMapping]) {
         self.pagination = pagination
         self.results = results
     }

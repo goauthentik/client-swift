@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedPropertyMappingList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [PropertyMapping]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [PropertyMapping]) {
+    public init(pagination: Pagination, results: [PropertyMapping]) {
         self.pagination = pagination
         self.results = results
     }

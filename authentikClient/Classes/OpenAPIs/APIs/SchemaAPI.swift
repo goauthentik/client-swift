@@ -35,6 +35,7 @@ open class SchemaAPI {
         case br = "br"
         case bs = "bs"
         case ca = "ca"
+        case ckb = "ckb"
         case cs = "cs"
         case cy = "cy"
         case da = "da"

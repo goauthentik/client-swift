@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedExpiringBaseGrantModelList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [ExpiringBaseGrantModel]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [ExpiringBaseGrantModel]) {
+    public init(pagination: Pagination, results: [ExpiringBaseGrantModel]) {
         self.pagination = pagination
         self.results = results
     }

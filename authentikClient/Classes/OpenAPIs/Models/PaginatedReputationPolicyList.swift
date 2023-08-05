@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedReputationPolicyList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [ReputationPolicy]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [ReputationPolicy]) {
+    public init(pagination: Pagination, results: [ReputationPolicy]) {
         self.pagination = pagination
         self.results = results
     }

@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedBlueprintInstanceList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [BlueprintInstance]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [BlueprintInstance]) {
+    public init(pagination: Pagination, results: [BlueprintInstance]) {
         self.pagination = pagination
         self.results = results
     }

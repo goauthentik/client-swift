@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedPlexSourceList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [PlexSource]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [PlexSource]) {
+    public init(pagination: Pagination, results: [PlexSource]) {
         self.pagination = pagination
         self.results = results
     }

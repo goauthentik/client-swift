@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedDockerServiceConnectionList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [DockerServiceConnection]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [DockerServiceConnection]) {
+    public init(pagination: Pagination, results: [DockerServiceConnection]) {
         self.pagination = pagination
         self.results = results
     }

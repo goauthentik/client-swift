@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct PaginatedNotificationWebhookMappingList: Codable, JSONEncodable, Hashable {
 
-    public var pagination: PaginatedApplicationListPagination
+    public var pagination: Pagination
     public var results: [NotificationWebhookMapping]
 
-    public init(pagination: PaginatedApplicationListPagination, results: [NotificationWebhookMapping]) {
+    public init(pagination: Pagination, results: [NotificationWebhookMapping]) {
         self.pagination = pagination
         self.results = results
     }
