@@ -2588,7 +2588,7 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserList?, _ error: Error?) -> Void)) -> RequestTask {
         return coreUsersListWithRequestBuilder(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2623,7 +2623,7 @@ open class CoreAPI {
      - parameter uuid: (query)  (optional)
      - returns: RequestBuilder<PaginatedUserList> 
      */
-    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil) -> RequestBuilder<PaginatedUserList> {
+    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil

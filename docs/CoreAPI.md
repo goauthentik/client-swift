@@ -2604,7 +2604,7 @@ Void (empty response body)
 
 # **coreUsersList**
 ```swift
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: ModelType_coreUsersList? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
+    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2629,7 +2629,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let path = "path_example" // String |  (optional)
 let pathStartswith = "pathStartswith_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
-let type = "type_example" // String | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account (optional)
+let type = ["type_example"] // [String] | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
@@ -2662,7 +2662,7 @@ Name | Type | Description  | Notes
  **path** | **String** |  | [optional] 
  **pathStartswith** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
- **type** | **String** | * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] 
+ **type** | [**[String]**](String.md) | * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] 
  **username** | **String** |  | [optional] 
  **uuid** | **UUID** |  | [optional] 
 
