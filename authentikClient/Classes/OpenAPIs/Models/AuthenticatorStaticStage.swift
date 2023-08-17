@@ -28,8 +28,9 @@ public struct AuthenticatorStaticStage: Codable, JSONEncodable, Hashable {
     public var configureFlow: UUID?
     public var friendlyName: String?
     public var tokenCount: Int?
+    public var tokenLength: Int?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -40,6 +41,7 @@ public struct AuthenticatorStaticStage: Codable, JSONEncodable, Hashable {
         self.configureFlow = configureFlow
         self.friendlyName = friendlyName
         self.tokenCount = tokenCount
+        self.tokenLength = tokenLength
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -53,6 +55,7 @@ public struct AuthenticatorStaticStage: Codable, JSONEncodable, Hashable {
         case configureFlow = "configure_flow"
         case friendlyName = "friendly_name"
         case tokenCount = "token_count"
+        case tokenLength = "token_length"
     }
 
     // Encodable protocol methods
@@ -69,6 +72,7 @@ public struct AuthenticatorStaticStage: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(tokenCount, forKey: .tokenCount)
+        try container.encodeIfPresent(tokenLength, forKey: .tokenLength)
     }
 }
 

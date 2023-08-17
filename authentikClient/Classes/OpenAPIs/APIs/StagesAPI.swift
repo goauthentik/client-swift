@@ -1308,12 +1308,13 @@ open class StagesAPI {
      - parameter search: (query) A search term. (optional)
      - parameter stageUuid: (query)  (optional)
      - parameter tokenCount: (query)  (optional)
+     - parameter tokenLength: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)) -> RequestTask {
-        return stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, tokenCount: tokenCount).execute(apiResponseQueue) { result in
+    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, tokenCount: tokenCount, tokenLength: tokenLength).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -1338,9 +1339,10 @@ open class StagesAPI {
      - parameter search: (query) A search term. (optional)
      - parameter stageUuid: (query)  (optional)
      - parameter tokenCount: (query)  (optional)
+     - parameter tokenLength: (query)  (optional)
      - returns: RequestBuilder<PaginatedAuthenticatorStaticStageList> 
      */
-    open class func stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil) -> RequestBuilder<PaginatedAuthenticatorStaticStageList> {
+    open class func stagesAuthenticatorStaticListWithRequestBuilder(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil) -> RequestBuilder<PaginatedAuthenticatorStaticStageList> {
         let localVariablePath = "/stages/authenticator/static/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1356,6 +1358,7 @@ open class StagesAPI {
             "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
             "stage_uuid": (wrappedValue: stageUuid?.encodeToJSON(), isExplode: true),
             "token_count": (wrappedValue: tokenCount?.encodeToJSON(), isExplode: true),
+            "token_length": (wrappedValue: tokenLength?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

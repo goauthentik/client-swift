@@ -1359,7 +1359,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // AuthenticatorStaticStageRequest | 
+let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
 
 StagesAPI.stagesAuthenticatorStaticCreate(authenticatorStaticStageRequest: authenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {
@@ -1445,7 +1445,7 @@ Void (empty response body)
 
 # **stagesAuthenticatorStaticList**
 ```swift
-    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, completion: @escaping (_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorStaticList(configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil, completion: @escaping (_ data: PaginatedAuthenticatorStaticStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1466,8 +1466,9 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let stageUuid = 987 // UUID |  (optional)
 let tokenCount = 987 // Int |  (optional)
+let tokenLength = 987 // Int |  (optional)
 
-StagesAPI.stagesAuthenticatorStaticList(configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, tokenCount: tokenCount) { (response, error) in
+StagesAPI.stagesAuthenticatorStaticList(configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, tokenCount: tokenCount, tokenLength: tokenLength) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1492,6 +1493,7 @@ Name | Type | Description  | Notes
  **search** | **String** | A search term. | [optional] 
  **stageUuid** | **UUID** |  | [optional] 
  **tokenCount** | **Int** |  | [optional] 
+ **tokenLength** | **Int** |  | [optional] 
 
 ### Return type
 
@@ -1523,7 +1525,7 @@ AuthenticatorStaticStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
-let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
+let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorStaticPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorStaticStageRequest: patchedAuthenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {
@@ -1623,7 +1625,7 @@ AuthenticatorStaticStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
-let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123) // AuthenticatorStaticStageRequest | 
+let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
 
 StagesAPI.stagesAuthenticatorStaticUpdate(stageUuid: stageUuid, authenticatorStaticStageRequest: authenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {

@@ -19,13 +19,15 @@ public struct AuthenticatorStaticStageRequest: Codable, JSONEncodable, Hashable 
     public var configureFlow: UUID?
     public var friendlyName: String?
     public var tokenCount: Int?
+    public var tokenLength: Int?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil) {
+    public init(name: String, flowSet: [FlowSetRequest]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil) {
         self.name = name
         self.flowSet = flowSet
         self.configureFlow = configureFlow
         self.friendlyName = friendlyName
         self.tokenCount = tokenCount
+        self.tokenLength = tokenLength
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -34,6 +36,7 @@ public struct AuthenticatorStaticStageRequest: Codable, JSONEncodable, Hashable 
         case configureFlow = "configure_flow"
         case friendlyName = "friendly_name"
         case tokenCount = "token_count"
+        case tokenLength = "token_length"
     }
 
     // Encodable protocol methods
@@ -45,6 +48,7 @@ public struct AuthenticatorStaticStageRequest: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(tokenCount, forKey: .tokenCount)
+        try container.encodeIfPresent(tokenLength, forKey: .tokenLength)
     }
 }
 
