@@ -17,15 +17,15 @@ public struct License: Codable, JSONEncodable, Hashable {
     public var name: String
     public var key: String
     public var expiry: Date
-    public var users: Int
+    public var internalUsers: Int
     public var externalUsers: Int
 
-    public init(licenseUuid: UUID, name: String, key: String, expiry: Date, users: Int, externalUsers: Int) {
+    public init(licenseUuid: UUID, name: String, key: String, expiry: Date, internalUsers: Int, externalUsers: Int) {
         self.licenseUuid = licenseUuid
         self.name = name
         self.key = key
         self.expiry = expiry
-        self.users = users
+        self.internalUsers = internalUsers
         self.externalUsers = externalUsers
     }
 
@@ -34,7 +34,7 @@ public struct License: Codable, JSONEncodable, Hashable {
         case name
         case key
         case expiry
-        case users
+        case internalUsers = "internal_users"
         case externalUsers = "external_users"
     }
 
@@ -46,7 +46,7 @@ public struct License: Codable, JSONEncodable, Hashable {
         try container.encode(name, forKey: .name)
         try container.encode(key, forKey: .key)
         try container.encode(expiry, forKey: .expiry)
-        try container.encode(users, forKey: .users)
+        try container.encode(internalUsers, forKey: .internalUsers)
         try container.encode(externalUsers, forKey: .externalUsers)
     }
 }

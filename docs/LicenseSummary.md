@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**users** | **Int** |  | 
+**internalUsers** | **Int** |  | 
 **externalUsers** | **Int** |  | 
 **valid** | **Bool** |  | 
 **showAdminWarning** | **Bool** |  | 

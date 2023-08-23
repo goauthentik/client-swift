@@ -13,7 +13,7 @@ import AnyCodable
 /** Serializer for license status */
 public struct LicenseSummary: Codable, JSONEncodable, Hashable {
 
-    public var users: Int
+    public var internalUsers: Int
     public var externalUsers: Int
     public var valid: Bool
     public var showAdminWarning: Bool
@@ -22,8 +22,8 @@ public struct LicenseSummary: Codable, JSONEncodable, Hashable {
     public var latestValid: Date
     public var hasLicense: Bool
 
-    public init(users: Int, externalUsers: Int, valid: Bool, showAdminWarning: Bool, showUserWarning: Bool, readOnly: Bool, latestValid: Date, hasLicense: Bool) {
-        self.users = users
+    public init(internalUsers: Int, externalUsers: Int, valid: Bool, showAdminWarning: Bool, showUserWarning: Bool, readOnly: Bool, latestValid: Date, hasLicense: Bool) {
+        self.internalUsers = internalUsers
         self.externalUsers = externalUsers
         self.valid = valid
         self.showAdminWarning = showAdminWarning
@@ -34,7 +34,7 @@ public struct LicenseSummary: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case users
+        case internalUsers = "internal_users"
         case externalUsers = "external_users"
         case valid
         case showAdminWarning = "show_admin_warning"
@@ -48,7 +48,7 @@ public struct LicenseSummary: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(users, forKey: .users)
+        try container.encode(internalUsers, forKey: .internalUsers)
         try container.encode(externalUsers, forKey: .externalUsers)
         try container.encode(valid, forKey: .valid)
         try container.encode(showAdminWarning, forKey: .showAdminWarning)
