@@ -19,12 +19,12 @@ public struct Group: Codable, JSONEncodable, Hashable {
     /** Users added to this group will be superusers. */
     public var isSuperuser: Bool?
     public var parent: UUID?
-    public var parentName: String
+    public var parentName: String?
     public var users: [Int]?
     public var attributes: [String: AnyCodable]?
     public var usersObj: [GroupMember]
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil, usersObj: [GroupMember]) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil, usersObj: [GroupMember]) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
