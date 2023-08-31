@@ -2946,7 +2946,7 @@ open class PoliciesAPI {
 
     /**
 
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2968,7 +2968,7 @@ open class PoliciesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - returns: RequestBuilder<Void> 
      */
     open class func policiesReputationScoresDestroyWithRequestBuilder(reputationUuid: UUID) -> RequestBuilder<Void> {
@@ -3060,7 +3060,7 @@ open class PoliciesAPI {
 
     /**
 
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3082,7 +3082,7 @@ open class PoliciesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - returns: RequestBuilder<Reputation> 
      */
     open class func policiesReputationScoresRetrieveWithRequestBuilder(reputationUuid: UUID) -> RequestBuilder<Reputation> {
@@ -3108,7 +3108,7 @@ open class PoliciesAPI {
 
     /**
 
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3130,7 +3130,7 @@ open class PoliciesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter reputationUuid: (path) A UUID string identifying this reputation. 
+     - parameter reputationUuid: (path) A UUID string identifying this Reputation Score. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func policiesReputationScoresUsedByListWithRequestBuilder(reputationUuid: UUID) -> RequestBuilder<[UsedBy]> {

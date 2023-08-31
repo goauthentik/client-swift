@@ -2970,7 +2970,7 @@ Reputation Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
+let reputationUuid = 987 // UUID | A UUID string identifying this Reputation Score.
 
 PoliciesAPI.policiesReputationScoresDestroy(reputationUuid: reputationUuid) { (response, error) in
     guard error == nil else {
@@ -2988,7 +2988,7 @@ PoliciesAPI.policiesReputationScoresDestroy(reputationUuid: reputationUuid) { (r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reputationUuid** | **UUID** | A UUID string identifying this reputation. | 
+ **reputationUuid** | **UUID** | A UUID string identifying this Reputation Score. | 
 
 ### Return type
 
@@ -3080,7 +3080,7 @@ Reputation Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
+let reputationUuid = 987 // UUID | A UUID string identifying this Reputation Score.
 
 PoliciesAPI.policiesReputationScoresRetrieve(reputationUuid: reputationUuid) { (response, error) in
     guard error == nil else {
@@ -3098,7 +3098,7 @@ PoliciesAPI.policiesReputationScoresRetrieve(reputationUuid: reputationUuid) { (
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reputationUuid** | **UUID** | A UUID string identifying this reputation. | 
+ **reputationUuid** | **UUID** | A UUID string identifying this Reputation Score. | 
 
 ### Return type
 
@@ -3129,7 +3129,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let reputationUuid = 987 // UUID | A UUID string identifying this reputation.
+let reputationUuid = 987 // UUID | A UUID string identifying this Reputation Score.
 
 PoliciesAPI.policiesReputationScoresUsedByList(reputationUuid: reputationUuid) { (response, error) in
     guard error == nil else {
@@ -3147,7 +3147,7 @@ PoliciesAPI.policiesReputationScoresUsedByList(reputationUuid: reputationUuid) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reputationUuid** | **UUID** | A UUID string identifying this reputation. | 
+ **reputationUuid** | **UUID** | A UUID string identifying this Reputation Score. | 
 
 ### Return type
 
