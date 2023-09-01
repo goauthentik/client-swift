@@ -2010,7 +2010,7 @@ Void (empty response body)
 
 # **providersSamlImportMetadataCreate**
 ```swift
-    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: String, file: URL, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, file: URL, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -2023,7 +2023,7 @@ Create provider from SAML Metadata
 import authentikClient
 
 let name = "name_example" // String | 
-let authorizationFlow = "authorizationFlow_example" // String | Visible in the URL.
+let authorizationFlow = 987 // UUID | 
 let file = URL(string: "https://example.com")! // URL | 
 
 ProvidersAPI.providersSamlImportMetadataCreate(name: name, authorizationFlow: authorizationFlow, file: file) { (response, error) in
@@ -2043,7 +2043,7 @@ ProvidersAPI.providersSamlImportMetadataCreate(name: name, authorizationFlow: au
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String** |  | 
- **authorizationFlow** | **String** | Visible in the URL. | 
+ **authorizationFlow** | **UUID** |  | 
  **file** | **URL** |  | 
 
 ### Return type

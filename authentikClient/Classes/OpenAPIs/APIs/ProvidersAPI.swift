@@ -2001,13 +2001,13 @@ open class ProvidersAPI {
     /**
 
      - parameter name: (form)  
-     - parameter authorizationFlow: (form) Visible in the URL. 
+     - parameter authorizationFlow: (form)  
      - parameter file: (form)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: String, file: URL, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, file: URL, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return providersSamlImportMetadataCreateWithRequestBuilder(name: name, authorizationFlow: authorizationFlow, file: file).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -2025,11 +2025,11 @@ open class ProvidersAPI {
        - type: apiKey Authorization 
        - name: authentik
      - parameter name: (form)  
-     - parameter authorizationFlow: (form) Visible in the URL. 
+     - parameter authorizationFlow: (form)  
      - parameter file: (form)  
      - returns: RequestBuilder<Void> 
      */
-    open class func providersSamlImportMetadataCreateWithRequestBuilder(name: String, authorizationFlow: String, file: URL) -> RequestBuilder<Void> {
+    open class func providersSamlImportMetadataCreateWithRequestBuilder(name: String, authorizationFlow: UUID, file: URL) -> RequestBuilder<Void> {
         let localVariablePath = "/providers/saml/import_metadata/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
