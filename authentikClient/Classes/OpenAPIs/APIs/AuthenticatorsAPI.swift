@@ -709,7 +709,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -731,7 +731,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - returns: RequestBuilder<Void> 
      */
     open class func authenticatorsAdminStaticDestroyWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
@@ -817,7 +817,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter patchedStaticDeviceRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -840,7 +840,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter patchedStaticDeviceRequest: (body)  (optional)
      - returns: RequestBuilder<StaticDevice> 
      */
@@ -867,7 +867,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -889,7 +889,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - returns: RequestBuilder<StaticDevice> 
      */
     open class func authenticatorsAdminStaticRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<StaticDevice> {
@@ -915,7 +915,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter staticDeviceRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -938,7 +938,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter staticDeviceRequest: (body)  
      - returns: RequestBuilder<StaticDevice> 
      */
@@ -2218,7 +2218,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2240,7 +2240,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - returns: RequestBuilder<Void> 
      */
     open class func authenticatorsStaticDestroyWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
@@ -2326,7 +2326,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter patchedStaticDeviceRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -2349,7 +2349,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter patchedStaticDeviceRequest: (body)  (optional)
      - returns: RequestBuilder<StaticDevice> 
      */
@@ -2376,7 +2376,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2398,7 +2398,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - returns: RequestBuilder<StaticDevice> 
      */
     open class func authenticatorsStaticRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<StaticDevice> {
@@ -2424,7 +2424,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter staticDeviceRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -2447,7 +2447,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter staticDeviceRequest: (body)  
      - returns: RequestBuilder<StaticDevice> 
      */
@@ -2474,7 +2474,7 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2496,7 +2496,7 @@ open class AuthenticatorsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this static device. 
+     - parameter id: (path) A unique integer value identifying this Static device. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func authenticatorsStaticUsedByListWithRequestBuilder(id: Int) -> RequestBuilder<[UsedBy]> {
