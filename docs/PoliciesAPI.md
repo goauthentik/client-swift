@@ -473,7 +473,7 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PolicyBindingRequest | 
+let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PolicyBindingRequest | 
 
 PoliciesAPI.policiesBindingsCreate(policyBindingRequest: policyBindingRequest) { (response, error) in
     guard error == nil else {
@@ -641,7 +641,7 @@ PolicyBinding Viewset
 import authentikClient
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
-let patchedPolicyBindingRequest = PatchedPolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PatchedPolicyBindingRequest |  (optional)
+let patchedPolicyBindingRequest = PatchedPolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PatchedPolicyBindingRequest |  (optional)
 
 PoliciesAPI.policiesBindingsPartialUpdate(policyBindingUuid: policyBindingUuid, patchedPolicyBindingRequest: patchedPolicyBindingRequest) { (response, error) in
     guard error == nil else {
@@ -741,7 +741,7 @@ PolicyBinding Viewset
 import authentikClient
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Policy Binding.
-let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123) // PolicyBindingRequest | 
+let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PolicyBindingRequest | 
 
 PoliciesAPI.policiesBindingsUpdate(policyBindingUuid: policyBindingUuid, policyBindingRequest: policyBindingRequest) { (response, error) in
     guard error == nil else {

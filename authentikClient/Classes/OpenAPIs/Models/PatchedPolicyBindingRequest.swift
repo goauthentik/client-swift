@@ -23,8 +23,10 @@ public struct PatchedPolicyBindingRequest: Codable, JSONEncodable, Hashable {
     public var order: Int?
     /** Timeout after which Policy execution is terminated. */
     public var timeout: Int?
+    /** Result if the Policy execution fails. */
+    public var failureResult: Bool?
 
-    public init(policy: UUID? = nil, group: UUID? = nil, user: Int? = nil, target: UUID? = nil, negate: Bool? = nil, enabled: Bool? = nil, order: Int? = nil, timeout: Int? = nil) {
+    public init(policy: UUID? = nil, group: UUID? = nil, user: Int? = nil, target: UUID? = nil, negate: Bool? = nil, enabled: Bool? = nil, order: Int? = nil, timeout: Int? = nil, failureResult: Bool? = nil) {
         self.policy = policy
         self.group = group
         self.user = user
@@ -33,6 +35,7 @@ public struct PatchedPolicyBindingRequest: Codable, JSONEncodable, Hashable {
         self.enabled = enabled
         self.order = order
         self.timeout = timeout
+        self.failureResult = failureResult
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -44,6 +47,7 @@ public struct PatchedPolicyBindingRequest: Codable, JSONEncodable, Hashable {
         case enabled
         case order
         case timeout
+        case failureResult = "failure_result"
     }
 
     // Encodable protocol methods
@@ -58,6 +62,7 @@ public struct PatchedPolicyBindingRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(enabled, forKey: .enabled)
         try container.encodeIfPresent(order, forKey: .order)
         try container.encodeIfPresent(timeout, forKey: .timeout)
+        try container.encodeIfPresent(failureResult, forKey: .failureResult)
     }
 }
 
