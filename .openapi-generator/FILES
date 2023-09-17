@@ -191,6 +191,7 @@ authentikClient/Classes/OpenAPIs/Models/LoginMetrics.swift
 authentikClient/Classes/OpenAPIs/Models/LoginSource.swift
 authentikClient/Classes/OpenAPIs/Models/Metadata.swift
 authentikClient/Classes/OpenAPIs/Models/ModelEnum.swift
+authentikClient/Classes/OpenAPIs/Models/ModelRequest.swift
 authentikClient/Classes/OpenAPIs/Models/NameIdPolicyEnum.swift
 authentikClient/Classes/OpenAPIs/Models/NotConfiguredActionEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Notification.swift
@@ -405,6 +406,7 @@ authentikClient/Classes/OpenAPIs/Models/PropertyMappingPreview.swift
 authentikClient/Classes/OpenAPIs/Models/PropertyMappingTestResult.swift
 authentikClient/Classes/OpenAPIs/Models/Provider.swift
 authentikClient/Classes/OpenAPIs/Models/ProviderEnum.swift
+authentikClient/Classes/OpenAPIs/Models/ProviderModelEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ProviderTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ProxyMode.swift
@@ -467,6 +469,8 @@ authentikClient/Classes/OpenAPIs/Models/TokenModel.swift
 authentikClient/Classes/OpenAPIs/Models/TokenRequest.swift
 authentikClient/Classes/OpenAPIs/Models/TokenSetKeyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/TokenView.swift
+authentikClient/Classes/OpenAPIs/Models/TransactionApplicationRequest.swift
+authentikClient/Classes/OpenAPIs/Models/TransactionApplicationResponse.swift
 authentikClient/Classes/OpenAPIs/Models/TypeCreate.swift
 authentikClient/Classes/OpenAPIs/Models/UiThemeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/UsedBy.swift
@@ -683,6 +687,7 @@ docs/LoginSource.md
 docs/ManagedAPI.md
 docs/Metadata.md
 docs/ModelEnum.md
+docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
@@ -901,6 +906,7 @@ docs/PropertyMappingTestResult.md
 docs/PropertymappingsAPI.md
 docs/Provider.md
 docs/ProviderEnum.md
+docs/ProviderModelEnum.md
 docs/ProviderRequest.md
 docs/ProviderTypeEnum.md
 docs/ProvidersAPI.md
@@ -968,6 +974,8 @@ docs/TokenModel.md
 docs/TokenRequest.md
 docs/TokenSetKeyRequest.md
 docs/TokenView.md
+docs/TransactionApplicationRequest.md
+docs/TransactionApplicationResponse.md
 docs/TypeCreate.md
 docs/UiThemeEnum.md
 docs/UsedBy.md

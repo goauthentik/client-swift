@@ -2167,6 +2167,51 @@ open class CoreAPI {
 
     /**
 
+     - parameter transactionApplicationRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreTransactionalApplicationsUpdate(transactionApplicationRequest: TransactionApplicationRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: TransactionApplicationResponse?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreTransactionalApplicationsUpdateWithRequestBuilder(transactionApplicationRequest: transactionApplicationRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /core/transactional/applications/
+     - Convert data into a blueprint, validate it and apply it
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter transactionApplicationRequest: (body)  
+     - returns: RequestBuilder<TransactionApplicationResponse> 
+     */
+    open class func coreTransactionalApplicationsUpdateWithRequestBuilder(transactionApplicationRequest: TransactionApplicationRequest) -> RequestBuilder<TransactionApplicationResponse> {
+        let localVariablePath = "/core/transactional/applications/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: transactionApplicationRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TransactionApplicationResponse>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter id: (path) A unique integer value identifying this User Consent. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
