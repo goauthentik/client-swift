@@ -24,7 +24,7 @@ public struct PatchedAuthenticatorSMSStageRequest: Codable, JSONEncodable, Hasha
     public var auth: String?
     public var authPassword: String?
     public var authType: AuthTypeEnum?
-    /** When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not re-used in the future. */
+    /** When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not reused in the future. */
     public var verifyOnly: Bool?
     /** Optionally modify the payload being sent to custom providers. */
     public var mapping: UUID?
