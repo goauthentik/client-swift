@@ -40,8 +40,10 @@ public struct PatchedSAMLProviderRequest: Codable, JSONEncodable, Hashable {
     public var verificationKp: UUID?
     /** This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post */
     public var spBinding: SpBindingEnum?
+    /** Default relay_state value for IDP-initiated logins */
+    public var defaultRelayState: String?
 
-    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, acsUrl: String? = nil, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, spBinding: SpBindingEnum? = nil) {
+    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, acsUrl: String? = nil, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil) {
         self.name = name
         self.authenticationFlow = authenticationFlow
         self.authorizationFlow = authorizationFlow
@@ -58,6 +60,7 @@ public struct PatchedSAMLProviderRequest: Codable, JSONEncodable, Hashable {
         self.signingKp = signingKp
         self.verificationKp = verificationKp
         self.spBinding = spBinding
+        self.defaultRelayState = defaultRelayState
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -77,6 +80,7 @@ public struct PatchedSAMLProviderRequest: Codable, JSONEncodable, Hashable {
         case signingKp = "signing_kp"
         case verificationKp = "verification_kp"
         case spBinding = "sp_binding"
+        case defaultRelayState = "default_relay_state"
     }
 
     // Encodable protocol methods
@@ -99,6 +103,7 @@ public struct PatchedSAMLProviderRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(signingKp, forKey: .signingKp)
         try container.encodeIfPresent(verificationKp, forKey: .verificationKp)
         try container.encodeIfPresent(spBinding, forKey: .spBinding)
+        try container.encodeIfPresent(defaultRelayState, forKey: .defaultRelayState)
     }
 }
 

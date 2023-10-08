@@ -2092,6 +2092,7 @@ open class ProvidersAPI {
      - parameter authenticationFlow: (query)  (optional)
      - parameter authorizationFlow: (query)  (optional)
      - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultRelayState: (query)  (optional)
      - parameter digestAlgorithm: (query) * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 (optional)
      - parameter isBackchannel: (query)  (optional)
      - parameter issuer: (query)  (optional)
@@ -2111,8 +2112,8 @@ open class ProvidersAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)) -> RequestTask {
-        return providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, digestAlgorithm: digestAlgorithm, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp).execute(apiResponseQueue) { result in
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -2135,6 +2136,7 @@ open class ProvidersAPI {
      - parameter authenticationFlow: (query)  (optional)
      - parameter authorizationFlow: (query)  (optional)
      - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultRelayState: (query)  (optional)
      - parameter digestAlgorithm: (query) * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 (optional)
      - parameter isBackchannel: (query)  (optional)
      - parameter issuer: (query)  (optional)
@@ -2152,7 +2154,7 @@ open class ProvidersAPI {
      - parameter verificationKp: (query)  (optional)
      - returns: RequestBuilder<PaginatedSAMLProviderList> 
      */
-    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil) -> RequestBuilder<PaginatedSAMLProviderList> {
+    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil) -> RequestBuilder<PaginatedSAMLProviderList> {
         let localVariablePath = "/providers/saml/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2166,6 +2168,7 @@ open class ProvidersAPI {
             "authentication_flow": (wrappedValue: authenticationFlow?.encodeToJSON(), isExplode: true),
             "authorization_flow": (wrappedValue: authorizationFlow?.encodeToJSON(), isExplode: true),
             "backchannel_application": (wrappedValue: backchannelApplication?.encodeToJSON(), isExplode: true),
+            "default_relay_state": (wrappedValue: defaultRelayState?.encodeToJSON(), isExplode: true),
             "digest_algorithm": (wrappedValue: digestAlgorithm?.encodeToJSON(), isExplode: true),
             "is_backchannel": (wrappedValue: isBackchannel?.encodeToJSON(), isExplode: true),
             "issuer": (wrappedValue: issuer?.encodeToJSON(), isExplode: true),

@@ -1924,7 +1924,7 @@ SAMLProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlCreate(sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2063,7 +2063,7 @@ Void (empty response body)
 
 # **providersSamlList**
 ```swift
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2082,6 +2082,7 @@ let audience = "audience_example" // String |  (optional)
 let authenticationFlow = 987 // UUID |  (optional)
 let authorizationFlow = 987 // UUID |  (optional)
 let backchannelApplication = 987 // UUID |  (optional)
+let defaultRelayState = "defaultRelayState_example" // String |  (optional)
 let digestAlgorithm = "digestAlgorithm_example" // String | * `http://www.w3.org/2000/09/xmldsig#sha1` - SHA1 * `http://www.w3.org/2001/04/xmlenc#sha256` - SHA256 * `http://www.w3.org/2001/04/xmldsig-more#sha384` - SHA384 * `http://www.w3.org/2001/04/xmlenc#sha512` - SHA512 (optional)
 let isBackchannel = true // Bool |  (optional)
 let issuer = "issuer_example" // String |  (optional)
@@ -2098,7 +2099,7 @@ let signingKp = 987 // UUID |  (optional)
 let spBinding = "spBinding_example" // String | This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post (optional)
 let verificationKp = 987 // UUID |  (optional)
 
-ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, digestAlgorithm: digestAlgorithm, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
+ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2121,6 +2122,7 @@ Name | Type | Description  | Notes
  **authenticationFlow** | **UUID** |  | [optional] 
  **authorizationFlow** | **UUID** |  | [optional] 
  **backchannelApplication** | **UUID** |  | [optional] 
+ **defaultRelayState** | **String** |  | [optional] 
  **digestAlgorithm** | **String** | * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 | [optional] 
  **isBackchannel** | **Bool** |  | [optional] 
  **issuer** | **String** |  | [optional] 
@@ -2220,7 +2222,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // PatchedSAMLProviderRequest |  (optional)
+let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // PatchedSAMLProviderRequest |  (optional)
 
 ProvidersAPI.providersSamlPartialUpdate(id: id, patchedSAMLProviderRequest: patchedSAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2369,7 +2371,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlUpdate(id: id, sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {

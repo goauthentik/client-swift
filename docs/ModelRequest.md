@@ -52,6 +52,7 @@ Name | Type | Description | Notes
 **signingKp** | **UUID** | Keypair used to sign outgoing Responses going to the Service Provider. | [optional] 
 **verificationKp** | **UUID** | When selected, incoming assertion&#39;s Signatures will be validated against this certificate. To allow unsigned Requests, leave on default. | [optional] 
 **spBinding** | [**SpBindingEnum**](SpBindingEnum.md) | This determines how authentik sends the response back to the Service Provider.  * &#x60;redirect&#x60; - Redirect * &#x60;post&#x60; - Post | [optional] 
+**defaultRelayState** | **String** | Default relay_state value for IDP-initiated logins | [optional] 
 **propertyMappingsGroup** | **[UUID]** | Property mappings used for group creation/updating. | [optional] 
 **url** | **String** | Base URL to SCIM requests, usually ends in /v2 | 
 **token** | **String** | Authentication token | 
