@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **uid** | **String** |  | [readonly] 
 **path** | **String** |  | [optional] 
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 
+**uuid** | **UUID** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

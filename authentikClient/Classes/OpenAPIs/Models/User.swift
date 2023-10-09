@@ -29,8 +29,9 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var uid: String
     public var path: String?
     public var type: UserTypeEnum?
+    public var uuid: UUID
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup], email: String? = nil, avatar: String, attributes: [String: AnyCodable]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup], email: String? = nil, avatar: String, attributes: [String: AnyCodable]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -45,6 +46,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         self.uid = uid
         self.path = path
         self.type = type
+        self.uuid = uuid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -62,6 +64,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         case uid
         case path
         case type
+        case uuid
     }
 
     // Encodable protocol methods
@@ -82,6 +85,7 @@ public struct User: Codable, JSONEncodable, Hashable {
         try container.encode(uid, forKey: .uid)
         try container.encodeIfPresent(path, forKey: .path)
         try container.encodeIfPresent(type, forKey: .type)
+        try container.encode(uuid, forKey: .uuid)
     }
 }
 
