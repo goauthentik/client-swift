@@ -79,7 +79,7 @@ License Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let licenseUuid = 987 // UUID | A UUID string identifying this license.
+let licenseUuid = 987 // UUID | A UUID string identifying this License.
 
 EnterpriseAPI.enterpriseLicenseDestroy(licenseUuid: licenseUuid) { (response, error) in
     guard error == nil else {
@@ -97,7 +97,7 @@ EnterpriseAPI.enterpriseLicenseDestroy(licenseUuid: licenseUuid) { (response, er
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **UUID** | A UUID string identifying this license. | 
+ **licenseUuid** | **UUID** | A UUID string identifying this License. | 
 
 ### Return type
 
@@ -275,7 +275,7 @@ License Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let licenseUuid = 987 // UUID | A UUID string identifying this license.
+let licenseUuid = 987 // UUID | A UUID string identifying this License.
 let patchedLicenseRequest = PatchedLicenseRequest(key: "key_example") // PatchedLicenseRequest |  (optional)
 
 EnterpriseAPI.enterpriseLicensePartialUpdate(licenseUuid: licenseUuid, patchedLicenseRequest: patchedLicenseRequest) { (response, error) in
@@ -294,7 +294,7 @@ EnterpriseAPI.enterpriseLicensePartialUpdate(licenseUuid: licenseUuid, patchedLi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **UUID** | A UUID string identifying this license. | 
+ **licenseUuid** | **UUID** | A UUID string identifying this License. | 
  **patchedLicenseRequest** | [**PatchedLicenseRequest**](PatchedLicenseRequest.md) |  | [optional] 
 
 ### Return type
@@ -326,7 +326,7 @@ License Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let licenseUuid = 987 // UUID | A UUID string identifying this license.
+let licenseUuid = 987 // UUID | A UUID string identifying this License.
 
 EnterpriseAPI.enterpriseLicenseRetrieve(licenseUuid: licenseUuid) { (response, error) in
     guard error == nil else {
@@ -344,7 +344,7 @@ EnterpriseAPI.enterpriseLicenseRetrieve(licenseUuid: licenseUuid) { (response, e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **UUID** | A UUID string identifying this license. | 
+ **licenseUuid** | **UUID** | A UUID string identifying this License. | 
 
 ### Return type
 
@@ -420,7 +420,7 @@ License Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let licenseUuid = 987 // UUID | A UUID string identifying this license.
+let licenseUuid = 987 // UUID | A UUID string identifying this License.
 let licenseRequest = LicenseRequest(key: "key_example") // LicenseRequest | 
 
 EnterpriseAPI.enterpriseLicenseUpdate(licenseUuid: licenseUuid, licenseRequest: licenseRequest) { (response, error) in
@@ -439,7 +439,7 @@ EnterpriseAPI.enterpriseLicenseUpdate(licenseUuid: licenseUuid, licenseRequest: 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **UUID** | A UUID string identifying this license. | 
+ **licenseUuid** | **UUID** | A UUID string identifying this License. | 
  **licenseRequest** | [**LicenseRequest**](LicenseRequest.md) |  | 
 
 ### Return type
@@ -471,7 +471,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let licenseUuid = 987 // UUID | A UUID string identifying this license.
+let licenseUuid = 987 // UUID | A UUID string identifying this License.
 
 EnterpriseAPI.enterpriseLicenseUsedByList(licenseUuid: licenseUuid) { (response, error) in
     guard error == nil else {
@@ -489,7 +489,7 @@ EnterpriseAPI.enterpriseLicenseUsedByList(licenseUuid: licenseUuid) { (response,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **UUID** | A UUID string identifying this license. | 
+ **licenseUuid** | **UUID** | A UUID string identifying this License. | 
 
 ### Return type
 

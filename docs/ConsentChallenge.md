@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **pendingUser** | **String** |  | 
 **pendingUserAvatar** | **String** |  | 
 **headerText** | **String** |  | [optional] 
-**permissions** | [Permission] |  | 
-**additionalPermissions** | [Permission] |  | 
+**permissions** | [ConsentPermission] |  | 
+**additionalPermissions** | [ConsentPermission] |  | 
 **token** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

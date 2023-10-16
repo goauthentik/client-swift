@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 **parent** | **UUID** |  | [optional] 
 **parentName** | **String** |  | [readonly] 
 **users** | **[Int]** |  | [optional] 
-**attributes** | [String: AnyCodable] |  | [optional] 
 **usersObj** | [GroupMember] |  | [readonly] 
+**attributes** | [String: AnyCodable] |  | [optional] 
+**roles** | **[UUID]** |  | [optional] 
+**rolesObj** | [Role] |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

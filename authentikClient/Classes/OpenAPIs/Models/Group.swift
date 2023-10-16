@@ -21,10 +21,12 @@ public struct Group: Codable, JSONEncodable, Hashable {
     public var parent: UUID?
     public var parentName: String?
     public var users: [Int]?
-    public var attributes: [String: AnyCodable]?
     public var usersObj: [GroupMember]
+    public var attributes: [String: AnyCodable]?
+    public var roles: [UUID]?
+    public var rolesObj: [Role]
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil, usersObj: [GroupMember]) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember], attributes: [String: AnyCodable]? = nil, roles: [UUID]? = nil, rolesObj: [Role]) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
@@ -32,8 +34,10 @@ public struct Group: Codable, JSONEncodable, Hashable {
         self.parent = parent
         self.parentName = parentName
         self.users = users
-        self.attributes = attributes
         self.usersObj = usersObj
+        self.attributes = attributes
+        self.roles = roles
+        self.rolesObj = rolesObj
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -44,8 +48,10 @@ public struct Group: Codable, JSONEncodable, Hashable {
         case parent
         case parentName = "parent_name"
         case users
-        case attributes
         case usersObj = "users_obj"
+        case attributes
+        case roles
+        case rolesObj = "roles_obj"
     }
 
     // Encodable protocol methods
@@ -59,8 +65,10 @@ public struct Group: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(parent, forKey: .parent)
         try container.encode(parentName, forKey: .parentName)
         try container.encodeIfPresent(users, forKey: .users)
-        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encode(usersObj, forKey: .usersObj)
+        try container.encodeIfPresent(attributes, forKey: .attributes)
+        try container.encodeIfPresent(roles, forKey: .roles)
+        try container.encode(rolesObj, forKey: .rolesObj)
     }
 }
 

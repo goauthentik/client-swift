@@ -19,6 +19,7 @@ authentikClient/Classes/OpenAPIs/APIs/OutpostsAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/PoliciesAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/PropertymappingsAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/ProvidersAPI.swift
+authentikClient/Classes/OpenAPIs/APIs/RbacAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/RootAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/SchemaAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/SourcesAPI.swift
@@ -95,6 +96,7 @@ authentikClient/Classes/OpenAPIs/Models/ClientTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Config.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentChallengeResponseRequest.swift
+authentikClient/Classes/OpenAPIs/Models/ConsentPermission.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentStage.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentStageModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentStageRequest.swift
@@ -137,6 +139,8 @@ authentikClient/Classes/OpenAPIs/Models/EventTopPerUser.swift
 authentikClient/Classes/OpenAPIs/Models/ExpiringBaseGrantModel.swift
 authentikClient/Classes/OpenAPIs/Models/ExpressionPolicy.swift
 authentikClient/Classes/OpenAPIs/Models/ExpressionPolicyRequest.swift
+authentikClient/Classes/OpenAPIs/Models/ExtraRoleObjectPermission.swift
+authentikClient/Classes/OpenAPIs/Models/ExtraUserObjectPermission.swift
 authentikClient/Classes/OpenAPIs/Models/FilePathRequest.swift
 authentikClient/Classes/OpenAPIs/Models/Flow.swift
 authentikClient/Classes/OpenAPIs/Models/FlowChallengeResponseRequest.swift
@@ -241,6 +245,8 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedEventList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedEventMatcherPolicyList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedExpiringBaseGrantModelList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedExpressionPolicyList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedExtraRoleObjectPermissionList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedExtraUserObjectPermissionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedFlowList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedFlowStageBindingList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedGroupList.swift
@@ -263,6 +269,7 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedOutpostList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPasswordExpiryPolicyList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPasswordPolicyList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPasswordStageList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedPermissionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPlexSourceConnectionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPlexSourceList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedPolicyBindingList.swift
@@ -277,6 +284,8 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedRadiusOutpostConfigList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedRadiusProviderList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedReputationList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedReputationPolicyList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedRoleAssignedObjectPermissionList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedRoleList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedSAMLPropertyMappingList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedSAMLProviderList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedSAMLSourceList.swift
@@ -292,6 +301,7 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedTOTPDeviceList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTenantList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTokenList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTokenModelList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedUserAssignedObjectPermissionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedUserConsentList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedUserDeleteStageList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedUserList.swift
@@ -352,6 +362,7 @@ authentikClient/Classes/OpenAPIs/Models/PatchedOutpostRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPasswordExpiryPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPasswordPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPasswordStageRequest.swift
+authentikClient/Classes/OpenAPIs/Models/PatchedPermissionAssignRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPlexSourceConnectionRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPlexSourceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPolicyBindingRequest.swift
@@ -360,6 +371,7 @@ authentikClient/Classes/OpenAPIs/Models/PatchedPromptStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedProxyProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedRadiusProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedReputationPolicyRequest.swift
+authentikClient/Classes/OpenAPIs/Models/PatchedRoleRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedSAMLPropertyMappingRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedSAMLProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedSAMLSourceRequest.swift
@@ -380,6 +392,7 @@ authentikClient/Classes/OpenAPIs/Models/PatchedUserSAMLSourceConnectionRequest.s
 authentikClient/Classes/OpenAPIs/Models/PatchedUserWriteStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedWebAuthnDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/Permission.swift
+authentikClient/Classes/OpenAPIs/Models/PermissionAssignRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PlexAuthenticationChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/PlexAuthenticationChallengeResponseRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PlexSource.swift
@@ -421,6 +434,10 @@ authentikClient/Classes/OpenAPIs/Models/Reputation.swift
 authentikClient/Classes/OpenAPIs/Models/ReputationPolicy.swift
 authentikClient/Classes/OpenAPIs/Models/ReputationPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ResidentKeyRequirementEnum.swift
+authentikClient/Classes/OpenAPIs/Models/Role.swift
+authentikClient/Classes/OpenAPIs/Models/RoleAssignedObjectPermission.swift
+authentikClient/Classes/OpenAPIs/Models/RoleObjectPermission.swift
+authentikClient/Classes/OpenAPIs/Models/RoleRequest.swift
 authentikClient/Classes/OpenAPIs/Models/SAMLMetadata.swift
 authentikClient/Classes/OpenAPIs/Models/SAMLPropertyMapping.swift
 authentikClient/Classes/OpenAPIs/Models/SAMLPropertyMappingRequest.swift
@@ -477,6 +494,7 @@ authentikClient/Classes/OpenAPIs/Models/UsedBy.swift
 authentikClient/Classes/OpenAPIs/Models/UsedByActionEnum.swift
 authentikClient/Classes/OpenAPIs/Models/User.swift
 authentikClient/Classes/OpenAPIs/Models/UserAccountRequest.swift
+authentikClient/Classes/OpenAPIs/Models/UserAssignedObjectPermission.swift
 authentikClient/Classes/OpenAPIs/Models/UserConsent.swift
 authentikClient/Classes/OpenAPIs/Models/UserCreationModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/UserDeleteStage.swift
@@ -494,6 +512,7 @@ authentikClient/Classes/OpenAPIs/Models/UserMatchingModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/UserMetrics.swift
 authentikClient/Classes/OpenAPIs/Models/UserOAuthSourceConnection.swift
 authentikClient/Classes/OpenAPIs/Models/UserOAuthSourceConnectionRequest.swift
+authentikClient/Classes/OpenAPIs/Models/UserObjectPermission.swift
 authentikClient/Classes/OpenAPIs/Models/UserPasswordSetRequest.swift
 authentikClient/Classes/OpenAPIs/Models/UserPath.swift
 authentikClient/Classes/OpenAPIs/Models/UserRequest.swift
@@ -585,6 +604,7 @@ docs/ClientTypeEnum.md
 docs/Config.md
 docs/ConsentChallenge.md
 docs/ConsentChallengeResponseRequest.md
+docs/ConsentPermission.md
 docs/ConsentStage.md
 docs/ConsentStageModeEnum.md
 docs/ConsentStageRequest.md
@@ -631,6 +651,8 @@ docs/EventsAPI.md
 docs/ExpiringBaseGrantModel.md
 docs/ExpressionPolicy.md
 docs/ExpressionPolicyRequest.md
+docs/ExtraRoleObjectPermission.md
+docs/ExtraUserObjectPermission.md
 docs/FilePathRequest.md
 docs/Flow.md
 docs/FlowChallengeResponseRequest.md
@@ -739,6 +761,8 @@ docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
 docs/PaginatedExpressionPolicyList.md
+docs/PaginatedExtraRoleObjectPermissionList.md
+docs/PaginatedExtraUserObjectPermissionList.md
 docs/PaginatedFlowList.md
 docs/PaginatedFlowStageBindingList.md
 docs/PaginatedGroupList.md
@@ -761,6 +785,7 @@ docs/PaginatedOutpostList.md
 docs/PaginatedPasswordExpiryPolicyList.md
 docs/PaginatedPasswordPolicyList.md
 docs/PaginatedPasswordStageList.md
+docs/PaginatedPermissionList.md
 docs/PaginatedPlexSourceConnectionList.md
 docs/PaginatedPlexSourceList.md
 docs/PaginatedPolicyBindingList.md
@@ -775,6 +800,8 @@ docs/PaginatedRadiusOutpostConfigList.md
 docs/PaginatedRadiusProviderList.md
 docs/PaginatedReputationList.md
 docs/PaginatedReputationPolicyList.md
+docs/PaginatedRoleAssignedObjectPermissionList.md
+docs/PaginatedRoleList.md
 docs/PaginatedSAMLPropertyMappingList.md
 docs/PaginatedSAMLProviderList.md
 docs/PaginatedSAMLSourceList.md
@@ -790,6 +817,7 @@ docs/PaginatedTOTPDeviceList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
 docs/PaginatedTokenModelList.md
+docs/PaginatedUserAssignedObjectPermissionList.md
 docs/PaginatedUserConsentList.md
 docs/PaginatedUserDeleteStageList.md
 docs/PaginatedUserList.md
@@ -850,6 +878,7 @@ docs/PatchedOutpostRequest.md
 docs/PatchedPasswordExpiryPolicyRequest.md
 docs/PatchedPasswordPolicyRequest.md
 docs/PatchedPasswordStageRequest.md
+docs/PatchedPermissionAssignRequest.md
 docs/PatchedPlexSourceConnectionRequest.md
 docs/PatchedPlexSourceRequest.md
 docs/PatchedPolicyBindingRequest.md
@@ -858,6 +887,7 @@ docs/PatchedPromptStageRequest.md
 docs/PatchedProxyProviderRequest.md
 docs/PatchedRadiusProviderRequest.md
 docs/PatchedReputationPolicyRequest.md
+docs/PatchedRoleRequest.md
 docs/PatchedSAMLPropertyMappingRequest.md
 docs/PatchedSAMLProviderRequest.md
 docs/PatchedSAMLSourceRequest.md
@@ -878,6 +908,7 @@ docs/PatchedUserSAMLSourceConnectionRequest.md
 docs/PatchedUserWriteStageRequest.md
 docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
+docs/PermissionAssignRequest.md
 docs/PlexAuthenticationChallenge.md
 docs/PlexAuthenticationChallengeResponseRequest.md
 docs/PlexSource.md
@@ -917,11 +948,16 @@ docs/ProxyProviderRequest.md
 docs/RadiusOutpostConfig.md
 docs/RadiusProvider.md
 docs/RadiusProviderRequest.md
+docs/RbacAPI.md
 docs/RedirectChallenge.md
 docs/Reputation.md
 docs/ReputationPolicy.md
 docs/ReputationPolicyRequest.md
 docs/ResidentKeyRequirementEnum.md
+docs/Role.md
+docs/RoleAssignedObjectPermission.md
+docs/RoleObjectPermission.md
+docs/RoleRequest.md
 docs/RootAPI.md
 docs/SAMLMetadata.md
 docs/SAMLPropertyMapping.md
@@ -982,6 +1018,7 @@ docs/UsedBy.md
 docs/UsedByActionEnum.md
 docs/User.md
 docs/UserAccountRequest.md
+docs/UserAssignedObjectPermission.md
 docs/UserConsent.md
 docs/UserCreationModeEnum.md
 docs/UserDeleteStage.md
@@ -999,6 +1036,7 @@ docs/UserMatchingModeEnum.md
 docs/UserMetrics.md
 docs/UserOAuthSourceConnection.md
 docs/UserOAuthSourceConnectionRequest.md
+docs/UserObjectPermission.md
 docs/UserPasswordSetRequest.md
 docs/UserPath.md
 docs/UserRequest.md

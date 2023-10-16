@@ -149,7 +149,7 @@ Outpost Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 
 OutpostsAPI.outpostsInstancesDestroy(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -167,7 +167,7 @@ OutpostsAPI.outpostsInstancesDestroy(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
 
 ### Return type
 
@@ -198,7 +198,7 @@ Get outposts current health
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 let managedIcontains = "managedIcontains_example" // String |  (optional)
 let managedIexact = "managedIexact_example" // String |  (optional)
 let nameIcontains = "nameIcontains_example" // String |  (optional)
@@ -226,7 +226,7 @@ OutpostsAPI.outpostsInstancesHealthList(uuid: uuid, managedIcontains: managedIco
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
  **managedIcontains** | **String** |  | [optional] 
  **managedIexact** | **String** |  | [optional] 
  **nameIcontains** | **String** |  | [optional] 
@@ -338,7 +338,7 @@ Outpost Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 let patchedOutpostRequest = PatchedOutpostRequest(name: "name_example", type: OutpostTypeEnum(), providers: [123], serviceConnection: 123, config: "TODO", managed: "managed_example") // PatchedOutpostRequest |  (optional)
 
 OutpostsAPI.outpostsInstancesPartialUpdate(uuid: uuid, patchedOutpostRequest: patchedOutpostRequest) { (response, error) in
@@ -357,7 +357,7 @@ OutpostsAPI.outpostsInstancesPartialUpdate(uuid: uuid, patchedOutpostRequest: pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
  **patchedOutpostRequest** | [**PatchedOutpostRequest**](PatchedOutpostRequest.md) |  | [optional] 
 
 ### Return type
@@ -389,7 +389,7 @@ Outpost Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 
 OutpostsAPI.outpostsInstancesRetrieve(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -407,7 +407,7 @@ OutpostsAPI.outpostsInstancesRetrieve(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
 
 ### Return type
 
@@ -438,7 +438,7 @@ Outpost Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 let outpostRequest = OutpostRequest(name: "name_example", type: OutpostTypeEnum(), providers: [123], serviceConnection: 123, config: "TODO", managed: "managed_example") // OutpostRequest | 
 
 OutpostsAPI.outpostsInstancesUpdate(uuid: uuid, outpostRequest: outpostRequest) { (response, error) in
@@ -457,7 +457,7 @@ OutpostsAPI.outpostsInstancesUpdate(uuid: uuid, outpostRequest: outpostRequest) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
  **outpostRequest** | [**OutpostRequest**](OutpostRequest.md) |  | 
 
 ### Return type
@@ -489,7 +489,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this outpost.
+let uuid = 987 // UUID | A UUID string identifying this Outpost.
 
 OutpostsAPI.outpostsInstancesUsedByList(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -507,7 +507,7 @@ OutpostsAPI.outpostsInstancesUsedByList(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this outpost. | 
+ **uuid** | **UUID** | A UUID string identifying this Outpost. | 
 
 ### Return type
 

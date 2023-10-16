@@ -10,28 +10,50 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Permission used for consent */
+/** Global permission */
 public struct Permission: Codable, JSONEncodable, Hashable {
 
+    public var id: Int
     public var name: String
-    public var id: String
+    public var codename: String
+    public var model: String
+    public var appLabel: String
+    /** Human-readable app label */
+    public var appLabelVerbose: String
+    /** Human-readable model name */
+    public var modelVerbose: String
 
-    public init(name: String, id: String) {
-        self.name = name
+    public init(id: Int, name: String, codename: String, model: String, appLabel: String, appLabelVerbose: String, modelVerbose: String) {
         self.id = id
+        self.name = name
+        self.codename = codename
+        self.model = model
+        self.appLabel = appLabel
+        self.appLabelVerbose = appLabelVerbose
+        self.modelVerbose = modelVerbose
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case name
         case id
+        case name
+        case codename
+        case model
+        case appLabel = "app_label"
+        case appLabelVerbose = "app_label_verbose"
+        case modelVerbose = "model_verbose"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
         try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(codename, forKey: .codename)
+        try container.encode(model, forKey: .model)
+        try container.encode(appLabel, forKey: .appLabel)
+        try container.encode(appLabelVerbose, forKey: .appLabelVerbose)
+        try container.encode(modelVerbose, forKey: .modelVerbose)
     }
 }
 

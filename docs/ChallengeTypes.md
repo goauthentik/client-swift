@@ -29,8 +29,8 @@ Name | Type | Description | Notes
 **siteKey** | **String** |  | 
 **jsUrl** | **String** |  | 
 **headerText** | **String** |  | [optional] 
-**permissions** | [Permission] |  | 
-**additionalPermissions** | [Permission] |  | 
+**permissions** | [ConsentPermission] |  | 
+**additionalPermissions** | [ConsentPermission] |  | 
 **token** | **String** |  | 
 **requestId** | **String** |  | 
 **error** | **String** |  | [optional] 

@@ -792,7 +792,7 @@ Viewset for static authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 
 AuthenticatorsAPI.authenticatorsAdminStaticDestroy(id: id) { (response, error) in
     guard error == nil else {
@@ -810,7 +810,7 @@ AuthenticatorsAPI.authenticatorsAdminStaticDestroy(id: id) { (response, error) i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
 
 ### Return type
 
@@ -898,7 +898,7 @@ Viewset for static authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminStaticPartialUpdate(id: id, patchedStaticDeviceRequest: patchedStaticDeviceRequest) { (response, error) in
@@ -917,7 +917,7 @@ AuthenticatorsAPI.authenticatorsAdminStaticPartialUpdate(id: id, patchedStaticDe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
  **patchedStaticDeviceRequest** | [**PatchedStaticDeviceRequest**](PatchedStaticDeviceRequest.md) |  | [optional] 
 
 ### Return type
@@ -949,7 +949,7 @@ Viewset for static authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 
 AuthenticatorsAPI.authenticatorsAdminStaticRetrieve(id: id) { (response, error) in
     guard error == nil else {
@@ -967,7 +967,7 @@ AuthenticatorsAPI.authenticatorsAdminStaticRetrieve(id: id) { (response, error) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
 
 ### Return type
 
@@ -998,7 +998,7 @@ Viewset for static authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminStaticUpdate(id: id, staticDeviceRequest: staticDeviceRequest) { (response, error) in
@@ -1017,7 +1017,7 @@ AuthenticatorsAPI.authenticatorsAdminStaticUpdate(id: id, staticDeviceRequest: s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
  **staticDeviceRequest** | [**StaticDeviceRequest**](StaticDeviceRequest.md) |  | 
 
 ### Return type
@@ -1098,7 +1098,7 @@ Viewset for totp authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 
 AuthenticatorsAPI.authenticatorsAdminTotpDestroy(id: id) { (response, error) in
     guard error == nil else {
@@ -1116,7 +1116,7 @@ AuthenticatorsAPI.authenticatorsAdminTotpDestroy(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
 
 ### Return type
 
@@ -1204,7 +1204,7 @@ Viewset for totp authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminTotpPartialUpdate(id: id, patchedTOTPDeviceRequest: patchedTOTPDeviceRequest) { (response, error) in
@@ -1223,7 +1223,7 @@ AuthenticatorsAPI.authenticatorsAdminTotpPartialUpdate(id: id, patchedTOTPDevice
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
  **patchedTOTPDeviceRequest** | [**PatchedTOTPDeviceRequest**](PatchedTOTPDeviceRequest.md) |  | [optional] 
 
 ### Return type
@@ -1255,7 +1255,7 @@ Viewset for totp authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 
 AuthenticatorsAPI.authenticatorsAdminTotpRetrieve(id: id) { (response, error) in
     guard error == nil else {
@@ -1273,7 +1273,7 @@ AuthenticatorsAPI.authenticatorsAdminTotpRetrieve(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
 
 ### Return type
 
@@ -1304,7 +1304,7 @@ Viewset for totp authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminTotpUpdate(id: id, tOTPDeviceRequest: tOTPDeviceRequest) { (response, error) in
@@ -1323,7 +1323,7 @@ AuthenticatorsAPI.authenticatorsAdminTotpUpdate(id: id, tOTPDeviceRequest: tOTPD
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
  **tOTPDeviceRequest** | [**TOTPDeviceRequest**](TOTPDeviceRequest.md) |  | 
 
 ### Return type
@@ -2318,7 +2318,7 @@ Viewset for static authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 
 AuthenticatorsAPI.authenticatorsStaticDestroy(id: id) { (response, error) in
     guard error == nil else {
@@ -2336,7 +2336,7 @@ AuthenticatorsAPI.authenticatorsStaticDestroy(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
 
 ### Return type
 
@@ -2424,7 +2424,7 @@ Viewset for static authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsStaticPartialUpdate(id: id, patchedStaticDeviceRequest: patchedStaticDeviceRequest) { (response, error) in
@@ -2443,7 +2443,7 @@ AuthenticatorsAPI.authenticatorsStaticPartialUpdate(id: id, patchedStaticDeviceR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
  **patchedStaticDeviceRequest** | [**PatchedStaticDeviceRequest**](PatchedStaticDeviceRequest.md) |  | [optional] 
 
 ### Return type
@@ -2475,7 +2475,7 @@ Viewset for static authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 
 AuthenticatorsAPI.authenticatorsStaticRetrieve(id: id) { (response, error) in
     guard error == nil else {
@@ -2493,7 +2493,7 @@ AuthenticatorsAPI.authenticatorsStaticRetrieve(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
 
 ### Return type
 
@@ -2524,7 +2524,7 @@ Viewset for static authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsStaticUpdate(id: id, staticDeviceRequest: staticDeviceRequest) { (response, error) in
@@ -2543,7 +2543,7 @@ AuthenticatorsAPI.authenticatorsStaticUpdate(id: id, staticDeviceRequest: static
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
  **staticDeviceRequest** | [**StaticDeviceRequest**](StaticDeviceRequest.md) |  | 
 
 ### Return type
@@ -2575,7 +2575,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Static device.
+let id = 987 // Int | A unique integer value identifying this Static Device.
 
 AuthenticatorsAPI.authenticatorsStaticUsedByList(id: id) { (response, error) in
     guard error == nil else {
@@ -2593,7 +2593,7 @@ AuthenticatorsAPI.authenticatorsStaticUsedByList(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Static device. | 
+ **id** | **Int** | A unique integer value identifying this Static Device. | 
 
 ### Return type
 
@@ -2624,7 +2624,7 @@ Viewset for totp authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 
 AuthenticatorsAPI.authenticatorsTotpDestroy(id: id) { (response, error) in
     guard error == nil else {
@@ -2642,7 +2642,7 @@ AuthenticatorsAPI.authenticatorsTotpDestroy(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
 
 ### Return type
 
@@ -2730,7 +2730,7 @@ Viewset for totp authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsTotpPartialUpdate(id: id, patchedTOTPDeviceRequest: patchedTOTPDeviceRequest) { (response, error) in
@@ -2749,7 +2749,7 @@ AuthenticatorsAPI.authenticatorsTotpPartialUpdate(id: id, patchedTOTPDeviceReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
  **patchedTOTPDeviceRequest** | [**PatchedTOTPDeviceRequest**](PatchedTOTPDeviceRequest.md) |  | [optional] 
 
 ### Return type
@@ -2781,7 +2781,7 @@ Viewset for totp authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 
 AuthenticatorsAPI.authenticatorsTotpRetrieve(id: id) { (response, error) in
     guard error == nil else {
@@ -2799,7 +2799,7 @@ AuthenticatorsAPI.authenticatorsTotpRetrieve(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
 
 ### Return type
 
@@ -2830,7 +2830,7 @@ Viewset for totp authenticator devices
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsTotpUpdate(id: id, tOTPDeviceRequest: tOTPDeviceRequest) { (response, error) in
@@ -2849,7 +2849,7 @@ AuthenticatorsAPI.authenticatorsTotpUpdate(id: id, tOTPDeviceRequest: tOTPDevice
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
  **tOTPDeviceRequest** | [**TOTPDeviceRequest**](TOTPDeviceRequest.md) |  | 
 
 ### Return type
@@ -2881,7 +2881,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this TOTP device.
+let id = 987 // Int | A unique integer value identifying this TOTP Device.
 
 AuthenticatorsAPI.authenticatorsTotpUsedByList(id: id) { (response, error) in
     guard error == nil else {
@@ -2899,7 +2899,7 @@ AuthenticatorsAPI.authenticatorsTotpUsedByList(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this TOTP device. | 
+ **id** | **Int** | A unique integer value identifying this TOTP Device. | 
 
 ### Return type
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **uid** | **String** |  | [readonly] 
 **settings** | [String: AnyCodable] | Get user settings with tenant and group settings applied | [readonly] 
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 
+**systemPermissions** | **[String]** | Get all system permissions assigned to the user | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

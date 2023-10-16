@@ -19,13 +19,15 @@ public struct PatchedGroupRequest: Codable, JSONEncodable, Hashable {
     public var parent: UUID?
     public var users: [Int]?
     public var attributes: [String: AnyCodable]?
+    public var roles: [UUID]?
 
-    public init(name: String? = nil, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil) {
+    public init(name: String? = nil, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil, roles: [UUID]? = nil) {
         self.name = name
         self.isSuperuser = isSuperuser
         self.parent = parent
         self.users = users
         self.attributes = attributes
+        self.roles = roles
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -34,6 +36,7 @@ public struct PatchedGroupRequest: Codable, JSONEncodable, Hashable {
         case parent
         case users
         case attributes
+        case roles
     }
 
     // Encodable protocol methods
@@ -45,6 +48,7 @@ public struct PatchedGroupRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(parent, forKey: .parent)
         try container.encodeIfPresent(users, forKey: .users)
         try container.encodeIfPresent(attributes, forKey: .attributes)
+        try container.encodeIfPresent(roles, forKey: .roles)
     }
 }
 

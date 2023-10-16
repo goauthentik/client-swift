@@ -800,7 +800,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter userAccountRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -823,7 +823,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter userAccountRequest: (body)  
      - returns: RequestBuilder<Void> 
      */
@@ -895,7 +895,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -917,7 +917,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - returns: RequestBuilder<Void> 
      */
     open class func coreGroupsDestroyWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<Void> {
@@ -1015,7 +1015,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter patchedGroupRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1038,7 +1038,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter patchedGroupRequest: (body)  (optional)
      - returns: RequestBuilder<Group> 
      */
@@ -1065,7 +1065,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter userAccountRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1088,7 +1088,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter userAccountRequest: (body)  
      - returns: RequestBuilder<Void> 
      */
@@ -1115,7 +1115,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1137,7 +1137,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - returns: RequestBuilder<Group> 
      */
     open class func coreGroupsRetrieveWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<Group> {
@@ -1163,7 +1163,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter groupRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1186,7 +1186,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter groupRequest: (body)  
      - returns: RequestBuilder<Group> 
      */
@@ -1213,7 +1213,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1235,7 +1235,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func coreGroupsUsedByListWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<[UsedBy]> {

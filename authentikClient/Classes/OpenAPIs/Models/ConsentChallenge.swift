@@ -20,11 +20,11 @@ public struct ConsentChallenge: Codable, JSONEncodable, Hashable {
     public var pendingUser: String
     public var pendingUserAvatar: String
     public var headerText: String?
-    public var permissions: [Permission]
-    public var additionalPermissions: [Permission]
+    public var permissions: [ConsentPermission]
+    public var additionalPermissions: [ConsentPermission]
     public var token: String
 
-    public init(type: ChallengeChoices, flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-consent", responseErrors: [String: [ErrorDetail]]? = nil, pendingUser: String, pendingUserAvatar: String, headerText: String? = nil, permissions: [Permission], additionalPermissions: [Permission], token: String) {
+    public init(type: ChallengeChoices, flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-consent", responseErrors: [String: [ErrorDetail]]? = nil, pendingUser: String, pendingUserAvatar: String, headerText: String? = nil, permissions: [ConsentPermission], additionalPermissions: [ConsentPermission], token: String) {
         self.type = type
         self.flowInfo = flowInfo
         self.component = component

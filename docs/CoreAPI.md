@@ -861,7 +861,7 @@ Add user to group
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
 let userAccountRequest = UserAccountRequest(pk: 123) // UserAccountRequest | 
 
 CoreAPI.coreGroupsAddUserCreate(groupUuid: groupUuid, userAccountRequest: userAccountRequest) { (response, error) in
@@ -880,7 +880,7 @@ CoreAPI.coreGroupsAddUserCreate(groupUuid: groupUuid, userAccountRequest: userAc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **userAccountRequest** | [**UserAccountRequest**](UserAccountRequest.md) |  | 
 
 ### Return type
@@ -912,7 +912,7 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // GroupRequest | 
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsCreate(groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
@@ -961,7 +961,7 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
 
 CoreAPI.coreGroupsDestroy(groupUuid: groupUuid) { (response, error) in
     guard error == nil else {
@@ -979,7 +979,7 @@ CoreAPI.coreGroupsDestroy(groupUuid: groupUuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
 
 ### Return type
 
@@ -1075,8 +1075,8 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
-let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // PatchedGroupRequest |  (optional)
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
+let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // PatchedGroupRequest |  (optional)
 
 CoreAPI.coreGroupsPartialUpdate(groupUuid: groupUuid, patchedGroupRequest: patchedGroupRequest) { (response, error) in
     guard error == nil else {
@@ -1094,7 +1094,7 @@ CoreAPI.coreGroupsPartialUpdate(groupUuid: groupUuid, patchedGroupRequest: patch
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **patchedGroupRequest** | [**PatchedGroupRequest**](PatchedGroupRequest.md) |  | [optional] 
 
 ### Return type
@@ -1126,7 +1126,7 @@ Add user to group
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
 let userAccountRequest = UserAccountRequest(pk: 123) // UserAccountRequest | 
 
 CoreAPI.coreGroupsRemoveUserCreate(groupUuid: groupUuid, userAccountRequest: userAccountRequest) { (response, error) in
@@ -1145,7 +1145,7 @@ CoreAPI.coreGroupsRemoveUserCreate(groupUuid: groupUuid, userAccountRequest: use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **userAccountRequest** | [**UserAccountRequest**](UserAccountRequest.md) |  | 
 
 ### Return type
@@ -1177,7 +1177,7 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
 
 CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid) { (response, error) in
     guard error == nil else {
@@ -1195,7 +1195,7 @@ CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
 
 ### Return type
 
@@ -1226,8 +1226,8 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO") // GroupRequest | 
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsUpdate(groupUuid: groupUuid, groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
@@ -1245,7 +1245,7 @@ CoreAPI.coreGroupsUpdate(groupUuid: groupUuid, groupRequest: groupRequest) { (re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **groupRequest** | [**GroupRequest**](GroupRequest.md) |  | 
 
 ### Return type
@@ -1277,7 +1277,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupUuid = 987 // UUID | A UUID string identifying this group.
+let groupUuid = 987 // UUID | A UUID string identifying this Group.
 
 CoreAPI.coreGroupsUsedByList(groupUuid: groupUuid) { (response, error) in
     guard error == nil else {
@@ -1295,7 +1295,7 @@ CoreAPI.coreGroupsUsedByList(groupUuid: groupUuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **UUID** | A UUID string identifying this group. | 
+ **groupUuid** | **UUID** | A UUID string identifying this Group. | 
 
 ### Return type
 

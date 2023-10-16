@@ -102,7 +102,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -124,7 +124,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - returns: RequestBuilder<Void> 
      */
     open class func outpostsInstancesDestroyWithRequestBuilder(uuid: UUID) -> RequestBuilder<Void> {
@@ -150,7 +150,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter managedIcontains: (query)  (optional)
      - parameter managedIexact: (query)  (optional)
      - parameter nameIcontains: (query)  (optional)
@@ -182,7 +182,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter managedIcontains: (query)  (optional)
      - parameter managedIexact: (query)  (optional)
      - parameter nameIcontains: (query)  (optional)
@@ -311,7 +311,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter patchedOutpostRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -334,7 +334,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter patchedOutpostRequest: (body)  (optional)
      - returns: RequestBuilder<Outpost> 
      */
@@ -361,7 +361,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -383,7 +383,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - returns: RequestBuilder<Outpost> 
      */
     open class func outpostsInstancesRetrieveWithRequestBuilder(uuid: UUID) -> RequestBuilder<Outpost> {
@@ -409,7 +409,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter outpostRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -432,7 +432,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter outpostRequest: (body)  
      - returns: RequestBuilder<Outpost> 
      */
@@ -459,7 +459,7 @@ open class OutpostsAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -481,7 +481,7 @@ open class OutpostsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this outpost. 
+     - parameter uuid: (path) A UUID string identifying this Outpost. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func outpostsInstancesUsedByListWithRequestBuilder(uuid: UUID) -> RequestBuilder<[UsedBy]> {

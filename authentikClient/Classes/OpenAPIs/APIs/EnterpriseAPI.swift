@@ -59,7 +59,7 @@ open class EnterpriseAPI {
 
     /**
 
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -81,7 +81,7 @@ open class EnterpriseAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - returns: RequestBuilder<Void> 
      */
     open class func enterpriseLicenseDestroyWithRequestBuilder(licenseUuid: UUID) -> RequestBuilder<Void> {
@@ -253,7 +253,7 @@ open class EnterpriseAPI {
 
     /**
 
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter patchedLicenseRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -276,7 +276,7 @@ open class EnterpriseAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter patchedLicenseRequest: (body)  (optional)
      - returns: RequestBuilder<License> 
      */
@@ -303,7 +303,7 @@ open class EnterpriseAPI {
 
     /**
 
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -325,7 +325,7 @@ open class EnterpriseAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - returns: RequestBuilder<License> 
      */
     open class func enterpriseLicenseRetrieveWithRequestBuilder(licenseUuid: UUID) -> RequestBuilder<License> {
@@ -394,7 +394,7 @@ open class EnterpriseAPI {
 
     /**
 
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter licenseRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -417,7 +417,7 @@ open class EnterpriseAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter licenseRequest: (body)  
      - returns: RequestBuilder<License> 
      */
@@ -444,7 +444,7 @@ open class EnterpriseAPI {
 
     /**
 
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -466,7 +466,7 @@ open class EnterpriseAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter licenseUuid: (path) A UUID string identifying this license. 
+     - parameter licenseUuid: (path) A UUID string identifying this License. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func enterpriseLicenseUsedByListWithRequestBuilder(licenseUuid: UUID) -> RequestBuilder<[UsedBy]> {

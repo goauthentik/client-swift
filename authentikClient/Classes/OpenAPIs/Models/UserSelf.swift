@@ -28,8 +28,10 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
     /** Get user settings with tenant and group settings applied */
     public var settings: [String: AnyCodable]
     public var type: UserTypeEnum?
+    /** Get all system permissions assigned to the user */
+    public var systemPermissions: [String]
 
-    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], email: String? = nil, avatar: String, uid: String, settings: [String: AnyCodable], type: UserTypeEnum? = nil) {
+    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], email: String? = nil, avatar: String, uid: String, settings: [String: AnyCodable], type: UserTypeEnum? = nil, systemPermissions: [String]) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -41,6 +43,7 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
         self.uid = uid
         self.settings = settings
         self.type = type
+        self.systemPermissions = systemPermissions
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,6 +58,7 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
         case uid
         case settings
         case type
+        case systemPermissions = "system_permissions"
     }
 
     // Encodable protocol methods
@@ -72,6 +76,7 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
         try container.encode(uid, forKey: .uid)
         try container.encode(settings, forKey: .settings)
         try container.encodeIfPresent(type, forKey: .type)
+        try container.encode(systemPermissions, forKey: .systemPermissions)
     }
 }
 
