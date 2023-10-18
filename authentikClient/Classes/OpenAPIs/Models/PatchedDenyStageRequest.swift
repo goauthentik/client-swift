@@ -15,15 +15,18 @@ public struct PatchedDenyStageRequest: Codable, JSONEncodable, Hashable {
 
     public var name: String?
     public var flowSet: [FlowSetRequest]?
+    public var denyMessage: String?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil) {
+    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, denyMessage: String? = nil) {
         self.name = name
         self.flowSet = flowSet
+        self.denyMessage = denyMessage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case flowSet = "flow_set"
+        case denyMessage = "deny_message"
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct PatchedDenyStageRequest: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
         try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encodeIfPresent(denyMessage, forKey: .denyMessage)
     }
 }
 

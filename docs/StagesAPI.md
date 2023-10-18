@@ -3531,7 +3531,7 @@ DenyStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // DenyStageRequest | 
+let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
 
 StagesAPI.stagesDenyCreate(denyStageRequest: denyStageRequest) { (response, error) in
     guard error == nil else {
@@ -3617,7 +3617,7 @@ Void (empty response body)
 
 # **stagesDenyList**
 ```swift
-    open class func stagesDenyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, completion: @escaping (_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)
+    open class func stagesDenyList(denyMessage: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, completion: @escaping (_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -3629,6 +3629,7 @@ DenyStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let denyMessage = "denyMessage_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3636,7 +3637,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let stageUuid = 987 // UUID |  (optional)
 
-StagesAPI.stagesDenyList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid) { (response, error) in
+StagesAPI.stagesDenyList(denyMessage: denyMessage, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -3652,6 +3653,7 @@ StagesAPI.stagesDenyList(name: name, ordering: ordering, page: page, pageSize: p
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **denyMessage** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -3689,7 +3691,7 @@ DenyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
-let patchedDenyStageRequest = PatchedDenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedDenyStageRequest |  (optional)
+let patchedDenyStageRequest = PatchedDenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // PatchedDenyStageRequest |  (optional)
 
 StagesAPI.stagesDenyPartialUpdate(stageUuid: stageUuid, patchedDenyStageRequest: patchedDenyStageRequest) { (response, error) in
     guard error == nil else {
@@ -3789,7 +3791,7 @@ DenyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
-let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // DenyStageRequest | 
+let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
 
 StagesAPI.stagesDenyUpdate(stageUuid: stageUuid, denyStageRequest: denyStageRequest) { (response, error) in
     guard error == nil else {

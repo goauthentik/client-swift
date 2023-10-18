@@ -24,8 +24,9 @@ public struct DenyStage: Codable, JSONEncodable, Hashable {
     /** Return internal model name */
     public var metaModelName: String
     public var flowSet: [FlowSet]?
+    public var denyMessage: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, denyMessage: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -33,6 +34,7 @@ public struct DenyStage: Codable, JSONEncodable, Hashable {
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName
         self.flowSet = flowSet
+        self.denyMessage = denyMessage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -43,6 +45,7 @@ public struct DenyStage: Codable, JSONEncodable, Hashable {
         case verboseNamePlural = "verbose_name_plural"
         case metaModelName = "meta_model_name"
         case flowSet = "flow_set"
+        case denyMessage = "deny_message"
     }
 
     // Encodable protocol methods
@@ -56,6 +59,7 @@ public struct DenyStage: Codable, JSONEncodable, Hashable {
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
         try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encodeIfPresent(denyMessage, forKey: .denyMessage)
     }
 }
 

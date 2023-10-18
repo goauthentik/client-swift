@@ -3508,6 +3508,7 @@ open class StagesAPI {
 
     /**
 
+     - parameter denyMessage: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -3518,8 +3519,8 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesDenyList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)) -> RequestTask {
-        return stagesDenyListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
+    open class func stagesDenyList(denyMessage: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedDenyStageList?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesDenyListWithRequestBuilder(denyMessage: denyMessage, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -3535,6 +3536,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - parameter denyMessage: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -3543,13 +3545,14 @@ open class StagesAPI {
      - parameter stageUuid: (query)  (optional)
      - returns: RequestBuilder<PaginatedDenyStageList> 
      */
-    open class func stagesDenyListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedDenyStageList> {
+    open class func stagesDenyListWithRequestBuilder(denyMessage: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil) -> RequestBuilder<PaginatedDenyStageList> {
         let localVariablePath = "/stages/deny/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "deny_message": (wrappedValue: denyMessage?.encodeToJSON(), isExplode: true),
             "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
             "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
             "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
