@@ -41,8 +41,10 @@ public struct RadiusProvider: Codable, JSONEncodable, Hashable {
     /** Shared secret between clients and server to hash packets. */
     public var sharedSecret: String?
     public var outpostSet: [String]
+    /** When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon. */
+    public var mfaSupport: Bool?
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientNetworks: String? = nil, sharedSecret: String? = nil, outpostSet: [String]) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientNetworks: String? = nil, sharedSecret: String? = nil, outpostSet: [String], mfaSupport: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow
@@ -59,6 +61,7 @@ public struct RadiusProvider: Codable, JSONEncodable, Hashable {
         self.clientNetworks = clientNetworks
         self.sharedSecret = sharedSecret
         self.outpostSet = outpostSet
+        self.mfaSupport = mfaSupport
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -78,6 +81,7 @@ public struct RadiusProvider: Codable, JSONEncodable, Hashable {
         case clientNetworks = "client_networks"
         case sharedSecret = "shared_secret"
         case outpostSet = "outpost_set"
+        case mfaSupport = "mfa_support"
     }
 
     // Encodable protocol methods
@@ -100,6 +104,7 @@ public struct RadiusProvider: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(clientNetworks, forKey: .clientNetworks)
         try container.encodeIfPresent(sharedSecret, forKey: .sharedSecret)
         try container.encode(outpostSet, forKey: .outpostSet)
+        try container.encodeIfPresent(mfaSupport, forKey: .mfaSupport)
     }
 }
 

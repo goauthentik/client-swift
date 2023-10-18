@@ -21,14 +21,17 @@ public struct RadiusOutpostConfig: Codable, JSONEncodable, Hashable {
     public var clientNetworks: String?
     /** Shared secret between clients and server to hash packets. */
     public var sharedSecret: String?
+    /** When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon. */
+    public var mfaSupport: Bool?
 
-    public init(pk: Int, name: String, applicationSlug: String, authFlowSlug: String, clientNetworks: String? = nil, sharedSecret: String? = nil) {
+    public init(pk: Int, name: String, applicationSlug: String, authFlowSlug: String, clientNetworks: String? = nil, sharedSecret: String? = nil, mfaSupport: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.applicationSlug = applicationSlug
         self.authFlowSlug = authFlowSlug
         self.clientNetworks = clientNetworks
         self.sharedSecret = sharedSecret
+        self.mfaSupport = mfaSupport
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -38,6 +41,7 @@ public struct RadiusOutpostConfig: Codable, JSONEncodable, Hashable {
         case authFlowSlug = "auth_flow_slug"
         case clientNetworks = "client_networks"
         case sharedSecret = "shared_secret"
+        case mfaSupport = "mfa_support"
     }
 
     // Encodable protocol methods
@@ -50,6 +54,7 @@ public struct RadiusOutpostConfig: Codable, JSONEncodable, Hashable {
         try container.encode(authFlowSlug, forKey: .authFlowSlug)
         try container.encodeIfPresent(clientNetworks, forKey: .clientNetworks)
         try container.encodeIfPresent(sharedSecret, forKey: .sharedSecret)
+        try container.encodeIfPresent(mfaSupport, forKey: .mfaSupport)
     }
 }
 
