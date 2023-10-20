@@ -20,8 +20,10 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
     public var authorizationUrl: String?
     public var accessTokenUrl: String?
     public var profileUrl: String?
+    public var oidcWellKnownUrl: String?
+    public var oidcJwksUrl: String?
 
-    public init(name: String, slug: String, urlsCustomizable: Bool, requestTokenUrl: String?, authorizationUrl: String?, accessTokenUrl: String?, profileUrl: String?) {
+    public init(name: String, slug: String, urlsCustomizable: Bool, requestTokenUrl: String?, authorizationUrl: String?, accessTokenUrl: String?, profileUrl: String?, oidcWellKnownUrl: String?, oidcJwksUrl: String?) {
         self.name = name
         self.slug = slug
         self.urlsCustomizable = urlsCustomizable
@@ -29,6 +31,8 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
         self.authorizationUrl = authorizationUrl
         self.accessTokenUrl = accessTokenUrl
         self.profileUrl = profileUrl
+        self.oidcWellKnownUrl = oidcWellKnownUrl
+        self.oidcJwksUrl = oidcJwksUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -39,6 +43,8 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
         case authorizationUrl = "authorization_url"
         case accessTokenUrl = "access_token_url"
         case profileUrl = "profile_url"
+        case oidcWellKnownUrl = "oidc_well_known_url"
+        case oidcJwksUrl = "oidc_jwks_url"
     }
 
     // Encodable protocol methods
@@ -52,6 +58,8 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
         try container.encode(authorizationUrl, forKey: .authorizationUrl)
         try container.encode(accessTokenUrl, forKey: .accessTokenUrl)
         try container.encode(profileUrl, forKey: .profileUrl)
+        try container.encode(oidcWellKnownUrl, forKey: .oidcWellKnownUrl)
+        try container.encode(oidcJwksUrl, forKey: .oidcJwksUrl)
     }
 }
 
