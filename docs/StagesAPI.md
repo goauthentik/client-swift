@@ -7973,7 +7973,7 @@ UserWriteStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
+let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
 
 StagesAPI.stagesUserWriteCreate(userWriteStageRequest: userWriteStageRequest) { (response, error) in
     guard error == nil else {
@@ -8059,7 +8059,7 @@ Void (empty response body)
 
 # **stagesUserWriteList**
 ```swift
-    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, completion: @escaping (_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)
+    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, userType: UserType_stagesUserWriteList? = nil, completion: @escaping (_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -8081,8 +8081,9 @@ let search = "search_example" // String | A search term. (optional)
 let stageUuid = 987 // UUID |  (optional)
 let userCreationMode = "userCreationMode_example" // String | * `never_create` - Never Create * `create_when_required` - Create When Required * `always_create` - Always Create (optional)
 let userPathTemplate = "userPathTemplate_example" // String |  (optional)
+let userType = "userType_example" // String | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account (optional)
 
-StagesAPI.stagesUserWriteList(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate) { (response, error) in
+StagesAPI.stagesUserWriteList(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate, userType: userType) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -8108,6 +8109,7 @@ Name | Type | Description  | Notes
  **stageUuid** | **UUID** |  | [optional] 
  **userCreationMode** | **String** | * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create | [optional] 
  **userPathTemplate** | **String** |  | [optional] 
+ **userType** | **String** | * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] 
 
 ### Return type
 
@@ -8139,7 +8141,7 @@ UserWriteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
-let patchedUserWriteStageRequest = PatchedUserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // PatchedUserWriteStageRequest |  (optional)
+let patchedUserWriteStageRequest = PatchedUserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // PatchedUserWriteStageRequest |  (optional)
 
 StagesAPI.stagesUserWritePartialUpdate(stageUuid: stageUuid, patchedUserWriteStageRequest: patchedUserWriteStageRequest) { (response, error) in
     guard error == nil else {
@@ -8239,7 +8241,7 @@ UserWriteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
-let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
+let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
 
 StagesAPI.stagesUserWriteUpdate(stageUuid: stageUuid, userWriteStageRequest: userWriteStageRequest) { (response, error) in
     guard error == nil else {

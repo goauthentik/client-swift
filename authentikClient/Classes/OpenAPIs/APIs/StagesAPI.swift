@@ -7948,6 +7948,16 @@ open class StagesAPI {
     }
 
     /**
+     * enum for parameter userType
+     */
+    public enum UserType_stagesUserWriteList: String, CaseIterable {
+        case external = "external"
+        case _internal = "internal"
+        case internalServiceAccount = "internal_service_account"
+        case serviceAccount = "service_account"
+    }
+
+    /**
 
      - parameter createUsersAsInactive: (query)  (optional)
      - parameter createUsersGroup: (query)  (optional)
@@ -7959,12 +7969,13 @@ open class StagesAPI {
      - parameter stageUuid: (query)  (optional)
      - parameter userCreationMode: (query) * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create (optional)
      - parameter userPathTemplate: (query)  (optional)
+     - parameter userType: (query) * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)) -> RequestTask {
-        return stagesUserWriteListWithRequestBuilder(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate).execute(apiResponseQueue) { result in
+    open class func stagesUserWriteList(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, userType: UserType_stagesUserWriteList? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserWriteStageList?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesUserWriteListWithRequestBuilder(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate, userType: userType).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -7990,9 +8001,10 @@ open class StagesAPI {
      - parameter stageUuid: (query)  (optional)
      - parameter userCreationMode: (query) * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create (optional)
      - parameter userPathTemplate: (query)  (optional)
+     - parameter userType: (query) * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      - returns: RequestBuilder<PaginatedUserWriteStageList> 
      */
-    open class func stagesUserWriteListWithRequestBuilder(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil) -> RequestBuilder<PaginatedUserWriteStageList> {
+    open class func stagesUserWriteListWithRequestBuilder(createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userCreationMode: UserCreationMode_stagesUserWriteList? = nil, userPathTemplate: String? = nil, userType: UserType_stagesUserWriteList? = nil) -> RequestBuilder<PaginatedUserWriteStageList> {
         let localVariablePath = "/stages/user_write/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -8009,6 +8021,7 @@ open class StagesAPI {
             "stage_uuid": (wrappedValue: stageUuid?.encodeToJSON(), isExplode: true),
             "user_creation_mode": (wrappedValue: userCreationMode?.encodeToJSON(), isExplode: true),
             "user_path_template": (wrappedValue: userPathTemplate?.encodeToJSON(), isExplode: true),
+            "user_type": (wrappedValue: userType?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

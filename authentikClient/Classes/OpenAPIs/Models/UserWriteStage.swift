@@ -29,9 +29,10 @@ public struct UserWriteStage: Codable, JSONEncodable, Hashable {
     public var createUsersAsInactive: Bool?
     /** Optionally add newly created users to this group. */
     public var createUsersGroup: UUID?
+    public var userType: UserTypeEnum?
     public var userPathTemplate: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, userCreationMode: UserCreationModeEnum? = nil, createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, userPathTemplate: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, userCreationMode: UserCreationModeEnum? = nil, createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, userType: UserTypeEnum? = nil, userPathTemplate: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -42,6 +43,7 @@ public struct UserWriteStage: Codable, JSONEncodable, Hashable {
         self.userCreationMode = userCreationMode
         self.createUsersAsInactive = createUsersAsInactive
         self.createUsersGroup = createUsersGroup
+        self.userType = userType
         self.userPathTemplate = userPathTemplate
     }
 
@@ -56,6 +58,7 @@ public struct UserWriteStage: Codable, JSONEncodable, Hashable {
         case userCreationMode = "user_creation_mode"
         case createUsersAsInactive = "create_users_as_inactive"
         case createUsersGroup = "create_users_group"
+        case userType = "user_type"
         case userPathTemplate = "user_path_template"
     }
 
@@ -73,6 +76,7 @@ public struct UserWriteStage: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(userCreationMode, forKey: .userCreationMode)
         try container.encodeIfPresent(createUsersAsInactive, forKey: .createUsersAsInactive)
         try container.encodeIfPresent(createUsersGroup, forKey: .createUsersGroup)
+        try container.encodeIfPresent(userType, forKey: .userType)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
     }
 }
