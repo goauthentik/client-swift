@@ -477,7 +477,7 @@ Class | Method | HTTP request | Description
 *SourcesAPI* | [**sourcesLdapList**](docs/SourcesAPI.md#sourcesldaplist) | **GET** /sources/ldap/ | 
 *SourcesAPI* | [**sourcesLdapPartialUpdate**](docs/SourcesAPI.md#sourcesldappartialupdate) | **PATCH** /sources/ldap/{slug}/ | 
 *SourcesAPI* | [**sourcesLdapRetrieve**](docs/SourcesAPI.md#sourcesldapretrieve) | **GET** /sources/ldap/{slug}/ | 
-*SourcesAPI* | [**sourcesLdapSyncStatusList**](docs/SourcesAPI.md#sourcesldapsyncstatuslist) | **GET** /sources/ldap/{slug}/sync_status/ | 
+*SourcesAPI* | [**sourcesLdapSyncStatusRetrieve**](docs/SourcesAPI.md#sourcesldapsyncstatusretrieve) | **GET** /sources/ldap/{slug}/sync_status/ | 
 *SourcesAPI* | [**sourcesLdapUpdate**](docs/SourcesAPI.md#sourcesldapupdate) | **PUT** /sources/ldap/{slug}/ | 
 *SourcesAPI* | [**sourcesLdapUsedByList**](docs/SourcesAPI.md#sourcesldapusedbylist) | **GET** /sources/ldap/{slug}/used_by/ | 
 *SourcesAPI* | [**sourcesOauthCreate**](docs/SourcesAPI.md#sourcesoauthcreate) | **POST** /sources/oauth/ | 
@@ -848,6 +848,7 @@ Class | Method | HTTP request | Description
  - [LDAPProviderRequest](docs/LDAPProviderRequest.md)
  - [LDAPSource](docs/LDAPSource.md)
  - [LDAPSourceRequest](docs/LDAPSourceRequest.md)
+ - [LDAPSyncStatus](docs/LDAPSyncStatus.md)
  - [LayoutEnum](docs/LayoutEnum.md)
  - [License](docs/License.md)
  - [LicenseForecast](docs/LicenseForecast.md)

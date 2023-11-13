@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**sourcesLdapList**](SourcesAPI.md#sourcesldaplist) | **GET** /sources/ldap/ | 
 [**sourcesLdapPartialUpdate**](SourcesAPI.md#sourcesldappartialupdate) | **PATCH** /sources/ldap/{slug}/ | 
 [**sourcesLdapRetrieve**](SourcesAPI.md#sourcesldapretrieve) | **GET** /sources/ldap/{slug}/ | 
-[**sourcesLdapSyncStatusList**](SourcesAPI.md#sourcesldapsyncstatuslist) | **GET** /sources/ldap/{slug}/sync_status/ | 
+[**sourcesLdapSyncStatusRetrieve**](SourcesAPI.md#sourcesldapsyncstatusretrieve) | **GET** /sources/ldap/{slug}/sync_status/ | 
 [**sourcesLdapUpdate**](SourcesAPI.md#sourcesldapupdate) | **PUT** /sources/ldap/{slug}/ | 
 [**sourcesLdapUsedByList**](SourcesAPI.md#sourcesldapusedbylist) | **GET** /sources/ldap/{slug}/used_by/ | 
 [**sourcesOauthCreate**](SourcesAPI.md#sourcesoauthcreate) | **POST** /sources/oauth/ | 
@@ -823,9 +823,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **sourcesLdapSyncStatusList**
+# **sourcesLdapSyncStatusRetrieve**
 ```swift
-    open class func sourcesLdapSyncStatusList(slug: String, completion: @escaping (_ data: [Task]?, _ error: Error?) -> Void)
+    open class func sourcesLdapSyncStatusRetrieve(slug: String, completion: @escaping (_ data: LDAPSyncStatus?, _ error: Error?) -> Void)
 ```
 
 
@@ -839,7 +839,7 @@ import authentikClient
 
 let slug = "slug_example" // String | 
 
-SourcesAPI.sourcesLdapSyncStatusList(slug: slug) { (response, error) in
+SourcesAPI.sourcesLdapSyncStatusRetrieve(slug: slug) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -859,7 +859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Task]**](Task.md)
+[**LDAPSyncStatus**](LDAPSyncStatus.md)
 
 ### Authorization
 

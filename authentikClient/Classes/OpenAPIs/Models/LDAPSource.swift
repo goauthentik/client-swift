@@ -68,8 +68,10 @@ public struct LDAPSource: Codable, JSONEncodable, Hashable {
     public var propertyMappings: [UUID]?
     /** Property mappings used for group creation/updating. */
     public var propertyMappingsGroup: [UUID]?
+    /** Get cached source connectivity */
+    public var connectivity: [String: [String: String]]?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, objectUniquenessField: String? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, objectUniquenessField: String? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, connectivity: [String: [String: String]]?) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -104,6 +106,7 @@ public struct LDAPSource: Codable, JSONEncodable, Hashable {
         self.syncParentGroup = syncParentGroup
         self.propertyMappings = propertyMappings
         self.propertyMappingsGroup = propertyMappingsGroup
+        self.connectivity = connectivity
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -141,6 +144,7 @@ public struct LDAPSource: Codable, JSONEncodable, Hashable {
         case syncParentGroup = "sync_parent_group"
         case propertyMappings = "property_mappings"
         case propertyMappingsGroup = "property_mappings_group"
+        case connectivity
     }
 
     // Encodable protocol methods
@@ -181,6 +185,7 @@ public struct LDAPSource: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(syncParentGroup, forKey: .syncParentGroup)
         try container.encodeIfPresent(propertyMappings, forKey: .propertyMappings)
         try container.encodeIfPresent(propertyMappingsGroup, forKey: .propertyMappingsGroup)
+        try container.encode(connectivity, forKey: .connectivity)
     }
 }
 

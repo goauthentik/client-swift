@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **syncParentGroup** | **UUID** |  | [optional] 
 **propertyMappings** | **[UUID]** |  | [optional] 
 **propertyMappingsGroup** | **[UUID]** | Property mappings used for group creation/updating. | [optional] 
+**connectivity** | [String: [String: String]] | Get cached source connectivity | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

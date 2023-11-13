@@ -184,6 +184,7 @@ authentikClient/Classes/OpenAPIs/Models/LDAPProvider.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPSource.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPSourceRequest.swift
+authentikClient/Classes/OpenAPIs/Models/LDAPSyncStatus.swift
 authentikClient/Classes/OpenAPIs/Models/LayoutEnum.swift
 authentikClient/Classes/OpenAPIs/Models/License.swift
 authentikClient/Classes/OpenAPIs/Models/LicenseForecast.swift
@@ -697,6 +698,7 @@ docs/LDAPProvider.md
 docs/LDAPProviderRequest.md
 docs/LDAPSource.md
 docs/LDAPSourceRequest.md
+docs/LDAPSyncStatus.md
 docs/LayoutEnum.md
 docs/License.md
 docs/LicenseForecast.md

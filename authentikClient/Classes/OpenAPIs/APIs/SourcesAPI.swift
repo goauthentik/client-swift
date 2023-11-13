@@ -785,8 +785,8 @@ open class SourcesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func sourcesLdapSyncStatusList(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Task]?, _ error: Error?) -> Void)) -> RequestTask {
-        return sourcesLdapSyncStatusListWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
+    open class func sourcesLdapSyncStatusRetrieve(slug: String, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: LDAPSyncStatus?, _ error: Error?) -> Void)) -> RequestTask {
+        return sourcesLdapSyncStatusRetrieveWithRequestBuilder(slug: slug).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -803,9 +803,9 @@ open class SourcesAPI {
        - type: apiKey Authorization 
        - name: authentik
      - parameter slug: (path)  
-     - returns: RequestBuilder<[Task]> 
+     - returns: RequestBuilder<LDAPSyncStatus> 
      */
-    open class func sourcesLdapSyncStatusListWithRequestBuilder(slug: String) -> RequestBuilder<[Task]> {
+    open class func sourcesLdapSyncStatusRetrieveWithRequestBuilder(slug: String) -> RequestBuilder<LDAPSyncStatus> {
         var localVariablePath = "/sources/ldap/{slug}/sync_status/"
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -821,7 +821,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<[Task]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LDAPSyncStatus>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
