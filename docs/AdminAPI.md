@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 # **adminSystemCreate**
 ```swift
-    open class func adminSystemCreate(completion: @escaping (_ data: System?, _ error: Error?) -> Void)
+    open class func adminSystemCreate(completion: @escaping (_ data: SystemInfo?, _ error: Error?) -> Void)
 ```
 
 
@@ -183,7 +183,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**System**](System.md)
+[**SystemInfo**](SystemInfo.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ This endpoint does not need any parameter.
 
 # **adminSystemRetrieve**
 ```swift
-    open class func adminSystemRetrieve(completion: @escaping (_ data: System?, _ error: Error?) -> Void)
+    open class func adminSystemRetrieve(completion: @escaping (_ data: SystemInfo?, _ error: Error?) -> Void)
 ```
 
 
@@ -228,7 +228,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**System**](System.md)
+[**SystemInfo**](SystemInfo.md)
 
 ### Authorization
 

@@ -11,8 +11,8 @@ import AnyCodable
 #endif
 
 /** * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator */
-public enum DigitsEnum: Int, Codable, CaseIterable, CaseIterableDefaultsLast {
-    case _6 = 6
-    case _8 = 8
-    case unknownDefaultOpenApi = 11184809
+public enum DigitsEnum: String, Codable, CaseIterable, CaseIterableDefaultsLast {
+    case _6 = "6"
+    case _8 = "8"
+    case unknownDefaultOpenApi = "unknown_default_open_api"
 }

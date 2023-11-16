@@ -147,7 +147,7 @@ open class AdminAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func adminSystemCreate(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: System?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func adminSystemCreate(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemInfo?, _ error: Error?) -> Void)) -> RequestTask {
         return adminSystemCreateWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -164,9 +164,9 @@ open class AdminAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - returns: RequestBuilder<System> 
+     - returns: RequestBuilder<SystemInfo> 
      */
-    open class func adminSystemCreateWithRequestBuilder() -> RequestBuilder<System> {
+    open class func adminSystemCreateWithRequestBuilder() -> RequestBuilder<SystemInfo> {
         let localVariablePath = "/admin/system/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -179,7 +179,7 @@ open class AdminAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<System>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SystemInfo>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -190,7 +190,7 @@ open class AdminAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func adminSystemRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: System?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func adminSystemRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemInfo?, _ error: Error?) -> Void)) -> RequestTask {
         return adminSystemRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -207,9 +207,9 @@ open class AdminAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - returns: RequestBuilder<System> 
+     - returns: RequestBuilder<SystemInfo> 
      */
-    open class func adminSystemRetrieveWithRequestBuilder() -> RequestBuilder<System> {
+    open class func adminSystemRetrieveWithRequestBuilder() -> RequestBuilder<SystemInfo> {
         let localVariablePath = "/admin/system/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -222,7 +222,7 @@ open class AdminAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<System>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SystemInfo>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

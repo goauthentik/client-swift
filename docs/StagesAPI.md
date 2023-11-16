@@ -1823,7 +1823,7 @@ AuthenticatorTOTPStage Viewset
 import authentikClient
 
 let configureFlow = 987 // UUID |  (optional)
-let digits = 987 // Int | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator (optional)
+let digits = "digits_example" // String | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator (optional)
 let friendlyName = "friendlyName_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -1849,7 +1849,7 @@ StagesAPI.stagesAuthenticatorTotpList(configureFlow: configureFlow, digits: digi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configureFlow** | **UUID** |  | [optional] 
- **digits** | **Int** | * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator | [optional] 
+ **digits** | **String** | * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator | [optional] 
  **friendlyName** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 

@@ -1664,9 +1664,9 @@ open class StagesAPI {
     /**
      * enum for parameter digits
      */
-    public enum Digits_stagesAuthenticatorTotpList: Int, CaseIterable {
-        case _6 = 6
-        case _8 = 8
+    public enum Digits_stagesAuthenticatorTotpList: String, CaseIterable {
+        case _6 = "6"
+        case _8 = "8"
     }
 
     /**

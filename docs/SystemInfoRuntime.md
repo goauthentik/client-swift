@@ -1,4 +1,4 @@
-# SystemRuntime
+# SystemInfoRuntime
 
 ## Properties
 Name | Type | Description | Notes

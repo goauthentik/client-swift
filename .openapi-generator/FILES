@@ -474,8 +474,8 @@ authentikClient/Classes/OpenAPIs/Models/StaticDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/StaticDeviceToken.swift
 authentikClient/Classes/OpenAPIs/Models/StaticDeviceTokenRequest.swift
 authentikClient/Classes/OpenAPIs/Models/SubModeEnum.swift
-authentikClient/Classes/OpenAPIs/Models/System.swift
-authentikClient/Classes/OpenAPIs/Models/SystemRuntime.swift
+authentikClient/Classes/OpenAPIs/Models/SystemInfo.swift
+authentikClient/Classes/OpenAPIs/Models/SystemInfoRuntime.swift
 authentikClient/Classes/OpenAPIs/Models/TOTPDevice.swift
 authentikClient/Classes/OpenAPIs/Models/TOTPDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/Task.swift
@@ -999,8 +999,8 @@ docs/StaticDeviceRequest.md
 docs/StaticDeviceToken.md
 docs/StaticDeviceTokenRequest.md
 docs/SubModeEnum.md
-docs/System.md
-docs/SystemRuntime.md
+docs/SystemInfo.md
+docs/SystemInfoRuntime.md
 docs/TOTPDevice.md
 docs/TOTPDeviceRequest.md
 docs/Task.md
