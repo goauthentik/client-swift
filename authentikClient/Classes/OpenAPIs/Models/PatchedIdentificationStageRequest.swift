@@ -32,8 +32,10 @@ public struct PatchedIdentificationStageRequest: Codable, JSONEncodable, Hashabl
     /** Specify which sources should be shown. */
     public var sources: [UUID]?
     public var showSourceLabels: Bool?
+    /** When enabled, the stage will succeed and continue even when incorrect user info is entered. */
+    public var pretendUserExists: Bool?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil) {
+    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil) {
         self.name = name
         self.flowSet = flowSet
         self.userFields = userFields
@@ -45,6 +47,7 @@ public struct PatchedIdentificationStageRequest: Codable, JSONEncodable, Hashabl
         self.passwordlessFlow = passwordlessFlow
         self.sources = sources
         self.showSourceLabels = showSourceLabels
+        self.pretendUserExists = pretendUserExists
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -59,6 +62,7 @@ public struct PatchedIdentificationStageRequest: Codable, JSONEncodable, Hashabl
         case passwordlessFlow = "passwordless_flow"
         case sources
         case showSourceLabels = "show_source_labels"
+        case pretendUserExists = "pretend_user_exists"
     }
 
     // Encodable protocol methods
@@ -76,6 +80,7 @@ public struct PatchedIdentificationStageRequest: Codable, JSONEncodable, Hashabl
         try container.encodeIfPresent(passwordlessFlow, forKey: .passwordlessFlow)
         try container.encodeIfPresent(sources, forKey: .sources)
         try container.encodeIfPresent(showSourceLabels, forKey: .showSourceLabels)
+        try container.encodeIfPresent(pretendUserExists, forKey: .pretendUserExists)
     }
 }
 

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **passwordlessFlow** | **UUID** | Optional passwordless flow, which is linked at the bottom of the page. | [optional] 
 **sources** | **[UUID]** | Specify which sources should be shown. | [optional] 
 **showSourceLabels** | **Bool** |  | [optional] 
+**pretendUserExists** | **Bool** | When enabled, the stage will succeed and continue even when incorrect user info is entered. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

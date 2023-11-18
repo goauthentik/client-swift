@@ -4673,7 +4673,7 @@ IdentificationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationCreate(identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -4843,7 +4843,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // PatchedIdentificationStageRequest |  (optional)
+let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // PatchedIdentificationStageRequest |  (optional)
 
 StagesAPI.stagesIdentificationPartialUpdate(stageUuid: stageUuid, patchedIdentificationStageRequest: patchedIdentificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -4943,7 +4943,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationUpdate(stageUuid: stageUuid, identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {

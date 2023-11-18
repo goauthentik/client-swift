@@ -41,8 +41,10 @@ public struct IdentificationStage: Codable, JSONEncodable, Hashable {
     /** Specify which sources should be shown. */
     public var sources: [UUID]?
     public var showSourceLabels: Bool?
+    /** When enabled, the stage will succeed and continue even when incorrect user info is entered. */
+    public var pretendUserExists: Bool?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -59,6 +61,7 @@ public struct IdentificationStage: Codable, JSONEncodable, Hashable {
         self.passwordlessFlow = passwordlessFlow
         self.sources = sources
         self.showSourceLabels = showSourceLabels
+        self.pretendUserExists = pretendUserExists
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -78,6 +81,7 @@ public struct IdentificationStage: Codable, JSONEncodable, Hashable {
         case passwordlessFlow = "passwordless_flow"
         case sources
         case showSourceLabels = "show_source_labels"
+        case pretendUserExists = "pretend_user_exists"
     }
 
     // Encodable protocol methods
@@ -100,6 +104,7 @@ public struct IdentificationStage: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(passwordlessFlow, forKey: .passwordlessFlow)
         try container.encodeIfPresent(sources, forKey: .sources)
         try container.encodeIfPresent(showSourceLabels, forKey: .showSourceLabels)
+        try container.encodeIfPresent(pretendUserExists, forKey: .pretendUserExists)
     }
 }
 
