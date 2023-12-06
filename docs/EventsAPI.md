@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**eventsEventsRetrieve**](EventsAPI.md#eventseventsretrieve) | **GET** /events/events/{event_uuid}/ | 
 [**eventsEventsTopPerUserList**](EventsAPI.md#eventseventstopperuserlist) | **GET** /events/events/top_per_user/ | 
 [**eventsEventsUpdate**](EventsAPI.md#eventseventsupdate) | **PUT** /events/events/{event_uuid}/ | 
+[**eventsEventsVolumeList**](EventsAPI.md#eventseventsvolumelist) | **GET** /events/events/volume/ | 
 [**eventsNotificationsDestroy**](EventsAPI.md#eventsnotificationsdestroy) | **DELETE** /events/notifications/{uuid}/ | 
 [**eventsNotificationsList**](EventsAPI.md#eventsnotificationslist) | **GET** /events/notifications/ | 
 [**eventsNotificationsMarkAllSeenCreate**](EventsAPI.md#eventsnotificationsmarkallseencreate) | **POST** /events/notifications/mark_all_seen/ | 
@@ -500,6 +501,73 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsEventsVolumeList**
+```swift
+    open class func eventsEventsVolumeList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
+```
+
+
+
+Get event volume for specified filters and timeframe
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let action = "action_example" // String |  (optional)
+let clientIp = "clientIp_example" // String |  (optional)
+let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
+let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
+let contextModelName = "contextModelName_example" // String | Context Model Name (optional)
+let contextModelPk = "contextModelPk_example" // String | Context Model Primary Key (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let search = "search_example" // String | A search term. (optional)
+let tenantName = "tenantName_example" // String | Tenant name (optional)
+let username = "username_example" // String | Username (optional)
+
+EventsAPI.eventsEventsVolumeList(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, tenantName: tenantName, username: username) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | **String** |  | [optional] 
+ **clientIp** | **String** |  | [optional] 
+ **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
+ **contextModelApp** | **String** | Context Model App | [optional] 
+ **contextModelName** | **String** | Context Model Name | [optional] 
+ **contextModelPk** | **String** | Context Model Primary Key | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **tenantName** | **String** | Tenant name | [optional] 
+ **username** | **String** | Username | [optional] 
+
+### Return type
+
+[**[Coordinate]**](Coordinate.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

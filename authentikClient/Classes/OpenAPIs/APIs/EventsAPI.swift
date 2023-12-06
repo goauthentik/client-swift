@@ -481,6 +481,81 @@ open class EventsAPI {
 
     /**
 
+     - parameter action: (query)  (optional)
+     - parameter clientIp: (query)  (optional)
+     - parameter contextAuthorizedApp: (query) Context Authorized application (optional)
+     - parameter contextModelApp: (query) Context Model App (optional)
+     - parameter contextModelName: (query) Context Model Name (optional)
+     - parameter contextModelPk: (query) Context Model Primary Key (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter tenantName: (query) Tenant name (optional)
+     - parameter username: (query) Username (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func eventsEventsVolumeList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Coordinate]?, _ error: Error?) -> Void)) -> RequestTask {
+        return eventsEventsVolumeListWithRequestBuilder(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, tenantName: tenantName, username: username).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /events/events/volume/
+     - Get event volume for specified filters and timeframe
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter action: (query)  (optional)
+     - parameter clientIp: (query)  (optional)
+     - parameter contextAuthorizedApp: (query) Context Authorized application (optional)
+     - parameter contextModelApp: (query) Context Model App (optional)
+     - parameter contextModelName: (query) Context Model Name (optional)
+     - parameter contextModelPk: (query) Context Model Primary Key (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter tenantName: (query) Tenant name (optional)
+     - parameter username: (query) Username (optional)
+     - returns: RequestBuilder<[Coordinate]> 
+     */
+    open class func eventsEventsVolumeListWithRequestBuilder(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil) -> RequestBuilder<[Coordinate]> {
+        let localVariablePath = "/events/events/volume/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "action": (wrappedValue: action?.encodeToJSON(), isExplode: true),
+            "client_ip": (wrappedValue: clientIp?.encodeToJSON(), isExplode: true),
+            "context_authorized_app": (wrappedValue: contextAuthorizedApp?.encodeToJSON(), isExplode: true),
+            "context_model_app": (wrappedValue: contextModelApp?.encodeToJSON(), isExplode: true),
+            "context_model_name": (wrappedValue: contextModelName?.encodeToJSON(), isExplode: true),
+            "context_model_pk": (wrappedValue: contextModelPk?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+            "tenant_name": (wrappedValue: tenantName?.encodeToJSON(), isExplode: true),
+            "username": (wrappedValue: username?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[Coordinate]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter uuid: (path) A UUID string identifying this Notification. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
