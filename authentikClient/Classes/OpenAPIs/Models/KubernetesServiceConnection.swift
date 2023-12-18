@@ -25,11 +25,11 @@ public struct KubernetesServiceConnection: Codable, JSONEncodable, Hashable {
     /** Return internal model name */
     public var metaModelName: String
     /** Paste your kubeconfig here. authentik will automatically use the currently selected context. */
-    public var kubeconfig: [String: AnyCodable]?
+    public var kubeconfig: AnyCodable?
     /** Verify SSL Certificates of the Kubernetes API endpoint */
     public var verifySsl: Bool?
 
-    public init(pk: UUID, name: String, local: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, kubeconfig: [String: AnyCodable]? = nil, verifySsl: Bool? = nil) {
+    public init(pk: UUID, name: String, local: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, kubeconfig: AnyCodable? = nil, verifySsl: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.local = local

@@ -472,7 +472,7 @@ AuthenticatorDuoStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
+let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
 
 StagesAPI.stagesAuthenticatorDuoCreate(authenticatorDuoStageRequest: authenticatorDuoStageRequest) { (response, error) in
     guard error == nil else {
@@ -783,7 +783,7 @@ AuthenticatorDuoStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
-let patchedAuthenticatorDuoStageRequest = PatchedAuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // PatchedAuthenticatorDuoStageRequest |  (optional)
+let patchedAuthenticatorDuoStageRequest = PatchedAuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // PatchedAuthenticatorDuoStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorDuoPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorDuoStageRequest: patchedAuthenticatorDuoStageRequest) { (response, error) in
     guard error == nil else {
@@ -883,7 +883,7 @@ AuthenticatorDuoStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Duo Authenticator Setup Stage.
-let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
+let authenticatorDuoStageRequest = AuthenticatorDuoStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", clientId: "clientId_example", clientSecret: "clientSecret_example", apiHostname: "apiHostname_example", adminIntegrationKey: "adminIntegrationKey_example", adminSecretKey: "adminSecretKey_example") // AuthenticatorDuoStageRequest | 
 
 StagesAPI.stagesAuthenticatorDuoUpdate(stageUuid: stageUuid, authenticatorDuoStageRequest: authenticatorDuoStageRequest) { (response, error) in
     guard error == nil else {
@@ -982,7 +982,7 @@ AuthenticatorSMSStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
+let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
 
 StagesAPI.stagesAuthenticatorSmsCreate(authenticatorSMSStageRequest: authenticatorSMSStageRequest) { (response, error) in
     guard error == nil else {
@@ -1160,7 +1160,7 @@ AuthenticatorSMSStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
-let patchedAuthenticatorSMSStageRequest = PatchedAuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // PatchedAuthenticatorSMSStageRequest |  (optional)
+let patchedAuthenticatorSMSStageRequest = PatchedAuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // PatchedAuthenticatorSMSStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorSmsPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorSMSStageRequest: patchedAuthenticatorSMSStageRequest) { (response, error) in
     guard error == nil else {
@@ -1260,7 +1260,7 @@ AuthenticatorSMSStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this SMS Authenticator Setup Stage.
-let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
+let authenticatorSMSStageRequest = AuthenticatorSMSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", provider: ProviderEnum(), fromNumber: "fromNumber_example", accountSid: "accountSid_example", auth: "auth_example", authPassword: "authPassword_example", authType: AuthTypeEnum(), verifyOnly: false, mapping: 123) // AuthenticatorSMSStageRequest | 
 
 StagesAPI.stagesAuthenticatorSmsUpdate(stageUuid: stageUuid, authenticatorSMSStageRequest: authenticatorSMSStageRequest) { (response, error) in
     guard error == nil else {
@@ -1359,7 +1359,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
+let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
 
 StagesAPI.stagesAuthenticatorStaticCreate(authenticatorStaticStageRequest: authenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {
@@ -1525,7 +1525,7 @@ AuthenticatorStaticStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
-let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
+let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorStaticPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorStaticStageRequest: patchedAuthenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {
@@ -1625,7 +1625,7 @@ AuthenticatorStaticStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
-let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
+let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
 
 StagesAPI.stagesAuthenticatorStaticUpdate(stageUuid: stageUuid, authenticatorStaticStageRequest: authenticatorStaticStageRequest) { (response, error) in
     guard error == nil else {
@@ -1724,7 +1724,7 @@ AuthenticatorTOTPStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
+let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
 
 StagesAPI.stagesAuthenticatorTotpCreate(authenticatorTOTPStageRequest: authenticatorTOTPStageRequest) { (response, error) in
     guard error == nil else {
@@ -1888,7 +1888,7 @@ AuthenticatorTOTPStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
-let patchedAuthenticatorTOTPStageRequest = PatchedAuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // PatchedAuthenticatorTOTPStageRequest |  (optional)
+let patchedAuthenticatorTOTPStageRequest = PatchedAuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // PatchedAuthenticatorTOTPStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorTotpPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorTOTPStageRequest: patchedAuthenticatorTOTPStageRequest) { (response, error) in
     guard error == nil else {
@@ -1988,7 +1988,7 @@ AuthenticatorTOTPStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this TOTP Authenticator Setup Stage.
-let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
+let authenticatorTOTPStageRequest = AuthenticatorTOTPStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", digits: DigitsEnum()) // AuthenticatorTOTPStageRequest | 
 
 StagesAPI.stagesAuthenticatorTotpUpdate(stageUuid: stageUuid, authenticatorTOTPStageRequest: authenticatorTOTPStageRequest) { (response, error) in
     guard error == nil else {
@@ -2087,7 +2087,7 @@ AuthenticatorValidateStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
+let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
 
 StagesAPI.stagesAuthenticatorValidateCreate(authenticatorValidateStageRequest: authenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2247,7 +2247,7 @@ AuthenticatorValidateStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
-let patchedAuthenticatorValidateStageRequest = PatchedAuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // PatchedAuthenticatorValidateStageRequest |  (optional)
+let patchedAuthenticatorValidateStageRequest = PatchedAuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // PatchedAuthenticatorValidateStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorValidatePartialUpdate(stageUuid: stageUuid, patchedAuthenticatorValidateStageRequest: patchedAuthenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2347,7 +2347,7 @@ AuthenticatorValidateStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
-let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
+let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
 
 StagesAPI.stagesAuthenticatorValidateUpdate(stageUuid: stageUuid, authenticatorValidateStageRequest: authenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2446,7 +2446,7 @@ AuthenticateWebAuthnStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
+let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
 
 StagesAPI.stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
@@ -2614,7 +2614,7 @@ AuthenticateWebAuthnStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
-let patchedAuthenticateWebAuthnStageRequest = PatchedAuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // PatchedAuthenticateWebAuthnStageRequest |  (optional)
+let patchedAuthenticateWebAuthnStageRequest = PatchedAuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // PatchedAuthenticateWebAuthnStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorWebauthnPartialUpdate(stageUuid: stageUuid, patchedAuthenticateWebAuthnStageRequest: patchedAuthenticateWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
@@ -2714,7 +2714,7 @@ AuthenticateWebAuthnStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
-let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
+let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
 
 StagesAPI.stagesAuthenticatorWebauthnUpdate(stageUuid: stageUuid, authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
@@ -2813,7 +2813,7 @@ CaptchaStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
+let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
 
 StagesAPI.stagesCaptchaCreate(captchaStageRequest: captchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -2971,7 +2971,7 @@ CaptchaStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
-let patchedCaptchaStageRequest = PatchedCaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // PatchedCaptchaStageRequest |  (optional)
+let patchedCaptchaStageRequest = PatchedCaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // PatchedCaptchaStageRequest |  (optional)
 
 StagesAPI.stagesCaptchaPartialUpdate(stageUuid: stageUuid, patchedCaptchaStageRequest: patchedCaptchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -3071,7 +3071,7 @@ CaptchaStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
-let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
+let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
 
 StagesAPI.stagesCaptchaUpdate(stageUuid: stageUuid, captchaStageRequest: captchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -3170,7 +3170,7 @@ ConsentStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
+let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
 
 StagesAPI.stagesConsentCreate(consentStageRequest: consentStageRequest) { (response, error) in
     guard error == nil else {
@@ -3332,7 +3332,7 @@ ConsentStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
-let patchedConsentStageRequest = PatchedConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // PatchedConsentStageRequest |  (optional)
+let patchedConsentStageRequest = PatchedConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // PatchedConsentStageRequest |  (optional)
 
 StagesAPI.stagesConsentPartialUpdate(stageUuid: stageUuid, patchedConsentStageRequest: patchedConsentStageRequest) { (response, error) in
     guard error == nil else {
@@ -3432,7 +3432,7 @@ ConsentStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Consent Stage.
-let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
+let consentStageRequest = ConsentStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: ConsentStageModeEnum(), consentExpireIn: "consentExpireIn_example") // ConsentStageRequest | 
 
 StagesAPI.stagesConsentUpdate(stageUuid: stageUuid, consentStageRequest: consentStageRequest) { (response, error) in
     guard error == nil else {
@@ -3531,7 +3531,7 @@ DenyStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
+let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
 
 StagesAPI.stagesDenyCreate(denyStageRequest: denyStageRequest) { (response, error) in
     guard error == nil else {
@@ -3691,7 +3691,7 @@ DenyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
-let patchedDenyStageRequest = PatchedDenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // PatchedDenyStageRequest |  (optional)
+let patchedDenyStageRequest = PatchedDenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // PatchedDenyStageRequest |  (optional)
 
 StagesAPI.stagesDenyPartialUpdate(stageUuid: stageUuid, patchedDenyStageRequest: patchedDenyStageRequest) { (response, error) in
     guard error == nil else {
@@ -3791,7 +3791,7 @@ DenyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Deny Stage.
-let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
+let denyStageRequest = DenyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], denyMessage: "denyMessage_example") // DenyStageRequest | 
 
 StagesAPI.stagesDenyUpdate(stageUuid: stageUuid, denyStageRequest: denyStageRequest) { (response, error) in
     guard error == nil else {
@@ -3890,7 +3890,7 @@ DummyStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
+let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
 
 StagesAPI.stagesDummyCreate(dummyStageRequest: dummyStageRequest) { (response, error) in
     guard error == nil else {
@@ -4050,7 +4050,7 @@ DummyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
-let patchedDummyStageRequest = PatchedDummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // PatchedDummyStageRequest |  (optional)
+let patchedDummyStageRequest = PatchedDummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // PatchedDummyStageRequest |  (optional)
 
 StagesAPI.stagesDummyPartialUpdate(stageUuid: stageUuid, patchedDummyStageRequest: patchedDummyStageRequest) { (response, error) in
     guard error == nil else {
@@ -4150,7 +4150,7 @@ DummyStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Dummy Stage.
-let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
+let dummyStageRequest = DummyStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], throwError: false) // DummyStageRequest | 
 
 StagesAPI.stagesDummyUpdate(stageUuid: stageUuid, dummyStageRequest: dummyStageRequest) { (response, error) in
     guard error == nil else {
@@ -4249,7 +4249,7 @@ EmailStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
 
 StagesAPI.stagesEmailCreate(emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {
@@ -4429,7 +4429,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
+let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
 
 StagesAPI.stagesEmailPartialUpdate(stageUuid: stageUuid, patchedEmailStageRequest: patchedEmailStageRequest) { (response, error) in
     guard error == nil else {
@@ -4574,7 +4574,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
 
 StagesAPI.stagesEmailUpdate(stageUuid: stageUuid, emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {
@@ -4673,7 +4673,7 @@ IdentificationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationCreate(identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -4843,7 +4843,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // PatchedIdentificationStageRequest |  (optional)
+let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // PatchedIdentificationStageRequest |  (optional)
 
 StagesAPI.stagesIdentificationPartialUpdate(stageUuid: stageUuid, patchedIdentificationStageRequest: patchedIdentificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -4943,7 +4943,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationUpdate(stageUuid: stageUuid, identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5403,7 +5403,7 @@ InvitationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
+let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
 
 StagesAPI.stagesInvitationStagesCreate(invitationStageRequest: invitationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5565,7 +5565,7 @@ InvitationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
-let patchedInvitationStageRequest = PatchedInvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // PatchedInvitationStageRequest |  (optional)
+let patchedInvitationStageRequest = PatchedInvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // PatchedInvitationStageRequest |  (optional)
 
 StagesAPI.stagesInvitationStagesPartialUpdate(stageUuid: stageUuid, patchedInvitationStageRequest: patchedInvitationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5665,7 +5665,7 @@ InvitationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Invitation Stage.
-let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
+let invitationStageRequest = InvitationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], continueFlowWithoutInvitation: false) // InvitationStageRequest | 
 
 StagesAPI.stagesInvitationStagesUpdate(stageUuid: stageUuid, invitationStageRequest: invitationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5764,7 +5764,7 @@ PasswordStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
+let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
 
 StagesAPI.stagesPasswordCreate(passwordStageRequest: passwordStageRequest) { (response, error) in
     guard error == nil else {
@@ -5924,7 +5924,7 @@ PasswordStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
-let patchedPasswordStageRequest = PatchedPasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PatchedPasswordStageRequest |  (optional)
+let patchedPasswordStageRequest = PatchedPasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PatchedPasswordStageRequest |  (optional)
 
 StagesAPI.stagesPasswordPartialUpdate(stageUuid: stageUuid, patchedPasswordStageRequest: patchedPasswordStageRequest) { (response, error) in
     guard error == nil else {
@@ -6024,7 +6024,7 @@ PasswordStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
-let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
+let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
 
 StagesAPI.stagesPasswordUpdate(stageUuid: stageUuid, passwordStageRequest: passwordStageRequest) { (response, error) in
     guard error == nil else {
@@ -6123,7 +6123,7 @@ Prompt Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsCreate(promptRequest: promptRequest) { (response, error) in
     guard error == nil else {
@@ -6287,7 +6287,7 @@ Prompt Viewset
 import authentikClient
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
-let patchedPromptRequest = PatchedPromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PatchedPromptRequest |  (optional)
+let patchedPromptRequest = PatchedPromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PatchedPromptRequest |  (optional)
 
 StagesAPI.stagesPromptPromptsPartialUpdate(promptUuid: promptUuid, patchedPromptRequest: patchedPromptRequest) { (response, error) in
     guard error == nil else {
@@ -6337,7 +6337,7 @@ Preview a prompt as a challenge, just like a flow would receive
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsPreviewCreate(promptRequest: promptRequest) { (response, error) in
     guard error == nil else {
@@ -6436,7 +6436,7 @@ Prompt Viewset
 import authentikClient
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsUpdate(promptUuid: promptUuid, promptRequest: promptRequest) { (response, error) in
     guard error == nil else {
@@ -6535,7 +6535,7 @@ PromptStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
+let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
 
 StagesAPI.stagesPromptStagesCreate(promptStageRequest: promptStageRequest) { (response, error) in
     guard error == nil else {
@@ -6697,7 +6697,7 @@ PromptStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
-let patchedPromptStageRequest = PatchedPromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PatchedPromptStageRequest |  (optional)
+let patchedPromptStageRequest = PatchedPromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PatchedPromptStageRequest |  (optional)
 
 StagesAPI.stagesPromptStagesPartialUpdate(stageUuid: stageUuid, patchedPromptStageRequest: patchedPromptStageRequest) { (response, error) in
     guard error == nil else {
@@ -6797,7 +6797,7 @@ PromptStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Prompt Stage.
-let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
+let promptStageRequest = PromptStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], fields: [123], validationPolicies: [123]) // PromptStageRequest | 
 
 StagesAPI.stagesPromptStagesUpdate(stageUuid: stageUuid, promptStageRequest: promptStageRequest) { (response, error) in
     guard error == nil else {
@@ -6896,7 +6896,7 @@ UserDeleteStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
+let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
 
 StagesAPI.stagesUserDeleteCreate(userDeleteStageRequest: userDeleteStageRequest) { (response, error) in
     guard error == nil else {
@@ -7054,7 +7054,7 @@ UserDeleteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
-let patchedUserDeleteStageRequest = PatchedUserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserDeleteStageRequest |  (optional)
+let patchedUserDeleteStageRequest = PatchedUserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserDeleteStageRequest |  (optional)
 
 StagesAPI.stagesUserDeletePartialUpdate(stageUuid: stageUuid, patchedUserDeleteStageRequest: patchedUserDeleteStageRequest) { (response, error) in
     guard error == nil else {
@@ -7154,7 +7154,7 @@ UserDeleteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Delete Stage.
-let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
+let userDeleteStageRequest = UserDeleteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // UserDeleteStageRequest | 
 
 StagesAPI.stagesUserDeleteUpdate(stageUuid: stageUuid, userDeleteStageRequest: userDeleteStageRequest) { (response, error) in
     guard error == nil else {
@@ -7253,7 +7253,7 @@ UserLoginStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
+let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
 
 StagesAPI.stagesUserLoginCreate(userLoginStageRequest: userLoginStageRequest) { (response, error) in
     guard error == nil else {
@@ -7417,7 +7417,7 @@ UserLoginStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
-let patchedUserLoginStageRequest = PatchedUserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // PatchedUserLoginStageRequest |  (optional)
+let patchedUserLoginStageRequest = PatchedUserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // PatchedUserLoginStageRequest |  (optional)
 
 StagesAPI.stagesUserLoginPartialUpdate(stageUuid: stageUuid, patchedUserLoginStageRequest: patchedUserLoginStageRequest) { (response, error) in
     guard error == nil else {
@@ -7517,7 +7517,7 @@ UserLoginStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
-let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
+let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
 
 StagesAPI.stagesUserLoginUpdate(stageUuid: stageUuid, userLoginStageRequest: userLoginStageRequest) { (response, error) in
     guard error == nil else {
@@ -7616,7 +7616,7 @@ UserLogoutStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
+let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
 
 StagesAPI.stagesUserLogoutCreate(userLogoutStageRequest: userLogoutStageRequest) { (response, error) in
     guard error == nil else {
@@ -7774,7 +7774,7 @@ UserLogoutStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
-let patchedUserLogoutStageRequest = PatchedUserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserLogoutStageRequest |  (optional)
+let patchedUserLogoutStageRequest = PatchedUserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // PatchedUserLogoutStageRequest |  (optional)
 
 StagesAPI.stagesUserLogoutPartialUpdate(stageUuid: stageUuid, patchedUserLogoutStageRequest: patchedUserLogoutStageRequest) { (response, error) in
     guard error == nil else {
@@ -7874,7 +7874,7 @@ UserLogoutStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Logout Stage.
-let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
+let userLogoutStageRequest = UserLogoutStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())]) // UserLogoutStageRequest | 
 
 StagesAPI.stagesUserLogoutUpdate(stageUuid: stageUuid, userLogoutStageRequest: userLogoutStageRequest) { (response, error) in
     guard error == nil else {
@@ -7973,7 +7973,7 @@ UserWriteStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
+let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
 
 StagesAPI.stagesUserWriteCreate(userWriteStageRequest: userWriteStageRequest) { (response, error) in
     guard error == nil else {
@@ -8141,7 +8141,7 @@ UserWriteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
-let patchedUserWriteStageRequest = PatchedUserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // PatchedUserWriteStageRequest |  (optional)
+let patchedUserWriteStageRequest = PatchedUserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // PatchedUserWriteStageRequest |  (optional)
 
 StagesAPI.stagesUserWritePartialUpdate(stageUuid: stageUuid, patchedUserWriteStageRequest: patchedUserWriteStageRequest) { (response, error) in
     guard error == nil else {
@@ -8241,7 +8241,7 @@ UserWriteStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Write Stage.
-let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
+let userWriteStageRequest = UserWriteStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userCreationMode: UserCreationModeEnum(), createUsersAsInactive: false, createUsersGroup: 123, userType: UserTypeEnum(), userPathTemplate: "userPathTemplate_example") // UserWriteStageRequest | 
 
 StagesAPI.stagesUserWriteUpdate(stageUuid: stageUuid, userWriteStageRequest: userWriteStageRequest) { (response, error) in
     guard error == nil else {

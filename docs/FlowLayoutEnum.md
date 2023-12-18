@@ -1,4 +1,4 @@
-# LayoutEnum
+# FlowLayoutEnum
 
 ## Properties
 Name | Type | Description | Notes

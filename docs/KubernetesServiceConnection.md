@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**kubeconfig** | [String: AnyCodable] | Paste your kubeconfig here. authentik will automatically use the currently selected context. | [optional] 
+**kubeconfig** | [**AnyCodable**](.md) | Paste your kubeconfig here. authentik will automatically use the currently selected context. | [optional] 
 **verifySsl** | **Bool** | Verify SSL Certificates of the Kubernetes API endpoint | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

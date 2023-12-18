@@ -33,13 +33,13 @@ public struct Flow: Codable, JSONEncodable, Hashable {
     public var compatibilityMode: Bool?
     /** Get export URL for flow */
     public var exportUrl: String
-    public var layout: LayoutEnum?
+    public var layout: FlowLayoutEnum?
     /** Configure what should happen when a flow denies access to a user.  * `message_continue` - Message Continue * `message` - Message * `continue` - Continue */
     public var deniedAction: DeniedActionEnum?
     /** Required level of authentication and authorization to access a flow.  * `none` - None * `require_authenticated` - Require Authenticated * `require_unauthenticated` - Require Unauthenticated * `require_superuser` - Require Superuser */
     public var authentication: AuthenticationEnum?
 
-    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: LayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
+    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
         self.pk = pk
         self.policybindingmodelPtrId = policybindingmodelPtrId
         self.name = name

@@ -16,16 +16,16 @@ public struct BlueprintInstance: Codable, JSONEncodable, Hashable {
     public var pk: UUID
     public var name: String
     public var path: String? = ""
-    public var context: [String: AnyCodable]?
+    public var context: AnyCodable?
     public var lastApplied: Date
     public var lastAppliedHash: String
     public var status: BlueprintInstanceStatusEnum
     public var enabled: Bool?
     public var managedModels: [String]
-    public var metadata: [String: AnyCodable]
+    public var metadata: AnyCodable?
     public var content: String?
 
-    public init(pk: UUID, name: String, path: String? = "", context: [String: AnyCodable]? = nil, lastApplied: Date, lastAppliedHash: String, status: BlueprintInstanceStatusEnum, enabled: Bool? = nil, managedModels: [String], metadata: [String: AnyCodable], content: String? = nil) {
+    public init(pk: UUID, name: String, path: String? = "", context: AnyCodable? = nil, lastApplied: Date, lastAppliedHash: String, status: BlueprintInstanceStatusEnum, enabled: Bool? = nil, managedModels: [String], metadata: AnyCodable?, content: String? = nil) {
         self.pk = pk
         self.name = name
         self.path = path

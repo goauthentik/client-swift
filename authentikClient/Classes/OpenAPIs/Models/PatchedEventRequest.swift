@@ -13,15 +13,15 @@ import AnyCodable
 /** Event Serializer */
 public struct PatchedEventRequest: Codable, JSONEncodable, Hashable {
 
-    public var user: [String: AnyCodable]?
+    public var user: AnyCodable?
     public var action: EventActions?
     public var app: String?
-    public var context: [String: AnyCodable]?
+    public var context: AnyCodable?
     public var clientIp: String?
     public var expires: Date?
-    public var tenant: [String: AnyCodable]?
+    public var tenant: AnyCodable?
 
-    public init(user: [String: AnyCodable]? = nil, action: EventActions? = nil, app: String? = nil, context: [String: AnyCodable]? = nil, clientIp: String? = nil, expires: Date? = nil, tenant: [String: AnyCodable]? = nil) {
+    public init(user: AnyCodable? = nil, action: EventActions? = nil, app: String? = nil, context: AnyCodable? = nil, clientIp: String? = nil, expires: Date? = nil, tenant: AnyCodable? = nil) {
         self.user = user
         self.action = action
         self.app = app

@@ -16,11 +16,11 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
     public var pk: UUID?
     public var identifier: String
     public var ip: String
-    public var ipGeoData: [String: AnyCodable]?
+    public var ipGeoData: AnyCodable?
     public var score: Int64?
     public var updated: Date
 
-    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: [String: AnyCodable]? = nil, score: Int64? = nil, updated: Date) {
+    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: AnyCodable? = nil, score: Int64? = nil, updated: Date) {
         self.pk = pk
         self.identifier = identifier
         self.ip = ip

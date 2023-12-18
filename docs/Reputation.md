@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **pk** | **UUID** |  | [optional] 
 **identifier** | **String** |  | 
 **ip** | **String** |  | 
-**ipGeoData** | [String: AnyCodable] |  | [optional] 
+**ipGeoData** | [**AnyCodable**](.md) |  | [optional] 
 **score** | **Int64** |  | [optional] 
 **updated** | **Date** |  | [readonly] 
 

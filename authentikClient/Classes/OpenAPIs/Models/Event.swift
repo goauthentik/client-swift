@@ -14,16 +14,16 @@ import AnyCodable
 public struct Event: Codable, JSONEncodable, Hashable {
 
     public var pk: UUID
-    public var user: [String: AnyCodable]?
+    public var user: AnyCodable?
     public var action: EventActions
     public var app: String
-    public var context: [String: AnyCodable]?
+    public var context: AnyCodable?
     public var clientIp: String?
     public var created: Date
     public var expires: Date?
-    public var tenant: [String: AnyCodable]?
+    public var tenant: AnyCodable?
 
-    public init(pk: UUID, user: [String: AnyCodable]? = nil, action: EventActions, app: String, context: [String: AnyCodable]? = nil, clientIp: String? = nil, created: Date, expires: Date? = nil, tenant: [String: AnyCodable]? = nil) {
+    public init(pk: UUID, user: AnyCodable? = nil, action: EventActions, app: String, context: AnyCodable? = nil, clientIp: String? = nil, created: Date, expires: Date? = nil, tenant: AnyCodable? = nil) {
         self.pk = pk
         self.user = user
         self.action = action

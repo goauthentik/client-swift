@@ -16,9 +16,9 @@ public struct ContextualFlowInfo: Codable, JSONEncodable, Hashable {
     public var title: String?
     public var background: String?
     public var cancelUrl: String
-    public var layout: LayoutEnum
+    public var layout: ContextualFlowInfoLayoutEnum
 
-    public init(title: String? = nil, background: String? = nil, cancelUrl: String, layout: LayoutEnum) {
+    public init(title: String? = nil, background: String? = nil, cancelUrl: String, layout: ContextualFlowInfoLayoutEnum) {
         self.title = title
         self.background = background
         self.cancelUrl = cancelUrl

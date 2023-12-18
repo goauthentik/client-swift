@@ -29,9 +29,9 @@ public struct PatchedTenantRequest: Codable, JSONEncodable, Hashable {
     public var eventRetention: String?
     /** Web Certificate used by the authentik Core webserver. */
     public var webCertificate: UUID?
-    public var attributes: [String: AnyCodable]?
+    public var attributes: AnyCodable?
 
-    public init(domain: String? = nil, _default: Bool? = nil, brandingTitle: String? = nil, brandingLogo: String? = nil, brandingFavicon: String? = nil, flowAuthentication: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, flowDeviceCode: UUID? = nil, eventRetention: String? = nil, webCertificate: UUID? = nil, attributes: [String: AnyCodable]? = nil) {
+    public init(domain: String? = nil, _default: Bool? = nil, brandingTitle: String? = nil, brandingLogo: String? = nil, brandingFavicon: String? = nil, flowAuthentication: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, flowDeviceCode: UUID? = nil, eventRetention: String? = nil, webCertificate: UUID? = nil, attributes: AnyCodable? = nil) {
         self.domain = domain
         self._default = _default
         self.brandingTitle = brandingTitle

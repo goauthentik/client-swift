@@ -17,11 +17,11 @@ public struct PatchedKubernetesServiceConnectionRequest: Codable, JSONEncodable,
     /** If enabled, use the local connection. Required Docker socket/Kubernetes Integration */
     public var local: Bool?
     /** Paste your kubeconfig here. authentik will automatically use the currently selected context. */
-    public var kubeconfig: [String: AnyCodable]?
+    public var kubeconfig: AnyCodable?
     /** Verify SSL Certificates of the Kubernetes API endpoint */
     public var verifySsl: Bool?
 
-    public init(name: String? = nil, local: Bool? = nil, kubeconfig: [String: AnyCodable]? = nil, verifySsl: Bool? = nil) {
+    public init(name: String? = nil, local: Bool? = nil, kubeconfig: AnyCodable? = nil, verifySsl: Bool? = nil) {
         self.name = name
         self.local = local
         self.kubeconfig = kubeconfig

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
 **path** | **String** |  | [optional] [default to ""]
-**context** | [String: AnyCodable] |  | [optional] 
+**context** | [**AnyCodable**](.md) |  | [optional] 
 **enabled** | **Bool** |  | [optional] 
 **content** | **String** |  | [optional] 
 

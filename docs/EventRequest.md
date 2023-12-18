@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [String: AnyCodable] |  | [optional] 
+**user** | [**AnyCodable**](.md) |  | [optional] 
 **action** | [**EventActions**](EventActions.md) |  | 
 **app** | **String** |  | 
-**context** | [String: AnyCodable] |  | [optional] 
+**context** | [**AnyCodable**](.md) |  | [optional] 
 **clientIp** | **String** |  | [optional] 
 **expires** | **Date** |  | [optional] 
-**tenant** | [String: AnyCodable] |  | [optional] 
+**tenant** | [**AnyCodable**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

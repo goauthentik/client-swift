@@ -55,9 +55,9 @@ public struct OAuthSource: Codable, JSONEncodable, Hashable {
     public var type: SourceType
     public var oidcWellKnownUrl: String?
     public var oidcJwksUrl: String?
-    public var oidcJwks: [String: AnyCodable]?
+    public var oidcJwks: AnyCodable?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: AnyCodable]? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: AnyCodable? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug

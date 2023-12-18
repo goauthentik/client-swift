@@ -29,11 +29,11 @@ public struct FlowSet: Codable, JSONEncodable, Hashable {
     public var compatibilityMode: Bool?
     /** Get export URL for flow */
     public var exportUrl: String
-    public var layout: LayoutEnum?
+    public var layout: FlowLayoutEnum?
     /** Configure what should happen when a flow denies access to a user.  * `message_continue` - Message Continue * `message` - Message * `continue` - Continue */
     public var deniedAction: DeniedActionEnum?
 
-    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: LayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil) {
+    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil) {
         self.pk = pk
         self.policybindingmodelPtrId = policybindingmodelPtrId
         self.name = name

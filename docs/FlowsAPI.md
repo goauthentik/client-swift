@@ -661,7 +661,7 @@ Flow Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
+let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
 
 FlowsAPI.flowsInstancesCreate(flowRequest: flowRequest) { (response, error) in
     guard error == nil else {
@@ -1023,7 +1023,7 @@ Flow Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedFlowRequest = PatchedFlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // PatchedFlowRequest |  (optional)
+let patchedFlowRequest = PatchedFlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // PatchedFlowRequest |  (optional)
 
 FlowsAPI.flowsInstancesPartialUpdate(slug: slug, patchedFlowRequest: patchedFlowRequest) { (response, error) in
     guard error == nil else {
@@ -1227,7 +1227,7 @@ Flow Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: LayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
+let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
 
 FlowsAPI.flowsInstancesUpdate(slug: slug, flowRequest: flowRequest) { (response, error) in
     guard error == nil else {

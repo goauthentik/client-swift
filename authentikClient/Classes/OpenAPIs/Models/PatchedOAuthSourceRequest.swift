@@ -40,9 +40,9 @@ public struct PatchedOAuthSourceRequest: Codable, JSONEncodable, Hashable {
     public var additionalScopes: String?
     public var oidcWellKnownUrl: String?
     public var oidcJwksUrl: String?
-    public var oidcJwks: [String: AnyCodable]?
+    public var oidcJwks: AnyCodable?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: AnyCodable]? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: AnyCodable? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled

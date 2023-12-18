@@ -101,6 +101,7 @@ authentikClient/Classes/OpenAPIs/Models/ConsentStage.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentStageModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ConsentStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ContextualFlowInfo.swift
+authentikClient/Classes/OpenAPIs/Models/ContextualFlowInfoLayoutEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Coordinate.swift
 authentikClient/Classes/OpenAPIs/Models/CurrentTenant.swift
 authentikClient/Classes/OpenAPIs/Models/DeniedActionEnum.swift
@@ -150,6 +151,7 @@ authentikClient/Classes/OpenAPIs/Models/FlowErrorChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/FlowImportResult.swift
 authentikClient/Classes/OpenAPIs/Models/FlowInspection.swift
 authentikClient/Classes/OpenAPIs/Models/FlowInspectorPlan.swift
+authentikClient/Classes/OpenAPIs/Models/FlowLayoutEnum.swift
 authentikClient/Classes/OpenAPIs/Models/FlowRequest.swift
 authentikClient/Classes/OpenAPIs/Models/FlowSet.swift
 authentikClient/Classes/OpenAPIs/Models/FlowSetRequest.swift
@@ -185,7 +187,6 @@ authentikClient/Classes/OpenAPIs/Models/LDAPProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPSource.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPSourceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/LDAPSyncStatus.swift
-authentikClient/Classes/OpenAPIs/Models/LayoutEnum.swift
 authentikClient/Classes/OpenAPIs/Models/License.swift
 authentikClient/Classes/OpenAPIs/Models/LicenseForecast.swift
 authentikClient/Classes/OpenAPIs/Models/LicenseRequest.swift
@@ -610,6 +611,7 @@ docs/ConsentStage.md
 docs/ConsentStageModeEnum.md
 docs/ConsentStageRequest.md
 docs/ContextualFlowInfo.md
+docs/ContextualFlowInfoLayoutEnum.md
 docs/Coordinate.md
 docs/CoreAPI.md
 docs/CryptoAPI.md
@@ -663,6 +665,7 @@ docs/FlowErrorChallenge.md
 docs/FlowImportResult.md
 docs/FlowInspection.md
 docs/FlowInspectorPlan.md
+docs/FlowLayoutEnum.md
 docs/FlowRequest.md
 docs/FlowSet.md
 docs/FlowSetRequest.md
@@ -699,7 +702,6 @@ docs/LDAPProviderRequest.md
 docs/LDAPSource.md
 docs/LDAPSourceRequest.md
 docs/LDAPSyncStatus.md
-docs/LayoutEnum.md
 docs/License.md
 docs/LicenseForecast.md
 docs/LicenseRequest.md

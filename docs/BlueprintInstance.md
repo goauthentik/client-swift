@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 **pk** | **UUID** |  | [readonly] 
 **name** | **String** |  | 
 **path** | **String** |  | [optional] [default to ""]
-**context** | [String: AnyCodable] |  | [optional] 
+**context** | [**AnyCodable**](.md) |  | [optional] 
 **lastApplied** | **Date** |  | [readonly] 
 **lastAppliedHash** | **String** |  | [readonly] 
 **status** | [**BlueprintInstanceStatusEnum**](BlueprintInstanceStatusEnum.md) |  | [readonly] 
 **enabled** | **Bool** |  | [optional] 
 **managedModels** | **[String]** |  | [readonly] 
-**metadata** | [String: AnyCodable] |  | [readonly] 
+**metadata** | [**AnyCodable**](.md) |  | [readonly] 
 **content** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

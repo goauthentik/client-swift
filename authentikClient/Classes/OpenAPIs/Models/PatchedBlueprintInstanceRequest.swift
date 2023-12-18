@@ -15,11 +15,11 @@ public struct PatchedBlueprintInstanceRequest: Codable, JSONEncodable, Hashable 
 
     public var name: String?
     public var path: String? = ""
-    public var context: [String: AnyCodable]?
+    public var context: AnyCodable?
     public var enabled: Bool?
     public var content: String?
 
-    public init(name: String? = nil, path: String? = "", context: [String: AnyCodable]? = nil, enabled: Bool? = nil, content: String? = nil) {
+    public init(name: String? = nil, path: String? = "", context: AnyCodable? = nil, enabled: Bool? = nil, content: String? = nil) {
         self.name = name
         self.path = path
         self.context = context

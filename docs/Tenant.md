@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **flowDeviceCode** | **UUID** |  | [optional] 
 **eventRetention** | **String** | Events will be deleted after this duration.(Format: weeks&#x3D;3;days&#x3D;2;hours&#x3D;3,seconds&#x3D;2). | [optional] 
 **webCertificate** | **UUID** | Web Certificate used by the authentik Core webserver. | [optional] 
-**attributes** | [String: AnyCodable] |  | [optional] 
+**attributes** | [**AnyCodable**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

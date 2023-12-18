@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 
 **compatibilityMode** | **Bool** | Enable compatibility mode, increases compatibility with password managers on mobile devices. | [optional] 
 **exportUrl** | **String** | Get export URL for flow | [readonly] 
-**layout** | [**LayoutEnum**](LayoutEnum.md) |  | [optional] 
+**layout** | [**FlowLayoutEnum**](FlowLayoutEnum.md) |  | [optional] 
 **deniedAction** | [**DeniedActionEnum**](DeniedActionEnum.md) | Configure what should happen when a flow denies access to a user.  * &#x60;message_continue&#x60; - Message Continue * &#x60;message&#x60; - Message * &#x60;continue&#x60; - Continue | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
