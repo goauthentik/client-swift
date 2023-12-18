@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "authentikClient",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v13),
         .macOS(.v10_11),
         .tvOS(.v9),
         .watchOS(.v3),
@@ -16,18 +16,23 @@ let package = Package(
             name: "authentikClient",
             targets: ["authentikClient"]
         ),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.6.1"),
+        .library(
+            name: "OpenAPITransport",
+            targets: ["OpenAPITransport"]
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "authentikClient",
-            dependencies: ["AnyCodable", ],
-            path: "authentikClient/Classes"
+            dependencies: ["OpenAPITransport", ],
+            path: "authentikClient/Sources"
+        ),
+        .target(
+            name: "OpenAPITransport",
+            dependencies: [],
+            path: "OpenAPITransport/Sources"
         ),
     ]
 )
