@@ -26,7 +26,7 @@ public struct PatchedFlowRequest: Codable, JSONEncodable, Hashable {
     public var layout: FlowLayoutEnum?
     /** Configure what should happen when a flow denies access to a user.  * `message_continue` - Message Continue * `message` - Message * `continue` - Continue */
     public var deniedAction: DeniedActionEnum?
-    /** Required level of authentication and authorization to access a flow.  * `none` - None * `require_authenticated` - Require Authenticated * `require_unauthenticated` - Require Unauthenticated * `require_superuser` - Require Superuser */
+    /** Required level of authentication and authorization to access a flow.  * `none` - None * `require_authenticated` - Require Authenticated * `require_unauthenticated` - Require Unauthenticated * `require_superuser` - Require Superuser * `require_outpost` - Require Outpost */
     public var authentication: AuthenticationEnum?
 
     public init(name: String? = nil, slug: String? = nil, title: String? = nil, designation: FlowDesignationEnum? = nil, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
