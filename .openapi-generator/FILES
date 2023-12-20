@@ -41,6 +41,7 @@ authentikClient/Classes/OpenAPIs/Models/AuthTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticateWebAuthnStage.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticateWebAuthnStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticatedSession.swift
+authentikClient/Classes/OpenAPIs/Models/AuthenticatedSessionAsn.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticatedSessionGeoIp.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticatedSessionUserAgent.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticatedSessionUserAgentDevice.swift
@@ -550,6 +551,7 @@ docs/AuthTypeEnum.md
 docs/AuthenticateWebAuthnStage.md
 docs/AuthenticateWebAuthnStageRequest.md
 docs/AuthenticatedSession.md
+docs/AuthenticatedSessionAsn.md
 docs/AuthenticatedSessionGeoIp.md
 docs/AuthenticatedSessionUserAgent.md
 docs/AuthenticatedSessionUserAgentDevice.md

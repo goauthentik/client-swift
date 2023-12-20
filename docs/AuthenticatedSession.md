@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **current** | **Bool** | Check if session is currently active session | [readonly] 
 **userAgent** | [**AuthenticatedSessionUserAgent**](AuthenticatedSessionUserAgent.md) |  | 
 **geoIp** | [**AuthenticatedSessionGeoIp**](AuthenticatedSessionGeoIp.md) |  | 
+**asn** | [**AuthenticatedSessionAsn**](AuthenticatedSessionAsn.md) |  | 
 **user** | **Int** |  | 
 **lastIp** | **String** |  | 
 **lastUserAgent** | **String** |  | [optional] 

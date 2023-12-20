@@ -18,17 +18,19 @@ public struct AuthenticatedSession: Codable, JSONEncodable, Hashable {
     public var current: Bool
     public var userAgent: AuthenticatedSessionUserAgent
     public var geoIp: AuthenticatedSessionGeoIp?
+    public var asn: AuthenticatedSessionAsn?
     public var user: Int
     public var lastIp: String
     public var lastUserAgent: String?
     public var lastUsed: Date
     public var expires: Date?
 
-    public init(uuid: UUID? = nil, current: Bool, userAgent: AuthenticatedSessionUserAgent, geoIp: AuthenticatedSessionGeoIp?, user: Int, lastIp: String, lastUserAgent: String? = nil, lastUsed: Date, expires: Date? = nil) {
+    public init(uuid: UUID? = nil, current: Bool, userAgent: AuthenticatedSessionUserAgent, geoIp: AuthenticatedSessionGeoIp?, asn: AuthenticatedSessionAsn?, user: Int, lastIp: String, lastUserAgent: String? = nil, lastUsed: Date, expires: Date? = nil) {
         self.uuid = uuid
         self.current = current
         self.userAgent = userAgent
         self.geoIp = geoIp
+        self.asn = asn
         self.user = user
         self.lastIp = lastIp
         self.lastUserAgent = lastUserAgent
@@ -41,6 +43,7 @@ public struct AuthenticatedSession: Codable, JSONEncodable, Hashable {
         case current
         case userAgent = "user_agent"
         case geoIp = "geo_ip"
+        case asn
         case user
         case lastIp = "last_ip"
         case lastUserAgent = "last_user_agent"
@@ -56,6 +59,7 @@ public struct AuthenticatedSession: Codable, JSONEncodable, Hashable {
         try container.encode(current, forKey: .current)
         try container.encode(userAgent, forKey: .userAgent)
         try container.encode(geoIp, forKey: .geoIp)
+        try container.encode(asn, forKey: .asn)
         try container.encode(user, forKey: .user)
         try container.encode(lastIp, forKey: .lastIp)
         try container.encodeIfPresent(lastUserAgent, forKey: .lastUserAgent)

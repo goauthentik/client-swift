@@ -17,14 +17,16 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
     public var identifier: String
     public var ip: String
     public var ipGeoData: AnyCodable?
+    public var ipAsnData: AnyCodable?
     public var score: Int64?
     public var updated: Date
 
-    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: AnyCodable? = nil, score: Int64? = nil, updated: Date) {
+    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: AnyCodable? = nil, ipAsnData: AnyCodable? = nil, score: Int64? = nil, updated: Date) {
         self.pk = pk
         self.identifier = identifier
         self.ip = ip
         self.ipGeoData = ipGeoData
+        self.ipAsnData = ipAsnData
         self.score = score
         self.updated = updated
     }
@@ -34,6 +36,7 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
         case identifier
         case ip
         case ipGeoData = "ip_geo_data"
+        case ipAsnData = "ip_asn_data"
         case score
         case updated
     }
@@ -46,6 +49,7 @@ public struct Reputation: Codable, JSONEncodable, Hashable {
         try container.encode(identifier, forKey: .identifier)
         try container.encode(ip, forKey: .ip)
         try container.encodeIfPresent(ipGeoData, forKey: .ipGeoData)
+        try container.encodeIfPresent(ipAsnData, forKey: .ipAsnData)
         try container.encodeIfPresent(score, forKey: .score)
         try container.encode(updated, forKey: .updated)
     }

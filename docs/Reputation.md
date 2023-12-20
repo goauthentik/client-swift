@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **identifier** | **String** |  | 
 **ip** | **String** |  | 
 **ipGeoData** | [**AnyCodable**](.md) |  | [optional] 
+**ipAsnData** | [**AnyCodable**](.md) |  | [optional] 
 **score** | **Int64** |  | [optional] 
 **updated** | **Date** |  | [readonly] 
 

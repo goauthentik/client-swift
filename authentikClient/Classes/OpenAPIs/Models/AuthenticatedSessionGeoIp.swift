@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Get parsed user agent */
+/** Get GeoIP Data */
 public struct AuthenticatedSessionGeoIp: Codable, JSONEncodable, Hashable {
 
     public var continent: String
