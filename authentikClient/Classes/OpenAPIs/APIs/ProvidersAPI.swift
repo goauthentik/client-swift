@@ -2772,7 +2772,7 @@ open class ProvidersAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func providersScimSyncStatusRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Task?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func providersScimSyncStatusRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SCIMSyncStatus?, _ error: Error?) -> Void)) -> RequestTask {
         return providersScimSyncStatusRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -2790,9 +2790,9 @@ open class ProvidersAPI {
        - type: apiKey Authorization 
        - name: authentik
      - parameter id: (path) A unique integer value identifying this SCIM Provider. 
-     - returns: RequestBuilder<Task> 
+     - returns: RequestBuilder<SCIMSyncStatus> 
      */
-    open class func providersScimSyncStatusRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<Task> {
+    open class func providersScimSyncStatusRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<SCIMSyncStatus> {
         var localVariablePath = "/providers/scim/{id}/sync_status/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2808,7 +2808,7 @@ open class ProvidersAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Task>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SCIMSyncStatus>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

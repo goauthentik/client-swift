@@ -452,6 +452,7 @@ authentikClient/Classes/OpenAPIs/Models/SCIMMapping.swift
 authentikClient/Classes/OpenAPIs/Models/SCIMMappingRequest.swift
 authentikClient/Classes/OpenAPIs/Models/SCIMProvider.swift
 authentikClient/Classes/OpenAPIs/Models/SCIMProviderRequest.swift
+authentikClient/Classes/OpenAPIs/Models/SCIMSyncStatus.swift
 authentikClient/Classes/OpenAPIs/Models/SMSDevice.swift
 authentikClient/Classes/OpenAPIs/Models/SMSDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ScopeMapping.swift
@@ -976,6 +977,7 @@ docs/SCIMMapping.md
 docs/SCIMMappingRequest.md
 docs/SCIMProvider.md
 docs/SCIMProviderRequest.md
+docs/SCIMSyncStatus.md
 docs/SMSDevice.md
 docs/SMSDeviceRequest.md
 docs/SchemaAPI.md

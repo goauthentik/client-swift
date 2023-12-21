@@ -2719,7 +2719,7 @@ Name | Type | Description  | Notes
 
 # **providersScimSyncStatusRetrieve**
 ```swift
-    open class func providersScimSyncStatusRetrieve(id: Int, completion: @escaping (_ data: Task?, _ error: Error?) -> Void)
+    open class func providersScimSyncStatusRetrieve(id: Int, completion: @escaping (_ data: SCIMSyncStatus?, _ error: Error?) -> Void)
 ```
 
 
@@ -2753,7 +2753,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Task**](Task.md)
+[**SCIMSyncStatus**](SCIMSyncStatus.md)
 
 ### Authorization
 
