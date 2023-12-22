@@ -162,8 +162,8 @@ open class SchemaAPI {
     /// - name: authentik
     /// - parameter format: (query)  (optional)
     /// - parameter lang: (query)  (optional)
-    /// - returns: AnyPublisher<[String: Any], Error> 
-    open func schemaRetrieve(format: SchemaRetrieveFormat? = nil, lang: SchemaRetrieveLang? = nil) -> AnyPublisher<[String: Any], Error> {
+    /// - returns: AnyPublisher<[String: AnyCodable], Error> 
+    open func schemaRetrieve(format: SchemaRetrieveFormat? = nil, lang: SchemaRetrieveLang? = nil) -> AnyPublisher<[String: AnyCodable], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -183,7 +183,7 @@ open class SchemaAPI {
                 request.httpMethod = "GET"
                 return request
             }.publisher
-        }.flatMap { request -> AnyPublisher<[String: Any], Error> in 
+        }.flatMap { request -> AnyPublisher<[String: AnyCodable], Error> in 
             return self.transport.send(request: request)
                 .mapError { transportError -> Error in 
                     if transportError.statusCode == 400 {
@@ -205,11 +205,7 @@ open class SchemaAPI {
                     return transportError
                 }
                 .tryMap { response in
-                    if let object = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: Any] {
-                        return object
-                    } else {
-                        throw OpenAPITransportError.invalidResponseMappingError(data: response.data)
-                    }
+                    try self.decoder.decode([String: AnyCodable].self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()

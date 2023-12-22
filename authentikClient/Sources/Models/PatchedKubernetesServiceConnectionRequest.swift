@@ -13,11 +13,11 @@ public struct PatchedKubernetesServiceConnectionRequest: Codable {
     /// If enabled, use the local connection. Required Docker socket/Kubernetes Integration
     public var local: Bool?
     /// Paste your kubeconfig here. authentik will automatically use the currently selected context.
-    public var kubeconfig: [String: Any]?
+    public var kubeconfig: [String: AnyCodable]?
     /// Verify SSL Certificates of the Kubernetes API endpoint
     public var verifySsl: Bool?
 
-    public init(name: String? = nil, local: Bool? = nil, kubeconfig: [String: Any]? = nil, verifySsl: Bool? = nil) {
+    public init(name: String? = nil, local: Bool? = nil, kubeconfig: [String: AnyCodable]? = nil, verifySsl: Bool? = nil) {
         self.name = name
         self.local = local
         self.kubeconfig = kubeconfig
@@ -35,7 +35,7 @@ public struct PatchedKubernetesServiceConnectionRequest: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name)
         local = try container.decodeIfPresent(Bool.self, forKey: .local)
-        kubeconfig = try container.decodeIfPresent([String: Any].self, forKey: .kubeconfig)
+        kubeconfig = try container.decodeIfPresent([String: AnyCodable].self, forKey: .kubeconfig)
         verifySsl = try container.decodeIfPresent(Bool.self, forKey: .verifySsl)
     }
 
@@ -43,9 +43,7 @@ public struct PatchedKubernetesServiceConnectionRequest: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
         try container.encodeIfPresent(local, forKey: .local)
-        if let kubeconfig = kubeconfig {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: kubeconfig), forKey: .kubeconfig)
-        }
+        try container.encodeIfPresent(kubeconfig, forKey: .kubeconfig)
         try container.encodeIfPresent(verifySsl, forKey: .verifySsl)
     }
 }

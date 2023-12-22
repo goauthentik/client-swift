@@ -11,9 +11,9 @@ import Foundation
 public struct DeviceChallengeRequest: Codable {
     public var deviceClass: String
     public var deviceUid: String
-    public var challenge: [String: Any]
+    public var challenge: [String: AnyCodable]
 
-    public init(deviceClass: String, deviceUid: String, challenge: [String: Any]) {
+    public init(deviceClass: String, deviceUid: String, challenge: [String: AnyCodable]) {
         self.deviceClass = deviceClass
         self.deviceUid = deviceUid
         self.challenge = challenge
@@ -29,13 +29,13 @@ public struct DeviceChallengeRequest: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         deviceClass = try container.decode(String.self, forKey: .deviceClass)
         deviceUid = try container.decode(String.self, forKey: .deviceUid)
-        challenge = try container.decode([String: Any].self, forKey: .challenge)
+        challenge = try container.decode([String: AnyCodable].self, forKey: .challenge)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(deviceClass, forKey: .deviceClass)
         try container.encode(deviceUid, forKey: .deviceUid)
-        try container.encode(try JSONSerialization.data(withJSONObject: challenge), forKey: .challenge)
+        try container.encode(challenge, forKey: .challenge)
     }
 }

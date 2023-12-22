@@ -22,12 +22,12 @@ public struct UserSelf: Codable {
     public var avatar: String
     public var uid: String
     /// Get user settings with tenant and group settings applied
-    public var settings: [String: Any]
+    public var settings: [String: AnyCodable]
     public var type: UserTypeEnum?
     /// Get all system permissions assigned to the user
     public var systemPermissions: [String]
 
-    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], email: String? = nil, avatar: String, uid: String, settings: [String: Any], type: UserTypeEnum? = nil, systemPermissions: [String]) {
+    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], email: String? = nil, avatar: String, uid: String, settings: [String: AnyCodable], type: UserTypeEnum? = nil, systemPermissions: [String]) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -68,7 +68,7 @@ public struct UserSelf: Codable {
         email = try container.decodeIfPresent(String.self, forKey: .email)
         avatar = try container.decode(String.self, forKey: .avatar)
         uid = try container.decode(String.self, forKey: .uid)
-        settings = try container.decode([String: Any].self, forKey: .settings)
+        settings = try container.decode([String: AnyCodable].self, forKey: .settings)
         type = try container.decodeIfPresent(UserTypeEnum.self, forKey: .type)
         systemPermissions = try container.decode([String].self, forKey: .systemPermissions)
     }
@@ -84,7 +84,7 @@ public struct UserSelf: Codable {
         try container.encodeIfPresent(email, forKey: .email)
         try container.encode(avatar, forKey: .avatar)
         try container.encode(uid, forKey: .uid)
-        try container.encode(try JSONSerialization.data(withJSONObject: settings), forKey: .settings)
+        try container.encode(settings, forKey: .settings)
         try container.encodeIfPresent(type, forKey: .type)
         try container.encode(systemPermissions, forKey: .systemPermissions)
     }

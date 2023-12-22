@@ -10,27 +10,10 @@ import Foundation
 /// Serializer for blueprint metadata 
 public struct Metadata: Codable {
     public var name: String
-    public var labels: [String: Any]
+    public var labels: [String: AnyCodable]
 
-    public init(name: String, labels: [String: Any]) {
+    public init(name: String, labels: [String: AnyCodable]) {
         self.name = name
         self.labels = labels
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case name
-        case labels
-    }
-
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        labels = try container.decode([String: Any].self, forKey: .labels)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(try JSONSerialization.data(withJSONObject: labels), forKey: .labels)
     }
 }

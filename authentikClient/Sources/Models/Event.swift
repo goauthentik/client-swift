@@ -10,16 +10,16 @@ import Foundation
 /// Event Serializer 
 public struct Event: Codable {
     public var pk: UUID
-    public var user: [String: Any]?
+    public var user: [String: AnyCodable]?
     public var action: EventActions
     public var app: String
-    public var context: [String: Any]?
+    public var context: [String: AnyCodable]?
     public var clientIp: String?
     public var created: Date
     public var expires: Date?
-    public var tenant: [String: Any]?
+    public var tenant: [String: AnyCodable]?
 
-    public init(pk: UUID, user: [String: Any]? = nil, action: EventActions, app: String, context: [String: Any]? = nil, clientIp: String? = nil, created: Date, expires: Date? = nil, tenant: [String: Any]? = nil) {
+    public init(pk: UUID, user: [String: AnyCodable]? = nil, action: EventActions, app: String, context: [String: AnyCodable]? = nil, clientIp: String? = nil, created: Date, expires: Date? = nil, tenant: [String: AnyCodable]? = nil) {
         self.pk = pk
         self.user = user
         self.action = action
@@ -46,32 +46,26 @@ public struct Event: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         pk = try container.decode(UUID.self, forKey: .pk)
-        user = try container.decodeIfPresent([String: Any].self, forKey: .user)
+        user = try container.decodeIfPresent([String: AnyCodable].self, forKey: .user)
         action = try container.decode(EventActions.self, forKey: .action)
         app = try container.decode(String.self, forKey: .app)
-        context = try container.decodeIfPresent([String: Any].self, forKey: .context)
+        context = try container.decodeIfPresent([String: AnyCodable].self, forKey: .context)
         clientIp = try container.decodeIfPresent(String.self, forKey: .clientIp)
         created = try container.decode(Date.self, forKey: .created)
         expires = try container.decodeIfPresent(Date.self, forKey: .expires)
-        tenant = try container.decodeIfPresent([String: Any].self, forKey: .tenant)
+        tenant = try container.decodeIfPresent([String: AnyCodable].self, forKey: .tenant)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pk, forKey: .pk)
-        if let user = user {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: user), forKey: .user)
-        }
+        try container.encodeIfPresent(user, forKey: .user)
         try container.encode(action, forKey: .action)
         try container.encode(app, forKey: .app)
-        if let context = context {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: context), forKey: .context)
-        }
+        try container.encodeIfPresent(context, forKey: .context)
         try container.encodeIfPresent(clientIp, forKey: .clientIp)
         try container.encode(created, forKey: .created)
         try container.encodeIfPresent(expires, forKey: .expires)
-        if let tenant = tenant {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: tenant), forKey: .tenant)
-        }
+        try container.encodeIfPresent(tenant, forKey: .tenant)
     }
 }

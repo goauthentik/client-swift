@@ -21,13 +21,13 @@ public struct User: Codable {
     public var groupsObj: [UserGroup]
     public var email: String?
     public var avatar: String
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var uid: String
     public var path: String?
     public var type: UserTypeEnum?
     public var uuid: UUID
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup], email: String? = nil, avatar: String, attributes: [String: Any]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup], email: String? = nil, avatar: String, attributes: [String: AnyCodable]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -75,7 +75,7 @@ public struct User: Codable {
         groupsObj = try container.decode([UserGroup].self, forKey: .groupsObj)
         email = try container.decodeIfPresent(String.self, forKey: .email)
         avatar = try container.decode(String.self, forKey: .avatar)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         uid = try container.decode(String.self, forKey: .uid)
         path = try container.decodeIfPresent(String.self, forKey: .path)
         type = try container.decodeIfPresent(UserTypeEnum.self, forKey: .type)
@@ -94,9 +94,7 @@ public struct User: Codable {
         try container.encode(groupsObj, forKey: .groupsObj)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encode(avatar, forKey: .avatar)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encode(uid, forKey: .uid)
         try container.encodeIfPresent(path, forKey: .path)
         try container.encodeIfPresent(type, forKey: .type)

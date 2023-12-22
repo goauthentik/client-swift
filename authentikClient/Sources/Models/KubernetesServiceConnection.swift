@@ -21,11 +21,11 @@ public struct KubernetesServiceConnection: Codable {
     /// Return internal model name
     public var metaModelName: String
     /// Paste your kubeconfig here. authentik will automatically use the currently selected context.
-    public var kubeconfig: [String: Any]?
+    public var kubeconfig: [String: AnyCodable]?
     /// Verify SSL Certificates of the Kubernetes API endpoint
     public var verifySsl: Bool?
 
-    public init(pk: UUID, name: String, local: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, kubeconfig: [String: Any]? = nil, verifySsl: Bool? = nil) {
+    public init(pk: UUID, name: String, local: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, kubeconfig: [String: AnyCodable]? = nil, verifySsl: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.local = local
@@ -58,7 +58,7 @@ public struct KubernetesServiceConnection: Codable {
         verboseName = try container.decode(String.self, forKey: .verboseName)
         verboseNamePlural = try container.decode(String.self, forKey: .verboseNamePlural)
         metaModelName = try container.decode(String.self, forKey: .metaModelName)
-        kubeconfig = try container.decodeIfPresent([String: Any].self, forKey: .kubeconfig)
+        kubeconfig = try container.decodeIfPresent([String: AnyCodable].self, forKey: .kubeconfig)
         verifySsl = try container.decodeIfPresent(Bool.self, forKey: .verifySsl)
     }
 
@@ -71,9 +71,7 @@ public struct KubernetesServiceConnection: Codable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        if let kubeconfig = kubeconfig {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: kubeconfig), forKey: .kubeconfig)
-        }
+        try container.encodeIfPresent(kubeconfig, forKey: .kubeconfig)
         try container.encodeIfPresent(verifySsl, forKey: .verifySsl)
     }
 }

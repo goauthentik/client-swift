@@ -17,11 +17,11 @@ public struct PatchedUserRequest: Codable {
     public var lastLogin: Date?
     public var groups: [UUID]?
     public var email: String?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var path: String?
     public var type: UserTypeEnum?
 
-    public init(username: String? = nil, name: String? = nil, isActive: Bool? = nil, lastLogin: Date? = nil, groups: [UUID]? = nil, email: String? = nil, attributes: [String: Any]? = nil, path: String? = nil, type: UserTypeEnum? = nil) {
+    public init(username: String? = nil, name: String? = nil, isActive: Bool? = nil, lastLogin: Date? = nil, groups: [UUID]? = nil, email: String? = nil, attributes: [String: AnyCodable]? = nil, path: String? = nil, type: UserTypeEnum? = nil) {
         self.username = username
         self.name = name
         self.isActive = isActive
@@ -53,7 +53,7 @@ public struct PatchedUserRequest: Codable {
         lastLogin = try container.decodeIfPresent(Date.self, forKey: .lastLogin)
         groups = try container.decodeIfPresent([UUID].self, forKey: .groups)
         email = try container.decodeIfPresent(String.self, forKey: .email)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         path = try container.decodeIfPresent(String.self, forKey: .path)
         type = try container.decodeIfPresent(UserTypeEnum.self, forKey: .type)
     }
@@ -66,9 +66,7 @@ public struct PatchedUserRequest: Codable {
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(groups, forKey: .groups)
         try container.encodeIfPresent(email, forKey: .email)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(path, forKey: .path)
         try container.encodeIfPresent(type, forKey: .type)
     }

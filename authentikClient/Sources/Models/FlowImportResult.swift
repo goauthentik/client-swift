@@ -9,10 +9,10 @@ import Foundation
 
 /// Logs of an attempted flow import 
 public struct FlowImportResult: Codable {
-    public var logs: [[String: Any]]
+    public var logs: [[String: AnyCodable]]
     public var success: Bool
 
-    public init(logs: [[String: Any]], success: Bool) {
+    public init(logs: [[String: AnyCodable]], success: Bool) {
         self.logs = logs
         self.success = success
     }

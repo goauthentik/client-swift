@@ -18,11 +18,11 @@ public struct Group: Codable {
     public var parentName: String?
     public var users: [Int]?
     public var usersObj: [GroupMember]
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var roles: [UUID]?
     public var rolesObj: [Role]
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember], attributes: [String: Any]? = nil, roles: [UUID]? = nil, rolesObj: [Role]) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember], attributes: [String: AnyCodable]? = nil, roles: [UUID]? = nil, rolesObj: [Role]) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
@@ -60,7 +60,7 @@ public struct Group: Codable {
         parentName = try container.decode(String.self, forKey: .parentName)
         users = try container.decodeIfPresent([Int].self, forKey: .users)
         usersObj = try container.decode([GroupMember].self, forKey: .usersObj)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         roles = try container.decodeIfPresent([UUID].self, forKey: .roles)
         rolesObj = try container.decode([Role].self, forKey: .rolesObj)
     }
@@ -75,9 +75,7 @@ public struct Group: Codable {
         try container.encode(parentName, forKey: .parentName)
         try container.encodeIfPresent(users, forKey: .users)
         try container.encode(usersObj, forKey: .usersObj)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
         try container.encode(rolesObj, forKey: .rolesObj)
     }

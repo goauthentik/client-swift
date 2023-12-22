@@ -14,9 +14,9 @@ public struct MobileDeviceInfoRequest: Codable {
     public var model: String
     public var hostname: String
     public var appVersion: String
-    public var others: [String: Any]
+    public var others: [String: AnyCodable]
 
-    public init(platform: PlatformEnum, osVersion: String, model: String, hostname: String, appVersion: String, others: [String: Any]) {
+    public init(platform: PlatformEnum, osVersion: String, model: String, hostname: String, appVersion: String, others: [String: AnyCodable]) {
         self.platform = platform
         self.osVersion = osVersion
         self.model = model
@@ -41,7 +41,7 @@ public struct MobileDeviceInfoRequest: Codable {
         model = try container.decode(String.self, forKey: .model)
         hostname = try container.decode(String.self, forKey: .hostname)
         appVersion = try container.decode(String.self, forKey: .appVersion)
-        others = try container.decode([String: Any].self, forKey: .others)
+        others = try container.decode([String: AnyCodable].self, forKey: .others)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -51,6 +51,6 @@ public struct MobileDeviceInfoRequest: Codable {
         try container.encode(model, forKey: .model)
         try container.encode(hostname, forKey: .hostname)
         try container.encode(appVersion, forKey: .appVersion)
-        try container.encode(try JSONSerialization.data(withJSONObject: others), forKey: .others)
+        try container.encode(others, forKey: .others)
     }
 }

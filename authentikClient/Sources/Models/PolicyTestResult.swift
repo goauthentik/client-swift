@@ -11,9 +11,9 @@ import Foundation
 public struct PolicyTestResult: Codable {
     public var passing: Bool
     public var messages: [String]
-    public var logMessages: [[String: Any]]
+    public var logMessages: [[String: AnyCodable]]
 
-    public init(passing: Bool, messages: [String], logMessages: [[String: Any]]) {
+    public init(passing: Bool, messages: [String], logMessages: [[String: AnyCodable]]) {
         self.passing = passing
         self.messages = messages
         self.logMessages = logMessages
@@ -29,7 +29,7 @@ public struct PolicyTestResult: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         passing = try container.decode(Bool.self, forKey: .passing)
         messages = try container.decode([String].self, forKey: .messages)
-        logMessages = try container.decode([[String: Any]].self, forKey: .logMessages)
+        logMessages = try container.decode([[String: AnyCodable]].self, forKey: .logMessages)
     }
 
     public func encode(to encoder: Encoder) throws {

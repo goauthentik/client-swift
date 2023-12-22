@@ -25,9 +25,9 @@ public struct PatchedTenantRequest: Codable {
     public var eventRetention: String?
     /// Web Certificate used by the authentik Core webserver.
     public var webCertificate: UUID?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
 
-    public init(domain: String? = nil, _default: Bool? = nil, brandingTitle: String? = nil, brandingLogo: String? = nil, brandingFavicon: String? = nil, flowAuthentication: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, flowDeviceCode: UUID? = nil, eventRetention: String? = nil, webCertificate: UUID? = nil, attributes: [String: Any]? = nil) {
+    public init(domain: String? = nil, _default: Bool? = nil, brandingTitle: String? = nil, brandingLogo: String? = nil, brandingFavicon: String? = nil, flowAuthentication: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, flowDeviceCode: UUID? = nil, eventRetention: String? = nil, webCertificate: UUID? = nil, attributes: [String: AnyCodable]? = nil) {
         self.domain = domain
         self._default = _default
         self.brandingTitle = brandingTitle
@@ -76,7 +76,7 @@ public struct PatchedTenantRequest: Codable {
         flowDeviceCode = try container.decodeIfPresent(UUID.self, forKey: .flowDeviceCode)
         eventRetention = try container.decodeIfPresent(String.self, forKey: .eventRetention)
         webCertificate = try container.decodeIfPresent(UUID.self, forKey: .webCertificate)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -94,8 +94,6 @@ public struct PatchedTenantRequest: Codable {
         try container.encodeIfPresent(flowDeviceCode, forKey: .flowDeviceCode)
         try container.encodeIfPresent(eventRetention, forKey: .eventRetention)
         try container.encodeIfPresent(webCertificate, forKey: .webCertificate)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }

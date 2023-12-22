@@ -12,7 +12,7 @@ public struct Invitation: Codable {
     public var pk: UUID
     public var name: String
     public var expires: Date?
-    public var fixedData: [String: Any]?
+    public var fixedData: [String: AnyCodable]?
     public var createdBy: GroupMember
     /// When enabled, the invitation will be deleted after usage.
     public var singleUse: Bool?
@@ -20,7 +20,7 @@ public struct Invitation: Codable {
     public var flow: UUID?
     public var flowObj: Flow
 
-    public init(pk: UUID, name: String, expires: Date? = nil, fixedData: [String: Any]? = nil, createdBy: GroupMember, singleUse: Bool? = nil, flow: UUID? = nil, flowObj: Flow) {
+    public init(pk: UUID, name: String, expires: Date? = nil, fixedData: [String: AnyCodable]? = nil, createdBy: GroupMember, singleUse: Bool? = nil, flow: UUID? = nil, flowObj: Flow) {
         self.pk = pk
         self.name = name
         self.expires = expires
@@ -47,7 +47,7 @@ public struct Invitation: Codable {
         pk = try container.decode(UUID.self, forKey: .pk)
         name = try container.decode(String.self, forKey: .name)
         expires = try container.decodeIfPresent(Date.self, forKey: .expires)
-        fixedData = try container.decodeIfPresent([String: Any].self, forKey: .fixedData)
+        fixedData = try container.decodeIfPresent([String: AnyCodable].self, forKey: .fixedData)
         createdBy = try container.decode(GroupMember.self, forKey: .createdBy)
         singleUse = try container.decodeIfPresent(Bool.self, forKey: .singleUse)
         flow = try container.decodeIfPresent(UUID.self, forKey: .flow)
@@ -59,9 +59,7 @@ public struct Invitation: Codable {
         try container.encode(pk, forKey: .pk)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(expires, forKey: .expires)
-        if let fixedData = fixedData {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: fixedData), forKey: .fixedData)
-        }
+        try container.encodeIfPresent(fixedData, forKey: .fixedData)
         try container.encode(createdBy, forKey: .createdBy)
         try container.encodeIfPresent(singleUse, forKey: .singleUse)
         try container.encodeIfPresent(flow, forKey: .flow)

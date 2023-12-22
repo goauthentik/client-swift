@@ -18,12 +18,12 @@ public struct UserAssignedObjectPermission: Codable {
     public var isActive: Bool?
     public var lastLogin: Date?
     public var email: String?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var uid: String
     public var permissions: [UserObjectPermission]
     public var isSuperuser: Bool
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: Any]? = nil, uid: String, permissions: [UserObjectPermission], isSuperuser: Bool) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: AnyCodable]? = nil, uid: String, permissions: [UserObjectPermission], isSuperuser: Bool) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -57,7 +57,7 @@ public struct UserAssignedObjectPermission: Codable {
         isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
         lastLogin = try container.decodeIfPresent(Date.self, forKey: .lastLogin)
         email = try container.decodeIfPresent(String.self, forKey: .email)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         uid = try container.decode(String.self, forKey: .uid)
         permissions = try container.decode([UserObjectPermission].self, forKey: .permissions)
         isSuperuser = try container.decode(Bool.self, forKey: .isSuperuser)
@@ -71,9 +71,7 @@ public struct UserAssignedObjectPermission: Codable {
         try container.encodeIfPresent(isActive, forKey: .isActive)
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(email, forKey: .email)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encode(uid, forKey: .uid)
         try container.encode(permissions, forKey: .permissions)
         try container.encode(isSuperuser, forKey: .isSuperuser)

@@ -14,10 +14,10 @@ public struct GroupRequest: Codable {
     public var isSuperuser: Bool?
     public var parent: UUID?
     public var users: [Int]?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var roles: [UUID]?
 
-    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: Any]? = nil, roles: [UUID]? = nil) {
+    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: AnyCodable]? = nil, roles: [UUID]? = nil) {
         self.name = name
         self.isSuperuser = isSuperuser
         self.parent = parent
@@ -41,7 +41,7 @@ public struct GroupRequest: Codable {
         isSuperuser = try container.decodeIfPresent(Bool.self, forKey: .isSuperuser)
         parent = try container.decodeIfPresent(UUID.self, forKey: .parent)
         users = try container.decodeIfPresent([Int].self, forKey: .users)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         roles = try container.decodeIfPresent([UUID].self, forKey: .roles)
     }
 
@@ -51,9 +51,7 @@ public struct GroupRequest: Codable {
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
         try container.encodeIfPresent(parent, forKey: .parent)
         try container.encodeIfPresent(users, forKey: .users)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
     }
 }

@@ -8,11 +8,11 @@
 import Foundation
 
 public struct LDAPDebug: Codable {
-    public var user: [[String: Any]]
-    public var group: [[String: Any]]
-    public var membership: [[String: Any]]
+    public var user: [[String: AnyCodable]]
+    public var group: [[String: AnyCodable]]
+    public var membership: [[String: AnyCodable]]
 
-    public init(user: [[String: Any]], group: [[String: Any]], membership: [[String: Any]]) {
+    public init(user: [[String: AnyCodable]], group: [[String: AnyCodable]], membership: [[String: AnyCodable]]) {
         self.user = user
         self.group = group
         self.membership = membership

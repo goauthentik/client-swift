@@ -12,11 +12,11 @@ public struct Reputation: Codable {
     public var pk: UUID?
     public var identifier: String
     public var ip: String
-    public var ipGeoData: [String: Any]?
+    public var ipGeoData: [String: AnyCodable]?
     public var score: Int64?
     public var updated: Date
 
-    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: [String: Any]? = nil, score: Int64? = nil, updated: Date) {
+    public init(pk: UUID? = nil, identifier: String, ip: String, ipGeoData: [String: AnyCodable]? = nil, score: Int64? = nil, updated: Date) {
         self.pk = pk
         self.identifier = identifier
         self.ip = ip
@@ -39,7 +39,7 @@ public struct Reputation: Codable {
         pk = try container.decodeIfPresent(UUID.self, forKey: .pk)
         identifier = try container.decode(String.self, forKey: .identifier)
         ip = try container.decode(String.self, forKey: .ip)
-        ipGeoData = try container.decodeIfPresent([String: Any].self, forKey: .ipGeoData)
+        ipGeoData = try container.decodeIfPresent([String: AnyCodable].self, forKey: .ipGeoData)
         score = try container.decodeIfPresent(Int64.self, forKey: .score)
         updated = try container.decode(Date.self, forKey: .updated)
     }
@@ -49,9 +49,7 @@ public struct Reputation: Codable {
         try container.encodeIfPresent(pk, forKey: .pk)
         try container.encode(identifier, forKey: .identifier)
         try container.encode(ip, forKey: .ip)
-        if let ipGeoData = ipGeoData {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: ipGeoData), forKey: .ipGeoData)
-        }
+        try container.encodeIfPresent(ipGeoData, forKey: .ipGeoData)
         try container.encodeIfPresent(score, forKey: .score)
         try container.encode(updated, forKey: .updated)
     }

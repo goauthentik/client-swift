@@ -14,11 +14,11 @@ public struct OutpostRequest: Codable {
     public var providers: [Int]
     /// Select Service-Connection authentik should use to manage this outpost. Leave empty if authentik should not handle the deployment.
     public var serviceConnection: UUID?
-    public var config: [String: Any]
+    public var config: [String: AnyCodable]
     /// Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update.
     public var managed: String?
 
-    public init(name: String, type: OutpostTypeEnum, providers: [Int], serviceConnection: UUID? = nil, config: [String: Any], managed: String? = nil) {
+    public init(name: String, type: OutpostTypeEnum, providers: [Int], serviceConnection: UUID? = nil, config: [String: AnyCodable], managed: String? = nil) {
         self.name = name
         self.type = type
         self.providers = providers
@@ -42,7 +42,7 @@ public struct OutpostRequest: Codable {
         type = try container.decode(OutpostTypeEnum.self, forKey: .type)
         providers = try container.decode([Int].self, forKey: .providers)
         serviceConnection = try container.decodeIfPresent(UUID.self, forKey: .serviceConnection)
-        config = try container.decode([String: Any].self, forKey: .config)
+        config = try container.decode([String: AnyCodable].self, forKey: .config)
         managed = try container.decodeIfPresent(String.self, forKey: .managed)
     }
 
@@ -52,7 +52,7 @@ public struct OutpostRequest: Codable {
         try container.encode(type, forKey: .type)
         try container.encode(providers, forKey: .providers)
         try container.encodeIfPresent(serviceConnection, forKey: .serviceConnection)
-        try container.encode(try JSONSerialization.data(withJSONObject: config), forKey: .config)
+        try container.encode(config, forKey: .config)
         try container.encodeIfPresent(managed, forKey: .managed)
     }
 }

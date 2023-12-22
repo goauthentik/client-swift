@@ -13,11 +13,11 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable {
     public var selectedChallenge: DeviceChallengeRequest?
     public var selectedStage: String?
     public var code: String?
-    public var webauthn: [String: Any]?
+    public var webauthn: [String: AnyCodable]?
     public var duo: Int?
     public var mobile: String?
 
-    public init(component: String? = "ak-stage-authenticator-validate", selectedChallenge: DeviceChallengeRequest? = nil, selectedStage: String? = nil, code: String? = nil, webauthn: [String: Any]? = nil, duo: Int? = nil, mobile: String? = nil) {
+    public init(component: String? = "ak-stage-authenticator-validate", selectedChallenge: DeviceChallengeRequest? = nil, selectedStage: String? = nil, code: String? = nil, webauthn: [String: AnyCodable]? = nil, duo: Int? = nil, mobile: String? = nil) {
         self.component = component
         self.selectedChallenge = selectedChallenge
         self.selectedStage = selectedStage
@@ -43,7 +43,7 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable {
         selectedChallenge = try container.decodeIfPresent(DeviceChallengeRequest.self, forKey: .selectedChallenge)
         selectedStage = try container.decodeIfPresent(String.self, forKey: .selectedStage)
         code = try container.decodeIfPresent(String.self, forKey: .code)
-        webauthn = try container.decodeIfPresent([String: Any].self, forKey: .webauthn)
+        webauthn = try container.decodeIfPresent([String: AnyCodable].self, forKey: .webauthn)
         duo = try container.decodeIfPresent(Int.self, forKey: .duo)
         mobile = try container.decodeIfPresent(String.self, forKey: .mobile)
     }
@@ -54,9 +54,7 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable {
         try container.encodeIfPresent(selectedChallenge, forKey: .selectedChallenge)
         try container.encodeIfPresent(selectedStage, forKey: .selectedStage)
         try container.encodeIfPresent(code, forKey: .code)
-        if let webauthn = webauthn {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: webauthn), forKey: .webauthn)
-        }
+        try container.encodeIfPresent(webauthn, forKey: .webauthn)
         try container.encodeIfPresent(duo, forKey: .duo)
         try container.encodeIfPresent(mobile, forKey: .mobile)
     }

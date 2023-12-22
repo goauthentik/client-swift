@@ -15,9 +15,9 @@ public struct Task: Codable {
     /// Get the duration a task took to run
     public var taskDuration: Int
     public var status: TaskStatusEnum
-    public var messages: [Any]
+    public var messages: [AnyCodable]
 
-    public init(taskName: String, taskDescription: String, taskFinishTimestamp: Date, taskDuration: Int, status: TaskStatusEnum, messages: [Any]) {
+    public init(taskName: String, taskDescription: String, taskFinishTimestamp: Date, taskDuration: Int, status: TaskStatusEnum, messages: [AnyCodable]) {
         self.taskName = taskName
         self.taskDescription = taskDescription
         self.taskFinishTimestamp = taskFinishTimestamp
@@ -42,7 +42,7 @@ public struct Task: Codable {
         taskFinishTimestamp = try container.decode(Date.self, forKey: .taskFinishTimestamp)
         taskDuration = try container.decode(Int.self, forKey: .taskDuration)
         status = try container.decode(TaskStatusEnum.self, forKey: .status)
-        messages = try container.decode([Any].self, forKey: .messages)
+        messages = try container.decode([AnyCodable].self, forKey: .messages)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,6 +52,6 @@ public struct Task: Codable {
         try container.encode(taskFinishTimestamp, forKey: .taskFinishTimestamp)
         try container.encode(taskDuration, forKey: .taskDuration)
         try container.encode(status, forKey: .status)
-        try container.encode(try JSONSerialization.data(withJSONObject: messages), forKey: .messages)
+        try container.encode(messages, forKey: .messages)
     }
 }

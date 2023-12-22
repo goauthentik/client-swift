@@ -12,11 +12,11 @@ public struct FlowInspectorPlan: Codable {
     public var currentStage: FlowStageBinding
     public var nextPlannedStage: FlowStageBinding
     /// Get the plan's context, sanitized
-    public var planContext: [String: Any]
+    public var planContext: [String: AnyCodable]
     /// Get a unique session ID
     public var sessionId: String
 
-    public init(currentStage: FlowStageBinding, nextPlannedStage: FlowStageBinding, planContext: [String: Any], sessionId: String) {
+    public init(currentStage: FlowStageBinding, nextPlannedStage: FlowStageBinding, planContext: [String: AnyCodable], sessionId: String) {
         self.currentStage = currentStage
         self.nextPlannedStage = nextPlannedStage
         self.planContext = planContext
@@ -34,7 +34,7 @@ public struct FlowInspectorPlan: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         currentStage = try container.decode(FlowStageBinding.self, forKey: .currentStage)
         nextPlannedStage = try container.decode(FlowStageBinding.self, forKey: .nextPlannedStage)
-        planContext = try container.decode([String: Any].self, forKey: .planContext)
+        planContext = try container.decode([String: AnyCodable].self, forKey: .planContext)
         sessionId = try container.decode(String.self, forKey: .sessionId)
     }
 
@@ -42,7 +42,7 @@ public struct FlowInspectorPlan: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(currentStage, forKey: .currentStage)
         try container.encode(nextPlannedStage, forKey: .nextPlannedStage)
-        try container.encode(try JSONSerialization.data(withJSONObject: planContext), forKey: .planContext)
+        try container.encode(planContext, forKey: .planContext)
         try container.encode(sessionId, forKey: .sessionId)
     }
 }

@@ -17,9 +17,9 @@ public struct GroupMemberRequest: Codable {
     public var isActive: Bool?
     public var lastLogin: Date?
     public var email: String?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
 
-    public init(username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: Any]? = nil) {
+    public init(username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: AnyCodable]? = nil) {
         self.username = username
         self.name = name
         self.isActive = isActive
@@ -44,7 +44,7 @@ public struct GroupMemberRequest: Codable {
         isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
         lastLogin = try container.decodeIfPresent(Date.self, forKey: .lastLogin)
         email = try container.decodeIfPresent(String.self, forKey: .email)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -54,8 +54,6 @@ public struct GroupMemberRequest: Codable {
         try container.encodeIfPresent(isActive, forKey: .isActive)
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(email, forKey: .email)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }

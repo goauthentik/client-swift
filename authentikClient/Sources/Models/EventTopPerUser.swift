@@ -9,11 +9,11 @@ import Foundation
 
 /// Response object of Event&#39;s top_per_user 
 public struct EventTopPerUser: Codable {
-    public var application: [String: Any]
+    public var application: [String: AnyCodable]
     public var countedEvents: Int
     public var uniqueUsers: Int
 
-    public init(application: [String: Any], countedEvents: Int, uniqueUsers: Int) {
+    public init(application: [String: AnyCodable], countedEvents: Int, uniqueUsers: Int) {
         self.application = application
         self.countedEvents = countedEvents
         self.uniqueUsers = uniqueUsers
@@ -27,14 +27,14 @@ public struct EventTopPerUser: Codable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        application = try container.decode([String: Any].self, forKey: .application)
+        application = try container.decode([String: AnyCodable].self, forKey: .application)
         countedEvents = try container.decode(Int.self, forKey: .countedEvents)
         uniqueUsers = try container.decode(Int.self, forKey: .uniqueUsers)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(try JSONSerialization.data(withJSONObject: application), forKey: .application)
+        try container.encode(application, forKey: .application)
         try container.encode(countedEvents, forKey: .countedEvents)
         try container.encode(uniqueUsers, forKey: .uniqueUsers)
     }

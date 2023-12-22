@@ -12,16 +12,16 @@ public struct BlueprintInstance: Codable {
     public var pk: UUID
     public var name: String
     public var path: String? = ""
-    public var context: [String: Any]?
+    public var context: [String: AnyCodable]?
     public var lastApplied: Date
     public var lastAppliedHash: String
     public var status: BlueprintInstanceStatusEnum
     public var enabled: Bool?
     public var managedModels: [String]
-    public var metadata: [String: Any]
+    public var metadata: [String: AnyCodable]
     public var content: String?
 
-    public init(pk: UUID, name: String, path: String? = "", context: [String: Any]? = nil, lastApplied: Date, lastAppliedHash: String, status: BlueprintInstanceStatusEnum, enabled: Bool? = nil, managedModels: [String], metadata: [String: Any], content: String? = nil) {
+    public init(pk: UUID, name: String, path: String? = "", context: [String: AnyCodable]? = nil, lastApplied: Date, lastAppliedHash: String, status: BlueprintInstanceStatusEnum, enabled: Bool? = nil, managedModels: [String], metadata: [String: AnyCodable], content: String? = nil) {
         self.pk = pk
         self.name = name
         self.path = path
@@ -54,13 +54,13 @@ public struct BlueprintInstance: Codable {
         pk = try container.decode(UUID.self, forKey: .pk)
         name = try container.decode(String.self, forKey: .name)
         path = try container.decodeIfPresent(String.self, forKey: .path)
-        context = try container.decodeIfPresent([String: Any].self, forKey: .context)
+        context = try container.decodeIfPresent([String: AnyCodable].self, forKey: .context)
         lastApplied = try container.decode(Date.self, forKey: .lastApplied)
         lastAppliedHash = try container.decode(String.self, forKey: .lastAppliedHash)
         status = try container.decode(BlueprintInstanceStatusEnum.self, forKey: .status)
         enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled)
         managedModels = try container.decode([String].self, forKey: .managedModels)
-        metadata = try container.decode([String: Any].self, forKey: .metadata)
+        metadata = try container.decode([String: AnyCodable].self, forKey: .metadata)
         content = try container.decodeIfPresent(String.self, forKey: .content)
     }
 
@@ -69,15 +69,13 @@ public struct BlueprintInstance: Codable {
         try container.encode(pk, forKey: .pk)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(path, forKey: .path)
-        if let context = context {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: context), forKey: .context)
-        }
+        try container.encodeIfPresent(context, forKey: .context)
         try container.encode(lastApplied, forKey: .lastApplied)
         try container.encode(lastAppliedHash, forKey: .lastAppliedHash)
         try container.encode(status, forKey: .status)
         try container.encodeIfPresent(enabled, forKey: .enabled)
         try container.encode(managedModels, forKey: .managedModels)
-        try container.encode(try JSONSerialization.data(withJSONObject: metadata), forKey: .metadata)
+        try container.encode(metadata, forKey: .metadata)
         try container.encodeIfPresent(content, forKey: .content)
     }
 }

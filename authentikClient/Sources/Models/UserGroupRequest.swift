@@ -13,9 +13,9 @@ public struct UserGroupRequest: Codable {
     /// Users added to this group will be superusers.
     public var isSuperuser: Bool?
     public var parent: UUID?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
 
-    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, attributes: [String: Any]? = nil) {
+    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, attributes: [String: AnyCodable]? = nil) {
         self.name = name
         self.isSuperuser = isSuperuser
         self.parent = parent
@@ -34,7 +34,7 @@ public struct UserGroupRequest: Codable {
         name = try container.decode(String.self, forKey: .name)
         isSuperuser = try container.decodeIfPresent(Bool.self, forKey: .isSuperuser)
         parent = try container.decodeIfPresent(UUID.self, forKey: .parent)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -42,8 +42,6 @@ public struct UserGroupRequest: Codable {
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
         try container.encodeIfPresent(parent, forKey: .parent)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }

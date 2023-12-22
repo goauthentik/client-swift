@@ -15,9 +15,9 @@ public struct AuthenticatorWebAuthnChallenge: Codable {
     public var responseErrors: [String: [ErrorDetail]]?
     public var pendingUser: String
     public var pendingUserAvatar: String
-    public var registration: [String: Any]
+    public var registration: [String: AnyCodable]
 
-    public init(type: ChallengeChoices, flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-authenticator-webauthn", responseErrors: [String: [ErrorDetail]]? = nil, pendingUser: String, pendingUserAvatar: String, registration: [String: Any]) {
+    public init(type: ChallengeChoices, flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-authenticator-webauthn", responseErrors: [String: [ErrorDetail]]? = nil, pendingUser: String, pendingUserAvatar: String, registration: [String: AnyCodable]) {
         self.type = type
         self.flowInfo = flowInfo
         self.component = component
@@ -45,7 +45,7 @@ public struct AuthenticatorWebAuthnChallenge: Codable {
         responseErrors = try container.decodeIfPresent([String: [ErrorDetail]].self, forKey: .responseErrors)
         pendingUser = try container.decode(String.self, forKey: .pendingUser)
         pendingUserAvatar = try container.decode(String.self, forKey: .pendingUserAvatar)
-        registration = try container.decode([String: Any].self, forKey: .registration)
+        registration = try container.decode([String: AnyCodable].self, forKey: .registration)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -56,6 +56,6 @@ public struct AuthenticatorWebAuthnChallenge: Codable {
         try container.encodeIfPresent(responseErrors, forKey: .responseErrors)
         try container.encode(pendingUser, forKey: .pendingUser)
         try container.encode(pendingUserAvatar, forKey: .pendingUserAvatar)
-        try container.encode(try JSONSerialization.data(withJSONObject: registration), forKey: .registration)
+        try container.encode(registration, forKey: .registration)
     }
 }

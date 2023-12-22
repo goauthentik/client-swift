@@ -18,10 +18,10 @@ public struct GroupMember: Codable {
     public var isActive: Bool?
     public var lastLogin: Date?
     public var email: String?
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
     public var uid: String
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: Any]? = nil, uid: String) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, email: String? = nil, attributes: [String: AnyCodable]? = nil, uid: String) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -51,7 +51,7 @@ public struct GroupMember: Codable {
         isActive = try container.decodeIfPresent(Bool.self, forKey: .isActive)
         lastLogin = try container.decodeIfPresent(Date.self, forKey: .lastLogin)
         email = try container.decodeIfPresent(String.self, forKey: .email)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
         uid = try container.decode(String.self, forKey: .uid)
     }
 
@@ -63,9 +63,7 @@ public struct GroupMember: Codable {
         try container.encodeIfPresent(isActive, forKey: .isActive)
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(email, forKey: .email)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encode(uid, forKey: .uid)
     }
 }

@@ -14,11 +14,11 @@ public struct PatchedOutpostRequest: Codable {
     public var providers: [Int]?
     /// Select Service-Connection authentik should use to manage this outpost. Leave empty if authentik should not handle the deployment.
     public var serviceConnection: UUID?
-    public var config: [String: Any]?
+    public var config: [String: AnyCodable]?
     /// Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update.
     public var managed: String?
 
-    public init(name: String? = nil, type: OutpostTypeEnum? = nil, providers: [Int]? = nil, serviceConnection: UUID? = nil, config: [String: Any]? = nil, managed: String? = nil) {
+    public init(name: String? = nil, type: OutpostTypeEnum? = nil, providers: [Int]? = nil, serviceConnection: UUID? = nil, config: [String: AnyCodable]? = nil, managed: String? = nil) {
         self.name = name
         self.type = type
         self.providers = providers
@@ -42,7 +42,7 @@ public struct PatchedOutpostRequest: Codable {
         type = try container.decodeIfPresent(OutpostTypeEnum.self, forKey: .type)
         providers = try container.decodeIfPresent([Int].self, forKey: .providers)
         serviceConnection = try container.decodeIfPresent(UUID.self, forKey: .serviceConnection)
-        config = try container.decodeIfPresent([String: Any].self, forKey: .config)
+        config = try container.decodeIfPresent([String: AnyCodable].self, forKey: .config)
         managed = try container.decodeIfPresent(String.self, forKey: .managed)
     }
 
@@ -52,9 +52,7 @@ public struct PatchedOutpostRequest: Codable {
         try container.encodeIfPresent(type, forKey: .type)
         try container.encodeIfPresent(providers, forKey: .providers)
         try container.encodeIfPresent(serviceConnection, forKey: .serviceConnection)
-        if let config = config {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: config), forKey: .config)
-        }
+        try container.encodeIfPresent(config, forKey: .config)
         try container.encodeIfPresent(managed, forKey: .managed)
     }
 }

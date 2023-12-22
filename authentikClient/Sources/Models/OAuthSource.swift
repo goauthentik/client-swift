@@ -50,9 +50,9 @@ public struct OAuthSource: Codable {
     public var type: SourceType
     public var oidcWellKnownUrl: String?
     public var oidcJwksUrl: String?
-    public var oidcJwks: [String: Any]?
+    public var oidcJwks: [String: AnyCodable]?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: Any]? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: AnyCodable]? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -140,7 +140,7 @@ public struct OAuthSource: Codable {
         type = try container.decode(SourceType.self, forKey: .type)
         oidcWellKnownUrl = try container.decodeIfPresent(String.self, forKey: .oidcWellKnownUrl)
         oidcJwksUrl = try container.decodeIfPresent(String.self, forKey: .oidcJwksUrl)
-        oidcJwks = try container.decodeIfPresent([String: Any].self, forKey: .oidcJwks)
+        oidcJwks = try container.decodeIfPresent([String: AnyCodable].self, forKey: .oidcJwks)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -171,8 +171,6 @@ public struct OAuthSource: Codable {
         try container.encode(type, forKey: .type)
         try container.encodeIfPresent(oidcWellKnownUrl, forKey: .oidcWellKnownUrl)
         try container.encodeIfPresent(oidcJwksUrl, forKey: .oidcJwksUrl)
-        if let oidcJwks = oidcJwks {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: oidcJwks), forKey: .oidcJwks)
-        }
+        try container.encodeIfPresent(oidcJwks, forKey: .oidcJwks)
     }
 }

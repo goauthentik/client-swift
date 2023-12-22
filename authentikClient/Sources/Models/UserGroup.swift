@@ -17,9 +17,9 @@ public struct UserGroup: Codable {
     public var isSuperuser: Bool?
     public var parent: UUID?
     public var parentName: String
-    public var attributes: [String: Any]?
+    public var attributes: [String: AnyCodable]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String, attributes: [String: Any]? = nil) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String, attributes: [String: AnyCodable]? = nil) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
@@ -47,7 +47,7 @@ public struct UserGroup: Codable {
         isSuperuser = try container.decodeIfPresent(Bool.self, forKey: .isSuperuser)
         parent = try container.decodeIfPresent(UUID.self, forKey: .parent)
         parentName = try container.decode(String.self, forKey: .parentName)
-        attributes = try container.decodeIfPresent([String: Any].self, forKey: .attributes)
+        attributes = try container.decodeIfPresent([String: AnyCodable].self, forKey: .attributes)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -58,8 +58,6 @@ public struct UserGroup: Codable {
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
         try container.encodeIfPresent(parent, forKey: .parent)
         try container.encode(parentName, forKey: .parentName)
-        if let attributes = attributes {
-            try container.encodeIfPresent(try JSONSerialization.data(withJSONObject: attributes), forKey: .attributes)
-        }
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
