@@ -15,3 +15,8 @@ enumNameMappings:
   2001/04/xmldsig-more#sha384: _2001_04_xmldsig-more_sha384
   2001/04/xmlenc#sha256: _2001_04_xmlenc_sha256
   2001/04/xmlenc#sha512: _2001_04_xmlenc_sha512
+  1.1:nameid-format:emailAddress: _1_1_nameid-format_emailAddress
+  2.0:nameid-format:persistent: _2_0_nameid-format_persistent
+  2.0:nameid-format:X509SubjectName: _2_0_nameid-format_X509SubjectName
+  2.0:nameid-format:WindowsDomainQualifiedName: _2_0_nameid-format_WindowsDomainQualifiedName
+  2.0:nameid-format:transient: _2_0_nameid-format_transient

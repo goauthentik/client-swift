@@ -2694,11 +2694,11 @@ open class SourcesAPI {
     /// Enum for parameter nameIdPolicy
     ///
     public enum SourcesSamlListNameIdPolicy: String, Codable, CaseIterable {
-        case _11:nameidFormat:emailAddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
-        case _20:nameidFormat:WindowsDomainQualifiedName = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
-        case _20:nameidFormat:X509SubjectName = "urn:oasis:names:tc:SAML:2.0:nameid-format:X509SubjectName"
-        case _20:nameidFormat:persistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
-        case _20:nameidFormat:transient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+        case _1_1_nameid-format_emailAddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        case _2_0_nameid-format_WindowsDomainQualifiedName = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
+        case _2_0_nameid-format_X509SubjectName = "urn:oasis:names:tc:SAML:2.0:nameid-format:X509SubjectName"
+        case _2_0_nameid-format_persistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+        case _2_0_nameid-format_transient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     ///
