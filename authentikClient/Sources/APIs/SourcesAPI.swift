@@ -2685,7 +2685,7 @@ open class SourcesAPI {
     ///
     public enum SourcesSamlListDigestAlgorithm: String, Codable, CaseIterable {
         case _2000_09_xmldsig_sha1 = "http://www.w3.org/2000/09/xmldsig#sha1"
-        case _2001_04_xmldsig-more_sha384 = "http://www.w3.org/2001/04/xmldsig-more#sha384"
+        case _2001_04_xmldsig_more_sha384 = "http://www.w3.org/2001/04/xmldsig-more#sha384"
         case _2001_04_xmlenc_sha256 = "http://www.w3.org/2001/04/xmlenc#sha256"
         case _2001_04_xmlenc_sha512 = "http://www.w3.org/2001/04/xmlenc#sha512"
         case unknownDefaultOpenApi = "unknown_default_open_api"
@@ -2694,11 +2694,11 @@ open class SourcesAPI {
     /// Enum for parameter nameIdPolicy
     ///
     public enum SourcesSamlListNameIdPolicy: String, Codable, CaseIterable {
-        case _1_1_nameid-format_emailAddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
-        case _2_0_nameid-format_WindowsDomainQualifiedName = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
-        case _2_0_nameid-format_X509SubjectName = "urn:oasis:names:tc:SAML:2.0:nameid-format:X509SubjectName"
-        case _2_0_nameid-format_persistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
-        case _2_0_nameid-format_transient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+        case _1_1_nameid_format_emailAddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        case _2_0_nameid_format_WindowsDomainQualifiedName = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
+        case _2_0_nameid_format_X509SubjectName = "urn:oasis:names:tc:SAML:2.0:nameid-format:X509SubjectName"
+        case _2_0_nameid_format_persistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+        case _2_0_nameid_format_transient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     ///
@@ -2713,11 +2713,11 @@ open class SourcesAPI {
     /// Enum for parameter signatureAlgorithm
     ///
     public enum SourcesSamlListSignatureAlgorithm: String, Codable, CaseIterable {
-        case _2000_09_xmldsig_dsa-sha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
-        case _2000_09_xmldsig_rsa-sha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
-        case _2001_04_xmldsig-more_rsa-sha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-        case _2001_04_xmldsig-more_rsa-sha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
-        case _2001_04_xmldsig-more_rsa-sha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+        case _2000_09_xmldsig_dsa_sha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
+        case _2000_09_xmldsig_rsa_sha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+        case _2001_04_xmldsig_more_rsa_sha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+        case _2001_04_xmldsig_more_rsa_sha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
+        case _2001_04_xmldsig_more_rsa_sha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     ///

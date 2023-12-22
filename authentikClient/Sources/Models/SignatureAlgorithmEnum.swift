@@ -9,10 +9,10 @@ import Foundation
 
 /// * &#x60;http://www.w3.org/2000/09/xmldsig#rsa-sha1&#x60; - RSA-SHA1 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256&#x60; - RSA-SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha384&#x60; - RSA-SHA384 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha512&#x60; - RSA-SHA512 * &#x60;http://www.w3.org/2000/09/xmldsig#dsa-sha1&#x60; - DSA-SHA1 
 public enum SignatureAlgorithmEnum: String, Codable, CaseIterable {
-    case _2000_09_xmldsig_rsa-sha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
-    case _2001_04_xmldsig-more_rsa-sha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-    case _2001_04_xmldsig-more_rsa-sha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
-    case _2001_04_xmldsig-more_rsa-sha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
-    case _2000_09_xmldsig_dsa-sha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
+    case _2000_09_xmldsig_rsa_sha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+    case _2001_04_xmldsig_more_rsa_sha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+    case _2001_04_xmldsig_more_rsa_sha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
+    case _2001_04_xmldsig_more_rsa_sha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+    case _2000_09_xmldsig_dsa_sha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

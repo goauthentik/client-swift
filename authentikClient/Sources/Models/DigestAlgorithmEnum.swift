@@ -11,7 +11,7 @@ import Foundation
 public enum DigestAlgorithmEnum: String, Codable, CaseIterable {
     case _2000_09_xmldsig_sha1 = "http://www.w3.org/2000/09/xmldsig#sha1"
     case _2001_04_xmlenc_sha256 = "http://www.w3.org/2001/04/xmlenc#sha256"
-    case _2001_04_xmldsig-more_sha384 = "http://www.w3.org/2001/04/xmldsig-more#sha384"
+    case _2001_04_xmldsig_more_sha384 = "http://www.w3.org/2001/04/xmldsig-more#sha384"
     case _2001_04_xmlenc_sha512 = "http://www.w3.org/2001/04/xmlenc#sha512"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }
