@@ -2713,11 +2713,11 @@ open class SourcesAPI {
     /// Enum for parameter signatureAlgorithm
     ///
     public enum SourcesSamlListSignatureAlgorithm: String, Codable, CaseIterable {
-        case _200009xmldsig#dsaSha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
-        case _200009xmldsig#rsaSha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
-        case _200104xmldsigMore#rsaSha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-        case _200104xmldsigMore#rsaSha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
-        case _200104xmldsigMore#rsaSha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+        case _2000_09_xmldsig_dsa-sha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
+        case _2000_09_xmldsig_rsa-sha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+        case _2001_04_xmldsig-more_rsa-sha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+        case _2001_04_xmldsig-more_rsa-sha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
+        case _2001_04_xmldsig-more_rsa-sha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     ///

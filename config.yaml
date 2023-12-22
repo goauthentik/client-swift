@@ -20,3 +20,8 @@ enumNameMappings:
   2.0:nameid-format:X509SubjectName: _2_0_nameid-format_X509SubjectName
   2.0:nameid-format:WindowsDomainQualifiedName: _2_0_nameid-format_WindowsDomainQualifiedName
   2.0:nameid-format:transient: _2_0_nameid-format_transient
+  2000/09/xmldsig#rsa-sha1: _2000_09_xmldsig_rsa-sha1
+  2001/04/xmldsig-more#rsa-sha256: _2001_04_xmldsig-more_rsa-sha256
+  2001/04/xmldsig-more#rsa-sha384: _2001_04_xmldsig-more_rsa-sha384
+  2001/04/xmldsig-more#rsa-sha512: _2001_04_xmldsig-more_rsa-sha512
+  2000/09/xmldsig#dsa-sha1: _2000_09_xmldsig_dsa-sha1
