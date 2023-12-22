@@ -13,7 +13,7 @@ build:
 	docker run \
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
-		docker.io/openapitools/openapi-generator-cli:v7.1.0 generate \
+		docker.io/openapitools/openapi-generator-cli:v7.2.0 generate \
 		-i /local/schema.yml \
 		-g swift-combine \
 		-o /local \

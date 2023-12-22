@@ -10,3 +10,8 @@ files:
   README.mustache:
     templateType: SupportingFiles
     destinationFilename: README.md
+enumNameMappings:
+  2000/09/xmldsig#sha1: _2000_09_xmldsig_sha1
+  2001/04/xmldsig-more#sha384: _2001_04_xmldsig-more_sha384
+  2001/04/xmlenc#sha256: _2001_04_xmlenc_sha256
+  2001/04/xmlenc#sha512: _2001_04_xmlenc_sha512
