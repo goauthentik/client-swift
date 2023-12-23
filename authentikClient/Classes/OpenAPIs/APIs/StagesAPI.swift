@@ -7226,8 +7226,30 @@ open class StagesAPI {
     }
 
     /**
+     * enum for parameter geoipBinding
+     */
+    public enum GeoipBinding_stagesUserLoginList: String, CaseIterable {
+        case bindContinent = "bind_continent"
+        case bindContinentCountry = "bind_continent_country"
+        case bindContinentCountryCity = "bind_continent_country_city"
+        case noBinding = "no_binding"
+    }
 
+    /**
+     * enum for parameter networkBinding
+     */
+    public enum NetworkBinding_stagesUserLoginList: String, CaseIterable {
+        case bindAsn = "bind_asn"
+        case bindAsnNetwork = "bind_asn_network"
+        case bindAsnNetworkIp = "bind_asn_network_ip"
+        case noBinding = "no_binding"
+    }
+
+    /**
+
+     - parameter geoipBinding: (query) Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City (optional)
      - parameter name: (query)  (optional)
+     - parameter networkBinding: (query) Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
@@ -7240,8 +7262,8 @@ open class StagesAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func stagesUserLoginList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)) -> RequestTask {
-        return stagesUserLoginListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions).execute(apiResponseQueue) { result in
+    open class func stagesUserLoginList(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesUserLoginListWithRequestBuilder(geoipBinding: geoipBinding, name: name, networkBinding: networkBinding, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -7257,7 +7279,9 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - parameter geoipBinding: (query) Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City (optional)
      - parameter name: (query)  (optional)
+     - parameter networkBinding: (query) Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
@@ -7268,14 +7292,16 @@ open class StagesAPI {
      - parameter terminateOtherSessions: (query)  (optional)
      - returns: RequestBuilder<PaginatedUserLoginStageList> 
      */
-    open class func stagesUserLoginListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil) -> RequestBuilder<PaginatedUserLoginStageList> {
+    open class func stagesUserLoginListWithRequestBuilder(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil) -> RequestBuilder<PaginatedUserLoginStageList> {
         let localVariablePath = "/stages/user_login/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "geoip_binding": (wrappedValue: geoipBinding?.encodeToJSON(), isExplode: true),
             "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "network_binding": (wrappedValue: networkBinding?.encodeToJSON(), isExplode: true),
             "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
             "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
             "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),

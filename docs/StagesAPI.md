@@ -7253,7 +7253,7 @@ UserLoginStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
+let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example", networkBinding: NetworkBindingEnum(), geoipBinding: GeoipBindingEnum()) // UserLoginStageRequest | 
 
 StagesAPI.stagesUserLoginCreate(userLoginStageRequest: userLoginStageRequest) { (response, error) in
     guard error == nil else {
@@ -7339,7 +7339,7 @@ Void (empty response body)
 
 # **stagesUserLoginList**
 ```swift
-    open class func stagesUserLoginList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, completion: @escaping (_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)
+    open class func stagesUserLoginList(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, completion: @escaping (_ data: PaginatedUserLoginStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -7351,7 +7351,9 @@ UserLoginStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let geoipBinding = "geoipBinding_example" // String | Bind sessions created by this stage to the configured GeoIP location  * `no_binding` - No Binding * `bind_continent` - Bind Continent * `bind_continent_country` - Bind Continent Country * `bind_continent_country_city` - Bind Continent Country City (optional)
 let name = "name_example" // String |  (optional)
+let networkBinding = "networkBinding_example" // String | Bind sessions created by this stage to the configured network  * `no_binding` - No Binding * `bind_asn` - Bind Asn * `bind_asn_network` - Bind Asn Network * `bind_asn_network_ip` - Bind Asn Network Ip (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
@@ -7361,7 +7363,7 @@ let sessionDuration = "sessionDuration_example" // String |  (optional)
 let stageUuid = 987 // UUID |  (optional)
 let terminateOtherSessions = true // Bool |  (optional)
 
-StagesAPI.stagesUserLoginList(name: name, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions) { (response, error) in
+StagesAPI.stagesUserLoginList(geoipBinding: geoipBinding, name: name, networkBinding: networkBinding, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -7377,7 +7379,9 @@ StagesAPI.stagesUserLoginList(name: name, ordering: ordering, page: page, pageSi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **geoipBinding** | **String** | Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City | [optional] 
  **name** | **String** |  | [optional] 
+ **networkBinding** | **String** | Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
@@ -7417,7 +7421,7 @@ UserLoginStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
-let patchedUserLoginStageRequest = PatchedUserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // PatchedUserLoginStageRequest |  (optional)
+let patchedUserLoginStageRequest = PatchedUserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example", networkBinding: NetworkBindingEnum(), geoipBinding: GeoipBindingEnum()) // PatchedUserLoginStageRequest |  (optional)
 
 StagesAPI.stagesUserLoginPartialUpdate(stageUuid: stageUuid, patchedUserLoginStageRequest: patchedUserLoginStageRequest) { (response, error) in
     guard error == nil else {
@@ -7517,7 +7521,7 @@ UserLoginStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this User Login Stage.
-let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example") // UserLoginStageRequest | 
+let userLoginStageRequest = UserLoginStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], sessionDuration: "sessionDuration_example", terminateOtherSessions: false, rememberMeOffset: "rememberMeOffset_example", networkBinding: NetworkBindingEnum(), geoipBinding: GeoipBindingEnum()) // UserLoginStageRequest | 
 
 StagesAPI.stagesUserLoginUpdate(stageUuid: stageUuid, userLoginStageRequest: userLoginStageRequest) { (response, error) in
     guard error == nil else {

@@ -160,6 +160,7 @@ authentikClient/Classes/OpenAPIs/Models/FlowStageBinding.swift
 authentikClient/Classes/OpenAPIs/Models/FlowStageBindingRequest.swift
 authentikClient/Classes/OpenAPIs/Models/FooterLink.swift
 authentikClient/Classes/OpenAPIs/Models/GenericError.swift
+authentikClient/Classes/OpenAPIs/Models/GeoipBindingEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Group.swift
 authentikClient/Classes/OpenAPIs/Models/GroupMember.swift
 authentikClient/Classes/OpenAPIs/Models/GroupMemberRequest.swift
@@ -200,6 +201,7 @@ authentikClient/Classes/OpenAPIs/Models/Metadata.swift
 authentikClient/Classes/OpenAPIs/Models/ModelEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ModelRequest.swift
 authentikClient/Classes/OpenAPIs/Models/NameIdPolicyEnum.swift
+authentikClient/Classes/OpenAPIs/Models/NetworkBindingEnum.swift
 authentikClient/Classes/OpenAPIs/Models/NotConfiguredActionEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Notification.swift
 authentikClient/Classes/OpenAPIs/Models/NotificationRequest.swift
@@ -677,6 +679,7 @@ docs/FlowStageBindingRequest.md
 docs/FlowsAPI.md
 docs/FooterLink.md
 docs/GenericError.md
+docs/GeoipBindingEnum.md
 docs/Group.md
 docs/GroupMember.md
 docs/GroupMemberRequest.md
@@ -718,6 +721,7 @@ docs/Metadata.md
 docs/ModelEnum.md
 docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
+docs/NetworkBindingEnum.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
 docs/NotificationRequest.md

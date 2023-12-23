@@ -30,8 +30,12 @@ public struct UserLoginStage: Codable, JSONEncodable, Hashable {
     public var terminateOtherSessions: Bool?
     /** Offset the session will be extended by when the user picks the remember me option. Default of 0 means that the remember me option will not be shown. (Format: hours=-1;minutes=-2;seconds=-3) */
     public var rememberMeOffset: String?
+    /** Bind sessions created by this stage to the configured network  * `no_binding` - No Binding * `bind_asn` - Bind Asn * `bind_asn_network` - Bind Asn Network * `bind_asn_network_ip` - Bind Asn Network Ip */
+    public var networkBinding: NetworkBindingEnum?
+    /** Bind sessions created by this stage to the configured GeoIP location  * `no_binding` - No Binding * `bind_continent` - Bind Continent * `bind_continent_country` - Bind Continent Country * `bind_continent_country_city` - Bind Continent Country City */
+    public var geoipBinding: GeoipBindingEnum?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -42,6 +46,8 @@ public struct UserLoginStage: Codable, JSONEncodable, Hashable {
         self.sessionDuration = sessionDuration
         self.terminateOtherSessions = terminateOtherSessions
         self.rememberMeOffset = rememberMeOffset
+        self.networkBinding = networkBinding
+        self.geoipBinding = geoipBinding
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,6 +61,8 @@ public struct UserLoginStage: Codable, JSONEncodable, Hashable {
         case sessionDuration = "session_duration"
         case terminateOtherSessions = "terminate_other_sessions"
         case rememberMeOffset = "remember_me_offset"
+        case networkBinding = "network_binding"
+        case geoipBinding = "geoip_binding"
     }
 
     // Encodable protocol methods
@@ -71,6 +79,8 @@ public struct UserLoginStage: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sessionDuration, forKey: .sessionDuration)
         try container.encodeIfPresent(terminateOtherSessions, forKey: .terminateOtherSessions)
         try container.encodeIfPresent(rememberMeOffset, forKey: .rememberMeOffset)
+        try container.encodeIfPresent(networkBinding, forKey: .networkBinding)
+        try container.encodeIfPresent(geoipBinding, forKey: .geoipBinding)
     }
 }
 
