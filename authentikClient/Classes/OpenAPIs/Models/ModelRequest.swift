@@ -14,6 +14,7 @@ public enum ModelRequest: Codable, JSONEncodable, Hashable {
     case typeLDAPProviderRequest(LDAPProviderRequest)
     case typeOAuth2ProviderRequest(OAuth2ProviderRequest)
     case typeProxyProviderRequest(ProxyProviderRequest)
+    case typeRACProviderRequest(RACProviderRequest)
     case typeRadiusProviderRequest(RadiusProviderRequest)
     case typeSAMLProviderRequest(SAMLProviderRequest)
     case typeSCIMProviderRequest(SCIMProviderRequest)
@@ -26,6 +27,8 @@ public enum ModelRequest: Codable, JSONEncodable, Hashable {
         case .typeOAuth2ProviderRequest(let value):
             try container.encode(value)
         case .typeProxyProviderRequest(let value):
+            try container.encode(value)
+        case .typeRACProviderRequest(let value):
             try container.encode(value)
         case .typeRadiusProviderRequest(let value):
             try container.encode(value)
@@ -44,6 +47,8 @@ public enum ModelRequest: Codable, JSONEncodable, Hashable {
             self = .typeOAuth2ProviderRequest(value)
         } else if let value = try? container.decode(ProxyProviderRequest.self) {
             self = .typeProxyProviderRequest(value)
+        } else if let value = try? container.decode(RACProviderRequest.self) {
+            self = .typeRACProviderRequest(value)
         } else if let value = try? container.decode(RadiusProviderRequest.self) {
             self = .typeRadiusProviderRequest(value)
         } else if let value = try? container.decode(SAMLProviderRequest.self) {

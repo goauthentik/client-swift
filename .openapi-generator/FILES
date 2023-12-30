@@ -19,6 +19,7 @@ authentikClient/Classes/OpenAPIs/APIs/OutpostsAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/PoliciesAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/PropertymappingsAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/ProvidersAPI.swift
+authentikClient/Classes/OpenAPIs/APIs/RacAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/RbacAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/RootAPI.swift
 authentikClient/Classes/OpenAPIs/APIs/SchemaAPI.swift
@@ -37,6 +38,7 @@ authentikClient/Classes/OpenAPIs/Models/AppleChallengeResponseRequest.swift
 authentikClient/Classes/OpenAPIs/Models/AppleLoginChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/Application.swift
 authentikClient/Classes/OpenAPIs/Models/ApplicationRequest.swift
+authentikClient/Classes/OpenAPIs/Models/AuthModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/AuthTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticateWebAuthnStage.swift
 authentikClient/Classes/OpenAPIs/Models/AuthenticateWebAuthnStageRequest.swift
@@ -130,6 +132,8 @@ authentikClient/Classes/OpenAPIs/Models/EmailChallenge.swift
 authentikClient/Classes/OpenAPIs/Models/EmailChallengeResponseRequest.swift
 authentikClient/Classes/OpenAPIs/Models/EmailStage.swift
 authentikClient/Classes/OpenAPIs/Models/EmailStageRequest.swift
+authentikClient/Classes/OpenAPIs/Models/Endpoint.swift
+authentikClient/Classes/OpenAPIs/Models/EndpointRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ErrorDetail.swift
 authentikClient/Classes/OpenAPIs/Models/ErrorReportingConfig.swift
 authentikClient/Classes/OpenAPIs/Models/Event.swift
@@ -246,6 +250,7 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedDummyPolicyList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedDummyStageList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedDuoDeviceList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedEmailStageList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedEndpointList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedEventList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedEventMatcherPolicyList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedExpiringBaseGrantModelList.swift
@@ -285,6 +290,8 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedPropertyMappingList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedProviderList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedProxyOutpostConfigList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedProxyProviderList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedRACPropertyMappingList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedRACProviderList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedRadiusOutpostConfigList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedRadiusProviderList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedReputationList.swift
@@ -343,6 +350,7 @@ authentikClient/Classes/OpenAPIs/Models/PatchedDummyPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedDummyStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedDuoDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedEmailStageRequest.swift
+authentikClient/Classes/OpenAPIs/Models/PatchedEndpointRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedEventMatcherPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedEventRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedExpressionPolicyRequest.swift
@@ -374,6 +382,8 @@ authentikClient/Classes/OpenAPIs/Models/PatchedPolicyBindingRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPromptRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedPromptStageRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedProxyProviderRequest.swift
+authentikClient/Classes/OpenAPIs/Models/PatchedRACPropertyMappingRequest.swift
+authentikClient/Classes/OpenAPIs/Models/PatchedRACProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedRadiusProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedReputationPolicyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/PatchedRoleRequest.swift
@@ -422,6 +432,7 @@ authentikClient/Classes/OpenAPIs/Models/PromptTypeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/PropertyMapping.swift
 authentikClient/Classes/OpenAPIs/Models/PropertyMappingPreview.swift
 authentikClient/Classes/OpenAPIs/Models/PropertyMappingTestResult.swift
+authentikClient/Classes/OpenAPIs/Models/ProtocolEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Provider.swift
 authentikClient/Classes/OpenAPIs/Models/ProviderEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ProviderModelEnum.swift
@@ -431,6 +442,10 @@ authentikClient/Classes/OpenAPIs/Models/ProxyMode.swift
 authentikClient/Classes/OpenAPIs/Models/ProxyOutpostConfig.swift
 authentikClient/Classes/OpenAPIs/Models/ProxyProvider.swift
 authentikClient/Classes/OpenAPIs/Models/ProxyProviderRequest.swift
+authentikClient/Classes/OpenAPIs/Models/RACPropertyMapping.swift
+authentikClient/Classes/OpenAPIs/Models/RACPropertyMappingRequest.swift
+authentikClient/Classes/OpenAPIs/Models/RACProvider.swift
+authentikClient/Classes/OpenAPIs/Models/RACProviderRequest.swift
 authentikClient/Classes/OpenAPIs/Models/RadiusOutpostConfig.swift
 authentikClient/Classes/OpenAPIs/Models/RadiusProvider.swift
 authentikClient/Classes/OpenAPIs/Models/RadiusProviderRequest.swift
@@ -550,6 +565,7 @@ docs/AppleChallengeResponseRequest.md
 docs/AppleLoginChallenge.md
 docs/Application.md
 docs/ApplicationRequest.md
+docs/AuthModeEnum.md
 docs/AuthTypeEnum.md
 docs/AuthenticateWebAuthnStage.md
 docs/AuthenticateWebAuthnStageRequest.md
@@ -646,6 +662,8 @@ docs/EmailChallenge.md
 docs/EmailChallengeResponseRequest.md
 docs/EmailStage.md
 docs/EmailStageRequest.md
+docs/Endpoint.md
+docs/EndpointRequest.md
 docs/EnterpriseAPI.md
 docs/ErrorDetail.md
 docs/ErrorReportingConfig.md
@@ -768,6 +786,7 @@ docs/PaginatedDummyPolicyList.md
 docs/PaginatedDummyStageList.md
 docs/PaginatedDuoDeviceList.md
 docs/PaginatedEmailStageList.md
+docs/PaginatedEndpointList.md
 docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
@@ -807,6 +826,8 @@ docs/PaginatedPropertyMappingList.md
 docs/PaginatedProviderList.md
 docs/PaginatedProxyOutpostConfigList.md
 docs/PaginatedProxyProviderList.md
+docs/PaginatedRACPropertyMappingList.md
+docs/PaginatedRACProviderList.md
 docs/PaginatedRadiusOutpostConfigList.md
 docs/PaginatedRadiusProviderList.md
 docs/PaginatedReputationList.md
@@ -865,6 +886,7 @@ docs/PatchedDummyPolicyRequest.md
 docs/PatchedDummyStageRequest.md
 docs/PatchedDuoDeviceRequest.md
 docs/PatchedEmailStageRequest.md
+docs/PatchedEndpointRequest.md
 docs/PatchedEventMatcherPolicyRequest.md
 docs/PatchedEventRequest.md
 docs/PatchedExpressionPolicyRequest.md
@@ -896,6 +918,8 @@ docs/PatchedPolicyBindingRequest.md
 docs/PatchedPromptRequest.md
 docs/PatchedPromptStageRequest.md
 docs/PatchedProxyProviderRequest.md
+docs/PatchedRACPropertyMappingRequest.md
+docs/PatchedRACProviderRequest.md
 docs/PatchedRadiusProviderRequest.md
 docs/PatchedReputationPolicyRequest.md
 docs/PatchedRoleRequest.md
@@ -946,6 +970,7 @@ docs/PropertyMapping.md
 docs/PropertyMappingPreview.md
 docs/PropertyMappingTestResult.md
 docs/PropertymappingsAPI.md
+docs/ProtocolEnum.md
 docs/Provider.md
 docs/ProviderEnum.md
 docs/ProviderModelEnum.md
@@ -956,6 +981,11 @@ docs/ProxyMode.md
 docs/ProxyOutpostConfig.md
 docs/ProxyProvider.md
 docs/ProxyProviderRequest.md
+docs/RACPropertyMapping.md
+docs/RACPropertyMappingRequest.md
+docs/RACProvider.md
+docs/RACProviderRequest.md
+docs/RacAPI.md
 docs/RadiusOutpostConfig.md
 docs/RadiusProvider.md
 docs/RadiusProviderRequest.md

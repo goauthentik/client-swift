@@ -1026,6 +1026,358 @@ open class PropertymappingsAPI {
 
     /**
 
+     - parameter rACPropertyMappingRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacCreate(rACPropertyMappingRequest: RACPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacCreateWithRequestBuilder(rACPropertyMappingRequest: rACPropertyMappingRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /propertymappings/rac/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter rACPropertyMappingRequest: (body)  
+     - returns: RequestBuilder<RACPropertyMapping> 
+     */
+    open class func propertymappingsRacCreateWithRequestBuilder(rACPropertyMappingRequest: RACPropertyMappingRequest) -> RequestBuilder<RACPropertyMapping> {
+        let localVariablePath = "/propertymappings/rac/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: rACPropertyMappingRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACPropertyMapping>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacDestroy(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacDestroyWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /propertymappings/rac/{pm_uuid}/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func propertymappingsRacDestroyWithRequestBuilder(pmUuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/propertymappings/rac/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter managed: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacListWithRequestBuilder(managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /propertymappings/rac/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter managed: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - returns: RequestBuilder<PaginatedRACPropertyMappingList> 
+     */
+    open class func propertymappingsRacListWithRequestBuilder(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedRACPropertyMappingList> {
+        let localVariablePath = "/propertymappings/rac/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "managed": (wrappedValue: managed?.encodeToJSON(), isExplode: true),
+            "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedRACPropertyMappingList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter patchedRACPropertyMappingRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacPartialUpdate(pmUuid: UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedRACPropertyMappingRequest: patchedRACPropertyMappingRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /propertymappings/rac/{pm_uuid}/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter patchedRACPropertyMappingRequest: (body)  (optional)
+     - returns: RequestBuilder<RACPropertyMapping> 
+     */
+    open class func propertymappingsRacPartialUpdateWithRequestBuilder(pmUuid: UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest? = nil) -> RequestBuilder<RACPropertyMapping> {
+        var localVariablePath = "/propertymappings/rac/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedRACPropertyMappingRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACPropertyMapping>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacRetrieve(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacRetrieveWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /propertymappings/rac/{pm_uuid}/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - returns: RequestBuilder<RACPropertyMapping> 
+     */
+    open class func propertymappingsRacRetrieveWithRequestBuilder(pmUuid: UUID) -> RequestBuilder<RACPropertyMapping> {
+        var localVariablePath = "/propertymappings/rac/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACPropertyMapping>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter rACPropertyMappingRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacUpdate(pmUuid: UUID, rACPropertyMappingRequest: RACPropertyMappingRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACPropertyMapping?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacUpdateWithRequestBuilder(pmUuid: pmUuid, rACPropertyMappingRequest: rACPropertyMappingRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /propertymappings/rac/{pm_uuid}/
+     - RACPropertyMapping Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter rACPropertyMappingRequest: (body)  
+     - returns: RequestBuilder<RACPropertyMapping> 
+     */
+    open class func propertymappingsRacUpdateWithRequestBuilder(pmUuid: UUID, rACPropertyMappingRequest: RACPropertyMappingRequest) -> RequestBuilder<RACPropertyMapping> {
+        var localVariablePath = "/propertymappings/rac/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: rACPropertyMappingRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACPropertyMapping>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func propertymappingsRacUsedByList(pmUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+        return propertymappingsRacUsedByListWithRequestBuilder(pmUuid: pmUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /propertymappings/rac/{pm_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this RAC Property Mapping. 
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func propertymappingsRacUsedByListWithRequestBuilder(pmUuid: UUID) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/propertymappings/rac/{pm_uuid}/used_by/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter sAMLPropertyMappingRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects

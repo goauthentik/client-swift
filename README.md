@@ -371,6 +371,13 @@ Class | Method | HTTP request | Description
 *PropertymappingsAPI* | [**propertymappingsNotificationRetrieve**](docs/PropertymappingsAPI.md#propertymappingsnotificationretrieve) | **GET** /propertymappings/notification/{pm_uuid}/ | 
 *PropertymappingsAPI* | [**propertymappingsNotificationUpdate**](docs/PropertymappingsAPI.md#propertymappingsnotificationupdate) | **PUT** /propertymappings/notification/{pm_uuid}/ | 
 *PropertymappingsAPI* | [**propertymappingsNotificationUsedByList**](docs/PropertymappingsAPI.md#propertymappingsnotificationusedbylist) | **GET** /propertymappings/notification/{pm_uuid}/used_by/ | 
+*PropertymappingsAPI* | [**propertymappingsRacCreate**](docs/PropertymappingsAPI.md#propertymappingsraccreate) | **POST** /propertymappings/rac/ | 
+*PropertymappingsAPI* | [**propertymappingsRacDestroy**](docs/PropertymappingsAPI.md#propertymappingsracdestroy) | **DELETE** /propertymappings/rac/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsRacList**](docs/PropertymappingsAPI.md#propertymappingsraclist) | **GET** /propertymappings/rac/ | 
+*PropertymappingsAPI* | [**propertymappingsRacPartialUpdate**](docs/PropertymappingsAPI.md#propertymappingsracpartialupdate) | **PATCH** /propertymappings/rac/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsRacRetrieve**](docs/PropertymappingsAPI.md#propertymappingsracretrieve) | **GET** /propertymappings/rac/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsRacUpdate**](docs/PropertymappingsAPI.md#propertymappingsracupdate) | **PUT** /propertymappings/rac/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsRacUsedByList**](docs/PropertymappingsAPI.md#propertymappingsracusedbylist) | **GET** /propertymappings/rac/{pm_uuid}/used_by/ | 
 *PropertymappingsAPI* | [**propertymappingsSamlCreate**](docs/PropertymappingsAPI.md#propertymappingssamlcreate) | **POST** /propertymappings/saml/ | 
 *PropertymappingsAPI* | [**propertymappingsSamlDestroy**](docs/PropertymappingsAPI.md#propertymappingssamldestroy) | **DELETE** /propertymappings/saml/{pm_uuid}/ | 
 *PropertymappingsAPI* | [**propertymappingsSamlList**](docs/PropertymappingsAPI.md#propertymappingssamllist) | **GET** /propertymappings/saml/ | 
@@ -420,6 +427,13 @@ Class | Method | HTTP request | Description
 *ProvidersAPI* | [**providersProxyRetrieve**](docs/ProvidersAPI.md#providersproxyretrieve) | **GET** /providers/proxy/{id}/ | 
 *ProvidersAPI* | [**providersProxyUpdate**](docs/ProvidersAPI.md#providersproxyupdate) | **PUT** /providers/proxy/{id}/ | 
 *ProvidersAPI* | [**providersProxyUsedByList**](docs/ProvidersAPI.md#providersproxyusedbylist) | **GET** /providers/proxy/{id}/used_by/ | 
+*ProvidersAPI* | [**providersRacCreate**](docs/ProvidersAPI.md#providersraccreate) | **POST** /providers/rac/ | 
+*ProvidersAPI* | [**providersRacDestroy**](docs/ProvidersAPI.md#providersracdestroy) | **DELETE** /providers/rac/{id}/ | 
+*ProvidersAPI* | [**providersRacList**](docs/ProvidersAPI.md#providersraclist) | **GET** /providers/rac/ | 
+*ProvidersAPI* | [**providersRacPartialUpdate**](docs/ProvidersAPI.md#providersracpartialupdate) | **PATCH** /providers/rac/{id}/ | 
+*ProvidersAPI* | [**providersRacRetrieve**](docs/ProvidersAPI.md#providersracretrieve) | **GET** /providers/rac/{id}/ | 
+*ProvidersAPI* | [**providersRacUpdate**](docs/ProvidersAPI.md#providersracupdate) | **PUT** /providers/rac/{id}/ | 
+*ProvidersAPI* | [**providersRacUsedByList**](docs/ProvidersAPI.md#providersracusedbylist) | **GET** /providers/rac/{id}/used_by/ | 
 *ProvidersAPI* | [**providersRadiusCreate**](docs/ProvidersAPI.md#providersradiuscreate) | **POST** /providers/radius/ | 
 *ProvidersAPI* | [**providersRadiusDestroy**](docs/ProvidersAPI.md#providersradiusdestroy) | **DELETE** /providers/radius/{id}/ | 
 *ProvidersAPI* | [**providersRadiusList**](docs/ProvidersAPI.md#providersradiuslist) | **GET** /providers/radius/ | 
@@ -445,6 +459,13 @@ Class | Method | HTTP request | Description
 *ProvidersAPI* | [**providersScimSyncStatusRetrieve**](docs/ProvidersAPI.md#providersscimsyncstatusretrieve) | **GET** /providers/scim/{id}/sync_status/ | 
 *ProvidersAPI* | [**providersScimUpdate**](docs/ProvidersAPI.md#providersscimupdate) | **PUT** /providers/scim/{id}/ | 
 *ProvidersAPI* | [**providersScimUsedByList**](docs/ProvidersAPI.md#providersscimusedbylist) | **GET** /providers/scim/{id}/used_by/ | 
+*RacAPI* | [**racEndpointsCreate**](docs/RacAPI.md#racendpointscreate) | **POST** /rac/endpoints/ | 
+*RacAPI* | [**racEndpointsDestroy**](docs/RacAPI.md#racendpointsdestroy) | **DELETE** /rac/endpoints/{pbm_uuid}/ | 
+*RacAPI* | [**racEndpointsList**](docs/RacAPI.md#racendpointslist) | **GET** /rac/endpoints/ | 
+*RacAPI* | [**racEndpointsPartialUpdate**](docs/RacAPI.md#racendpointspartialupdate) | **PATCH** /rac/endpoints/{pbm_uuid}/ | 
+*RacAPI* | [**racEndpointsRetrieve**](docs/RacAPI.md#racendpointsretrieve) | **GET** /rac/endpoints/{pbm_uuid}/ | 
+*RacAPI* | [**racEndpointsUpdate**](docs/RacAPI.md#racendpointsupdate) | **PUT** /rac/endpoints/{pbm_uuid}/ | 
+*RacAPI* | [**racEndpointsUsedByList**](docs/RacAPI.md#racendpointsusedbylist) | **GET** /rac/endpoints/{pbm_uuid}/used_by/ | 
 *RbacAPI* | [**rbacPermissionsAssignedByRolesAssignCreate**](docs/RbacAPI.md#rbacpermissionsassignedbyrolesassigncreate) | **POST** /rbac/permissions/assigned_by_roles/{uuid}/assign/ | 
 *RbacAPI* | [**rbacPermissionsAssignedByRolesList**](docs/RbacAPI.md#rbacpermissionsassignedbyroleslist) | **GET** /rbac/permissions/assigned_by_roles/ | 
 *RbacAPI* | [**rbacPermissionsAssignedByRolesUnassignPartialUpdate**](docs/RbacAPI.md#rbacpermissionsassignedbyrolesunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_roles/{uuid}/unassign/ | 
@@ -702,6 +723,7 @@ Class | Method | HTTP request | Description
  - [AppleLoginChallenge](docs/AppleLoginChallenge.md)
  - [Application](docs/Application.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
+ - [AuthModeEnum](docs/AuthModeEnum.md)
  - [AuthTypeEnum](docs/AuthTypeEnum.md)
  - [AuthenticateWebAuthnStage](docs/AuthenticateWebAuthnStage.md)
  - [AuthenticateWebAuthnStageRequest](docs/AuthenticateWebAuthnStageRequest.md)
@@ -795,6 +817,8 @@ Class | Method | HTTP request | Description
  - [EmailChallengeResponseRequest](docs/EmailChallengeResponseRequest.md)
  - [EmailStage](docs/EmailStage.md)
  - [EmailStageRequest](docs/EmailStageRequest.md)
+ - [Endpoint](docs/Endpoint.md)
+ - [EndpointRequest](docs/EndpointRequest.md)
  - [ErrorDetail](docs/ErrorDetail.md)
  - [ErrorReportingConfig](docs/ErrorReportingConfig.md)
  - [Event](docs/Event.md)
@@ -911,6 +935,7 @@ Class | Method | HTTP request | Description
  - [PaginatedDummyStageList](docs/PaginatedDummyStageList.md)
  - [PaginatedDuoDeviceList](docs/PaginatedDuoDeviceList.md)
  - [PaginatedEmailStageList](docs/PaginatedEmailStageList.md)
+ - [PaginatedEndpointList](docs/PaginatedEndpointList.md)
  - [PaginatedEventList](docs/PaginatedEventList.md)
  - [PaginatedEventMatcherPolicyList](docs/PaginatedEventMatcherPolicyList.md)
  - [PaginatedExpiringBaseGrantModelList](docs/PaginatedExpiringBaseGrantModelList.md)
@@ -950,6 +975,8 @@ Class | Method | HTTP request | Description
  - [PaginatedProviderList](docs/PaginatedProviderList.md)
  - [PaginatedProxyOutpostConfigList](docs/PaginatedProxyOutpostConfigList.md)
  - [PaginatedProxyProviderList](docs/PaginatedProxyProviderList.md)
+ - [PaginatedRACPropertyMappingList](docs/PaginatedRACPropertyMappingList.md)
+ - [PaginatedRACProviderList](docs/PaginatedRACProviderList.md)
  - [PaginatedRadiusOutpostConfigList](docs/PaginatedRadiusOutpostConfigList.md)
  - [PaginatedRadiusProviderList](docs/PaginatedRadiusProviderList.md)
  - [PaginatedReputationList](docs/PaginatedReputationList.md)
@@ -1008,6 +1035,7 @@ Class | Method | HTTP request | Description
  - [PatchedDummyStageRequest](docs/PatchedDummyStageRequest.md)
  - [PatchedDuoDeviceRequest](docs/PatchedDuoDeviceRequest.md)
  - [PatchedEmailStageRequest](docs/PatchedEmailStageRequest.md)
+ - [PatchedEndpointRequest](docs/PatchedEndpointRequest.md)
  - [PatchedEventMatcherPolicyRequest](docs/PatchedEventMatcherPolicyRequest.md)
  - [PatchedEventRequest](docs/PatchedEventRequest.md)
  - [PatchedExpressionPolicyRequest](docs/PatchedExpressionPolicyRequest.md)
@@ -1039,6 +1067,8 @@ Class | Method | HTTP request | Description
  - [PatchedPromptRequest](docs/PatchedPromptRequest.md)
  - [PatchedPromptStageRequest](docs/PatchedPromptStageRequest.md)
  - [PatchedProxyProviderRequest](docs/PatchedProxyProviderRequest.md)
+ - [PatchedRACPropertyMappingRequest](docs/PatchedRACPropertyMappingRequest.md)
+ - [PatchedRACProviderRequest](docs/PatchedRACProviderRequest.md)
  - [PatchedRadiusProviderRequest](docs/PatchedRadiusProviderRequest.md)
  - [PatchedReputationPolicyRequest](docs/PatchedReputationPolicyRequest.md)
  - [PatchedRoleRequest](docs/PatchedRoleRequest.md)
@@ -1087,6 +1117,7 @@ Class | Method | HTTP request | Description
  - [PropertyMapping](docs/PropertyMapping.md)
  - [PropertyMappingPreview](docs/PropertyMappingPreview.md)
  - [PropertyMappingTestResult](docs/PropertyMappingTestResult.md)
+ - [ProtocolEnum](docs/ProtocolEnum.md)
  - [Provider](docs/Provider.md)
  - [ProviderEnum](docs/ProviderEnum.md)
  - [ProviderModelEnum](docs/ProviderModelEnum.md)
@@ -1096,6 +1127,10 @@ Class | Method | HTTP request | Description
  - [ProxyOutpostConfig](docs/ProxyOutpostConfig.md)
  - [ProxyProvider](docs/ProxyProvider.md)
  - [ProxyProviderRequest](docs/ProxyProviderRequest.md)
+ - [RACPropertyMapping](docs/RACPropertyMapping.md)
+ - [RACPropertyMappingRequest](docs/RACPropertyMappingRequest.md)
+ - [RACProvider](docs/RACProvider.md)
+ - [RACProviderRequest](docs/RACProviderRequest.md)
  - [RadiusOutpostConfig](docs/RadiusOutpostConfig.md)
  - [RadiusProvider](docs/RadiusProvider.md)
  - [RadiusProviderRequest](docs/RadiusProviderRequest.md)

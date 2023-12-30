@@ -10,10 +10,11 @@ import Foundation
 import AnyCodable
 #endif
 
-/** * &#x60;proxy&#x60; - Proxy * &#x60;ldap&#x60; - Ldap * &#x60;radius&#x60; - Radius */
+/** * &#x60;proxy&#x60; - Proxy * &#x60;ldap&#x60; - Ldap * &#x60;radius&#x60; - Radius * &#x60;rac&#x60; - Rac */
 public enum OutpostTypeEnum: String, Codable, CaseIterable, CaseIterableDefaultsLast {
     case proxy = "proxy"
     case ldap = "ldap"
     case radius = "radius"
+    case rac = "rac"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

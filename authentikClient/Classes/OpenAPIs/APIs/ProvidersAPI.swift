@@ -1549,6 +1549,358 @@ open class ProvidersAPI {
 
     /**
 
+     - parameter rACProviderRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacCreate(rACProviderRequest: RACProviderRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACProvider?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacCreateWithRequestBuilder(rACProviderRequest: rACProviderRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /providers/rac/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter rACProviderRequest: (body)  
+     - returns: RequestBuilder<RACProvider> 
+     */
+    open class func providersRacCreateWithRequestBuilder(rACProviderRequest: RACProviderRequest) -> RequestBuilder<RACProvider> {
+        let localVariablePath = "/providers/rac/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: rACProviderRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACProvider>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacDestroy(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacDestroyWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /providers/rac/{id}/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func providersRacDestroyWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
+        var localVariablePath = "/providers/rac/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter applicationIsnull: (query)  (optional)
+     - parameter nameIexact: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacList(applicationIsnull: Bool? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRACProviderList?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacListWithRequestBuilder(applicationIsnull: applicationIsnull, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /providers/rac/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter applicationIsnull: (query)  (optional)
+     - parameter nameIexact: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - returns: RequestBuilder<PaginatedRACProviderList> 
+     */
+    open class func providersRacListWithRequestBuilder(applicationIsnull: Bool? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedRACProviderList> {
+        let localVariablePath = "/providers/rac/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "application__isnull": (wrappedValue: applicationIsnull?.encodeToJSON(), isExplode: true),
+            "name__iexact": (wrappedValue: nameIexact?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedRACProviderList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter patchedRACProviderRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacPartialUpdate(id: Int, patchedRACProviderRequest: PatchedRACProviderRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACProvider?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacPartialUpdateWithRequestBuilder(id: id, patchedRACProviderRequest: patchedRACProviderRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /providers/rac/{id}/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter patchedRACProviderRequest: (body)  (optional)
+     - returns: RequestBuilder<RACProvider> 
+     */
+    open class func providersRacPartialUpdateWithRequestBuilder(id: Int, patchedRACProviderRequest: PatchedRACProviderRequest? = nil) -> RequestBuilder<RACProvider> {
+        var localVariablePath = "/providers/rac/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedRACProviderRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACProvider>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACProvider?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /providers/rac/{id}/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - returns: RequestBuilder<RACProvider> 
+     */
+    open class func providersRacRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<RACProvider> {
+        var localVariablePath = "/providers/rac/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACProvider>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter rACProviderRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacUpdate(id: Int, rACProviderRequest: RACProviderRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: RACProvider?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacUpdateWithRequestBuilder(id: id, rACProviderRequest: rACProviderRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /providers/rac/{id}/
+     - RACProvider Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter rACProviderRequest: (body)  
+     - returns: RequestBuilder<RACProvider> 
+     */
+    open class func providersRacUpdateWithRequestBuilder(id: Int, rACProviderRequest: RACProviderRequest) -> RequestBuilder<RACProvider> {
+        var localVariablePath = "/providers/rac/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: rACProviderRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RACProvider>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func providersRacUsedByList(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersRacUsedByListWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /providers/rac/{id}/used_by/
+     - Get a list of all objects that use this object
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this RAC Provider. 
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func providersRacUsedByListWithRequestBuilder(id: Int) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/providers/rac/{id}/used_by/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter radiusProviderRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects

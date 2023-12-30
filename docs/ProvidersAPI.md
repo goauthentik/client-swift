@@ -32,6 +32,13 @@ Method | HTTP request | Description
 [**providersProxyRetrieve**](ProvidersAPI.md#providersproxyretrieve) | **GET** /providers/proxy/{id}/ | 
 [**providersProxyUpdate**](ProvidersAPI.md#providersproxyupdate) | **PUT** /providers/proxy/{id}/ | 
 [**providersProxyUsedByList**](ProvidersAPI.md#providersproxyusedbylist) | **GET** /providers/proxy/{id}/used_by/ | 
+[**providersRacCreate**](ProvidersAPI.md#providersraccreate) | **POST** /providers/rac/ | 
+[**providersRacDestroy**](ProvidersAPI.md#providersracdestroy) | **DELETE** /providers/rac/{id}/ | 
+[**providersRacList**](ProvidersAPI.md#providersraclist) | **GET** /providers/rac/ | 
+[**providersRacPartialUpdate**](ProvidersAPI.md#providersracpartialupdate) | **PATCH** /providers/rac/{id}/ | 
+[**providersRacRetrieve**](ProvidersAPI.md#providersracretrieve) | **GET** /providers/rac/{id}/ | 
+[**providersRacUpdate**](ProvidersAPI.md#providersracupdate) | **PUT** /providers/rac/{id}/ | 
+[**providersRacUsedByList**](ProvidersAPI.md#providersracusedbylist) | **GET** /providers/rac/{id}/used_by/ | 
 [**providersRadiusCreate**](ProvidersAPI.md#providersradiuscreate) | **POST** /providers/radius/ | 
 [**providersRadiusDestroy**](ProvidersAPI.md#providersradiusdestroy) | **DELETE** /providers/radius/{id}/ | 
 [**providersRadiusList**](ProvidersAPI.md#providersradiuslist) | **GET** /providers/radius/ | 
@@ -1533,6 +1540,363 @@ ProvidersAPI.providersProxyUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this Proxy Provider. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacCreate**
+```swift
+    open class func providersRacCreate(rACProviderRequest: RACProviderRequest, completion: @escaping (_ data: RACProvider?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // RACProviderRequest | 
+
+ProvidersAPI.providersRacCreate(rACProviderRequest: rACProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rACProviderRequest** | [**RACProviderRequest**](RACProviderRequest.md) |  | 
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacDestroy**
+```swift
+    open class func providersRacDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this RAC Provider.
+
+ProvidersAPI.providersRacDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this RAC Provider. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacList**
+```swift
+    open class func providersRacList(applicationIsnull: Bool? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRACProviderList?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let applicationIsnull = true // Bool |  (optional)
+let nameIexact = "nameIexact_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersRacList(applicationIsnull: applicationIsnull, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationIsnull** | **Bool** |  | [optional] 
+ **nameIexact** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedRACProviderList**](PaginatedRACProviderList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacPartialUpdate**
+```swift
+    open class func providersRacPartialUpdate(id: Int, patchedRACProviderRequest: PatchedRACProviderRequest? = nil, completion: @escaping (_ data: RACProvider?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this RAC Provider.
+let patchedRACProviderRequest = PatchedRACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // PatchedRACProviderRequest |  (optional)
+
+ProvidersAPI.providersRacPartialUpdate(id: id, patchedRACProviderRequest: patchedRACProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this RAC Provider. | 
+ **patchedRACProviderRequest** | [**PatchedRACProviderRequest**](PatchedRACProviderRequest.md) |  | [optional] 
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacRetrieve**
+```swift
+    open class func providersRacRetrieve(id: Int, completion: @escaping (_ data: RACProvider?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this RAC Provider.
+
+ProvidersAPI.providersRacRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this RAC Provider. | 
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacUpdate**
+```swift
+    open class func providersRacUpdate(id: Int, rACProviderRequest: RACProviderRequest, completion: @escaping (_ data: RACProvider?, _ error: Error?) -> Void)
+```
+
+
+
+RACProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this RAC Provider.
+let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // RACProviderRequest | 
+
+ProvidersAPI.providersRacUpdate(id: id, rACProviderRequest: rACProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this RAC Provider. | 
+ **rACProviderRequest** | [**RACProviderRequest**](RACProviderRequest.md) |  | 
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersRacUsedByList**
+```swift
+    open class func providersRacUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this RAC Provider.
+
+ProvidersAPI.providersRacUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this RAC Provider. | 
 
 ### Return type
 

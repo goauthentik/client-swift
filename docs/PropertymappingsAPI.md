@@ -24,6 +24,13 @@ Method | HTTP request | Description
 [**propertymappingsNotificationRetrieve**](PropertymappingsAPI.md#propertymappingsnotificationretrieve) | **GET** /propertymappings/notification/{pm_uuid}/ | 
 [**propertymappingsNotificationUpdate**](PropertymappingsAPI.md#propertymappingsnotificationupdate) | **PUT** /propertymappings/notification/{pm_uuid}/ | 
 [**propertymappingsNotificationUsedByList**](PropertymappingsAPI.md#propertymappingsnotificationusedbylist) | **GET** /propertymappings/notification/{pm_uuid}/used_by/ | 
+[**propertymappingsRacCreate**](PropertymappingsAPI.md#propertymappingsraccreate) | **POST** /propertymappings/rac/ | 
+[**propertymappingsRacDestroy**](PropertymappingsAPI.md#propertymappingsracdestroy) | **DELETE** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacList**](PropertymappingsAPI.md#propertymappingsraclist) | **GET** /propertymappings/rac/ | 
+[**propertymappingsRacPartialUpdate**](PropertymappingsAPI.md#propertymappingsracpartialupdate) | **PATCH** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacRetrieve**](PropertymappingsAPI.md#propertymappingsracretrieve) | **GET** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacUpdate**](PropertymappingsAPI.md#propertymappingsracupdate) | **PUT** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacUsedByList**](PropertymappingsAPI.md#propertymappingsracusedbylist) | **GET** /propertymappings/rac/{pm_uuid}/used_by/ | 
 [**propertymappingsSamlCreate**](PropertymappingsAPI.md#propertymappingssamlcreate) | **POST** /propertymappings/saml/ | 
 [**propertymappingsSamlDestroy**](PropertymappingsAPI.md#propertymappingssamldestroy) | **DELETE** /propertymappings/saml/{pm_uuid}/ | 
 [**propertymappingsSamlList**](PropertymappingsAPI.md#propertymappingssamllist) | **GET** /propertymappings/saml/ | 
@@ -1051,6 +1058,363 @@ PropertymappingsAPI.propertymappingsNotificationUsedByList(pmUuid: pmUuid) { (re
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pmUuid** | **UUID** | A UUID string identifying this Webhook Mapping. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacCreate**
+```swift
+    open class func propertymappingsRacCreate(rACPropertyMappingRequest: RACPropertyMappingRequest, completion: @escaping (_ data: RACPropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let rACPropertyMappingRequest = RACPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", staticSettings: "TODO") // RACPropertyMappingRequest | 
+
+PropertymappingsAPI.propertymappingsRacCreate(rACPropertyMappingRequest: rACPropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rACPropertyMappingRequest** | [**RACPropertyMappingRequest**](RACPropertyMappingRequest.md) |  | 
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacDestroy**
+```swift
+    open class func propertymappingsRacDestroy(pmUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this RAC Property Mapping.
+
+PropertymappingsAPI.propertymappingsRacDestroy(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this RAC Property Mapping. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacList**
+```swift
+    open class func propertymappingsRacList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let managed = "managed_example" // String |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+PropertymappingsAPI.propertymappingsRacList(managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managed** | **String** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedRACPropertyMappingList**](PaginatedRACPropertyMappingList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacPartialUpdate**
+```swift
+    open class func propertymappingsRacPartialUpdate(pmUuid: UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest? = nil, completion: @escaping (_ data: RACPropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this RAC Property Mapping.
+let patchedRACPropertyMappingRequest = PatchedRACPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", staticSettings: "TODO") // PatchedRACPropertyMappingRequest |  (optional)
+
+PropertymappingsAPI.propertymappingsRacPartialUpdate(pmUuid: pmUuid, patchedRACPropertyMappingRequest: patchedRACPropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this RAC Property Mapping. | 
+ **patchedRACPropertyMappingRequest** | [**PatchedRACPropertyMappingRequest**](PatchedRACPropertyMappingRequest.md) |  | [optional] 
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacRetrieve**
+```swift
+    open class func propertymappingsRacRetrieve(pmUuid: UUID, completion: @escaping (_ data: RACPropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this RAC Property Mapping.
+
+PropertymappingsAPI.propertymappingsRacRetrieve(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this RAC Property Mapping. | 
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacUpdate**
+```swift
+    open class func propertymappingsRacUpdate(pmUuid: UUID, rACPropertyMappingRequest: RACPropertyMappingRequest, completion: @escaping (_ data: RACPropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this RAC Property Mapping.
+let rACPropertyMappingRequest = RACPropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example", staticSettings: "TODO") // RACPropertyMappingRequest | 
+
+PropertymappingsAPI.propertymappingsRacUpdate(pmUuid: pmUuid, rACPropertyMappingRequest: rACPropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this RAC Property Mapping. | 
+ **rACPropertyMappingRequest** | [**RACPropertyMappingRequest**](RACPropertyMappingRequest.md) |  | 
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsRacUsedByList**
+```swift
+    open class func propertymappingsRacUsedByList(pmUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this RAC Property Mapping.
+
+PropertymappingsAPI.propertymappingsRacUsedByList(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this RAC Property Mapping. | 
 
 ### Return type
 
