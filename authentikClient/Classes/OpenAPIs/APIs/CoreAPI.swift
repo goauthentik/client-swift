@@ -14,7 +14,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter forUser: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -35,11 +35,11 @@ open class CoreAPI {
      - GET /core/applications/{slug}/check_access/
      - Check access to a single application by slug
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter forUser: (query)  (optional)
-     - returns: RequestBuilder<PolicyTestResult> 
+     - returns: RequestBuilder<PolicyTestResult>
      */
     open class func coreApplicationsCheckAccessRetrieveWithRequestBuilder(slug: String, forUser: Int? = nil) -> RequestBuilder<PolicyTestResult> {
         var localVariablePath = "/core/applications/{slug}/check_access/"
@@ -67,7 +67,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter applicationRequest: (body)  
+     - parameter applicationRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -87,10 +87,10 @@ open class CoreAPI {
      - POST /core/applications/
      - Application Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter applicationRequest: (body)  
-     - returns: RequestBuilder<Application> 
+     - parameter applicationRequest: (body)
+     - returns: RequestBuilder<Application>
      */
     open class func coreApplicationsCreateWithRequestBuilder(applicationRequest: ApplicationRequest) -> RequestBuilder<Application> {
         let localVariablePath = "/core/applications/"
@@ -112,7 +112,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -132,10 +132,10 @@ open class CoreAPI {
      - DELETE /core/applications/{slug}/
      - Application Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - returns: RequestBuilder<Void> 
+     - parameter slug: (path)
+     - returns: RequestBuilder<Void>
      */
     open class func coreApplicationsDestroyWithRequestBuilder(slug: String) -> RequestBuilder<Void> {
         var localVariablePath = "/core/applications/{slug}/"
@@ -190,7 +190,7 @@ open class CoreAPI {
      - GET /core/applications/
      - Custom list method that checks Policy based access instead of guardian
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter group: (query)  (optional)
      - parameter metaDescription: (query)  (optional)
@@ -203,7 +203,7 @@ open class CoreAPI {
      - parameter search: (query) A search term. (optional)
      - parameter slug: (query)  (optional)
      - parameter superuserFullList: (query)  (optional)
-     - returns: RequestBuilder<PaginatedApplicationList> 
+     - returns: RequestBuilder<PaginatedApplicationList>
      */
     open class func coreApplicationsListWithRequestBuilder(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
         let localVariablePath = "/core/applications/"
@@ -238,7 +238,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -258,10 +258,10 @@ open class CoreAPI {
      - GET /core/applications/{slug}/metrics/
      - Metrics for application logins
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - returns: RequestBuilder<[Coordinate]> 
+     - parameter slug: (path)
+     - returns: RequestBuilder<[Coordinate]>
      */
     open class func coreApplicationsMetricsListWithRequestBuilder(slug: String) -> RequestBuilder<[Coordinate]> {
         var localVariablePath = "/core/applications/{slug}/metrics/"
@@ -286,7 +286,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter patchedApplicationRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -307,11 +307,11 @@ open class CoreAPI {
      - PATCH /core/applications/{slug}/
      - Application Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter patchedApplicationRequest: (body)  (optional)
-     - returns: RequestBuilder<Application> 
+     - returns: RequestBuilder<Application>
      */
     open class func coreApplicationsPartialUpdateWithRequestBuilder(slug: String, patchedApplicationRequest: PatchedApplicationRequest? = nil) -> RequestBuilder<Application> {
         var localVariablePath = "/core/applications/{slug}/"
@@ -336,7 +336,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -356,10 +356,10 @@ open class CoreAPI {
      - GET /core/applications/{slug}/
      - Application Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - returns: RequestBuilder<Application> 
+     - parameter slug: (path)
+     - returns: RequestBuilder<Application>
      */
     open class func coreApplicationsRetrieveWithRequestBuilder(slug: String) -> RequestBuilder<Application> {
         var localVariablePath = "/core/applications/{slug}/"
@@ -384,7 +384,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter file: (form)  (optional)
      - parameter clear: (form)  (optional, default to false)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -406,12 +406,12 @@ open class CoreAPI {
      - POST /core/applications/{slug}/set_icon/
      - Set application icon
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter file: (form)  (optional)
      - parameter clear: (form)  (optional, default to false)
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func coreApplicationsSetIconCreateWithRequestBuilder(slug: String, file: URL? = nil, clear: Bool? = nil) -> RequestBuilder<Void> {
         var localVariablePath = "/core/applications/{slug}/set_icon/"
@@ -442,8 +442,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
-     - parameter filePathRequest: (body)  
+     - parameter slug: (path)
+     - parameter filePathRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -463,11 +463,11 @@ open class CoreAPI {
      - POST /core/applications/{slug}/set_icon_url/
      - Set application icon (as URL)
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - parameter filePathRequest: (body)  
-     - returns: RequestBuilder<Void> 
+     - parameter slug: (path)
+     - parameter filePathRequest: (body)
+     - returns: RequestBuilder<Void>
      */
     open class func coreApplicationsSetIconUrlCreateWithRequestBuilder(slug: String, filePathRequest: FilePathRequest) -> RequestBuilder<Void> {
         var localVariablePath = "/core/applications/{slug}/set_icon_url/"
@@ -492,8 +492,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
-     - parameter applicationRequest: (body)  
+     - parameter slug: (path)
+     - parameter applicationRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -513,11 +513,11 @@ open class CoreAPI {
      - PUT /core/applications/{slug}/
      - Application Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - parameter applicationRequest: (body)  
-     - returns: RequestBuilder<Application> 
+     - parameter slug: (path)
+     - parameter applicationRequest: (body)
+     - returns: RequestBuilder<Application>
      */
     open class func coreApplicationsUpdateWithRequestBuilder(slug: String, applicationRequest: ApplicationRequest) -> RequestBuilder<Application> {
         var localVariablePath = "/core/applications/{slug}/"
@@ -542,7 +542,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter slug: (path)  
+     - parameter slug: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -562,10 +562,10 @@ open class CoreAPI {
      - GET /core/applications/{slug}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter slug: (path)  
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter slug: (path)
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreApplicationsUsedByListWithRequestBuilder(slug: String) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/applications/{slug}/used_by/"
@@ -590,7 +590,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -610,10 +610,10 @@ open class CoreAPI {
      - DELETE /core/authenticated_sessions/{uuid}/
      - AuthenticatedSession Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
-     - returns: RequestBuilder<Void> 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
+     - returns: RequestBuilder<Void>
      */
     open class func coreAuthenticatedSessionsDestroyWithRequestBuilder(uuid: UUID) -> RequestBuilder<Void> {
         var localVariablePath = "/core/authenticated_sessions/{uuid}/"
@@ -664,7 +664,7 @@ open class CoreAPI {
      - GET /core/authenticated_sessions/
      - AuthenticatedSession Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter lastIp: (query)  (optional)
      - parameter lastUserAgent: (query)  (optional)
@@ -673,7 +673,7 @@ open class CoreAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter userUsername: (query)  (optional)
-     - returns: RequestBuilder<PaginatedAuthenticatedSessionList> 
+     - returns: RequestBuilder<PaginatedAuthenticatedSessionList>
      */
     open class func coreAuthenticatedSessionsListWithRequestBuilder(lastIp: String? = nil, lastUserAgent: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil) -> RequestBuilder<PaginatedAuthenticatedSessionList> {
         let localVariablePath = "/core/authenticated_sessions/"
@@ -704,7 +704,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -724,10 +724,10 @@ open class CoreAPI {
      - GET /core/authenticated_sessions/{uuid}/
      - AuthenticatedSession Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
-     - returns: RequestBuilder<AuthenticatedSession> 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
+     - returns: RequestBuilder<AuthenticatedSession>
      */
     open class func coreAuthenticatedSessionsRetrieveWithRequestBuilder(uuid: UUID) -> RequestBuilder<AuthenticatedSession> {
         var localVariablePath = "/core/authenticated_sessions/{uuid}/"
@@ -752,7 +752,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -772,10 +772,10 @@ open class CoreAPI {
      - GET /core/authenticated_sessions/{uuid}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter uuid: (path) A UUID string identifying this Authenticated Session. 
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter uuid: (path) A UUID string identifying this Authenticated Session.
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreAuthenticatedSessionsUsedByListWithRequestBuilder(uuid: UUID) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/authenticated_sessions/{uuid}/used_by/"
@@ -800,8 +800,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter userAccountRequest: (body)  
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter userAccountRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -821,11 +821,11 @@ open class CoreAPI {
      - POST /core/groups/{group_uuid}/add_user/
      - Add user to group
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter userAccountRequest: (body)  
-     - returns: RequestBuilder<Void> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter userAccountRequest: (body)
+     - returns: RequestBuilder<Void>
      */
     open class func coreGroupsAddUserCreateWithRequestBuilder(groupUuid: UUID, userAccountRequest: UserAccountRequest) -> RequestBuilder<Void> {
         var localVariablePath = "/core/groups/{group_uuid}/add_user/"
@@ -850,7 +850,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupRequest: (body)  
+     - parameter groupRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -870,10 +870,10 @@ open class CoreAPI {
      - POST /core/groups/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupRequest: (body)  
-     - returns: RequestBuilder<Group> 
+     - parameter groupRequest: (body)
+     - returns: RequestBuilder<Group>
      */
     open class func coreGroupsCreateWithRequestBuilder(groupRequest: GroupRequest) -> RequestBuilder<Group> {
         let localVariablePath = "/core/groups/"
@@ -895,7 +895,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -915,10 +915,10 @@ open class CoreAPI {
      - DELETE /core/groups/{group_uuid}/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - returns: RequestBuilder<Void> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - returns: RequestBuilder<Void>
      */
     open class func coreGroupsDestroyWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<Void> {
         var localVariablePath = "/core/groups/{group_uuid}/"
@@ -971,7 +971,7 @@ open class CoreAPI {
      - GET /core/groups/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter attributes: (query) Attributes (optional)
      - parameter isSuperuser: (query)  (optional)
@@ -982,7 +982,7 @@ open class CoreAPI {
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
-     - returns: RequestBuilder<PaginatedGroupList> 
+     - returns: RequestBuilder<PaginatedGroupList>
      */
     open class func coreGroupsListWithRequestBuilder(attributes: String? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedGroupList> {
         let localVariablePath = "/core/groups/"
@@ -1015,7 +1015,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter patchedGroupRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1036,11 +1036,11 @@ open class CoreAPI {
      - PATCH /core/groups/{group_uuid}/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter patchedGroupRequest: (body)  (optional)
-     - returns: RequestBuilder<Group> 
+     - returns: RequestBuilder<Group>
      */
     open class func coreGroupsPartialUpdateWithRequestBuilder(groupUuid: UUID, patchedGroupRequest: PatchedGroupRequest? = nil) -> RequestBuilder<Group> {
         var localVariablePath = "/core/groups/{group_uuid}/"
@@ -1065,8 +1065,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter userAccountRequest: (body)  
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter userAccountRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1086,11 +1086,11 @@ open class CoreAPI {
      - POST /core/groups/{group_uuid}/remove_user/
      - Add user to group
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter userAccountRequest: (body)  
-     - returns: RequestBuilder<Void> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter userAccountRequest: (body)
+     - returns: RequestBuilder<Void>
      */
     open class func coreGroupsRemoveUserCreateWithRequestBuilder(groupUuid: UUID, userAccountRequest: UserAccountRequest) -> RequestBuilder<Void> {
         var localVariablePath = "/core/groups/{group_uuid}/remove_user/"
@@ -1115,7 +1115,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1135,10 +1135,10 @@ open class CoreAPI {
      - GET /core/groups/{group_uuid}/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - returns: RequestBuilder<Group> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - returns: RequestBuilder<Group>
      */
     open class func coreGroupsRetrieveWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<Group> {
         var localVariablePath = "/core/groups/{group_uuid}/"
@@ -1163,8 +1163,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter groupRequest: (body)  
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter groupRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1184,11 +1184,11 @@ open class CoreAPI {
      - PUT /core/groups/{group_uuid}/
      - Group Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - parameter groupRequest: (body)  
-     - returns: RequestBuilder<Group> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - parameter groupRequest: (body)
+     - returns: RequestBuilder<Group>
      */
     open class func coreGroupsUpdateWithRequestBuilder(groupUuid: UUID, groupRequest: GroupRequest) -> RequestBuilder<Group> {
         var localVariablePath = "/core/groups/{group_uuid}/"
@@ -1213,7 +1213,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1233,10 +1233,10 @@ open class CoreAPI {
      - GET /core/groups/{group_uuid}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter groupUuid: (path) A UUID string identifying this Group. 
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter groupUuid: (path) A UUID string identifying this Group.
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreGroupsUsedByListWithRequestBuilder(groupUuid: UUID) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/groups/{group_uuid}/used_by/"
@@ -1261,7 +1261,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantRequest: (body)  
+     - parameter tenantRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1281,10 +1281,10 @@ open class CoreAPI {
      - POST /core/tenants/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantRequest: (body)  
-     - returns: RequestBuilder<Tenant> 
+     - parameter tenantRequest: (body)
+     - returns: RequestBuilder<Tenant>
      */
     open class func coreTenantsCreateWithRequestBuilder(tenantRequest: TenantRequest) -> RequestBuilder<Tenant> {
         let localVariablePath = "/core/tenants/"
@@ -1325,9 +1325,9 @@ open class CoreAPI {
      - GET /core/tenants/current/
      - Get current tenant
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - returns: RequestBuilder<CurrentTenant> 
+     - returns: RequestBuilder<CurrentTenant>
      */
     open class func coreTenantsCurrentRetrieveWithRequestBuilder() -> RequestBuilder<CurrentTenant> {
         let localVariablePath = "/core/tenants/current/"
@@ -1349,7 +1349,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1369,10 +1369,10 @@ open class CoreAPI {
      - DELETE /core/tenants/{tenant_uuid}/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
-     - returns: RequestBuilder<Void> 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
+     - returns: RequestBuilder<Void>
      */
     open class func coreTenantsDestroyWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<Void> {
         var localVariablePath = "/core/tenants/{tenant_uuid}/"
@@ -1434,7 +1434,7 @@ open class CoreAPI {
      - GET /core/tenants/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter brandingFavicon: (query)  (optional)
      - parameter brandingLogo: (query)  (optional)
@@ -1454,7 +1454,7 @@ open class CoreAPI {
      - parameter search: (query) A search term. (optional)
      - parameter tenantUuid: (query)  (optional)
      - parameter webCertificate: (query)  (optional)
-     - returns: RequestBuilder<PaginatedTenantList> 
+     - returns: RequestBuilder<PaginatedTenantList>
      */
     open class func coreTenantsListWithRequestBuilder(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil) -> RequestBuilder<PaginatedTenantList> {
         let localVariablePath = "/core/tenants/"
@@ -1496,7 +1496,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
      - parameter patchedTenantRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1517,11 +1517,11 @@ open class CoreAPI {
      - PATCH /core/tenants/{tenant_uuid}/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
      - parameter patchedTenantRequest: (body)  (optional)
-     - returns: RequestBuilder<Tenant> 
+     - returns: RequestBuilder<Tenant>
      */
     open class func coreTenantsPartialUpdateWithRequestBuilder(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil) -> RequestBuilder<Tenant> {
         var localVariablePath = "/core/tenants/{tenant_uuid}/"
@@ -1546,7 +1546,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1566,10 +1566,10 @@ open class CoreAPI {
      - GET /core/tenants/{tenant_uuid}/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
-     - returns: RequestBuilder<Tenant> 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
+     - returns: RequestBuilder<Tenant>
      */
     open class func coreTenantsRetrieveWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<Tenant> {
         var localVariablePath = "/core/tenants/{tenant_uuid}/"
@@ -1594,8 +1594,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
-     - parameter tenantRequest: (body)  
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
+     - parameter tenantRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1615,11 +1615,11 @@ open class CoreAPI {
      - PUT /core/tenants/{tenant_uuid}/
      - Tenant Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
-     - parameter tenantRequest: (body)  
-     - returns: RequestBuilder<Tenant> 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
+     - parameter tenantRequest: (body)
+     - returns: RequestBuilder<Tenant>
      */
     open class func coreTenantsUpdateWithRequestBuilder(tenantUuid: UUID, tenantRequest: TenantRequest) -> RequestBuilder<Tenant> {
         var localVariablePath = "/core/tenants/{tenant_uuid}/"
@@ -1644,7 +1644,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1664,10 +1664,10 @@ open class CoreAPI {
      - GET /core/tenants/{tenant_uuid}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant. 
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreTenantsUsedByListWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/tenants/{tenant_uuid}/used_by/"
@@ -1692,7 +1692,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter tokenRequest: (body)  
+     - parameter tokenRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1712,10 +1712,10 @@ open class CoreAPI {
      - POST /core/tokens/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter tokenRequest: (body)  
-     - returns: RequestBuilder<Token> 
+     - parameter tokenRequest: (body)
+     - returns: RequestBuilder<Token>
      */
     open class func coreTokensCreateWithRequestBuilder(tokenRequest: TokenRequest) -> RequestBuilder<Token> {
         let localVariablePath = "/core/tokens/"
@@ -1737,7 +1737,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1757,10 +1757,10 @@ open class CoreAPI {
      - DELETE /core/tokens/{identifier}/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - returns: RequestBuilder<Void> 
+     - parameter identifier: (path)
+     - returns: RequestBuilder<Void>
      */
     open class func coreTokensDestroyWithRequestBuilder(identifier: String) -> RequestBuilder<Void> {
         var localVariablePath = "/core/tokens/{identifier}/"
@@ -1825,7 +1825,7 @@ open class CoreAPI {
      - GET /core/tokens/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter description: (query)  (optional)
      - parameter expires: (query)  (optional)
@@ -1838,7 +1838,7 @@ open class CoreAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter userUsername: (query)  (optional)
-     - returns: RequestBuilder<PaginatedTokenList> 
+     - returns: RequestBuilder<PaginatedTokenList>
      */
     open class func coreTokensListWithRequestBuilder(description: String? = nil, expires: Date? = nil, expiring: Bool? = nil, identifier: String? = nil, intent: Intent_coreTokensList? = nil, managed: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil) -> RequestBuilder<PaginatedTokenList> {
         let localVariablePath = "/core/tokens/"
@@ -1873,7 +1873,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter patchedTokenRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1894,11 +1894,11 @@ open class CoreAPI {
      - PATCH /core/tokens/{identifier}/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter patchedTokenRequest: (body)  (optional)
-     - returns: RequestBuilder<Token> 
+     - returns: RequestBuilder<Token>
      */
     open class func coreTokensPartialUpdateWithRequestBuilder(identifier: String, patchedTokenRequest: PatchedTokenRequest? = nil) -> RequestBuilder<Token> {
         var localVariablePath = "/core/tokens/{identifier}/"
@@ -1923,7 +1923,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1943,10 +1943,10 @@ open class CoreAPI {
      - GET /core/tokens/{identifier}/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - returns: RequestBuilder<Token> 
+     - parameter identifier: (path)
+     - returns: RequestBuilder<Token>
      */
     open class func coreTokensRetrieveWithRequestBuilder(identifier: String) -> RequestBuilder<Token> {
         var localVariablePath = "/core/tokens/{identifier}/"
@@ -1971,8 +1971,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
-     - parameter tokenSetKeyRequest: (body)  
+     - parameter identifier: (path)
+     - parameter tokenSetKeyRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1992,11 +1992,11 @@ open class CoreAPI {
      - POST /core/tokens/{identifier}/set_key/
      - Set token key. Action is logged as event. `authentik_core.set_token_key` permission is required.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - parameter tokenSetKeyRequest: (body)  
-     - returns: RequestBuilder<Void> 
+     - parameter identifier: (path)
+     - parameter tokenSetKeyRequest: (body)
+     - returns: RequestBuilder<Void>
      */
     open class func coreTokensSetKeyCreateWithRequestBuilder(identifier: String, tokenSetKeyRequest: TokenSetKeyRequest) -> RequestBuilder<Void> {
         var localVariablePath = "/core/tokens/{identifier}/set_key/"
@@ -2021,8 +2021,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
-     - parameter tokenRequest: (body)  
+     - parameter identifier: (path)
+     - parameter tokenRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2042,11 +2042,11 @@ open class CoreAPI {
      - PUT /core/tokens/{identifier}/
      - Token Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - parameter tokenRequest: (body)  
-     - returns: RequestBuilder<Token> 
+     - parameter identifier: (path)
+     - parameter tokenRequest: (body)
+     - returns: RequestBuilder<Token>
      */
     open class func coreTokensUpdateWithRequestBuilder(identifier: String, tokenRequest: TokenRequest) -> RequestBuilder<Token> {
         var localVariablePath = "/core/tokens/{identifier}/"
@@ -2071,7 +2071,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2091,10 +2091,10 @@ open class CoreAPI {
      - GET /core/tokens/{identifier}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter identifier: (path)
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreTokensUsedByListWithRequestBuilder(identifier: String) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/tokens/{identifier}/used_by/"
@@ -2119,7 +2119,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter identifier: (path)  
+     - parameter identifier: (path)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2139,10 +2139,10 @@ open class CoreAPI {
      - GET /core/tokens/{identifier}/view_key/
      - Return token key and log access
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter identifier: (path)  
-     - returns: RequestBuilder<TokenView> 
+     - parameter identifier: (path)
+     - returns: RequestBuilder<TokenView>
      */
     open class func coreTokensViewKeyRetrieveWithRequestBuilder(identifier: String) -> RequestBuilder<TokenView> {
         var localVariablePath = "/core/tokens/{identifier}/view_key/"
@@ -2167,7 +2167,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter transactionApplicationRequest: (body)  
+     - parameter transactionApplicationRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2187,10 +2187,10 @@ open class CoreAPI {
      - PUT /core/transactional/applications/
      - Convert data into a blueprint, validate it and apply it
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter transactionApplicationRequest: (body)  
-     - returns: RequestBuilder<TransactionApplicationResponse> 
+     - parameter transactionApplicationRequest: (body)
+     - returns: RequestBuilder<TransactionApplicationResponse>
      */
     open class func coreTransactionalApplicationsUpdateWithRequestBuilder(transactionApplicationRequest: TransactionApplicationRequest) -> RequestBuilder<TransactionApplicationResponse> {
         let localVariablePath = "/core/transactional/applications/"
@@ -2212,7 +2212,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User Consent. 
+     - parameter id: (path) A unique integer value identifying this User Consent.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2232,10 +2232,10 @@ open class CoreAPI {
      - DELETE /core/user_consent/{id}/
      - UserConsent Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User Consent. 
-     - returns: RequestBuilder<Void> 
+     - parameter id: (path) A unique integer value identifying this User Consent.
+     - returns: RequestBuilder<Void>
      */
     open class func coreUserConsentDestroyWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
         var localVariablePath = "/core/user_consent/{id}/"
@@ -2285,7 +2285,7 @@ open class CoreAPI {
      - GET /core/user_consent/
      - UserConsent Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter application: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
@@ -2293,7 +2293,7 @@ open class CoreAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter user: (query)  (optional)
-     - returns: RequestBuilder<PaginatedUserConsentList> 
+     - returns: RequestBuilder<PaginatedUserConsentList>
      */
     open class func coreUserConsentListWithRequestBuilder(application: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, user: Int? = nil) -> RequestBuilder<PaginatedUserConsentList> {
         let localVariablePath = "/core/user_consent/"
@@ -2323,7 +2323,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User Consent. 
+     - parameter id: (path) A unique integer value identifying this User Consent.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2343,10 +2343,10 @@ open class CoreAPI {
      - GET /core/user_consent/{id}/
      - UserConsent Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User Consent. 
-     - returns: RequestBuilder<UserConsent> 
+     - parameter id: (path) A unique integer value identifying this User Consent.
+     - returns: RequestBuilder<UserConsent>
      */
     open class func coreUserConsentRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<UserConsent> {
         var localVariablePath = "/core/user_consent/{id}/"
@@ -2371,7 +2371,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User Consent. 
+     - parameter id: (path) A unique integer value identifying this User Consent.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2391,10 +2391,10 @@ open class CoreAPI {
      - GET /core/user_consent/{id}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User Consent. 
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter id: (path) A unique integer value identifying this User Consent.
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreUserConsentUsedByListWithRequestBuilder(id: Int) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/user_consent/{id}/used_by/"
@@ -2419,7 +2419,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter userRequest: (body)  
+     - parameter userRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2439,10 +2439,10 @@ open class CoreAPI {
      - POST /core/users/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter userRequest: (body)  
-     - returns: RequestBuilder<User> 
+     - parameter userRequest: (body)
+     - returns: RequestBuilder<User>
      */
     open class func coreUsersCreateWithRequestBuilder(userRequest: UserRequest) -> RequestBuilder<User> {
         let localVariablePath = "/core/users/"
@@ -2464,7 +2464,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2484,10 +2484,10 @@ open class CoreAPI {
      - DELETE /core/users/{id}/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<Void> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<Void>
      */
     open class func coreUsersDestroyWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
         var localVariablePath = "/core/users/{id}/"
@@ -2512,7 +2512,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2532,10 +2532,10 @@ open class CoreAPI {
      - POST /core/users/{id}/impersonate/
      - Impersonate a user
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<Void> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<Void>
      */
     open class func coreUsersImpersonateCreateWithRequestBuilder(id: Int) -> RequestBuilder<Void> {
         var localVariablePath = "/core/users/{id}/impersonate/"
@@ -2579,9 +2579,9 @@ open class CoreAPI {
      - GET /core/users/impersonate_end/
      - End Impersonation a user
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<Void>
      */
     open class func coreUsersImpersonateEndRetrieveWithRequestBuilder() -> RequestBuilder<Void> {
         let localVariablePath = "/core/users/impersonate_end/"
@@ -2648,7 +2648,7 @@ open class CoreAPI {
      - GET /core/users/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter attributes: (query) Attributes (optional)
      - parameter email: (query)  (optional)
@@ -2666,7 +2666,7 @@ open class CoreAPI {
      - parameter type: (query) * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      - parameter username: (query)  (optional)
      - parameter uuid: (query)  (optional)
-     - returns: RequestBuilder<PaginatedUserList> 
+     - returns: RequestBuilder<PaginatedUserList>
      */
     open class func coreUsersListWithRequestBuilder(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
@@ -2725,12 +2725,12 @@ open class CoreAPI {
      - GET /core/users/me/
      - Get information about current user
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: mobile_device_token
-     - returns: RequestBuilder<SessionUser> 
+     - returns: RequestBuilder<SessionUser>
      */
     open class func coreUsersMeRetrieveWithRequestBuilder() -> RequestBuilder<SessionUser> {
         let localVariablePath = "/core/users/me/"
@@ -2747,12 +2747,12 @@ open class CoreAPI {
 
         let localVariableRequestBuilder: RequestBuilder<SessionUser>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: truetrue)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2772,10 +2772,10 @@ open class CoreAPI {
      - GET /core/users/{id}/metrics/
      - User metrics per 1h
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<UserMetrics> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<UserMetrics>
      */
     open class func coreUsersMetricsRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<UserMetrics> {
         var localVariablePath = "/core/users/{id}/metrics/"
@@ -2800,7 +2800,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter patchedUserRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -2821,11 +2821,11 @@ open class CoreAPI {
      - PATCH /core/users/{id}/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter patchedUserRequest: (body)  (optional)
-     - returns: RequestBuilder<User> 
+     - returns: RequestBuilder<User>
      */
     open class func coreUsersPartialUpdateWithRequestBuilder(id: Int, patchedUserRequest: PatchedUserRequest? = nil) -> RequestBuilder<User> {
         var localVariablePath = "/core/users/{id}/"
@@ -2870,10 +2870,10 @@ open class CoreAPI {
      - GET /core/users/paths/
      - Get all user paths
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
      - parameter search: (query)  (optional)
-     - returns: RequestBuilder<UserPath> 
+     - returns: RequestBuilder<UserPath>
      */
     open class func coreUsersPathsRetrieveWithRequestBuilder(search: String? = nil) -> RequestBuilder<UserPath> {
         let localVariablePath = "/core/users/paths/"
@@ -2898,8 +2898,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter emailStage: (query)  
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter emailStage: (query)
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2919,11 +2919,11 @@ open class CoreAPI {
      - GET /core/users/{id}/recovery_email/
      - Create a temporary link that a user can use to recover their accounts
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter emailStage: (query)  
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<Void> 
+     - parameter emailStage: (query)
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<Void>
      */
     open class func coreUsersRecoveryEmailRetrieveWithRequestBuilder(emailStage: String, id: Int) -> RequestBuilder<Void> {
         var localVariablePath = "/core/users/{id}/recovery_email/"
@@ -2951,7 +2951,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -2971,10 +2971,10 @@ open class CoreAPI {
      - GET /core/users/{id}/recovery/
      - Create a temporary link that a user can use to recover their accounts
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<Link> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<Link>
      */
     open class func coreUsersRecoveryRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<Link> {
         var localVariablePath = "/core/users/{id}/recovery/"
@@ -2999,7 +2999,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3019,10 +3019,10 @@ open class CoreAPI {
      - GET /core/users/{id}/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<User> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<User>
      */
     open class func coreUsersRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<User> {
         var localVariablePath = "/core/users/{id}/"
@@ -3047,7 +3047,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter userServiceAccountRequest: (body)  
+     - parameter userServiceAccountRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3067,10 +3067,10 @@ open class CoreAPI {
      - POST /core/users/service_account/
      - Create a new user account that is marked as a service account
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter userServiceAccountRequest: (body)  
-     - returns: RequestBuilder<UserServiceAccountResponse> 
+     - parameter userServiceAccountRequest: (body)
+     - returns: RequestBuilder<UserServiceAccountResponse>
      */
     open class func coreUsersServiceAccountCreateWithRequestBuilder(userServiceAccountRequest: UserServiceAccountRequest) -> RequestBuilder<UserServiceAccountResponse> {
         let localVariablePath = "/core/users/service_account/"
@@ -3092,8 +3092,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter userPasswordSetRequest: (body)  
+     - parameter id: (path) A unique integer value identifying this User.
+     - parameter userPasswordSetRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3113,11 +3113,11 @@ open class CoreAPI {
      - POST /core/users/{id}/set_password/
      - Set password for user
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter userPasswordSetRequest: (body)  
-     - returns: RequestBuilder<Void> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - parameter userPasswordSetRequest: (body)
+     - returns: RequestBuilder<Void>
      */
     open class func coreUsersSetPasswordCreateWithRequestBuilder(id: Int, userPasswordSetRequest: UserPasswordSetRequest) -> RequestBuilder<Void> {
         var localVariablePath = "/core/users/{id}/set_password/"
@@ -3142,8 +3142,8 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter userRequest: (body)  
+     - parameter id: (path) A unique integer value identifying this User.
+     - parameter userRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3163,11 +3163,11 @@ open class CoreAPI {
      - PUT /core/users/{id}/
      - User Viewset
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter userRequest: (body)  
-     - returns: RequestBuilder<User> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - parameter userRequest: (body)
+     - returns: RequestBuilder<User>
      */
     open class func coreUsersUpdateWithRequestBuilder(id: Int, userRequest: UserRequest) -> RequestBuilder<User> {
         var localVariablePath = "/core/users/{id}/"
@@ -3192,7 +3192,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
+     - parameter id: (path) A unique integer value identifying this User.
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -3212,10 +3212,10 @@ open class CoreAPI {
      - GET /core/users/{id}/used_by/
      - Get a list of all objects that use this object
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - returns: RequestBuilder<[UsedBy]> 
+     - parameter id: (path) A unique integer value identifying this User.
+     - returns: RequestBuilder<[UsedBy]>
      */
     open class func coreUsersUsedByListWithRequestBuilder(id: Int) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/core/users/{id}/used_by/"
