@@ -13,6 +13,7 @@ import AnyCodable
 public enum FlowChallengeResponseRequest: Codable, JSONEncodable, Hashable {
     case typeAppleChallengeResponseRequest(AppleChallengeResponseRequest)
     case typeAuthenticatorDuoChallengeResponseRequest(AuthenticatorDuoChallengeResponseRequest)
+    case typeAuthenticatorMobileChallengeResponseRequest(AuthenticatorMobileChallengeResponseRequest)
     case typeAuthenticatorSMSChallengeResponseRequest(AuthenticatorSMSChallengeResponseRequest)
     case typeAuthenticatorStaticChallengeResponseRequest(AuthenticatorStaticChallengeResponseRequest)
     case typeAuthenticatorTOTPChallengeResponseRequest(AuthenticatorTOTPChallengeResponseRequest)
@@ -37,6 +38,8 @@ public enum FlowChallengeResponseRequest: Codable, JSONEncodable, Hashable {
         case .typeAppleChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeAuthenticatorDuoChallengeResponseRequest(let value):
+            try container.encode(value)
+        case .typeAuthenticatorMobileChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeAuthenticatorSMSChallengeResponseRequest(let value):
             try container.encode(value)
@@ -81,6 +84,8 @@ public enum FlowChallengeResponseRequest: Codable, JSONEncodable, Hashable {
             self = .typeAppleChallengeResponseRequest(value)
         } else if let value = try? container.decode(AuthenticatorDuoChallengeResponseRequest.self) {
             self = .typeAuthenticatorDuoChallengeResponseRequest(value)
+        } else if let value = try? container.decode(AuthenticatorMobileChallengeResponseRequest.self) {
+            self = .typeAuthenticatorMobileChallengeResponseRequest(value)
         } else if let value = try? container.decode(AuthenticatorSMSChallengeResponseRequest.self) {
             self = .typeAuthenticatorSMSChallengeResponseRequest(value)
         } else if let value = try? container.decode(AuthenticatorStaticChallengeResponseRequest.self) {

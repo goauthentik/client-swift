@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **selectedStage** | **String** |  | [optional] 
 **webauthn** | [String: AnyCodable] |  | [optional] 
 **duo** | **Int** |  | [optional] 
+**mobile** | **String** |  | [optional] 
 **response** | [String: AnyCodable] |  | 
 **token** | **String** |  | 
 **uidField** | **String** |  | 

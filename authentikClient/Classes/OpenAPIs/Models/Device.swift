@@ -19,13 +19,13 @@ public struct Device: Codable, JSONEncodable, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var pk: Int
+    public var pk: String
     public var name: String
     /** Get type of device */
     public var type: String
     public var confirmed: Bool
 
-    public init(verboseName: String, verboseNamePlural: String, metaModelName: String, pk: Int, name: String, type: String, confirmed: Bool) {
+    public init(verboseName: String, verboseNamePlural: String, metaModelName: String, pk: String, name: String, type: String, confirmed: Bool) {
         self.verboseName = verboseName
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName

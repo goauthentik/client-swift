@@ -2727,6 +2727,9 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
      - returns: RequestBuilder<SessionUser> 
      */
     open class func coreUsersMeRetrieveWithRequestBuilder() -> RequestBuilder<SessionUser> {
@@ -2744,7 +2747,7 @@ open class CoreAPI {
 
         let localVariableRequestBuilder: RequestBuilder<SessionUser>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: truetrue)
     }
 
     /**

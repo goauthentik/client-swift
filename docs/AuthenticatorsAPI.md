@@ -11,6 +11,12 @@ Method | HTTP request | Description
 [**authenticatorsAdminDuoPartialUpdate**](AuthenticatorsAPI.md#authenticatorsadminduopartialupdate) | **PATCH** /authenticators/admin/duo/{id}/ | 
 [**authenticatorsAdminDuoRetrieve**](AuthenticatorsAPI.md#authenticatorsadminduoretrieve) | **GET** /authenticators/admin/duo/{id}/ | 
 [**authenticatorsAdminDuoUpdate**](AuthenticatorsAPI.md#authenticatorsadminduoupdate) | **PUT** /authenticators/admin/duo/{id}/ | 
+[**authenticatorsAdminMobileCreate**](AuthenticatorsAPI.md#authenticatorsadminmobilecreate) | **POST** /authenticators/admin/mobile/ | 
+[**authenticatorsAdminMobileDestroy**](AuthenticatorsAPI.md#authenticatorsadminmobiledestroy) | **DELETE** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileList**](AuthenticatorsAPI.md#authenticatorsadminmobilelist) | **GET** /authenticators/admin/mobile/ | 
+[**authenticatorsAdminMobilePartialUpdate**](AuthenticatorsAPI.md#authenticatorsadminmobilepartialupdate) | **PATCH** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileRetrieve**](AuthenticatorsAPI.md#authenticatorsadminmobileretrieve) | **GET** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileUpdate**](AuthenticatorsAPI.md#authenticatorsadminmobileupdate) | **PUT** /authenticators/admin/mobile/{uuid}/ | 
 [**authenticatorsAdminSmsCreate**](AuthenticatorsAPI.md#authenticatorsadminsmscreate) | **POST** /authenticators/admin/sms/ | 
 [**authenticatorsAdminSmsDestroy**](AuthenticatorsAPI.md#authenticatorsadminsmsdestroy) | **DELETE** /authenticators/admin/sms/{id}/ | 
 [**authenticatorsAdminSmsList**](AuthenticatorsAPI.md#authenticatorsadminsmslist) | **GET** /authenticators/admin/sms/ | 
@@ -42,6 +48,17 @@ Method | HTTP request | Description
 [**authenticatorsDuoRetrieve**](AuthenticatorsAPI.md#authenticatorsduoretrieve) | **GET** /authenticators/duo/{id}/ | 
 [**authenticatorsDuoUpdate**](AuthenticatorsAPI.md#authenticatorsduoupdate) | **PUT** /authenticators/duo/{id}/ | 
 [**authenticatorsDuoUsedByList**](AuthenticatorsAPI.md#authenticatorsduousedbylist) | **GET** /authenticators/duo/{id}/used_by/ | 
+[**authenticatorsMobileCheckInCreate**](AuthenticatorsAPI.md#authenticatorsmobilecheckincreate) | **POST** /authenticators/mobile/{uuid}/check_in/ | 
+[**authenticatorsMobileDestroy**](AuthenticatorsAPI.md#authenticatorsmobiledestroy) | **DELETE** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileEnrollmentCallbackCreate**](AuthenticatorsAPI.md#authenticatorsmobileenrollmentcallbackcreate) | **POST** /authenticators/mobile/{uuid}/enrollment_callback/ | 
+[**authenticatorsMobileEnrollmentStatusCreate**](AuthenticatorsAPI.md#authenticatorsmobileenrollmentstatuscreate) | **POST** /authenticators/mobile/{uuid}/enrollment_status/ | 
+[**authenticatorsMobileList**](AuthenticatorsAPI.md#authenticatorsmobilelist) | **GET** /authenticators/mobile/ | 
+[**authenticatorsMobilePartialUpdate**](AuthenticatorsAPI.md#authenticatorsmobilepartialupdate) | **PATCH** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileReceiveResponseCreate**](AuthenticatorsAPI.md#authenticatorsmobilereceiveresponsecreate) | **POST** /authenticators/mobile/{uuid}/receive_response/ | 
+[**authenticatorsMobileRetrieve**](AuthenticatorsAPI.md#authenticatorsmobileretrieve) | **GET** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileSetNotificationKeyCreate**](AuthenticatorsAPI.md#authenticatorsmobilesetnotificationkeycreate) | **POST** /authenticators/mobile/{uuid}/set_notification_key/ | 
+[**authenticatorsMobileUpdate**](AuthenticatorsAPI.md#authenticatorsmobileupdate) | **PUT** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileUsedByList**](AuthenticatorsAPI.md#authenticatorsmobileusedbylist) | **GET** /authenticators/mobile/{uuid}/used_by/ | 
 [**authenticatorsSmsDestroy**](AuthenticatorsAPI.md#authenticatorssmsdestroy) | **DELETE** /authenticators/sms/{id}/ | 
 [**authenticatorsSmsList**](AuthenticatorsAPI.md#authenticatorssmslist) | **GET** /authenticators/sms/ | 
 [**authenticatorsSmsPartialUpdate**](AuthenticatorsAPI.md#authenticatorssmspartialupdate) | **PATCH** /authenticators/sms/{id}/ | 
@@ -131,7 +148,7 @@ Viewset for Duo authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
+let duoDeviceRequest = DuoDeviceRequest(pk: "pk_example", name: "name_example") // DuoDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminDuoCreate(duoDeviceRequest: duoDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -287,7 +304,7 @@ Viewset for Duo authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
-let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(name: "name_example") // PatchedDuoDeviceRequest |  (optional)
+let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(pk: "pk_example", name: "name_example") // PatchedDuoDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminDuoPartialUpdate(id: id, patchedDuoDeviceRequest: patchedDuoDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -387,7 +404,7 @@ Viewset for Duo authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
-let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
+let duoDeviceRequest = DuoDeviceRequest(pk: "pk_example", name: "name_example") // DuoDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminDuoUpdate(id: id, duoDeviceRequest: duoDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -423,6 +440,312 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **authenticatorsAdminMobileCreate**
+```swift
+    open class func authenticatorsAdminMobileCreate(mobileDeviceRequest: MobileDeviceRequest, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let mobileDeviceRequest = MobileDeviceRequest(pk: "pk_example", name: "name_example") // MobileDeviceRequest | 
+
+AuthenticatorsAPI.authenticatorsAdminMobileCreate(mobileDeviceRequest: mobileDeviceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md) |  | 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsAdminMobileDestroy**
+```swift
+    open class func authenticatorsAdminMobileDestroy(uuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsAdminMobileDestroy(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsAdminMobileList**
+```swift
+    open class func authenticatorsAdminMobileList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedMobileDeviceList?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+AuthenticatorsAPI.authenticatorsAdminMobileList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedMobileDeviceList**](PaginatedMobileDeviceList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsAdminMobilePartialUpdate**
+```swift
+    open class func authenticatorsAdminMobilePartialUpdate(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let patchedMobileDeviceRequest = PatchedMobileDeviceRequest(pk: "pk_example", name: "name_example") // PatchedMobileDeviceRequest |  (optional)
+
+AuthenticatorsAPI.authenticatorsAdminMobilePartialUpdate(uuid: uuid, patchedMobileDeviceRequest: patchedMobileDeviceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **patchedMobileDeviceRequest** | [**PatchedMobileDeviceRequest**](PatchedMobileDeviceRequest.md) |  | [optional] 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsAdminMobileRetrieve**
+```swift
+    open class func authenticatorsAdminMobileRetrieve(uuid: UUID, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsAdminMobileRetrieve(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsAdminMobileUpdate**
+```swift
+    open class func authenticatorsAdminMobileUpdate(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceRequest = MobileDeviceRequest(pk: "pk_example", name: "name_example") // MobileDeviceRequest | 
+
+AuthenticatorsAPI.authenticatorsAdminMobileUpdate(uuid: uuid, mobileDeviceRequest: mobileDeviceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md) |  | 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **authenticatorsAdminSmsCreate**
 ```swift
     open class func authenticatorsAdminSmsCreate(sMSDeviceRequest: SMSDeviceRequest, completion: @escaping (_ data: SMSDevice?, _ error: Error?) -> Void)
@@ -437,7 +760,7 @@ Viewset for sms authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
+let sMSDeviceRequest = SMSDeviceRequest(pk: "pk_example", name: "name_example") // SMSDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminSmsCreate(sMSDeviceRequest: sMSDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -593,7 +916,7 @@ Viewset for sms authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
-let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(name: "name_example") // PatchedSMSDeviceRequest |  (optional)
+let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(pk: "pk_example", name: "name_example") // PatchedSMSDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminSmsPartialUpdate(id: id, patchedSMSDeviceRequest: patchedSMSDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -693,7 +1016,7 @@ Viewset for sms authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
-let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
+let sMSDeviceRequest = SMSDeviceRequest(pk: "pk_example", name: "name_example") // SMSDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminSmsUpdate(id: id, sMSDeviceRequest: sMSDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -743,7 +1066,7 @@ Viewset for static authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
+let staticDeviceRequest = StaticDeviceRequest(pk: "pk_example", name: "name_example") // StaticDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminStaticCreate(staticDeviceRequest: staticDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -899,7 +1222,7 @@ Viewset for static authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Static Device.
-let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
+let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(pk: "pk_example", name: "name_example") // PatchedStaticDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminStaticPartialUpdate(id: id, patchedStaticDeviceRequest: patchedStaticDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -999,7 +1322,7 @@ Viewset for static authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Static Device.
-let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
+let staticDeviceRequest = StaticDeviceRequest(pk: "pk_example", name: "name_example") // StaticDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminStaticUpdate(id: id, staticDeviceRequest: staticDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1049,7 +1372,7 @@ Viewset for totp authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
+let tOTPDeviceRequest = TOTPDeviceRequest(pk: "pk_example", name: "name_example") // TOTPDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminTotpCreate(tOTPDeviceRequest: tOTPDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1205,7 +1528,7 @@ Viewset for totp authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP Device.
-let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
+let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(pk: "pk_example", name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminTotpPartialUpdate(id: id, patchedTOTPDeviceRequest: patchedTOTPDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1305,7 +1628,7 @@ Viewset for totp authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP Device.
-let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
+let tOTPDeviceRequest = TOTPDeviceRequest(pk: "pk_example", name: "name_example") // TOTPDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminTotpUpdate(id: id, tOTPDeviceRequest: tOTPDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1355,7 +1678,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
+let webAuthnDeviceRequest = WebAuthnDeviceRequest(pk: "pk_example", name: "name_example") // WebAuthnDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminWebauthnCreate(webAuthnDeviceRequest: webAuthnDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1511,7 +1834,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
-let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
+let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(pk: "pk_example", name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsAdminWebauthnPartialUpdate(id: id, patchedWebAuthnDeviceRequest: patchedWebAuthnDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1611,7 +1934,7 @@ Viewset for WebAuthn authenticator devices (for admins)
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
-let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
+let webAuthnDeviceRequest = WebAuthnDeviceRequest(pk: "pk_example", name: "name_example") // WebAuthnDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsAdminWebauthnUpdate(id: id, webAuthnDeviceRequest: webAuthnDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1813,7 +2136,7 @@ Viewset for Duo authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
-let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(name: "name_example") // PatchedDuoDeviceRequest |  (optional)
+let patchedDuoDeviceRequest = PatchedDuoDeviceRequest(pk: "pk_example", name: "name_example") // PatchedDuoDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsDuoPartialUpdate(id: id, patchedDuoDeviceRequest: patchedDuoDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1913,7 +2236,7 @@ Viewset for Duo authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Duo Device.
-let duoDeviceRequest = DuoDeviceRequest(name: "name_example") // DuoDeviceRequest | 
+let duoDeviceRequest = DuoDeviceRequest(pk: "pk_example", name: "name_example") // DuoDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsDuoUpdate(id: id, duoDeviceRequest: duoDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -1982,6 +2305,565 @@ AuthenticatorsAPI.authenticatorsDuoUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this Duo Device. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileCheckInCreate**
+```swift
+    open class func authenticatorsMobileCheckInCreate(uuid: UUID, mobileDeviceInfoRequest: MobileDeviceInfoRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Check in data about a device
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceInfoRequest = MobileDeviceInfoRequest(platform: PlatformEnum(), osVersion: "osVersion_example", model: "model_example", hostname: "hostname_example", appVersion: "appVersion_example", others: "TODO") // MobileDeviceInfoRequest | 
+
+AuthenticatorsAPI.authenticatorsMobileCheckInCreate(uuid: uuid, mobileDeviceInfoRequest: mobileDeviceInfoRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceInfoRequest** | [**MobileDeviceInfoRequest**](MobileDeviceInfoRequest.md) |  | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileDestroy**
+```swift
+    open class func authenticatorsMobileDestroy(uuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsMobileDestroy(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileEnrollmentCallbackCreate**
+```swift
+    open class func authenticatorsMobileEnrollmentCallbackCreate(uuid: UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest, completion: @escaping (_ data: MobileDeviceEnrollmentCallback?, _ error: Error?) -> Void)
+```
+
+
+
+Enrollment callback
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceEnrollmentRequest = MobileDeviceEnrollmentRequest(firebaseKey: "firebaseKey_example", deviceUid: "deviceUid_example", info: MobileDeviceInfoRequest(platform: PlatformEnum(), osVersion: "osVersion_example", model: "model_example", hostname: "hostname_example", appVersion: "appVersion_example", others: "TODO")) // MobileDeviceEnrollmentRequest | 
+
+AuthenticatorsAPI.authenticatorsMobileEnrollmentCallbackCreate(uuid: uuid, mobileDeviceEnrollmentRequest: mobileDeviceEnrollmentRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceEnrollmentRequest** | [**MobileDeviceEnrollmentRequest**](MobileDeviceEnrollmentRequest.md) |  | 
+
+### Return type
+
+[**MobileDeviceEnrollmentCallback**](MobileDeviceEnrollmentCallback.md)
+
+### Authorization
+
+[mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileEnrollmentStatusCreate**
+```swift
+    open class func authenticatorsMobileEnrollmentStatusCreate(uuid: UUID, completion: @escaping (_ data: MobileDeviceEnrollmentStatus?, _ error: Error?) -> Void)
+```
+
+
+
+Check device enrollment status
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsMobileEnrollmentStatusCreate(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+
+### Return type
+
+[**MobileDeviceEnrollmentStatus**](MobileDeviceEnrollmentStatus.md)
+
+### Authorization
+
+[mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileList**
+```swift
+    open class func authenticatorsMobileList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedMobileDeviceList?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+AuthenticatorsAPI.authenticatorsMobileList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedMobileDeviceList**](PaginatedMobileDeviceList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobilePartialUpdate**
+```swift
+    open class func authenticatorsMobilePartialUpdate(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let patchedMobileDeviceRequest = PatchedMobileDeviceRequest(pk: "pk_example", name: "name_example") // PatchedMobileDeviceRequest |  (optional)
+
+AuthenticatorsAPI.authenticatorsMobilePartialUpdate(uuid: uuid, patchedMobileDeviceRequest: patchedMobileDeviceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **patchedMobileDeviceRequest** | [**PatchedMobileDeviceRequest**](PatchedMobileDeviceRequest.md) |  | [optional] 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileReceiveResponseCreate**
+```swift
+    open class func authenticatorsMobileReceiveResponseCreate(uuid: UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Get response from notification on phone
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceResponseRequest = MobileDeviceResponseRequest(txId: 123, selectedItem: "selectedItem_example") // MobileDeviceResponseRequest | 
+
+AuthenticatorsAPI.authenticatorsMobileReceiveResponseCreate(uuid: uuid, mobileDeviceResponseRequest: mobileDeviceResponseRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceResponseRequest** | [**MobileDeviceResponseRequest**](MobileDeviceResponseRequest.md) |  | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileRetrieve**
+```swift
+    open class func authenticatorsMobileRetrieve(uuid: UUID, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsMobileRetrieve(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileSetNotificationKeyCreate**
+```swift
+    open class func authenticatorsMobileSetNotificationKeyCreate(uuid: UUID, mobileDeviceSetPushKeyRequest: MobileDeviceSetPushKeyRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Called by the phone whenever the firebase key changes and we need to update it
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceSetPushKeyRequest = MobileDeviceSetPushKeyRequest(firebaseKey: "firebaseKey_example") // MobileDeviceSetPushKeyRequest | 
+
+AuthenticatorsAPI.authenticatorsMobileSetNotificationKeyCreate(uuid: uuid, mobileDeviceSetPushKeyRequest: mobileDeviceSetPushKeyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceSetPushKeyRequest** | [**MobileDeviceSetPushKeyRequest**](MobileDeviceSetPushKeyRequest.md) |  | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileUpdate**
+```swift
+    open class func authenticatorsMobileUpdate(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest, completion: @escaping (_ data: MobileDevice?, _ error: Error?) -> Void)
+```
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+let mobileDeviceRequest = MobileDeviceRequest(pk: "pk_example", name: "name_example") // MobileDeviceRequest | 
+
+AuthenticatorsAPI.authenticatorsMobileUpdate(uuid: uuid, mobileDeviceRequest: mobileDeviceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md) |  | 
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **authenticatorsMobileUsedByList**
+```swift
+    open class func authenticatorsMobileUsedByList(uuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
+
+AuthenticatorsAPI.authenticatorsMobileUsedByList(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
 
 ### Return type
 
@@ -2119,7 +3001,7 @@ Viewset for sms authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
-let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(name: "name_example") // PatchedSMSDeviceRequest |  (optional)
+let patchedSMSDeviceRequest = PatchedSMSDeviceRequest(pk: "pk_example", name: "name_example") // PatchedSMSDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsSmsPartialUpdate(id: id, patchedSMSDeviceRequest: patchedSMSDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2219,7 +3101,7 @@ Viewset for sms authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SMS Device.
-let sMSDeviceRequest = SMSDeviceRequest(name: "name_example") // SMSDeviceRequest | 
+let sMSDeviceRequest = SMSDeviceRequest(pk: "pk_example", name: "name_example") // SMSDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsSmsUpdate(id: id, sMSDeviceRequest: sMSDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2425,7 +3307,7 @@ Viewset for static authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Static Device.
-let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(name: "name_example") // PatchedStaticDeviceRequest |  (optional)
+let patchedStaticDeviceRequest = PatchedStaticDeviceRequest(pk: "pk_example", name: "name_example") // PatchedStaticDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsStaticPartialUpdate(id: id, patchedStaticDeviceRequest: patchedStaticDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2525,7 +3407,7 @@ Viewset for static authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Static Device.
-let staticDeviceRequest = StaticDeviceRequest(name: "name_example") // StaticDeviceRequest | 
+let staticDeviceRequest = StaticDeviceRequest(pk: "pk_example", name: "name_example") // StaticDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsStaticUpdate(id: id, staticDeviceRequest: staticDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2731,7 +3613,7 @@ Viewset for totp authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP Device.
-let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
+let patchedTOTPDeviceRequest = PatchedTOTPDeviceRequest(pk: "pk_example", name: "name_example") // PatchedTOTPDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsTotpPartialUpdate(id: id, patchedTOTPDeviceRequest: patchedTOTPDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2831,7 +3713,7 @@ Viewset for totp authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this TOTP Device.
-let tOTPDeviceRequest = TOTPDeviceRequest(name: "name_example") // TOTPDeviceRequest | 
+let tOTPDeviceRequest = TOTPDeviceRequest(pk: "pk_example", name: "name_example") // TOTPDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsTotpUpdate(id: id, tOTPDeviceRequest: tOTPDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -3037,7 +3919,7 @@ Viewset for WebAuthn authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
-let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
+let patchedWebAuthnDeviceRequest = PatchedWebAuthnDeviceRequest(pk: "pk_example", name: "name_example") // PatchedWebAuthnDeviceRequest |  (optional)
 
 AuthenticatorsAPI.authenticatorsWebauthnPartialUpdate(id: id, patchedWebAuthnDeviceRequest: patchedWebAuthnDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -3137,7 +4019,7 @@ Viewset for WebAuthn authenticator devices
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this WebAuthn Device.
-let webAuthnDeviceRequest = WebAuthnDeviceRequest(name: "name_example") // WebAuthnDeviceRequest | 
+let webAuthnDeviceRequest = WebAuthnDeviceRequest(pk: "pk_example", name: "name_example") // WebAuthnDeviceRequest | 
 
 AuthenticatorsAPI.authenticatorsWebauthnUpdate(id: id, webAuthnDeviceRequest: webAuthnDeviceRequest) { (response, error) in
     guard error == nil else {

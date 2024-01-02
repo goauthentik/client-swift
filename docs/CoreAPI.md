@@ -2767,7 +2767,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[authentik](../README.md#authentik)
+[authentik](../README.md#authentik), [mobile_device_token](../README.md#mobile_device_token)
 
 ### HTTP request headers
 

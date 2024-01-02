@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **activationBarcode** | **String** |  | 
 **activationCode** | **String** |  | 
 **stageUuid** | **String** |  | 
+**payload** | [**AuthenticatorMobilePayloadChallenge**](AuthenticatorMobilePayloadChallenge.md) |  | 
 **phoneNumberRequired** | **Bool** |  | [optional] [default to true]
 **codes** | **[String]** |  | 
 **configUrl** | **String** |  | 
