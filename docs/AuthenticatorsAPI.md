@@ -56,7 +56,6 @@ Method | HTTP request | Description
 [**authenticatorsMobilePartialUpdate**](AuthenticatorsAPI.md#authenticatorsmobilepartialupdate) | **PATCH** /authenticators/mobile/{uuid}/ | 
 [**authenticatorsMobileReceiveResponseCreate**](AuthenticatorsAPI.md#authenticatorsmobilereceiveresponsecreate) | **POST** /authenticators/mobile/{uuid}/receive_response/ | 
 [**authenticatorsMobileRetrieve**](AuthenticatorsAPI.md#authenticatorsmobileretrieve) | **GET** /authenticators/mobile/{uuid}/ | 
-[**authenticatorsMobileSetNotificationKeyCreate**](AuthenticatorsAPI.md#authenticatorsmobilesetnotificationkeycreate) | **POST** /authenticators/mobile/{uuid}/set_notification_key/ | 
 [**authenticatorsMobileUpdate**](AuthenticatorsAPI.md#authenticatorsmobileupdate) | **PUT** /authenticators/mobile/{uuid}/ | 
 [**authenticatorsMobileUsedByList**](AuthenticatorsAPI.md#authenticatorsmobileusedbylist) | **GET** /authenticators/mobile/{uuid}/used_by/ | 
 [**authenticatorsSmsDestroy**](AuthenticatorsAPI.md#authenticatorssmsdestroy) | **DELETE** /authenticators/sms/{id}/ | 
@@ -2323,7 +2322,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsMobileCheckInCreate**
 ```swift
-    open class func authenticatorsMobileCheckInCreate(uuid: UUID, mobileDeviceInfoRequest: MobileDeviceInfoRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func authenticatorsMobileCheckInCreate(uuid: UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -2336,9 +2335,9 @@ Check in data about a device
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
-let mobileDeviceInfoRequest = MobileDeviceInfoRequest(platform: PlatformEnum(), osVersion: "osVersion_example", model: "model_example", hostname: "hostname_example", appVersion: "appVersion_example", others: "TODO") // MobileDeviceInfoRequest | 
+let mobileDeviceCheckInRequest = MobileDeviceCheckInRequest(firebaseKey: "firebaseKey_example", info: MobileDeviceInfoRequest(platform: PlatformEnum(), osVersion: "osVersion_example", model: "model_example", hostname: "hostname_example", appVersion: "appVersion_example", others: "TODO")) // MobileDeviceCheckInRequest | 
 
-AuthenticatorsAPI.authenticatorsMobileCheckInCreate(uuid: uuid, mobileDeviceInfoRequest: mobileDeviceInfoRequest) { (response, error) in
+AuthenticatorsAPI.authenticatorsMobileCheckInCreate(uuid: uuid, mobileDeviceCheckInRequest: mobileDeviceCheckInRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2355,7 +2354,7 @@ AuthenticatorsAPI.authenticatorsMobileCheckInCreate(uuid: uuid, mobileDeviceInfo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
- **mobileDeviceInfoRequest** | [**MobileDeviceInfoRequest**](MobileDeviceInfoRequest.md) |  | 
+ **mobileDeviceCheckInRequest** | [**MobileDeviceCheckInRequest**](MobileDeviceCheckInRequest.md) |  | 
 
 ### Return type
 
@@ -2725,57 +2724,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **authenticatorsMobileSetNotificationKeyCreate**
-```swift
-    open class func authenticatorsMobileSetNotificationKeyCreate(uuid: UUID, mobileDeviceSetPushKeyRequest: MobileDeviceSetPushKeyRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Called by the phone whenever the firebase key changes and we need to update it
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let uuid = 987 // UUID | A UUID string identifying this Mobile Device.
-let mobileDeviceSetPushKeyRequest = MobileDeviceSetPushKeyRequest(firebaseKey: "firebaseKey_example") // MobileDeviceSetPushKeyRequest | 
-
-AuthenticatorsAPI.authenticatorsMobileSetNotificationKeyCreate(uuid: uuid, mobileDeviceSetPushKeyRequest: mobileDeviceSetPushKeyRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this Mobile Device. | 
- **mobileDeviceSetPushKeyRequest** | [**MobileDeviceSetPushKeyRequest**](MobileDeviceSetPushKeyRequest.md) |  | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[mobile_device_token](../README.md#mobile_device_token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

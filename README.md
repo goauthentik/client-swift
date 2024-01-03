@@ -85,7 +85,6 @@ Class | Method | HTTP request | Description
 *AuthenticatorsAPI* | [**authenticatorsMobilePartialUpdate**](docs/AuthenticatorsAPI.md#authenticatorsmobilepartialupdate) | **PATCH** /authenticators/mobile/{uuid}/ | 
 *AuthenticatorsAPI* | [**authenticatorsMobileReceiveResponseCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobilereceiveresponsecreate) | **POST** /authenticators/mobile/{uuid}/receive_response/ | 
 *AuthenticatorsAPI* | [**authenticatorsMobileRetrieve**](docs/AuthenticatorsAPI.md#authenticatorsmobileretrieve) | **GET** /authenticators/mobile/{uuid}/ | 
-*AuthenticatorsAPI* | [**authenticatorsMobileSetNotificationKeyCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobilesetnotificationkeycreate) | **POST** /authenticators/mobile/{uuid}/set_notification_key/ | 
 *AuthenticatorsAPI* | [**authenticatorsMobileUpdate**](docs/AuthenticatorsAPI.md#authenticatorsmobileupdate) | **PUT** /authenticators/mobile/{uuid}/ | 
 *AuthenticatorsAPI* | [**authenticatorsMobileUsedByList**](docs/AuthenticatorsAPI.md#authenticatorsmobileusedbylist) | **GET** /authenticators/mobile/{uuid}/used_by/ | 
 *AuthenticatorsAPI* | [**authenticatorsSmsDestroy**](docs/AuthenticatorsAPI.md#authenticatorssmsdestroy) | **DELETE** /authenticators/sms/{id}/ | 
@@ -918,6 +917,7 @@ Class | Method | HTTP request | Description
  - [LoginSource](docs/LoginSource.md)
  - [Metadata](docs/Metadata.md)
  - [MobileDevice](docs/MobileDevice.md)
+ - [MobileDeviceCheckInRequest](docs/MobileDeviceCheckInRequest.md)
  - [MobileDeviceEnrollmentCallback](docs/MobileDeviceEnrollmentCallback.md)
  - [MobileDeviceEnrollmentRequest](docs/MobileDeviceEnrollmentRequest.md)
  - [MobileDeviceEnrollmentStatus](docs/MobileDeviceEnrollmentStatus.md)
@@ -926,7 +926,6 @@ Class | Method | HTTP request | Description
  - [MobileDeviceInfoRequest](docs/MobileDeviceInfoRequest.md)
  - [MobileDeviceRequest](docs/MobileDeviceRequest.md)
  - [MobileDeviceResponseRequest](docs/MobileDeviceResponseRequest.md)
- - [MobileDeviceSetPushKeyRequest](docs/MobileDeviceSetPushKeyRequest.md)
  - [ModelEnum](docs/ModelEnum.md)
  - [ModelRequest](docs/ModelRequest.md)
  - [NameIdPolicyEnum](docs/NameIdPolicyEnum.md)

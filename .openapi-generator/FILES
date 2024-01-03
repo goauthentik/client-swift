@@ -209,6 +209,7 @@ authentikClient/Classes/OpenAPIs/Models/LoginMetrics.swift
 authentikClient/Classes/OpenAPIs/Models/LoginSource.swift
 authentikClient/Classes/OpenAPIs/Models/Metadata.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDevice.swift
+authentikClient/Classes/OpenAPIs/Models/MobileDeviceCheckInRequest.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceEnrollmentCallback.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceEnrollmentRequest.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceEnrollmentStatus.swift
@@ -217,7 +218,6 @@ authentikClient/Classes/OpenAPIs/Models/MobileDeviceInfo.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceInfoRequest.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceRequest.swift
 authentikClient/Classes/OpenAPIs/Models/MobileDeviceResponseRequest.swift
-authentikClient/Classes/OpenAPIs/Models/MobileDeviceSetPushKeyRequest.swift
 authentikClient/Classes/OpenAPIs/Models/ModelEnum.swift
 authentikClient/Classes/OpenAPIs/Models/ModelRequest.swift
 authentikClient/Classes/OpenAPIs/Models/NameIdPolicyEnum.swift
@@ -764,6 +764,7 @@ docs/LoginSource.md
 docs/ManagedAPI.md
 docs/Metadata.md
 docs/MobileDevice.md
+docs/MobileDeviceCheckInRequest.md
 docs/MobileDeviceEnrollmentCallback.md
 docs/MobileDeviceEnrollmentRequest.md
 docs/MobileDeviceEnrollmentStatus.md
@@ -772,7 +773,6 @@ docs/MobileDeviceInfo.md
 docs/MobileDeviceInfoRequest.md
 docs/MobileDeviceRequest.md
 docs/MobileDeviceResponseRequest.md
-docs/MobileDeviceSetPushKeyRequest.md
 docs/ModelEnum.md
 docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
