@@ -363,6 +363,307 @@ open class AuthenticatorsAPI {
 
     /**
 
+     - parameter mobileDeviceRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobileCreate(mobileDeviceRequest: MobileDeviceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobileCreateWithRequestBuilder(mobileDeviceRequest: mobileDeviceRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /authenticators/admin/mobile/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter mobileDeviceRequest: (body)  
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsAdminMobileCreateWithRequestBuilder(mobileDeviceRequest: MobileDeviceRequest) -> RequestBuilder<MobileDevice> {
+        let localVariablePath = "/authenticators/admin/mobile/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobileDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobileDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /authenticators/admin/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func authenticatorsAdminMobileDestroyWithRequestBuilder(uuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/authenticators/admin/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobileList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedMobileDeviceList?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobileListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /authenticators/admin/mobile/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - returns: RequestBuilder<PaginatedMobileDeviceList> 
+     */
+    open class func authenticatorsAdminMobileListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedMobileDeviceList> {
+        let localVariablePath = "/authenticators/admin/mobile/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedMobileDeviceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter patchedMobileDeviceRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobilePartialUpdate(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobilePartialUpdateWithRequestBuilder(uuid: uuid, patchedMobileDeviceRequest: patchedMobileDeviceRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /authenticators/admin/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter patchedMobileDeviceRequest: (body)  (optional)
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsAdminMobilePartialUpdateWithRequestBuilder(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/admin/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedMobileDeviceRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobileRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobileRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /authenticators/admin/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsAdminMobileRetrieveWithRequestBuilder(uuid: UUID) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/admin/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsAdminMobileUpdate(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsAdminMobileUpdateWithRequestBuilder(uuid: uuid, mobileDeviceRequest: mobileDeviceRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /authenticators/admin/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices (for admins)
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceRequest: (body)  
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsAdminMobileUpdateWithRequestBuilder(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/admin/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter sMSDeviceRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1896,6 +2197,508 @@ open class AuthenticatorsAPI {
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceCheckInRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileCheckInCreate(uuid: UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileCheckInCreateWithRequestBuilder(uuid: uuid, mobileDeviceCheckInRequest: mobileDeviceCheckInRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /authenticators/mobile/{uuid}/check_in/
+     - Check in data about a device
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceCheckInRequest: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func authenticatorsMobileCheckInCreateWithRequestBuilder(uuid: UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest) -> RequestBuilder<Void> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/check_in/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceCheckInRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileDestroy(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileDestroyWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /authenticators/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func authenticatorsMobileDestroyWithRequestBuilder(uuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceEnrollmentRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileEnrollmentCallbackCreate(uuid: UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDeviceEnrollmentCallback?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileEnrollmentCallbackCreateWithRequestBuilder(uuid: uuid, mobileDeviceEnrollmentRequest: mobileDeviceEnrollmentRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /authenticators/mobile/{uuid}/enrollment_callback/
+     - Enrollment callback
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceEnrollmentRequest: (body)  
+     - returns: RequestBuilder<MobileDeviceEnrollmentCallback> 
+     */
+    open class func authenticatorsMobileEnrollmentCallbackCreateWithRequestBuilder(uuid: UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest) -> RequestBuilder<MobileDeviceEnrollmentCallback> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/enrollment_callback/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceEnrollmentRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDeviceEnrollmentCallback>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileEnrollmentStatusCreate(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDeviceEnrollmentStatus?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileEnrollmentStatusCreateWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /authenticators/mobile/{uuid}/enrollment_status/
+     - Check device enrollment status
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<MobileDeviceEnrollmentStatus> 
+     */
+    open class func authenticatorsMobileEnrollmentStatusCreateWithRequestBuilder(uuid: UUID) -> RequestBuilder<MobileDeviceEnrollmentStatus> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/enrollment_status/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDeviceEnrollmentStatus>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedMobileDeviceList?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /authenticators/mobile/
+     - Viewset for Mobile authenticator devices
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - returns: RequestBuilder<PaginatedMobileDeviceList> 
+     */
+    open class func authenticatorsMobileListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedMobileDeviceList> {
+        let localVariablePath = "/authenticators/mobile/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedMobileDeviceList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter patchedMobileDeviceRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobilePartialUpdate(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobilePartialUpdateWithRequestBuilder(uuid: uuid, patchedMobileDeviceRequest: patchedMobileDeviceRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /authenticators/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter patchedMobileDeviceRequest: (body)  (optional)
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsMobilePartialUpdateWithRequestBuilder(uuid: UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = nil) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedMobileDeviceRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceResponseRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileReceiveResponseCreate(uuid: UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileReceiveResponseCreateWithRequestBuilder(uuid: uuid, mobileDeviceResponseRequest: mobileDeviceResponseRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /authenticators/mobile/{uuid}/receive_response/
+     - Get response from notification on phone
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceResponseRequest: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func authenticatorsMobileReceiveResponseCreateWithRequestBuilder(uuid: UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest) -> RequestBuilder<Void> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/receive_response/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceResponseRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /authenticators/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsMobileRetrieveWithRequestBuilder(uuid: UUID) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileUpdate(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: MobileDevice?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileUpdateWithRequestBuilder(uuid: uuid, mobileDeviceRequest: mobileDeviceRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /authenticators/mobile/{uuid}/
+     - Viewset for Mobile authenticator devices
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter mobileDeviceRequest: (body)  
+     - returns: RequestBuilder<MobileDevice> 
+     */
+    open class func authenticatorsMobileUpdateWithRequestBuilder(uuid: UUID, mobileDeviceRequest: MobileDeviceRequest) -> RequestBuilder<MobileDevice> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mobileDeviceRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MobileDevice>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func authenticatorsMobileUsedByList(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+        return authenticatorsMobileUsedByListWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /authenticators/mobile/{uuid}/used_by/
+     - Get a list of all objects that use this object
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Mobile Device. 
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func authenticatorsMobileUsedByListWithRequestBuilder(uuid: UUID) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/authenticators/mobile/{uuid}/used_by/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 

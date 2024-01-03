@@ -14,6 +14,7 @@ public enum ChallengeTypes: Codable, JSONEncodable, Hashable {
     case typeAccessDeniedChallenge(AccessDeniedChallenge)
     case typeAppleLoginChallenge(AppleLoginChallenge)
     case typeAuthenticatorDuoChallenge(AuthenticatorDuoChallenge)
+    case typeAuthenticatorMobileChallenge(AuthenticatorMobileChallenge)
     case typeAuthenticatorSMSChallenge(AuthenticatorSMSChallenge)
     case typeAuthenticatorStaticChallenge(AuthenticatorStaticChallenge)
     case typeAuthenticatorTOTPChallenge(AuthenticatorTOTPChallenge)
@@ -43,6 +44,8 @@ public enum ChallengeTypes: Codable, JSONEncodable, Hashable {
         case .typeAppleLoginChallenge(let value):
             try container.encode(value)
         case .typeAuthenticatorDuoChallenge(let value):
+            try container.encode(value)
+        case .typeAuthenticatorMobileChallenge(let value):
             try container.encode(value)
         case .typeAuthenticatorSMSChallenge(let value):
             try container.encode(value)
@@ -95,6 +98,8 @@ public enum ChallengeTypes: Codable, JSONEncodable, Hashable {
             self = .typeAppleLoginChallenge(value)
         } else if let value = try? container.decode(AuthenticatorDuoChallenge.self) {
             self = .typeAuthenticatorDuoChallenge(value)
+        } else if let value = try? container.decode(AuthenticatorMobileChallenge.self) {
+            self = .typeAuthenticatorMobileChallenge(value)
         } else if let value = try? container.decode(AuthenticatorSMSChallenge.self) {
             self = .typeAuthenticatorSMSChallenge(value)
         } else if let value = try? container.decode(AuthenticatorStaticChallenge.self) {

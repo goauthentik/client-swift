@@ -20,6 +20,13 @@ Method | HTTP request | Description
 [**stagesAuthenticatorDuoRetrieve**](StagesAPI.md#stagesauthenticatorduoretrieve) | **GET** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUpdate**](StagesAPI.md#stagesauthenticatorduoupdate) | **PUT** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUsedByList**](StagesAPI.md#stagesauthenticatorduousedbylist) | **GET** /stages/authenticator/duo/{stage_uuid}/used_by/ | 
+[**stagesAuthenticatorMobileCreate**](StagesAPI.md#stagesauthenticatormobilecreate) | **POST** /stages/authenticator/mobile/ | 
+[**stagesAuthenticatorMobileDestroy**](StagesAPI.md#stagesauthenticatormobiledestroy) | **DELETE** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileList**](StagesAPI.md#stagesauthenticatormobilelist) | **GET** /stages/authenticator/mobile/ | 
+[**stagesAuthenticatorMobilePartialUpdate**](StagesAPI.md#stagesauthenticatormobilepartialupdate) | **PATCH** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileRetrieve**](StagesAPI.md#stagesauthenticatormobileretrieve) | **GET** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileUpdate**](StagesAPI.md#stagesauthenticatormobileupdate) | **PUT** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileUsedByList**](StagesAPI.md#stagesauthenticatormobileusedbylist) | **GET** /stages/authenticator/mobile/{stage_uuid}/used_by/ | 
 [**stagesAuthenticatorSmsCreate**](StagesAPI.md#stagesauthenticatorsmscreate) | **POST** /stages/authenticator/sms/ | 
 [**stagesAuthenticatorSmsDestroy**](StagesAPI.md#stagesauthenticatorsmsdestroy) | **DELETE** /stages/authenticator/sms/{stage_uuid}/ | 
 [**stagesAuthenticatorSmsList**](StagesAPI.md#stagesauthenticatorsmslist) | **GET** /stages/authenticator/sms/ | 
@@ -952,6 +959,363 @@ StagesAPI.stagesAuthenticatorDuoUsedByList(stageUuid: stageUuid) { (response, er
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stageUuid** | **UUID** | A UUID string identifying this Duo Authenticator Setup Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileCreate**
+```swift
+    open class func stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let authenticatorMobileStageRequest = AuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // AuthenticatorMobileStageRequest | 
+
+StagesAPI.stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: authenticatorMobileStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md) |  | 
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileDestroy**
+```swift
+    open class func stagesAuthenticatorMobileDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+
+StagesAPI.stagesAuthenticatorMobileDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileList**
+```swift
+    open class func stagesAuthenticatorMobileList(configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatorMobileStageList?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let configureFlow = 987 // UUID |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+StagesAPI.stagesAuthenticatorMobileList(configureFlow: configureFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **configureFlow** | **UUID** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedAuthenticatorMobileStageList**](PaginatedAuthenticatorMobileStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobilePartialUpdate**
+```swift
+    open class func stagesAuthenticatorMobilePartialUpdate(stageUuid: UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest? = nil, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+let patchedAuthenticatorMobileStageRequest = PatchedAuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // PatchedAuthenticatorMobileStageRequest |  (optional)
+
+StagesAPI.stagesAuthenticatorMobilePartialUpdate(stageUuid: stageUuid, patchedAuthenticatorMobileStageRequest: patchedAuthenticatorMobileStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+ **patchedAuthenticatorMobileStageRequest** | [**PatchedAuthenticatorMobileStageRequest**](PatchedAuthenticatorMobileStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileRetrieve**
+```swift
+    open class func stagesAuthenticatorMobileRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+
+StagesAPI.stagesAuthenticatorMobileRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileUpdate**
+```swift
+    open class func stagesAuthenticatorMobileUpdate(stageUuid: UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+let authenticatorMobileStageRequest = AuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // AuthenticatorMobileStageRequest | 
+
+StagesAPI.stagesAuthenticatorMobileUpdate(stageUuid: stageUuid, authenticatorMobileStageRequest: authenticatorMobileStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+ **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md) |  | 
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorMobileUsedByList**
+```swift
+    open class func stagesAuthenticatorMobileUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+
+StagesAPI.stagesAuthenticatorMobileUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
 
 ### Return type
 

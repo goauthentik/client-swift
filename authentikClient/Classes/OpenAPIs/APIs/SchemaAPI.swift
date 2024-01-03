@@ -116,6 +116,7 @@ open class SchemaAPI {
         case tr = "tr"
         case tt = "tt"
         case udm = "udm"
+        case ug = "ug"
         case uk = "uk"
         case ur = "ur"
         case uz = "uz"

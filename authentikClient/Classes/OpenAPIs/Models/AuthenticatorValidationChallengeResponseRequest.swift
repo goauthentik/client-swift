@@ -19,14 +19,16 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable, JSONEnco
     public var code: String?
     public var webauthn: [String: AnyCodable]?
     public var duo: Int?
+    public var mobile: String?
 
-    public init(component: String? = "ak-stage-authenticator-validate", selectedChallenge: DeviceChallengeRequest? = nil, selectedStage: String? = nil, code: String? = nil, webauthn: [String: AnyCodable]? = nil, duo: Int? = nil) {
+    public init(component: String? = "ak-stage-authenticator-validate", selectedChallenge: DeviceChallengeRequest? = nil, selectedStage: String? = nil, code: String? = nil, webauthn: [String: AnyCodable]? = nil, duo: Int? = nil, mobile: String? = nil) {
         self.component = component
         self.selectedChallenge = selectedChallenge
         self.selectedStage = selectedStage
         self.code = code
         self.webauthn = webauthn
         self.duo = duo
+        self.mobile = mobile
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -36,6 +38,7 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable, JSONEnco
         case code
         case webauthn
         case duo
+        case mobile
     }
 
     // Encodable protocol methods
@@ -48,6 +51,7 @@ public struct AuthenticatorValidationChallengeResponseRequest: Codable, JSONEnco
         try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(webauthn, forKey: .webauthn)
         try container.encodeIfPresent(duo, forKey: .duo)
+        try container.encodeIfPresent(mobile, forKey: .mobile)
     }
 }
 

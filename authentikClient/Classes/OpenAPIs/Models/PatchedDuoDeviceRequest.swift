@@ -13,14 +13,16 @@ import AnyCodable
 /** Serializer for Duo authenticator devices */
 public struct PatchedDuoDeviceRequest: Codable, JSONEncodable, Hashable {
 
-    /** The human-readable name of this device. */
+    public var pk: String?
     public var name: String?
 
-    public init(name: String? = nil) {
+    public init(pk: String? = nil, name: String? = nil) {
+        self.pk = pk
         self.name = name
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pk
         case name
     }
 
@@ -28,6 +30,7 @@ public struct PatchedDuoDeviceRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pk, forKey: .pk)
         try container.encodeIfPresent(name, forKey: .name)
     }
 }
