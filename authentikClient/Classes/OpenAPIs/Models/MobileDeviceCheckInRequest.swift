@@ -13,10 +13,10 @@ import AnyCodable
 /** Check info into authentik */
 public struct MobileDeviceCheckInRequest: Codable, JSONEncodable, Hashable {
 
-    public var firebaseKey: String
+    public var firebaseKey: String?
     public var info: MobileDeviceInfoRequest
 
-    public init(firebaseKey: String, info: MobileDeviceInfoRequest) {
+    public init(firebaseKey: String? = nil, info: MobileDeviceInfoRequest) {
         self.firebaseKey = firebaseKey
         self.info = info
     }
@@ -30,7 +30,7 @@ public struct MobileDeviceCheckInRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(firebaseKey, forKey: .firebaseKey)
+        try container.encodeIfPresent(firebaseKey, forKey: .firebaseKey)
         try container.encode(info, forKey: .info)
     }
 }

@@ -35333,7 +35333,6 @@ components:
         info:
           $ref: '#/components/schemas/MobileDeviceInfoRequest'
       required:
-      - firebase_key
       - info
     MobileDeviceEnrollmentCallback:
       type: object
@@ -35356,7 +35355,6 @@ components:
           $ref: '#/components/schemas/MobileDeviceInfoRequest'
       required:
       - device_uid
-      - firebase_key
       - info
     MobileDeviceEnrollmentStatus:
       type: object

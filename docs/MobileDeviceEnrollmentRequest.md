@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**firebaseKey** | **String** |  | 
+**firebaseKey** | **String** |  | [optional] 
 **deviceUid** | **String** |  | 
 **info** | [**MobileDeviceInfoRequest**](MobileDeviceInfoRequest.md) |  | 
 

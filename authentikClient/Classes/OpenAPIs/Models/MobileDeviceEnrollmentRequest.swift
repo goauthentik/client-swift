@@ -13,11 +13,11 @@ import AnyCodable
 /** Enrollment request, send the device&#39;s unique identifier */
 public struct MobileDeviceEnrollmentRequest: Codable, JSONEncodable, Hashable {
 
-    public var firebaseKey: String
+    public var firebaseKey: String?
     public var deviceUid: String
     public var info: MobileDeviceInfoRequest
 
-    public init(firebaseKey: String, deviceUid: String, info: MobileDeviceInfoRequest) {
+    public init(firebaseKey: String? = nil, deviceUid: String, info: MobileDeviceInfoRequest) {
         self.firebaseKey = firebaseKey
         self.deviceUid = deviceUid
         self.info = info
@@ -33,7 +33,7 @@ public struct MobileDeviceEnrollmentRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(firebaseKey, forKey: .firebaseKey)
+        try container.encodeIfPresent(firebaseKey, forKey: .firebaseKey)
         try container.encode(deviceUid, forKey: .deviceUid)
         try container.encode(info, forKey: .info)
     }
