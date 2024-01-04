@@ -17,12 +17,14 @@ public struct TypeCreate: Codable, JSONEncodable, Hashable {
     public var description: String
     public var component: String
     public var modelName: String
+    public var requiresEnterprise: Bool? = false
 
-    public init(name: String, description: String, component: String, modelName: String) {
+    public init(name: String, description: String, component: String, modelName: String, requiresEnterprise: Bool? = false) {
         self.name = name
         self.description = description
         self.component = component
         self.modelName = modelName
+        self.requiresEnterprise = requiresEnterprise
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -30,6 +32,7 @@ public struct TypeCreate: Codable, JSONEncodable, Hashable {
         case description
         case component
         case modelName = "model_name"
+        case requiresEnterprise = "requires_enterprise"
     }
 
     // Encodable protocol methods
@@ -40,6 +43,7 @@ public struct TypeCreate: Codable, JSONEncodable, Hashable {
         try container.encode(description, forKey: .description)
         try container.encode(component, forKey: .component)
         try container.encode(modelName, forKey: .modelName)
+        try container.encodeIfPresent(requiresEnterprise, forKey: .requiresEnterprise)
     }
 }
 
