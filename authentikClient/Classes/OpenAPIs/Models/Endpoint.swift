@@ -24,8 +24,9 @@ public struct Endpoint: Codable, JSONEncodable, Hashable {
     public var authMode: AuthModeEnum
     /** Build actual launch URL (the provider itself does not have one, just individual endpoints) */
     public var launchUrl: String?
+    public var maximumConnections: Int?
 
-    public init(pk: UUID, name: String, provider: Int, providerObj: RACProvider, _protocol: ProtocolEnum, host: String, settings: AnyCodable? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum, launchUrl: String?) {
+    public init(pk: UUID, name: String, provider: Int, providerObj: RACProvider, _protocol: ProtocolEnum, host: String, settings: AnyCodable? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum, launchUrl: String?, maximumConnections: Int? = nil) {
         self.pk = pk
         self.name = name
         self.provider = provider
@@ -36,6 +37,7 @@ public struct Endpoint: Codable, JSONEncodable, Hashable {
         self.propertyMappings = propertyMappings
         self.authMode = authMode
         self.launchUrl = launchUrl
+        self.maximumConnections = maximumConnections
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,6 +51,7 @@ public struct Endpoint: Codable, JSONEncodable, Hashable {
         case propertyMappings = "property_mappings"
         case authMode = "auth_mode"
         case launchUrl = "launch_url"
+        case maximumConnections = "maximum_connections"
     }
 
     // Encodable protocol methods
@@ -65,6 +68,7 @@ public struct Endpoint: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(propertyMappings, forKey: .propertyMappings)
         try container.encode(authMode, forKey: .authMode)
         try container.encode(launchUrl, forKey: .launchUrl)
+        try container.encodeIfPresent(maximumConnections, forKey: .maximumConnections)
     }
 }
 

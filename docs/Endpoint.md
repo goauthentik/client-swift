@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **propertyMappings** | **[UUID]** |  | [optional] 
 **authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  | 
 **launchUrl** | **String** | Build actual launch URL (the provider itself does not have one, just individual endpoints) | [readonly] 
+**maximumConnections** | **Int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
