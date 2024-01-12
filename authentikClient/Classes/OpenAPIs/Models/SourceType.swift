@@ -14,7 +14,7 @@ import AnyCodable
 public struct SourceType: Codable, JSONEncodable, Hashable {
 
     public var name: String
-    public var slug: String
+    public var verboseName: String
     public var urlsCustomizable: Bool
     public var requestTokenUrl: String?
     public var authorizationUrl: String?
@@ -23,9 +23,9 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
     public var oidcWellKnownUrl: String?
     public var oidcJwksUrl: String?
 
-    public init(name: String, slug: String, urlsCustomizable: Bool, requestTokenUrl: String?, authorizationUrl: String?, accessTokenUrl: String?, profileUrl: String?, oidcWellKnownUrl: String?, oidcJwksUrl: String?) {
+    public init(name: String, verboseName: String, urlsCustomizable: Bool, requestTokenUrl: String?, authorizationUrl: String?, accessTokenUrl: String?, profileUrl: String?, oidcWellKnownUrl: String?, oidcJwksUrl: String?) {
         self.name = name
-        self.slug = slug
+        self.verboseName = verboseName
         self.urlsCustomizable = urlsCustomizable
         self.requestTokenUrl = requestTokenUrl
         self.authorizationUrl = authorizationUrl
@@ -37,7 +37,7 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case slug
+        case verboseName = "verbose_name"
         case urlsCustomizable = "urls_customizable"
         case requestTokenUrl = "request_token_url"
         case authorizationUrl = "authorization_url"
@@ -52,7 +52,7 @@ public struct SourceType: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encode(slug, forKey: .slug)
+        try container.encode(verboseName, forKey: .verboseName)
         try container.encode(urlsCustomizable, forKey: .urlsCustomizable)
         try container.encode(requestTokenUrl, forKey: .requestTokenUrl)
         try container.encode(authorizationUrl, forKey: .authorizationUrl)
