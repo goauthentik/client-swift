@@ -1129,7 +1129,7 @@ open class PropertymappingsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func propertymappingsRacList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func propertymappingsRacList(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)) -> RequestTask {
         return propertymappingsRacListWithRequestBuilder(managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -1154,7 +1154,7 @@ open class PropertymappingsAPI {
      - parameter search: (query) A search term. (optional)
      - returns: RequestBuilder<PaginatedRACPropertyMappingList> 
      */
-    open class func propertymappingsRacListWithRequestBuilder(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedRACPropertyMappingList> {
+    open class func propertymappingsRacListWithRequestBuilder(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedRACPropertyMappingList> {
         let localVariablePath = "/propertymappings/rac/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil

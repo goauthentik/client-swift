@@ -1174,7 +1174,7 @@ Void (empty response body)
 
 # **propertymappingsRacList**
 ```swift
-    open class func propertymappingsRacList(managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)
+    open class func propertymappingsRacList(managed: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRACPropertyMappingList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1186,7 +1186,7 @@ RACPropertyMapping Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let managed = "managed_example" // String |  (optional)
+let managed = ["inner_example"] // [String] |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -1209,7 +1209,7 @@ PropertymappingsAPI.propertymappingsRacList(managed: managed, name: name, orderi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **managed** | **String** |  | [optional] 
+ **managed** | [**[String]**](String.md) |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
