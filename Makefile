@@ -27,7 +27,7 @@ diff:
 		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-diff:2.1.0-beta.6 \
 		--markdown /local/diff.xccheckout \
-		/local/schema-old.yml /local/schema.yml
+		/local/schema-old.yml /local/schema.yml || echo > diff.xccheckout
 	rm -f schema-old.yml
 
 fetch:
