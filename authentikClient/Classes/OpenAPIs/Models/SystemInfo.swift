@@ -20,20 +20,23 @@ public struct SystemInfo: Codable, JSONEncodable, Hashable {
     /** Get HTTP Secure flag */
     public var httpIsSecure: Bool
     public var runtime: SystemInfoRuntime
-    /** Currently active tenant */
-    public var tenant: String
+    /** Currently active brand */
+    public var brand: String
     /** Current server time */
     public var serverTime: Date
+    /** Whether the embedded outpost is disabled */
+    public var embeddedOutpostDisabled: Bool
     /** Get the FQDN configured on the embedded outpost */
     public var embeddedOutpostHost: String
 
-    public init(httpHeaders: [String: String], httpHost: String, httpIsSecure: Bool, runtime: SystemInfoRuntime, tenant: String, serverTime: Date, embeddedOutpostHost: String) {
+    public init(httpHeaders: [String: String], httpHost: String, httpIsSecure: Bool, runtime: SystemInfoRuntime, brand: String, serverTime: Date, embeddedOutpostDisabled: Bool, embeddedOutpostHost: String) {
         self.httpHeaders = httpHeaders
         self.httpHost = httpHost
         self.httpIsSecure = httpIsSecure
         self.runtime = runtime
-        self.tenant = tenant
+        self.brand = brand
         self.serverTime = serverTime
+        self.embeddedOutpostDisabled = embeddedOutpostDisabled
         self.embeddedOutpostHost = embeddedOutpostHost
     }
 
@@ -42,8 +45,9 @@ public struct SystemInfo: Codable, JSONEncodable, Hashable {
         case httpHost = "http_host"
         case httpIsSecure = "http_is_secure"
         case runtime
-        case tenant
+        case brand
         case serverTime = "server_time"
+        case embeddedOutpostDisabled = "embedded_outpost_disabled"
         case embeddedOutpostHost = "embedded_outpost_host"
     }
 
@@ -55,8 +59,9 @@ public struct SystemInfo: Codable, JSONEncodable, Hashable {
         try container.encode(httpHost, forKey: .httpHost)
         try container.encode(httpIsSecure, forKey: .httpIsSecure)
         try container.encode(runtime, forKey: .runtime)
-        try container.encode(tenant, forKey: .tenant)
+        try container.encode(brand, forKey: .brand)
         try container.encode(serverTime, forKey: .serverTime)
+        try container.encode(embeddedOutpostDisabled, forKey: .embeddedOutpostDisabled)
         try container.encode(embeddedOutpostHost, forKey: .embeddedOutpostHost)
     }
 }

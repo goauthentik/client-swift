@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | [optional] 
 **avatar** | **String** |  | [readonly] 
 **uid** | **String** |  | [readonly] 
-**settings** | [String: AnyCodable] | Get user settings with tenant and group settings applied | [readonly] 
+**settings** | [String: AnyCodable] | Get user settings with brand and group settings applied | [readonly] 
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 
 **systemPermissions** | **[String]** | Get all system permissions assigned to the user | [readonly] 
 

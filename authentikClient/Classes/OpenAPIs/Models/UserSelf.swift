@@ -25,7 +25,7 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
     public var email: String?
     public var avatar: String
     public var uid: String
-    /** Get user settings with tenant and group settings applied */
+    /** Get user settings with brand and group settings applied */
     public var settings: [String: AnyCodable]
     public var type: UserTypeEnum?
     /** Get all system permissions assigned to the user */

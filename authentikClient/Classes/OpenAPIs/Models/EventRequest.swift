@@ -19,16 +19,16 @@ public struct EventRequest: Codable, JSONEncodable, Hashable {
     public var context: AnyCodable?
     public var clientIp: String?
     public var expires: Date?
-    public var tenant: AnyCodable?
+    public var brand: AnyCodable?
 
-    public init(user: AnyCodable? = nil, action: EventActions, app: String, context: AnyCodable? = nil, clientIp: String? = nil, expires: Date? = nil, tenant: AnyCodable? = nil) {
+    public init(user: AnyCodable? = nil, action: EventActions, app: String, context: AnyCodable? = nil, clientIp: String? = nil, expires: Date? = nil, brand: AnyCodable? = nil) {
         self.user = user
         self.action = action
         self.app = app
         self.context = context
         self.clientIp = clientIp
         self.expires = expires
-        self.tenant = tenant
+        self.brand = brand
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -38,7 +38,7 @@ public struct EventRequest: Codable, JSONEncodable, Hashable {
         case context
         case clientIp = "client_ip"
         case expires
-        case tenant
+        case brand
     }
 
     // Encodable protocol methods
@@ -51,7 +51,7 @@ public struct EventRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(context, forKey: .context)
         try container.encodeIfPresent(clientIp, forKey: .clientIp)
         try container.encodeIfPresent(expires, forKey: .expires)
-        try container.encodeIfPresent(tenant, forKey: .tenant)
+        try container.encodeIfPresent(brand, forKey: .brand)
     }
 }
 

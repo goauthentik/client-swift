@@ -97,7 +97,7 @@ Event Read-Only Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
+let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // EventRequest | 
 
 EventsAPI.eventsEventsCreate(eventRequest: eventRequest) { (response, error) in
     guard error == nil else {
@@ -183,7 +183,7 @@ Void (empty response body)
 
 # **eventsEventsList**
 ```swift
-    open class func eventsEventsList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
+    open class func eventsEventsList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
 ```
 
 
@@ -196,6 +196,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
 let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
@@ -205,10 +206,9 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let tenantName = "tenantName_example" // String | Tenant name (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsList(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantName: tenantName, username: username) { (response, error) in
+EventsAPI.eventsEventsList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -225,6 +225,7 @@ EventsAPI.eventsEventsList(action: action, clientIp: clientIp, contextAuthorized
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
  **contextModelApp** | **String** | Context Model App | [optional] 
@@ -234,7 +235,6 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **tenantName** | **String** | Tenant name | [optional] 
  **username** | **String** | Username | [optional] 
 
 ### Return type
@@ -267,7 +267,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
-let patchedEventRequest = PatchedEventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // PatchedEventRequest |  (optional)
+let patchedEventRequest = PatchedEventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // PatchedEventRequest |  (optional)
 
 EventsAPI.eventsEventsPartialUpdate(eventUuid: eventUuid, patchedEventRequest: patchedEventRequest) { (response, error) in
     guard error == nil else {
@@ -469,7 +469,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
-let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
+let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // EventRequest | 
 
 EventsAPI.eventsEventsUpdate(eventUuid: eventUuid, eventRequest: eventRequest) { (response, error) in
     guard error == nil else {
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 # **eventsEventsVolumeList**
 ```swift
-    open class func eventsEventsVolumeList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
+    open class func eventsEventsVolumeList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
 ```
 
 
@@ -520,6 +520,7 @@ Get event volume for specified filters and timeframe
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
 let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
@@ -527,10 +528,9 @@ let contextModelName = "contextModelName_example" // String | Context Model Name
 let contextModelPk = "contextModelPk_example" // String | Context Model Primary Key (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let search = "search_example" // String | A search term. (optional)
-let tenantName = "tenantName_example" // String | Tenant name (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsVolumeList(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, tenantName: tenantName, username: username) { (response, error) in
+EventsAPI.eventsEventsVolumeList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -547,6 +547,7 @@ EventsAPI.eventsEventsVolumeList(action: action, clientIp: clientIp, contextAuth
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
  **contextModelApp** | **String** | Context Model App | [optional] 
@@ -554,7 +555,6 @@ Name | Type | Description  | Notes
  **contextModelPk** | **String** | Context Model Primary Key | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **tenantName** | **String** | Tenant name | [optional] 
  **username** | **String** | Username | [optional] 
 
 ### Return type
@@ -748,7 +748,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
+let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsPartialUpdate(uuid: uuid, patchedNotificationRequest: patchedNotificationRequest) { (response, error) in
     guard error == nil else {
@@ -848,7 +848,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // NotificationRequest |  (optional)
+let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // NotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsUpdate(uuid: uuid, notificationRequest: notificationRequest) { (response, error) in
     guard error == nil else {
