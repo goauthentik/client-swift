@@ -20,8 +20,9 @@ public struct PatchedEndpointRequest: Codable, JSONEncodable, Hashable {
     public var settings: AnyCodable?
     public var propertyMappings: [UUID]?
     public var authMode: AuthModeEnum?
+    public var maximumConnections: Int?
 
-    public init(name: String? = nil, provider: Int? = nil, _protocol: ProtocolEnum? = nil, host: String? = nil, settings: AnyCodable? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum? = nil) {
+    public init(name: String? = nil, provider: Int? = nil, _protocol: ProtocolEnum? = nil, host: String? = nil, settings: AnyCodable? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum? = nil, maximumConnections: Int? = nil) {
         self.name = name
         self.provider = provider
         self._protocol = _protocol
@@ -29,6 +30,7 @@ public struct PatchedEndpointRequest: Codable, JSONEncodable, Hashable {
         self.settings = settings
         self.propertyMappings = propertyMappings
         self.authMode = authMode
+        self.maximumConnections = maximumConnections
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -39,6 +41,7 @@ public struct PatchedEndpointRequest: Codable, JSONEncodable, Hashable {
         case settings
         case propertyMappings = "property_mappings"
         case authMode = "auth_mode"
+        case maximumConnections = "maximum_connections"
     }
 
     // Encodable protocol methods
@@ -52,6 +55,7 @@ public struct PatchedEndpointRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(settings, forKey: .settings)
         try container.encodeIfPresent(propertyMappings, forKey: .propertyMappings)
         try container.encodeIfPresent(authMode, forKey: .authMode)
+        try container.encodeIfPresent(maximumConnections, forKey: .maximumConnections)
     }
 }
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **clientIp** | **String** |  | [optional] 
 **created** | **Date** |  | [readonly] 
 **expires** | **Date** |  | [optional] 
-**tenant** | [**AnyCodable**](.md) |  | [optional] 
+**brand** | [**AnyCodable**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

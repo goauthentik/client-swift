@@ -25,8 +25,9 @@ public struct MobileDevice: Codable, JSONEncodable, Hashable {
     public var type: String
     public var confirmed: Bool
     public var state: MobileDeviceInfo
+    public var lastCheckin: Date
 
-    public init(verboseName: String, verboseNamePlural: String, metaModelName: String, pk: String, name: String, type: String, confirmed: Bool, state: MobileDeviceInfo) {
+    public init(verboseName: String, verboseNamePlural: String, metaModelName: String, pk: String, name: String, type: String, confirmed: Bool, state: MobileDeviceInfo, lastCheckin: Date) {
         self.verboseName = verboseName
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName
@@ -35,6 +36,7 @@ public struct MobileDevice: Codable, JSONEncodable, Hashable {
         self.type = type
         self.confirmed = confirmed
         self.state = state
+        self.lastCheckin = lastCheckin
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -46,6 +48,7 @@ public struct MobileDevice: Codable, JSONEncodable, Hashable {
         case type
         case confirmed
         case state
+        case lastCheckin = "last_checkin"
     }
 
     // Encodable protocol methods
@@ -60,6 +63,7 @@ public struct MobileDevice: Codable, JSONEncodable, Hashable {
         try container.encode(type, forKey: .type)
         try container.encode(confirmed, forKey: .confirmed)
         try container.encode(state, forKey: .state)
+        try container.encode(lastCheckin, forKey: .lastCheckin)
     }
 }
 

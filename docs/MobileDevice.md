@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **type** | **String** | Get type of device | [readonly] 
 **confirmed** | **Bool** |  | [readonly] 
 **state** | [**MobileDeviceInfo**](MobileDeviceInfo.md) |  | [readonly] 
+**lastCheckin** | **Date** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

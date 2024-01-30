@@ -24,6 +24,7 @@ public struct User: Codable, JSONEncodable, Hashable {
     public var groups: [UUID]?
     public var groupsObj: [UserGroup]
     public var email: String?
+    /** User's avatar, either a http/https URL or a data URI */
     public var avatar: String
     public var attributes: [String: AnyCodable]?
     public var uid: String

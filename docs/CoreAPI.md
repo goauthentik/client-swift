@@ -19,6 +19,14 @@ Method | HTTP request | Description
 [**coreAuthenticatedSessionsList**](CoreAPI.md#coreauthenticatedsessionslist) | **GET** /core/authenticated_sessions/ | 
 [**coreAuthenticatedSessionsRetrieve**](CoreAPI.md#coreauthenticatedsessionsretrieve) | **GET** /core/authenticated_sessions/{uuid}/ | 
 [**coreAuthenticatedSessionsUsedByList**](CoreAPI.md#coreauthenticatedsessionsusedbylist) | **GET** /core/authenticated_sessions/{uuid}/used_by/ | 
+[**coreBrandsCreate**](CoreAPI.md#corebrandscreate) | **POST** /core/brands/ | 
+[**coreBrandsCurrentRetrieve**](CoreAPI.md#corebrandscurrentretrieve) | **GET** /core/brands/current/ | 
+[**coreBrandsDestroy**](CoreAPI.md#corebrandsdestroy) | **DELETE** /core/brands/{brand_uuid}/ | 
+[**coreBrandsList**](CoreAPI.md#corebrandslist) | **GET** /core/brands/ | 
+[**coreBrandsPartialUpdate**](CoreAPI.md#corebrandspartialupdate) | **PATCH** /core/brands/{brand_uuid}/ | 
+[**coreBrandsRetrieve**](CoreAPI.md#corebrandsretrieve) | **GET** /core/brands/{brand_uuid}/ | 
+[**coreBrandsUpdate**](CoreAPI.md#corebrandsupdate) | **PUT** /core/brands/{brand_uuid}/ | 
+[**coreBrandsUsedByList**](CoreAPI.md#corebrandsusedbylist) | **GET** /core/brands/{brand_uuid}/used_by/ | 
 [**coreGroupsAddUserCreate**](CoreAPI.md#coregroupsaddusercreate) | **POST** /core/groups/{group_uuid}/add_user/ | 
 [**coreGroupsCreate**](CoreAPI.md#coregroupscreate) | **POST** /core/groups/ | 
 [**coreGroupsDestroy**](CoreAPI.md#coregroupsdestroy) | **DELETE** /core/groups/{group_uuid}/ | 
@@ -28,14 +36,6 @@ Method | HTTP request | Description
 [**coreGroupsRetrieve**](CoreAPI.md#coregroupsretrieve) | **GET** /core/groups/{group_uuid}/ | 
 [**coreGroupsUpdate**](CoreAPI.md#coregroupsupdate) | **PUT** /core/groups/{group_uuid}/ | 
 [**coreGroupsUsedByList**](CoreAPI.md#coregroupsusedbylist) | **GET** /core/groups/{group_uuid}/used_by/ | 
-[**coreTenantsCreate**](CoreAPI.md#coretenantscreate) | **POST** /core/tenants/ | 
-[**coreTenantsCurrentRetrieve**](CoreAPI.md#coretenantscurrentretrieve) | **GET** /core/tenants/current/ | 
-[**coreTenantsDestroy**](CoreAPI.md#coretenantsdestroy) | **DELETE** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsList**](CoreAPI.md#coretenantslist) | **GET** /core/tenants/ | 
-[**coreTenantsPartialUpdate**](CoreAPI.md#coretenantspartialupdate) | **PATCH** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsRetrieve**](CoreAPI.md#coretenantsretrieve) | **GET** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsUpdate**](CoreAPI.md#coretenantsupdate) | **PUT** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsUsedByList**](CoreAPI.md#coretenantsusedbylist) | **GET** /core/tenants/{tenant_uuid}/used_by/ | 
 [**coreTokensCreate**](CoreAPI.md#coretokenscreate) | **POST** /core/tokens/ | 
 [**coreTokensDestroy**](CoreAPI.md#coretokensdestroy) | **DELETE** /core/tokens/{identifier}/ | 
 [**coreTokensList**](CoreAPI.md#coretokenslist) | **GET** /core/tokens/ | 
@@ -219,7 +219,7 @@ Void (empty response body)
 
 # **coreApplicationsList**
 ```swift
-    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
+    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
 ```
 
 
@@ -231,6 +231,7 @@ Custom list method that checks Policy based access instead of guardian
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let forUser = 987 // Int |  (optional)
 let group = "group_example" // String |  (optional)
 let metaDescription = "metaDescription_example" // String |  (optional)
 let metaLaunchUrl = "metaLaunchUrl_example" // String |  (optional)
@@ -243,7 +244,7 @@ let search = "search_example" // String | A search term. (optional)
 let slug = "slug_example" // String |  (optional)
 let superuserFullList = true // Bool |  (optional)
 
-CoreAPI.coreApplicationsList(group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
+CoreAPI.coreApplicationsList(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -259,6 +260,7 @@ CoreAPI.coreApplicationsList(group: group, metaDescription: metaDescription, met
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **forUser** | **Int** |  | [optional] 
  **group** | **String** |  | [optional] 
  **metaDescription** | **String** |  | [optional] 
  **metaLaunchUrl** | **String** |  | [optional] 
@@ -847,6 +849,430 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coreBrandsCreate**
+```swift
+    open class func coreBrandsCreate(brandRequest: BrandRequest, completion: @escaping (_ data: Brand?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // BrandRequest | 
+
+CoreAPI.coreBrandsCreate(brandRequest: brandRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandRequest** | [**BrandRequest**](BrandRequest.md) |  | 
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsCurrentRetrieve**
+```swift
+    open class func coreBrandsCurrentRetrieve(completion: @escaping (_ data: CurrentBrand?, _ error: Error?) -> Void)
+```
+
+
+
+Get current brand
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+
+CoreAPI.coreBrandsCurrentRetrieve() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CurrentBrand**](CurrentBrand.md)
+
+### Authorization
+
+[authentik](../README.md#authentik), [mobile_device_token](../README.md#mobile_device_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsDestroy**
+```swift
+    open class func coreBrandsDestroy(brandUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID | A UUID string identifying this Brand.
+
+CoreAPI.coreBrandsDestroy(brandUuid: brandUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** | A UUID string identifying this Brand. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsList**
+```swift
+    open class func coreBrandsList(brandUuid: UUID? = nil, brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, webCertificate: UUID? = nil, completion: @escaping (_ data: PaginatedBrandList?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID |  (optional)
+let brandingFavicon = "brandingFavicon_example" // String |  (optional)
+let brandingLogo = "brandingLogo_example" // String |  (optional)
+let brandingTitle = "brandingTitle_example" // String |  (optional)
+let _default = true // Bool |  (optional)
+let domain = "domain_example" // String |  (optional)
+let flowAuthentication = 987 // UUID |  (optional)
+let flowDeviceCode = 987 // UUID |  (optional)
+let flowInvalidation = 987 // UUID |  (optional)
+let flowRecovery = 987 // UUID |  (optional)
+let flowUnenrollment = 987 // UUID |  (optional)
+let flowUserSettings = 987 // UUID |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let webCertificate = 987 // UUID |  (optional)
+
+CoreAPI.coreBrandsList(brandUuid: brandUuid, brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, webCertificate: webCertificate) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** |  | [optional] 
+ **brandingFavicon** | **String** |  | [optional] 
+ **brandingLogo** | **String** |  | [optional] 
+ **brandingTitle** | **String** |  | [optional] 
+ **_default** | **Bool** |  | [optional] 
+ **domain** | **String** |  | [optional] 
+ **flowAuthentication** | **UUID** |  | [optional] 
+ **flowDeviceCode** | **UUID** |  | [optional] 
+ **flowInvalidation** | **UUID** |  | [optional] 
+ **flowRecovery** | **UUID** |  | [optional] 
+ **flowUnenrollment** | **UUID** |  | [optional] 
+ **flowUserSettings** | **UUID** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **webCertificate** | **UUID** |  | [optional] 
+
+### Return type
+
+[**PaginatedBrandList**](PaginatedBrandList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsPartialUpdate**
+```swift
+    open class func coreBrandsPartialUpdate(brandUuid: UUID, patchedBrandRequest: PatchedBrandRequest? = nil, completion: @escaping (_ data: Brand?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID | A UUID string identifying this Brand.
+let patchedBrandRequest = PatchedBrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // PatchedBrandRequest |  (optional)
+
+CoreAPI.coreBrandsPartialUpdate(brandUuid: brandUuid, patchedBrandRequest: patchedBrandRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** | A UUID string identifying this Brand. | 
+ **patchedBrandRequest** | [**PatchedBrandRequest**](PatchedBrandRequest.md) |  | [optional] 
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsRetrieve**
+```swift
+    open class func coreBrandsRetrieve(brandUuid: UUID, completion: @escaping (_ data: Brand?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID | A UUID string identifying this Brand.
+
+CoreAPI.coreBrandsRetrieve(brandUuid: brandUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** | A UUID string identifying this Brand. | 
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsUpdate**
+```swift
+    open class func coreBrandsUpdate(brandUuid: UUID, brandRequest: BrandRequest, completion: @escaping (_ data: Brand?, _ error: Error?) -> Void)
+```
+
+
+
+Brand Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID | A UUID string identifying this Brand.
+let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // BrandRequest | 
+
+CoreAPI.coreBrandsUpdate(brandUuid: brandUuid, brandRequest: brandRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** | A UUID string identifying this Brand. | 
+ **brandRequest** | [**BrandRequest**](BrandRequest.md) |  | 
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreBrandsUsedByList**
+```swift
+    open class func coreBrandsUsedByList(brandUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let brandUuid = 987 // UUID | A UUID string identifying this Brand.
+
+CoreAPI.coreBrandsUsedByList(brandUuid: brandUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **UUID** | A UUID string identifying this Brand. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coreGroupsAddUserCreate**
 ```swift
     open class func coreGroupsAddUserCreate(groupUuid: UUID, userAccountRequest: UserAccountRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
@@ -1296,432 +1722,6 @@ CoreAPI.coreGroupsUsedByList(groupUuid: groupUuid) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **UUID** | A UUID string identifying this Group. | 
-
-### Return type
-
-[**[UsedBy]**](UsedBy.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsCreate**
-```swift
-    open class func coreTenantsCreate(tenantRequest: TenantRequest, completion: @escaping (_ data: Tenant?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantRequest = TenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // TenantRequest | 
-
-CoreAPI.coreTenantsCreate(tenantRequest: tenantRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantRequest** | [**TenantRequest**](TenantRequest.md) |  | 
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsCurrentRetrieve**
-```swift
-    open class func coreTenantsCurrentRetrieve(completion: @escaping (_ data: CurrentTenant?, _ error: Error?) -> Void)
-```
-
-
-
-Get current tenant
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-
-CoreAPI.coreTenantsCurrentRetrieve() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CurrentTenant**](CurrentTenant.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsDestroy**
-```swift
-    open class func coreTenantsDestroy(tenantUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
-
-CoreAPI.coreTenantsDestroy(tenantUuid: tenantUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **UUID** | A UUID string identifying this Tenant. | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsList**
-```swift
-    open class func coreTenantsList(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil, completion: @escaping (_ data: PaginatedTenantList?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let brandingFavicon = "brandingFavicon_example" // String |  (optional)
-let brandingLogo = "brandingLogo_example" // String |  (optional)
-let brandingTitle = "brandingTitle_example" // String |  (optional)
-let _default = true // Bool |  (optional)
-let domain = "domain_example" // String |  (optional)
-let eventRetention = "eventRetention_example" // String |  (optional)
-let flowAuthentication = 987 // UUID |  (optional)
-let flowDeviceCode = 987 // UUID |  (optional)
-let flowInvalidation = 987 // UUID |  (optional)
-let flowRecovery = 987 // UUID |  (optional)
-let flowUnenrollment = 987 // UUID |  (optional)
-let flowUserSettings = 987 // UUID |  (optional)
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let search = "search_example" // String | A search term. (optional)
-let tenantUuid = 987 // UUID |  (optional)
-let webCertificate = 987 // UUID |  (optional)
-
-CoreAPI.coreTenantsList(brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, eventRetention: eventRetention, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantUuid: tenantUuid, webCertificate: webCertificate) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandingFavicon** | **String** |  | [optional] 
- **brandingLogo** | **String** |  | [optional] 
- **brandingTitle** | **String** |  | [optional] 
- **_default** | **Bool** |  | [optional] 
- **domain** | **String** |  | [optional] 
- **eventRetention** | **String** |  | [optional] 
- **flowAuthentication** | **UUID** |  | [optional] 
- **flowDeviceCode** | **UUID** |  | [optional] 
- **flowInvalidation** | **UUID** |  | [optional] 
- **flowRecovery** | **UUID** |  | [optional] 
- **flowUnenrollment** | **UUID** |  | [optional] 
- **flowUserSettings** | **UUID** |  | [optional] 
- **ordering** | **String** | Which field to use when ordering the results. | [optional] 
- **page** | **Int** | A page number within the paginated result set. | [optional] 
- **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **search** | **String** | A search term. | [optional] 
- **tenantUuid** | **UUID** |  | [optional] 
- **webCertificate** | **UUID** |  | [optional] 
-
-### Return type
-
-[**PaginatedTenantList**](PaginatedTenantList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsPartialUpdate**
-```swift
-    open class func coreTenantsPartialUpdate(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil, completion: @escaping (_ data: Tenant?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
-let patchedTenantRequest = PatchedTenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // PatchedTenantRequest |  (optional)
-
-CoreAPI.coreTenantsPartialUpdate(tenantUuid: tenantUuid, patchedTenantRequest: patchedTenantRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **UUID** | A UUID string identifying this Tenant. | 
- **patchedTenantRequest** | [**PatchedTenantRequest**](PatchedTenantRequest.md) |  | [optional] 
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsRetrieve**
-```swift
-    open class func coreTenantsRetrieve(tenantUuid: UUID, completion: @escaping (_ data: Tenant?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
-
-CoreAPI.coreTenantsRetrieve(tenantUuid: tenantUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **UUID** | A UUID string identifying this Tenant. | 
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsUpdate**
-```swift
-    open class func coreTenantsUpdate(tenantUuid: UUID, tenantRequest: TenantRequest, completion: @escaping (_ data: Tenant?, _ error: Error?) -> Void)
-```
-
-
-
-Tenant Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
-let tenantRequest = TenantRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, eventRetention: "eventRetention_example", webCertificate: 123, attributes: "TODO") // TenantRequest | 
-
-CoreAPI.coreTenantsUpdate(tenantUuid: tenantUuid, tenantRequest: tenantRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **UUID** | A UUID string identifying this Tenant. | 
- **tenantRequest** | [**TenantRequest**](TenantRequest.md) |  | 
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreTenantsUsedByList**
-```swift
-    open class func coreTenantsUsedByList(tenantUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
-```
-
-
-
-Get a list of all objects that use this object
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let tenantUuid = 987 // UUID | A UUID string identifying this Tenant.
-
-CoreAPI.coreTenantsUsedByList(tenantUuid: tenantUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **UUID** | A UUID string identifying this Tenant. | 
 
 ### Return type
 

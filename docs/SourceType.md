@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**slug** | **String** |  | 
+**verboseName** | **String** |  | 
 **urlsCustomizable** | **Bool** |  | 
 **requestTokenUrl** | **String** |  | [readonly] 
 **authorizationUrl** | **String** |  | [readonly] 

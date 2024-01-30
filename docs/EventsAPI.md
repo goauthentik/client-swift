@@ -28,6 +28,9 @@ Method | HTTP request | Description
 [**eventsRulesRetrieve**](EventsAPI.md#eventsrulesretrieve) | **GET** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUpdate**](EventsAPI.md#eventsrulesupdate) | **PUT** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUsedByList**](EventsAPI.md#eventsrulesusedbylist) | **GET** /events/rules/{pbm_uuid}/used_by/ | 
+[**eventsSystemTasksList**](EventsAPI.md#eventssystemtaskslist) | **GET** /events/system_tasks/ | 
+[**eventsSystemTasksRetrieve**](EventsAPI.md#eventssystemtasksretrieve) | **GET** /events/system_tasks/{uuid}/ | 
+[**eventsSystemTasksRunCreate**](EventsAPI.md#eventssystemtasksruncreate) | **POST** /events/system_tasks/{uuid}/run/ | 
 [**eventsTransportsCreate**](EventsAPI.md#eventstransportscreate) | **POST** /events/transports/ | 
 [**eventsTransportsDestroy**](EventsAPI.md#eventstransportsdestroy) | **DELETE** /events/transports/{uuid}/ | 
 [**eventsTransportsList**](EventsAPI.md#eventstransportslist) | **GET** /events/transports/ | 
@@ -97,7 +100,7 @@ Event Read-Only Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
+let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // EventRequest | 
 
 EventsAPI.eventsEventsCreate(eventRequest: eventRequest) { (response, error) in
     guard error == nil else {
@@ -183,7 +186,7 @@ Void (empty response body)
 
 # **eventsEventsList**
 ```swift
-    open class func eventsEventsList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
+    open class func eventsEventsList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
 ```
 
 
@@ -196,6 +199,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
 let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
@@ -205,10 +209,9 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let tenantName = "tenantName_example" // String | Tenant name (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsList(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantName: tenantName, username: username) { (response, error) in
+EventsAPI.eventsEventsList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -225,6 +228,7 @@ EventsAPI.eventsEventsList(action: action, clientIp: clientIp, contextAuthorized
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
  **contextModelApp** | **String** | Context Model App | [optional] 
@@ -234,7 +238,6 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **tenantName** | **String** | Tenant name | [optional] 
  **username** | **String** | Username | [optional] 
 
 ### Return type
@@ -267,7 +270,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
-let patchedEventRequest = PatchedEventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // PatchedEventRequest |  (optional)
+let patchedEventRequest = PatchedEventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // PatchedEventRequest |  (optional)
 
 EventsAPI.eventsEventsPartialUpdate(eventUuid: eventUuid, patchedEventRequest: patchedEventRequest) { (response, error) in
     guard error == nil else {
@@ -469,7 +472,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let eventUuid = 987 // UUID | A UUID string identifying this Event.
-let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO") // EventRequest | 
+let eventRequest = EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO") // EventRequest | 
 
 EventsAPI.eventsEventsUpdate(eventUuid: eventUuid, eventRequest: eventRequest) { (response, error) in
     guard error == nil else {
@@ -507,7 +510,7 @@ Name | Type | Description  | Notes
 
 # **eventsEventsVolumeList**
 ```swift
-    open class func eventsEventsVolumeList(action: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, tenantName: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
+    open class func eventsEventsVolumeList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
 ```
 
 
@@ -520,6 +523,7 @@ Get event volume for specified filters and timeframe
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
 let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
@@ -527,10 +531,9 @@ let contextModelName = "contextModelName_example" // String | Context Model Name
 let contextModelPk = "contextModelPk_example" // String | Context Model Primary Key (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let search = "search_example" // String | A search term. (optional)
-let tenantName = "tenantName_example" // String | Tenant name (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsVolumeList(action: action, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, tenantName: tenantName, username: username) { (response, error) in
+EventsAPI.eventsEventsVolumeList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -547,6 +550,7 @@ EventsAPI.eventsEventsVolumeList(action: action, clientIp: clientIp, contextAuth
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
  **contextModelApp** | **String** | Context Model App | [optional] 
@@ -554,7 +558,6 @@ Name | Type | Description  | Notes
  **contextModelPk** | **String** | Context Model Primary Key | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **tenantName** | **String** | Tenant name | [optional] 
  **username** | **String** | Username | [optional] 
 
 ### Return type
@@ -748,7 +751,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
+let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsPartialUpdate(uuid: uuid, patchedNotificationRequest: patchedNotificationRequest) { (response, error) in
     guard error == nil else {
@@ -848,7 +851,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), tenant: "TODO"), seen: false) // NotificationRequest |  (optional)
+let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // NotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsUpdate(uuid: uuid, notificationRequest: notificationRequest) { (response, error) in
     guard error == nil else {
@@ -1280,6 +1283,165 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksList**
+```swift
+    open class func eventsSystemTasksList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, status: Status_eventsSystemTasksList? = nil, uid: String? = nil, completion: @escaping (_ data: PaginatedSystemTaskList?, _ error: Error?) -> Void)
+```
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let status = "status_example" // String | * `unknown` - Unknown * `successful` - Successful * `warning` - Warning * `error` - Error (optional)
+let uid = "uid_example" // String |  (optional)
+
+EventsAPI.eventsSystemTasksList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, status: status, uid: uid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **status** | **String** | * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error | [optional] 
+ **uid** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedSystemTaskList**](PaginatedSystemTaskList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksRetrieve**
+```swift
+    open class func eventsSystemTasksRetrieve(uuid: UUID, completion: @escaping (_ data: SystemTask?, _ error: Error?) -> Void)
+```
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this System Task.
+
+EventsAPI.eventsSystemTasksRetrieve(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this System Task. | 
+
+### Return type
+
+[**SystemTask**](SystemTask.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksRunCreate**
+```swift
+    open class func eventsSystemTasksRunCreate(uuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Run task
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this System Task.
+
+EventsAPI.eventsSystemTasksRunCreate(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this System Task. | 
+
+### Return type
+
+Void (empty response body)
 
 ### Authorization
 

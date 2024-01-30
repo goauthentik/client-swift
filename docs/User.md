@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **groups** | **[UUID]** |  | [optional] 
 **groupsObj** | [UserGroup] |  | [readonly] 
 **email** | **String** |  | [optional] 
-**avatar** | **String** |  | [readonly] 
+**avatar** | **String** | User&#39;s avatar, either a http/https URL or a data URI | [readonly] 
 **attributes** | [String: AnyCodable] |  | [optional] 
 **uid** | **String** |  | [readonly] 
 **path** | **String** |  | [optional] 

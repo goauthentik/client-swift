@@ -160,6 +160,7 @@ open class CoreAPI {
 
     /**
 
+     - parameter forUser: (query)  (optional)
      - parameter group: (query)  (optional)
      - parameter metaDescription: (query)  (optional)
      - parameter metaLaunchUrl: (query)  (optional)
@@ -175,8 +176,8 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreApplicationsListWithRequestBuilder(group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList).execute(apiResponseQueue) { result in
+    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreApplicationsListWithRequestBuilder(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -192,6 +193,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization
        - name: authentik
+     - parameter forUser: (query)  (optional)
      - parameter group: (query)  (optional)
      - parameter metaDescription: (query)  (optional)
      - parameter metaLaunchUrl: (query)  (optional)
@@ -205,13 +207,14 @@ open class CoreAPI {
      - parameter superuserFullList: (query)  (optional)
      - returns: RequestBuilder<PaginatedApplicationList>
      */
-    open class func coreApplicationsListWithRequestBuilder(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
+    open class func coreApplicationsListWithRequestBuilder(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
         let localVariablePath = "/core/applications/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "for_user": (wrappedValue: forUser?.encodeToJSON(), isExplode: true),
             "group": (wrappedValue: group?.encodeToJSON(), isExplode: true),
             "meta_description": (wrappedValue: metaDescription?.encodeToJSON(), isExplode: true),
             "meta_launch_url": (wrappedValue: metaLaunchUrl?.encodeToJSON(), isExplode: true),
@@ -800,6 +803,437 @@ open class CoreAPI {
 
     /**
 
+     - parameter brandRequest: (body)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsCreate(brandRequest: BrandRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Brand?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsCreateWithRequestBuilder(brandRequest: brandRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /core/brands/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandRequest: (body)
+     - returns: RequestBuilder<Brand>
+     */
+    open class func coreBrandsCreateWithRequestBuilder(brandRequest: BrandRequest) -> RequestBuilder<Brand> {
+        let localVariablePath = "/core/brands/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Brand>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsCurrentRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: CurrentBrand?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsCurrentRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /core/brands/current/
+     - Get current brand
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - API Key:
+       - type: apiKey Authorization
+       - name: mobile_device_token
+     - returns: RequestBuilder<CurrentBrand>
+     */
+    open class func coreBrandsCurrentRetrieveWithRequestBuilder() -> RequestBuilder<CurrentBrand> {
+        let localVariablePath = "/core/brands/current/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CurrentBrand>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsDestroy(brandUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsDestroyWithRequestBuilder(brandUuid: brandUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /core/brands/{brand_uuid}/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - returns: RequestBuilder<Void>
+     */
+    open class func coreBrandsDestroyWithRequestBuilder(brandUuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/core/brands/{brand_uuid}/"
+        let brandUuidPreEscape = "\(APIHelper.mapValueToPathItem(brandUuid))"
+        let brandUuidPostEscape = brandUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{brand_uuid}", with: brandUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (query)  (optional)
+     - parameter brandingFavicon: (query)  (optional)
+     - parameter brandingLogo: (query)  (optional)
+     - parameter brandingTitle: (query)  (optional)
+     - parameter _default: (query)  (optional)
+     - parameter domain: (query)  (optional)
+     - parameter flowAuthentication: (query)  (optional)
+     - parameter flowDeviceCode: (query)  (optional)
+     - parameter flowInvalidation: (query)  (optional)
+     - parameter flowRecovery: (query)  (optional)
+     - parameter flowUnenrollment: (query)  (optional)
+     - parameter flowUserSettings: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter webCertificate: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsList(brandUuid: UUID? = nil, brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, webCertificate: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedBrandList?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsListWithRequestBuilder(brandUuid: brandUuid, brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, webCertificate: webCertificate).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /core/brands/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (query)  (optional)
+     - parameter brandingFavicon: (query)  (optional)
+     - parameter brandingLogo: (query)  (optional)
+     - parameter brandingTitle: (query)  (optional)
+     - parameter _default: (query)  (optional)
+     - parameter domain: (query)  (optional)
+     - parameter flowAuthentication: (query)  (optional)
+     - parameter flowDeviceCode: (query)  (optional)
+     - parameter flowInvalidation: (query)  (optional)
+     - parameter flowRecovery: (query)  (optional)
+     - parameter flowUnenrollment: (query)  (optional)
+     - parameter flowUserSettings: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter webCertificate: (query)  (optional)
+     - returns: RequestBuilder<PaginatedBrandList>
+     */
+    open class func coreBrandsListWithRequestBuilder(brandUuid: UUID? = nil, brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, webCertificate: UUID? = nil) -> RequestBuilder<PaginatedBrandList> {
+        let localVariablePath = "/core/brands/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "brand_uuid": (wrappedValue: brandUuid?.encodeToJSON(), isExplode: true),
+            "branding_favicon": (wrappedValue: brandingFavicon?.encodeToJSON(), isExplode: true),
+            "branding_logo": (wrappedValue: brandingLogo?.encodeToJSON(), isExplode: true),
+            "branding_title": (wrappedValue: brandingTitle?.encodeToJSON(), isExplode: true),
+            "default": (wrappedValue: _default?.encodeToJSON(), isExplode: true),
+            "domain": (wrappedValue: domain?.encodeToJSON(), isExplode: true),
+            "flow_authentication": (wrappedValue: flowAuthentication?.encodeToJSON(), isExplode: true),
+            "flow_device_code": (wrappedValue: flowDeviceCode?.encodeToJSON(), isExplode: true),
+            "flow_invalidation": (wrappedValue: flowInvalidation?.encodeToJSON(), isExplode: true),
+            "flow_recovery": (wrappedValue: flowRecovery?.encodeToJSON(), isExplode: true),
+            "flow_unenrollment": (wrappedValue: flowUnenrollment?.encodeToJSON(), isExplode: true),
+            "flow_user_settings": (wrappedValue: flowUserSettings?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+            "web_certificate": (wrappedValue: webCertificate?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedBrandList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter patchedBrandRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsPartialUpdate(brandUuid: UUID, patchedBrandRequest: PatchedBrandRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Brand?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsPartialUpdateWithRequestBuilder(brandUuid: brandUuid, patchedBrandRequest: patchedBrandRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /core/brands/{brand_uuid}/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter patchedBrandRequest: (body)  (optional)
+     - returns: RequestBuilder<Brand>
+     */
+    open class func coreBrandsPartialUpdateWithRequestBuilder(brandUuid: UUID, patchedBrandRequest: PatchedBrandRequest? = nil) -> RequestBuilder<Brand> {
+        var localVariablePath = "/core/brands/{brand_uuid}/"
+        let brandUuidPreEscape = "\(APIHelper.mapValueToPathItem(brandUuid))"
+        let brandUuidPostEscape = brandUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{brand_uuid}", with: brandUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedBrandRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Brand>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsRetrieve(brandUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Brand?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsRetrieveWithRequestBuilder(brandUuid: brandUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /core/brands/{brand_uuid}/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - returns: RequestBuilder<Brand>
+     */
+    open class func coreBrandsRetrieveWithRequestBuilder(brandUuid: UUID) -> RequestBuilder<Brand> {
+        var localVariablePath = "/core/brands/{brand_uuid}/"
+        let brandUuidPreEscape = "\(APIHelper.mapValueToPathItem(brandUuid))"
+        let brandUuidPostEscape = brandUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{brand_uuid}", with: brandUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Brand>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter brandRequest: (body)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsUpdate(brandUuid: UUID, brandRequest: BrandRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Brand?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsUpdateWithRequestBuilder(brandUuid: brandUuid, brandRequest: brandRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /core/brands/{brand_uuid}/
+     - Brand Viewset
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter brandRequest: (body)
+     - returns: RequestBuilder<Brand>
+     */
+    open class func coreBrandsUpdateWithRequestBuilder(brandUuid: UUID, brandRequest: BrandRequest) -> RequestBuilder<Brand> {
+        var localVariablePath = "/core/brands/{brand_uuid}/"
+        let brandUuidPreEscape = "\(APIHelper.mapValueToPathItem(brandUuid))"
+        let brandUuidPostEscape = brandUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{brand_uuid}", with: brandUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Brand>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func coreBrandsUsedByList(brandUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreBrandsUsedByListWithRequestBuilder(brandUuid: brandUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /core/brands/{brand_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - API Key:
+       - type: apiKey Authorization
+       - name: authentik
+     - parameter brandUuid: (path) A UUID string identifying this Brand.
+     - returns: RequestBuilder<[UsedBy]>
+     */
+    open class func coreBrandsUsedByListWithRequestBuilder(brandUuid: UUID) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/core/brands/{brand_uuid}/used_by/"
+        let brandUuidPreEscape = "\(APIHelper.mapValueToPathItem(brandUuid))"
+        let brandUuidPostEscape = brandUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{brand_uuid}", with: brandUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter groupUuid: (path) A UUID string identifying this Group.
      - parameter userAccountRequest: (body)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -1243,437 +1677,6 @@ open class CoreAPI {
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{group_uuid}", with: groupUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantRequest: (body)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsCreate(tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsCreateWithRequestBuilder(tenantRequest: tenantRequest).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - POST /core/tenants/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantRequest: (body)
-     - returns: RequestBuilder<Tenant>
-     */
-    open class func coreTenantsCreateWithRequestBuilder(tenantRequest: TenantRequest) -> RequestBuilder<Tenant> {
-        let localVariablePath = "/core/tenants/"
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tenantRequest)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsCurrentRetrieve(apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: CurrentTenant?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsCurrentRetrieveWithRequestBuilder().execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - GET /core/tenants/current/
-     - Get current tenant
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - returns: RequestBuilder<CurrentTenant>
-     */
-    open class func coreTenantsCurrentRetrieveWithRequestBuilder() -> RequestBuilder<CurrentTenant> {
-        let localVariablePath = "/core/tenants/current/"
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<CurrentTenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsDestroy(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsDestroyWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
-            switch result {
-            case .success:
-                completion((), nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - DELETE /core/tenants/{tenant_uuid}/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - returns: RequestBuilder<Void>
-     */
-    open class func coreTenantsDestroyWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<Void> {
-        var localVariablePath = "/core/tenants/{tenant_uuid}/"
-        let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
-        let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter brandingFavicon: (query)  (optional)
-     - parameter brandingLogo: (query)  (optional)
-     - parameter brandingTitle: (query)  (optional)
-     - parameter _default: (query)  (optional)
-     - parameter domain: (query)  (optional)
-     - parameter eventRetention: (query)  (optional)
-     - parameter flowAuthentication: (query)  (optional)
-     - parameter flowDeviceCode: (query)  (optional)
-     - parameter flowInvalidation: (query)  (optional)
-     - parameter flowRecovery: (query)  (optional)
-     - parameter flowUnenrollment: (query)  (optional)
-     - parameter flowUserSettings: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter tenantUuid: (query)  (optional)
-     - parameter webCertificate: (query)  (optional)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsList(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedTenantList?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsListWithRequestBuilder(brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, eventRetention: eventRetention, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, tenantUuid: tenantUuid, webCertificate: webCertificate).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - GET /core/tenants/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter brandingFavicon: (query)  (optional)
-     - parameter brandingLogo: (query)  (optional)
-     - parameter brandingTitle: (query)  (optional)
-     - parameter _default: (query)  (optional)
-     - parameter domain: (query)  (optional)
-     - parameter eventRetention: (query)  (optional)
-     - parameter flowAuthentication: (query)  (optional)
-     - parameter flowDeviceCode: (query)  (optional)
-     - parameter flowInvalidation: (query)  (optional)
-     - parameter flowRecovery: (query)  (optional)
-     - parameter flowUnenrollment: (query)  (optional)
-     - parameter flowUserSettings: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter tenantUuid: (query)  (optional)
-     - parameter webCertificate: (query)  (optional)
-     - returns: RequestBuilder<PaginatedTenantList>
-     */
-    open class func coreTenantsListWithRequestBuilder(brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, eventRetention: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tenantUuid: UUID? = nil, webCertificate: UUID? = nil) -> RequestBuilder<PaginatedTenantList> {
-        let localVariablePath = "/core/tenants/"
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "branding_favicon": (wrappedValue: brandingFavicon?.encodeToJSON(), isExplode: true),
-            "branding_logo": (wrappedValue: brandingLogo?.encodeToJSON(), isExplode: true),
-            "branding_title": (wrappedValue: brandingTitle?.encodeToJSON(), isExplode: true),
-            "default": (wrappedValue: _default?.encodeToJSON(), isExplode: true),
-            "domain": (wrappedValue: domain?.encodeToJSON(), isExplode: true),
-            "event_retention": (wrappedValue: eventRetention?.encodeToJSON(), isExplode: true),
-            "flow_authentication": (wrappedValue: flowAuthentication?.encodeToJSON(), isExplode: true),
-            "flow_device_code": (wrappedValue: flowDeviceCode?.encodeToJSON(), isExplode: true),
-            "flow_invalidation": (wrappedValue: flowInvalidation?.encodeToJSON(), isExplode: true),
-            "flow_recovery": (wrappedValue: flowRecovery?.encodeToJSON(), isExplode: true),
-            "flow_unenrollment": (wrappedValue: flowUnenrollment?.encodeToJSON(), isExplode: true),
-            "flow_user_settings": (wrappedValue: flowUserSettings?.encodeToJSON(), isExplode: true),
-            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
-            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
-            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
-            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
-            "tenant_uuid": (wrappedValue: tenantUuid?.encodeToJSON(), isExplode: true),
-            "web_certificate": (wrappedValue: webCertificate?.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<PaginatedTenantList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter patchedTenantRequest: (body)  (optional)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsPartialUpdate(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsPartialUpdateWithRequestBuilder(tenantUuid: tenantUuid, patchedTenantRequest: patchedTenantRequest).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - PATCH /core/tenants/{tenant_uuid}/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter patchedTenantRequest: (body)  (optional)
-     - returns: RequestBuilder<Tenant>
-     */
-    open class func coreTenantsPartialUpdateWithRequestBuilder(tenantUuid: UUID, patchedTenantRequest: PatchedTenantRequest? = nil) -> RequestBuilder<Tenant> {
-        var localVariablePath = "/core/tenants/{tenant_uuid}/"
-        let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
-        let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedTenantRequest)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsRetrieve(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsRetrieveWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - GET /core/tenants/{tenant_uuid}/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - returns: RequestBuilder<Tenant>
-     */
-    open class func coreTenantsRetrieveWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<Tenant> {
-        var localVariablePath = "/core/tenants/{tenant_uuid}/"
-        let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
-        let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter tenantRequest: (body)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsUpdate(tenantUuid: UUID, tenantRequest: TenantRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Tenant?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsUpdateWithRequestBuilder(tenantUuid: tenantUuid, tenantRequest: tenantRequest).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - PUT /core/tenants/{tenant_uuid}/
-     - Tenant Viewset
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter tenantRequest: (body)
-     - returns: RequestBuilder<Tenant>
-     */
-    open class func coreTenantsUpdateWithRequestBuilder(tenantUuid: UUID, tenantRequest: TenantRequest) -> RequestBuilder<Tenant> {
-        var localVariablePath = "/core/tenants/{tenant_uuid}/"
-        let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
-        let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tenantRequest)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Tenant>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func coreTenantsUsedByList(tenantUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreTenantsUsedByListWithRequestBuilder(tenantUuid: tenantUuid).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     - GET /core/tenants/{tenant_uuid}/used_by/
-     - Get a list of all objects that use this object
-     - API Key:
-       - type: apiKey Authorization
-       - name: authentik
-     - parameter tenantUuid: (path) A UUID string identifying this Tenant.
-     - returns: RequestBuilder<[UsedBy]>
-     */
-    open class func coreTenantsUsedByListWithRequestBuilder(tenantUuid: UUID) -> RequestBuilder<[UsedBy]> {
-        var localVariablePath = "/core/tenants/{tenant_uuid}/used_by/"
-        let tenantUuidPreEscape = "\(APIHelper.mapValueToPathItem(tenantUuid))"
-        let tenantUuidPostEscape = tenantUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{tenant_uuid}", with: tenantUuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 

@@ -14,58 +14,22 @@ import AnyCodable
 public struct Tenant: Codable, JSONEncodable, Hashable {
 
     public var tenantUuid: UUID
-    /** Domain that activates this tenant. Can be a superset, i.e. `a.b` for `aa.b` and `ba.b` */
-    public var domain: String
-    public var _default: Bool?
-    public var brandingTitle: String?
-    public var brandingLogo: String?
-    public var brandingFavicon: String?
-    public var flowAuthentication: UUID?
-    public var flowInvalidation: UUID?
-    public var flowRecovery: UUID?
-    public var flowUnenrollment: UUID?
-    public var flowUserSettings: UUID?
-    public var flowDeviceCode: UUID?
-    /** Events will be deleted after this duration.(Format: weeks=3;days=2;hours=3,seconds=2). */
-    public var eventRetention: String?
-    /** Web Certificate used by the authentik Core webserver. */
-    public var webCertificate: UUID?
-    public var attributes: AnyCodable?
+    public var schemaName: String
+    public var name: String
+    public var ready: Bool?
 
-    public init(tenantUuid: UUID, domain: String, _default: Bool? = nil, brandingTitle: String? = nil, brandingLogo: String? = nil, brandingFavicon: String? = nil, flowAuthentication: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, flowDeviceCode: UUID? = nil, eventRetention: String? = nil, webCertificate: UUID? = nil, attributes: AnyCodable? = nil) {
+    public init(tenantUuid: UUID, schemaName: String, name: String, ready: Bool? = nil) {
         self.tenantUuid = tenantUuid
-        self.domain = domain
-        self._default = _default
-        self.brandingTitle = brandingTitle
-        self.brandingLogo = brandingLogo
-        self.brandingFavicon = brandingFavicon
-        self.flowAuthentication = flowAuthentication
-        self.flowInvalidation = flowInvalidation
-        self.flowRecovery = flowRecovery
-        self.flowUnenrollment = flowUnenrollment
-        self.flowUserSettings = flowUserSettings
-        self.flowDeviceCode = flowDeviceCode
-        self.eventRetention = eventRetention
-        self.webCertificate = webCertificate
-        self.attributes = attributes
+        self.schemaName = schemaName
+        self.name = name
+        self.ready = ready
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case tenantUuid = "tenant_uuid"
-        case domain
-        case _default = "default"
-        case brandingTitle = "branding_title"
-        case brandingLogo = "branding_logo"
-        case brandingFavicon = "branding_favicon"
-        case flowAuthentication = "flow_authentication"
-        case flowInvalidation = "flow_invalidation"
-        case flowRecovery = "flow_recovery"
-        case flowUnenrollment = "flow_unenrollment"
-        case flowUserSettings = "flow_user_settings"
-        case flowDeviceCode = "flow_device_code"
-        case eventRetention = "event_retention"
-        case webCertificate = "web_certificate"
-        case attributes
+        case schemaName = "schema_name"
+        case name
+        case ready
     }
 
     // Encodable protocol methods
@@ -73,20 +37,9 @@ public struct Tenant: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(tenantUuid, forKey: .tenantUuid)
-        try container.encode(domain, forKey: .domain)
-        try container.encodeIfPresent(_default, forKey: ._default)
-        try container.encodeIfPresent(brandingTitle, forKey: .brandingTitle)
-        try container.encodeIfPresent(brandingLogo, forKey: .brandingLogo)
-        try container.encodeIfPresent(brandingFavicon, forKey: .brandingFavicon)
-        try container.encodeIfPresent(flowAuthentication, forKey: .flowAuthentication)
-        try container.encodeIfPresent(flowInvalidation, forKey: .flowInvalidation)
-        try container.encodeIfPresent(flowRecovery, forKey: .flowRecovery)
-        try container.encodeIfPresent(flowUnenrollment, forKey: .flowUnenrollment)
-        try container.encodeIfPresent(flowUserSettings, forKey: .flowUserSettings)
-        try container.encodeIfPresent(flowDeviceCode, forKey: .flowDeviceCode)
-        try container.encodeIfPresent(eventRetention, forKey: .eventRetention)
-        try container.encodeIfPresent(webCertificate, forKey: .webCertificate)
-        try container.encodeIfPresent(attributes, forKey: .attributes)
+        try container.encode(schemaName, forKey: .schemaName)
+        try container.encode(name, forKey: .name)
+        try container.encodeIfPresent(ready, forKey: .ready)
     }
 }
 

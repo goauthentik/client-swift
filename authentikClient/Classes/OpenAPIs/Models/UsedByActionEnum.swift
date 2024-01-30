@@ -10,11 +10,11 @@ import Foundation
 import AnyCodable
 #endif
 
-/** * &#x60;CASCADE&#x60; - CASCADE * &#x60;CASCADE_MANY&#x60; - CASCADE_MANY * &#x60;SET_NULL&#x60; - SET_NULL * &#x60;SET_DEFAULT&#x60; - SET_DEFAULT */
+/** * &#x60;cascade&#x60; - CASCADE * &#x60;cascade_many&#x60; - CASCADE_MANY * &#x60;set_null&#x60; - SET_NULL * &#x60;set_default&#x60; - SET_DEFAULT */
 public enum UsedByActionEnum: String, Codable, CaseIterable, CaseIterableDefaultsLast {
-    case cascade = "CASCADE"
-    case cascadeMany = "CASCADE_MANY"
-    case setNull = "SET_NULL"
-    case setDefault = "SET_DEFAULT"
+    case cascade = "cascade"
+    case cascadeMany = "cascade_many"
+    case setNull = "set_null"
+    case setDefault = "set_default"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

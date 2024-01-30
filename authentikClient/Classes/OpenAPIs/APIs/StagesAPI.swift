@@ -1603,7 +1603,7 @@ open class StagesAPI {
 
     /**
 
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1625,7 +1625,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - returns: RequestBuilder<Void> 
      */
     open class func stagesAuthenticatorStaticDestroyWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<Void> {
@@ -1726,7 +1726,7 @@ open class StagesAPI {
 
     /**
 
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter patchedAuthenticatorStaticStageRequest: (body)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1749,7 +1749,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter patchedAuthenticatorStaticStageRequest: (body)  (optional)
      - returns: RequestBuilder<AuthenticatorStaticStage> 
      */
@@ -1776,7 +1776,7 @@ open class StagesAPI {
 
     /**
 
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1798,7 +1798,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - returns: RequestBuilder<AuthenticatorStaticStage> 
      */
     open class func stagesAuthenticatorStaticRetrieveWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<AuthenticatorStaticStage> {
@@ -1824,7 +1824,7 @@ open class StagesAPI {
 
     /**
 
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter authenticatorStaticStageRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -1847,7 +1847,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter authenticatorStaticStageRequest: (body)  
      - returns: RequestBuilder<AuthenticatorStaticStage> 
      */
@@ -1874,7 +1874,7 @@ open class StagesAPI {
 
     /**
 
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1896,7 +1896,7 @@ open class StagesAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
-     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Stage. 
+     - parameter stageUuid: (path) A UUID string identifying this Static Authenticator Setup Stage. 
      - returns: RequestBuilder<[UsedBy]> 
      */
     open class func stagesAuthenticatorStaticUsedByListWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<[UsedBy]> {

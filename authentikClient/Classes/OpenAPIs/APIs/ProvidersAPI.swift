@@ -914,12 +914,13 @@ open class ProvidersAPI {
     /**
 
      - parameter id: (path) A unique integer value identifying this OAuth2/OpenID Provider. 
+     - parameter forUser: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func providersOauth2PreviewUserRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingPreview?, _ error: Error?) -> Void)) -> RequestTask {
-        return providersOauth2PreviewUserRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+    open class func providersOauth2PreviewUserRetrieve(id: Int, forUser: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingPreview?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersOauth2PreviewUserRetrieveWithRequestBuilder(id: id, forUser: forUser).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -936,9 +937,10 @@ open class ProvidersAPI {
        - type: apiKey Authorization 
        - name: authentik
      - parameter id: (path) A unique integer value identifying this OAuth2/OpenID Provider. 
+     - parameter forUser: (query)  (optional)
      - returns: RequestBuilder<PropertyMappingPreview> 
      */
-    open class func providersOauth2PreviewUserRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<PropertyMappingPreview> {
+    open class func providersOauth2PreviewUserRetrieveWithRequestBuilder(id: Int, forUser: Int? = nil) -> RequestBuilder<PropertyMappingPreview> {
         var localVariablePath = "/providers/oauth2/{id}/preview_user/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -946,7 +948,10 @@ open class ProvidersAPI {
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "for_user": (wrappedValue: forUser?.encodeToJSON(), isExplode: true),
+        ])
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
@@ -2666,12 +2671,13 @@ open class ProvidersAPI {
     /**
 
      - parameter id: (path) A unique integer value identifying this SAML Provider. 
+     - parameter forUser: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func providersSamlPreviewUserRetrieve(id: Int, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingPreview?, _ error: Error?) -> Void)) -> RequestTask {
-        return providersSamlPreviewUserRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+    open class func providersSamlPreviewUserRetrieve(id: Int, forUser: Int? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PropertyMappingPreview?, _ error: Error?) -> Void)) -> RequestTask {
+        return providersSamlPreviewUserRetrieveWithRequestBuilder(id: id, forUser: forUser).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -2688,9 +2694,10 @@ open class ProvidersAPI {
        - type: apiKey Authorization 
        - name: authentik
      - parameter id: (path) A unique integer value identifying this SAML Provider. 
+     - parameter forUser: (query)  (optional)
      - returns: RequestBuilder<PropertyMappingPreview> 
      */
-    open class func providersSamlPreviewUserRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<PropertyMappingPreview> {
+    open class func providersSamlPreviewUserRetrieveWithRequestBuilder(id: Int, forUser: Int? = nil) -> RequestBuilder<PropertyMappingPreview> {
         var localVariablePath = "/providers/saml/{id}/preview_user/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2698,7 +2705,10 @@ open class ProvidersAPI {
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "for_user": (wrappedValue: forUser?.encodeToJSON(), isExplode: true),
+        ])
 
         let localVariableNillableHeaders: [String: Any?] = [
             :
