@@ -219,7 +219,7 @@ Void (empty response body)
 
 # **coreApplicationsList**
 ```swift
-    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
+    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
 ```
 
 
@@ -231,6 +231,7 @@ Custom list method that checks Policy based access instead of guardian
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let forUser = 987 // Int |  (optional)
 let group = "group_example" // String |  (optional)
 let metaDescription = "metaDescription_example" // String |  (optional)
 let metaLaunchUrl = "metaLaunchUrl_example" // String |  (optional)
@@ -243,7 +244,7 @@ let search = "search_example" // String | A search term. (optional)
 let slug = "slug_example" // String |  (optional)
 let superuserFullList = true // Bool |  (optional)
 
-CoreAPI.coreApplicationsList(group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
+CoreAPI.coreApplicationsList(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -259,6 +260,7 @@ CoreAPI.coreApplicationsList(group: group, metaDescription: metaDescription, met
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **forUser** | **Int** |  | [optional] 
  **group** | **String** |  | [optional] 
  **metaDescription** | **String** |  | [optional] 
  **metaLaunchUrl** | **String** |  | [optional] 

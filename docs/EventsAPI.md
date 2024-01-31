@@ -28,6 +28,9 @@ Method | HTTP request | Description
 [**eventsRulesRetrieve**](EventsAPI.md#eventsrulesretrieve) | **GET** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUpdate**](EventsAPI.md#eventsrulesupdate) | **PUT** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUsedByList**](EventsAPI.md#eventsrulesusedbylist) | **GET** /events/rules/{pbm_uuid}/used_by/ | 
+[**eventsSystemTasksList**](EventsAPI.md#eventssystemtaskslist) | **GET** /events/system_tasks/ | 
+[**eventsSystemTasksRetrieve**](EventsAPI.md#eventssystemtasksretrieve) | **GET** /events/system_tasks/{uuid}/ | 
+[**eventsSystemTasksRunCreate**](EventsAPI.md#eventssystemtasksruncreate) | **POST** /events/system_tasks/{uuid}/run/ | 
 [**eventsTransportsCreate**](EventsAPI.md#eventstransportscreate) | **POST** /events/transports/ | 
 [**eventsTransportsDestroy**](EventsAPI.md#eventstransportsdestroy) | **DELETE** /events/transports/{uuid}/ | 
 [**eventsTransportsList**](EventsAPI.md#eventstransportslist) | **GET** /events/transports/ | 
@@ -1280,6 +1283,165 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksList**
+```swift
+    open class func eventsSystemTasksList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, status: Status_eventsSystemTasksList? = nil, uid: String? = nil, completion: @escaping (_ data: PaginatedSystemTaskList?, _ error: Error?) -> Void)
+```
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let status = "status_example" // String | * `unknown` - Unknown * `successful` - Successful * `warning` - Warning * `error` - Error (optional)
+let uid = "uid_example" // String |  (optional)
+
+EventsAPI.eventsSystemTasksList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, status: status, uid: uid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **status** | **String** | * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error | [optional] 
+ **uid** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedSystemTaskList**](PaginatedSystemTaskList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksRetrieve**
+```swift
+    open class func eventsSystemTasksRetrieve(uuid: UUID, completion: @escaping (_ data: SystemTask?, _ error: Error?) -> Void)
+```
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this System Task.
+
+EventsAPI.eventsSystemTasksRetrieve(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this System Task. | 
+
+### Return type
+
+[**SystemTask**](SystemTask.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsSystemTasksRunCreate**
+```swift
+    open class func eventsSystemTasksRunCreate(uuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Run task
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this System Task.
+
+EventsAPI.eventsSystemTasksRunCreate(uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this System Task. | 
+
+### Return type
+
+Void (empty response body)
 
 ### Authorization
 

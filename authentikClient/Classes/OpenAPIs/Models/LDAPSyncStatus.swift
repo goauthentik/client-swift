@@ -14,9 +14,9 @@ import AnyCodable
 public struct LDAPSyncStatus: Codable, JSONEncodable, Hashable {
 
     public var isRunning: Bool
-    public var tasks: [Task]
+    public var tasks: [SystemTask]
 
-    public init(isRunning: Bool, tasks: [Task]) {
+    public init(isRunning: Bool, tasks: [SystemTask]) {
         self.isRunning = isRunning
         self.tasks = tasks
     }

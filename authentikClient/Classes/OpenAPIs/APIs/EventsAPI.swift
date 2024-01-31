@@ -1290,6 +1290,178 @@ open class EventsAPI {
     }
 
     /**
+     * enum for parameter status
+     */
+    public enum Status_eventsSystemTasksList: String, CaseIterable {
+        case error = "error"
+        case successful = "successful"
+        case unknown = "unknown"
+        case warning = "warning"
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter status: (query) * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error (optional)
+     - parameter uid: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func eventsSystemTasksList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, status: Status_eventsSystemTasksList? = nil, uid: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedSystemTaskList?, _ error: Error?) -> Void)) -> RequestTask {
+        return eventsSystemTasksListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, status: status, uid: uid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /events/system_tasks/
+     - Read-only view set that returns all background tasks
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter status: (query) * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error (optional)
+     - parameter uid: (query)  (optional)
+     - returns: RequestBuilder<PaginatedSystemTaskList> 
+     */
+    open class func eventsSystemTasksListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, status: Status_eventsSystemTasksList? = nil, uid: String? = nil) -> RequestBuilder<PaginatedSystemTaskList> {
+        let localVariablePath = "/events/system_tasks/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+            "status": (wrappedValue: status?.encodeToJSON(), isExplode: true),
+            "uid": (wrappedValue: uid?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedSystemTaskList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this System Task. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func eventsSystemTasksRetrieve(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemTask?, _ error: Error?) -> Void)) -> RequestTask {
+        return eventsSystemTasksRetrieveWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /events/system_tasks/{uuid}/
+     - Read-only view set that returns all background tasks
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this System Task. 
+     - returns: RequestBuilder<SystemTask> 
+     */
+    open class func eventsSystemTasksRetrieveWithRequestBuilder(uuid: UUID) -> RequestBuilder<SystemTask> {
+        var localVariablePath = "/events/system_tasks/{uuid}/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SystemTask>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this System Task. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func eventsSystemTasksRunCreate(uuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return eventsSystemTasksRunCreateWithRequestBuilder(uuid: uuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /events/system_tasks/{uuid}/run/
+     - Run task
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this System Task. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func eventsSystemTasksRunCreateWithRequestBuilder(uuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/events/system_tasks/{uuid}/run/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
 
      - parameter notificationTransportRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.

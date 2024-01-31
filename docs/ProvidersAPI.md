@@ -926,7 +926,7 @@ Name | Type | Description  | Notes
 
 # **providersOauth2PreviewUserRetrieve**
 ```swift
-    open class func providersOauth2PreviewUserRetrieve(id: Int, completion: @escaping (_ data: PropertyMappingPreview?, _ error: Error?) -> Void)
+    open class func providersOauth2PreviewUserRetrieve(id: Int, forUser: Int? = nil, completion: @escaping (_ data: PropertyMappingPreview?, _ error: Error?) -> Void)
 ```
 
 
@@ -939,8 +939,9 @@ Preview user data for provider
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
+let forUser = 987 // Int |  (optional)
 
-ProvidersAPI.providersOauth2PreviewUserRetrieve(id: id) { (response, error) in
+ProvidersAPI.providersOauth2PreviewUserRetrieve(id: id, forUser: forUser) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -957,6 +958,7 @@ ProvidersAPI.providersOauth2PreviewUserRetrieve(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this OAuth2/OpenID Provider. | 
+ **forUser** | **Int** |  | [optional] 
 
 ### Return type
 
@@ -2624,7 +2626,7 @@ Name | Type | Description  | Notes
 
 # **providersSamlPreviewUserRetrieve**
 ```swift
-    open class func providersSamlPreviewUserRetrieve(id: Int, completion: @escaping (_ data: PropertyMappingPreview?, _ error: Error?) -> Void)
+    open class func providersSamlPreviewUserRetrieve(id: Int, forUser: Int? = nil, completion: @escaping (_ data: PropertyMappingPreview?, _ error: Error?) -> Void)
 ```
 
 
@@ -2637,8 +2639,9 @@ Preview user data for provider
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
+let forUser = 987 // Int |  (optional)
 
-ProvidersAPI.providersSamlPreviewUserRetrieve(id: id) { (response, error) in
+ProvidersAPI.providersSamlPreviewUserRetrieve(id: id, forUser: forUser) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2655,6 +2658,7 @@ ProvidersAPI.providersSamlPreviewUserRetrieve(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this SAML Provider. | 
+ **forUser** | **Int** |  | [optional] 
 
 ### Return type
 

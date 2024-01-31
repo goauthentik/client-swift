@@ -160,6 +160,7 @@ open class CoreAPI {
 
     /**
 
+     - parameter forUser: (query)  (optional)
      - parameter group: (query)  (optional)
      - parameter metaDescription: (query)  (optional)
      - parameter metaLaunchUrl: (query)  (optional)
@@ -175,8 +176,8 @@ open class CoreAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func coreApplicationsList(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
-        return coreApplicationsListWithRequestBuilder(group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList).execute(apiResponseQueue) { result in
+    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedApplicationList?, _ error: Error?) -> Void)) -> RequestTask {
+        return coreApplicationsListWithRequestBuilder(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -192,6 +193,7 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - parameter forUser: (query)  (optional)
      - parameter group: (query)  (optional)
      - parameter metaDescription: (query)  (optional)
      - parameter metaLaunchUrl: (query)  (optional)
@@ -205,13 +207,14 @@ open class CoreAPI {
      - parameter superuserFullList: (query)  (optional)
      - returns: RequestBuilder<PaginatedApplicationList> 
      */
-    open class func coreApplicationsListWithRequestBuilder(group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
+    open class func coreApplicationsListWithRequestBuilder(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil) -> RequestBuilder<PaginatedApplicationList> {
         let localVariablePath = "/core/applications/"
         let localVariableURLString = authentikClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "for_user": (wrappedValue: forUser?.encodeToJSON(), isExplode: true),
             "group": (wrappedValue: group?.encodeToJSON(), isExplode: true),
             "meta_description": (wrappedValue: metaDescription?.encodeToJSON(), isExplode: true),
             "meta_launch_url": (wrappedValue: metaLaunchUrl?.encodeToJSON(), isExplode: true),

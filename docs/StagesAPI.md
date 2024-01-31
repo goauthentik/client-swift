@@ -1408,7 +1408,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Setup Stage.
 
 StagesAPI.stagesAuthenticatorStaticDestroy(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
@@ -1426,7 +1426,7 @@ StagesAPI.stagesAuthenticatorStaticDestroy(stageUuid: stageUuid) { (response, er
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Setup Stage. | 
 
 ### Return type
 
@@ -1524,7 +1524,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Setup Stage.
 let patchedAuthenticatorStaticStageRequest = PatchedAuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // PatchedAuthenticatorStaticStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorStaticPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorStaticStageRequest: patchedAuthenticatorStaticStageRequest) { (response, error) in
@@ -1543,7 +1543,7 @@ StagesAPI.stagesAuthenticatorStaticPartialUpdate(stageUuid: stageUuid, patchedAu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Setup Stage. | 
  **patchedAuthenticatorStaticStageRequest** | [**PatchedAuthenticatorStaticStageRequest**](PatchedAuthenticatorStaticStageRequest.md) |  | [optional] 
 
 ### Return type
@@ -1575,7 +1575,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Setup Stage.
 
 StagesAPI.stagesAuthenticatorStaticRetrieve(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
@@ -1593,7 +1593,7 @@ StagesAPI.stagesAuthenticatorStaticRetrieve(stageUuid: stageUuid) { (response, e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Setup Stage. | 
 
 ### Return type
 
@@ -1624,7 +1624,7 @@ AuthenticatorStaticStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Setup Stage.
 let authenticatorStaticStageRequest = AuthenticatorStaticStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", tokenCount: 123, tokenLength: 123) // AuthenticatorStaticStageRequest | 
 
 StagesAPI.stagesAuthenticatorStaticUpdate(stageUuid: stageUuid, authenticatorStaticStageRequest: authenticatorStaticStageRequest) { (response, error) in
@@ -1643,7 +1643,7 @@ StagesAPI.stagesAuthenticatorStaticUpdate(stageUuid: stageUuid, authenticatorSta
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Setup Stage. | 
  **authenticatorStaticStageRequest** | [**AuthenticatorStaticStageRequest**](AuthenticatorStaticStageRequest.md) |  | 
 
 ### Return type
@@ -1675,7 +1675,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Static Authenticator Setup Stage.
 
 StagesAPI.stagesAuthenticatorStaticUsedByList(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
@@ -1693,7 +1693,7 @@ StagesAPI.stagesAuthenticatorStaticUsedByList(stageUuid: stageUuid) { (response,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Static Authenticator Setup Stage. | 
 
 ### Return type
 

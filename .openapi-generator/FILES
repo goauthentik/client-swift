@@ -316,6 +316,7 @@ authentikClient/Classes/OpenAPIs/Models/PaginatedServiceConnectionList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedSourceList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedStageList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedStaticDeviceList.swift
+authentikClient/Classes/OpenAPIs/Models/PaginatedSystemTaskList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTOTPDeviceList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTenantList.swift
 authentikClient/Classes/OpenAPIs/Models/PaginatedTokenList.swift
@@ -508,10 +509,10 @@ authentikClient/Classes/OpenAPIs/Models/StaticDeviceTokenRequest.swift
 authentikClient/Classes/OpenAPIs/Models/SubModeEnum.swift
 authentikClient/Classes/OpenAPIs/Models/SystemInfo.swift
 authentikClient/Classes/OpenAPIs/Models/SystemInfoRuntime.swift
+authentikClient/Classes/OpenAPIs/Models/SystemTask.swift
+authentikClient/Classes/OpenAPIs/Models/SystemTaskStatusEnum.swift
 authentikClient/Classes/OpenAPIs/Models/TOTPDevice.swift
 authentikClient/Classes/OpenAPIs/Models/TOTPDeviceRequest.swift
-authentikClient/Classes/OpenAPIs/Models/Task.swift
-authentikClient/Classes/OpenAPIs/Models/TaskStatusEnum.swift
 authentikClient/Classes/OpenAPIs/Models/Tenant.swift
 authentikClient/Classes/OpenAPIs/Models/TenantAdminGroupRequestRequest.swift
 authentikClient/Classes/OpenAPIs/Models/TenantRecoveryKeyRequestRequest.swift
@@ -866,6 +867,7 @@ docs/PaginatedServiceConnectionList.md
 docs/PaginatedSourceList.md
 docs/PaginatedStageList.md
 docs/PaginatedStaticDeviceList.md
+docs/PaginatedSystemTaskList.md
 docs/PaginatedTOTPDeviceList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
@@ -1067,10 +1069,10 @@ docs/StaticDeviceTokenRequest.md
 docs/SubModeEnum.md
 docs/SystemInfo.md
 docs/SystemInfoRuntime.md
+docs/SystemTask.md
+docs/SystemTaskStatusEnum.md
 docs/TOTPDevice.md
 docs/TOTPDeviceRequest.md
-docs/Task.md
-docs/TaskStatusEnum.md
 docs/Tenant.md
 docs/TenantAdminGroupRequestRequest.md
 docs/TenantRecoveryKeyRequestRequest.md
