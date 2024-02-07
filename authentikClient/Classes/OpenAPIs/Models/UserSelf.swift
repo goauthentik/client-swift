@@ -23,6 +23,7 @@ public struct UserSelf: Codable, JSONEncodable, Hashable {
     public var isSuperuser: Bool
     public var groups: [UserSelfGroups]
     public var email: String?
+    /** User's avatar, either a http/https URL or a data URI */
     public var avatar: String
     public var uid: String
     /** Get user settings with brand and group settings applied */

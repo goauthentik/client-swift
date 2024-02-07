@@ -19,11 +19,8 @@ public struct SystemTask: Codable, JSONEncodable, Hashable {
     public var fullName: String
     public var uid: String?
     public var description: String
-    /** Timestamp when the task started */
     public var startTimestamp: Date
-    /** Timestamp when the task finished */
     public var finishTimestamp: Date
-    /** Get the duration a task took to run */
     public var duration: Double
     public var status: SystemTaskStatusEnum
     public var messages: [String]

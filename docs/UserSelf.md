@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **isSuperuser** | **Bool** |  | [readonly] 
 **groups** | [UserSelfGroups] |  | [readonly] 
 **email** | **String** |  | [optional] 
-**avatar** | **String** |  | [readonly] 
+**avatar** | **String** | User&#39;s avatar, either a http/https URL or a data URI | [readonly] 
 **uid** | **String** |  | [readonly] 
 **settings** | [String: AnyCodable] | Get user settings with brand and group settings applied | [readonly] 
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 

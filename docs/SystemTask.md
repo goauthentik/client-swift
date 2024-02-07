@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **fullName** | **String** | Get full name with UID | [readonly] 
 **uid** | **String** |  | [optional] 
 **description** | **String** |  | 
-**startTimestamp** | **Date** | Timestamp when the task started | [readonly] 
-**finishTimestamp** | **Date** | Timestamp when the task finished | [readonly] 
-**duration** | **Double** | Get the duration a task took to run | [readonly] 
+**startTimestamp** | **Date** |  | [readonly] 
+**finishTimestamp** | **Date** |  | [readonly] 
+**duration** | **Double** |  | [readonly] 
 **status** | [**SystemTaskStatusEnum**](SystemTaskStatusEnum.md) |  | 
 **messages** | **[String]** |  | 
 
