@@ -2,6 +2,7 @@
 PWD = $(shell pwd)
 UID = $(shell id -u)
 GID = $(shell id -g)
+TMPDIR := $(shell mktemp -d)
 
 all: clean fetch diff build
 
