@@ -29,6 +29,9 @@ diff:
 		docker.io/openapitools/openapi-diff:2.1.0-beta.6 \
 		--markdown /local/diff.xccheckout \
 		/local/schema-old.yml /local/schema.yml || echo > diff.xccheckout
+	mv diff.xccheckout ${TMPDIR}/diff.xccheckout
+	echo "Update API Client\n\n" > diff.xccheckout
+	cat ${TMPDIR}/diff.xccheckout >> diff.xccheckout
 	rm -f schema-old.yml
 
 fetch:
