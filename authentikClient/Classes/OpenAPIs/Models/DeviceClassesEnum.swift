@@ -10,12 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
-/** * &#x60;static&#x60; - Static * &#x60;totp&#x60; - TOTP * &#x60;webauthn&#x60; - WebAuthn * &#x60;duo&#x60; - Duo * &#x60;sms&#x60; - SMS */
+/** * &#x60;static&#x60; - Static * &#x60;totp&#x60; - TOTP * &#x60;webauthn&#x60; - WebAuthn * &#x60;duo&#x60; - Duo * &#x60;sms&#x60; - SMS * &#x60;mobile&#x60; - authentik Mobile */
 public enum DeviceClassesEnum: String, Codable, CaseIterable, CaseIterableDefaultsLast {
     case _static = "static"
     case totp = "totp"
     case webauthn = "webauthn"
     case duo = "duo"
     case sms = "sms"
+    case mobile = "mobile"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

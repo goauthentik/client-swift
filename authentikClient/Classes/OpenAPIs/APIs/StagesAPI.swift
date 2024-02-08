@@ -808,6 +808,358 @@ open class StagesAPI {
 
     /**
 
+     - parameter authenticatorMobileStageRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileCreateWithRequestBuilder(authenticatorMobileStageRequest: authenticatorMobileStageRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - POST /stages/authenticator/mobile/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter authenticatorMobileStageRequest: (body)  
+     - returns: RequestBuilder<AuthenticatorMobileStage> 
+     */
+    open class func stagesAuthenticatorMobileCreateWithRequestBuilder(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) -> RequestBuilder<AuthenticatorMobileStage> {
+        let localVariablePath = "/stages/authenticator/mobile/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorMobileStageRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorMobileStage>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileDestroy(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileDestroyWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - DELETE /stages/authenticator/mobile/{stage_uuid}/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func stagesAuthenticatorMobileDestroyWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<Void> {
+        var localVariablePath = "/stages/authenticator/mobile/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = authentikClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter configureFlow: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileList(configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedAuthenticatorMobileStageList?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileListWithRequestBuilder(configureFlow: configureFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /stages/authenticator/mobile/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter configureFlow: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - returns: RequestBuilder<PaginatedAuthenticatorMobileStageList> 
+     */
+    open class func stagesAuthenticatorMobileListWithRequestBuilder(configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil) -> RequestBuilder<PaginatedAuthenticatorMobileStageList> {
+        let localVariablePath = "/stages/authenticator/mobile/"
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "configure_flow": (wrappedValue: configureFlow?.encodeToJSON(), isExplode: true),
+            "name": (wrappedValue: name?.encodeToJSON(), isExplode: true),
+            "ordering": (wrappedValue: ordering?.encodeToJSON(), isExplode: true),
+            "page": (wrappedValue: page?.encodeToJSON(), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.encodeToJSON(), isExplode: true),
+            "search": (wrappedValue: search?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedAuthenticatorMobileStageList>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter patchedAuthenticatorMobileStageRequest: (body)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobilePartialUpdate(stageUuid: UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest? = nil, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobilePartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedAuthenticatorMobileStageRequest: patchedAuthenticatorMobileStageRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PATCH /stages/authenticator/mobile/{stage_uuid}/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter patchedAuthenticatorMobileStageRequest: (body)  (optional)
+     - returns: RequestBuilder<AuthenticatorMobileStage> 
+     */
+    open class func stagesAuthenticatorMobilePartialUpdateWithRequestBuilder(stageUuid: UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest? = nil) -> RequestBuilder<AuthenticatorMobileStage> {
+        var localVariablePath = "/stages/authenticator/mobile/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedAuthenticatorMobileStageRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorMobileStage>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileRetrieve(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileRetrieveWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /stages/authenticator/mobile/{stage_uuid}/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - returns: RequestBuilder<AuthenticatorMobileStage> 
+     */
+    open class func stagesAuthenticatorMobileRetrieveWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<AuthenticatorMobileStage> {
+        var localVariablePath = "/stages/authenticator/mobile/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorMobileStage>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter authenticatorMobileStageRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileUpdate(stageUuid: UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileUpdateWithRequestBuilder(stageUuid: stageUuid, authenticatorMobileStageRequest: authenticatorMobileStageRequest).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - PUT /stages/authenticator/mobile/{stage_uuid}/
+     - AuthenticatorMobileStage Viewset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter authenticatorMobileStageRequest: (body)  
+     - returns: RequestBuilder<AuthenticatorMobileStage> 
+     */
+    open class func stagesAuthenticatorMobileUpdateWithRequestBuilder(stageUuid: UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) -> RequestBuilder<AuthenticatorMobileStage> {
+        var localVariablePath = "/stages/authenticator/mobile/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticatorMobileStageRequest)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AuthenticatorMobileStage>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func stagesAuthenticatorMobileUsedByList(stageUuid: UUID, apiResponseQueue: DispatchQueue = authentikClientAPI.apiResponseQueue, completion: @escaping ((_ data: [UsedBy]?, _ error: Error?) -> Void)) -> RequestTask {
+        return stagesAuthenticatorMobileUsedByListWithRequestBuilder(stageUuid: stageUuid).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     - GET /stages/authenticator/mobile/{stage_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - API Key:
+       - type: apiKey Authorization 
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Mobile Authenticator Setup Stage. 
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func stagesAuthenticatorMobileUsedByListWithRequestBuilder(stageUuid: UUID) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/stages/authenticator/mobile/{stage_uuid}/used_by/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = authentikClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = authentikClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+
      - parameter authenticatorSMSStageRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects

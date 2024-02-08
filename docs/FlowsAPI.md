@@ -471,7 +471,7 @@ import authentikClient
 
 let flowSlug = "flowSlug_example" // String | 
 let query = "query_example" // String | Querystring as received
-let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: 123, phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: "deviceClass_example", deviceUid: "deviceUid_example", challenge: "TODO"), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
+let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: 123, phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: "deviceClass_example", deviceUid: "deviceUid_example", challenge: "TODO"), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, mobile: "mobile_example", response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
 
 FlowsAPI.flowsExecutorSolve(flowSlug: flowSlug, query: query, flowChallengeResponseRequest: flowChallengeResponseRequest) { (response, error) in
     guard error == nil else {

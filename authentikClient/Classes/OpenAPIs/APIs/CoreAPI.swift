@@ -869,6 +869,9 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
      - returns: RequestBuilder<CurrentBrand> 
      */
     open class func coreBrandsCurrentRetrieveWithRequestBuilder() -> RequestBuilder<CurrentBrand> {
@@ -2727,6 +2730,9 @@ open class CoreAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: authentik
+     - API Key:
+       - type: apiKey Authorization 
+       - name: mobile_device_token
      - returns: RequestBuilder<SessionUser> 
      */
     open class func coreUsersMeRetrieveWithRequestBuilder() -> RequestBuilder<SessionUser> {

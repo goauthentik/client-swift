@@ -40,6 +40,12 @@ Class | Method | HTTP request | Description
 *AuthenticatorsAPI* | [**authenticatorsAdminDuoPartialUpdate**](docs/AuthenticatorsAPI.md#authenticatorsadminduopartialupdate) | **PATCH** /authenticators/admin/duo/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsAdminDuoRetrieve**](docs/AuthenticatorsAPI.md#authenticatorsadminduoretrieve) | **GET** /authenticators/admin/duo/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsAdminDuoUpdate**](docs/AuthenticatorsAPI.md#authenticatorsadminduoupdate) | **PUT** /authenticators/admin/duo/{id}/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobileCreate**](docs/AuthenticatorsAPI.md#authenticatorsadminmobilecreate) | **POST** /authenticators/admin/mobile/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobileDestroy**](docs/AuthenticatorsAPI.md#authenticatorsadminmobiledestroy) | **DELETE** /authenticators/admin/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobileList**](docs/AuthenticatorsAPI.md#authenticatorsadminmobilelist) | **GET** /authenticators/admin/mobile/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobilePartialUpdate**](docs/AuthenticatorsAPI.md#authenticatorsadminmobilepartialupdate) | **PATCH** /authenticators/admin/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobileRetrieve**](docs/AuthenticatorsAPI.md#authenticatorsadminmobileretrieve) | **GET** /authenticators/admin/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsAdminMobileUpdate**](docs/AuthenticatorsAPI.md#authenticatorsadminmobileupdate) | **PUT** /authenticators/admin/mobile/{uuid}/ | 
 *AuthenticatorsAPI* | [**authenticatorsAdminSmsCreate**](docs/AuthenticatorsAPI.md#authenticatorsadminsmscreate) | **POST** /authenticators/admin/sms/ | 
 *AuthenticatorsAPI* | [**authenticatorsAdminSmsDestroy**](docs/AuthenticatorsAPI.md#authenticatorsadminsmsdestroy) | **DELETE** /authenticators/admin/sms/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsAdminSmsList**](docs/AuthenticatorsAPI.md#authenticatorsadminsmslist) | **GET** /authenticators/admin/sms/ | 
@@ -71,6 +77,16 @@ Class | Method | HTTP request | Description
 *AuthenticatorsAPI* | [**authenticatorsDuoRetrieve**](docs/AuthenticatorsAPI.md#authenticatorsduoretrieve) | **GET** /authenticators/duo/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsDuoUpdate**](docs/AuthenticatorsAPI.md#authenticatorsduoupdate) | **PUT** /authenticators/duo/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsDuoUsedByList**](docs/AuthenticatorsAPI.md#authenticatorsduousedbylist) | **GET** /authenticators/duo/{id}/used_by/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileCheckInCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobilecheckincreate) | **POST** /authenticators/mobile/{uuid}/check_in/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileDestroy**](docs/AuthenticatorsAPI.md#authenticatorsmobiledestroy) | **DELETE** /authenticators/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileEnrollmentCallbackCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobileenrollmentcallbackcreate) | **POST** /authenticators/mobile/{uuid}/enrollment_callback/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileEnrollmentStatusCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobileenrollmentstatuscreate) | **POST** /authenticators/mobile/{uuid}/enrollment_status/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileList**](docs/AuthenticatorsAPI.md#authenticatorsmobilelist) | **GET** /authenticators/mobile/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobilePartialUpdate**](docs/AuthenticatorsAPI.md#authenticatorsmobilepartialupdate) | **PATCH** /authenticators/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileReceiveResponseCreate**](docs/AuthenticatorsAPI.md#authenticatorsmobilereceiveresponsecreate) | **POST** /authenticators/mobile/{uuid}/receive_response/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileRetrieve**](docs/AuthenticatorsAPI.md#authenticatorsmobileretrieve) | **GET** /authenticators/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileUpdate**](docs/AuthenticatorsAPI.md#authenticatorsmobileupdate) | **PUT** /authenticators/mobile/{uuid}/ | 
+*AuthenticatorsAPI* | [**authenticatorsMobileUsedByList**](docs/AuthenticatorsAPI.md#authenticatorsmobileusedbylist) | **GET** /authenticators/mobile/{uuid}/used_by/ | 
 *AuthenticatorsAPI* | [**authenticatorsSmsDestroy**](docs/AuthenticatorsAPI.md#authenticatorssmsdestroy) | **DELETE** /authenticators/sms/{id}/ | 
 *AuthenticatorsAPI* | [**authenticatorsSmsList**](docs/AuthenticatorsAPI.md#authenticatorssmslist) | **GET** /authenticators/sms/ | 
 *AuthenticatorsAPI* | [**authenticatorsSmsPartialUpdate**](docs/AuthenticatorsAPI.md#authenticatorssmspartialupdate) | **PATCH** /authenticators/sms/{id}/ | 
@@ -573,6 +589,13 @@ Class | Method | HTTP request | Description
 *StagesAPI* | [**stagesAuthenticatorDuoRetrieve**](docs/StagesAPI.md#stagesauthenticatorduoretrieve) | **GET** /stages/authenticator/duo/{stage_uuid}/ | 
 *StagesAPI* | [**stagesAuthenticatorDuoUpdate**](docs/StagesAPI.md#stagesauthenticatorduoupdate) | **PUT** /stages/authenticator/duo/{stage_uuid}/ | 
 *StagesAPI* | [**stagesAuthenticatorDuoUsedByList**](docs/StagesAPI.md#stagesauthenticatorduousedbylist) | **GET** /stages/authenticator/duo/{stage_uuid}/used_by/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileCreate**](docs/StagesAPI.md#stagesauthenticatormobilecreate) | **POST** /stages/authenticator/mobile/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileDestroy**](docs/StagesAPI.md#stagesauthenticatormobiledestroy) | **DELETE** /stages/authenticator/mobile/{stage_uuid}/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileList**](docs/StagesAPI.md#stagesauthenticatormobilelist) | **GET** /stages/authenticator/mobile/ | 
+*StagesAPI* | [**stagesAuthenticatorMobilePartialUpdate**](docs/StagesAPI.md#stagesauthenticatormobilepartialupdate) | **PATCH** /stages/authenticator/mobile/{stage_uuid}/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileRetrieve**](docs/StagesAPI.md#stagesauthenticatormobileretrieve) | **GET** /stages/authenticator/mobile/{stage_uuid}/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileUpdate**](docs/StagesAPI.md#stagesauthenticatormobileupdate) | **PUT** /stages/authenticator/mobile/{stage_uuid}/ | 
+*StagesAPI* | [**stagesAuthenticatorMobileUsedByList**](docs/StagesAPI.md#stagesauthenticatormobileusedbylist) | **GET** /stages/authenticator/mobile/{stage_uuid}/used_by/ | 
 *StagesAPI* | [**stagesAuthenticatorSmsCreate**](docs/StagesAPI.md#stagesauthenticatorsmscreate) | **POST** /stages/authenticator/sms/ | 
 *StagesAPI* | [**stagesAuthenticatorSmsDestroy**](docs/StagesAPI.md#stagesauthenticatorsmsdestroy) | **DELETE** /stages/authenticator/sms/{stage_uuid}/ | 
 *StagesAPI* | [**stagesAuthenticatorSmsList**](docs/StagesAPI.md#stagesauthenticatorsmslist) | **GET** /stages/authenticator/sms/ | 
@@ -759,6 +782,11 @@ Class | Method | HTTP request | Description
  - [AuthenticatorDuoStageDeviceImportResponse](docs/AuthenticatorDuoStageDeviceImportResponse.md)
  - [AuthenticatorDuoStageManualDeviceImportRequest](docs/AuthenticatorDuoStageManualDeviceImportRequest.md)
  - [AuthenticatorDuoStageRequest](docs/AuthenticatorDuoStageRequest.md)
+ - [AuthenticatorMobileChallenge](docs/AuthenticatorMobileChallenge.md)
+ - [AuthenticatorMobileChallengeResponseRequest](docs/AuthenticatorMobileChallengeResponseRequest.md)
+ - [AuthenticatorMobilePayloadChallenge](docs/AuthenticatorMobilePayloadChallenge.md)
+ - [AuthenticatorMobileStage](docs/AuthenticatorMobileStage.md)
+ - [AuthenticatorMobileStageRequest](docs/AuthenticatorMobileStageRequest.md)
  - [AuthenticatorSMSChallenge](docs/AuthenticatorSMSChallenge.md)
  - [AuthenticatorSMSChallengeResponseRequest](docs/AuthenticatorSMSChallengeResponseRequest.md)
  - [AuthenticatorSMSStage](docs/AuthenticatorSMSStage.md)
@@ -887,6 +915,7 @@ Class | Method | HTTP request | Description
  - [InvitationStage](docs/InvitationStage.md)
  - [InvitationStageRequest](docs/InvitationStageRequest.md)
  - [IssuerModeEnum](docs/IssuerModeEnum.md)
+ - [ItemMatchingModeEnum](docs/ItemMatchingModeEnum.md)
  - [KubernetesServiceConnection](docs/KubernetesServiceConnection.md)
  - [KubernetesServiceConnectionRequest](docs/KubernetesServiceConnectionRequest.md)
  - [LDAPAPIAccessMode](docs/LDAPAPIAccessMode.md)
@@ -908,6 +937,16 @@ Class | Method | HTTP request | Description
  - [LoginMetrics](docs/LoginMetrics.md)
  - [LoginSource](docs/LoginSource.md)
  - [Metadata](docs/Metadata.md)
+ - [MobileDevice](docs/MobileDevice.md)
+ - [MobileDeviceCheckInRequest](docs/MobileDeviceCheckInRequest.md)
+ - [MobileDeviceEnrollmentCallback](docs/MobileDeviceEnrollmentCallback.md)
+ - [MobileDeviceEnrollmentRequest](docs/MobileDeviceEnrollmentRequest.md)
+ - [MobileDeviceEnrollmentStatus](docs/MobileDeviceEnrollmentStatus.md)
+ - [MobileDeviceEnrollmentStatusStatusEnum](docs/MobileDeviceEnrollmentStatusStatusEnum.md)
+ - [MobileDeviceInfo](docs/MobileDeviceInfo.md)
+ - [MobileDeviceInfoRequest](docs/MobileDeviceInfoRequest.md)
+ - [MobileDeviceRequest](docs/MobileDeviceRequest.md)
+ - [MobileDeviceResponseRequest](docs/MobileDeviceResponseRequest.md)
  - [ModelEnum](docs/ModelEnum.md)
  - [ModelRequest](docs/ModelRequest.md)
  - [NameIdPolicyEnum](docs/NameIdPolicyEnum.md)
@@ -942,6 +981,7 @@ Class | Method | HTTP request | Description
  - [PaginatedAuthenticateWebAuthnStageList](docs/PaginatedAuthenticateWebAuthnStageList.md)
  - [PaginatedAuthenticatedSessionList](docs/PaginatedAuthenticatedSessionList.md)
  - [PaginatedAuthenticatorDuoStageList](docs/PaginatedAuthenticatorDuoStageList.md)
+ - [PaginatedAuthenticatorMobileStageList](docs/PaginatedAuthenticatorMobileStageList.md)
  - [PaginatedAuthenticatorSMSStageList](docs/PaginatedAuthenticatorSMSStageList.md)
  - [PaginatedAuthenticatorStaticStageList](docs/PaginatedAuthenticatorStaticStageList.md)
  - [PaginatedAuthenticatorTOTPStageList](docs/PaginatedAuthenticatorTOTPStageList.md)
@@ -977,6 +1017,7 @@ Class | Method | HTTP request | Description
  - [PaginatedLDAPProviderList](docs/PaginatedLDAPProviderList.md)
  - [PaginatedLDAPSourceList](docs/PaginatedLDAPSourceList.md)
  - [PaginatedLicenseList](docs/PaginatedLicenseList.md)
+ - [PaginatedMobileDeviceList](docs/PaginatedMobileDeviceList.md)
  - [PaginatedNotificationList](docs/PaginatedNotificationList.md)
  - [PaginatedNotificationRuleList](docs/PaginatedNotificationRuleList.md)
  - [PaginatedNotificationTransportList](docs/PaginatedNotificationTransportList.md)
@@ -1045,6 +1086,7 @@ Class | Method | HTTP request | Description
  - [PatchedApplicationRequest](docs/PatchedApplicationRequest.md)
  - [PatchedAuthenticateWebAuthnStageRequest](docs/PatchedAuthenticateWebAuthnStageRequest.md)
  - [PatchedAuthenticatorDuoStageRequest](docs/PatchedAuthenticatorDuoStageRequest.md)
+ - [PatchedAuthenticatorMobileStageRequest](docs/PatchedAuthenticatorMobileStageRequest.md)
  - [PatchedAuthenticatorSMSStageRequest](docs/PatchedAuthenticatorSMSStageRequest.md)
  - [PatchedAuthenticatorStaticStageRequest](docs/PatchedAuthenticatorStaticStageRequest.md)
  - [PatchedAuthenticatorTOTPStageRequest](docs/PatchedAuthenticatorTOTPStageRequest.md)
@@ -1076,6 +1118,7 @@ Class | Method | HTTP request | Description
  - [PatchedLDAPProviderRequest](docs/PatchedLDAPProviderRequest.md)
  - [PatchedLDAPSourceRequest](docs/PatchedLDAPSourceRequest.md)
  - [PatchedLicenseRequest](docs/PatchedLicenseRequest.md)
+ - [PatchedMobileDeviceRequest](docs/PatchedMobileDeviceRequest.md)
  - [PatchedNotificationRequest](docs/PatchedNotificationRequest.md)
  - [PatchedNotificationRuleRequest](docs/PatchedNotificationRuleRequest.md)
  - [PatchedNotificationTransportRequest](docs/PatchedNotificationTransportRequest.md)
@@ -1120,6 +1163,7 @@ Class | Method | HTTP request | Description
  - [PatchedWebAuthnDeviceRequest](docs/PatchedWebAuthnDeviceRequest.md)
  - [Permission](docs/Permission.md)
  - [PermissionAssignRequest](docs/PermissionAssignRequest.md)
+ - [PlatformEnum](docs/PlatformEnum.md)
  - [PlexAuthenticationChallenge](docs/PlexAuthenticationChallenge.md)
  - [PlexAuthenticationChallengeResponseRequest](docs/PlexAuthenticationChallengeResponseRequest.md)
  - [PlexSource](docs/PlexSource.md)
@@ -1278,6 +1322,15 @@ Class | Method | HTTP request | Description
 
 
 ### authentik
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
+
+
+### mobile_device_token
 
 - **Type**: API key
 - **API key parameter name**: Authorization

@@ -13,13 +13,16 @@ import AnyCodable
 /** Serializer for WebAuthn authenticator devices */
 public struct WebAuthnDeviceRequest: Codable, JSONEncodable, Hashable {
 
+    public var pk: String
     public var name: String
 
-    public init(name: String) {
+    public init(pk: String, name: String) {
+        self.pk = pk
         self.name = name
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pk
         case name
     }
 
@@ -27,6 +30,7 @@ public struct WebAuthnDeviceRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pk, forKey: .pk)
         try container.encode(name, forKey: .name)
     }
 }
