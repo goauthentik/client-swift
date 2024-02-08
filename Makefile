@@ -32,4 +32,4 @@ diff:
 
 fetch:
 	mv schema.yml schema-old.yml
-	wget -O schema.yml https://raw.githubusercontent.com/goauthentik/authentik/master/schema.yml
+	wget -O schema.yml https://raw.githubusercontent.com/goauthentik/authentik/stages/authenticator_mobile/schema.yml
