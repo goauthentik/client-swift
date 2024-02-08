@@ -21,7 +21,7 @@ build:
 		-c /local/config.yaml
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
-	grep -r -l true * | xargs sed -i 's/truetrue/true/g'
+	grep -r -l true * | xargs sed -i 's/true/true/g'
 
 diff:
 	docker run \
