@@ -4,7 +4,7 @@ UID = $(shell id -u)
 GID = $(shell id -g)
 TMPDIR := $(shell mktemp -d)
 
-all: clean fetch diff build
+all: clean update build diff
 
 clean:
 	rm -rf authentikClient/
@@ -35,6 +35,6 @@ diff:
 	cat ${TMPDIR}/diff.xccheckout >> diff.xccheckout
 	rm -f schema-old.yml
 
-fetch:
+update:
 	mv schema.yml schema-old.yml
-	wget -O schema.yml https://raw.githubusercontent.com/goauthentik/authentik/stages/authenticator_mobile/schema.yml
+	cp ../authentik/schema.yml schema.yml
