@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **finishTimestamp** | **Date** |  | [readonly] 
 **duration** | **Double** |  | [readonly] 
 **status** | [**SystemTaskStatusEnum**](SystemTaskStatusEnum.md) |  | 
-**messages** | **[String]** |  | 
+**messages** | [LogEvent] |  | 
+**expires** | **Date** |  | [optional] 
+**expiring** | **Bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

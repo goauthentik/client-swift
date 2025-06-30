@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **providerObj** | [**RACProvider**](RACProvider.md) |  | [readonly] 
 **_protocol** | [**ProtocolEnum**](ProtocolEnum.md) |  | 
 **host** | **String** |  | 
-**settings** | [**AnyCodable**](.md) |  | [optional] 
+**settings** | **[String: JSONValue]** |  | [optional] 
 **propertyMappings** | **[UUID]** |  | [optional] 
 **authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  | 
 **launchUrl** | **String** | Build actual launch URL (the provider itself does not have one, just individual endpoints) | [readonly] 

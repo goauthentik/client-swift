@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **authenticationFlow** | **UUID** | Flow used for authentication when the associated application is accessed by an un-authenticated user. | [optional] 
 **authorizationFlow** | **UUID** | Flow used when authorizing this provider. | 
+**invalidationFlow** | **UUID** | Flow used ending the session from a provider. | 
 **propertyMappings** | **[UUID]** |  | [optional] 
 **internalHost** | **String** |  | [optional] 
 **externalHost** | **String** |  | 
@@ -15,10 +16,11 @@ Name | Type | Description | Notes
 **basicAuthEnabled** | **Bool** | Set a custom HTTP-Basic Authentication header based on values from authentik. | [optional] 
 **basicAuthPasswordAttribute** | **String** | User/Group Attribute used for the password part of the HTTP-Basic Header. | [optional] 
 **basicAuthUserAttribute** | **String** | User/Group Attribute used for the user part of the HTTP-Basic Header. If not set, the user&#39;s Email address is used. | [optional] 
-**mode** | [**ProxyMode**](ProxyMode.md) | Enable support for forwardAuth in traefik and nginx auth_request. Exclusive with internal_host.  * &#x60;proxy&#x60; - Proxy * &#x60;forward_single&#x60; - Forward Single * &#x60;forward_domain&#x60; - Forward Domain | [optional] 
+**mode** | [**ProxyMode**](ProxyMode.md) | Enable support for forwardAuth in traefik and nginx auth_request. Exclusive with internal_host. | [optional] 
 **interceptHeaderAuth** | **Bool** | When enabled, this provider will intercept the authorization header and authenticate requests based on its value. | [optional] 
 **cookieDomain** | **String** |  | [optional] 
-**jwksSources** | **[UUID]** |  | [optional] 
+**jwtFederationSources** | **[UUID]** |  | [optional] 
+**jwtFederationProviders** | **[Int]** |  | [optional] 
 **accessTokenValidity** | **String** | Tokens not valid on or after current time + this value (Format: hours&#x3D;1;minutes&#x3D;2;seconds&#x3D;3). | [optional] 
 **refreshTokenValidity** | **String** | Tokens not valid on or after current time + this value (Format: hours&#x3D;1;minutes&#x3D;2;seconds&#x3D;3). | [optional] 
 

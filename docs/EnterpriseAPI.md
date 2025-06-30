@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**enterpriseLicenseCreate**](EnterpriseAPI.md#enterpriselicensecreate) | **POST** /enterprise/license/ | 
 [**enterpriseLicenseDestroy**](EnterpriseAPI.md#enterpriselicensedestroy) | **DELETE** /enterprise/license/{license_uuid}/ | 
 [**enterpriseLicenseForecastRetrieve**](EnterpriseAPI.md#enterpriselicenseforecastretrieve) | **GET** /enterprise/license/forecast/ | 
-[**enterpriseLicenseGetInstallIdRetrieve**](EnterpriseAPI.md#enterpriselicensegetinstallidretrieve) | **GET** /enterprise/license/get_install_id/ | 
+[**enterpriseLicenseInstallIdRetrieve**](EnterpriseAPI.md#enterpriselicenseinstallidretrieve) | **GET** /enterprise/license/install_id/ | 
 [**enterpriseLicenseList**](EnterpriseAPI.md#enterpriselicenselist) | **GET** /enterprise/license/ | 
 [**enterpriseLicensePartialUpdate**](EnterpriseAPI.md#enterpriselicensepartialupdate) | **PATCH** /enterprise/license/{license_uuid}/ | 
 [**enterpriseLicenseRetrieve**](EnterpriseAPI.md#enterpriselicenseretrieve) | **GET** /enterprise/license/{license_uuid}/ | 
@@ -159,9 +159,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **enterpriseLicenseGetInstallIdRetrieve**
+# **enterpriseLicenseInstallIdRetrieve**
 ```swift
-    open class func enterpriseLicenseGetInstallIdRetrieve(completion: @escaping (_ data: InstallID?, _ error: Error?) -> Void)
+    open class func enterpriseLicenseInstallIdRetrieve(completion: @escaping (_ data: InstallID?, _ error: Error?) -> Void)
 ```
 
 
@@ -174,7 +174,7 @@ Get install_id
 import authentikClient
 
 
-EnterpriseAPI.enterpriseLicenseGetInstallIdRetrieve() { (response, error) in
+EnterpriseAPI.enterpriseLicenseInstallIdRetrieve() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 # **enterpriseLicenseSummaryRetrieve**
 ```swift
-    open class func enterpriseLicenseSummaryRetrieve(completion: @escaping (_ data: LicenseSummary?, _ error: Error?) -> Void)
+    open class func enterpriseLicenseSummaryRetrieve(cached: Bool? = nil, completion: @escaping (_ data: LicenseSummary?, _ error: Error?) -> Void)
 ```
 
 
@@ -375,8 +375,9 @@ Get the total license status
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let cached = true // Bool |  (optional) (default to true)
 
-EnterpriseAPI.enterpriseLicenseSummaryRetrieve() { (response, error) in
+EnterpriseAPI.enterpriseLicenseSummaryRetrieve(cached: cached) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -389,7 +390,10 @@ EnterpriseAPI.enterpriseLicenseSummaryRetrieve() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cached** | **Bool** |  | [optional] [default to true]
 
 ### Return type
 

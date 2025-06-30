@@ -7,9 +7,8 @@ Name | Type | Description | Notes
 **selectedChallenge** | [**DeviceChallengeRequest**](DeviceChallengeRequest.md) |  | [optional] 
 **selectedStage** | **String** |  | [optional] 
 **code** | **String** |  | [optional] 
-**webauthn** | [String: AnyCodable] |  | [optional] 
+**webauthn** | **[String: JSONValue]** |  | [optional] 
 **duo** | **Int** |  | [optional] 
-**mobile** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

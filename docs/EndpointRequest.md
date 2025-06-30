@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **provider** | **Int** |  | 
 **_protocol** | [**ProtocolEnum**](ProtocolEnum.md) |  | 
 **host** | **String** |  | 
-**settings** | [**AnyCodable**](.md) |  | [optional] 
+**settings** | **[String: JSONValue]** |  | [optional] 
 **propertyMappings** | **[UUID]** |  | [optional] 
 **authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  | 
 **maximumConnections** | **Int** |  | [optional] 

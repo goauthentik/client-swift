@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**ChallengeChoices**](ChallengeChoices.md) |  | 
 **flowInfo** | [**ContextualFlowInfo**](ContextualFlowInfo.md) |  | [optional] 
 **component** | **String** |  | [optional] [default to "ak-stage-user-login"]
 **responseErrors** | [String: [ErrorDetail]] |  | [optional] 
@@ -17,37 +16,50 @@ Name | Type | Description | Notes
 **activationBarcode** | **String** |  | 
 **activationCode** | **String** |  | 
 **stageUuid** | **String** |  | 
-**payload** | [**AuthenticatorMobilePayloadChallenge**](AuthenticatorMobilePayloadChallenge.md) |  | 
+**email** | **String** |  | [optional] 
+**emailRequired** | **Bool** |  | [optional] [default to true]
 **phoneNumberRequired** | **Bool** |  | [optional] [default to true]
 **codes** | **[String]** |  | 
 **configUrl** | **String** |  | 
 **deviceChallenges** | [DeviceChallenge] |  | 
 **configurationStages** | [SelectableStage] |  | 
-**registration** | [String: AnyCodable] |  | 
+**registration** | **[String: JSONValue]** |  | 
 **url** | **String** |  | 
 **attrs** | **[String: String]** |  | 
 **title** | **String** |  | [optional] 
 **siteKey** | **String** |  | 
 **jsUrl** | **String** |  | 
+**interactive** | **Bool** |  | 
 **headerText** | **String** |  | [optional] 
 **permissions** | [ConsentPermission] |  | 
 **additionalPermissions** | [ConsentPermission] |  | 
 **token** | **String** |  | 
+**name** | **String** |  | 
 **requestId** | **String** |  | 
 **error** | **String** |  | [optional] 
 **traceback** | **String** |  | [optional] 
+**loadingOverlay** | **Bool** |  | [optional] [default to false]
+**loadingText** | **String** |  | 
 **userFields** | **[String]** |  | 
 **passwordFields** | **Bool** |  | 
+**allowShowPassword** | **Bool** |  | [optional] [default to false]
 **applicationPre** | **String** |  | [optional] 
+**flowDesignation** | [**FlowDesignationEnum**](FlowDesignationEnum.md) |  | 
+**captchaStage** | [**CaptchaChallenge**](CaptchaChallenge.md) |  | [optional] 
 **enrollUrl** | **String** |  | [optional] 
 **recoveryUrl** | **String** |  | [optional] 
 **passwordlessUrl** | **String** |  | [optional] 
 **primaryAction** | **String** |  | 
 **sources** | [LoginSource] |  | [optional] 
 **showSourceLabels** | **Bool** |  | 
+**enableRememberMe** | **Bool** |  | [optional] [default to true]
 **slug** | **String** |  | 
 **fields** | [StagePrompt] |  | 
 **to** | **String** |  | 
+**applicationName** | **String** |  | [optional] 
+**applicationLaunchUrl** | **String** |  | [optional] 
+**invalidationFlowUrl** | **String** |  | [optional] 
+**brandName** | **String** |  | 
 **body** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

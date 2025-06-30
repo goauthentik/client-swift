@@ -20,13 +20,20 @@ Method | HTTP request | Description
 [**stagesAuthenticatorDuoRetrieve**](StagesAPI.md#stagesauthenticatorduoretrieve) | **GET** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUpdate**](StagesAPI.md#stagesauthenticatorduoupdate) | **PUT** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUsedByList**](StagesAPI.md#stagesauthenticatorduousedbylist) | **GET** /stages/authenticator/duo/{stage_uuid}/used_by/ | 
-[**stagesAuthenticatorMobileCreate**](StagesAPI.md#stagesauthenticatormobilecreate) | **POST** /stages/authenticator/mobile/ | 
-[**stagesAuthenticatorMobileDestroy**](StagesAPI.md#stagesauthenticatormobiledestroy) | **DELETE** /stages/authenticator/mobile/{stage_uuid}/ | 
-[**stagesAuthenticatorMobileList**](StagesAPI.md#stagesauthenticatormobilelist) | **GET** /stages/authenticator/mobile/ | 
-[**stagesAuthenticatorMobilePartialUpdate**](StagesAPI.md#stagesauthenticatormobilepartialupdate) | **PATCH** /stages/authenticator/mobile/{stage_uuid}/ | 
-[**stagesAuthenticatorMobileRetrieve**](StagesAPI.md#stagesauthenticatormobileretrieve) | **GET** /stages/authenticator/mobile/{stage_uuid}/ | 
-[**stagesAuthenticatorMobileUpdate**](StagesAPI.md#stagesauthenticatormobileupdate) | **PUT** /stages/authenticator/mobile/{stage_uuid}/ | 
-[**stagesAuthenticatorMobileUsedByList**](StagesAPI.md#stagesauthenticatormobileusedbylist) | **GET** /stages/authenticator/mobile/{stage_uuid}/used_by/ | 
+[**stagesAuthenticatorEmailCreate**](StagesAPI.md#stagesauthenticatoremailcreate) | **POST** /stages/authenticator/email/ | 
+[**stagesAuthenticatorEmailDestroy**](StagesAPI.md#stagesauthenticatoremaildestroy) | **DELETE** /stages/authenticator/email/{stage_uuid}/ | 
+[**stagesAuthenticatorEmailList**](StagesAPI.md#stagesauthenticatoremaillist) | **GET** /stages/authenticator/email/ | 
+[**stagesAuthenticatorEmailPartialUpdate**](StagesAPI.md#stagesauthenticatoremailpartialupdate) | **PATCH** /stages/authenticator/email/{stage_uuid}/ | 
+[**stagesAuthenticatorEmailRetrieve**](StagesAPI.md#stagesauthenticatoremailretrieve) | **GET** /stages/authenticator/email/{stage_uuid}/ | 
+[**stagesAuthenticatorEmailUpdate**](StagesAPI.md#stagesauthenticatoremailupdate) | **PUT** /stages/authenticator/email/{stage_uuid}/ | 
+[**stagesAuthenticatorEmailUsedByList**](StagesAPI.md#stagesauthenticatoremailusedbylist) | **GET** /stages/authenticator/email/{stage_uuid}/used_by/ | 
+[**stagesAuthenticatorEndpointGdtcCreate**](StagesAPI.md#stagesauthenticatorendpointgdtccreate) | **POST** /stages/authenticator/endpoint_gdtc/ | 
+[**stagesAuthenticatorEndpointGdtcDestroy**](StagesAPI.md#stagesauthenticatorendpointgdtcdestroy) | **DELETE** /stages/authenticator/endpoint_gdtc/{stage_uuid}/ | 
+[**stagesAuthenticatorEndpointGdtcList**](StagesAPI.md#stagesauthenticatorendpointgdtclist) | **GET** /stages/authenticator/endpoint_gdtc/ | 
+[**stagesAuthenticatorEndpointGdtcPartialUpdate**](StagesAPI.md#stagesauthenticatorendpointgdtcpartialupdate) | **PATCH** /stages/authenticator/endpoint_gdtc/{stage_uuid}/ | 
+[**stagesAuthenticatorEndpointGdtcRetrieve**](StagesAPI.md#stagesauthenticatorendpointgdtcretrieve) | **GET** /stages/authenticator/endpoint_gdtc/{stage_uuid}/ | 
+[**stagesAuthenticatorEndpointGdtcUpdate**](StagesAPI.md#stagesauthenticatorendpointgdtcupdate) | **PUT** /stages/authenticator/endpoint_gdtc/{stage_uuid}/ | 
+[**stagesAuthenticatorEndpointGdtcUsedByList**](StagesAPI.md#stagesauthenticatorendpointgdtcusedbylist) | **GET** /stages/authenticator/endpoint_gdtc/{stage_uuid}/used_by/ | 
 [**stagesAuthenticatorSmsCreate**](StagesAPI.md#stagesauthenticatorsmscreate) | **POST** /stages/authenticator/sms/ | 
 [**stagesAuthenticatorSmsDestroy**](StagesAPI.md#stagesauthenticatorsmsdestroy) | **DELETE** /stages/authenticator/sms/{stage_uuid}/ | 
 [**stagesAuthenticatorSmsList**](StagesAPI.md#stagesauthenticatorsmslist) | **GET** /stages/authenticator/sms/ | 
@@ -57,6 +64,8 @@ Method | HTTP request | Description
 [**stagesAuthenticatorValidateUsedByList**](StagesAPI.md#stagesauthenticatorvalidateusedbylist) | **GET** /stages/authenticator/validate/{stage_uuid}/used_by/ | 
 [**stagesAuthenticatorWebauthnCreate**](StagesAPI.md#stagesauthenticatorwebauthncreate) | **POST** /stages/authenticator/webauthn/ | 
 [**stagesAuthenticatorWebauthnDestroy**](StagesAPI.md#stagesauthenticatorwebauthndestroy) | **DELETE** /stages/authenticator/webauthn/{stage_uuid}/ | 
+[**stagesAuthenticatorWebauthnDeviceTypesList**](StagesAPI.md#stagesauthenticatorwebauthndevicetypeslist) | **GET** /stages/authenticator/webauthn_device_types/ | 
+[**stagesAuthenticatorWebauthnDeviceTypesRetrieve**](StagesAPI.md#stagesauthenticatorwebauthndevicetypesretrieve) | **GET** /stages/authenticator/webauthn_device_types/{aaguid}/ | 
 [**stagesAuthenticatorWebauthnList**](StagesAPI.md#stagesauthenticatorwebauthnlist) | **GET** /stages/authenticator/webauthn/ | 
 [**stagesAuthenticatorWebauthnPartialUpdate**](StagesAPI.md#stagesauthenticatorwebauthnpartialupdate) | **PATCH** /stages/authenticator/webauthn/{stage_uuid}/ | 
 [**stagesAuthenticatorWebauthnRetrieve**](StagesAPI.md#stagesauthenticatorwebauthnretrieve) | **GET** /stages/authenticator/webauthn/{stage_uuid}/ | 
@@ -119,6 +128,13 @@ Method | HTTP request | Description
 [**stagesInvitationStagesRetrieve**](StagesAPI.md#stagesinvitationstagesretrieve) | **GET** /stages/invitation/stages/{stage_uuid}/ | 
 [**stagesInvitationStagesUpdate**](StagesAPI.md#stagesinvitationstagesupdate) | **PUT** /stages/invitation/stages/{stage_uuid}/ | 
 [**stagesInvitationStagesUsedByList**](StagesAPI.md#stagesinvitationstagesusedbylist) | **GET** /stages/invitation/stages/{stage_uuid}/used_by/ | 
+[**stagesMtlsCreate**](StagesAPI.md#stagesmtlscreate) | **POST** /stages/mtls/ | 
+[**stagesMtlsDestroy**](StagesAPI.md#stagesmtlsdestroy) | **DELETE** /stages/mtls/{stage_uuid}/ | 
+[**stagesMtlsList**](StagesAPI.md#stagesmtlslist) | **GET** /stages/mtls/ | 
+[**stagesMtlsPartialUpdate**](StagesAPI.md#stagesmtlspartialupdate) | **PATCH** /stages/mtls/{stage_uuid}/ | 
+[**stagesMtlsRetrieve**](StagesAPI.md#stagesmtlsretrieve) | **GET** /stages/mtls/{stage_uuid}/ | 
+[**stagesMtlsUpdate**](StagesAPI.md#stagesmtlsupdate) | **PUT** /stages/mtls/{stage_uuid}/ | 
+[**stagesMtlsUsedByList**](StagesAPI.md#stagesmtlsusedbylist) | **GET** /stages/mtls/{stage_uuid}/used_by/ | 
 [**stagesPasswordCreate**](StagesAPI.md#stagespasswordcreate) | **POST** /stages/password/ | 
 [**stagesPasswordDestroy**](StagesAPI.md#stagespassworddestroy) | **DELETE** /stages/password/{stage_uuid}/ | 
 [**stagesPasswordList**](StagesAPI.md#stagespasswordlist) | **GET** /stages/password/ | 
@@ -141,6 +157,20 @@ Method | HTTP request | Description
 [**stagesPromptStagesRetrieve**](StagesAPI.md#stagespromptstagesretrieve) | **GET** /stages/prompt/stages/{stage_uuid}/ | 
 [**stagesPromptStagesUpdate**](StagesAPI.md#stagespromptstagesupdate) | **PUT** /stages/prompt/stages/{stage_uuid}/ | 
 [**stagesPromptStagesUsedByList**](StagesAPI.md#stagespromptstagesusedbylist) | **GET** /stages/prompt/stages/{stage_uuid}/used_by/ | 
+[**stagesRedirectCreate**](StagesAPI.md#stagesredirectcreate) | **POST** /stages/redirect/ | 
+[**stagesRedirectDestroy**](StagesAPI.md#stagesredirectdestroy) | **DELETE** /stages/redirect/{stage_uuid}/ | 
+[**stagesRedirectList**](StagesAPI.md#stagesredirectlist) | **GET** /stages/redirect/ | 
+[**stagesRedirectPartialUpdate**](StagesAPI.md#stagesredirectpartialupdate) | **PATCH** /stages/redirect/{stage_uuid}/ | 
+[**stagesRedirectRetrieve**](StagesAPI.md#stagesredirectretrieve) | **GET** /stages/redirect/{stage_uuid}/ | 
+[**stagesRedirectUpdate**](StagesAPI.md#stagesredirectupdate) | **PUT** /stages/redirect/{stage_uuid}/ | 
+[**stagesRedirectUsedByList**](StagesAPI.md#stagesredirectusedbylist) | **GET** /stages/redirect/{stage_uuid}/used_by/ | 
+[**stagesSourceCreate**](StagesAPI.md#stagessourcecreate) | **POST** /stages/source/ | 
+[**stagesSourceDestroy**](StagesAPI.md#stagessourcedestroy) | **DELETE** /stages/source/{stage_uuid}/ | 
+[**stagesSourceList**](StagesAPI.md#stagessourcelist) | **GET** /stages/source/ | 
+[**stagesSourcePartialUpdate**](StagesAPI.md#stagessourcepartialupdate) | **PATCH** /stages/source/{stage_uuid}/ | 
+[**stagesSourceRetrieve**](StagesAPI.md#stagessourceretrieve) | **GET** /stages/source/{stage_uuid}/ | 
+[**stagesSourceUpdate**](StagesAPI.md#stagessourceupdate) | **PUT** /stages/source/{stage_uuid}/ | 
+[**stagesSourceUsedByList**](StagesAPI.md#stagessourceusedbylist) | **GET** /stages/source/{stage_uuid}/used_by/ | 
 [**stagesUserDeleteCreate**](StagesAPI.md#stagesuserdeletecreate) | **POST** /stages/user_delete/ | 
 [**stagesUserDeleteDestroy**](StagesAPI.md#stagesuserdeletedestroy) | **DELETE** /stages/user_delete/{stage_uuid}/ | 
 [**stagesUserDeleteList**](StagesAPI.md#stagesuserdeletelist) | **GET** /stages/user_delete/ | 
@@ -333,7 +363,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all creatable stage types
+Get all creatable types
 
 ### Example
 ```swift
@@ -975,23 +1005,23 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileCreate**
+# **stagesAuthenticatorEmailCreate**
 ```swift
-    open class func stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEmailCreate(authenticatorEmailStageRequest: AuthenticatorEmailStageRequest, completion: @escaping (_ data: AuthenticatorEmailStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEmailStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorMobileStageRequest = AuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // AuthenticatorMobileStageRequest | 
+let authenticatorEmailStageRequest = AuthenticatorEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", subject: "subject_example", tokenExpiry: "tokenExpiry_example", template: "template_example") // AuthenticatorEmailStageRequest | 
 
-StagesAPI.stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: authenticatorMobileStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorEmailCreate(authenticatorEmailStageRequest: authenticatorEmailStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1007,11 +1037,11 @@ StagesAPI.stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: authe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md) |  | 
+ **authenticatorEmailStageRequest** | [**AuthenticatorEmailStageRequest**](AuthenticatorEmailStageRequest.md) |  | 
 
 ### Return type
 
-[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+[**AuthenticatorEmailStage**](AuthenticatorEmailStage.md)
 
 ### Authorization
 
@@ -1024,23 +1054,23 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileDestroy**
+# **stagesAuthenticatorEmailDestroy**
 ```swift
-    open class func stagesAuthenticatorMobileDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEmailDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEmailStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Email Authenticator Setup Stage.
 
-StagesAPI.stagesAuthenticatorMobileDestroy(stageUuid: stageUuid) { (response, error) in
+StagesAPI.stagesAuthenticatorEmailDestroy(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1056,7 +1086,7 @@ StagesAPI.stagesAuthenticatorMobileDestroy(stageUuid: stageUuid) { (response, er
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Email Authenticator Setup Stage. | 
 
 ### Return type
 
@@ -1073,14 +1103,399 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileList**
+# **stagesAuthenticatorEmailList**
 ```swift
-    open class func stagesAuthenticatorMobileList(configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatorMobileStageList?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEmailList(configureFlow: UUID? = nil, friendlyName: String? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, password: String? = nil, port: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: String? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatorEmailStageList?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEmailStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let configureFlow = 987 // UUID |  (optional)
+let friendlyName = "friendlyName_example" // String |  (optional)
+let fromAddress = "fromAddress_example" // String |  (optional)
+let host = "host_example" // String |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let password = "password_example" // String |  (optional)
+let port = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let stageUuid = 987 // UUID |  (optional)
+let subject = "subject_example" // String |  (optional)
+let template = "template_example" // String |  (optional)
+let timeout = 987 // Int |  (optional)
+let tokenExpiry = "tokenExpiry_example" // String |  (optional)
+let useGlobalSettings = true // Bool |  (optional)
+let useSsl = true // Bool |  (optional)
+let useTls = true // Bool |  (optional)
+let username = "username_example" // String |  (optional)
+
+StagesAPI.stagesAuthenticatorEmailList(configureFlow: configureFlow, friendlyName: friendlyName, fromAddress: fromAddress, host: host, name: name, ordering: ordering, page: page, pageSize: pageSize, password: password, port: port, search: search, stageUuid: stageUuid, subject: subject, template: template, timeout: timeout, tokenExpiry: tokenExpiry, useGlobalSettings: useGlobalSettings, useSsl: useSsl, useTls: useTls, username: username) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **configureFlow** | **UUID** |  | [optional] 
+ **friendlyName** | **String** |  | [optional] 
+ **fromAddress** | **String** |  | [optional] 
+ **host** | **String** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **password** | **String** |  | [optional] 
+ **port** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **stageUuid** | **UUID** |  | [optional] 
+ **subject** | **String** |  | [optional] 
+ **template** | **String** |  | [optional] 
+ **timeout** | **Int** |  | [optional] 
+ **tokenExpiry** | **String** |  | [optional] 
+ **useGlobalSettings** | **Bool** |  | [optional] 
+ **useSsl** | **Bool** |  | [optional] 
+ **useTls** | **Bool** |  | [optional] 
+ **username** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedAuthenticatorEmailStageList**](PaginatedAuthenticatorEmailStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEmailPartialUpdate**
+```swift
+    open class func stagesAuthenticatorEmailPartialUpdate(stageUuid: UUID, patchedAuthenticatorEmailStageRequest: PatchedAuthenticatorEmailStageRequest? = nil, completion: @escaping (_ data: AuthenticatorEmailStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEmailStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Email Authenticator Setup Stage.
+let patchedAuthenticatorEmailStageRequest = PatchedAuthenticatorEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", subject: "subject_example", tokenExpiry: "tokenExpiry_example", template: "template_example") // PatchedAuthenticatorEmailStageRequest |  (optional)
+
+StagesAPI.stagesAuthenticatorEmailPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorEmailStageRequest: patchedAuthenticatorEmailStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Email Authenticator Setup Stage. | 
+ **patchedAuthenticatorEmailStageRequest** | [**PatchedAuthenticatorEmailStageRequest**](PatchedAuthenticatorEmailStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**AuthenticatorEmailStage**](AuthenticatorEmailStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEmailRetrieve**
+```swift
+    open class func stagesAuthenticatorEmailRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticatorEmailStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEmailStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Email Authenticator Setup Stage.
+
+StagesAPI.stagesAuthenticatorEmailRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Email Authenticator Setup Stage. | 
+
+### Return type
+
+[**AuthenticatorEmailStage**](AuthenticatorEmailStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEmailUpdate**
+```swift
+    open class func stagesAuthenticatorEmailUpdate(stageUuid: UUID, authenticatorEmailStageRequest: AuthenticatorEmailStageRequest, completion: @escaping (_ data: AuthenticatorEmailStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEmailStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Email Authenticator Setup Stage.
+let authenticatorEmailStageRequest = AuthenticatorEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", subject: "subject_example", tokenExpiry: "tokenExpiry_example", template: "template_example") // AuthenticatorEmailStageRequest | 
+
+StagesAPI.stagesAuthenticatorEmailUpdate(stageUuid: stageUuid, authenticatorEmailStageRequest: authenticatorEmailStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Email Authenticator Setup Stage. | 
+ **authenticatorEmailStageRequest** | [**AuthenticatorEmailStageRequest**](AuthenticatorEmailStageRequest.md) |  | 
+
+### Return type
+
+[**AuthenticatorEmailStage**](AuthenticatorEmailStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEmailUsedByList**
+```swift
+    open class func stagesAuthenticatorEmailUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Email Authenticator Setup Stage.
+
+StagesAPI.stagesAuthenticatorEmailUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Email Authenticator Setup Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEndpointGdtcCreate**
+```swift
+    open class func stagesAuthenticatorEndpointGdtcCreate(authenticatorEndpointGDTCStageRequest: AuthenticatorEndpointGDTCStageRequest, completion: @escaping (_ data: AuthenticatorEndpointGDTCStage?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEndpointGDTCStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let authenticatorEndpointGDTCStageRequest = AuthenticatorEndpointGDTCStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", credentials: "TODO") // AuthenticatorEndpointGDTCStageRequest | 
+
+StagesAPI.stagesAuthenticatorEndpointGdtcCreate(authenticatorEndpointGDTCStageRequest: authenticatorEndpointGDTCStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticatorEndpointGDTCStageRequest** | [**AuthenticatorEndpointGDTCStageRequest**](AuthenticatorEndpointGDTCStageRequest.md) |  | 
+
+### Return type
+
+[**AuthenticatorEndpointGDTCStage**](AuthenticatorEndpointGDTCStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEndpointGdtcDestroy**
+```swift
+    open class func stagesAuthenticatorEndpointGdtcDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEndpointGDTCStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage.
+
+StagesAPI.stagesAuthenticatorEndpointGdtcDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorEndpointGdtcList**
+```swift
+    open class func stagesAuthenticatorEndpointGdtcList(configureFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatorEndpointGDTCStageList?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorEndpointGDTCStage Viewset
 
 ### Example
 ```swift
@@ -1094,7 +1509,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-StagesAPI.stagesAuthenticatorMobileList(configureFlow: configureFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+StagesAPI.stagesAuthenticatorEndpointGdtcList(configureFlow: configureFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1119,7 +1534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedAuthenticatorMobileStageList**](PaginatedAuthenticatorMobileStageList.md)
+[**PaginatedAuthenticatorEndpointGDTCStageList**](PaginatedAuthenticatorEndpointGDTCStageList.md)
 
 ### Authorization
 
@@ -1132,24 +1547,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobilePartialUpdate**
+# **stagesAuthenticatorEndpointGdtcPartialUpdate**
 ```swift
-    open class func stagesAuthenticatorMobilePartialUpdate(stageUuid: UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest? = nil, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEndpointGdtcPartialUpdate(stageUuid: UUID, patchedAuthenticatorEndpointGDTCStageRequest: PatchedAuthenticatorEndpointGDTCStageRequest? = nil, completion: @escaping (_ data: AuthenticatorEndpointGDTCStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEndpointGDTCStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
-let patchedAuthenticatorMobileStageRequest = PatchedAuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // PatchedAuthenticatorMobileStageRequest |  (optional)
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage.
+let patchedAuthenticatorEndpointGDTCStageRequest = PatchedAuthenticatorEndpointGDTCStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", credentials: "TODO") // PatchedAuthenticatorEndpointGDTCStageRequest |  (optional)
 
-StagesAPI.stagesAuthenticatorMobilePartialUpdate(stageUuid: stageUuid, patchedAuthenticatorMobileStageRequest: patchedAuthenticatorMobileStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorEndpointGdtcPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorEndpointGDTCStageRequest: patchedAuthenticatorEndpointGDTCStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1165,12 +1580,12 @@ StagesAPI.stagesAuthenticatorMobilePartialUpdate(stageUuid: stageUuid, patchedAu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
- **patchedAuthenticatorMobileStageRequest** | [**PatchedAuthenticatorMobileStageRequest**](PatchedAuthenticatorMobileStageRequest.md) |  | [optional] 
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage. | 
+ **patchedAuthenticatorEndpointGDTCStageRequest** | [**PatchedAuthenticatorEndpointGDTCStageRequest**](PatchedAuthenticatorEndpointGDTCStageRequest.md) |  | [optional] 
 
 ### Return type
 
-[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+[**AuthenticatorEndpointGDTCStage**](AuthenticatorEndpointGDTCStage.md)
 
 ### Authorization
 
@@ -1183,23 +1598,23 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileRetrieve**
+# **stagesAuthenticatorEndpointGdtcRetrieve**
 ```swift
-    open class func stagesAuthenticatorMobileRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEndpointGdtcRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticatorEndpointGDTCStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEndpointGDTCStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage.
 
-StagesAPI.stagesAuthenticatorMobileRetrieve(stageUuid: stageUuid) { (response, error) in
+StagesAPI.stagesAuthenticatorEndpointGdtcRetrieve(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1215,11 +1630,11 @@ StagesAPI.stagesAuthenticatorMobileRetrieve(stageUuid: stageUuid) { (response, e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage. | 
 
 ### Return type
 
-[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+[**AuthenticatorEndpointGDTCStage**](AuthenticatorEndpointGDTCStage.md)
 
 ### Authorization
 
@@ -1232,24 +1647,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileUpdate**
+# **stagesAuthenticatorEndpointGdtcUpdate**
 ```swift
-    open class func stagesAuthenticatorMobileUpdate(stageUuid: UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest, completion: @escaping (_ data: AuthenticatorMobileStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEndpointGdtcUpdate(stageUuid: UUID, authenticatorEndpointGDTCStageRequest: AuthenticatorEndpointGDTCStageRequest, completion: @escaping (_ data: AuthenticatorEndpointGDTCStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticatorMobileStage Viewset
+AuthenticatorEndpointGDTCStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
-let authenticatorMobileStageRequest = AuthenticatorMobileStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", itemMatchingMode: ItemMatchingModeEnum(), cgwEndpoint: "cgwEndpoint_example") // AuthenticatorMobileStageRequest | 
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage.
+let authenticatorEndpointGDTCStageRequest = AuthenticatorEndpointGDTCStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", credentials: "TODO") // AuthenticatorEndpointGDTCStageRequest | 
 
-StagesAPI.stagesAuthenticatorMobileUpdate(stageUuid: stageUuid, authenticatorMobileStageRequest: authenticatorMobileStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorEndpointGdtcUpdate(stageUuid: stageUuid, authenticatorEndpointGDTCStageRequest: authenticatorEndpointGDTCStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1265,12 +1680,12 @@ StagesAPI.stagesAuthenticatorMobileUpdate(stageUuid: stageUuid, authenticatorMob
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
- **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md) |  | 
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage. | 
+ **authenticatorEndpointGDTCStageRequest** | [**AuthenticatorEndpointGDTCStageRequest**](AuthenticatorEndpointGDTCStageRequest.md) |  | 
 
 ### Return type
 
-[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+[**AuthenticatorEndpointGDTCStage**](AuthenticatorEndpointGDTCStage.md)
 
 ### Authorization
 
@@ -1283,9 +1698,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorMobileUsedByList**
+# **stagesAuthenticatorEndpointGdtcUsedByList**
 ```swift
-    open class func stagesAuthenticatorMobileUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorEndpointGdtcUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
 ```
 
 
@@ -1297,9 +1712,9 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let stageUuid = 987 // UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage.
 
-StagesAPI.stagesAuthenticatorMobileUsedByList(stageUuid: stageUuid) { (response, error) in
+StagesAPI.stagesAuthenticatorEndpointGdtcUsedByList(stageUuid: stageUuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1315,7 +1730,7 @@ StagesAPI.stagesAuthenticatorMobileUsedByList(stageUuid: stageUuid) { (response,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **UUID** | A UUID string identifying this Mobile Authenticator Setup Stage. | 
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Authenticator Google Device Trust Connector Stage. | 
 
 ### Return type
 
@@ -1447,7 +1862,7 @@ import authentikClient
 let accountSid = "accountSid_example" // String |  (optional)
 let auth = "auth_example" // String |  (optional)
 let authPassword = "authPassword_example" // String |  (optional)
-let authType = "authType_example" // String | * `basic` - Basic * `bearer` - Bearer (optional)
+let authType = "authType_example" // String |  (optional)
 let configureFlow = 987 // UUID |  (optional)
 let friendlyName = "friendlyName_example" // String |  (optional)
 let fromNumber = "fromNumber_example" // String |  (optional)
@@ -1456,7 +1871,7 @@ let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
-let provider = "provider_example" // String | * `twilio` - Twilio * `generic` - Generic (optional)
+let provider = "provider_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let stageUuid = 987 // UUID |  (optional)
 let verifyOnly = true // Bool |  (optional)
@@ -1480,7 +1895,7 @@ Name | Type | Description  | Notes
  **accountSid** | **String** |  | [optional] 
  **auth** | **String** |  | [optional] 
  **authPassword** | **String** |  | [optional] 
- **authType** | **String** | * &#x60;basic&#x60; - Basic * &#x60;bearer&#x60; - Bearer | [optional] 
+ **authType** | **String** |  | [optional] 
  **configureFlow** | **UUID** |  | [optional] 
  **friendlyName** | **String** |  | [optional] 
  **fromNumber** | **String** |  | [optional] 
@@ -1489,7 +1904,7 @@ Name | Type | Description  | Notes
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **provider** | **String** | * &#x60;twilio&#x60; - Twilio * &#x60;generic&#x60; - Generic | [optional] 
+ **provider** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **stageUuid** | **UUID** |  | [optional] 
  **verifyOnly** | **Bool** |  | [optional] 
@@ -2187,7 +2602,7 @@ AuthenticatorTOTPStage Viewset
 import authentikClient
 
 let configureFlow = 987 // UUID |  (optional)
-let digits = "digits_example" // String | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator (optional)
+let digits = "digits_example" // String |  (optional)
 let friendlyName = "friendlyName_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -2213,7 +2628,7 @@ StagesAPI.stagesAuthenticatorTotpList(configureFlow: configureFlow, digits: digi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configureFlow** | **UUID** |  | [optional] 
- **digits** | **String** | * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator | [optional] 
+ **digits** | **String** |  | [optional] 
  **friendlyName** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
@@ -2451,7 +2866,7 @@ AuthenticatorValidateStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
+let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum(), webauthnAllowedDeviceTypes: [123]) // AuthenticatorValidateStageRequest | 
 
 StagesAPI.stagesAuthenticatorValidateCreate(authenticatorValidateStageRequest: authenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2551,7 +2966,7 @@ import authentikClient
 
 let configurationStages = [123] // [UUID] |  (optional)
 let name = "name_example" // String |  (optional)
-let notConfiguredAction = "notConfiguredAction_example" // String | * `skip` - Skip * `deny` - Deny * `configure` - Configure (optional)
+let notConfiguredAction = "notConfiguredAction_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
@@ -2575,7 +2990,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configurationStages** | [**[UUID]**](UUID.md) |  | [optional] 
  **name** | **String** |  | [optional] 
- **notConfiguredAction** | **String** | * &#x60;skip&#x60; - Skip * &#x60;deny&#x60; - Deny * &#x60;configure&#x60; - Configure | [optional] 
+ **notConfiguredAction** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
@@ -2611,7 +3026,7 @@ AuthenticatorValidateStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
-let patchedAuthenticatorValidateStageRequest = PatchedAuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // PatchedAuthenticatorValidateStageRequest |  (optional)
+let patchedAuthenticatorValidateStageRequest = PatchedAuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum(), webauthnAllowedDeviceTypes: [123]) // PatchedAuthenticatorValidateStageRequest |  (optional)
 
 StagesAPI.stagesAuthenticatorValidatePartialUpdate(stageUuid: stageUuid, patchedAuthenticatorValidateStageRequest: patchedAuthenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2711,7 +3126,7 @@ AuthenticatorValidateStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Authenticator Validation Stage.
-let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum()) // AuthenticatorValidateStageRequest | 
+let authenticatorValidateStageRequest = AuthenticatorValidateStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], notConfiguredAction: NotConfiguredActionEnum(), deviceClasses: [DeviceClassesEnum()], configurationStages: [123], lastAuthThreshold: "lastAuthThreshold_example", webauthnUserVerification: UserVerificationEnum(), webauthnAllowedDeviceTypes: [123]) // AuthenticatorValidateStageRequest | 
 
 StagesAPI.stagesAuthenticatorValidateUpdate(stageUuid: stageUuid, authenticatorValidateStageRequest: authenticatorValidateStageRequest) { (response, error) in
     guard error == nil else {
@@ -2798,21 +3213,21 @@ Name | Type | Description  | Notes
 
 # **stagesAuthenticatorWebauthnCreate**
 ```swift
-    open class func stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, completion: @escaping (_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorWebauthnCreate(authenticatorWebAuthnStageRequest: AuthenticatorWebAuthnStageRequest, completion: @escaping (_ data: AuthenticatorWebAuthnStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticateWebAuthnStage Viewset
+AuthenticatorWebAuthnStage Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
+let authenticatorWebAuthnStageRequest = AuthenticatorWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum(), deviceTypeRestrictions: [123], maxAttempts: 123) // AuthenticatorWebAuthnStageRequest | 
 
-StagesAPI.stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorWebauthnCreate(authenticatorWebAuthnStageRequest: authenticatorWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2828,11 +3243,11 @@ StagesAPI.stagesAuthenticatorWebauthnCreate(authenticateWebAuthnStageRequest: au
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticateWebAuthnStageRequest** | [**AuthenticateWebAuthnStageRequest**](AuthenticateWebAuthnStageRequest.md) |  | 
+ **authenticatorWebAuthnStageRequest** | [**AuthenticatorWebAuthnStageRequest**](AuthenticatorWebAuthnStageRequest.md) |  | 
 
 ### Return type
 
-[**AuthenticateWebAuthnStage**](AuthenticateWebAuthnStage.md)
+[**AuthenticatorWebAuthnStage**](AuthenticatorWebAuthnStage.md)
 
 ### Authorization
 
@@ -2852,7 +3267,7 @@ Name | Type | Description  | Notes
 
 
 
-AuthenticateWebAuthnStage Viewset
+AuthenticatorWebAuthnStage Viewset
 
 ### Example
 ```swift
@@ -2894,33 +3309,29 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stagesAuthenticatorWebauthnList**
+# **stagesAuthenticatorWebauthnDeviceTypesList**
 ```swift
-    open class func stagesAuthenticatorWebauthnList(authenticatorAttachment: AuthenticatorAttachment_stagesAuthenticatorWebauthnList? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, residentKeyRequirement: ResidentKeyRequirement_stagesAuthenticatorWebauthnList? = nil, search: String? = nil, stageUuid: UUID? = nil, userVerification: UserVerification_stagesAuthenticatorWebauthnList? = nil, completion: @escaping (_ data: PaginatedAuthenticateWebAuthnStageList?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorWebauthnDeviceTypesList(aaguid: UUID? = nil, description: String? = nil, icon: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedWebAuthnDeviceTypeList?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticateWebAuthnStage Viewset
+WebAuthnDeviceType Viewset
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let authenticatorAttachment = "authenticatorAttachment_example" // String | * `platform` - Platform * `cross-platform` - Cross Platform (optional)
-let configureFlow = 987 // UUID |  (optional)
-let friendlyName = "friendlyName_example" // String |  (optional)
-let name = "name_example" // String |  (optional)
+let aaguid = 987 // UUID |  (optional)
+let description = "description_example" // String |  (optional)
+let icon = "icon_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
-let residentKeyRequirement = "residentKeyRequirement_example" // String | * `discouraged` - Discouraged * `preferred` - Preferred * `required` - Required (optional)
 let search = "search_example" // String | A search term. (optional)
-let stageUuid = 987 // UUID |  (optional)
-let userVerification = "userVerification_example" // String | * `required` - Required * `preferred` - Preferred * `discouraged` - Discouraged (optional)
 
-StagesAPI.stagesAuthenticatorWebauthnList(authenticatorAttachment: authenticatorAttachment, configureFlow: configureFlow, friendlyName: friendlyName, name: name, ordering: ordering, page: page, pageSize: pageSize, residentKeyRequirement: residentKeyRequirement, search: search, stageUuid: stageUuid, userVerification: userVerification) { (response, error) in
+StagesAPI.stagesAuthenticatorWebauthnDeviceTypesList(aaguid: aaguid, description: description, icon: icon, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2936,21 +3347,139 @@ StagesAPI.stagesAuthenticatorWebauthnList(authenticatorAttachment: authenticator
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticatorAttachment** | **String** | * &#x60;platform&#x60; - Platform * &#x60;cross-platform&#x60; - Cross Platform | [optional] 
+ **aaguid** | **UUID** |  | [optional] 
+ **description** | **String** |  | [optional] 
+ **icon** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedWebAuthnDeviceTypeList**](PaginatedWebAuthnDeviceTypeList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorWebauthnDeviceTypesRetrieve**
+```swift
+    open class func stagesAuthenticatorWebauthnDeviceTypesRetrieve(aaguid: UUID, completion: @escaping (_ data: WebAuthnDeviceType?, _ error: Error?) -> Void)
+```
+
+
+
+WebAuthnDeviceType Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let aaguid = 987 // UUID | A UUID string identifying this WebAuthn Device type.
+
+StagesAPI.stagesAuthenticatorWebauthnDeviceTypesRetrieve(aaguid: aaguid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **aaguid** | **UUID** | A UUID string identifying this WebAuthn Device type. | 
+
+### Return type
+
+[**WebAuthnDeviceType**](WebAuthnDeviceType.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesAuthenticatorWebauthnList**
+```swift
+    open class func stagesAuthenticatorWebauthnList(authenticatorAttachment: AuthenticatorAttachment_stagesAuthenticatorWebauthnList? = nil, configureFlow: UUID? = nil, deviceTypeRestrictions: [UUID]? = nil, friendlyName: String? = nil, maxAttempts: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, residentKeyRequirement: ResidentKeyRequirement_stagesAuthenticatorWebauthnList? = nil, search: String? = nil, stageUuid: UUID? = nil, userVerification: UserVerification_stagesAuthenticatorWebauthnList? = nil, completion: @escaping (_ data: PaginatedAuthenticatorWebAuthnStageList?, _ error: Error?) -> Void)
+```
+
+
+
+AuthenticatorWebAuthnStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let authenticatorAttachment = "authenticatorAttachment_example" // String |  (optional)
+let configureFlow = 987 // UUID |  (optional)
+let deviceTypeRestrictions = [123] // [UUID] |  (optional)
+let friendlyName = "friendlyName_example" // String |  (optional)
+let maxAttempts = 987 // Int |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let residentKeyRequirement = "residentKeyRequirement_example" // String |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let stageUuid = 987 // UUID |  (optional)
+let userVerification = "userVerification_example" // String |  (optional)
+
+StagesAPI.stagesAuthenticatorWebauthnList(authenticatorAttachment: authenticatorAttachment, configureFlow: configureFlow, deviceTypeRestrictions: deviceTypeRestrictions, friendlyName: friendlyName, maxAttempts: maxAttempts, name: name, ordering: ordering, page: page, pageSize: pageSize, residentKeyRequirement: residentKeyRequirement, search: search, stageUuid: stageUuid, userVerification: userVerification) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticatorAttachment** | **String** |  | [optional] 
  **configureFlow** | **UUID** |  | [optional] 
+ **deviceTypeRestrictions** | [**[UUID]**](UUID.md) |  | [optional] 
  **friendlyName** | **String** |  | [optional] 
+ **maxAttempts** | **Int** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **residentKeyRequirement** | **String** | * &#x60;discouraged&#x60; - Discouraged * &#x60;preferred&#x60; - Preferred * &#x60;required&#x60; - Required | [optional] 
+ **residentKeyRequirement** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **stageUuid** | **UUID** |  | [optional] 
- **userVerification** | **String** | * &#x60;required&#x60; - Required * &#x60;preferred&#x60; - Preferred * &#x60;discouraged&#x60; - Discouraged | [optional] 
+ **userVerification** | **String** |  | [optional] 
 
 ### Return type
 
-[**PaginatedAuthenticateWebAuthnStageList**](PaginatedAuthenticateWebAuthnStageList.md)
+[**PaginatedAuthenticatorWebAuthnStageList**](PaginatedAuthenticatorWebAuthnStageList.md)
 
 ### Authorization
 
@@ -2965,12 +3494,12 @@ Name | Type | Description  | Notes
 
 # **stagesAuthenticatorWebauthnPartialUpdate**
 ```swift
-    open class func stagesAuthenticatorWebauthnPartialUpdate(stageUuid: UUID, patchedAuthenticateWebAuthnStageRequest: PatchedAuthenticateWebAuthnStageRequest? = nil, completion: @escaping (_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorWebauthnPartialUpdate(stageUuid: UUID, patchedAuthenticatorWebAuthnStageRequest: PatchedAuthenticatorWebAuthnStageRequest? = nil, completion: @escaping (_ data: AuthenticatorWebAuthnStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticateWebAuthnStage Viewset
+AuthenticatorWebAuthnStage Viewset
 
 ### Example
 ```swift
@@ -2978,9 +3507,9 @@ AuthenticateWebAuthnStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
-let patchedAuthenticateWebAuthnStageRequest = PatchedAuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // PatchedAuthenticateWebAuthnStageRequest |  (optional)
+let patchedAuthenticatorWebAuthnStageRequest = PatchedAuthenticatorWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum(), deviceTypeRestrictions: [123], maxAttempts: 123) // PatchedAuthenticatorWebAuthnStageRequest |  (optional)
 
-StagesAPI.stagesAuthenticatorWebauthnPartialUpdate(stageUuid: stageUuid, patchedAuthenticateWebAuthnStageRequest: patchedAuthenticateWebAuthnStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorWebauthnPartialUpdate(stageUuid: stageUuid, patchedAuthenticatorWebAuthnStageRequest: patchedAuthenticatorWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2997,11 +3526,11 @@ StagesAPI.stagesAuthenticatorWebauthnPartialUpdate(stageUuid: stageUuid, patched
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stageUuid** | **UUID** | A UUID string identifying this WebAuthn Authenticator Setup Stage. | 
- **patchedAuthenticateWebAuthnStageRequest** | [**PatchedAuthenticateWebAuthnStageRequest**](PatchedAuthenticateWebAuthnStageRequest.md) |  | [optional] 
+ **patchedAuthenticatorWebAuthnStageRequest** | [**PatchedAuthenticatorWebAuthnStageRequest**](PatchedAuthenticatorWebAuthnStageRequest.md) |  | [optional] 
 
 ### Return type
 
-[**AuthenticateWebAuthnStage**](AuthenticateWebAuthnStage.md)
+[**AuthenticatorWebAuthnStage**](AuthenticatorWebAuthnStage.md)
 
 ### Authorization
 
@@ -3016,12 +3545,12 @@ Name | Type | Description  | Notes
 
 # **stagesAuthenticatorWebauthnRetrieve**
 ```swift
-    open class func stagesAuthenticatorWebauthnRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorWebauthnRetrieve(stageUuid: UUID, completion: @escaping (_ data: AuthenticatorWebAuthnStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticateWebAuthnStage Viewset
+AuthenticatorWebAuthnStage Viewset
 
 ### Example
 ```swift
@@ -3050,7 +3579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthenticateWebAuthnStage**](AuthenticateWebAuthnStage.md)
+[**AuthenticatorWebAuthnStage**](AuthenticatorWebAuthnStage.md)
 
 ### Authorization
 
@@ -3065,12 +3594,12 @@ Name | Type | Description  | Notes
 
 # **stagesAuthenticatorWebauthnUpdate**
 ```swift
-    open class func stagesAuthenticatorWebauthnUpdate(stageUuid: UUID, authenticateWebAuthnStageRequest: AuthenticateWebAuthnStageRequest, completion: @escaping (_ data: AuthenticateWebAuthnStage?, _ error: Error?) -> Void)
+    open class func stagesAuthenticatorWebauthnUpdate(stageUuid: UUID, authenticatorWebAuthnStageRequest: AuthenticatorWebAuthnStageRequest, completion: @escaping (_ data: AuthenticatorWebAuthnStage?, _ error: Error?) -> Void)
 ```
 
 
 
-AuthenticateWebAuthnStage Viewset
+AuthenticatorWebAuthnStage Viewset
 
 ### Example
 ```swift
@@ -3078,9 +3607,9 @@ AuthenticateWebAuthnStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this WebAuthn Authenticator Setup Stage.
-let authenticateWebAuthnStageRequest = AuthenticateWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum()) // AuthenticateWebAuthnStageRequest | 
+let authenticatorWebAuthnStageRequest = AuthenticatorWebAuthnStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], configureFlow: 123, friendlyName: "friendlyName_example", userVerification: UserVerificationEnum(), authenticatorAttachment: AuthenticatorAttachmentEnum(), residentKeyRequirement: ResidentKeyRequirementEnum(), deviceTypeRestrictions: [123], maxAttempts: 123) // AuthenticatorWebAuthnStageRequest | 
 
-StagesAPI.stagesAuthenticatorWebauthnUpdate(stageUuid: stageUuid, authenticateWebAuthnStageRequest: authenticateWebAuthnStageRequest) { (response, error) in
+StagesAPI.stagesAuthenticatorWebauthnUpdate(stageUuid: stageUuid, authenticatorWebAuthnStageRequest: authenticatorWebAuthnStageRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -3097,11 +3626,11 @@ StagesAPI.stagesAuthenticatorWebauthnUpdate(stageUuid: stageUuid, authenticateWe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stageUuid** | **UUID** | A UUID string identifying this WebAuthn Authenticator Setup Stage. | 
- **authenticateWebAuthnStageRequest** | [**AuthenticateWebAuthnStageRequest**](AuthenticateWebAuthnStageRequest.md) |  | 
+ **authenticatorWebAuthnStageRequest** | [**AuthenticatorWebAuthnStageRequest**](AuthenticatorWebAuthnStageRequest.md) |  | 
 
 ### Return type
 
-[**AuthenticateWebAuthnStage**](AuthenticateWebAuthnStage.md)
+[**AuthenticatorWebAuthnStage**](AuthenticatorWebAuthnStage.md)
 
 ### Authorization
 
@@ -3177,7 +3706,7 @@ CaptchaStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
+let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example", interactive: false, scoreMinThreshold: 123, scoreMaxThreshold: 123, errorOnInvalidScore: false) // CaptchaStageRequest | 
 
 StagesAPI.stagesCaptchaCreate(captchaStageRequest: captchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -3335,7 +3864,7 @@ CaptchaStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
-let patchedCaptchaStageRequest = PatchedCaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // PatchedCaptchaStageRequest |  (optional)
+let patchedCaptchaStageRequest = PatchedCaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example", interactive: false, scoreMinThreshold: 123, scoreMaxThreshold: 123, errorOnInvalidScore: false) // PatchedCaptchaStageRequest |  (optional)
 
 StagesAPI.stagesCaptchaPartialUpdate(stageUuid: stageUuid, patchedCaptchaStageRequest: patchedCaptchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -3435,7 +3964,7 @@ CaptchaStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Captcha Stage.
-let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example") // CaptchaStageRequest | 
+let captchaStageRequest = CaptchaStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], publicKey: "publicKey_example", privateKey: "privateKey_example", jsUrl: "jsUrl_example", apiUrl: "apiUrl_example", interactive: false, scoreMinThreshold: 123, scoreMaxThreshold: 123, errorOnInvalidScore: false) // CaptchaStageRequest | 
 
 StagesAPI.stagesCaptchaUpdate(stageUuid: stageUuid, captchaStageRequest: captchaStageRequest) { (response, error) in
     guard error == nil else {
@@ -3633,7 +4162,7 @@ ConsentStage Viewset
 import authentikClient
 
 let consentExpireIn = "consentExpireIn_example" // String |  (optional)
-let mode = "mode_example" // String | * `always_require` - Always Require * `permanent` - Permanent * `expiring` - Expiring (optional)
+let mode = "mode_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3658,7 +4187,7 @@ StagesAPI.stagesConsentList(consentExpireIn: consentExpireIn, mode: mode, name: 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **consentExpireIn** | **String** |  | [optional] 
- **mode** | **String** | * &#x60;always_require&#x60; - Always Require * &#x60;permanent&#x60; - Permanent * &#x60;expiring&#x60; - Expiring | [optional] 
+ **mode** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -4613,7 +5142,7 @@ EmailStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
 
 StagesAPI.stagesEmailCreate(emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {
@@ -4699,7 +5228,7 @@ Void (empty response body)
 
 # **stagesEmailList**
 ```swift
-    open class func stagesEmailList(activateUserOnSuccess: Bool? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, port: Int? = nil, search: String? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: Int? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEmailStageList?, _ error: Error?) -> Void)
+    open class func stagesEmailList(activateUserOnSuccess: Bool? = nil, fromAddress: String? = nil, host: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, port: Int? = nil, search: String? = nil, subject: String? = nil, template: String? = nil, timeout: Int? = nil, tokenExpiry: String? = nil, useGlobalSettings: Bool? = nil, useSsl: Bool? = nil, useTls: Bool? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEmailStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -4723,7 +5252,7 @@ let search = "search_example" // String | A search term. (optional)
 let subject = "subject_example" // String |  (optional)
 let template = "template_example" // String |  (optional)
 let timeout = 987 // Int |  (optional)
-let tokenExpiry = 987 // Int |  (optional)
+let tokenExpiry = "tokenExpiry_example" // String |  (optional)
 let useGlobalSettings = true // Bool |  (optional)
 let useSsl = true // Bool |  (optional)
 let useTls = true // Bool |  (optional)
@@ -4757,7 +5286,7 @@ Name | Type | Description  | Notes
  **subject** | **String** |  | [optional] 
  **template** | **String** |  | [optional] 
  **timeout** | **Int** |  | [optional] 
- **tokenExpiry** | **Int** |  | [optional] 
+ **tokenExpiry** | **String** |  | [optional] 
  **useGlobalSettings** | **Bool** |  | [optional] 
  **useSsl** | **Bool** |  | [optional] 
  **useTls** | **Bool** |  | [optional] 
@@ -4793,7 +5322,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
+let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
 
 StagesAPI.stagesEmailPartialUpdate(stageUuid: stageUuid, patchedEmailStageRequest: patchedEmailStageRequest) { (response, error) in
     guard error == nil else {
@@ -4938,7 +5467,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: 123, subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
 
 StagesAPI.stagesEmailUpdate(stageUuid: stageUuid, emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {
@@ -5037,7 +5566,7 @@ IdentificationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationCreate(identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5123,7 +5652,7 @@ Void (empty response body)
 
 # **stagesIdentificationList**
 ```swift
-    open class func stagesIdentificationList(caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, completion: @escaping (_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)
+    open class func stagesIdentificationList(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, completion: @escaping (_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -5135,6 +5664,7 @@ IdentificationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let captchaStage = 987 // UUID |  (optional)
 let caseInsensitiveMatching = true // Bool |  (optional)
 let enrollmentFlow = 987 // UUID |  (optional)
 let name = "name_example" // String |  (optional)
@@ -5148,7 +5678,7 @@ let search = "search_example" // String | A search term. (optional)
 let showMatchedUser = true // Bool |  (optional)
 let showSourceLabels = true // Bool |  (optional)
 
-StagesAPI.stagesIdentificationList(caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels) { (response, error) in
+StagesAPI.stagesIdentificationList(captchaStage: captchaStage, caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -5164,6 +5694,7 @@ StagesAPI.stagesIdentificationList(caseInsensitiveMatching: caseInsensitiveMatch
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **captchaStage** | **UUID** |  | [optional] 
  **caseInsensitiveMatching** | **Bool** |  | [optional] 
  **enrollmentFlow** | **UUID** |  | [optional] 
  **name** | **String** |  | [optional] 
@@ -5207,7 +5738,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // PatchedIdentificationStageRequest |  (optional)
+let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // PatchedIdentificationStageRequest |  (optional)
 
 StagesAPI.stagesIdentificationPartialUpdate(stageUuid: stageUuid, patchedIdentificationStageRequest: patchedIdentificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -5307,7 +5838,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationUpdate(stageUuid: stageUuid, identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -6114,6 +6645,371 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **stagesMtlsCreate**
+```swift
+    open class func stagesMtlsCreate(mutualTLSStageRequest: MutualTLSStageRequest, completion: @escaping (_ data: MutualTLSStage?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
+
+StagesAPI.stagesMtlsCreate(mutualTLSStageRequest: mutualTLSStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mutualTLSStageRequest** | [**MutualTLSStageRequest**](MutualTLSStageRequest.md) |  | 
+
+### Return type
+
+[**MutualTLSStage**](MutualTLSStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsDestroy**
+```swift
+    open class func stagesMtlsDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
+
+StagesAPI.stagesMtlsDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mutual TLS Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsList**
+```swift
+    open class func stagesMtlsList(certAttribute: CertAttribute_stagesMtlsList? = nil, certificateAuthorities: [UUID]? = nil, mode: Mode_stagesMtlsList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, stageUuid: UUID? = nil, userAttribute: UserAttribute_stagesMtlsList? = nil, completion: @escaping (_ data: PaginatedMutualTLSStageList?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let certAttribute = "certAttribute_example" // String |  (optional)
+let certificateAuthorities = [123] // [UUID] |  (optional)
+let mode = "mode_example" // String |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let stageUuid = 987 // UUID |  (optional)
+let userAttribute = "userAttribute_example" // String |  (optional)
+
+StagesAPI.stagesMtlsList(certAttribute: certAttribute, certificateAuthorities: certificateAuthorities, mode: mode, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userAttribute: userAttribute) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **certAttribute** | **String** |  | [optional] 
+ **certificateAuthorities** | [**[UUID]**](UUID.md) |  | [optional] 
+ **mode** | **String** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **stageUuid** | **UUID** |  | [optional] 
+ **userAttribute** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedMutualTLSStageList**](PaginatedMutualTLSStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsPartialUpdate**
+```swift
+    open class func stagesMtlsPartialUpdate(stageUuid: UUID, patchedMutualTLSStageRequest: PatchedMutualTLSStageRequest? = nil, completion: @escaping (_ data: MutualTLSStage?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
+let patchedMutualTLSStageRequest = PatchedMutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // PatchedMutualTLSStageRequest |  (optional)
+
+StagesAPI.stagesMtlsPartialUpdate(stageUuid: stageUuid, patchedMutualTLSStageRequest: patchedMutualTLSStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mutual TLS Stage. | 
+ **patchedMutualTLSStageRequest** | [**PatchedMutualTLSStageRequest**](PatchedMutualTLSStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**MutualTLSStage**](MutualTLSStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsRetrieve**
+```swift
+    open class func stagesMtlsRetrieve(stageUuid: UUID, completion: @escaping (_ data: MutualTLSStage?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
+
+StagesAPI.stagesMtlsRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mutual TLS Stage. | 
+
+### Return type
+
+[**MutualTLSStage**](MutualTLSStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsUpdate**
+```swift
+    open class func stagesMtlsUpdate(stageUuid: UUID, mutualTLSStageRequest: MutualTLSStageRequest, completion: @escaping (_ data: MutualTLSStage?, _ error: Error?) -> Void)
+```
+
+
+
+MutualTLSStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
+let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
+
+StagesAPI.stagesMtlsUpdate(stageUuid: stageUuid, mutualTLSStageRequest: mutualTLSStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mutual TLS Stage. | 
+ **mutualTLSStageRequest** | [**MutualTLSStageRequest**](MutualTLSStageRequest.md) |  | 
+
+### Return type
+
+[**MutualTLSStage**](MutualTLSStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesMtlsUsedByList**
+```swift
+    open class func stagesMtlsUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
+
+StagesAPI.stagesMtlsUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Mutual TLS Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **stagesPasswordCreate**
 ```swift
     open class func stagesPasswordCreate(passwordStageRequest: PasswordStageRequest, completion: @escaping (_ data: PasswordStage?, _ error: Error?) -> Void)
@@ -6128,7 +7024,7 @@ PasswordStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
+let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123, allowShowPassword: false) // PasswordStageRequest | 
 
 StagesAPI.stagesPasswordCreate(passwordStageRequest: passwordStageRequest) { (response, error) in
     guard error == nil else {
@@ -6214,7 +7110,7 @@ Void (empty response body)
 
 # **stagesPasswordList**
 ```swift
-    open class func stagesPasswordList(configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedPasswordStageList?, _ error: Error?) -> Void)
+    open class func stagesPasswordList(allowShowPassword: Bool? = nil, configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedPasswordStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -6226,6 +7122,7 @@ PasswordStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let allowShowPassword = true // Bool |  (optional)
 let configureFlow = 987 // UUID |  (optional)
 let failedAttemptsBeforeCancel = 987 // Int |  (optional)
 let name = "name_example" // String |  (optional)
@@ -6234,7 +7131,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-StagesAPI.stagesPasswordList(configureFlow: configureFlow, failedAttemptsBeforeCancel: failedAttemptsBeforeCancel, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+StagesAPI.stagesPasswordList(allowShowPassword: allowShowPassword, configureFlow: configureFlow, failedAttemptsBeforeCancel: failedAttemptsBeforeCancel, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -6250,6 +7147,7 @@ StagesAPI.stagesPasswordList(configureFlow: configureFlow, failedAttemptsBeforeC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **allowShowPassword** | **Bool** |  | [optional] 
  **configureFlow** | **UUID** |  | [optional] 
  **failedAttemptsBeforeCancel** | **Int** |  | [optional] 
  **name** | **String** |  | [optional] 
@@ -6288,7 +7186,7 @@ PasswordStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
-let patchedPasswordStageRequest = PatchedPasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PatchedPasswordStageRequest |  (optional)
+let patchedPasswordStageRequest = PatchedPasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123, allowShowPassword: false) // PatchedPasswordStageRequest |  (optional)
 
 StagesAPI.stagesPasswordPartialUpdate(stageUuid: stageUuid, patchedPasswordStageRequest: patchedPasswordStageRequest) { (response, error) in
     guard error == nil else {
@@ -6388,7 +7286,7 @@ PasswordStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Password Stage.
-let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123) // PasswordStageRequest | 
+let passwordStageRequest = PasswordStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], backends: [BackendsEnum()], configureFlow: 123, failedAttemptsBeforeCancel: 123, allowShowPassword: false) // PasswordStageRequest | 
 
 StagesAPI.stagesPasswordUpdate(stageUuid: stageUuid, passwordStageRequest: passwordStageRequest) { (response, error) in
     guard error == nil else {
@@ -6593,7 +7491,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let placeholder = "placeholder_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
-let type = "type_example" // String | * `text` - Text: Simple Text input * `text_area` - Text area: Multiline Text Input. * `text_read_only` - Text (read-only): Simple Text input, but cannot be edited. * `text_area_read_only` - Text area (read-only): Multiline Text input, but cannot be edited. * `username` - Username: Same as Text input, but checks for and prevents duplicate usernames. * `email` - Email: Text field with Email type. * `password` - Password: Masked input, multiple inputs of this type on the same prompt need to be identical. * `number` - Number * `checkbox` - Checkbox * `radio-button-group` - Fixed choice field rendered as a group of radio buttons. * `dropdown` - Fixed choice field rendered as a dropdown. * `date` - Date * `date-time` - Date Time * `file` - File: File upload for arbitrary files. File content will be available in flow context as data-URI * `separator` - Separator: Static Separator Line * `hidden` - Hidden: Hidden field, can be used to insert data into form. * `static` - Static: Static value, displayed as-is. * `ak-locale` - authentik: Selection of locales authentik supports (optional)
+let type = "type_example" // String |  (optional)
 
 StagesAPI.stagesPromptPromptsList(fieldKey: fieldKey, label: label, name: name, ordering: ordering, page: page, pageSize: pageSize, placeholder: placeholder, search: search, type: type) { (response, error) in
     guard error == nil else {
@@ -6619,7 +7517,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **placeholder** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
- **type** | **String** | * &#x60;text&#x60; - Text: Simple Text input * &#x60;text_area&#x60; - Text area: Multiline Text Input. * &#x60;text_read_only&#x60; - Text (read-only): Simple Text input, but cannot be edited. * &#x60;text_area_read_only&#x60; - Text area (read-only): Multiline Text input, but cannot be edited. * &#x60;username&#x60; - Username: Same as Text input, but checks for and prevents duplicate usernames. * &#x60;email&#x60; - Email: Text field with Email type. * &#x60;password&#x60; - Password: Masked input, multiple inputs of this type on the same prompt need to be identical. * &#x60;number&#x60; - Number * &#x60;checkbox&#x60; - Checkbox * &#x60;radio-button-group&#x60; - Fixed choice field rendered as a group of radio buttons. * &#x60;dropdown&#x60; - Fixed choice field rendered as a dropdown. * &#x60;date&#x60; - Date * &#x60;date-time&#x60; - Date Time * &#x60;file&#x60; - File: File upload for arbitrary files. File content will be available in flow context as data-URI * &#x60;separator&#x60; - Separator: Static Separator Line * &#x60;hidden&#x60; - Hidden: Hidden field, can be used to insert data into form. * &#x60;static&#x60; - Static: Static value, displayed as-is. * &#x60;ak-locale&#x60; - authentik: Selection of locales authentik supports | [optional] 
+ **type** | **String** |  | [optional] 
 
 ### Return type
 
@@ -7246,6 +8144,722 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **stagesRedirectCreate**
+```swift
+    open class func stagesRedirectCreate(redirectStageRequest: RedirectStageRequest, completion: @escaping (_ data: RedirectStage?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let redirectStageRequest = RedirectStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], keepContext: false, mode: RedirectStageModeEnum(), targetStatic: "targetStatic_example", targetFlow: 123) // RedirectStageRequest | 
+
+StagesAPI.stagesRedirectCreate(redirectStageRequest: redirectStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **redirectStageRequest** | [**RedirectStageRequest**](RedirectStageRequest.md) |  | 
+
+### Return type
+
+[**RedirectStage**](RedirectStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectDestroy**
+```swift
+    open class func stagesRedirectDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Redirect Stage.
+
+StagesAPI.stagesRedirectDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Redirect Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectList**
+```swift
+    open class func stagesRedirectList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRedirectStageList?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+StagesAPI.stagesRedirectList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedRedirectStageList**](PaginatedRedirectStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectPartialUpdate**
+```swift
+    open class func stagesRedirectPartialUpdate(stageUuid: UUID, patchedRedirectStageRequest: PatchedRedirectStageRequest? = nil, completion: @escaping (_ data: RedirectStage?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Redirect Stage.
+let patchedRedirectStageRequest = PatchedRedirectStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], keepContext: false, mode: RedirectStageModeEnum(), targetStatic: "targetStatic_example", targetFlow: 123) // PatchedRedirectStageRequest |  (optional)
+
+StagesAPI.stagesRedirectPartialUpdate(stageUuid: stageUuid, patchedRedirectStageRequest: patchedRedirectStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Redirect Stage. | 
+ **patchedRedirectStageRequest** | [**PatchedRedirectStageRequest**](PatchedRedirectStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**RedirectStage**](RedirectStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectRetrieve**
+```swift
+    open class func stagesRedirectRetrieve(stageUuid: UUID, completion: @escaping (_ data: RedirectStage?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Redirect Stage.
+
+StagesAPI.stagesRedirectRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Redirect Stage. | 
+
+### Return type
+
+[**RedirectStage**](RedirectStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectUpdate**
+```swift
+    open class func stagesRedirectUpdate(stageUuid: UUID, redirectStageRequest: RedirectStageRequest, completion: @escaping (_ data: RedirectStage?, _ error: Error?) -> Void)
+```
+
+
+
+RedirectStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Redirect Stage.
+let redirectStageRequest = RedirectStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], keepContext: false, mode: RedirectStageModeEnum(), targetStatic: "targetStatic_example", targetFlow: 123) // RedirectStageRequest | 
+
+StagesAPI.stagesRedirectUpdate(stageUuid: stageUuid, redirectStageRequest: redirectStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Redirect Stage. | 
+ **redirectStageRequest** | [**RedirectStageRequest**](RedirectStageRequest.md) |  | 
+
+### Return type
+
+[**RedirectStage**](RedirectStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesRedirectUsedByList**
+```swift
+    open class func stagesRedirectUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Redirect Stage.
+
+StagesAPI.stagesRedirectUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Redirect Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceCreate**
+```swift
+    open class func stagesSourceCreate(sourceStageRequest: SourceStageRequest, completion: @escaping (_ data: SourceStage?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let sourceStageRequest = SourceStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], source: 123, resumeTimeout: "resumeTimeout_example") // SourceStageRequest | 
+
+StagesAPI.stagesSourceCreate(sourceStageRequest: sourceStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceStageRequest** | [**SourceStageRequest**](SourceStageRequest.md) |  | 
+
+### Return type
+
+[**SourceStage**](SourceStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceDestroy**
+```swift
+    open class func stagesSourceDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Source Stage.
+
+StagesAPI.stagesSourceDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Source Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceList**
+```swift
+    open class func stagesSourceList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, resumeTimeout: String? = nil, search: String? = nil, source: UUID? = nil, stageUuid: UUID? = nil, completion: @escaping (_ data: PaginatedSourceStageList?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let resumeTimeout = "resumeTimeout_example" // String |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let source = 987 // UUID |  (optional)
+let stageUuid = 987 // UUID |  (optional)
+
+StagesAPI.stagesSourceList(name: name, ordering: ordering, page: page, pageSize: pageSize, resumeTimeout: resumeTimeout, search: search, source: source, stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **resumeTimeout** | **String** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **source** | **UUID** |  | [optional] 
+ **stageUuid** | **UUID** |  | [optional] 
+
+### Return type
+
+[**PaginatedSourceStageList**](PaginatedSourceStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourcePartialUpdate**
+```swift
+    open class func stagesSourcePartialUpdate(stageUuid: UUID, patchedSourceStageRequest: PatchedSourceStageRequest? = nil, completion: @escaping (_ data: SourceStage?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Source Stage.
+let patchedSourceStageRequest = PatchedSourceStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], source: 123, resumeTimeout: "resumeTimeout_example") // PatchedSourceStageRequest |  (optional)
+
+StagesAPI.stagesSourcePartialUpdate(stageUuid: stageUuid, patchedSourceStageRequest: patchedSourceStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Source Stage. | 
+ **patchedSourceStageRequest** | [**PatchedSourceStageRequest**](PatchedSourceStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**SourceStage**](SourceStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceRetrieve**
+```swift
+    open class func stagesSourceRetrieve(stageUuid: UUID, completion: @escaping (_ data: SourceStage?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Source Stage.
+
+StagesAPI.stagesSourceRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Source Stage. | 
+
+### Return type
+
+[**SourceStage**](SourceStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceUpdate**
+```swift
+    open class func stagesSourceUpdate(stageUuid: UUID, sourceStageRequest: SourceStageRequest, completion: @escaping (_ data: SourceStage?, _ error: Error?) -> Void)
+```
+
+
+
+SourceStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Source Stage.
+let sourceStageRequest = SourceStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], source: 123, resumeTimeout: "resumeTimeout_example") // SourceStageRequest | 
+
+StagesAPI.stagesSourceUpdate(stageUuid: stageUuid, sourceStageRequest: sourceStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Source Stage. | 
+ **sourceStageRequest** | [**SourceStageRequest**](SourceStageRequest.md) |  | 
+
+### Return type
+
+[**SourceStage**](SourceStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesSourceUsedByList**
+```swift
+    open class func stagesSourceUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Source Stage.
+
+StagesAPI.stagesSourceUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Source Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **stagesUserDeleteCreate**
 ```swift
     open class func stagesUserDeleteCreate(userDeleteStageRequest: UserDeleteStageRequest, completion: @escaping (_ data: UserDeleteStage?, _ error: Error?) -> Void)
@@ -7715,9 +9329,9 @@ UserLoginStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let geoipBinding = "geoipBinding_example" // String | Bind sessions created by this stage to the configured GeoIP location  * `no_binding` - No Binding * `bind_continent` - Bind Continent * `bind_continent_country` - Bind Continent Country * `bind_continent_country_city` - Bind Continent Country City (optional)
+let geoipBinding = "geoipBinding_example" // String | Bind sessions created by this stage to the configured GeoIP location   (optional)
 let name = "name_example" // String |  (optional)
-let networkBinding = "networkBinding_example" // String | Bind sessions created by this stage to the configured network  * `no_binding` - No Binding * `bind_asn` - Bind Asn * `bind_asn_network` - Bind Asn Network * `bind_asn_network_ip` - Bind Asn Network Ip (optional)
+let networkBinding = "networkBinding_example" // String | Bind sessions created by this stage to the configured network   (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
@@ -7743,9 +9357,9 @@ StagesAPI.stagesUserLoginList(geoipBinding: geoipBinding, name: name, networkBin
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **geoipBinding** | **String** | Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City | [optional] 
+ **geoipBinding** | **String** | Bind sessions created by this stage to the configured GeoIP location   | [optional] 
  **name** | **String** |  | [optional] 
- **networkBinding** | **String** | Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip | [optional] 
+ **networkBinding** | **String** | Bind sessions created by this stage to the configured network   | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
@@ -8447,9 +10061,9 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let stageUuid = 987 // UUID |  (optional)
-let userCreationMode = "userCreationMode_example" // String | * `never_create` - Never Create * `create_when_required` - Create When Required * `always_create` - Always Create (optional)
+let userCreationMode = "userCreationMode_example" // String |  (optional)
 let userPathTemplate = "userPathTemplate_example" // String |  (optional)
-let userType = "userType_example" // String | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account (optional)
+let userType = "userType_example" // String |  (optional)
 
 StagesAPI.stagesUserWriteList(createUsersAsInactive: createUsersAsInactive, createUsersGroup: createUsersGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, stageUuid: stageUuid, userCreationMode: userCreationMode, userPathTemplate: userPathTemplate, userType: userType) { (response, error) in
     guard error == nil else {
@@ -8475,9 +10089,9 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
  **stageUuid** | **UUID** |  | [optional] 
- **userCreationMode** | **String** | * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create | [optional] 
+ **userCreationMode** | **String** |  | [optional] 
  **userPathTemplate** | **String** |  | [optional] 
- **userType** | **String** | * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] 
+ **userType** | **String** |  | [optional] 
 
 ### Return type
 

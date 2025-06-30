@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  | [optional] [default to "native"]
 **flowInfo** | [**ContextualFlowInfo**](ContextualFlowInfo.md) |  | [optional] 
 **component** | **String** |  | [optional] [default to "ak-stage-flow-error"]
 **responseErrors** | [String: [ErrorDetail]] |  | [optional] 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **lastLogin** | **Date** |  | [optional] 
 **groups** | **[UUID]** |  | [optional] 
 **email** | **String** |  | [optional] 
-**attributes** | [String: AnyCodable] |  | [optional] 
+**attributes** | **[String: JSONValue]** |  | [optional] 
 **path** | **String** |  | [optional] 
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 
 

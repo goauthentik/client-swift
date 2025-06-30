@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application** | [String: AnyCodable] |  | 
+**application** | **[String: JSONValue]** |  | 
 **countedEvents** | **Int** |  | 
 **uniqueUsers** | **Int** |  | 
 

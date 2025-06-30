@@ -128,7 +128,7 @@ Generate a new, self-signed certificate-key pair
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let certificateGenerationRequest = CertificateGenerationRequest(commonName: "commonName_example", subjectAltName: "subjectAltName_example", validityDays: 123) // CertificateGenerationRequest | 
+let certificateGenerationRequest = CertificateGenerationRequest(commonName: "commonName_example", subjectAltName: "subjectAltName_example", validityDays: 123, alg: AlgEnum()) // CertificateGenerationRequest | 
 
 CryptoAPI.cryptoCertificatekeypairsGenerateCreate(certificateGenerationRequest: certificateGenerationRequest) { (response, error) in
     guard error == nil else {

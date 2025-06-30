@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **brandingTitle** | **String** |  | 
 **brandingLogo** | **String** |  | 
 **brandingFavicon** | **String** |  | 
+**brandingCustomCss** | **String** |  | 
 **uiFooterLinks** | [FooterLink] |  | [readonly] 
 **uiTheme** | [**UiThemeEnum**](UiThemeEnum.md) |  | [readonly] 
 **flowAuthentication** | **String** |  | [optional] 

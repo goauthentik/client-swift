@@ -40,6 +40,14 @@ Method | HTTP request | Description
 [**policiesExpressionRetrieve**](PoliciesAPI.md#policiesexpressionretrieve) | **GET** /policies/expression/{policy_uuid}/ | 
 [**policiesExpressionUpdate**](PoliciesAPI.md#policiesexpressionupdate) | **PUT** /policies/expression/{policy_uuid}/ | 
 [**policiesExpressionUsedByList**](PoliciesAPI.md#policiesexpressionusedbylist) | **GET** /policies/expression/{policy_uuid}/used_by/ | 
+[**policiesGeoipCreate**](PoliciesAPI.md#policiesgeoipcreate) | **POST** /policies/geoip/ | 
+[**policiesGeoipDestroy**](PoliciesAPI.md#policiesgeoipdestroy) | **DELETE** /policies/geoip/{policy_uuid}/ | 
+[**policiesGeoipIso3166List**](PoliciesAPI.md#policiesgeoipiso3166list) | **GET** /policies/geoip_iso3166/ | 
+[**policiesGeoipList**](PoliciesAPI.md#policiesgeoiplist) | **GET** /policies/geoip/ | 
+[**policiesGeoipPartialUpdate**](PoliciesAPI.md#policiesgeoippartialupdate) | **PATCH** /policies/geoip/{policy_uuid}/ | 
+[**policiesGeoipRetrieve**](PoliciesAPI.md#policiesgeoipretrieve) | **GET** /policies/geoip/{policy_uuid}/ | 
+[**policiesGeoipUpdate**](PoliciesAPI.md#policiesgeoipupdate) | **PUT** /policies/geoip/{policy_uuid}/ | 
+[**policiesGeoipUsedByList**](PoliciesAPI.md#policiesgeoipusedbylist) | **GET** /policies/geoip/{policy_uuid}/used_by/ | 
 [**policiesPasswordCreate**](PoliciesAPI.md#policiespasswordcreate) | **POST** /policies/password/ | 
 [**policiesPasswordDestroy**](PoliciesAPI.md#policiespassworddestroy) | **DELETE** /policies/password/{policy_uuid}/ | 
 [**policiesPasswordExpiryCreate**](PoliciesAPI.md#policiespasswordexpirycreate) | **POST** /policies/password_expiry/ | 
@@ -65,6 +73,13 @@ Method | HTTP request | Description
 [**policiesReputationScoresUsedByList**](PoliciesAPI.md#policiesreputationscoresusedbylist) | **GET** /policies/reputation/scores/{reputation_uuid}/used_by/ | 
 [**policiesReputationUpdate**](PoliciesAPI.md#policiesreputationupdate) | **PUT** /policies/reputation/{policy_uuid}/ | 
 [**policiesReputationUsedByList**](PoliciesAPI.md#policiesreputationusedbylist) | **GET** /policies/reputation/{policy_uuid}/used_by/ | 
+[**policiesUniquePasswordCreate**](PoliciesAPI.md#policiesuniquepasswordcreate) | **POST** /policies/unique_password/ | 
+[**policiesUniquePasswordDestroy**](PoliciesAPI.md#policiesuniquepassworddestroy) | **DELETE** /policies/unique_password/{policy_uuid}/ | 
+[**policiesUniquePasswordList**](PoliciesAPI.md#policiesuniquepasswordlist) | **GET** /policies/unique_password/ | 
+[**policiesUniquePasswordPartialUpdate**](PoliciesAPI.md#policiesuniquepasswordpartialupdate) | **PATCH** /policies/unique_password/{policy_uuid}/ | 
+[**policiesUniquePasswordRetrieve**](PoliciesAPI.md#policiesuniquepasswordretrieve) | **GET** /policies/unique_password/{policy_uuid}/ | 
+[**policiesUniquePasswordUpdate**](PoliciesAPI.md#policiesuniquepasswordupdate) | **PUT** /policies/unique_password/{policy_uuid}/ | 
+[**policiesUniquePasswordUsedByList**](PoliciesAPI.md#policiesuniquepasswordusedbylist) | **GET** /policies/unique_password/{policy_uuid}/used_by/ | 
 
 
 # **policiesAllCacheClearCreate**
@@ -372,7 +387,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all creatable policy types
+Get all creatable types
 
 ### Example
 ```swift
@@ -1307,7 +1322,7 @@ Event Matcher Policy Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let action = "action_example" // String | Match created events with this action type. When left empty, all action types will be matched.  * `login` - Login * `login_failed` - Login Failed * `logout` - Logout * `user_write` - User Write * `suspicious_request` - Suspicious Request * `password_set` - Password Set * `secret_view` - Secret View * `secret_rotate` - Secret Rotate * `invitation_used` - Invite Used * `authorize_application` - Authorize Application * `source_linked` - Source Linked * `impersonation_started` - Impersonation Started * `impersonation_ended` - Impersonation Ended * `flow_execution` - Flow Execution * `policy_execution` - Policy Execution * `policy_exception` - Policy Exception * `property_mapping_exception` - Property Mapping Exception * `system_task_execution` - System Task Execution * `system_task_exception` - System Task Exception * `system_exception` - System Exception * `configuration_error` - Configuration Error * `model_created` - Model Created * `model_updated` - Model Updated * `model_deleted` - Model Deleted * `email_sent` - Email Sent * `update_available` - Update Available * `custom_` - Custom Prefix (optional)
+let action = "action_example" // String | Match created events with this action type. When left empty, all action types will be matched.   (optional)
 let app = "app_example" // String |  (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let created = Date() // Date |  (optional)
@@ -1337,7 +1352,7 @@ PoliciesAPI.policiesEventMatcherList(action: action, app: app, clientIp: clientI
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **action** | **String** | Match created events with this action type. When left empty, all action types will be matched.  * &#x60;login&#x60; - Login * &#x60;login_failed&#x60; - Login Failed * &#x60;logout&#x60; - Logout * &#x60;user_write&#x60; - User Write * &#x60;suspicious_request&#x60; - Suspicious Request * &#x60;password_set&#x60; - Password Set * &#x60;secret_view&#x60; - Secret View * &#x60;secret_rotate&#x60; - Secret Rotate * &#x60;invitation_used&#x60; - Invite Used * &#x60;authorize_application&#x60; - Authorize Application * &#x60;source_linked&#x60; - Source Linked * &#x60;impersonation_started&#x60; - Impersonation Started * &#x60;impersonation_ended&#x60; - Impersonation Ended * &#x60;flow_execution&#x60; - Flow Execution * &#x60;policy_execution&#x60; - Policy Execution * &#x60;policy_exception&#x60; - Policy Exception * &#x60;property_mapping_exception&#x60; - Property Mapping Exception * &#x60;system_task_execution&#x60; - System Task Execution * &#x60;system_task_exception&#x60; - System Task Exception * &#x60;system_exception&#x60; - System Exception * &#x60;configuration_error&#x60; - Configuration Error * &#x60;model_created&#x60; - Model Created * &#x60;model_updated&#x60; - Model Updated * &#x60;model_deleted&#x60; - Model Deleted * &#x60;email_sent&#x60; - Email Sent * &#x60;update_available&#x60; - Update Available * &#x60;custom_&#x60; - Custom Prefix | [optional] 
+ **action** | **String** | Match created events with this action type. When left empty, all action types will be matched.   | [optional] 
  **app** | **String** |  | [optional] 
  **clientIp** | **String** |  | [optional] 
  **created** | **Date** |  | [optional] 
@@ -1915,6 +1930,406 @@ PoliciesAPI.policiesExpressionUsedByList(policyUuid: policyUuid) { (response, er
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyUuid** | **UUID** | A UUID string identifying this Expression Policy. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipCreate**
+```swift
+    open class func policiesGeoipCreate(geoIPPolicyRequest: GeoIPPolicyRequest, completion: @escaping (_ data: GeoIPPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let geoIPPolicyRequest = GeoIPPolicyRequest(name: "name_example", executionLogging: false, asns: [123], countries: [CountryCodeEnum()], checkHistoryDistance: false, historyMaxDistanceKm: 123, distanceToleranceKm: 123, historyLoginCount: 123, checkImpossibleTravel: false, impossibleToleranceKm: 123) // GeoIPPolicyRequest | 
+
+PoliciesAPI.policiesGeoipCreate(geoIPPolicyRequest: geoIPPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **geoIPPolicyRequest** | [**GeoIPPolicyRequest**](GeoIPPolicyRequest.md) |  | 
+
+### Return type
+
+[**GeoIPPolicy**](GeoIPPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipDestroy**
+```swift
+    open class func policiesGeoipDestroy(policyUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this GeoIP Policy.
+
+PoliciesAPI.policiesGeoipDestroy(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this GeoIP Policy. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipIso3166List**
+```swift
+    open class func policiesGeoipIso3166List(completion: @escaping (_ data: [DetailedCountry]?, _ error: Error?) -> Void)
+```
+
+
+
+Get all countries in ISO-3166-1
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+
+PoliciesAPI.policiesGeoipIso3166List() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[DetailedCountry]**](DetailedCountry.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipList**
+```swift
+    open class func policiesGeoipList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGeoIPPolicyList?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+PoliciesAPI.policiesGeoipList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedGeoIPPolicyList**](PaginatedGeoIPPolicyList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipPartialUpdate**
+```swift
+    open class func policiesGeoipPartialUpdate(policyUuid: UUID, patchedGeoIPPolicyRequest: PatchedGeoIPPolicyRequest? = nil, completion: @escaping (_ data: GeoIPPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this GeoIP Policy.
+let patchedGeoIPPolicyRequest = PatchedGeoIPPolicyRequest(name: "name_example", executionLogging: false, asns: [123], countries: [CountryCodeEnum()], checkHistoryDistance: false, historyMaxDistanceKm: 123, distanceToleranceKm: 123, historyLoginCount: 123, checkImpossibleTravel: false, impossibleToleranceKm: 123) // PatchedGeoIPPolicyRequest |  (optional)
+
+PoliciesAPI.policiesGeoipPartialUpdate(policyUuid: policyUuid, patchedGeoIPPolicyRequest: patchedGeoIPPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this GeoIP Policy. | 
+ **patchedGeoIPPolicyRequest** | [**PatchedGeoIPPolicyRequest**](PatchedGeoIPPolicyRequest.md) |  | [optional] 
+
+### Return type
+
+[**GeoIPPolicy**](GeoIPPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipRetrieve**
+```swift
+    open class func policiesGeoipRetrieve(policyUuid: UUID, completion: @escaping (_ data: GeoIPPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this GeoIP Policy.
+
+PoliciesAPI.policiesGeoipRetrieve(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this GeoIP Policy. | 
+
+### Return type
+
+[**GeoIPPolicy**](GeoIPPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipUpdate**
+```swift
+    open class func policiesGeoipUpdate(policyUuid: UUID, geoIPPolicyRequest: GeoIPPolicyRequest, completion: @escaping (_ data: GeoIPPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+GeoIP Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this GeoIP Policy.
+let geoIPPolicyRequest = GeoIPPolicyRequest(name: "name_example", executionLogging: false, asns: [123], countries: [CountryCodeEnum()], checkHistoryDistance: false, historyMaxDistanceKm: 123, distanceToleranceKm: 123, historyLoginCount: 123, checkImpossibleTravel: false, impossibleToleranceKm: 123) // GeoIPPolicyRequest | 
+
+PoliciesAPI.policiesGeoipUpdate(policyUuid: policyUuid, geoIPPolicyRequest: geoIPPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this GeoIP Policy. | 
+ **geoIPPolicyRequest** | [**GeoIPPolicyRequest**](GeoIPPolicyRequest.md) |  | 
+
+### Return type
+
+[**GeoIPPolicy**](GeoIPPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesGeoipUsedByList**
+```swift
+    open class func policiesGeoipUsedByList(policyUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this GeoIP Policy.
+
+PoliciesAPI.policiesGeoipUsedByList(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this GeoIP Policy. | 
 
 ### Return type
 
@@ -3007,7 +3422,7 @@ Void (empty response body)
 
 # **policiesReputationScoresList**
 ```swift
-    open class func policiesReputationScoresList(identifier: String? = nil, ip: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, score: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedReputationList?, _ error: Error?) -> Void)
+    open class func policiesReputationScoresList(identifier: String? = nil, identifierIn: [String]? = nil, ip: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, score: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedReputationList?, _ error: Error?) -> Void)
 ```
 
 
@@ -3020,6 +3435,7 @@ Reputation Viewset
 import authentikClient
 
 let identifier = "identifier_example" // String |  (optional)
+let identifierIn = ["inner_example"] // [String] | Multiple values may be separated by commas. (optional)
 let ip = "ip_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3027,7 +3443,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let score = 987 // Int |  (optional)
 let search = "search_example" // String | A search term. (optional)
 
-PoliciesAPI.policiesReputationScoresList(identifier: identifier, ip: ip, ordering: ordering, page: page, pageSize: pageSize, score: score, search: search) { (response, error) in
+PoliciesAPI.policiesReputationScoresList(identifier: identifier, identifierIn: identifierIn, ip: ip, ordering: ordering, page: page, pageSize: pageSize, score: score, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -3044,6 +3460,7 @@ PoliciesAPI.policiesReputationScoresList(identifier: identifier, ip: ip, orderin
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String** |  | [optional] 
+ **identifierIn** | [**[String]**](String.md) | Multiple values may be separated by commas. | [optional] 
  **ip** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -3248,6 +3665,373 @@ PoliciesAPI.policiesReputationUsedByList(policyUuid: policyUuid) { (response, er
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyUuid** | **UUID** | A UUID string identifying this Reputation Policy. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordCreate**
+```swift
+    open class func policiesUniquePasswordCreate(uniquePasswordPolicyRequest: UniquePasswordPolicyRequest, completion: @escaping (_ data: UniquePasswordPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uniquePasswordPolicyRequest = UniquePasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", numHistoricalPasswords: 123) // UniquePasswordPolicyRequest | 
+
+PoliciesAPI.policiesUniquePasswordCreate(uniquePasswordPolicyRequest: uniquePasswordPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniquePasswordPolicyRequest** | [**UniquePasswordPolicyRequest**](UniquePasswordPolicyRequest.md) |  | 
+
+### Return type
+
+[**UniquePasswordPolicy**](UniquePasswordPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordDestroy**
+```swift
+    open class func policiesUniquePasswordDestroy(policyUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this Password Uniqueness Policy.
+
+PoliciesAPI.policiesUniquePasswordDestroy(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this Password Uniqueness Policy. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordList**
+```swift
+    open class func policiesUniquePasswordList(created: Date? = nil, executionLogging: Bool? = nil, lastUpdated: Date? = nil, name: String? = nil, numHistoricalPasswords: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordField: String? = nil, policyUuid: UUID? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedUniquePasswordPolicyList?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let created = Date() // Date |  (optional)
+let executionLogging = true // Bool |  (optional)
+let lastUpdated = Date() // Date |  (optional)
+let name = "name_example" // String |  (optional)
+let numHistoricalPasswords = 987 // Int |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let passwordField = "passwordField_example" // String |  (optional)
+let policyUuid = 987 // UUID |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+PoliciesAPI.policiesUniquePasswordList(created: created, executionLogging: executionLogging, lastUpdated: lastUpdated, name: name, numHistoricalPasswords: numHistoricalPasswords, ordering: ordering, page: page, pageSize: pageSize, passwordField: passwordField, policyUuid: policyUuid, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **created** | **Date** |  | [optional] 
+ **executionLogging** | **Bool** |  | [optional] 
+ **lastUpdated** | **Date** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **numHistoricalPasswords** | **Int** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **passwordField** | **String** |  | [optional] 
+ **policyUuid** | **UUID** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedUniquePasswordPolicyList**](PaginatedUniquePasswordPolicyList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordPartialUpdate**
+```swift
+    open class func policiesUniquePasswordPartialUpdate(policyUuid: UUID, patchedUniquePasswordPolicyRequest: PatchedUniquePasswordPolicyRequest? = nil, completion: @escaping (_ data: UniquePasswordPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this Password Uniqueness Policy.
+let patchedUniquePasswordPolicyRequest = PatchedUniquePasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", numHistoricalPasswords: 123) // PatchedUniquePasswordPolicyRequest |  (optional)
+
+PoliciesAPI.policiesUniquePasswordPartialUpdate(policyUuid: policyUuid, patchedUniquePasswordPolicyRequest: patchedUniquePasswordPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this Password Uniqueness Policy. | 
+ **patchedUniquePasswordPolicyRequest** | [**PatchedUniquePasswordPolicyRequest**](PatchedUniquePasswordPolicyRequest.md) |  | [optional] 
+
+### Return type
+
+[**UniquePasswordPolicy**](UniquePasswordPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordRetrieve**
+```swift
+    open class func policiesUniquePasswordRetrieve(policyUuid: UUID, completion: @escaping (_ data: UniquePasswordPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this Password Uniqueness Policy.
+
+PoliciesAPI.policiesUniquePasswordRetrieve(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this Password Uniqueness Policy. | 
+
+### Return type
+
+[**UniquePasswordPolicy**](UniquePasswordPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordUpdate**
+```swift
+    open class func policiesUniquePasswordUpdate(policyUuid: UUID, uniquePasswordPolicyRequest: UniquePasswordPolicyRequest, completion: @escaping (_ data: UniquePasswordPolicy?, _ error: Error?) -> Void)
+```
+
+
+
+Password Uniqueness Policy Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this Password Uniqueness Policy.
+let uniquePasswordPolicyRequest = UniquePasswordPolicyRequest(name: "name_example", executionLogging: false, passwordField: "passwordField_example", numHistoricalPasswords: 123) // UniquePasswordPolicyRequest | 
+
+PoliciesAPI.policiesUniquePasswordUpdate(policyUuid: policyUuid, uniquePasswordPolicyRequest: uniquePasswordPolicyRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this Password Uniqueness Policy. | 
+ **uniquePasswordPolicyRequest** | [**UniquePasswordPolicyRequest**](UniquePasswordPolicyRequest.md) |  | 
+
+### Return type
+
+[**UniquePasswordPolicy**](UniquePasswordPolicy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **policiesUniquePasswordUsedByList**
+```swift
+    open class func policiesUniquePasswordUsedByList(policyUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let policyUuid = 987 // UUID | A UUID string identifying this Password Uniqueness Policy.
+
+PoliciesAPI.policiesUniquePasswordUsedByList(policyUuid: policyUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyUuid** | **UUID** | A UUID string identifying this Password Uniqueness Policy. | 
 
 ### Return type
 

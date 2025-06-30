@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
 **expires** | **Date** |  | [optional] 
-**fixedData** | [String: AnyCodable] |  | [optional] 
+**fixedData** | **[String: JSONValue]** |  | [optional] 
 **singleUse** | **Bool** | When enabled, the invitation will be deleted after usage. | [optional] 
 **flow** | **UUID** | When set, only the configured flow can use this invitation. | [optional] 
 

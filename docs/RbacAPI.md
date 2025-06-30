@@ -4,16 +4,31 @@ All URIs are relative to *http://localhost/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**rbacPermissionsAssignedByRolesAssignCreate**](RbacAPI.md#rbacpermissionsassignedbyrolesassigncreate) | **POST** /rbac/permissions/assigned_by_roles/{uuid}/assign/ | 
+[**rbacInitialPermissionsCreate**](RbacAPI.md#rbacinitialpermissionscreate) | **POST** /rbac/initial_permissions/ | 
+[**rbacInitialPermissionsDestroy**](RbacAPI.md#rbacinitialpermissionsdestroy) | **DELETE** /rbac/initial_permissions/{id}/ | 
+[**rbacInitialPermissionsList**](RbacAPI.md#rbacinitialpermissionslist) | **GET** /rbac/initial_permissions/ | 
+[**rbacInitialPermissionsPartialUpdate**](RbacAPI.md#rbacinitialpermissionspartialupdate) | **PATCH** /rbac/initial_permissions/{id}/ | 
+[**rbacInitialPermissionsRetrieve**](RbacAPI.md#rbacinitialpermissionsretrieve) | **GET** /rbac/initial_permissions/{id}/ | 
+[**rbacInitialPermissionsUpdate**](RbacAPI.md#rbacinitialpermissionsupdate) | **PUT** /rbac/initial_permissions/{id}/ | 
+[**rbacInitialPermissionsUsedByList**](RbacAPI.md#rbacinitialpermissionsusedbylist) | **GET** /rbac/initial_permissions/{id}/used_by/ | 
+[**rbacPermissionsAssignedByRolesAssign**](RbacAPI.md#rbacpermissionsassignedbyrolesassign) | **POST** /rbac/permissions/assigned_by_roles/{uuid}/assign/ | 
 [**rbacPermissionsAssignedByRolesList**](RbacAPI.md#rbacpermissionsassignedbyroleslist) | **GET** /rbac/permissions/assigned_by_roles/ | 
 [**rbacPermissionsAssignedByRolesUnassignPartialUpdate**](RbacAPI.md#rbacpermissionsassignedbyrolesunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_roles/{uuid}/unassign/ | 
-[**rbacPermissionsAssignedByUsersAssignCreate**](RbacAPI.md#rbacpermissionsassignedbyusersassigncreate) | **POST** /rbac/permissions/assigned_by_users/{id}/assign/ | 
+[**rbacPermissionsAssignedByUsersAssign**](RbacAPI.md#rbacpermissionsassignedbyusersassign) | **POST** /rbac/permissions/assigned_by_users/{id}/assign/ | 
 [**rbacPermissionsAssignedByUsersList**](RbacAPI.md#rbacpermissionsassignedbyuserslist) | **GET** /rbac/permissions/assigned_by_users/ | 
 [**rbacPermissionsAssignedByUsersUnassignPartialUpdate**](RbacAPI.md#rbacpermissionsassignedbyusersunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_users/{id}/unassign/ | 
 [**rbacPermissionsList**](RbacAPI.md#rbacpermissionslist) | **GET** /rbac/permissions/ | 
 [**rbacPermissionsRetrieve**](RbacAPI.md#rbacpermissionsretrieve) | **GET** /rbac/permissions/{id}/ | 
+[**rbacPermissionsRolesDestroy**](RbacAPI.md#rbacpermissionsrolesdestroy) | **DELETE** /rbac/permissions/roles/{id}/ | 
 [**rbacPermissionsRolesList**](RbacAPI.md#rbacpermissionsroleslist) | **GET** /rbac/permissions/roles/ | 
+[**rbacPermissionsRolesPartialUpdate**](RbacAPI.md#rbacpermissionsrolespartialupdate) | **PATCH** /rbac/permissions/roles/{id}/ | 
+[**rbacPermissionsRolesRetrieve**](RbacAPI.md#rbacpermissionsrolesretrieve) | **GET** /rbac/permissions/roles/{id}/ | 
+[**rbacPermissionsRolesUpdate**](RbacAPI.md#rbacpermissionsrolesupdate) | **PUT** /rbac/permissions/roles/{id}/ | 
+[**rbacPermissionsUsersDestroy**](RbacAPI.md#rbacpermissionsusersdestroy) | **DELETE** /rbac/permissions/users/{id}/ | 
 [**rbacPermissionsUsersList**](RbacAPI.md#rbacpermissionsuserslist) | **GET** /rbac/permissions/users/ | 
+[**rbacPermissionsUsersPartialUpdate**](RbacAPI.md#rbacpermissionsuserspartialupdate) | **PATCH** /rbac/permissions/users/{id}/ | 
+[**rbacPermissionsUsersRetrieve**](RbacAPI.md#rbacpermissionsusersretrieve) | **GET** /rbac/permissions/users/{id}/ | 
+[**rbacPermissionsUsersUpdate**](RbacAPI.md#rbacpermissionsusersupdate) | **PUT** /rbac/permissions/users/{id}/ | 
 [**rbacRolesCreate**](RbacAPI.md#rbacrolescreate) | **POST** /rbac/roles/ | 
 [**rbacRolesDestroy**](RbacAPI.md#rbacrolesdestroy) | **DELETE** /rbac/roles/{uuid}/ | 
 [**rbacRolesList**](RbacAPI.md#rbacroleslist) | **GET** /rbac/roles/ | 
@@ -23,9 +38,364 @@ Method | HTTP request | Description
 [**rbacRolesUsedByList**](RbacAPI.md#rbacrolesusedbylist) | **GET** /rbac/roles/{uuid}/used_by/ | 
 
 
-# **rbacPermissionsAssignedByRolesAssignCreate**
+# **rbacInitialPermissionsCreate**
 ```swift
-    open class func rbacPermissionsAssignedByRolesAssignCreate(uuid: UUID, permissionAssignRequest: PermissionAssignRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func rbacInitialPermissionsCreate(initialPermissionsRequest: InitialPermissionsRequest, completion: @escaping (_ data: InitialPermissions?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // InitialPermissionsRequest | 
+
+RbacAPI.rbacInitialPermissionsCreate(initialPermissionsRequest: initialPermissionsRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **initialPermissionsRequest** | [**InitialPermissionsRequest**](InitialPermissionsRequest.md) |  | 
+
+### Return type
+
+[**InitialPermissions**](InitialPermissions.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsDestroy**
+```swift
+    open class func rbacInitialPermissionsDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Initial Permissions.
+
+RbacAPI.rbacInitialPermissionsDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Initial Permissions. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsList**
+```swift
+    open class func rbacInitialPermissionsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedInitialPermissionsList?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+RbacAPI.rbacInitialPermissionsList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedInitialPermissionsList**](PaginatedInitialPermissionsList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsPartialUpdate**
+```swift
+    open class func rbacInitialPermissionsPartialUpdate(id: Int, patchedInitialPermissionsRequest: PatchedInitialPermissionsRequest? = nil, completion: @escaping (_ data: InitialPermissions?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Initial Permissions.
+let patchedInitialPermissionsRequest = PatchedInitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // PatchedInitialPermissionsRequest |  (optional)
+
+RbacAPI.rbacInitialPermissionsPartialUpdate(id: id, patchedInitialPermissionsRequest: patchedInitialPermissionsRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Initial Permissions. | 
+ **patchedInitialPermissionsRequest** | [**PatchedInitialPermissionsRequest**](PatchedInitialPermissionsRequest.md) |  | [optional] 
+
+### Return type
+
+[**InitialPermissions**](InitialPermissions.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsRetrieve**
+```swift
+    open class func rbacInitialPermissionsRetrieve(id: Int, completion: @escaping (_ data: InitialPermissions?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Initial Permissions.
+
+RbacAPI.rbacInitialPermissionsRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Initial Permissions. | 
+
+### Return type
+
+[**InitialPermissions**](InitialPermissions.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsUpdate**
+```swift
+    open class func rbacInitialPermissionsUpdate(id: Int, initialPermissionsRequest: InitialPermissionsRequest, completion: @escaping (_ data: InitialPermissions?, _ error: Error?) -> Void)
+```
+
+
+
+InitialPermissions viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Initial Permissions.
+let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // InitialPermissionsRequest | 
+
+RbacAPI.rbacInitialPermissionsUpdate(id: id, initialPermissionsRequest: initialPermissionsRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Initial Permissions. | 
+ **initialPermissionsRequest** | [**InitialPermissionsRequest**](InitialPermissionsRequest.md) |  | 
+
+### Return type
+
+[**InitialPermissions**](InitialPermissions.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacInitialPermissionsUsedByList**
+```swift
+    open class func rbacInitialPermissionsUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Initial Permissions.
+
+RbacAPI.rbacInitialPermissionsUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Initial Permissions. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsAssignedByRolesAssign**
+```swift
+    open class func rbacPermissionsAssignedByRolesAssign(uuid: UUID, permissionAssignRequest: PermissionAssignRequest, completion: @escaping (_ data: [PermissionAssignResult]?, _ error: Error?) -> Void)
 ```
 
 
@@ -40,7 +410,7 @@ import authentikClient
 let uuid = 987 // UUID | A UUID string identifying this Role.
 let permissionAssignRequest = PermissionAssignRequest(permissions: ["permissions_example"], model: ModelEnum(), objectPk: "objectPk_example") // PermissionAssignRequest | 
 
-RbacAPI.rbacPermissionsAssignedByRolesAssignCreate(uuid: uuid, permissionAssignRequest: permissionAssignRequest) { (response, error) in
+RbacAPI.rbacPermissionsAssignedByRolesAssign(uuid: uuid, permissionAssignRequest: permissionAssignRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -61,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-Void (empty response body)
+[**[PermissionAssignResult]**](PermissionAssignResult.md)
 
 ### Authorization
 
@@ -88,7 +458,7 @@ Get assigned object permissions for a single object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let model = "model_example" // String | * `authentik_tenants.domain` - Domain * `authentik_crypto.certificatekeypair` - Certificate-Key Pair * `authentik_events.event` - Event * `authentik_events.notificationtransport` - Notification Transport * `authentik_events.notification` - Notification * `authentik_events.notificationrule` - Notification Rule * `authentik_events.notificationwebhookmapping` - Webhook Mapping * `authentik_flows.flow` - Flow * `authentik_flows.flowstagebinding` - Flow Stage Binding * `authentik_outposts.dockerserviceconnection` - Docker Service-Connection * `authentik_outposts.kubernetesserviceconnection` - Kubernetes Service-Connection * `authentik_outposts.outpost` - Outpost * `authentik_policies_dummy.dummypolicy` - Dummy Policy * `authentik_policies_event_matcher.eventmatcherpolicy` - Event Matcher Policy * `authentik_policies_expiry.passwordexpirypolicy` - Password Expiry Policy * `authentik_policies_expression.expressionpolicy` - Expression Policy * `authentik_policies_password.passwordpolicy` - Password Policy * `authentik_policies_reputation.reputationpolicy` - Reputation Policy * `authentik_policies.policybinding` - Policy Binding * `authentik_providers_ldap.ldapprovider` - LDAP Provider * `authentik_providers_oauth2.scopemapping` - Scope Mapping * `authentik_providers_oauth2.oauth2provider` - OAuth2/OpenID Provider * `authentik_providers_proxy.proxyprovider` - Proxy Provider * `authentik_providers_radius.radiusprovider` - Radius Provider * `authentik_providers_saml.samlprovider` - SAML Provider * `authentik_providers_saml.samlpropertymapping` - SAML Property Mapping * `authentik_providers_scim.scimprovider` - SCIM Provider * `authentik_providers_scim.scimmapping` - SCIM Mapping * `authentik_rbac.role` - Role * `authentik_sources_ldap.ldapsource` - LDAP Source * `authentik_sources_ldap.ldappropertymapping` - LDAP Property Mapping * `authentik_sources_oauth.oauthsource` - OAuth Source * `authentik_sources_oauth.useroauthsourceconnection` - User OAuth Source Connection * `authentik_sources_plex.plexsource` - Plex Source * `authentik_sources_plex.plexsourceconnection` - User Plex Source Connection * `authentik_sources_saml.samlsource` - SAML Source * `authentik_sources_saml.usersamlsourceconnection` - User SAML Source Connection * `authentik_stages_authenticator_duo.authenticatorduostage` - Duo Authenticator Setup Stage * `authentik_stages_authenticator_duo.duodevice` - Duo Device * `authentik_stages_authenticator_mobile.authenticatormobilestage` - Mobile Authenticator Setup Stage * `authentik_stages_authenticator_mobile.mobiledevice` - Mobile Device * `authentik_stages_authenticator_sms.authenticatorsmsstage` - SMS Authenticator Setup Stage * `authentik_stages_authenticator_sms.smsdevice` - SMS Device * `authentik_stages_authenticator_static.authenticatorstaticstage` - Static Authenticator Setup Stage * `authentik_stages_authenticator_static.staticdevice` - Static Device * `authentik_stages_authenticator_totp.authenticatortotpstage` - TOTP Authenticator Setup Stage * `authentik_stages_authenticator_totp.totpdevice` - TOTP Device * `authentik_stages_authenticator_validate.authenticatorvalidatestage` - Authenticator Validation Stage * `authentik_stages_authenticator_webauthn.authenticatewebauthnstage` - WebAuthn Authenticator Setup Stage * `authentik_stages_authenticator_webauthn.webauthndevice` - WebAuthn Device * `authentik_stages_captcha.captchastage` - Captcha Stage * `authentik_stages_consent.consentstage` - Consent Stage * `authentik_stages_consent.userconsent` - User Consent * `authentik_stages_deny.denystage` - Deny Stage * `authentik_stages_dummy.dummystage` - Dummy Stage * `authentik_stages_email.emailstage` - Email Stage * `authentik_stages_identification.identificationstage` - Identification Stage * `authentik_stages_invitation.invitationstage` - Invitation Stage * `authentik_stages_invitation.invitation` - Invitation * `authentik_stages_password.passwordstage` - Password Stage * `authentik_stages_prompt.prompt` - Prompt * `authentik_stages_prompt.promptstage` - Prompt Stage * `authentik_stages_user_delete.userdeletestage` - User Delete Stage * `authentik_stages_user_login.userloginstage` - User Login Stage * `authentik_stages_user_logout.userlogoutstage` - User Logout Stage * `authentik_stages_user_write.userwritestage` - User Write Stage * `authentik_brands.brand` - Brand * `authentik_blueprints.blueprintinstance` - Blueprint Instance * `authentik_core.group` - Group * `authentik_core.user` - User * `authentik_core.application` - Application * `authentik_core.token` - Token * `authentik_enterprise.license` - License * `authentik_providers_rac.racprovider` - RAC Provider * `authentik_providers_rac.endpoint` - RAC Endpoint * `authentik_providers_rac.racpropertymapping` - RAC Property Mapping
+let model = "model_example" // String | 
 let objectPk = "objectPk_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -111,7 +481,7 @@ RbacAPI.rbacPermissionsAssignedByRolesList(model: model, objectPk: objectPk, ord
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model** | **String** | * &#x60;authentik_tenants.domain&#x60; - Domain * &#x60;authentik_crypto.certificatekeypair&#x60; - Certificate-Key Pair * &#x60;authentik_events.event&#x60; - Event * &#x60;authentik_events.notificationtransport&#x60; - Notification Transport * &#x60;authentik_events.notification&#x60; - Notification * &#x60;authentik_events.notificationrule&#x60; - Notification Rule * &#x60;authentik_events.notificationwebhookmapping&#x60; - Webhook Mapping * &#x60;authentik_flows.flow&#x60; - Flow * &#x60;authentik_flows.flowstagebinding&#x60; - Flow Stage Binding * &#x60;authentik_outposts.dockerserviceconnection&#x60; - Docker Service-Connection * &#x60;authentik_outposts.kubernetesserviceconnection&#x60; - Kubernetes Service-Connection * &#x60;authentik_outposts.outpost&#x60; - Outpost * &#x60;authentik_policies_dummy.dummypolicy&#x60; - Dummy Policy * &#x60;authentik_policies_event_matcher.eventmatcherpolicy&#x60; - Event Matcher Policy * &#x60;authentik_policies_expiry.passwordexpirypolicy&#x60; - Password Expiry Policy * &#x60;authentik_policies_expression.expressionpolicy&#x60; - Expression Policy * &#x60;authentik_policies_password.passwordpolicy&#x60; - Password Policy * &#x60;authentik_policies_reputation.reputationpolicy&#x60; - Reputation Policy * &#x60;authentik_policies.policybinding&#x60; - Policy Binding * &#x60;authentik_providers_ldap.ldapprovider&#x60; - LDAP Provider * &#x60;authentik_providers_oauth2.scopemapping&#x60; - Scope Mapping * &#x60;authentik_providers_oauth2.oauth2provider&#x60; - OAuth2/OpenID Provider * &#x60;authentik_providers_proxy.proxyprovider&#x60; - Proxy Provider * &#x60;authentik_providers_radius.radiusprovider&#x60; - Radius Provider * &#x60;authentik_providers_saml.samlprovider&#x60; - SAML Provider * &#x60;authentik_providers_saml.samlpropertymapping&#x60; - SAML Property Mapping * &#x60;authentik_providers_scim.scimprovider&#x60; - SCIM Provider * &#x60;authentik_providers_scim.scimmapping&#x60; - SCIM Mapping * &#x60;authentik_rbac.role&#x60; - Role * &#x60;authentik_sources_ldap.ldapsource&#x60; - LDAP Source * &#x60;authentik_sources_ldap.ldappropertymapping&#x60; - LDAP Property Mapping * &#x60;authentik_sources_oauth.oauthsource&#x60; - OAuth Source * &#x60;authentik_sources_oauth.useroauthsourceconnection&#x60; - User OAuth Source Connection * &#x60;authentik_sources_plex.plexsource&#x60; - Plex Source * &#x60;authentik_sources_plex.plexsourceconnection&#x60; - User Plex Source Connection * &#x60;authentik_sources_saml.samlsource&#x60; - SAML Source * &#x60;authentik_sources_saml.usersamlsourceconnection&#x60; - User SAML Source Connection * &#x60;authentik_stages_authenticator_duo.authenticatorduostage&#x60; - Duo Authenticator Setup Stage * &#x60;authentik_stages_authenticator_duo.duodevice&#x60; - Duo Device * &#x60;authentik_stages_authenticator_mobile.authenticatormobilestage&#x60; - Mobile Authenticator Setup Stage * &#x60;authentik_stages_authenticator_mobile.mobiledevice&#x60; - Mobile Device * &#x60;authentik_stages_authenticator_sms.authenticatorsmsstage&#x60; - SMS Authenticator Setup Stage * &#x60;authentik_stages_authenticator_sms.smsdevice&#x60; - SMS Device * &#x60;authentik_stages_authenticator_static.authenticatorstaticstage&#x60; - Static Authenticator Setup Stage * &#x60;authentik_stages_authenticator_static.staticdevice&#x60; - Static Device * &#x60;authentik_stages_authenticator_totp.authenticatortotpstage&#x60; - TOTP Authenticator Setup Stage * &#x60;authentik_stages_authenticator_totp.totpdevice&#x60; - TOTP Device * &#x60;authentik_stages_authenticator_validate.authenticatorvalidatestage&#x60; - Authenticator Validation Stage * &#x60;authentik_stages_authenticator_webauthn.authenticatewebauthnstage&#x60; - WebAuthn Authenticator Setup Stage * &#x60;authentik_stages_authenticator_webauthn.webauthndevice&#x60; - WebAuthn Device * &#x60;authentik_stages_captcha.captchastage&#x60; - Captcha Stage * &#x60;authentik_stages_consent.consentstage&#x60; - Consent Stage * &#x60;authentik_stages_consent.userconsent&#x60; - User Consent * &#x60;authentik_stages_deny.denystage&#x60; - Deny Stage * &#x60;authentik_stages_dummy.dummystage&#x60; - Dummy Stage * &#x60;authentik_stages_email.emailstage&#x60; - Email Stage * &#x60;authentik_stages_identification.identificationstage&#x60; - Identification Stage * &#x60;authentik_stages_invitation.invitationstage&#x60; - Invitation Stage * &#x60;authentik_stages_invitation.invitation&#x60; - Invitation * &#x60;authentik_stages_password.passwordstage&#x60; - Password Stage * &#x60;authentik_stages_prompt.prompt&#x60; - Prompt * &#x60;authentik_stages_prompt.promptstage&#x60; - Prompt Stage * &#x60;authentik_stages_user_delete.userdeletestage&#x60; - User Delete Stage * &#x60;authentik_stages_user_login.userloginstage&#x60; - User Login Stage * &#x60;authentik_stages_user_logout.userlogoutstage&#x60; - User Logout Stage * &#x60;authentik_stages_user_write.userwritestage&#x60; - User Write Stage * &#x60;authentik_brands.brand&#x60; - Brand * &#x60;authentik_blueprints.blueprintinstance&#x60; - Blueprint Instance * &#x60;authentik_core.group&#x60; - Group * &#x60;authentik_core.user&#x60; - User * &#x60;authentik_core.application&#x60; - Application * &#x60;authentik_core.token&#x60; - Token * &#x60;authentik_enterprise.license&#x60; - License * &#x60;authentik_providers_rac.racprovider&#x60; - RAC Provider * &#x60;authentik_providers_rac.endpoint&#x60; - RAC Endpoint * &#x60;authentik_providers_rac.racpropertymapping&#x60; - RAC Property Mapping | 
+ **model** | **String** |  | 
  **objectPk** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -184,9 +554,9 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsAssignedByUsersAssignCreate**
+# **rbacPermissionsAssignedByUsersAssign**
 ```swift
-    open class func rbacPermissionsAssignedByUsersAssignCreate(id: Int, permissionAssignRequest: PermissionAssignRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func rbacPermissionsAssignedByUsersAssign(id: Int, permissionAssignRequest: PermissionAssignRequest, completion: @escaping (_ data: [PermissionAssignResult]?, _ error: Error?) -> Void)
 ```
 
 
@@ -201,7 +571,7 @@ import authentikClient
 let id = 987 // Int | A unique integer value identifying this User.
 let permissionAssignRequest = PermissionAssignRequest(permissions: ["permissions_example"], model: ModelEnum(), objectPk: "objectPk_example") // PermissionAssignRequest | 
 
-RbacAPI.rbacPermissionsAssignedByUsersAssignCreate(id: id, permissionAssignRequest: permissionAssignRequest) { (response, error) in
+RbacAPI.rbacPermissionsAssignedByUsersAssign(id: id, permissionAssignRequest: permissionAssignRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -222,7 +592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-Void (empty response body)
+[**[PermissionAssignResult]**](PermissionAssignResult.md)
 
 ### Authorization
 
@@ -249,7 +619,7 @@ Get assigned object permissions for a single object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let model = "model_example" // String | * `authentik_tenants.domain` - Domain * `authentik_crypto.certificatekeypair` - Certificate-Key Pair * `authentik_events.event` - Event * `authentik_events.notificationtransport` - Notification Transport * `authentik_events.notification` - Notification * `authentik_events.notificationrule` - Notification Rule * `authentik_events.notificationwebhookmapping` - Webhook Mapping * `authentik_flows.flow` - Flow * `authentik_flows.flowstagebinding` - Flow Stage Binding * `authentik_outposts.dockerserviceconnection` - Docker Service-Connection * `authentik_outposts.kubernetesserviceconnection` - Kubernetes Service-Connection * `authentik_outposts.outpost` - Outpost * `authentik_policies_dummy.dummypolicy` - Dummy Policy * `authentik_policies_event_matcher.eventmatcherpolicy` - Event Matcher Policy * `authentik_policies_expiry.passwordexpirypolicy` - Password Expiry Policy * `authentik_policies_expression.expressionpolicy` - Expression Policy * `authentik_policies_password.passwordpolicy` - Password Policy * `authentik_policies_reputation.reputationpolicy` - Reputation Policy * `authentik_policies.policybinding` - Policy Binding * `authentik_providers_ldap.ldapprovider` - LDAP Provider * `authentik_providers_oauth2.scopemapping` - Scope Mapping * `authentik_providers_oauth2.oauth2provider` - OAuth2/OpenID Provider * `authentik_providers_proxy.proxyprovider` - Proxy Provider * `authentik_providers_radius.radiusprovider` - Radius Provider * `authentik_providers_saml.samlprovider` - SAML Provider * `authentik_providers_saml.samlpropertymapping` - SAML Property Mapping * `authentik_providers_scim.scimprovider` - SCIM Provider * `authentik_providers_scim.scimmapping` - SCIM Mapping * `authentik_rbac.role` - Role * `authentik_sources_ldap.ldapsource` - LDAP Source * `authentik_sources_ldap.ldappropertymapping` - LDAP Property Mapping * `authentik_sources_oauth.oauthsource` - OAuth Source * `authentik_sources_oauth.useroauthsourceconnection` - User OAuth Source Connection * `authentik_sources_plex.plexsource` - Plex Source * `authentik_sources_plex.plexsourceconnection` - User Plex Source Connection * `authentik_sources_saml.samlsource` - SAML Source * `authentik_sources_saml.usersamlsourceconnection` - User SAML Source Connection * `authentik_stages_authenticator_duo.authenticatorduostage` - Duo Authenticator Setup Stage * `authentik_stages_authenticator_duo.duodevice` - Duo Device * `authentik_stages_authenticator_mobile.authenticatormobilestage` - Mobile Authenticator Setup Stage * `authentik_stages_authenticator_mobile.mobiledevice` - Mobile Device * `authentik_stages_authenticator_sms.authenticatorsmsstage` - SMS Authenticator Setup Stage * `authentik_stages_authenticator_sms.smsdevice` - SMS Device * `authentik_stages_authenticator_static.authenticatorstaticstage` - Static Authenticator Setup Stage * `authentik_stages_authenticator_static.staticdevice` - Static Device * `authentik_stages_authenticator_totp.authenticatortotpstage` - TOTP Authenticator Setup Stage * `authentik_stages_authenticator_totp.totpdevice` - TOTP Device * `authentik_stages_authenticator_validate.authenticatorvalidatestage` - Authenticator Validation Stage * `authentik_stages_authenticator_webauthn.authenticatewebauthnstage` - WebAuthn Authenticator Setup Stage * `authentik_stages_authenticator_webauthn.webauthndevice` - WebAuthn Device * `authentik_stages_captcha.captchastage` - Captcha Stage * `authentik_stages_consent.consentstage` - Consent Stage * `authentik_stages_consent.userconsent` - User Consent * `authentik_stages_deny.denystage` - Deny Stage * `authentik_stages_dummy.dummystage` - Dummy Stage * `authentik_stages_email.emailstage` - Email Stage * `authentik_stages_identification.identificationstage` - Identification Stage * `authentik_stages_invitation.invitationstage` - Invitation Stage * `authentik_stages_invitation.invitation` - Invitation * `authentik_stages_password.passwordstage` - Password Stage * `authentik_stages_prompt.prompt` - Prompt * `authentik_stages_prompt.promptstage` - Prompt Stage * `authentik_stages_user_delete.userdeletestage` - User Delete Stage * `authentik_stages_user_login.userloginstage` - User Login Stage * `authentik_stages_user_logout.userlogoutstage` - User Logout Stage * `authentik_stages_user_write.userwritestage` - User Write Stage * `authentik_brands.brand` - Brand * `authentik_blueprints.blueprintinstance` - Blueprint Instance * `authentik_core.group` - Group * `authentik_core.user` - User * `authentik_core.application` - Application * `authentik_core.token` - Token * `authentik_enterprise.license` - License * `authentik_providers_rac.racprovider` - RAC Provider * `authentik_providers_rac.endpoint` - RAC Endpoint * `authentik_providers_rac.racpropertymapping` - RAC Property Mapping
+let model = "model_example" // String | 
 let objectPk = "objectPk_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -272,7 +642,7 @@ RbacAPI.rbacPermissionsAssignedByUsersList(model: model, objectPk: objectPk, ord
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model** | **String** | * &#x60;authentik_tenants.domain&#x60; - Domain * &#x60;authentik_crypto.certificatekeypair&#x60; - Certificate-Key Pair * &#x60;authentik_events.event&#x60; - Event * &#x60;authentik_events.notificationtransport&#x60; - Notification Transport * &#x60;authentik_events.notification&#x60; - Notification * &#x60;authentik_events.notificationrule&#x60; - Notification Rule * &#x60;authentik_events.notificationwebhookmapping&#x60; - Webhook Mapping * &#x60;authentik_flows.flow&#x60; - Flow * &#x60;authentik_flows.flowstagebinding&#x60; - Flow Stage Binding * &#x60;authentik_outposts.dockerserviceconnection&#x60; - Docker Service-Connection * &#x60;authentik_outposts.kubernetesserviceconnection&#x60; - Kubernetes Service-Connection * &#x60;authentik_outposts.outpost&#x60; - Outpost * &#x60;authentik_policies_dummy.dummypolicy&#x60; - Dummy Policy * &#x60;authentik_policies_event_matcher.eventmatcherpolicy&#x60; - Event Matcher Policy * &#x60;authentik_policies_expiry.passwordexpirypolicy&#x60; - Password Expiry Policy * &#x60;authentik_policies_expression.expressionpolicy&#x60; - Expression Policy * &#x60;authentik_policies_password.passwordpolicy&#x60; - Password Policy * &#x60;authentik_policies_reputation.reputationpolicy&#x60; - Reputation Policy * &#x60;authentik_policies.policybinding&#x60; - Policy Binding * &#x60;authentik_providers_ldap.ldapprovider&#x60; - LDAP Provider * &#x60;authentik_providers_oauth2.scopemapping&#x60; - Scope Mapping * &#x60;authentik_providers_oauth2.oauth2provider&#x60; - OAuth2/OpenID Provider * &#x60;authentik_providers_proxy.proxyprovider&#x60; - Proxy Provider * &#x60;authentik_providers_radius.radiusprovider&#x60; - Radius Provider * &#x60;authentik_providers_saml.samlprovider&#x60; - SAML Provider * &#x60;authentik_providers_saml.samlpropertymapping&#x60; - SAML Property Mapping * &#x60;authentik_providers_scim.scimprovider&#x60; - SCIM Provider * &#x60;authentik_providers_scim.scimmapping&#x60; - SCIM Mapping * &#x60;authentik_rbac.role&#x60; - Role * &#x60;authentik_sources_ldap.ldapsource&#x60; - LDAP Source * &#x60;authentik_sources_ldap.ldappropertymapping&#x60; - LDAP Property Mapping * &#x60;authentik_sources_oauth.oauthsource&#x60; - OAuth Source * &#x60;authentik_sources_oauth.useroauthsourceconnection&#x60; - User OAuth Source Connection * &#x60;authentik_sources_plex.plexsource&#x60; - Plex Source * &#x60;authentik_sources_plex.plexsourceconnection&#x60; - User Plex Source Connection * &#x60;authentik_sources_saml.samlsource&#x60; - SAML Source * &#x60;authentik_sources_saml.usersamlsourceconnection&#x60; - User SAML Source Connection * &#x60;authentik_stages_authenticator_duo.authenticatorduostage&#x60; - Duo Authenticator Setup Stage * &#x60;authentik_stages_authenticator_duo.duodevice&#x60; - Duo Device * &#x60;authentik_stages_authenticator_mobile.authenticatormobilestage&#x60; - Mobile Authenticator Setup Stage * &#x60;authentik_stages_authenticator_mobile.mobiledevice&#x60; - Mobile Device * &#x60;authentik_stages_authenticator_sms.authenticatorsmsstage&#x60; - SMS Authenticator Setup Stage * &#x60;authentik_stages_authenticator_sms.smsdevice&#x60; - SMS Device * &#x60;authentik_stages_authenticator_static.authenticatorstaticstage&#x60; - Static Authenticator Setup Stage * &#x60;authentik_stages_authenticator_static.staticdevice&#x60; - Static Device * &#x60;authentik_stages_authenticator_totp.authenticatortotpstage&#x60; - TOTP Authenticator Setup Stage * &#x60;authentik_stages_authenticator_totp.totpdevice&#x60; - TOTP Device * &#x60;authentik_stages_authenticator_validate.authenticatorvalidatestage&#x60; - Authenticator Validation Stage * &#x60;authentik_stages_authenticator_webauthn.authenticatewebauthnstage&#x60; - WebAuthn Authenticator Setup Stage * &#x60;authentik_stages_authenticator_webauthn.webauthndevice&#x60; - WebAuthn Device * &#x60;authentik_stages_captcha.captchastage&#x60; - Captcha Stage * &#x60;authentik_stages_consent.consentstage&#x60; - Consent Stage * &#x60;authentik_stages_consent.userconsent&#x60; - User Consent * &#x60;authentik_stages_deny.denystage&#x60; - Deny Stage * &#x60;authentik_stages_dummy.dummystage&#x60; - Dummy Stage * &#x60;authentik_stages_email.emailstage&#x60; - Email Stage * &#x60;authentik_stages_identification.identificationstage&#x60; - Identification Stage * &#x60;authentik_stages_invitation.invitationstage&#x60; - Invitation Stage * &#x60;authentik_stages_invitation.invitation&#x60; - Invitation * &#x60;authentik_stages_password.passwordstage&#x60; - Password Stage * &#x60;authentik_stages_prompt.prompt&#x60; - Prompt * &#x60;authentik_stages_prompt.promptstage&#x60; - Prompt Stage * &#x60;authentik_stages_user_delete.userdeletestage&#x60; - User Delete Stage * &#x60;authentik_stages_user_login.userloginstage&#x60; - User Login Stage * &#x60;authentik_stages_user_logout.userlogoutstage&#x60; - User Logout Stage * &#x60;authentik_stages_user_write.userwritestage&#x60; - User Write Stage * &#x60;authentik_brands.brand&#x60; - Brand * &#x60;authentik_blueprints.blueprintinstance&#x60; - Blueprint Instance * &#x60;authentik_core.group&#x60; - Group * &#x60;authentik_core.user&#x60; - User * &#x60;authentik_core.application&#x60; - Application * &#x60;authentik_core.token&#x60; - Token * &#x60;authentik_enterprise.license&#x60; - License * &#x60;authentik_providers_rac.racprovider&#x60; - RAC Provider * &#x60;authentik_providers_rac.endpoint&#x60; - RAC Endpoint * &#x60;authentik_providers_rac.racpropertymapping&#x60; - RAC Property Mapping | 
+ **model** | **String** |  | 
  **objectPk** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -459,9 +829,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsRolesList**
+# **rbacPermissionsRolesDestroy**
 ```swift
-    open class func rbacPermissionsRolesList(uuid: UUID, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedExtraRoleObjectPermissionList?, _ error: Error?) -> Void)
+    open class func rbacPermissionsRolesDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -473,13 +843,9 @@ Get a role's assigned object permissions
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | 
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let search = "search_example" // String | A search term. (optional)
+let id = 987 // Int | A unique integer value identifying this group object permission.
 
-RbacAPI.rbacPermissionsRolesList(uuid: uuid, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+RbacAPI.rbacPermissionsRolesDestroy(id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -495,11 +861,64 @@ RbacAPI.rbacPermissionsRolesList(uuid: uuid, ordering: ordering, page: page, pag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** |  | 
+ **id** | **Int** | A unique integer value identifying this group object permission. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsRolesList**
+```swift
+    open class func rbacPermissionsRolesList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedExtraRoleObjectPermissionList?, _ error: Error?) -> Void)
+```
+
+
+
+Get a role's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let uuid = 987 // UUID |  (optional)
+
+RbacAPI.rbacPermissionsRolesList(ordering: ordering, page: page, pageSize: pageSize, search: search, uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
+ **uuid** | **UUID** |  | [optional] 
 
 ### Return type
 
@@ -516,27 +935,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsUsersList**
+# **rbacPermissionsRolesPartialUpdate**
 ```swift
-    open class func rbacPermissionsUsersList(userId: Int, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedExtraUserObjectPermissionList?, _ error: Error?) -> Void)
+    open class func rbacPermissionsRolesPartialUpdate(id: Int, patchedExtraRoleObjectPermissionRequest: PatchedExtraRoleObjectPermissionRequest? = nil, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
 ```
 
 
 
-Get a users's assigned object permissions
+Get a role's assigned object permissions
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userId = 987 // Int | 
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let search = "search_example" // String | A search term. (optional)
+let id = 987 // Int | A unique integer value identifying this group object permission.
+let patchedExtraRoleObjectPermissionRequest = PatchedExtraRoleObjectPermissionRequest(objectPk: "objectPk_example") // PatchedExtraRoleObjectPermissionRequest |  (optional)
 
-RbacAPI.rbacPermissionsUsersList(userId: userId, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+RbacAPI.rbacPermissionsRolesPartialUpdate(id: id, patchedExtraRoleObjectPermissionRequest: patchedExtraRoleObjectPermissionRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -552,11 +968,214 @@ RbacAPI.rbacPermissionsUsersList(userId: userId, ordering: ordering, page: page,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Int** |  | 
+ **id** | **Int** | A unique integer value identifying this group object permission. | 
+ **patchedExtraRoleObjectPermissionRequest** | [**PatchedExtraRoleObjectPermissionRequest**](PatchedExtraRoleObjectPermissionRequest.md) |  | [optional] 
+
+### Return type
+
+[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsRolesRetrieve**
+```swift
+    open class func rbacPermissionsRolesRetrieve(id: Int, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
+```
+
+
+
+Get a role's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this group object permission.
+
+RbacAPI.rbacPermissionsRolesRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this group object permission. | 
+
+### Return type
+
+[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsRolesUpdate**
+```swift
+    open class func rbacPermissionsRolesUpdate(id: Int, extraRoleObjectPermissionRequest: ExtraRoleObjectPermissionRequest, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
+```
+
+
+
+Get a role's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this group object permission.
+let extraRoleObjectPermissionRequest = ExtraRoleObjectPermissionRequest(objectPk: "objectPk_example") // ExtraRoleObjectPermissionRequest | 
+
+RbacAPI.rbacPermissionsRolesUpdate(id: id, extraRoleObjectPermissionRequest: extraRoleObjectPermissionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this group object permission. | 
+ **extraRoleObjectPermissionRequest** | [**ExtraRoleObjectPermissionRequest**](ExtraRoleObjectPermissionRequest.md) |  | 
+
+### Return type
+
+[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsUsersDestroy**
+```swift
+    open class func rbacPermissionsUsersDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Get a users's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this user object permission.
+
+RbacAPI.rbacPermissionsUsersDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this user object permission. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsUsersList**
+```swift
+    open class func rbacPermissionsUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userId: Int? = nil, completion: @escaping (_ data: PaginatedExtraUserObjectPermissionList?, _ error: Error?) -> Void)
+```
+
+
+
+Get a users's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let userId = 987 // Int |  (optional)
+
+RbacAPI.rbacPermissionsUsersList(ordering: ordering, page: page, pageSize: pageSize, search: search, userId: userId) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
+ **userId** | **Int** |  | [optional] 
 
 ### Return type
 
@@ -569,6 +1188,157 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsUsersPartialUpdate**
+```swift
+    open class func rbacPermissionsUsersPartialUpdate(id: Int, patchedExtraUserObjectPermissionRequest: PatchedExtraUserObjectPermissionRequest? = nil, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
+```
+
+
+
+Get a users's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this user object permission.
+let patchedExtraUserObjectPermissionRequest = PatchedExtraUserObjectPermissionRequest(objectPk: "objectPk_example") // PatchedExtraUserObjectPermissionRequest |  (optional)
+
+RbacAPI.rbacPermissionsUsersPartialUpdate(id: id, patchedExtraUserObjectPermissionRequest: patchedExtraUserObjectPermissionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this user object permission. | 
+ **patchedExtraUserObjectPermissionRequest** | [**PatchedExtraUserObjectPermissionRequest**](PatchedExtraUserObjectPermissionRequest.md) |  | [optional] 
+
+### Return type
+
+[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsUsersRetrieve**
+```swift
+    open class func rbacPermissionsUsersRetrieve(id: Int, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
+```
+
+
+
+Get a users's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this user object permission.
+
+RbacAPI.rbacPermissionsUsersRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this user object permission. | 
+
+### Return type
+
+[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacPermissionsUsersUpdate**
+```swift
+    open class func rbacPermissionsUsersUpdate(id: Int, extraUserObjectPermissionRequest: ExtraUserObjectPermissionRequest, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
+```
+
+
+
+Get a users's assigned object permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this user object permission.
+let extraUserObjectPermissionRequest = ExtraUserObjectPermissionRequest(objectPk: "objectPk_example") // ExtraUserObjectPermissionRequest | 
+
+RbacAPI.rbacPermissionsUsersUpdate(id: id, extraUserObjectPermissionRequest: extraUserObjectPermissionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this user object permission. | 
+ **extraUserObjectPermissionRequest** | [**ExtraUserObjectPermissionRequest**](ExtraUserObjectPermissionRequest.md) |  | 
+
+### Return type
+
+[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

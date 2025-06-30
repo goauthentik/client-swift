@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pk** | **Int** |  | [readonly] 
 **expires** | **Date** |  | [optional] 
+**expiring** | **Bool** |  | [optional] 
 **user** | [**User**](User.md) |  | 
 **application** | [**Application**](Application.md) |  | 
 **permissions** | **String** |  | [optional] [default to ""]

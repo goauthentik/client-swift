@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**eventsEventsDestroy**](EventsAPI.md#eventseventsdestroy) | **DELETE** /events/events/{event_uuid}/ | 
 [**eventsEventsList**](EventsAPI.md#eventseventslist) | **GET** /events/events/ | 
 [**eventsEventsPartialUpdate**](EventsAPI.md#eventseventspartialupdate) | **PATCH** /events/events/{event_uuid}/ | 
-[**eventsEventsPerMonthList**](EventsAPI.md#eventseventspermonthlist) | **GET** /events/events/per_month/ | 
 [**eventsEventsRetrieve**](EventsAPI.md#eventseventsretrieve) | **GET** /events/events/{event_uuid}/ | 
 [**eventsEventsTopPerUserList**](EventsAPI.md#eventseventstopperuserlist) | **GET** /events/events/top_per_user/ | 
 [**eventsEventsUpdate**](EventsAPI.md#eventseventsupdate) | **PUT** /events/events/{event_uuid}/ | 
@@ -186,7 +185,7 @@ Void (empty response body)
 
 # **eventsEventsList**
 ```swift
-    open class func eventsEventsList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
+    open class func eventsEventsList(action: String? = nil, actions: [Actions_eventsEventsList]? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: PaginatedEventList?, _ error: Error?) -> Void)
 ```
 
 
@@ -199,6 +198,7 @@ Event Read-Only Viewset
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let actions = ["actions_example"] // [String] |  (optional)
 let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
@@ -211,7 +211,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, username: username) { (response, error) in
+EventsAPI.eventsEventsList(action: action, actions: actions, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, page: page, pageSize: pageSize, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -228,6 +228,7 @@ EventsAPI.eventsEventsList(action: action, brandName: brandName, clientIp: clien
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **actions** | [**[String]**](String.md) |  | [optional] 
  **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
@@ -302,57 +303,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **eventsEventsPerMonthList**
-```swift
-    open class func eventsEventsPerMonthList(action: String? = nil, query: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
-```
-
-
-
-Get the count of events per month
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let action = "action_example" // String |  (optional)
-let query = "query_example" // String |  (optional)
-
-EventsAPI.eventsEventsPerMonthList(action: action, query: query) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **action** | **String** |  | [optional] 
- **query** | **String** |  | [optional] 
-
-### Return type
-
-[**[Coordinate]**](Coordinate.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -510,7 +460,7 @@ Name | Type | Description  | Notes
 
 # **eventsEventsVolumeList**
 ```swift
-    open class func eventsEventsVolumeList(action: String? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
+    open class func eventsEventsVolumeList(action: String? = nil, actions: [Actions_eventsEventsVolumeList]? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, historyDays: Double? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: [EventVolume]?, _ error: Error?) -> Void)
 ```
 
 
@@ -523,17 +473,19 @@ Get event volume for specified filters and timeframe
 import authentikClient
 
 let action = "action_example" // String |  (optional)
+let actions = ["actions_example"] // [String] |  (optional)
 let brandName = "brandName_example" // String | Brand name (optional)
 let clientIp = "clientIp_example" // String |  (optional)
 let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
 let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
 let contextModelName = "contextModelName_example" // String | Context Model Name (optional)
 let contextModelPk = "contextModelPk_example" // String | Context Model Primary Key (optional)
+let historyDays = 987 // Double |  (optional) (default to 7)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let search = "search_example" // String | A search term. (optional)
 let username = "username_example" // String | Username (optional)
 
-EventsAPI.eventsEventsVolumeList(action: action, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, username: username) { (response, error) in
+EventsAPI.eventsEventsVolumeList(action: action, actions: actions, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, historyDays: historyDays, ordering: ordering, search: search, username: username) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -550,19 +502,21 @@ EventsAPI.eventsEventsVolumeList(action: action, brandName: brandName, clientIp:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **String** |  | [optional] 
+ **actions** | [**[String]**](String.md) |  | [optional] 
  **brandName** | **String** | Brand name | [optional] 
  **clientIp** | **String** |  | [optional] 
  **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
  **contextModelApp** | **String** | Context Model App | [optional] 
  **contextModelName** | **String** | Context Model Name | [optional] 
  **contextModelPk** | **String** | Context Model Primary Key | [optional] 
+ **historyDays** | **Double** |  | [optional] [default to 7]
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **search** | **String** | A search term. | [optional] 
  **username** | **String** | Username | [optional] 
 
 ### Return type
 
-[**[Coordinate]**](Coordinate.md)
+[**[EventVolume]**](EventVolume.md)
 
 ### Authorization
 
@@ -646,7 +600,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let seen = true // Bool |  (optional)
-let severity = "severity_example" // String | * `notice` - Notice * `warning` - Warning * `alert` - Alert (optional)
+let severity = "severity_example" // String |  (optional)
 let user = 987 // Int |  (optional)
 
 EventsAPI.eventsNotificationsList(body: body, created: created, event: event, ordering: ordering, page: page, pageSize: pageSize, search: search, seen: seen, severity: severity, user: user) { (response, error) in
@@ -673,7 +627,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
  **seen** | **Bool** |  | [optional] 
- **severity** | **String** | * &#x60;notice&#x60; - Notice * &#x60;warning&#x60; - Warning * &#x60;alert&#x60; - Alert | [optional] 
+ **severity** | **String** |  | [optional] 
  **user** | **Int** |  | [optional] 
 
 ### Return type
@@ -950,7 +904,7 @@ NotificationRule Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // NotificationRuleRequest | 
+let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), destinationGroup: 123, destinationEventUser: false) // NotificationRuleRequest | 
 
 EventsAPI.eventsRulesCreate(notificationRuleRequest: notificationRuleRequest) { (response, error) in
     guard error == nil else {
@@ -1036,7 +990,7 @@ Void (empty response body)
 
 # **eventsRulesList**
 ```swift
-    open class func eventsRulesList(groupName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, severity: Severity_eventsRulesList? = nil, completion: @escaping (_ data: PaginatedNotificationRuleList?, _ error: Error?) -> Void)
+    open class func eventsRulesList(destinationGroupName: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, severity: Severity_eventsRulesList? = nil, completion: @escaping (_ data: PaginatedNotificationRuleList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1048,15 +1002,15 @@ NotificationRule Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupName = "groupName_example" // String |  (optional)
+let destinationGroupName = "destinationGroupName_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let severity = "severity_example" // String | Controls which severity level the created notifications will have.  * `notice` - Notice * `warning` - Warning * `alert` - Alert (optional)
+let severity = "severity_example" // String | Controls which severity level the created notifications will have.   (optional)
 
-EventsAPI.eventsRulesList(groupName: groupName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, severity: severity) { (response, error) in
+EventsAPI.eventsRulesList(destinationGroupName: destinationGroupName, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, severity: severity) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1072,13 +1026,13 @@ EventsAPI.eventsRulesList(groupName: groupName, name: name, ordering: ordering, 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupName** | **String** |  | [optional] 
+ **destinationGroupName** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **severity** | **String** | Controls which severity level the created notifications will have.  * &#x60;notice&#x60; - Notice * &#x60;warning&#x60; - Warning * &#x60;alert&#x60; - Alert | [optional] 
+ **severity** | **String** | Controls which severity level the created notifications will have.   | [optional] 
 
 ### Return type
 
@@ -1110,7 +1064,7 @@ NotificationRule Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
-let patchedNotificationRuleRequest = PatchedNotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // PatchedNotificationRuleRequest |  (optional)
+let patchedNotificationRuleRequest = PatchedNotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), destinationGroup: 123, destinationEventUser: false) // PatchedNotificationRuleRequest |  (optional)
 
 EventsAPI.eventsRulesPartialUpdate(pbmUuid: pbmUuid, patchedNotificationRuleRequest: patchedNotificationRuleRequest) { (response, error) in
     guard error == nil else {
@@ -1210,7 +1164,7 @@ NotificationRule Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Notification Rule.
-let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), group: 123) // NotificationRuleRequest | 
+let notificationRuleRequest = NotificationRuleRequest(name: "name_example", transports: [123], severity: SeverityEnum(), destinationGroup: 123, destinationEventUser: false) // NotificationRuleRequest | 
 
 EventsAPI.eventsRulesUpdate(pbmUuid: pbmUuid, notificationRuleRequest: notificationRuleRequest) { (response, error) in
     guard error == nil else {
@@ -1314,7 +1268,7 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let status = "status_example" // String | * `unknown` - Unknown * `successful` - Successful * `warning` - Warning * `error` - Error (optional)
+let status = "status_example" // String |  (optional)
 let uid = "uid_example" // String |  (optional)
 
 EventsAPI.eventsSystemTasksList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, status: status, uid: uid) { (response, error) in
@@ -1338,7 +1292,7 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **status** | **String** | * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error | [optional] 
+ **status** | **String** |  | [optional] 
  **uid** | **String** |  | [optional] 
 
 ### Return type
@@ -1468,7 +1422,7 @@ NotificationTransport Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // NotificationTransportRequest | 
+let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // NotificationTransportRequest | 
 
 EventsAPI.eventsTransportsCreate(notificationTransportRequest: notificationTransportRequest) { (response, error) in
     guard error == nil else {
@@ -1566,7 +1520,7 @@ NotificationTransport Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let mode = "mode_example" // String | * `local` - authentik inbuilt notifications * `webhook` - Generic Webhook * `webhook_slack` - Slack Webhook (Slack/Discord) * `email` - Email (optional)
+let mode = "mode_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -1591,7 +1545,7 @@ EventsAPI.eventsTransportsList(mode: mode, name: name, ordering: ordering, page:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mode** | **String** | * &#x60;local&#x60; - authentik inbuilt notifications * &#x60;webhook&#x60; - Generic Webhook * &#x60;webhook_slack&#x60; - Slack Webhook (Slack/Discord) * &#x60;email&#x60; - Email | [optional] 
+ **mode** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -1630,7 +1584,7 @@ NotificationTransport Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
-let patchedNotificationTransportRequest = PatchedNotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // PatchedNotificationTransportRequest |  (optional)
+let patchedNotificationTransportRequest = PatchedNotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // PatchedNotificationTransportRequest |  (optional)
 
 EventsAPI.eventsTransportsPartialUpdate(uuid: uuid, patchedNotificationTransportRequest: patchedNotificationTransportRequest) { (response, error) in
     guard error == nil else {
@@ -1779,7 +1733,7 @@ NotificationTransport Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
-let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMapping: 123, sendOnce: false) // NotificationTransportRequest | 
+let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // NotificationTransportRequest | 
 
 EventsAPI.eventsTransportsUpdate(uuid: uuid, notificationTransportRequest: notificationTransportRequest) { (response, error) in
     guard error == nil else {

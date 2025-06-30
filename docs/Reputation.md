@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **pk** | **UUID** |  | [optional] 
 **identifier** | **String** |  | 
 **ip** | **String** |  | 
-**ipGeoData** | [**AnyCodable**](.md) |  | [optional] 
-**ipAsnData** | [**AnyCodable**](.md) |  | [optional] 
+**ipGeoData** | **[String: JSONValue]** |  | [optional] 
+**ipAsnData** | **[String: JSONValue]** |  | [optional] 
 **score** | **Int64** |  | [optional] 
 **updated** | **Date** |  | [readonly] 
 

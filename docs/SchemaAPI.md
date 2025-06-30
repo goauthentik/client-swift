@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **schemaRetrieve**
 ```swift
-    open class func schemaRetrieve(format: Format_schemaRetrieve? = nil, lang: Lang_schemaRetrieve? = nil, completion: @escaping (_ data: [String: AnyCodable]?, _ error: Error?) -> Void)
+    open class func schemaRetrieve(format: Format_schemaRetrieve? = nil, lang: Lang_schemaRetrieve? = nil, completion: @escaping (_ data: [String: JSONValue]?, _ error: Error?) -> Void)
 ```
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[String: AnyCodable]**](AnyCodable.md)
+**[String: JSONValue]**
 
 ### Authorization
 

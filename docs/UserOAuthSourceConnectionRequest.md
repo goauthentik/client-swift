@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | **Int** |  | 
+**source** | **UUID** |  | 
 **identifier** | **String** |  | 
 **accessToken** | **String** |  | [optional] 
 

@@ -13,12 +13,11 @@ Method | HTTP request | Description
 [**outpostsInstancesRetrieve**](OutpostsAPI.md#outpostsinstancesretrieve) | **GET** /outposts/instances/{uuid}/ | 
 [**outpostsInstancesUpdate**](OutpostsAPI.md#outpostsinstancesupdate) | **PUT** /outposts/instances/{uuid}/ | 
 [**outpostsInstancesUsedByList**](OutpostsAPI.md#outpostsinstancesusedbylist) | **GET** /outposts/instances/{uuid}/used_by/ | 
+[**outpostsLdapAccessCheck**](OutpostsAPI.md#outpostsldapaccesscheck) | **GET** /outposts/ldap/{id}/check_access/ | 
 [**outpostsLdapList**](OutpostsAPI.md#outpostsldaplist) | **GET** /outposts/ldap/ | 
-[**outpostsLdapRetrieve**](OutpostsAPI.md#outpostsldapretrieve) | **GET** /outposts/ldap/{id}/ | 
 [**outpostsProxyList**](OutpostsAPI.md#outpostsproxylist) | **GET** /outposts/proxy/ | 
-[**outpostsProxyRetrieve**](OutpostsAPI.md#outpostsproxyretrieve) | **GET** /outposts/proxy/{id}/ | 
+[**outpostsRadiusAccessCheck**](OutpostsAPI.md#outpostsradiusaccesscheck) | **GET** /outposts/radius/{id}/check_access/ | 
 [**outpostsRadiusList**](OutpostsAPI.md#outpostsradiuslist) | **GET** /outposts/radius/ | 
-[**outpostsRadiusRetrieve**](OutpostsAPI.md#outpostsradiusretrieve) | **GET** /outposts/radius/{id}/ | 
 [**outpostsServiceConnectionsAllDestroy**](OutpostsAPI.md#outpostsserviceconnectionsalldestroy) | **DELETE** /outposts/service_connections/all/{uuid}/ | 
 [**outpostsServiceConnectionsAllList**](OutpostsAPI.md#outpostsserviceconnectionsalllist) | **GET** /outposts/service_connections/all/ | 
 [**outpostsServiceConnectionsAllRetrieve**](OutpostsAPI.md#outpostsserviceconnectionsallretrieve) | **GET** /outposts/service_connections/all/{uuid}/ | 
@@ -524,6 +523,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **outpostsLdapAccessCheck**
+```swift
+    open class func outpostsLdapAccessCheck(id: Int, appSlug: String? = nil, completion: @escaping (_ data: LDAPCheckAccess?, _ error: Error?) -> Void)
+```
+
+
+
+Check access to a single application by slug
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this LDAP Provider.
+let appSlug = "appSlug_example" // String |  (optional)
+
+OutpostsAPI.outpostsLdapAccessCheck(id: id, appSlug: appSlug) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this LDAP Provider. | 
+ **appSlug** | **String** |  | [optional] 
+
+### Return type
+
+[**LDAPCheckAccess**](LDAPCheckAccess.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **outpostsLdapList**
 ```swift
     open class func outpostsLdapList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedLDAPOutpostConfigList?, _ error: Error?) -> Void)
@@ -569,55 +619,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedLDAPOutpostConfigList**](PaginatedLDAPOutpostConfigList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **outpostsLdapRetrieve**
-```swift
-    open class func outpostsLdapRetrieve(id: Int, completion: @escaping (_ data: LDAPOutpostConfig?, _ error: Error?) -> Void)
-```
-
-
-
-LDAPProvider Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this LDAP Provider.
-
-OutpostsAPI.outpostsLdapRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this LDAP Provider. | 
-
-### Return type
-
-[**LDAPOutpostConfig**](LDAPOutpostConfig.md)
 
 ### Authorization
 
@@ -687,23 +688,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **outpostsProxyRetrieve**
+# **outpostsRadiusAccessCheck**
 ```swift
-    open class func outpostsProxyRetrieve(id: Int, completion: @escaping (_ data: ProxyOutpostConfig?, _ error: Error?) -> Void)
+    open class func outpostsRadiusAccessCheck(id: Int, appSlug: String? = nil, completion: @escaping (_ data: RadiusCheckAccess?, _ error: Error?) -> Void)
 ```
 
 
 
-ProxyProvider Viewset
+Check access to a single application by slug
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this Proxy Provider.
+let id = 987 // Int | A unique integer value identifying this Radius Provider.
+let appSlug = "appSlug_example" // String |  (optional)
 
-OutpostsAPI.outpostsProxyRetrieve(id: id) { (response, error) in
+OutpostsAPI.outpostsRadiusAccessCheck(id: id, appSlug: appSlug) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -719,11 +721,12 @@ OutpostsAPI.outpostsProxyRetrieve(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Proxy Provider. | 
+ **id** | **Int** | A unique integer value identifying this Radius Provider. | 
+ **appSlug** | **String** |  | [optional] 
 
 ### Return type
 
-[**ProxyOutpostConfig**](ProxyOutpostConfig.md)
+[**RadiusCheckAccess**](RadiusCheckAccess.md)
 
 ### Authorization
 
@@ -781,55 +784,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedRadiusOutpostConfigList**](PaginatedRadiusOutpostConfigList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **outpostsRadiusRetrieve**
-```swift
-    open class func outpostsRadiusRetrieve(id: Int, completion: @escaping (_ data: RadiusOutpostConfig?, _ error: Error?) -> Void)
-```
-
-
-
-RadiusProvider Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this Radius Provider.
-
-OutpostsAPI.outpostsRadiusRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this Radius Provider. | 
-
-### Return type
-
-[**RadiusOutpostConfig**](RadiusOutpostConfig.md)
 
 ### Authorization
 
@@ -1053,7 +1007,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all creatable service connection types
+Get all creatable types
 
 ### Example
 ```swift

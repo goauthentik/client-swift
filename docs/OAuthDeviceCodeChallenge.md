@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**ChallengeChoices**](ChallengeChoices.md) |  | 
 **flowInfo** | [**ContextualFlowInfo**](ContextualFlowInfo.md) |  | [optional] 
 **component** | **String** |  | [optional] [default to "ak-provider-oauth2-device-code"]
 **responseErrors** | [String: [ErrorDetail]] |  | [optional] 

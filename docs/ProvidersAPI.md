@@ -9,6 +9,25 @@ Method | HTTP request | Description
 [**providersAllRetrieve**](ProvidersAPI.md#providersallretrieve) | **GET** /providers/all/{id}/ | 
 [**providersAllTypesList**](ProvidersAPI.md#providersalltypeslist) | **GET** /providers/all/types/ | 
 [**providersAllUsedByList**](ProvidersAPI.md#providersallusedbylist) | **GET** /providers/all/{id}/used_by/ | 
+[**providersGoogleWorkspaceCreate**](ProvidersAPI.md#providersgoogleworkspacecreate) | **POST** /providers/google_workspace/ | 
+[**providersGoogleWorkspaceDestroy**](ProvidersAPI.md#providersgoogleworkspacedestroy) | **DELETE** /providers/google_workspace/{id}/ | 
+[**providersGoogleWorkspaceGroupsCreate**](ProvidersAPI.md#providersgoogleworkspacegroupscreate) | **POST** /providers/google_workspace_groups/ | 
+[**providersGoogleWorkspaceGroupsDestroy**](ProvidersAPI.md#providersgoogleworkspacegroupsdestroy) | **DELETE** /providers/google_workspace_groups/{id}/ | 
+[**providersGoogleWorkspaceGroupsList**](ProvidersAPI.md#providersgoogleworkspacegroupslist) | **GET** /providers/google_workspace_groups/ | 
+[**providersGoogleWorkspaceGroupsRetrieve**](ProvidersAPI.md#providersgoogleworkspacegroupsretrieve) | **GET** /providers/google_workspace_groups/{id}/ | 
+[**providersGoogleWorkspaceGroupsUsedByList**](ProvidersAPI.md#providersgoogleworkspacegroupsusedbylist) | **GET** /providers/google_workspace_groups/{id}/used_by/ | 
+[**providersGoogleWorkspaceList**](ProvidersAPI.md#providersgoogleworkspacelist) | **GET** /providers/google_workspace/ | 
+[**providersGoogleWorkspacePartialUpdate**](ProvidersAPI.md#providersgoogleworkspacepartialupdate) | **PATCH** /providers/google_workspace/{id}/ | 
+[**providersGoogleWorkspaceRetrieve**](ProvidersAPI.md#providersgoogleworkspaceretrieve) | **GET** /providers/google_workspace/{id}/ | 
+[**providersGoogleWorkspaceSyncObjectCreate**](ProvidersAPI.md#providersgoogleworkspacesyncobjectcreate) | **POST** /providers/google_workspace/{id}/sync/object/ | 
+[**providersGoogleWorkspaceSyncStatusRetrieve**](ProvidersAPI.md#providersgoogleworkspacesyncstatusretrieve) | **GET** /providers/google_workspace/{id}/sync/status/ | 
+[**providersGoogleWorkspaceUpdate**](ProvidersAPI.md#providersgoogleworkspaceupdate) | **PUT** /providers/google_workspace/{id}/ | 
+[**providersGoogleWorkspaceUsedByList**](ProvidersAPI.md#providersgoogleworkspaceusedbylist) | **GET** /providers/google_workspace/{id}/used_by/ | 
+[**providersGoogleWorkspaceUsersCreate**](ProvidersAPI.md#providersgoogleworkspaceuserscreate) | **POST** /providers/google_workspace_users/ | 
+[**providersGoogleWorkspaceUsersDestroy**](ProvidersAPI.md#providersgoogleworkspaceusersdestroy) | **DELETE** /providers/google_workspace_users/{id}/ | 
+[**providersGoogleWorkspaceUsersList**](ProvidersAPI.md#providersgoogleworkspaceuserslist) | **GET** /providers/google_workspace_users/ | 
+[**providersGoogleWorkspaceUsersRetrieve**](ProvidersAPI.md#providersgoogleworkspaceusersretrieve) | **GET** /providers/google_workspace_users/{id}/ | 
+[**providersGoogleWorkspaceUsersUsedByList**](ProvidersAPI.md#providersgoogleworkspaceusersusedbylist) | **GET** /providers/google_workspace_users/{id}/used_by/ | 
 [**providersLdapCreate**](ProvidersAPI.md#providersldapcreate) | **POST** /providers/ldap/ | 
 [**providersLdapDestroy**](ProvidersAPI.md#providersldapdestroy) | **DELETE** /providers/ldap/{id}/ | 
 [**providersLdapList**](ProvidersAPI.md#providersldaplist) | **GET** /providers/ldap/ | 
@@ -16,6 +35,25 @@ Method | HTTP request | Description
 [**providersLdapRetrieve**](ProvidersAPI.md#providersldapretrieve) | **GET** /providers/ldap/{id}/ | 
 [**providersLdapUpdate**](ProvidersAPI.md#providersldapupdate) | **PUT** /providers/ldap/{id}/ | 
 [**providersLdapUsedByList**](ProvidersAPI.md#providersldapusedbylist) | **GET** /providers/ldap/{id}/used_by/ | 
+[**providersMicrosoftEntraCreate**](ProvidersAPI.md#providersmicrosoftentracreate) | **POST** /providers/microsoft_entra/ | 
+[**providersMicrosoftEntraDestroy**](ProvidersAPI.md#providersmicrosoftentradestroy) | **DELETE** /providers/microsoft_entra/{id}/ | 
+[**providersMicrosoftEntraGroupsCreate**](ProvidersAPI.md#providersmicrosoftentragroupscreate) | **POST** /providers/microsoft_entra_groups/ | 
+[**providersMicrosoftEntraGroupsDestroy**](ProvidersAPI.md#providersmicrosoftentragroupsdestroy) | **DELETE** /providers/microsoft_entra_groups/{id}/ | 
+[**providersMicrosoftEntraGroupsList**](ProvidersAPI.md#providersmicrosoftentragroupslist) | **GET** /providers/microsoft_entra_groups/ | 
+[**providersMicrosoftEntraGroupsRetrieve**](ProvidersAPI.md#providersmicrosoftentragroupsretrieve) | **GET** /providers/microsoft_entra_groups/{id}/ | 
+[**providersMicrosoftEntraGroupsUsedByList**](ProvidersAPI.md#providersmicrosoftentragroupsusedbylist) | **GET** /providers/microsoft_entra_groups/{id}/used_by/ | 
+[**providersMicrosoftEntraList**](ProvidersAPI.md#providersmicrosoftentralist) | **GET** /providers/microsoft_entra/ | 
+[**providersMicrosoftEntraPartialUpdate**](ProvidersAPI.md#providersmicrosoftentrapartialupdate) | **PATCH** /providers/microsoft_entra/{id}/ | 
+[**providersMicrosoftEntraRetrieve**](ProvidersAPI.md#providersmicrosoftentraretrieve) | **GET** /providers/microsoft_entra/{id}/ | 
+[**providersMicrosoftEntraSyncObjectCreate**](ProvidersAPI.md#providersmicrosoftentrasyncobjectcreate) | **POST** /providers/microsoft_entra/{id}/sync/object/ | 
+[**providersMicrosoftEntraSyncStatusRetrieve**](ProvidersAPI.md#providersmicrosoftentrasyncstatusretrieve) | **GET** /providers/microsoft_entra/{id}/sync/status/ | 
+[**providersMicrosoftEntraUpdate**](ProvidersAPI.md#providersmicrosoftentraupdate) | **PUT** /providers/microsoft_entra/{id}/ | 
+[**providersMicrosoftEntraUsedByList**](ProvidersAPI.md#providersmicrosoftentrausedbylist) | **GET** /providers/microsoft_entra/{id}/used_by/ | 
+[**providersMicrosoftEntraUsersCreate**](ProvidersAPI.md#providersmicrosoftentrauserscreate) | **POST** /providers/microsoft_entra_users/ | 
+[**providersMicrosoftEntraUsersDestroy**](ProvidersAPI.md#providersmicrosoftentrausersdestroy) | **DELETE** /providers/microsoft_entra_users/{id}/ | 
+[**providersMicrosoftEntraUsersList**](ProvidersAPI.md#providersmicrosoftentrauserslist) | **GET** /providers/microsoft_entra_users/ | 
+[**providersMicrosoftEntraUsersRetrieve**](ProvidersAPI.md#providersmicrosoftentrausersretrieve) | **GET** /providers/microsoft_entra_users/{id}/ | 
+[**providersMicrosoftEntraUsersUsedByList**](ProvidersAPI.md#providersmicrosoftentrausersusedbylist) | **GET** /providers/microsoft_entra_users/{id}/used_by/ | 
 [**providersOauth2Create**](ProvidersAPI.md#providersoauth2create) | **POST** /providers/oauth2/ | 
 [**providersOauth2Destroy**](ProvidersAPI.md#providersoauth2destroy) | **DELETE** /providers/oauth2/{id}/ | 
 [**providersOauth2List**](ProvidersAPI.md#providersoauth2list) | **GET** /providers/oauth2/ | 
@@ -58,12 +96,30 @@ Method | HTTP request | Description
 [**providersSamlUsedByList**](ProvidersAPI.md#providerssamlusedbylist) | **GET** /providers/saml/{id}/used_by/ | 
 [**providersScimCreate**](ProvidersAPI.md#providersscimcreate) | **POST** /providers/scim/ | 
 [**providersScimDestroy**](ProvidersAPI.md#providersscimdestroy) | **DELETE** /providers/scim/{id}/ | 
+[**providersScimGroupsCreate**](ProvidersAPI.md#providersscimgroupscreate) | **POST** /providers/scim_groups/ | 
+[**providersScimGroupsDestroy**](ProvidersAPI.md#providersscimgroupsdestroy) | **DELETE** /providers/scim_groups/{id}/ | 
+[**providersScimGroupsList**](ProvidersAPI.md#providersscimgroupslist) | **GET** /providers/scim_groups/ | 
+[**providersScimGroupsRetrieve**](ProvidersAPI.md#providersscimgroupsretrieve) | **GET** /providers/scim_groups/{id}/ | 
+[**providersScimGroupsUsedByList**](ProvidersAPI.md#providersscimgroupsusedbylist) | **GET** /providers/scim_groups/{id}/used_by/ | 
 [**providersScimList**](ProvidersAPI.md#providersscimlist) | **GET** /providers/scim/ | 
 [**providersScimPartialUpdate**](ProvidersAPI.md#providersscimpartialupdate) | **PATCH** /providers/scim/{id}/ | 
 [**providersScimRetrieve**](ProvidersAPI.md#providersscimretrieve) | **GET** /providers/scim/{id}/ | 
-[**providersScimSyncStatusRetrieve**](ProvidersAPI.md#providersscimsyncstatusretrieve) | **GET** /providers/scim/{id}/sync_status/ | 
+[**providersScimSyncObjectCreate**](ProvidersAPI.md#providersscimsyncobjectcreate) | **POST** /providers/scim/{id}/sync/object/ | 
+[**providersScimSyncStatusRetrieve**](ProvidersAPI.md#providersscimsyncstatusretrieve) | **GET** /providers/scim/{id}/sync/status/ | 
 [**providersScimUpdate**](ProvidersAPI.md#providersscimupdate) | **PUT** /providers/scim/{id}/ | 
 [**providersScimUsedByList**](ProvidersAPI.md#providersscimusedbylist) | **GET** /providers/scim/{id}/used_by/ | 
+[**providersScimUsersCreate**](ProvidersAPI.md#providersscimuserscreate) | **POST** /providers/scim_users/ | 
+[**providersScimUsersDestroy**](ProvidersAPI.md#providersscimusersdestroy) | **DELETE** /providers/scim_users/{id}/ | 
+[**providersScimUsersList**](ProvidersAPI.md#providersscimuserslist) | **GET** /providers/scim_users/ | 
+[**providersScimUsersRetrieve**](ProvidersAPI.md#providersscimusersretrieve) | **GET** /providers/scim_users/{id}/ | 
+[**providersScimUsersUsedByList**](ProvidersAPI.md#providersscimusersusedbylist) | **GET** /providers/scim_users/{id}/used_by/ | 
+[**providersSsfCreate**](ProvidersAPI.md#providersssfcreate) | **POST** /providers/ssf/ | 
+[**providersSsfDestroy**](ProvidersAPI.md#providersssfdestroy) | **DELETE** /providers/ssf/{id}/ | 
+[**providersSsfList**](ProvidersAPI.md#providersssflist) | **GET** /providers/ssf/ | 
+[**providersSsfPartialUpdate**](ProvidersAPI.md#providersssfpartialupdate) | **PATCH** /providers/ssf/{id}/ | 
+[**providersSsfRetrieve**](ProvidersAPI.md#providersssfretrieve) | **GET** /providers/ssf/{id}/ | 
+[**providersSsfUpdate**](ProvidersAPI.md#providersssfupdate) | **PUT** /providers/ssf/{id}/ | 
+[**providersSsfUsedByList**](ProvidersAPI.md#providersssfusedbylist) | **GET** /providers/ssf/{id}/used_by/ | 
 
 
 # **providersAllDestroy**
@@ -117,7 +173,7 @@ Void (empty response body)
 
 # **providersAllList**
 ```swift
-    open class func providersAllList(applicationIsnull: Bool? = nil, backchannelOnly: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedProviderList?, _ error: Error?) -> Void)
+    open class func providersAllList(applicationIsnull: Bool? = nil, backchannel: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -130,13 +186,13 @@ Provider Viewset
 import authentikClient
 
 let applicationIsnull = true // Bool |  (optional)
-let backchannelOnly = true // Bool |  (optional)
+let backchannel = true // Bool | When not set all providers are returned. When set to true, only backchannel providers are returned. When set to false, backchannel providers are excluded (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-ProvidersAPI.providersAllList(applicationIsnull: applicationIsnull, backchannelOnly: backchannelOnly, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+ProvidersAPI.providersAllList(applicationIsnull: applicationIsnull, backchannel: backchannel, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -153,7 +209,7 @@ ProvidersAPI.providersAllList(applicationIsnull: applicationIsnull, backchannelO
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIsnull** | **Bool** |  | [optional] 
- **backchannelOnly** | **Bool** |  | [optional] 
+ **backchannel** | **Bool** | When not set all providers are returned. When set to true, only backchannel providers are returned. When set to false, backchannel providers are excluded | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
@@ -230,7 +286,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all creatable provider types
+Get all creatable types
 
 ### Example
 ```swift
@@ -317,6 +373,981 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **providersGoogleWorkspaceCreate**
+```swift
+    open class func providersGoogleWorkspaceCreate(googleWorkspaceProviderRequest: GoogleWorkspaceProviderRequest, completion: @escaping (_ data: GoogleWorkspaceProvider?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
+
+ProvidersAPI.providersGoogleWorkspaceCreate(googleWorkspaceProviderRequest: googleWorkspaceProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **googleWorkspaceProviderRequest** | [**GoogleWorkspaceProviderRequest**](GoogleWorkspaceProviderRequest.md) |  | 
+
+### Return type
+
+[**GoogleWorkspaceProvider**](GoogleWorkspaceProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceDestroy**
+```swift
+    open class func providersGoogleWorkspaceDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+
+ProvidersAPI.providersGoogleWorkspaceDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceGroupsCreate**
+```swift
+    open class func providersGoogleWorkspaceGroupsCreate(googleWorkspaceProviderGroupRequest: GoogleWorkspaceProviderGroupRequest, completion: @escaping (_ data: GoogleWorkspaceProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let googleWorkspaceProviderGroupRequest = GoogleWorkspaceProviderGroupRequest(googleId: "googleId_example", group: 123, provider: 123) // GoogleWorkspaceProviderGroupRequest | 
+
+ProvidersAPI.providersGoogleWorkspaceGroupsCreate(googleWorkspaceProviderGroupRequest: googleWorkspaceProviderGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **googleWorkspaceProviderGroupRequest** | [**GoogleWorkspaceProviderGroupRequest**](GoogleWorkspaceProviderGroupRequest.md) |  | 
+
+### Return type
+
+[**GoogleWorkspaceProviderGroup**](GoogleWorkspaceProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceGroupsDestroy**
+```swift
+    open class func providersGoogleWorkspaceGroupsDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider Group.
+
+ProvidersAPI.providersGoogleWorkspaceGroupsDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider Group. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceGroupsList**
+```swift
+    open class func providersGoogleWorkspaceGroupsList(groupGroupUuid: UUID? = nil, groupName: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGoogleWorkspaceProviderGroupList?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let groupGroupUuid = 987 // UUID |  (optional)
+let groupName = "groupName_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersGoogleWorkspaceGroupsList(groupGroupUuid: groupGroupUuid, groupName: groupName, ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupGroupUuid** | **UUID** |  | [optional] 
+ **groupName** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedGoogleWorkspaceProviderGroupList**](PaginatedGoogleWorkspaceProviderGroupList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceGroupsRetrieve**
+```swift
+    open class func providersGoogleWorkspaceGroupsRetrieve(id: UUID, completion: @escaping (_ data: GoogleWorkspaceProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider Group.
+
+ProvidersAPI.providersGoogleWorkspaceGroupsRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider Group. | 
+
+### Return type
+
+[**GoogleWorkspaceProviderGroup**](GoogleWorkspaceProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceGroupsUsedByList**
+```swift
+    open class func providersGoogleWorkspaceGroupsUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider Group.
+
+ProvidersAPI.providersGoogleWorkspaceGroupsUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider Group. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceList**
+```swift
+    open class func providersGoogleWorkspaceList(delegatedSubject: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGoogleWorkspaceProviderList?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let delegatedSubject = "delegatedSubject_example" // String |  (optional)
+let excludeUsersServiceAccount = true // Bool |  (optional)
+let filterGroup = 987 // UUID |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersGoogleWorkspaceList(delegatedSubject: delegatedSubject, excludeUsersServiceAccount: excludeUsersServiceAccount, filterGroup: filterGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **delegatedSubject** | **String** |  | [optional] 
+ **excludeUsersServiceAccount** | **Bool** |  | [optional] 
+ **filterGroup** | **UUID** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedGoogleWorkspaceProviderList**](PaginatedGoogleWorkspaceProviderList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspacePartialUpdate**
+```swift
+    open class func providersGoogleWorkspacePartialUpdate(id: Int, patchedGoogleWorkspaceProviderRequest: PatchedGoogleWorkspaceProviderRequest? = nil, completion: @escaping (_ data: GoogleWorkspaceProvider?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+let patchedGoogleWorkspaceProviderRequest = PatchedGoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // PatchedGoogleWorkspaceProviderRequest |  (optional)
+
+ProvidersAPI.providersGoogleWorkspacePartialUpdate(id: id, patchedGoogleWorkspaceProviderRequest: patchedGoogleWorkspaceProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+ **patchedGoogleWorkspaceProviderRequest** | [**PatchedGoogleWorkspaceProviderRequest**](PatchedGoogleWorkspaceProviderRequest.md) |  | [optional] 
+
+### Return type
+
+[**GoogleWorkspaceProvider**](GoogleWorkspaceProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceRetrieve**
+```swift
+    open class func providersGoogleWorkspaceRetrieve(id: Int, completion: @escaping (_ data: GoogleWorkspaceProvider?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+
+ProvidersAPI.providersGoogleWorkspaceRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+
+### Return type
+
+[**GoogleWorkspaceProvider**](GoogleWorkspaceProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceSyncObjectCreate**
+```swift
+    open class func providersGoogleWorkspaceSyncObjectCreate(id: Int, syncObjectRequest: SyncObjectRequest, completion: @escaping (_ data: SyncObjectResult?, _ error: Error?) -> Void)
+```
+
+
+
+Sync/Re-sync a single user/group object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+let syncObjectRequest = SyncObjectRequest(syncObjectModel: SyncObjectModelEnum(), syncObjectId: "syncObjectId_example", overrideDryRun: false) // SyncObjectRequest | 
+
+ProvidersAPI.providersGoogleWorkspaceSyncObjectCreate(id: id, syncObjectRequest: syncObjectRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+ **syncObjectRequest** | [**SyncObjectRequest**](SyncObjectRequest.md) |  | 
+
+### Return type
+
+[**SyncObjectResult**](SyncObjectResult.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceSyncStatusRetrieve**
+```swift
+    open class func providersGoogleWorkspaceSyncStatusRetrieve(id: Int, completion: @escaping (_ data: SyncStatus?, _ error: Error?) -> Void)
+```
+
+
+
+Get provider's sync status
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+
+ProvidersAPI.providersGoogleWorkspaceSyncStatusRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+
+### Return type
+
+[**SyncStatus**](SyncStatus.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUpdate**
+```swift
+    open class func providersGoogleWorkspaceUpdate(id: Int, googleWorkspaceProviderRequest: GoogleWorkspaceProviderRequest, completion: @escaping (_ data: GoogleWorkspaceProvider?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
+
+ProvidersAPI.providersGoogleWorkspaceUpdate(id: id, googleWorkspaceProviderRequest: googleWorkspaceProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+ **googleWorkspaceProviderRequest** | [**GoogleWorkspaceProviderRequest**](GoogleWorkspaceProviderRequest.md) |  | 
+
+### Return type
+
+[**GoogleWorkspaceProvider**](GoogleWorkspaceProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsedByList**
+```swift
+    open class func providersGoogleWorkspaceUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
+
+ProvidersAPI.providersGoogleWorkspaceUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Google Workspace Provider. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsersCreate**
+```swift
+    open class func providersGoogleWorkspaceUsersCreate(googleWorkspaceProviderUserRequest: GoogleWorkspaceProviderUserRequest, completion: @escaping (_ data: GoogleWorkspaceProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let googleWorkspaceProviderUserRequest = GoogleWorkspaceProviderUserRequest(googleId: "googleId_example", user: 123, provider: 123) // GoogleWorkspaceProviderUserRequest | 
+
+ProvidersAPI.providersGoogleWorkspaceUsersCreate(googleWorkspaceProviderUserRequest: googleWorkspaceProviderUserRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **googleWorkspaceProviderUserRequest** | [**GoogleWorkspaceProviderUserRequest**](GoogleWorkspaceProviderUserRequest.md) |  | 
+
+### Return type
+
+[**GoogleWorkspaceProviderUser**](GoogleWorkspaceProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsersDestroy**
+```swift
+    open class func providersGoogleWorkspaceUsersDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider User.
+
+ProvidersAPI.providersGoogleWorkspaceUsersDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider User. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsersList**
+```swift
+    open class func providersGoogleWorkspaceUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, userId: Int? = nil, userUsername: String? = nil, completion: @escaping (_ data: PaginatedGoogleWorkspaceProviderUserList?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let userId = 987 // Int |  (optional)
+let userUsername = "userUsername_example" // String |  (optional)
+
+ProvidersAPI.providersGoogleWorkspaceUsersList(ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search, userId: userId, userUsername: userUsername) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **userId** | **Int** |  | [optional] 
+ **userUsername** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedGoogleWorkspaceProviderUserList**](PaginatedGoogleWorkspaceProviderUserList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsersRetrieve**
+```swift
+    open class func providersGoogleWorkspaceUsersRetrieve(id: UUID, completion: @escaping (_ data: GoogleWorkspaceProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+GoogleWorkspaceProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider User.
+
+ProvidersAPI.providersGoogleWorkspaceUsersRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider User. | 
+
+### Return type
+
+[**GoogleWorkspaceProviderUser**](GoogleWorkspaceProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersGoogleWorkspaceUsersUsedByList**
+```swift
+    open class func providersGoogleWorkspaceUsersUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Google Workspace Provider User.
+
+ProvidersAPI.providersGoogleWorkspaceUsersUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Google Workspace Provider User. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **providersLdapCreate**
 ```swift
     open class func providersLdapCreate(lDAPProviderRequest: LDAPProviderRequest, completion: @escaping (_ data: LDAPProvider?, _ error: Error?) -> Void)
@@ -331,7 +1362,7 @@ LDAPProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
+let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
 
 ProvidersAPI.providersLdapCreate(lDAPProviderRequest: lDAPProviderRequest) { (response, error) in
     guard error == nil else {
@@ -417,7 +1448,7 @@ Void (empty response body)
 
 # **providersLdapList**
 ```swift
-    open class func providersLdapList(applicationIsnull: Bool? = nil, authorizationFlowSlugIexact: String? = nil, baseDnIexact: String? = nil, certificateKpUuidIexact: UUID? = nil, certificateNameIexact: String? = nil, gidStartNumberIexact: Int? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, searchGroupGroupUuidIexact: UUID? = nil, searchGroupNameIexact: String? = nil, tlsServerNameIexact: String? = nil, uidStartNumberIexact: Int? = nil, completion: @escaping (_ data: PaginatedLDAPProviderList?, _ error: Error?) -> Void)
+    open class func providersLdapList(applicationIsnull: Bool? = nil, authorizationFlowSlugIexact: String? = nil, baseDnIexact: String? = nil, certificateKpUuidIexact: UUID? = nil, certificateNameIexact: String? = nil, gidStartNumberIexact: Int? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, tlsServerNameIexact: String? = nil, uidStartNumberIexact: Int? = nil, completion: @escaping (_ data: PaginatedLDAPProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -440,12 +1471,10 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let searchGroupGroupUuidIexact = 987 // UUID |  (optional)
-let searchGroupNameIexact = "searchGroupNameIexact_example" // String |  (optional)
 let tlsServerNameIexact = "tlsServerNameIexact_example" // String |  (optional)
 let uidStartNumberIexact = 987 // Int |  (optional)
 
-ProvidersAPI.providersLdapList(applicationIsnull: applicationIsnull, authorizationFlowSlugIexact: authorizationFlowSlugIexact, baseDnIexact: baseDnIexact, certificateKpUuidIexact: certificateKpUuidIexact, certificateNameIexact: certificateNameIexact, gidStartNumberIexact: gidStartNumberIexact, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, search: search, searchGroupGroupUuidIexact: searchGroupGroupUuidIexact, searchGroupNameIexact: searchGroupNameIexact, tlsServerNameIexact: tlsServerNameIexact, uidStartNumberIexact: uidStartNumberIexact) { (response, error) in
+ProvidersAPI.providersLdapList(applicationIsnull: applicationIsnull, authorizationFlowSlugIexact: authorizationFlowSlugIexact, baseDnIexact: baseDnIexact, certificateKpUuidIexact: certificateKpUuidIexact, certificateNameIexact: certificateNameIexact, gidStartNumberIexact: gidStartNumberIexact, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, search: search, tlsServerNameIexact: tlsServerNameIexact, uidStartNumberIexact: uidStartNumberIexact) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -472,8 +1501,6 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **searchGroupGroupUuidIexact** | **UUID** |  | [optional] 
- **searchGroupNameIexact** | **String** |  | [optional] 
  **tlsServerNameIexact** | **String** |  | [optional] 
  **uidStartNumberIexact** | **Int** |  | [optional] 
 
@@ -507,7 +1534,7 @@ LDAPProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
-let patchedLDAPProviderRequest = PatchedLDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // PatchedLDAPProviderRequest |  (optional)
+let patchedLDAPProviderRequest = PatchedLDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // PatchedLDAPProviderRequest |  (optional)
 
 ProvidersAPI.providersLdapPartialUpdate(id: id, patchedLDAPProviderRequest: patchedLDAPProviderRequest) { (response, error) in
     guard error == nil else {
@@ -607,7 +1634,7 @@ LDAPProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this LDAP Provider.
-let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
+let lDAPProviderRequest = LDAPProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false) // LDAPProviderRequest | 
 
 ProvidersAPI.providersLdapUpdate(id: id, lDAPProviderRequest: lDAPProviderRequest) { (response, error) in
     guard error == nil else {
@@ -692,6 +1719,979 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **providersMicrosoftEntraCreate**
+```swift
+    open class func providersMicrosoftEntraCreate(microsoftEntraProviderRequest: MicrosoftEntraProviderRequest, completion: @escaping (_ data: MicrosoftEntraProvider?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // MicrosoftEntraProviderRequest | 
+
+ProvidersAPI.providersMicrosoftEntraCreate(microsoftEntraProviderRequest: microsoftEntraProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **microsoftEntraProviderRequest** | [**MicrosoftEntraProviderRequest**](MicrosoftEntraProviderRequest.md) |  | 
+
+### Return type
+
+[**MicrosoftEntraProvider**](MicrosoftEntraProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraDestroy**
+```swift
+    open class func providersMicrosoftEntraDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+
+ProvidersAPI.providersMicrosoftEntraDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraGroupsCreate**
+```swift
+    open class func providersMicrosoftEntraGroupsCreate(microsoftEntraProviderGroupRequest: MicrosoftEntraProviderGroupRequest, completion: @escaping (_ data: MicrosoftEntraProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let microsoftEntraProviderGroupRequest = MicrosoftEntraProviderGroupRequest(microsoftId: "microsoftId_example", group: 123, provider: 123) // MicrosoftEntraProviderGroupRequest | 
+
+ProvidersAPI.providersMicrosoftEntraGroupsCreate(microsoftEntraProviderGroupRequest: microsoftEntraProviderGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **microsoftEntraProviderGroupRequest** | [**MicrosoftEntraProviderGroupRequest**](MicrosoftEntraProviderGroupRequest.md) |  | 
+
+### Return type
+
+[**MicrosoftEntraProviderGroup**](MicrosoftEntraProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraGroupsDestroy**
+```swift
+    open class func providersMicrosoftEntraGroupsDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider Group.
+
+ProvidersAPI.providersMicrosoftEntraGroupsDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider Group. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraGroupsList**
+```swift
+    open class func providersMicrosoftEntraGroupsList(groupGroupUuid: UUID? = nil, groupName: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedMicrosoftEntraProviderGroupList?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let groupGroupUuid = 987 // UUID |  (optional)
+let groupName = "groupName_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersMicrosoftEntraGroupsList(groupGroupUuid: groupGroupUuid, groupName: groupName, ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupGroupUuid** | **UUID** |  | [optional] 
+ **groupName** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedMicrosoftEntraProviderGroupList**](PaginatedMicrosoftEntraProviderGroupList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraGroupsRetrieve**
+```swift
+    open class func providersMicrosoftEntraGroupsRetrieve(id: UUID, completion: @escaping (_ data: MicrosoftEntraProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider Group.
+
+ProvidersAPI.providersMicrosoftEntraGroupsRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider Group. | 
+
+### Return type
+
+[**MicrosoftEntraProviderGroup**](MicrosoftEntraProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraGroupsUsedByList**
+```swift
+    open class func providersMicrosoftEntraGroupsUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider Group.
+
+ProvidersAPI.providersMicrosoftEntraGroupsUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider Group. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraList**
+```swift
+    open class func providersMicrosoftEntraList(excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedMicrosoftEntraProviderList?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let excludeUsersServiceAccount = true // Bool |  (optional)
+let filterGroup = 987 // UUID |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersMicrosoftEntraList(excludeUsersServiceAccount: excludeUsersServiceAccount, filterGroup: filterGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **excludeUsersServiceAccount** | **Bool** |  | [optional] 
+ **filterGroup** | **UUID** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedMicrosoftEntraProviderList**](PaginatedMicrosoftEntraProviderList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraPartialUpdate**
+```swift
+    open class func providersMicrosoftEntraPartialUpdate(id: Int, patchedMicrosoftEntraProviderRequest: PatchedMicrosoftEntraProviderRequest? = nil, completion: @escaping (_ data: MicrosoftEntraProvider?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+let patchedMicrosoftEntraProviderRequest = PatchedMicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // PatchedMicrosoftEntraProviderRequest |  (optional)
+
+ProvidersAPI.providersMicrosoftEntraPartialUpdate(id: id, patchedMicrosoftEntraProviderRequest: patchedMicrosoftEntraProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+ **patchedMicrosoftEntraProviderRequest** | [**PatchedMicrosoftEntraProviderRequest**](PatchedMicrosoftEntraProviderRequest.md) |  | [optional] 
+
+### Return type
+
+[**MicrosoftEntraProvider**](MicrosoftEntraProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraRetrieve**
+```swift
+    open class func providersMicrosoftEntraRetrieve(id: Int, completion: @escaping (_ data: MicrosoftEntraProvider?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+
+ProvidersAPI.providersMicrosoftEntraRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+
+### Return type
+
+[**MicrosoftEntraProvider**](MicrosoftEntraProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraSyncObjectCreate**
+```swift
+    open class func providersMicrosoftEntraSyncObjectCreate(id: Int, syncObjectRequest: SyncObjectRequest, completion: @escaping (_ data: SyncObjectResult?, _ error: Error?) -> Void)
+```
+
+
+
+Sync/Re-sync a single user/group object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+let syncObjectRequest = SyncObjectRequest(syncObjectModel: SyncObjectModelEnum(), syncObjectId: "syncObjectId_example", overrideDryRun: false) // SyncObjectRequest | 
+
+ProvidersAPI.providersMicrosoftEntraSyncObjectCreate(id: id, syncObjectRequest: syncObjectRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+ **syncObjectRequest** | [**SyncObjectRequest**](SyncObjectRequest.md) |  | 
+
+### Return type
+
+[**SyncObjectResult**](SyncObjectResult.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraSyncStatusRetrieve**
+```swift
+    open class func providersMicrosoftEntraSyncStatusRetrieve(id: Int, completion: @escaping (_ data: SyncStatus?, _ error: Error?) -> Void)
+```
+
+
+
+Get provider's sync status
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+
+ProvidersAPI.providersMicrosoftEntraSyncStatusRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+
+### Return type
+
+[**SyncStatus**](SyncStatus.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUpdate**
+```swift
+    open class func providersMicrosoftEntraUpdate(id: Int, microsoftEntraProviderRequest: MicrosoftEntraProviderRequest, completion: @escaping (_ data: MicrosoftEntraProvider?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // MicrosoftEntraProviderRequest | 
+
+ProvidersAPI.providersMicrosoftEntraUpdate(id: id, microsoftEntraProviderRequest: microsoftEntraProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+ **microsoftEntraProviderRequest** | [**MicrosoftEntraProviderRequest**](MicrosoftEntraProviderRequest.md) |  | 
+
+### Return type
+
+[**MicrosoftEntraProvider**](MicrosoftEntraProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsedByList**
+```swift
+    open class func providersMicrosoftEntraUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
+
+ProvidersAPI.providersMicrosoftEntraUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Microsoft Entra Provider. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsersCreate**
+```swift
+    open class func providersMicrosoftEntraUsersCreate(microsoftEntraProviderUserRequest: MicrosoftEntraProviderUserRequest, completion: @escaping (_ data: MicrosoftEntraProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let microsoftEntraProviderUserRequest = MicrosoftEntraProviderUserRequest(microsoftId: "microsoftId_example", user: 123, provider: 123) // MicrosoftEntraProviderUserRequest | 
+
+ProvidersAPI.providersMicrosoftEntraUsersCreate(microsoftEntraProviderUserRequest: microsoftEntraProviderUserRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **microsoftEntraProviderUserRequest** | [**MicrosoftEntraProviderUserRequest**](MicrosoftEntraProviderUserRequest.md) |  | 
+
+### Return type
+
+[**MicrosoftEntraProviderUser**](MicrosoftEntraProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsersDestroy**
+```swift
+    open class func providersMicrosoftEntraUsersDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider User.
+
+ProvidersAPI.providersMicrosoftEntraUsersDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider User. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsersList**
+```swift
+    open class func providersMicrosoftEntraUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, userId: Int? = nil, userUsername: String? = nil, completion: @escaping (_ data: PaginatedMicrosoftEntraProviderUserList?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let userId = 987 // Int |  (optional)
+let userUsername = "userUsername_example" // String |  (optional)
+
+ProvidersAPI.providersMicrosoftEntraUsersList(ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search, userId: userId, userUsername: userUsername) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **userId** | **Int** |  | [optional] 
+ **userUsername** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedMicrosoftEntraProviderUserList**](PaginatedMicrosoftEntraProviderUserList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsersRetrieve**
+```swift
+    open class func providersMicrosoftEntraUsersRetrieve(id: UUID, completion: @escaping (_ data: MicrosoftEntraProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+MicrosoftEntraProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider User.
+
+ProvidersAPI.providersMicrosoftEntraUsersRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider User. | 
+
+### Return type
+
+[**MicrosoftEntraProviderUser**](MicrosoftEntraProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersMicrosoftEntraUsersUsedByList**
+```swift
+    open class func providersMicrosoftEntraUsersUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this Microsoft Entra Provider User.
+
+ProvidersAPI.providersMicrosoftEntraUsersUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this Microsoft Entra Provider User. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **providersOauth2Create**
 ```swift
     open class func providersOauth2Create(oAuth2ProviderRequest: OAuth2ProviderRequest, completion: @escaping (_ data: OAuth2Provider?, _ error: Error?) -> Void)
@@ -706,7 +2706,7 @@ OAuth2Provider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // OAuth2ProviderRequest | 
+let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
 
 ProvidersAPI.providersOauth2Create(oAuth2ProviderRequest: oAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -792,7 +2792,7 @@ Void (empty response body)
 
 # **providersOauth2List**
 ```swift
-    open class func providersOauth2List(accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, application: UUID? = nil, authorizationFlow: UUID? = nil, clientId: String? = nil, clientType: ClientType_providersOauth2List? = nil, includeClaimsInIdToken: Bool? = nil, issuerMode: IssuerMode_providersOauth2List? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, redirectUris: String? = nil, refreshTokenValidity: String? = nil, search: String? = nil, signingKey: UUID? = nil, subMode: SubMode_providersOauth2List? = nil, completion: @escaping (_ data: PaginatedOAuth2ProviderList?, _ error: Error?) -> Void)
+    open class func providersOauth2List(accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, application: UUID? = nil, authorizationFlow: UUID? = nil, clientId: String? = nil, clientType: ClientType_providersOauth2List? = nil, includeClaimsInIdToken: Bool? = nil, issuerMode: IssuerMode_providersOauth2List? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, refreshTokenValidity: String? = nil, search: String? = nil, signingKey: UUID? = nil, subMode: SubMode_providersOauth2List? = nil, completion: @escaping (_ data: PaginatedOAuth2ProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -809,21 +2809,20 @@ let accessTokenValidity = "accessTokenValidity_example" // String |  (optional)
 let application = 987 // UUID |  (optional)
 let authorizationFlow = 987 // UUID |  (optional)
 let clientId = "clientId_example" // String |  (optional)
-let clientType = "clientType_example" // String | Confidential clients are capable of maintaining the confidentiality of their credentials. Public clients are incapable  * `confidential` - Confidential * `public` - Public (optional)
+let clientType = "clientType_example" // String | Confidential clients are capable of maintaining the confidentiality of their credentials. Public clients are incapable   (optional)
 let includeClaimsInIdToken = true // Bool |  (optional)
-let issuerMode = "issuerMode_example" // String | Configure how the issuer field of the ID Token should be filled.  * `global` - Same identifier is used for all providers * `per_provider` - Each provider has a different issuer, based on the application slug. (optional)
+let issuerMode = "issuerMode_example" // String | Configure how the issuer field of the ID Token should be filled.   (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let propertyMappings = [123] // [UUID] |  (optional)
-let redirectUris = "redirectUris_example" // String |  (optional)
 let refreshTokenValidity = "refreshTokenValidity_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let signingKey = 987 // UUID |  (optional)
-let subMode = "subMode_example" // String | Configure what data should be used as unique User Identifier. For most cases, the default should be fine.  * `hashed_user_id` - Based on the Hashed User ID * `user_id` - Based on user ID * `user_uuid` - Based on user UUID * `user_username` - Based on the username * `user_email` - Based on the User's Email. This is recommended over the UPN method. * `user_upn` - Based on the User's UPN, only works if user has a 'upn' attribute set. Use this method only if you have different UPN and Mail domains. (optional)
+let subMode = "subMode_example" // String | Configure what data should be used as unique User Identifier. For most cases, the default should be fine.   (optional)
 
-ProvidersAPI.providersOauth2List(accessCodeValidity: accessCodeValidity, accessTokenValidity: accessTokenValidity, application: application, authorizationFlow: authorizationFlow, clientId: clientId, clientType: clientType, includeClaimsInIdToken: includeClaimsInIdToken, issuerMode: issuerMode, name: name, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, redirectUris: redirectUris, refreshTokenValidity: refreshTokenValidity, search: search, signingKey: signingKey, subMode: subMode) { (response, error) in
+ProvidersAPI.providersOauth2List(accessCodeValidity: accessCodeValidity, accessTokenValidity: accessTokenValidity, application: application, authorizationFlow: authorizationFlow, clientId: clientId, clientType: clientType, includeClaimsInIdToken: includeClaimsInIdToken, issuerMode: issuerMode, name: name, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, refreshTokenValidity: refreshTokenValidity, search: search, signingKey: signingKey, subMode: subMode) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -844,19 +2843,18 @@ Name | Type | Description  | Notes
  **application** | **UUID** |  | [optional] 
  **authorizationFlow** | **UUID** |  | [optional] 
  **clientId** | **String** |  | [optional] 
- **clientType** | **String** | Confidential clients are capable of maintaining the confidentiality of their credentials. Public clients are incapable  * &#x60;confidential&#x60; - Confidential * &#x60;public&#x60; - Public | [optional] 
+ **clientType** | **String** | Confidential clients are capable of maintaining the confidentiality of their credentials. Public clients are incapable   | [optional] 
  **includeClaimsInIdToken** | **Bool** |  | [optional] 
- **issuerMode** | **String** | Configure how the issuer field of the ID Token should be filled.  * &#x60;global&#x60; - Same identifier is used for all providers * &#x60;per_provider&#x60; - Each provider has a different issuer, based on the application slug. | [optional] 
+ **issuerMode** | **String** | Configure how the issuer field of the ID Token should be filled.   | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **propertyMappings** | [**[UUID]**](UUID.md) |  | [optional] 
- **redirectUris** | **String** |  | [optional] 
  **refreshTokenValidity** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **signingKey** | **UUID** |  | [optional] 
- **subMode** | **String** | Configure what data should be used as unique User Identifier. For most cases, the default should be fine.  * &#x60;hashed_user_id&#x60; - Based on the Hashed User ID * &#x60;user_id&#x60; - Based on user ID * &#x60;user_uuid&#x60; - Based on user UUID * &#x60;user_username&#x60; - Based on the username * &#x60;user_email&#x60; - Based on the User&#39;s Email. This is recommended over the UPN method. * &#x60;user_upn&#x60; - Based on the User&#39;s UPN, only works if user has a &#39;upn&#39; attribute set. Use this method only if you have different UPN and Mail domains. | [optional] 
+ **subMode** | **String** | Configure what data should be used as unique User Identifier. For most cases, the default should be fine.   | [optional] 
 
 ### Return type
 
@@ -888,7 +2886,7 @@ OAuth2Provider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
-let patchedOAuth2ProviderRequest = PatchedOAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // PatchedOAuth2ProviderRequest |  (optional)
+let patchedOAuth2ProviderRequest = PatchedOAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // PatchedOAuth2ProviderRequest |  (optional)
 
 ProvidersAPI.providersOauth2PartialUpdate(id: id, patchedOAuth2ProviderRequest: patchedOAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1088,7 +3086,7 @@ OAuth2Provider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
-let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123]) // OAuth2ProviderRequest | 
+let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
 
 ProvidersAPI.providersOauth2Update(id: id, oAuth2ProviderRequest: oAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1187,7 +3185,7 @@ ProxyProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
+let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwtFederationSources: [123], jwtFederationProviders: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
 
 ProvidersAPI.providersProxyCreate(proxyProviderRequest: proxyProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1273,7 +3271,7 @@ Void (empty response body)
 
 # **providersProxyList**
 ```swift
-    open class func providersProxyList(applicationIsnull: Bool? = nil, authorizationFlowSlugIexact: String? = nil, basicAuthEnabledIexact: Bool? = nil, basicAuthPasswordAttributeIexact: String? = nil, basicAuthUserAttributeIexact: String? = nil, certificateKpUuidIexact: UUID? = nil, certificateNameIexact: String? = nil, cookieDomainIexact: String? = nil, externalHostIexact: String? = nil, internalHostIexact: String? = nil, internalHostSslValidationIexact: Bool? = nil, modeIexact: String? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappingsIexact: [UUID]? = nil, redirectUrisIexact: String? = nil, search: String? = nil, skipPathRegexIexact: String? = nil, completion: @escaping (_ data: PaginatedProxyProviderList?, _ error: Error?) -> Void)
+    open class func providersProxyList(applicationIsnull: Bool? = nil, authorizationFlowSlugIexact: String? = nil, basicAuthEnabledIexact: Bool? = nil, basicAuthPasswordAttributeIexact: String? = nil, basicAuthUserAttributeIexact: String? = nil, certificateKpUuidIexact: UUID? = nil, certificateNameIexact: String? = nil, cookieDomainIexact: String? = nil, externalHostIexact: String? = nil, internalHostIexact: String? = nil, internalHostSslValidationIexact: Bool? = nil, modeIexact: String? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappingsIexact: [UUID]? = nil, search: String? = nil, skipPathRegexIexact: String? = nil, completion: @escaping (_ data: PaginatedProxyProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1302,11 +3300,10 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let propertyMappingsIexact = [123] // [UUID] |  (optional)
-let redirectUrisIexact = "redirectUrisIexact_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let skipPathRegexIexact = "skipPathRegexIexact_example" // String |  (optional)
 
-ProvidersAPI.providersProxyList(applicationIsnull: applicationIsnull, authorizationFlowSlugIexact: authorizationFlowSlugIexact, basicAuthEnabledIexact: basicAuthEnabledIexact, basicAuthPasswordAttributeIexact: basicAuthPasswordAttributeIexact, basicAuthUserAttributeIexact: basicAuthUserAttributeIexact, certificateKpUuidIexact: certificateKpUuidIexact, certificateNameIexact: certificateNameIexact, cookieDomainIexact: cookieDomainIexact, externalHostIexact: externalHostIexact, internalHostIexact: internalHostIexact, internalHostSslValidationIexact: internalHostSslValidationIexact, modeIexact: modeIexact, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, propertyMappingsIexact: propertyMappingsIexact, redirectUrisIexact: redirectUrisIexact, search: search, skipPathRegexIexact: skipPathRegexIexact) { (response, error) in
+ProvidersAPI.providersProxyList(applicationIsnull: applicationIsnull, authorizationFlowSlugIexact: authorizationFlowSlugIexact, basicAuthEnabledIexact: basicAuthEnabledIexact, basicAuthPasswordAttributeIexact: basicAuthPasswordAttributeIexact, basicAuthUserAttributeIexact: basicAuthUserAttributeIexact, certificateKpUuidIexact: certificateKpUuidIexact, certificateNameIexact: certificateNameIexact, cookieDomainIexact: cookieDomainIexact, externalHostIexact: externalHostIexact, internalHostIexact: internalHostIexact, internalHostSslValidationIexact: internalHostSslValidationIexact, modeIexact: modeIexact, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, propertyMappingsIexact: propertyMappingsIexact, search: search, skipPathRegexIexact: skipPathRegexIexact) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1339,7 +3336,6 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **propertyMappingsIexact** | [**[UUID]**](UUID.md) |  | [optional] 
- **redirectUrisIexact** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **skipPathRegexIexact** | **String** |  | [optional] 
 
@@ -1373,7 +3369,7 @@ ProxyProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
-let patchedProxyProviderRequest = PatchedProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // PatchedProxyProviderRequest |  (optional)
+let patchedProxyProviderRequest = PatchedProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwtFederationSources: [123], jwtFederationProviders: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // PatchedProxyProviderRequest |  (optional)
 
 ProvidersAPI.providersProxyPartialUpdate(id: id, patchedProxyProviderRequest: patchedProxyProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1473,7 +3469,7 @@ ProxyProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Proxy Provider.
-let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwksSources: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
+let proxyProviderRequest = ProxyProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, certificate: 123, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", jwtFederationSources: [123], jwtFederationProviders: [123], accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example") // ProxyProviderRequest | 
 
 ProvidersAPI.providersProxyUpdate(id: id, proxyProviderRequest: proxyProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1572,7 +3568,7 @@ RACProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // RACProviderRequest | 
+let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false) // RACProviderRequest | 
 
 ProvidersAPI.providersRacCreate(rACProviderRequest: rACProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1730,7 +3726,7 @@ RACProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this RAC Provider.
-let patchedRACProviderRequest = PatchedRACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // PatchedRACProviderRequest |  (optional)
+let patchedRACProviderRequest = PatchedRACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false) // PatchedRACProviderRequest |  (optional)
 
 ProvidersAPI.providersRacPartialUpdate(id: id, patchedRACProviderRequest: patchedRACProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1830,7 +3826,7 @@ RACProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this RAC Provider.
-let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example") // RACProviderRequest | 
+let rACProviderRequest = RACProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false) // RACProviderRequest | 
 
 ProvidersAPI.providersRacUpdate(id: id, rACProviderRequest: rACProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1929,7 +3925,7 @@ RadiusProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
+let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
 
 ProvidersAPI.providersRadiusCreate(radiusProviderRequest: radiusProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2091,7 +4087,7 @@ RadiusProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
-let patchedRadiusProviderRequest = PatchedRadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // PatchedRadiusProviderRequest |  (optional)
+let patchedRadiusProviderRequest = PatchedRadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // PatchedRadiusProviderRequest |  (optional)
 
 ProvidersAPI.providersRadiusPartialUpdate(id: id, patchedRadiusProviderRequest: patchedRadiusProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2191,7 +4187,7 @@ RadiusProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
-let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
+let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
 
 ProvidersAPI.providersRadiusUpdate(id: id, radiusProviderRequest: radiusProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2290,7 +4286,7 @@ SAMLProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlCreate(sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2376,7 +4372,7 @@ Void (empty response body)
 
 # **providersSamlImportMetadataCreate**
 ```swift
-    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, file: URL, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -2390,9 +4386,10 @@ import authentikClient
 
 let name = "name_example" // String | 
 let authorizationFlow = 987 // UUID | 
+let invalidationFlow = 987 // UUID | 
 let file = URL(string: "https://example.com")! // URL | 
 
-ProvidersAPI.providersSamlImportMetadataCreate(name: name, authorizationFlow: authorizationFlow, file: file) { (response, error) in
+ProvidersAPI.providersSamlImportMetadataCreate(name: name, authorizationFlow: authorizationFlow, invalidationFlow: invalidationFlow, file: file) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2410,6 +4407,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String** |  | 
  **authorizationFlow** | **UUID** |  | 
+ **invalidationFlow** | **UUID** |  | 
  **file** | **URL** |  | 
 
 ### Return type
@@ -2429,7 +4427,7 @@ Void (empty response body)
 
 # **providersSamlList**
 ```swift
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2446,10 +4444,13 @@ let assertionValidNotBefore = "assertionValidNotBefore_example" // String |  (op
 let assertionValidNotOnOrAfter = "assertionValidNotOnOrAfter_example" // String |  (optional)
 let audience = "audience_example" // String |  (optional)
 let authenticationFlow = 987 // UUID |  (optional)
+let authnContextClassRefMapping = 987 // UUID |  (optional)
 let authorizationFlow = 987 // UUID |  (optional)
 let backchannelApplication = 987 // UUID |  (optional)
 let defaultRelayState = "defaultRelayState_example" // String |  (optional)
-let digestAlgorithm = "digestAlgorithm_example" // String | * `http://www.w3.org/2000/09/xmldsig#sha1` - SHA1 * `http://www.w3.org/2001/04/xmlenc#sha256` - SHA256 * `http://www.w3.org/2001/04/xmldsig-more#sha384` - SHA384 * `http://www.w3.org/2001/04/xmlenc#sha512` - SHA512 (optional)
+let digestAlgorithm = "digestAlgorithm_example" // String |  (optional)
+let encryptionKp = 987 // UUID |  (optional)
+let invalidationFlow = 987 // UUID |  (optional)
 let isBackchannel = true // Bool |  (optional)
 let issuer = "issuer_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
@@ -2460,12 +4461,14 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let propertyMappings = [123] // [UUID] |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let sessionValidNotOnOrAfter = "sessionValidNotOnOrAfter_example" // String |  (optional)
-let signatureAlgorithm = "signatureAlgorithm_example" // String | * `http://www.w3.org/2000/09/xmldsig#rsa-sha1` - RSA-SHA1 * `http://www.w3.org/2001/04/xmldsig-more#rsa-sha256` - RSA-SHA256 * `http://www.w3.org/2001/04/xmldsig-more#rsa-sha384` - RSA-SHA384 * `http://www.w3.org/2001/04/xmldsig-more#rsa-sha512` - RSA-SHA512 * `http://www.w3.org/2000/09/xmldsig#dsa-sha1` - DSA-SHA1 (optional)
+let signAssertion = true // Bool |  (optional)
+let signResponse = true // Bool |  (optional)
+let signatureAlgorithm = "signatureAlgorithm_example" // String |  (optional)
 let signingKp = 987 // UUID |  (optional)
-let spBinding = "spBinding_example" // String | This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post (optional)
+let spBinding = "spBinding_example" // String | This determines how authentik sends the response back to the Service Provider.   (optional)
 let verificationKp = 987 // UUID |  (optional)
 
-ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
+ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2486,10 +4489,13 @@ Name | Type | Description  | Notes
  **assertionValidNotOnOrAfter** | **String** |  | [optional] 
  **audience** | **String** |  | [optional] 
  **authenticationFlow** | **UUID** |  | [optional] 
+ **authnContextClassRefMapping** | **UUID** |  | [optional] 
  **authorizationFlow** | **UUID** |  | [optional] 
  **backchannelApplication** | **UUID** |  | [optional] 
  **defaultRelayState** | **String** |  | [optional] 
- **digestAlgorithm** | **String** | * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 | [optional] 
+ **digestAlgorithm** | **String** |  | [optional] 
+ **encryptionKp** | **UUID** |  | [optional] 
+ **invalidationFlow** | **UUID** |  | [optional] 
  **isBackchannel** | **Bool** |  | [optional] 
  **issuer** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
@@ -2500,9 +4506,11 @@ Name | Type | Description  | Notes
  **propertyMappings** | [**[UUID]**](UUID.md) |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **sessionValidNotOnOrAfter** | **String** |  | [optional] 
- **signatureAlgorithm** | **String** | * &#x60;http://www.w3.org/2000/09/xmldsig#rsa-sha1&#x60; - RSA-SHA1 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256&#x60; - RSA-SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha384&#x60; - RSA-SHA384 * &#x60;http://www.w3.org/2001/04/xmldsig-more#rsa-sha512&#x60; - RSA-SHA512 * &#x60;http://www.w3.org/2000/09/xmldsig#dsa-sha1&#x60; - DSA-SHA1 | [optional] 
+ **signAssertion** | **Bool** |  | [optional] 
+ **signResponse** | **Bool** |  | [optional] 
+ **signatureAlgorithm** | **String** |  | [optional] 
  **signingKp** | **UUID** |  | [optional] 
- **spBinding** | **String** | This determines how authentik sends the response back to the Service Provider.  * &#x60;redirect&#x60; - Redirect * &#x60;post&#x60; - Post | [optional] 
+ **spBinding** | **String** | This determines how authentik sends the response back to the Service Provider.   | [optional] 
  **verificationKp** | **UUID** |  | [optional] 
 
 ### Return type
@@ -2569,7 +4577,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2588,7 +4596,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // PatchedSAMLProviderRequest |  (optional)
+let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // PatchedSAMLProviderRequest |  (optional)
 
 ProvidersAPI.providersSamlPartialUpdate(id: id, patchedSAMLProviderRequest: patchedSAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2739,7 +4747,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example") // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlUpdate(id: id, sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2838,7 +4846,7 @@ SCIMProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimCreate(sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2910,6 +4918,263 @@ Name | Type | Description  | Notes
 ### Return type
 
 Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimGroupsCreate**
+```swift
+    open class func providersScimGroupsCreate(sCIMProviderGroupRequest: SCIMProviderGroupRequest, completion: @escaping (_ data: SCIMProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let sCIMProviderGroupRequest = SCIMProviderGroupRequest(scimId: "scimId_example", group: 123, provider: 123) // SCIMProviderGroupRequest | 
+
+ProvidersAPI.providersScimGroupsCreate(sCIMProviderGroupRequest: sCIMProviderGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sCIMProviderGroupRequest** | [**SCIMProviderGroupRequest**](SCIMProviderGroupRequest.md) |  | 
+
+### Return type
+
+[**SCIMProviderGroup**](SCIMProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimGroupsDestroy**
+```swift
+    open class func providersScimGroupsDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider group.
+
+ProvidersAPI.providersScimGroupsDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider group. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimGroupsList**
+```swift
+    open class func providersScimGroupsList(groupGroupUuid: UUID? = nil, groupName: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedSCIMProviderGroupList?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let groupGroupUuid = 987 // UUID |  (optional)
+let groupName = "groupName_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersScimGroupsList(groupGroupUuid: groupGroupUuid, groupName: groupName, ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupGroupUuid** | **UUID** |  | [optional] 
+ **groupName** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedSCIMProviderGroupList**](PaginatedSCIMProviderGroupList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimGroupsRetrieve**
+```swift
+    open class func providersScimGroupsRetrieve(id: UUID, completion: @escaping (_ data: SCIMProviderGroup?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider group.
+
+ProvidersAPI.providersScimGroupsRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider group. | 
+
+### Return type
+
+[**SCIMProviderGroup**](SCIMProviderGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimGroupsUsedByList**
+```swift
+    open class func providersScimGroupsUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider group.
+
+ProvidersAPI.providersScimGroupsUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider group. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
 
 ### Authorization
 
@@ -3000,7 +5265,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // PatchedSCIMProviderRequest |  (optional)
+let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // PatchedSCIMProviderRequest |  (optional)
 
 ProvidersAPI.providersScimPartialUpdate(id: id, patchedSCIMProviderRequest: patchedSCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -3085,9 +5350,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **providersScimSyncObjectCreate**
+```swift
+    open class func providersScimSyncObjectCreate(id: Int, syncObjectRequest: SyncObjectRequest, completion: @escaping (_ data: SyncObjectResult?, _ error: Error?) -> Void)
+```
+
+
+
+Sync/Re-sync a single user/group object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this SCIM Provider.
+let syncObjectRequest = SyncObjectRequest(syncObjectModel: SyncObjectModelEnum(), syncObjectId: "syncObjectId_example", overrideDryRun: false) // SyncObjectRequest | 
+
+ProvidersAPI.providersScimSyncObjectCreate(id: id, syncObjectRequest: syncObjectRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this SCIM Provider. | 
+ **syncObjectRequest** | [**SyncObjectRequest**](SyncObjectRequest.md) |  | 
+
+### Return type
+
+[**SyncObjectResult**](SyncObjectResult.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **providersScimSyncStatusRetrieve**
 ```swift
-    open class func providersScimSyncStatusRetrieve(id: Int, completion: @escaping (_ data: SCIMSyncStatus?, _ error: Error?) -> Void)
+    open class func providersScimSyncStatusRetrieve(id: Int, completion: @escaping (_ data: SyncStatus?, _ error: Error?) -> Void)
 ```
 
 
@@ -3121,7 +5437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SCIMSyncStatus**](SCIMSyncStatus.md)
+[**SyncStatus**](SyncStatus.md)
 
 ### Authorization
 
@@ -3149,7 +5465,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimUpdate(id: id, sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -3218,6 +5534,620 @@ ProvidersAPI.providersScimUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this SCIM Provider. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimUsersCreate**
+```swift
+    open class func providersScimUsersCreate(sCIMProviderUserRequest: SCIMProviderUserRequest, completion: @escaping (_ data: SCIMProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let sCIMProviderUserRequest = SCIMProviderUserRequest(scimId: "scimId_example", user: 123, provider: 123) // SCIMProviderUserRequest | 
+
+ProvidersAPI.providersScimUsersCreate(sCIMProviderUserRequest: sCIMProviderUserRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sCIMProviderUserRequest** | [**SCIMProviderUserRequest**](SCIMProviderUserRequest.md) |  | 
+
+### Return type
+
+[**SCIMProviderUser**](SCIMProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimUsersDestroy**
+```swift
+    open class func providersScimUsersDestroy(id: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider user.
+
+ProvidersAPI.providersScimUsersDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider user. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimUsersList**
+```swift
+    open class func providersScimUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, providerId: Int? = nil, search: String? = nil, userId: Int? = nil, userUsername: String? = nil, completion: @escaping (_ data: PaginatedSCIMProviderUserList?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let providerId = 987 // Int |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let userId = 987 // Int |  (optional)
+let userUsername = "userUsername_example" // String |  (optional)
+
+ProvidersAPI.providersScimUsersList(ordering: ordering, page: page, pageSize: pageSize, providerId: providerId, search: search, userId: userId, userUsername: userUsername) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **providerId** | **Int** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **userId** | **Int** |  | [optional] 
+ **userUsername** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedSCIMProviderUserList**](PaginatedSCIMProviderUserList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimUsersRetrieve**
+```swift
+    open class func providersScimUsersRetrieve(id: UUID, completion: @escaping (_ data: SCIMProviderUser?, _ error: Error?) -> Void)
+```
+
+
+
+SCIMProviderUser Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider user.
+
+ProvidersAPI.providersScimUsersRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider user. | 
+
+### Return type
+
+[**SCIMProviderUser**](SCIMProviderUser.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersScimUsersUsedByList**
+```swift
+    open class func providersScimUsersUsedByList(id: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // UUID | A UUID string identifying this scim provider user.
+
+ProvidersAPI.providersScimUsersUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **UUID** | A UUID string identifying this scim provider user. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfCreate**
+```swift
+    open class func providersSsfCreate(sSFProviderRequest: SSFProviderRequest, completion: @escaping (_ data: SSFProvider?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let sSFProviderRequest = SSFProviderRequest(name: "name_example", signingKey: 123, oidcAuthProviders: [123], eventRetention: "eventRetention_example") // SSFProviderRequest | 
+
+ProvidersAPI.providersSsfCreate(sSFProviderRequest: sSFProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sSFProviderRequest** | [**SSFProviderRequest**](SSFProviderRequest.md) |  | 
+
+### Return type
+
+[**SSFProvider**](SSFProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfDestroy**
+```swift
+    open class func providersSsfDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Shared Signals Framework Provider.
+
+ProvidersAPI.providersSsfDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfList**
+```swift
+    open class func providersSsfList(applicationIsnull: Bool? = nil, nameIexact: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedSSFProviderList?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let applicationIsnull = true // Bool |  (optional)
+let nameIexact = "nameIexact_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+ProvidersAPI.providersSsfList(applicationIsnull: applicationIsnull, nameIexact: nameIexact, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationIsnull** | **Bool** |  | [optional] 
+ **nameIexact** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedSSFProviderList**](PaginatedSSFProviderList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfPartialUpdate**
+```swift
+    open class func providersSsfPartialUpdate(id: Int, patchedSSFProviderRequest: PatchedSSFProviderRequest? = nil, completion: @escaping (_ data: SSFProvider?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Shared Signals Framework Provider.
+let patchedSSFProviderRequest = PatchedSSFProviderRequest(name: "name_example", signingKey: 123, oidcAuthProviders: [123], eventRetention: "eventRetention_example") // PatchedSSFProviderRequest |  (optional)
+
+ProvidersAPI.providersSsfPartialUpdate(id: id, patchedSSFProviderRequest: patchedSSFProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
+ **patchedSSFProviderRequest** | [**PatchedSSFProviderRequest**](PatchedSSFProviderRequest.md) |  | [optional] 
+
+### Return type
+
+[**SSFProvider**](SSFProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfRetrieve**
+```swift
+    open class func providersSsfRetrieve(id: Int, completion: @escaping (_ data: SSFProvider?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Shared Signals Framework Provider.
+
+ProvidersAPI.providersSsfRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
+
+### Return type
+
+[**SSFProvider**](SSFProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfUpdate**
+```swift
+    open class func providersSsfUpdate(id: Int, sSFProviderRequest: SSFProviderRequest, completion: @escaping (_ data: SSFProvider?, _ error: Error?) -> Void)
+```
+
+
+
+SSFProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Shared Signals Framework Provider.
+let sSFProviderRequest = SSFProviderRequest(name: "name_example", signingKey: 123, oidcAuthProviders: [123], eventRetention: "eventRetention_example") // SSFProviderRequest | 
+
+ProvidersAPI.providersSsfUpdate(id: id, sSFProviderRequest: sSFProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
+ **sSFProviderRequest** | [**SSFProviderRequest**](SSFProviderRequest.md) |  | 
+
+### Return type
+
+[**SSFProvider**](SSFProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersSsfUsedByList**
+```swift
+    open class func providersSsfUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Shared Signals Framework Provider.
+
+ProvidersAPI.providersSsfUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
 
 ### Return type
 

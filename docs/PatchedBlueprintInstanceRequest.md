@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
 **path** | **String** |  | [optional] [default to ""]
-**context** | [**AnyCodable**](.md) |  | [optional] 
+**context** | **[String: JSONValue]** |  | [optional] 
 **enabled** | **Bool** |  | [optional] 
 **content** | **String** |  | [optional] 
 

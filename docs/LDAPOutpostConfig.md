@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **baseDn** | **String** | DN under which objects are accessible. | [optional] 
 **bindFlowSlug** | **String** |  | 
+**unbindFlowSlug** | **String** | Get slug for unbind flow, defaulting to brand&#39;s default flow. | [readonly] 
 **applicationSlug** | **String** | Prioritise backchannel slug over direct application slug | [readonly] 
-**searchGroup** | **UUID** | Users in this group can do search queries. If not set, every user can execute search queries. | [optional] 
 **certificate** | **UUID** |  | [optional] 
 **tlsServerName** | **String** |  | [optional] 
 **uidStartNumber** | **Int** | The start for uidNumbers, this number is added to the user.pk to make sure that the numbers aren&#39;t too low for POSIX users. Default is 2000 to ensure that we don&#39;t collide with local users uidNumber | [optional] 

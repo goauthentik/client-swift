@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **useSsl** | **Bool** |  | [optional] 
 **timeout** | **Int** |  | [optional] 
 **fromAddress** | **String** |  | [optional] 
-**tokenExpiry** | **Int** | Time in minutes the token sent is valid. | [optional] 
+**tokenExpiry** | **String** | Time the token sent is valid (Format: hours&#x3D;3,minutes&#x3D;17,seconds&#x3D;300). | [optional] 
 **subject** | **String** |  | [optional] 
 **template** | **String** |  | [optional] 
 **activateUserOnSuccess** | **Bool** | Activate users upon completion of stage. | [optional] 

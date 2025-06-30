@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **authenticationFlow** | **UUID** | Flow used for authentication when the associated application is accessed by an un-authenticated user. | [optional] 
 **authorizationFlow** | **UUID** | Flow used when authorizing this provider. | 
+**invalidationFlow** | **UUID** | Flow used ending the session from a provider. | 
 **propertyMappings** | **[UUID]** |  | [optional] 
 **component** | **String** | Get object component so that we know how to edit the object | [readonly] 
 **assignedApplicationSlug** | **String** | Internal application name, used in URLs. | [readonly] 
@@ -17,7 +18,6 @@ Name | Type | Description | Notes
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
 **baseDn** | **String** | DN under which objects are accessible. | [optional] 
-**searchGroup** | **UUID** | Users in this group can do search queries. If not set, every user can execute search queries. | [optional] 
 **certificate** | **UUID** |  | [optional] 
 **tlsServerName** | **String** |  | [optional] 
 **uidStartNumber** | **Int** | The start for uidNumbers, this number is added to the user.pk to make sure that the numbers aren&#39;t too low for POSIX users. Default is 2000 to ensure that we don&#39;t collide with local users uidNumber | [optional] 

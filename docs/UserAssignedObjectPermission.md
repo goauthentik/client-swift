@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **isActive** | **Bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **lastLogin** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 
-**attributes** | [String: AnyCodable] |  | [optional] 
+**attributes** | **[String: JSONValue]** |  | [optional] 
 **uid** | **String** |  | [readonly] 
 **permissions** | [UserObjectPermission] |  | 
 **isSuperuser** | **Bool** |  | 

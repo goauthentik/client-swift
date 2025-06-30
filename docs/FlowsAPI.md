@@ -145,14 +145,14 @@ import authentikClient
 
 let evaluateOnPlan = true // Bool |  (optional)
 let fsbUuid = 987 // UUID |  (optional)
-let invalidResponseAction = "invalidResponseAction_example" // String | Configure how the flow executor should handle an invalid response to a challenge. RETRY returns the error message and a similar challenge to the executor. RESTART restarts the flow from the beginning, and RESTART_WITH_CONTEXT restarts the flow while keeping the current context.  * `retry` - Retry * `restart` - Restart * `restart_with_context` - Restart With Context (optional)
+let invalidResponseAction = "invalidResponseAction_example" // String | Configure how the flow executor should handle an invalid response to a challenge. RETRY returns the error message and a similar challenge to the executor. RESTART restarts the flow from the beginning, and RESTART_WITH_CONTEXT restarts the flow while keeping the current context.   (optional)
 let order = 987 // Int |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let pbmUuid = 987 // UUID |  (optional)
 let policies = [123] // [UUID] |  (optional)
-let policyEngineMode = "policyEngineMode_example" // String | * `all` - all, all policies must pass * `any` - any, any policy must pass (optional)
+let policyEngineMode = "policyEngineMode_example" // String |  (optional)
 let reEvaluatePolicies = true // Bool |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let stage = 987 // UUID |  (optional)
@@ -176,14 +176,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **evaluateOnPlan** | **Bool** |  | [optional] 
  **fsbUuid** | **UUID** |  | [optional] 
- **invalidResponseAction** | **String** | Configure how the flow executor should handle an invalid response to a challenge. RETRY returns the error message and a similar challenge to the executor. RESTART restarts the flow from the beginning, and RESTART_WITH_CONTEXT restarts the flow while keeping the current context.  * &#x60;retry&#x60; - Retry * &#x60;restart&#x60; - Restart * &#x60;restart_with_context&#x60; - Restart With Context | [optional] 
+ **invalidResponseAction** | **String** | Configure how the flow executor should handle an invalid response to a challenge. RETRY returns the error message and a similar challenge to the executor. RESTART restarts the flow from the beginning, and RESTART_WITH_CONTEXT restarts the flow while keeping the current context.   | [optional] 
  **order** | **Int** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **pbmUuid** | **UUID** |  | [optional] 
  **policies** | [**[UUID]**](UUID.md) |  | [optional] 
- **policyEngineMode** | **String** | * &#x60;all&#x60; - all, all policies must pass * &#x60;any&#x60; - any, any policy must pass | [optional] 
+ **policyEngineMode** | **String** |  | [optional] 
  **reEvaluatePolicies** | **Bool** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **stage** | **UUID** |  | [optional] 
@@ -471,7 +471,7 @@ import authentikClient
 
 let flowSlug = "flowSlug_example" // String | 
 let query = "query_example" // String | Querystring as received
-let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: 123, phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: "deviceClass_example", deviceUid: "deviceUid_example", challenge: "TODO"), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, mobile: "mobile_example", response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
+let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: "code_example", email: "email_example", phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: "deviceClass_example", deviceUid: "deviceUid_example", challenge: "TODO", lastUsed: Date()), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", captchaToken: "captchaToken_example", to: "to_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
 
 FlowsAPI.flowsExecutorSolve(flowSlug: flowSlug, query: query, flowChallengeResponseRequest: flowChallengeResponseRequest) { (response, error) in
     guard error == nil else {
@@ -957,8 +957,8 @@ Flow Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deniedAction = "deniedAction_example" // String | Configure what should happen when a flow denies access to a user.  * `message_continue` - Message Continue * `message` - Message * `continue` - Continue (optional)
-let designation = "designation_example" // String | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik.  * `authentication` - Authentication * `authorization` - Authorization * `invalidation` - Invalidation * `enrollment` - Enrollment * `unenrollment` - Unrenollment * `recovery` - Recovery * `stage_configuration` - Stage Configuration (optional)
+let deniedAction = "deniedAction_example" // String | Configure what should happen when a flow denies access to a user.   (optional)
+let designation = "designation_example" // String | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik.   (optional)
 let flowUuid = 987 // UUID |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -983,8 +983,8 @@ FlowsAPI.flowsInstancesList(deniedAction: deniedAction, designation: designation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deniedAction** | **String** | Configure what should happen when a flow denies access to a user.  * &#x60;message_continue&#x60; - Message Continue * &#x60;message&#x60; - Message * &#x60;continue&#x60; - Continue | [optional] 
- **designation** | **String** | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik.  * &#x60;authentication&#x60; - Authentication * &#x60;authorization&#x60; - Authorization * &#x60;invalidation&#x60; - Invalidation * &#x60;enrollment&#x60; - Enrollment * &#x60;unenrollment&#x60; - Unrenollment * &#x60;recovery&#x60; - Recovery * &#x60;stage_configuration&#x60; - Stage Configuration | [optional] 
+ **deniedAction** | **String** | Configure what should happen when a flow denies access to a user.   | [optional] 
+ **designation** | **String** | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik.   | [optional] 
  **flowUuid** | **UUID** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **geoIp** | [**AuthenticatedSessionGeoIp**](AuthenticatedSessionGeoIp.md) |  | 
 **asn** | [**AuthenticatedSessionAsn**](AuthenticatedSessionAsn.md) |  | 
 **user** | **Int** |  | 
-**lastIp** | **String** |  | 
-**lastUserAgent** | **String** |  | [optional] 
+**lastIp** | **String** |  | [readonly] 
+**lastUserAgent** | **String** |  | [readonly] 
 **lastUsed** | **Date** |  | [readonly] 
-**expires** | **Date** |  | [optional] 
+**expires** | **Date** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

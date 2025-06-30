@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **codename** | **String** |  | [readonly] 
 **model** | **String** |  | [readonly] 
 **appLabel** | **String** |  | [readonly] 
-**objectPk** | **String** |  | [readonly] 
+**objectPk** | **String** |  | 
 **name** | **String** |  | [readonly] 
 **appLabelVerbose** | **String** | Get app label from permission&#39;s model | [readonly] 
 **modelVerbose** | **String** | Get model label from permission&#39;s model | [readonly] 

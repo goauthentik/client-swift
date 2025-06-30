@@ -4,11 +4,17 @@ All URIs are relative to *http://localhost/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**coreApplicationEntitlementsCreate**](CoreAPI.md#coreapplicationentitlementscreate) | **POST** /core/application_entitlements/ | 
+[**coreApplicationEntitlementsDestroy**](CoreAPI.md#coreapplicationentitlementsdestroy) | **DELETE** /core/application_entitlements/{pbm_uuid}/ | 
+[**coreApplicationEntitlementsList**](CoreAPI.md#coreapplicationentitlementslist) | **GET** /core/application_entitlements/ | 
+[**coreApplicationEntitlementsPartialUpdate**](CoreAPI.md#coreapplicationentitlementspartialupdate) | **PATCH** /core/application_entitlements/{pbm_uuid}/ | 
+[**coreApplicationEntitlementsRetrieve**](CoreAPI.md#coreapplicationentitlementsretrieve) | **GET** /core/application_entitlements/{pbm_uuid}/ | 
+[**coreApplicationEntitlementsUpdate**](CoreAPI.md#coreapplicationentitlementsupdate) | **PUT** /core/application_entitlements/{pbm_uuid}/ | 
+[**coreApplicationEntitlementsUsedByList**](CoreAPI.md#coreapplicationentitlementsusedbylist) | **GET** /core/application_entitlements/{pbm_uuid}/used_by/ | 
 [**coreApplicationsCheckAccessRetrieve**](CoreAPI.md#coreapplicationscheckaccessretrieve) | **GET** /core/applications/{slug}/check_access/ | 
 [**coreApplicationsCreate**](CoreAPI.md#coreapplicationscreate) | **POST** /core/applications/ | 
 [**coreApplicationsDestroy**](CoreAPI.md#coreapplicationsdestroy) | **DELETE** /core/applications/{slug}/ | 
 [**coreApplicationsList**](CoreAPI.md#coreapplicationslist) | **GET** /core/applications/ | 
-[**coreApplicationsMetricsList**](CoreAPI.md#coreapplicationsmetricslist) | **GET** /core/applications/{slug}/metrics/ | 
 [**coreApplicationsPartialUpdate**](CoreAPI.md#coreapplicationspartialupdate) | **PATCH** /core/applications/{slug}/ | 
 [**coreApplicationsRetrieve**](CoreAPI.md#coreapplicationsretrieve) | **GET** /core/applications/{slug}/ | 
 [**coreApplicationsSetIconCreate**](CoreAPI.md#coreapplicationsseticoncreate) | **POST** /core/applications/{slug}/set_icon/ | 
@@ -56,17 +62,375 @@ Method | HTTP request | Description
 [**coreUsersImpersonateEndRetrieve**](CoreAPI.md#coreusersimpersonateendretrieve) | **GET** /core/users/impersonate_end/ | 
 [**coreUsersList**](CoreAPI.md#coreuserslist) | **GET** /core/users/ | 
 [**coreUsersMeRetrieve**](CoreAPI.md#coreusersmeretrieve) | **GET** /core/users/me/ | 
-[**coreUsersMetricsRetrieve**](CoreAPI.md#coreusersmetricsretrieve) | **GET** /core/users/{id}/metrics/ | 
 [**coreUsersPartialUpdate**](CoreAPI.md#coreuserspartialupdate) | **PATCH** /core/users/{id}/ | 
 [**coreUsersPathsRetrieve**](CoreAPI.md#coreuserspathsretrieve) | **GET** /core/users/paths/ | 
-[**coreUsersRecoveryEmailRetrieve**](CoreAPI.md#coreusersrecoveryemailretrieve) | **GET** /core/users/{id}/recovery_email/ | 
-[**coreUsersRecoveryRetrieve**](CoreAPI.md#coreusersrecoveryretrieve) | **GET** /core/users/{id}/recovery/ | 
+[**coreUsersRecoveryCreate**](CoreAPI.md#coreusersrecoverycreate) | **POST** /core/users/{id}/recovery/ | 
+[**coreUsersRecoveryEmailCreate**](CoreAPI.md#coreusersrecoveryemailcreate) | **POST** /core/users/{id}/recovery_email/ | 
 [**coreUsersRetrieve**](CoreAPI.md#coreusersretrieve) | **GET** /core/users/{id}/ | 
 [**coreUsersServiceAccountCreate**](CoreAPI.md#coreusersserviceaccountcreate) | **POST** /core/users/service_account/ | 
 [**coreUsersSetPasswordCreate**](CoreAPI.md#coreuserssetpasswordcreate) | **POST** /core/users/{id}/set_password/ | 
 [**coreUsersUpdate**](CoreAPI.md#coreusersupdate) | **PUT** /core/users/{id}/ | 
 [**coreUsersUsedByList**](CoreAPI.md#coreusersusedbylist) | **GET** /core/users/{id}/used_by/ | 
 
+
+# **coreApplicationEntitlementsCreate**
+```swift
+    open class func coreApplicationEntitlementsCreate(applicationEntitlementRequest: ApplicationEntitlementRequest, completion: @escaping (_ data: ApplicationEntitlement?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let applicationEntitlementRequest = ApplicationEntitlementRequest(name: "name_example", app: 123, attributes: "TODO") // ApplicationEntitlementRequest | 
+
+CoreAPI.coreApplicationEntitlementsCreate(applicationEntitlementRequest: applicationEntitlementRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationEntitlementRequest** | [**ApplicationEntitlementRequest**](ApplicationEntitlementRequest.md) |  | 
+
+### Return type
+
+[**ApplicationEntitlement**](ApplicationEntitlement.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsDestroy**
+```swift
+    open class func coreApplicationEntitlementsDestroy(pbmUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Application Entitlement.
+
+CoreAPI.coreApplicationEntitlementsDestroy(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Application Entitlement. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsList**
+```swift
+    open class func coreApplicationEntitlementsList(app: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedApplicationEntitlementList?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let app = 987 // UUID |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let pbmUuid = 987 // UUID |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+CoreAPI.coreApplicationEntitlementsList(app: app, name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app** | **UUID** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **pbmUuid** | **UUID** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedApplicationEntitlementList**](PaginatedApplicationEntitlementList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsPartialUpdate**
+```swift
+    open class func coreApplicationEntitlementsPartialUpdate(pbmUuid: UUID, patchedApplicationEntitlementRequest: PatchedApplicationEntitlementRequest? = nil, completion: @escaping (_ data: ApplicationEntitlement?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Application Entitlement.
+let patchedApplicationEntitlementRequest = PatchedApplicationEntitlementRequest(name: "name_example", app: 123, attributes: "TODO") // PatchedApplicationEntitlementRequest |  (optional)
+
+CoreAPI.coreApplicationEntitlementsPartialUpdate(pbmUuid: pbmUuid, patchedApplicationEntitlementRequest: patchedApplicationEntitlementRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Application Entitlement. | 
+ **patchedApplicationEntitlementRequest** | [**PatchedApplicationEntitlementRequest**](PatchedApplicationEntitlementRequest.md) |  | [optional] 
+
+### Return type
+
+[**ApplicationEntitlement**](ApplicationEntitlement.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsRetrieve**
+```swift
+    open class func coreApplicationEntitlementsRetrieve(pbmUuid: UUID, completion: @escaping (_ data: ApplicationEntitlement?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Application Entitlement.
+
+CoreAPI.coreApplicationEntitlementsRetrieve(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Application Entitlement. | 
+
+### Return type
+
+[**ApplicationEntitlement**](ApplicationEntitlement.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsUpdate**
+```swift
+    open class func coreApplicationEntitlementsUpdate(pbmUuid: UUID, applicationEntitlementRequest: ApplicationEntitlementRequest, completion: @escaping (_ data: ApplicationEntitlement?, _ error: Error?) -> Void)
+```
+
+
+
+ApplicationEntitlement Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Application Entitlement.
+let applicationEntitlementRequest = ApplicationEntitlementRequest(name: "name_example", app: 123, attributes: "TODO") // ApplicationEntitlementRequest | 
+
+CoreAPI.coreApplicationEntitlementsUpdate(pbmUuid: pbmUuid, applicationEntitlementRequest: applicationEntitlementRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Application Entitlement. | 
+ **applicationEntitlementRequest** | [**ApplicationEntitlementRequest**](ApplicationEntitlementRequest.md) |  | 
+
+### Return type
+
+[**ApplicationEntitlement**](ApplicationEntitlement.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreApplicationEntitlementsUsedByList**
+```swift
+    open class func coreApplicationEntitlementsUsedByList(pbmUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Application Entitlement.
+
+CoreAPI.coreApplicationEntitlementsUsedByList(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Application Entitlement. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coreApplicationsCheckAccessRetrieve**
 ```swift
@@ -219,7 +583,7 @@ Void (empty response body)
 
 # **coreApplicationsList**
 ```swift
-    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
+    open class func coreApplicationsList(forUser: Int? = nil, group: String? = nil, metaDescription: String? = nil, metaLaunchUrl: String? = nil, metaPublisher: String? = nil, name: String? = nil, onlyWithLaunchUrl: Bool? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, slug: String? = nil, superuserFullList: Bool? = nil, completion: @escaping (_ data: PaginatedApplicationList?, _ error: Error?) -> Void)
 ```
 
 
@@ -237,6 +601,7 @@ let metaDescription = "metaDescription_example" // String |  (optional)
 let metaLaunchUrl = "metaLaunchUrl_example" // String |  (optional)
 let metaPublisher = "metaPublisher_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
+let onlyWithLaunchUrl = true // Bool |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
@@ -244,7 +609,7 @@ let search = "search_example" // String | A search term. (optional)
 let slug = "slug_example" // String |  (optional)
 let superuserFullList = true // Bool |  (optional)
 
-CoreAPI.coreApplicationsList(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
+CoreAPI.coreApplicationsList(forUser: forUser, group: group, metaDescription: metaDescription, metaLaunchUrl: metaLaunchUrl, metaPublisher: metaPublisher, name: name, onlyWithLaunchUrl: onlyWithLaunchUrl, ordering: ordering, page: page, pageSize: pageSize, search: search, slug: slug, superuserFullList: superuserFullList) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -266,6 +631,7 @@ Name | Type | Description  | Notes
  **metaLaunchUrl** | **String** |  | [optional] 
  **metaPublisher** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
+ **onlyWithLaunchUrl** | **Bool** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
@@ -276,55 +642,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedApplicationList**](PaginatedApplicationList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreApplicationsMetricsList**
-```swift
-    open class func coreApplicationsMetricsList(slug: String, completion: @escaping (_ data: [Coordinate]?, _ error: Error?) -> Void)
-```
-
-
-
-Metrics for application logins
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-
-CoreAPI.coreApplicationsMetricsList(slug: slug) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
-
-### Return type
-
-[**[Coordinate]**](Coordinate.md)
 
 ### Authorization
 
@@ -655,7 +972,7 @@ AuthenticatedSession Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
+let uuid = 987 // UUID | 
 
 CoreAPI.coreAuthenticatedSessionsDestroy(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -673,7 +990,7 @@ CoreAPI.coreAuthenticatedSessionsDestroy(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this Authenticated Session. | 
+ **uuid** | **UUID** |  | 
 
 ### Return type
 
@@ -692,7 +1009,7 @@ Void (empty response body)
 
 # **coreAuthenticatedSessionsList**
 ```swift
-    open class func coreAuthenticatedSessionsList(lastIp: String? = nil, lastUserAgent: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userUsername: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatedSessionList?, _ error: Error?) -> Void)
+    open class func coreAuthenticatedSessionsList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sessionLastIp: String? = nil, sessionLastUserAgent: String? = nil, userUsername: String? = nil, completion: @escaping (_ data: PaginatedAuthenticatedSessionList?, _ error: Error?) -> Void)
 ```
 
 
@@ -704,15 +1021,15 @@ AuthenticatedSession Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let lastIp = "lastIp_example" // String |  (optional)
-let lastUserAgent = "lastUserAgent_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
+let sessionLastIp = "sessionLastIp_example" // String |  (optional)
+let sessionLastUserAgent = "sessionLastUserAgent_example" // String |  (optional)
 let userUsername = "userUsername_example" // String |  (optional)
 
-CoreAPI.coreAuthenticatedSessionsList(lastIp: lastIp, lastUserAgent: lastUserAgent, ordering: ordering, page: page, pageSize: pageSize, search: search, userUsername: userUsername) { (response, error) in
+CoreAPI.coreAuthenticatedSessionsList(ordering: ordering, page: page, pageSize: pageSize, search: search, sessionLastIp: sessionLastIp, sessionLastUserAgent: sessionLastUserAgent, userUsername: userUsername) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -728,12 +1045,12 @@ CoreAPI.coreAuthenticatedSessionsList(lastIp: lastIp, lastUserAgent: lastUserAge
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lastIp** | **String** |  | [optional] 
- **lastUserAgent** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
+ **sessionLastIp** | **String** |  | [optional] 
+ **sessionLastUserAgent** | **String** |  | [optional] 
  **userUsername** | **String** |  | [optional] 
 
 ### Return type
@@ -765,7 +1082,7 @@ AuthenticatedSession Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
+let uuid = 987 // UUID | 
 
 CoreAPI.coreAuthenticatedSessionsRetrieve(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -783,7 +1100,7 @@ CoreAPI.coreAuthenticatedSessionsRetrieve(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this Authenticated Session. | 
+ **uuid** | **UUID** |  | 
 
 ### Return type
 
@@ -814,7 +1131,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let uuid = 987 // UUID | A UUID string identifying this Authenticated Session.
+let uuid = 987 // UUID | 
 
 CoreAPI.coreAuthenticatedSessionsUsedByList(uuid: uuid) { (response, error) in
     guard error == nil else {
@@ -832,7 +1149,7 @@ CoreAPI.coreAuthenticatedSessionsUsedByList(uuid: uuid) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **UUID** | A UUID string identifying this Authenticated Session. | 
+ **uuid** | **UUID** |  | 
 
 ### Return type
 
@@ -863,7 +1180,7 @@ Brand Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // BrandRequest | 
+let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", brandingCustomCss: "brandingCustomCss_example", brandingDefaultFlowBackground: "brandingDefaultFlowBackground_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, defaultApplication: 123, webCertificate: 123, clientCertificates: [123], attributes: "TODO") // BrandRequest | 
 
 CoreAPI.coreBrandsCreate(brandRequest: brandRequest) { (response, error) in
     guard error == nil else {
@@ -934,7 +1251,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[authentik](../README.md#authentik), [mobile_device_token](../README.md#mobile_device_token)
+[authentik](../README.md#authentik)
 
 ### HTTP request headers
 
@@ -994,7 +1311,7 @@ Void (empty response body)
 
 # **coreBrandsList**
 ```swift
-    open class func coreBrandsList(brandUuid: UUID? = nil, brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, _default: Bool? = nil, domain: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, webCertificate: UUID? = nil, completion: @escaping (_ data: PaginatedBrandList?, _ error: Error?) -> Void)
+    open class func coreBrandsList(brandUuid: UUID? = nil, brandingDefaultFlowBackground: String? = nil, brandingFavicon: String? = nil, brandingLogo: String? = nil, brandingTitle: String? = nil, clientCertificates: [UUID]? = nil, _default: Bool? = nil, domain: String? = nil, flowAuthentication: UUID? = nil, flowDeviceCode: UUID? = nil, flowInvalidation: UUID? = nil, flowRecovery: UUID? = nil, flowUnenrollment: UUID? = nil, flowUserSettings: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, webCertificate: UUID? = nil, completion: @escaping (_ data: PaginatedBrandList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1007,9 +1324,11 @@ Brand Viewset
 import authentikClient
 
 let brandUuid = 987 // UUID |  (optional)
+let brandingDefaultFlowBackground = "brandingDefaultFlowBackground_example" // String |  (optional)
 let brandingFavicon = "brandingFavicon_example" // String |  (optional)
 let brandingLogo = "brandingLogo_example" // String |  (optional)
 let brandingTitle = "brandingTitle_example" // String |  (optional)
+let clientCertificates = [123] // [UUID] |  (optional)
 let _default = true // Bool |  (optional)
 let domain = "domain_example" // String |  (optional)
 let flowAuthentication = 987 // UUID |  (optional)
@@ -1024,7 +1343,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let webCertificate = 987 // UUID |  (optional)
 
-CoreAPI.coreBrandsList(brandUuid: brandUuid, brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, _default: _default, domain: domain, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, webCertificate: webCertificate) { (response, error) in
+CoreAPI.coreBrandsList(brandUuid: brandUuid, brandingDefaultFlowBackground: brandingDefaultFlowBackground, brandingFavicon: brandingFavicon, brandingLogo: brandingLogo, brandingTitle: brandingTitle, clientCertificates: clientCertificates, _default: _default, domain: domain, flowAuthentication: flowAuthentication, flowDeviceCode: flowDeviceCode, flowInvalidation: flowInvalidation, flowRecovery: flowRecovery, flowUnenrollment: flowUnenrollment, flowUserSettings: flowUserSettings, ordering: ordering, page: page, pageSize: pageSize, search: search, webCertificate: webCertificate) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1041,9 +1360,11 @@ CoreAPI.coreBrandsList(brandUuid: brandUuid, brandingFavicon: brandingFavicon, b
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandUuid** | **UUID** |  | [optional] 
+ **brandingDefaultFlowBackground** | **String** |  | [optional] 
  **brandingFavicon** | **String** |  | [optional] 
  **brandingLogo** | **String** |  | [optional] 
  **brandingTitle** | **String** |  | [optional] 
+ **clientCertificates** | [**[UUID]**](UUID.md) |  | [optional] 
  **_default** | **Bool** |  | [optional] 
  **domain** | **String** |  | [optional] 
  **flowAuthentication** | **UUID** |  | [optional] 
@@ -1088,7 +1409,7 @@ Brand Viewset
 import authentikClient
 
 let brandUuid = 987 // UUID | A UUID string identifying this Brand.
-let patchedBrandRequest = PatchedBrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // PatchedBrandRequest |  (optional)
+let patchedBrandRequest = PatchedBrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", brandingCustomCss: "brandingCustomCss_example", brandingDefaultFlowBackground: "brandingDefaultFlowBackground_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, defaultApplication: 123, webCertificate: 123, clientCertificates: [123], attributes: "TODO") // PatchedBrandRequest |  (optional)
 
 CoreAPI.coreBrandsPartialUpdate(brandUuid: brandUuid, patchedBrandRequest: patchedBrandRequest) { (response, error) in
     guard error == nil else {
@@ -1188,7 +1509,7 @@ Brand Viewset
 import authentikClient
 
 let brandUuid = 987 // UUID | A UUID string identifying this Brand.
-let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, webCertificate: 123, attributes: "TODO") // BrandRequest | 
+let brandRequest = BrandRequest(domain: "domain_example", _default: false, brandingTitle: "brandingTitle_example", brandingLogo: "brandingLogo_example", brandingFavicon: "brandingFavicon_example", brandingCustomCss: "brandingCustomCss_example", brandingDefaultFlowBackground: "brandingDefaultFlowBackground_example", flowAuthentication: 123, flowInvalidation: 123, flowRecovery: 123, flowUnenrollment: 123, flowUserSettings: 123, flowDeviceCode: 123, defaultApplication: 123, webCertificate: 123, clientCertificates: [123], attributes: "TODO") // BrandRequest | 
 
 CoreAPI.coreBrandsUpdate(brandUuid: brandUuid, brandRequest: brandRequest) { (response, error) in
     guard error == nil else {
@@ -1424,7 +1745,7 @@ Void (empty response body)
 
 # **coreGroupsList**
 ```swift
-    open class func coreGroupsList(attributes: String? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
+    open class func coreGroupsList(attributes: String? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1437,6 +1758,7 @@ Group Viewset
 import authentikClient
 
 let attributes = "attributes_example" // String | Attributes (optional)
+let includeUsers = true // Bool |  (optional) (default to true)
 let isSuperuser = true // Bool |  (optional)
 let membersByPk = [123] // [Int] |  (optional)
 let membersByUsername = ["inner_example"] // [String] | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. (optional)
@@ -1446,7 +1768,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-CoreAPI.coreGroupsList(attributes: attributes, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+CoreAPI.coreGroupsList(attributes: attributes, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1463,6 +1785,7 @@ CoreAPI.coreGroupsList(attributes: attributes, isSuperuser: isSuperuser, members
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **String** | Attributes | [optional] 
+ **includeUsers** | **Bool** |  | [optional] [default to true]
  **isSuperuser** | **Bool** |  | [optional] 
  **membersByPk** | [**[Int]**](Int.md) |  | [optional] 
  **membersByUsername** | [**[String]**](String.md) | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | [optional] 
@@ -1591,7 +1914,7 @@ Void (empty response body)
 
 # **coreGroupsRetrieve**
 ```swift
-    open class func coreGroupsRetrieve(groupUuid: UUID, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
+    open class func coreGroupsRetrieve(groupUuid: UUID, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
 ```
 
 
@@ -1604,8 +1927,9 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
+let includeUsers = true // Bool |  (optional) (default to true)
 
-CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid) { (response, error) in
+CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeUsers: includeUsers) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1622,6 +1946,7 @@ CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **UUID** | A UUID string identifying this Group. | 
+ **includeUsers** | **Bool** |  | [optional] [default to true]
 
 ### Return type
 
@@ -1854,7 +2179,7 @@ let description = "description_example" // String |  (optional)
 let expires = Date() // Date |  (optional)
 let expiring = true // Bool |  (optional)
 let identifier = "identifier_example" // String |  (optional)
-let intent = "intent_example" // String | * `verification` - Intent Verification * `api` - Intent Api * `recovery` - Intent Recovery * `app_password` - Intent App Password (optional)
+let intent = "intent_example" // String |  (optional)
 let managed = "managed_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -1882,7 +2207,7 @@ Name | Type | Description  | Notes
  **expires** | **Date** |  | [optional] 
  **expiring** | **Bool** |  | [optional] 
  **identifier** | **String** |  | [optional] 
- **intent** | **String** | * &#x60;verification&#x60; - Intent Verification * &#x60;api&#x60; - Intent Api * &#x60;recovery&#x60; - Intent Recovery * &#x60;app_password&#x60; - Intent App Password | [optional] 
+ **intent** | **String** |  | [optional] 
  **managed** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -2219,7 +2544,7 @@ Convert data into a blueprint, validate it and apply it
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let transactionApplicationRequest = TransactionApplicationRequest(app: ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example"), providerModel: ProviderModelEnum(), provider: modelRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, propertyMappings: [123], baseDn: "baseDn_example", searchGroup: 123, certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false, clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, redirectUris: "redirectUris_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwksSources: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", settings: "TODO", connectionExpiry: "connectionExpiry_example", clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example", propertyMappingsGroup: [123], url: "url_example", token: "token_example", excludeUsersServiceAccount: false, filterGroup: 123)) // TransactionApplicationRequest | 
+let transactionApplicationRequest = TransactionApplicationRequest(app: ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example"), providerModel: ProviderModelEnum(), provider: modelRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false, authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false, clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", clientType: ClientTypeEnum(), accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false, clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example", url: "url_example", verifyCertificates: false, token: "token_example", compatibilityMode: CompatibilityModeEnum(), oidcAuthProviders: [123], eventRetention: "eventRetention_example"), policyBindings: [TransactionPolicyBindingRequest(policy: 123, group: 123, user: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false)]) // TransactionApplicationRequest | 
 
 CoreAPI.coreTransactionalApplicationsUpdate(transactionApplicationRequest: transactionApplicationRequest) { (response, error) in
     guard error == nil else {
@@ -2560,7 +2885,7 @@ Void (empty response body)
 
 # **coreUsersImpersonateCreate**
 ```swift
-    open class func coreUsersImpersonateCreate(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func coreUsersImpersonateCreate(id: Int, impersonationRequest: ImpersonationRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -2573,8 +2898,9 @@ Impersonate a user
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User.
+let impersonationRequest = ImpersonationRequest(reason: "reason_example") // ImpersonationRequest | 
 
-CoreAPI.coreUsersImpersonateCreate(id: id) { (response, error) in
+CoreAPI.coreUsersImpersonateCreate(id: id, impersonationRequest: impersonationRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2591,6 +2917,7 @@ CoreAPI.coreUsersImpersonateCreate(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this User. | 
+ **impersonationRequest** | [**ImpersonationRequest**](ImpersonationRequest.md) |  | 
 
 ### Return type
 
@@ -2602,7 +2929,7 @@ Void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2654,7 +2981,7 @@ Void (empty response body)
 
 # **coreUsersList**
 ```swift
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
+    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2670,6 +2997,7 @@ let attributes = "attributes_example" // String | Attributes (optional)
 let email = "email_example" // String |  (optional)
 let groupsByName = ["inner_example"] // [String] |  (optional)
 let groupsByPk = [123] // [UUID] |  (optional)
+let includeGroups = true // Bool |  (optional) (default to true)
 let isActive = true // Bool |  (optional)
 let isSuperuser = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
@@ -2679,11 +3007,11 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let path = "path_example" // String |  (optional)
 let pathStartswith = "pathStartswith_example" // String |  (optional)
 let search = "search_example" // String | A search term. (optional)
-let type = ["type_example"] // [String] | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account (optional)
+let type = ["type_example"] // [String] |  (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
-CoreAPI.coreUsersList(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+CoreAPI.coreUsersList(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2703,6 +3031,7 @@ Name | Type | Description  | Notes
  **email** | **String** |  | [optional] 
  **groupsByName** | [**[String]**](String.md) |  | [optional] 
  **groupsByPk** | [**[UUID]**](UUID.md) |  | [optional] 
+ **includeGroups** | **Bool** |  | [optional] [default to true]
  **isActive** | **Bool** |  | [optional] 
  **isSuperuser** | **Bool** |  | [optional] 
  **name** | **String** |  | [optional] 
@@ -2712,7 +3041,7 @@ Name | Type | Description  | Notes
  **path** | **String** |  | [optional] 
  **pathStartswith** | **String** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
- **type** | [**[String]**](String.md) | * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] 
+ **type** | [**[String]**](String.md) |  | [optional] 
  **username** | **String** |  | [optional] 
  **uuid** | **UUID** |  | [optional] 
 
@@ -2764,55 +3093,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**SessionUser**](SessionUser.md)
-
-### Authorization
-
-[authentik](../README.md#authentik), [mobile_device_token](../README.md#mobile_device_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreUsersMetricsRetrieve**
-```swift
-    open class func coreUsersMetricsRetrieve(id: Int, completion: @escaping (_ data: UserMetrics?, _ error: Error?) -> Void)
-```
-
-
-
-User metrics per 1h
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this User.
-
-CoreAPI.coreUsersMetricsRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this User. | 
-
-### Return type
-
-[**UserMetrics**](UserMetrics.md)
 
 ### Authorization
 
@@ -2925,9 +3205,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **coreUsersRecoveryEmailRetrieve**
+# **coreUsersRecoveryCreate**
 ```swift
-    open class func coreUsersRecoveryEmailRetrieve(emailStage: String, id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func coreUsersRecoveryCreate(id: Int, completion: @escaping (_ data: Link?, _ error: Error?) -> Void)
+```
+
+
+
+Create a temporary link that a user can use to recover their accounts
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User.
+
+CoreAPI.coreUsersRecoveryCreate(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User. | 
+
+### Return type
+
+[**Link**](Link.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreUsersRecoveryEmailCreate**
+```swift
+    open class func coreUsersRecoveryEmailCreate(emailStage: String, id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
@@ -2942,7 +3271,7 @@ import authentikClient
 let emailStage = "emailStage_example" // String | 
 let id = 987 // Int | A unique integer value identifying this User.
 
-CoreAPI.coreUsersRecoveryEmailRetrieve(emailStage: emailStage, id: id) { (response, error) in
+CoreAPI.coreUsersRecoveryEmailCreate(emailStage: emailStage, id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2964,55 +3293,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreUsersRecoveryRetrieve**
-```swift
-    open class func coreUsersRecoveryRetrieve(id: Int, completion: @escaping (_ data: Link?, _ error: Error?) -> Void)
-```
-
-
-
-Create a temporary link that a user can use to recover their accounts
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this User.
-
-CoreAPI.coreUsersRecoveryRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this User. | 
-
-### Return type
-
-[**Link**](Link.md)
 
 ### Authorization
 

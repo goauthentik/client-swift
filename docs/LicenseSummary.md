@@ -5,12 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **internalUsers** | **Int** |  | 
 **externalUsers** | **Int** |  | 
-**valid** | **Bool** |  | 
-**showAdminWarning** | **Bool** |  | 
-**showUserWarning** | **Bool** |  | 
-**readOnly** | **Bool** |  | 
+**status** | [**LicenseSummaryStatusEnum**](LicenseSummaryStatusEnum.md) |  | 
 **latestValid** | **Date** |  | 
-**hasLicense** | **Bool** |  | 
+**licenseFlags** | [LicenseFlagsEnum] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

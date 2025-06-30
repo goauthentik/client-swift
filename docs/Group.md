@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **parentName** | **String** |  | [readonly] 
 **users** | **[Int]** |  | [optional] 
 **usersObj** | [GroupMember] |  | [readonly] 
-**attributes** | [String: AnyCodable] |  | [optional] 
+**attributes** | **[String: JSONValue]** |  | [optional] 
 **roles** | **[UUID]** |  | [optional] 
 **rolesObj** | [Role] |  | [readonly] 
 

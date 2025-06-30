@@ -5,15 +5,16 @@ All URIs are relative to *http://localhost/api/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adminAppsList**](AdminAPI.md#adminappslist) | **GET** /admin/apps/ | 
-[**adminMetricsRetrieve**](AdminAPI.md#adminmetricsretrieve) | **GET** /admin/metrics/ | 
 [**adminModelsList**](AdminAPI.md#adminmodelslist) | **GET** /admin/models/ | 
 [**adminSettingsPartialUpdate**](AdminAPI.md#adminsettingspartialupdate) | **PATCH** /admin/settings/ | 
 [**adminSettingsRetrieve**](AdminAPI.md#adminsettingsretrieve) | **GET** /admin/settings/ | 
 [**adminSettingsUpdate**](AdminAPI.md#adminsettingsupdate) | **PUT** /admin/settings/ | 
 [**adminSystemCreate**](AdminAPI.md#adminsystemcreate) | **POST** /admin/system/ | 
 [**adminSystemRetrieve**](AdminAPI.md#adminsystemretrieve) | **GET** /admin/system/ | 
+[**adminVersionHistoryList**](AdminAPI.md#adminversionhistorylist) | **GET** /admin/version/history/ | 
+[**adminVersionHistoryRetrieve**](AdminAPI.md#adminversionhistoryretrieve) | **GET** /admin/version/history/{id}/ | 
 [**adminVersionRetrieve**](AdminAPI.md#adminversionretrieve) | **GET** /admin/version/ | 
-[**adminWorkersRetrieve**](AdminAPI.md#adminworkersretrieve) | **GET** /admin/workers/ | 
+[**adminWorkersList**](AdminAPI.md#adminworkerslist) | **GET** /admin/workers/ | 
 
 
 # **adminAppsList**
@@ -49,51 +50,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**[App]**](App.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **adminMetricsRetrieve**
-```swift
-    open class func adminMetricsRetrieve(completion: @escaping (_ data: LoginMetrics?, _ error: Error?) -> Void)
-```
-
-
-
-Login Metrics per 1h
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-
-AdminAPI.adminMetricsRetrieve() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**LoginMetrics**](LoginMetrics.md)
 
 ### Authorization
 
@@ -165,7 +121,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", footerLinks: "TODO", gdprCompliance: false, impersonation: false) // PatchedSettingsRequest |  (optional)
+let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123) // PatchedSettingsRequest |  (optional)
 
 AdminAPI.adminSettingsPartialUpdate(patchedSettingsRequest: patchedSettingsRequest) { (response, error) in
     guard error == nil else {
@@ -259,7 +215,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", footerLinks: "TODO", gdprCompliance: false, impersonation: false) // SettingsRequest |  (optional)
+let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123) // SettingsRequest |  (optional)
 
 AdminAPI.adminSettingsUpdate(settingsRequest: settingsRequest) { (response, error) in
     guard error == nil else {
@@ -384,6 +340,110 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **adminVersionHistoryList**
+```swift
+    open class func adminVersionHistoryList(build: String? = nil, ordering: String? = nil, search: String? = nil, version: String? = nil, completion: @escaping (_ data: [VersionHistory]?, _ error: Error?) -> Void)
+```
+
+
+
+VersionHistory Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let build = "build_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let search = "search_example" // String | A search term. (optional)
+let version = "version_example" // String |  (optional)
+
+AdminAPI.adminVersionHistoryList(build: build, ordering: ordering, search: search, version: version) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **build** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **version** | **String** |  | [optional] 
+
+### Return type
+
+[**[VersionHistory]**](VersionHistory.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adminVersionHistoryRetrieve**
+```swift
+    open class func adminVersionHistoryRetrieve(id: Int, completion: @escaping (_ data: VersionHistory?, _ error: Error?) -> Void)
+```
+
+
+
+VersionHistory Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Version history.
+
+AdminAPI.adminVersionHistoryRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Version history. | 
+
+### Return type
+
+[**VersionHistory**](VersionHistory.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **adminVersionRetrieve**
 ```swift
     open class func adminVersionRetrieve(completion: @escaping (_ data: Version?, _ error: Error?) -> Void)
@@ -429,9 +489,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **adminWorkersRetrieve**
+# **adminWorkersList**
 ```swift
-    open class func adminWorkersRetrieve(completion: @escaping (_ data: Workers?, _ error: Error?) -> Void)
+    open class func adminWorkersList(completion: @escaping (_ data: [Worker]?, _ error: Error?) -> Void)
 ```
 
 
@@ -444,7 +504,7 @@ Get currently connected worker count.
 import authentikClient
 
 
-AdminAPI.adminWorkersRetrieve() { (response, error) in
+AdminAPI.adminWorkersList() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -461,7 +521,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Workers**](Workers.md)
+[**[Worker]**](Worker.md)
 
 ### Authorization
 
