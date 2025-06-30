@@ -22,6 +22,7 @@ build:
 		-c /local/config.yaml
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
+	sed -i -s 's/ValidationError/APIValidationError/g' Sources/authentikClient/Infrastructure/Validation.swift
 
 diff:
 	docker run \
