@@ -27,19 +27,19 @@ public struct ArrayRule: Sendable {
     public var uniqueItems: Bool
 }
 
-public enum StringValidationErrorKind: Error {
+public enum StringAPIValidationErrorKind: Error {
     case minLength, maxLength, pattern
 }
 
-public enum NumericValidationErrorKind: Error {
+public enum NumericAPIValidationErrorKind: Error {
     case minimum, maximum, multipleOf
 }
 
-public enum ArrayValidationErrorKind: Error {
+public enum ArrayAPIValidationErrorKind: Error {
     case minItems, maxItems, uniqueItems
 }
 
-public struct ValidationError<T: Error & Hashable>: Error {
+public struct APIValidationError<T: Error & Hashable>: Error {
     public fileprivate(set) var kinds: Set<T>
 }
 
@@ -48,9 +48,9 @@ public struct Validator {
     /// - Parameter string: The String you wish to validate.
     /// - Parameter rule: The StringRule you wish to use for validation.
     /// - Returns: A validated string.
-    /// - Throws: `ValidationError<StringValidationErrorKind>` if the string is invalid against the rule or if the rule.pattern is invalid.
-    public static func validate(_ string: String, against rule: StringRule) throws(ValidationError<StringValidationErrorKind>) -> String {
-        var error = ValidationError<StringValidationErrorKind>(kinds: [])
+    /// - Throws: `APIValidationError<StringAPIValidationErrorKind>` if the string is invalid against the rule or if the rule.pattern is invalid.
+    public static func validate(_ string: String, against rule: StringRule) throws(APIValidationError<StringAPIValidationErrorKind>) -> String {
+        var error = APIValidationError<StringAPIValidationErrorKind>(kinds: [])
         if let minLength = rule.minLength, !(minLength <= string.count) {
             error.kinds.insert(.minLength)
         }
@@ -74,9 +74,9 @@ public struct Validator {
     /// - Parameter numeric: The integer you wish to validate.
     /// - Parameter rule: The NumericRule you wish to use for validation.
     /// - Returns: A validated integer.
-    /// - Throws: `ValidationError<NumericValidationErrorKind>` if the numeric is invalid against the rule.
-    public static func validate<T: Comparable & BinaryInteger>(_ numeric: T, against rule: NumericRule<T>) throws(ValidationError<NumericValidationErrorKind>) -> T {
-        var error = ValidationError<NumericValidationErrorKind>(kinds: [])
+    /// - Throws: `APIValidationError<NumericAPIValidationErrorKind>` if the numeric is invalid against the rule.
+    public static func validate<T: Comparable & BinaryInteger>(_ numeric: T, against rule: NumericRule<T>) throws(APIValidationError<NumericAPIValidationErrorKind>) -> T {
+        var error = APIValidationError<NumericAPIValidationErrorKind>(kinds: [])
         if let minimum = rule.minimum {
             if !rule.exclusiveMinimum, minimum > numeric {
                 error.kinds.insert(.minimum)
@@ -106,9 +106,9 @@ public struct Validator {
     /// - Parameter numeric: The fractional number you wish to validate.
     /// - Parameter rule: The NumericRule you wish to use for validation.
     /// - Returns: A validated fractional number.
-    /// - Throws: `ValidationError<NumericValidationErrorKind>` if the numeric is invalid against the rule.
-    public static func validate<T: Comparable & FloatingPoint>(_ numeric: T, against rule: NumericRule<T>) throws(ValidationError<NumericValidationErrorKind>) -> T {
-        var error = ValidationError<NumericValidationErrorKind>(kinds: [])
+    /// - Throws: `APIValidationError<NumericAPIValidationErrorKind>` if the numeric is invalid against the rule.
+    public static func validate<T: Comparable & FloatingPoint>(_ numeric: T, against rule: NumericRule<T>) throws(APIValidationError<NumericAPIValidationErrorKind>) -> T {
+        var error = APIValidationError<NumericAPIValidationErrorKind>(kinds: [])
         if let minimum = rule.minimum {
             if !rule.exclusiveMinimum, minimum > numeric {
                 error.kinds.insert(.minimum)
@@ -138,9 +138,9 @@ public struct Validator {
     /// - Parameter array: The Array you wish to validate.
     /// - Parameter rule: The ArrayRule you wish to use for validation.
     /// - Returns: A validated array.
-    /// - Throws: `ValidationError<ArrayValidationErrorKind>` if the string is invalid against the rule.
-    public static func validate(_ array: Array<AnyHashable>, against rule: ArrayRule) throws(ValidationError<ArrayValidationErrorKind>) -> Array<AnyHashable> {
-        var error = ValidationError<ArrayValidationErrorKind>(kinds: [])
+    /// - Throws: `APIValidationError<ArrayAPIValidationErrorKind>` if the string is invalid against the rule.
+    public static func validate(_ array: Array<AnyHashable>, against rule: ArrayRule) throws(APIValidationError<ArrayAPIValidationErrorKind>) -> Array<AnyHashable> {
+        var error = APIValidationError<ArrayAPIValidationErrorKind>(kinds: [])
         if let minItems = rule.minItems, !(minItems <= array.count) {
             error.kinds.insert(.minItems)
         }
