@@ -8162,6 +8162,7 @@ open class StagesAPI {
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter rememberDevice: (query)  (optional)
      - parameter rememberMeOffset: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter sessionDuration: (query)  (optional)
@@ -8171,8 +8172,8 @@ open class StagesAPI {
      - returns: PaginatedUserLoginStageList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func stagesUserLoginList(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserLoginStageList {
-        return try await stagesUserLoginListWithRequestBuilder(geoipBinding: geoipBinding, name: name, networkBinding: networkBinding, ordering: ordering, page: page, pageSize: pageSize, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions, apiConfiguration: apiConfiguration).execute().body
+    open class func stagesUserLoginList(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberDevice: String? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserLoginStageList {
+        return try await stagesUserLoginListWithRequestBuilder(geoipBinding: geoipBinding, name: name, networkBinding: networkBinding, ordering: ordering, page: page, pageSize: pageSize, rememberDevice: rememberDevice, rememberMeOffset: rememberMeOffset, search: search, sessionDuration: sessionDuration, stageUuid: stageUuid, terminateOtherSessions: terminateOtherSessions, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -8187,6 +8188,7 @@ open class StagesAPI {
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter rememberDevice: (query)  (optional)
      - parameter rememberMeOffset: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter sessionDuration: (query)  (optional)
@@ -8195,7 +8197,7 @@ open class StagesAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedUserLoginStageList> 
      */
-    open class func stagesUserLoginListWithRequestBuilder(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserLoginStageList> {
+    open class func stagesUserLoginListWithRequestBuilder(geoipBinding: GeoipBinding_stagesUserLoginList? = nil, name: String? = nil, networkBinding: NetworkBinding_stagesUserLoginList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, rememberDevice: String? = nil, rememberMeOffset: String? = nil, search: String? = nil, sessionDuration: String? = nil, stageUuid: UUID? = nil, terminateOtherSessions: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserLoginStageList> {
         let localVariablePath = "/stages/user_login/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -8208,6 +8210,7 @@ open class StagesAPI {
             "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "remember_device": (wrappedValue: rememberDevice?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "remember_me_offset": (wrappedValue: rememberMeOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "session_duration": (wrappedValue: sessionDuration?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

@@ -13,6 +13,7 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let sessionDurationRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let rememberMeOffsetRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let rememberDeviceRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
     public var flowSet: [FlowSetRequest]?
     /** Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3) */
@@ -25,8 +26,10 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
     public var networkBinding: NetworkBindingEnum?
     /** Bind sessions created by this stage to the configured GeoIP location */
     public var geoipBinding: GeoipBindingEnum?
+    /** When set to a non-zero value, authentik will save a cookie with a longer expiry,to remember the device the user is logging in from. (Format: hours=-1;minutes=-2;seconds=-3) */
+    public var rememberDevice: String?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil) {
+    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
         self.name = name
         self.flowSet = flowSet
         self.sessionDuration = sessionDuration
@@ -34,6 +37,7 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
         self.rememberMeOffset = rememberMeOffset
         self.networkBinding = networkBinding
         self.geoipBinding = geoipBinding
+        self.rememberDevice = rememberDevice
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -44,6 +48,7 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
         case rememberMeOffset = "remember_me_offset"
         case networkBinding = "network_binding"
         case geoipBinding = "geoip_binding"
+        case rememberDevice = "remember_device"
     }
 
     // Encodable protocol methods
@@ -57,6 +62,7 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(rememberMeOffset, forKey: .rememberMeOffset)
         try container.encodeIfPresent(networkBinding, forKey: .networkBinding)
         try container.encodeIfPresent(geoipBinding, forKey: .geoipBinding)
+        try container.encodeIfPresent(rememberDevice, forKey: .rememberDevice)
     }
 }
 

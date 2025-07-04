@@ -31,8 +31,10 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
     public var networkBinding: NetworkBindingEnum?
     /** Bind sessions created by this stage to the configured GeoIP location */
     public var geoipBinding: GeoipBindingEnum?
+    /** When set to a non-zero value, authentik will save a cookie with a longer expiry,to remember the device the user is logging in from. (Format: hours=-1;minutes=-2;seconds=-3) */
+    public var rememberDevice: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -45,6 +47,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
         self.rememberMeOffset = rememberMeOffset
         self.networkBinding = networkBinding
         self.geoipBinding = geoipBinding
+        self.rememberDevice = rememberDevice
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -60,6 +63,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
         case rememberMeOffset = "remember_me_offset"
         case networkBinding = "network_binding"
         case geoipBinding = "geoip_binding"
+        case rememberDevice = "remember_device"
     }
 
     // Encodable protocol methods
@@ -78,6 +82,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encodeIfPresent(rememberMeOffset, forKey: .rememberMeOffset)
         try container.encodeIfPresent(networkBinding, forKey: .networkBinding)
         try container.encodeIfPresent(geoipBinding, forKey: .geoipBinding)
+        try container.encodeIfPresent(rememberDevice, forKey: .rememberDevice)
     }
 }
 
