@@ -10,12 +10,12 @@ import Foundation
 /** Single device challenge */
 public struct DeviceChallenge: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public var deviceClass: String
+    public var deviceClass: DeviceClassesEnum
     public var deviceUid: String
     public var challenge: [String: JSONValue]
     public var lastUsed: Date?
 
-    public init(deviceClass: String, deviceUid: String, challenge: [String: JSONValue], lastUsed: Date?) {
+    public init(deviceClass: DeviceClassesEnum, deviceUid: String, challenge: [String: JSONValue], lastUsed: Date?) {
         self.deviceClass = deviceClass
         self.deviceUid = deviceUid
         self.challenge = challenge

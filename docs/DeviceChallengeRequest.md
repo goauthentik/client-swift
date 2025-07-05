@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deviceClass** | **String** |  | 
+**deviceClass** | [**DeviceClassesEnum**](DeviceClassesEnum.md) |  | 
 **deviceUid** | **String** |  | 
 **challenge** | **[String: JSONValue]** |  | 
 **lastUsed** | **Date** |  | 
