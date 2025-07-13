@@ -11,13 +11,15 @@ import Foundation
 public struct SCIMSourceUser: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var id: String
+    public var externalId: String
     public var user: Int
     public var userObj: GroupMember
     public var source: UUID
     public var attributes: [String: JSONValue]?
 
-    public init(id: String, user: Int, userObj: GroupMember, source: UUID, attributes: [String: JSONValue]? = nil) {
+    public init(id: String, externalId: String, user: Int, userObj: GroupMember, source: UUID, attributes: [String: JSONValue]? = nil) {
         self.id = id
+        self.externalId = externalId
         self.user = user
         self.userObj = userObj
         self.source = source
@@ -26,6 +28,7 @@ public struct SCIMSourceUser: Sendable, Codable, ParameterConvertible, Hashable 
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
+        case externalId = "external_id"
         case user
         case userObj = "user_obj"
         case source
@@ -37,6 +40,7 @@ public struct SCIMSourceUser: Sendable, Codable, ParameterConvertible, Hashable 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
+        try container.encode(externalId, forKey: .externalId)
         try container.encode(user, forKey: .user)
         try container.encode(userObj, forKey: .userObj)
         try container.encode(source, forKey: .source)

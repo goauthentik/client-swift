@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
+**externalId** | **String** |  | 
 **user** | **Int** |  | 
 **userObj** | [**GroupMember**](GroupMember.md) |  | [readonly] 
 **source** | **UUID** |  | 

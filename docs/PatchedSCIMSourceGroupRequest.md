@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
+**externalId** | **String** |  | [optional] 
 **group** | **UUID** |  | [optional] 
 **source** | **UUID** |  | [optional] 
 **attributes** | **[String: JSONValue]** |  | [optional] 

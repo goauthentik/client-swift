@@ -11,13 +11,16 @@ import Foundation
 public struct PatchedSCIMSourceUserRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let idRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let externalIdRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var id: String?
+    public var externalId: String?
     public var user: Int?
     public var source: UUID?
     public var attributes: [String: JSONValue]?
 
-    public init(id: String? = nil, user: Int? = nil, source: UUID? = nil, attributes: [String: JSONValue]? = nil) {
+    public init(id: String? = nil, externalId: String? = nil, user: Int? = nil, source: UUID? = nil, attributes: [String: JSONValue]? = nil) {
         self.id = id
+        self.externalId = externalId
         self.user = user
         self.source = source
         self.attributes = attributes
@@ -25,6 +28,7 @@ public struct PatchedSCIMSourceUserRequest: Sendable, Codable, ParameterConverti
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
+        case externalId = "external_id"
         case user
         case source
         case attributes
@@ -35,6 +39,7 @@ public struct PatchedSCIMSourceUserRequest: Sendable, Codable, ParameterConverti
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(id, forKey: .id)
+        try container.encodeIfPresent(externalId, forKey: .externalId)
         try container.encodeIfPresent(user, forKey: .user)
         try container.encodeIfPresent(source, forKey: .source)
         try container.encodeIfPresent(attributes, forKey: .attributes)

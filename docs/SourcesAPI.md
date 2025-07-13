@@ -5054,7 +5054,7 @@ SCIMSourceGroup Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMSourceGroupRequest = SCIMSourceGroupRequest(id: "id_example", group: 123, source: 123, attributes: "TODO") // SCIMSourceGroupRequest | 
+let sCIMSourceGroupRequest = SCIMSourceGroupRequest(id: "id_example", externalId: "externalId_example", group: 123, source: 123, attributes: "TODO") // SCIMSourceGroupRequest | 
 
 SourcesAPI.sourcesScimGroupsCreate(sCIMSourceGroupRequest: sCIMSourceGroupRequest) { (response, error) in
     guard error == nil else {
@@ -5214,7 +5214,7 @@ SCIMSourceGroup Viewset
 import authentikClient
 
 let id = "id_example" // String | A unique value identifying this scim source group.
-let patchedSCIMSourceGroupRequest = PatchedSCIMSourceGroupRequest(id: "id_example", group: 123, source: 123, attributes: "TODO") // PatchedSCIMSourceGroupRequest |  (optional)
+let patchedSCIMSourceGroupRequest = PatchedSCIMSourceGroupRequest(id: "id_example", externalId: "externalId_example", group: 123, source: 123, attributes: "TODO") // PatchedSCIMSourceGroupRequest |  (optional)
 
 SourcesAPI.sourcesScimGroupsPartialUpdate(id: id, patchedSCIMSourceGroupRequest: patchedSCIMSourceGroupRequest) { (response, error) in
     guard error == nil else {
@@ -5314,7 +5314,7 @@ SCIMSourceGroup Viewset
 import authentikClient
 
 let id = "id_example" // String | A unique value identifying this scim source group.
-let sCIMSourceGroupRequest = SCIMSourceGroupRequest(id: "id_example", group: 123, source: 123, attributes: "TODO") // SCIMSourceGroupRequest | 
+let sCIMSourceGroupRequest = SCIMSourceGroupRequest(id: "id_example", externalId: "externalId_example", group: 123, source: 123, attributes: "TODO") // SCIMSourceGroupRequest | 
 
 SourcesAPI.sourcesScimGroupsUpdate(id: id, sCIMSourceGroupRequest: sCIMSourceGroupRequest) { (response, error) in
     guard error == nil else {
@@ -5674,7 +5674,7 @@ SCIMSourceUser Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMSourceUserRequest = SCIMSourceUserRequest(id: "id_example", user: 123, source: 123, attributes: "TODO") // SCIMSourceUserRequest | 
+let sCIMSourceUserRequest = SCIMSourceUserRequest(id: "id_example", externalId: "externalId_example", user: 123, source: 123, attributes: "TODO") // SCIMSourceUserRequest | 
 
 SourcesAPI.sourcesScimUsersCreate(sCIMSourceUserRequest: sCIMSourceUserRequest) { (response, error) in
     guard error == nil else {
@@ -5834,7 +5834,7 @@ SCIMSourceUser Viewset
 import authentikClient
 
 let id = "id_example" // String | A unique value identifying this scim source user.
-let patchedSCIMSourceUserRequest = PatchedSCIMSourceUserRequest(id: "id_example", user: 123, source: 123, attributes: "TODO") // PatchedSCIMSourceUserRequest |  (optional)
+let patchedSCIMSourceUserRequest = PatchedSCIMSourceUserRequest(id: "id_example", externalId: "externalId_example", user: 123, source: 123, attributes: "TODO") // PatchedSCIMSourceUserRequest |  (optional)
 
 SourcesAPI.sourcesScimUsersPartialUpdate(id: id, patchedSCIMSourceUserRequest: patchedSCIMSourceUserRequest) { (response, error) in
     guard error == nil else {
@@ -5934,7 +5934,7 @@ SCIMSourceUser Viewset
 import authentikClient
 
 let id = "id_example" // String | A unique value identifying this scim source user.
-let sCIMSourceUserRequest = SCIMSourceUserRequest(id: "id_example", user: 123, source: 123, attributes: "TODO") // SCIMSourceUserRequest | 
+let sCIMSourceUserRequest = SCIMSourceUserRequest(id: "id_example", externalId: "externalId_example", user: 123, source: 123, attributes: "TODO") // SCIMSourceUserRequest | 
 
 SourcesAPI.sourcesScimUsersUpdate(id: id, sCIMSourceUserRequest: sCIMSourceUserRequest) { (response, error) in
     guard error == nil else {
