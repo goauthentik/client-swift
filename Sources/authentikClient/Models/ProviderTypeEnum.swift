@@ -10,6 +10,7 @@ import Foundation
 public enum ProviderTypeEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case apple = "apple"
     case openidconnect = "openidconnect"
+    case entraid = "entraid"
     case azuread = "azuread"
     case discord = "discord"
     case facebook = "facebook"
