@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.13'
   s.tvos.deployment_target = '12.0'
   s.watchos.deployment_target = '4.0'
-  s.version = '2025.6.3'
-  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v2025.6.3' }
+  s.version = '2025.6.4'
+  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v2025.6.4' }
   s.authors = 'authentik Team'
   s.license = 'Proprietary'
   s.homepage = 'https://goauthentik.io/'
