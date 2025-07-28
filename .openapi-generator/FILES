@@ -23,6 +23,7 @@ Sources/authentikClient/APIs/SchemaAPI.swift
 Sources/authentikClient/APIs/SourcesAPI.swift
 Sources/authentikClient/APIs/SsfAPI.swift
 Sources/authentikClient/APIs/StagesAPI.swift
+Sources/authentikClient/APIs/TasksAPI.swift
 Sources/authentikClient/APIs/TenantsAPI.swift
 Sources/authentikClient/Infrastructure/APIHelper.swift
 Sources/authentikClient/Infrastructure/APIs.swift
@@ -249,7 +250,6 @@ Sources/authentikClient/Models/KerberosSource.swift
 Sources/authentikClient/Models/KerberosSourcePropertyMapping.swift
 Sources/authentikClient/Models/KerberosSourcePropertyMappingRequest.swift
 Sources/authentikClient/Models/KerberosSourceRequest.swift
-Sources/authentikClient/Models/KerberosSyncStatus.swift
 Sources/authentikClient/Models/KubernetesServiceConnection.swift
 Sources/authentikClient/Models/KubernetesServiceConnectionRequest.swift
 Sources/authentikClient/Models/LDAPAPIAccessMode.swift
@@ -262,6 +262,7 @@ Sources/authentikClient/Models/LDAPSource.swift
 Sources/authentikClient/Models/LDAPSourcePropertyMapping.swift
 Sources/authentikClient/Models/LDAPSourcePropertyMappingRequest.swift
 Sources/authentikClient/Models/LDAPSourceRequest.swift
+Sources/authentikClient/Models/LastTaskStatusEnum.swift
 Sources/authentikClient/Models/License.swift
 Sources/authentikClient/Models/LicenseFlagsEnum.swift
 Sources/authentikClient/Models/LicenseForecast.swift
@@ -430,14 +431,15 @@ Sources/authentikClient/Models/PaginatedSCIMSourceUserList.swift
 Sources/authentikClient/Models/PaginatedSMSDeviceList.swift
 Sources/authentikClient/Models/PaginatedSSFProviderList.swift
 Sources/authentikClient/Models/PaginatedSSFStreamList.swift
+Sources/authentikClient/Models/PaginatedScheduleList.swift
 Sources/authentikClient/Models/PaginatedScopeMappingList.swift
 Sources/authentikClient/Models/PaginatedServiceConnectionList.swift
 Sources/authentikClient/Models/PaginatedSourceList.swift
 Sources/authentikClient/Models/PaginatedSourceStageList.swift
 Sources/authentikClient/Models/PaginatedStageList.swift
 Sources/authentikClient/Models/PaginatedStaticDeviceList.swift
-Sources/authentikClient/Models/PaginatedSystemTaskList.swift
 Sources/authentikClient/Models/PaginatedTOTPDeviceList.swift
+Sources/authentikClient/Models/PaginatedTaskList.swift
 Sources/authentikClient/Models/PaginatedTenantList.swift
 Sources/authentikClient/Models/PaginatedTokenList.swift
 Sources/authentikClient/Models/PaginatedTokenModelList.swift
@@ -560,6 +562,7 @@ Sources/authentikClient/Models/PatchedSCIMSourceRequest.swift
 Sources/authentikClient/Models/PatchedSCIMSourceUserRequest.swift
 Sources/authentikClient/Models/PatchedSMSDeviceRequest.swift
 Sources/authentikClient/Models/PatchedSSFProviderRequest.swift
+Sources/authentikClient/Models/PatchedScheduleRequest.swift
 Sources/authentikClient/Models/PatchedScopeMappingRequest.swift
 Sources/authentikClient/Models/PatchedSettingsRequest.swift
 Sources/authentikClient/Models/PatchedSourceStageRequest.swift
@@ -674,6 +677,8 @@ Sources/authentikClient/Models/SMSDeviceRequest.swift
 Sources/authentikClient/Models/SSFProvider.swift
 Sources/authentikClient/Models/SSFProviderRequest.swift
 Sources/authentikClient/Models/SSFStream.swift
+Sources/authentikClient/Models/Schedule.swift
+Sources/authentikClient/Models/ScheduleRequest.swift
 Sources/authentikClient/Models/ScopeMapping.swift
 Sources/authentikClient/Models/ScopeMappingRequest.swift
 Sources/authentikClient/Models/SelectableStage.swift
@@ -696,6 +701,7 @@ Sources/authentikClient/Models/SpBindingEnum.swift
 Sources/authentikClient/Models/Stage.swift
 Sources/authentikClient/Models/StagePrompt.swift
 Sources/authentikClient/Models/StageRequest.swift
+Sources/authentikClient/Models/StateEnum.swift
 Sources/authentikClient/Models/StaticDevice.swift
 Sources/authentikClient/Models/StaticDeviceRequest.swift
 Sources/authentikClient/Models/StaticDeviceToken.swift
@@ -707,10 +713,10 @@ Sources/authentikClient/Models/SyncObjectResult.swift
 Sources/authentikClient/Models/SyncStatus.swift
 Sources/authentikClient/Models/SystemInfo.swift
 Sources/authentikClient/Models/SystemInfoRuntime.swift
-Sources/authentikClient/Models/SystemTask.swift
-Sources/authentikClient/Models/SystemTaskStatusEnum.swift
 Sources/authentikClient/Models/TOTPDevice.swift
 Sources/authentikClient/Models/TOTPDeviceRequest.swift
+Sources/authentikClient/Models/Task.swift
+Sources/authentikClient/Models/TaskAggregatedStatusEnum.swift
 Sources/authentikClient/Models/Tenant.swift
 Sources/authentikClient/Models/TenantAdminGroupRequestRequest.swift
 Sources/authentikClient/Models/TenantRecoveryKeyRequestRequest.swift
@@ -1002,7 +1008,6 @@ docs/KerberosSource.md
 docs/KerberosSourcePropertyMapping.md
 docs/KerberosSourcePropertyMappingRequest.md
 docs/KerberosSourceRequest.md
-docs/KerberosSyncStatus.md
 docs/KubernetesServiceConnection.md
 docs/KubernetesServiceConnectionRequest.md
 docs/LDAPAPIAccessMode.md
@@ -1015,6 +1020,7 @@ docs/LDAPSource.md
 docs/LDAPSourcePropertyMapping.md
 docs/LDAPSourcePropertyMappingRequest.md
 docs/LDAPSourceRequest.md
+docs/LastTaskStatusEnum.md
 docs/License.md
 docs/LicenseFlagsEnum.md
 docs/LicenseForecast.md
@@ -1186,14 +1192,15 @@ docs/PaginatedSCIMSourceUserList.md
 docs/PaginatedSMSDeviceList.md
 docs/PaginatedSSFProviderList.md
 docs/PaginatedSSFStreamList.md
+docs/PaginatedScheduleList.md
 docs/PaginatedScopeMappingList.md
 docs/PaginatedServiceConnectionList.md
 docs/PaginatedSourceList.md
 docs/PaginatedSourceStageList.md
 docs/PaginatedStageList.md
 docs/PaginatedStaticDeviceList.md
-docs/PaginatedSystemTaskList.md
 docs/PaginatedTOTPDeviceList.md
+docs/PaginatedTaskList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
 docs/PaginatedTokenModelList.md
@@ -1316,6 +1323,7 @@ docs/PatchedSCIMSourceRequest.md
 docs/PatchedSCIMSourceUserRequest.md
 docs/PatchedSMSDeviceRequest.md
 docs/PatchedSSFProviderRequest.md
+docs/PatchedScheduleRequest.md
 docs/PatchedScopeMappingRequest.md
 docs/PatchedSettingsRequest.md
 docs/PatchedSourceStageRequest.md
@@ -1436,6 +1444,8 @@ docs/SMSDeviceRequest.md
 docs/SSFProvider.md
 docs/SSFProviderRequest.md
 docs/SSFStream.md
+docs/Schedule.md
+docs/ScheduleRequest.md
 docs/SchemaAPI.md
 docs/ScopeMapping.md
 docs/ScopeMappingRequest.md
@@ -1462,6 +1472,7 @@ docs/Stage.md
 docs/StagePrompt.md
 docs/StageRequest.md
 docs/StagesAPI.md
+docs/StateEnum.md
 docs/StaticDevice.md
 docs/StaticDeviceRequest.md
 docs/StaticDeviceToken.md
@@ -1473,10 +1484,11 @@ docs/SyncObjectResult.md
 docs/SyncStatus.md
 docs/SystemInfo.md
 docs/SystemInfoRuntime.md
-docs/SystemTask.md
-docs/SystemTaskStatusEnum.md
 docs/TOTPDevice.md
 docs/TOTPDeviceRequest.md
+docs/Task.md
+docs/TaskAggregatedStatusEnum.md
+docs/TasksAPI.md
 docs/Tenant.md
 docs/TenantAdminGroupRequestRequest.md
 docs/TenantRecoveryKeyRequestRequest.md

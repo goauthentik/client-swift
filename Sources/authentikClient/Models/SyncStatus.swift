@@ -7,20 +7,23 @@
 
 import Foundation
 
-/** Provider sync status */
+/** Provider/source sync status */
 public struct SyncStatus: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var isRunning: Bool
-    public var tasks: [SystemTask]
+    public var lastSuccessfulSync: Date?
+    public var lastSyncStatus: TaskAggregatedStatusEnum?
 
-    public init(isRunning: Bool, tasks: [SystemTask]) {
+    public init(isRunning: Bool, lastSuccessfulSync: Date? = nil, lastSyncStatus: TaskAggregatedStatusEnum? = nil) {
         self.isRunning = isRunning
-        self.tasks = tasks
+        self.lastSuccessfulSync = lastSuccessfulSync
+        self.lastSyncStatus = lastSyncStatus
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case isRunning = "is_running"
-        case tasks
+        case lastSuccessfulSync = "last_successful_sync"
+        case lastSyncStatus = "last_sync_status"
     }
 
     // Encodable protocol methods
@@ -28,7 +31,8 @@ public struct SyncStatus: Sendable, Codable, ParameterConvertible, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(isRunning, forKey: .isRunning)
-        try container.encode(tasks, forKey: .tasks)
+        try container.encodeIfPresent(lastSuccessfulSync, forKey: .lastSuccessfulSync)
+        try container.encodeIfPresent(lastSyncStatus, forKey: .lastSyncStatus)
     }
 }
 

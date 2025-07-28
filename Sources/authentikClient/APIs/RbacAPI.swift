@@ -467,6 +467,7 @@ open class RbacAPI {
         case authentikStagesUserLoginPeriodUserloginstage = "authentik_stages_user_login.userloginstage"
         case authentikStagesUserLogoutPeriodUserlogoutstage = "authentik_stages_user_logout.userlogoutstage"
         case authentikStagesUserWritePeriodUserwritestage = "authentik_stages_user_write.userwritestage"
+        case authentikTasksSchedulesPeriodSchedule = "authentik_tasks_schedules.schedule"
         case authentikTenantsPeriodDomain = "authentik_tenants.domain"
     }
 
@@ -722,6 +723,7 @@ open class RbacAPI {
         case authentikStagesUserLoginPeriodUserloginstage = "authentik_stages_user_login.userloginstage"
         case authentikStagesUserLogoutPeriodUserlogoutstage = "authentik_stages_user_logout.userlogoutstage"
         case authentikStagesUserWritePeriodUserwritestage = "authentik_stages_user_write.userwritestage"
+        case authentikTasksSchedulesPeriodSchedule = "authentik_tasks_schedules.schedule"
         case authentikTenantsPeriodDomain = "authentik_tenants.domain"
     }
 

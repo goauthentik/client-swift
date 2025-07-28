@@ -401,41 +401,4 @@ open class AdminAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
-
-    /**
-
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: [Worker]
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func adminWorkersList(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Worker] {
-        return try await adminWorkersListWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /admin/workers/
-     - Get currently connected worker count.
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<[Worker]> 
-     */
-    open class func adminWorkersListWithRequestBuilder(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[Worker]> {
-        let localVariablePath = "/admin/workers/"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<[Worker]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
 }

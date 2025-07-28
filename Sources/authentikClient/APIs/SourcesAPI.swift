@@ -2453,24 +2453,24 @@ open class SourcesAPI {
 
      - parameter slug: (path)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: KerberosSyncStatus
+     - returns: SyncStatus
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func sourcesKerberosSyncStatusRetrieve(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> KerberosSyncStatus {
+    open class func sourcesKerberosSyncStatusRetrieve(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> SyncStatus {
         return try await sourcesKerberosSyncStatusRetrieveWithRequestBuilder(slug: slug, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      - GET /sources/kerberos/{slug}/sync/status/
-     - Get source's sync status
+     - Get provider's sync status
      - Bearer Token:
        - type: http
        - name: authentik
      - parameter slug: (path)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<KerberosSyncStatus> 
+     - returns: RequestBuilder<SyncStatus> 
      */
-    open class func sourcesKerberosSyncStatusRetrieveWithRequestBuilder(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<KerberosSyncStatus> {
+    open class func sourcesKerberosSyncStatusRetrieveWithRequestBuilder(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<SyncStatus> {
         var localVariablePath = "/sources/kerberos/{slug}/sync/status/"
         let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
         let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2486,7 +2486,7 @@ open class SourcesAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<KerberosSyncStatus>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SyncStatus>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -2931,7 +2931,7 @@ open class SourcesAPI {
 
     /**
      - GET /sources/ldap/{slug}/sync/status/
-     - Get source's sync status
+     - Get provider's sync status
      - Bearer Token:
        - type: http
        - name: authentik

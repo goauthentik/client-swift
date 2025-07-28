@@ -1,11 +1,11 @@
-# SyncStatus
+# PaginatedTaskList
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isRunning** | **Bool** |  | 
-**lastSuccessfulSync** | **Date** |  | [optional] 
-**lastSyncStatus** | [**TaskAggregatedStatusEnum**](TaskAggregatedStatusEnum.md) |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | 
+**results** | [Task] |  | 
+**autocomplete** | **[String: JSONValue]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2933,12 +2933,12 @@ Name | Type | Description  | Notes
 
 # **sourcesKerberosSyncStatusRetrieve**
 ```swift
-    open class func sourcesKerberosSyncStatusRetrieve(slug: String, completion: @escaping (_ data: KerberosSyncStatus?, _ error: Error?) -> Void)
+    open class func sourcesKerberosSyncStatusRetrieve(slug: String, completion: @escaping (_ data: SyncStatus?, _ error: Error?) -> Void)
 ```
 
 
 
-Get source's sync status
+Get provider's sync status
 
 ### Example
 ```swift
@@ -2967,7 +2967,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**KerberosSyncStatus**](KerberosSyncStatus.md)
+[**SyncStatus**](SyncStatus.md)
 
 ### Authorization
 
@@ -3443,7 +3443,7 @@ Name | Type | Description  | Notes
 
 
 
-Get source's sync status
+Get provider's sync status
 
 ### Example
 ```swift

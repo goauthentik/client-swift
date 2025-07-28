@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**adminVersionHistoryList**](AdminAPI.md#adminversionhistorylist) | **GET** /admin/version/history/ | 
 [**adminVersionHistoryRetrieve**](AdminAPI.md#adminversionhistoryretrieve) | **GET** /admin/version/history/{id}/ | 
 [**adminVersionRetrieve**](AdminAPI.md#adminversionretrieve) | **GET** /admin/version/ | 
-[**adminWorkersList**](AdminAPI.md#adminworkerslist) | **GET** /admin/workers/ | 
 
 
 # **adminAppsList**
@@ -477,51 +476,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Version**](Version.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **adminWorkersList**
-```swift
-    open class func adminWorkersList(completion: @escaping (_ data: [Worker]?, _ error: Error?) -> Void)
-```
-
-
-
-Get currently connected worker count.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-
-AdminAPI.adminWorkersList() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**[Worker]**](Worker.md)
 
 ### Authorization
 

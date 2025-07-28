@@ -1,8 +1,11 @@
-# SystemTaskStatusEnum
+# PatchedScheduleRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**relObjId** | **String** |  | [optional] 
+**crontab** | **String** | When to schedule tasks | [optional] 
+**paused** | **Bool** | Pause this schedule | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

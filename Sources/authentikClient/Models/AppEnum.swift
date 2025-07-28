@@ -9,9 +9,11 @@ import Foundation
 
 public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case authentikPeriodTenants = "authentik.tenants"
+    case authentikPeriodTasks = "authentik.tasks"
     case authentikPeriodAdmin = "authentik.admin"
     case authentikPeriodApi = "authentik.api"
     case authentikPeriodCrypto = "authentik.crypto"
+    case authentikPeriodEvents = "authentik.events"
     case authentikPeriodFlows = "authentik.flows"
     case authentikPeriodOutposts = "authentik.outposts"
     case authentikPeriodPoliciesPeriodDummy = "authentik.policies.dummy"
@@ -59,6 +61,7 @@ public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaul
     case authentikPeriodStagesPeriodUserLogin = "authentik.stages.user_login"
     case authentikPeriodStagesPeriodUserLogout = "authentik.stages.user_logout"
     case authentikPeriodStagesPeriodUserWrite = "authentik.stages.user_write"
+    case authentikPeriodTasksPeriodSchedules = "authentik.tasks.schedules"
     case authentikPeriodBrands = "authentik.brands"
     case authentikPeriodBlueprints = "authentik.blueprints"
     case authentikPeriodCore = "authentik.core"
@@ -72,6 +75,5 @@ public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaul
     case authentikPeriodEnterprisePeriodStagesPeriodAuthenticatorEndpointGdtc = "authentik.enterprise.stages.authenticator_endpoint_gdtc"
     case authentikPeriodEnterprisePeriodStagesPeriodMtls = "authentik.enterprise.stages.mtls"
     case authentikPeriodEnterprisePeriodStagesPeriodSource = "authentik.enterprise.stages.source"
-    case authentikPeriodEvents = "authentik.events"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }
