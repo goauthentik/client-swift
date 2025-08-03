@@ -4030,6 +4030,7 @@ open class SourcesAPI {
     public enum NameIdPolicy_sourcesSamlList: String, Sendable, CaseIterable {
         case urnOasisNamesTcSaml1Period1NameidFormatX509subjectname = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
         case urnOasisNamesTcSaml1Period1NameidFormatEmailaddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        case urnOasisNamesTcSaml1Period1NameidFormatUnspecified = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
         case urnOasisNamesTcSaml2Period0NameidFormatWindowsdomainqualifiedname = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
         case urnOasisNamesTcSaml2Period0NameidFormatPersistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
         case urnOasisNamesTcSaml2Period0NameidFormatTransient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"

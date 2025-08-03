@@ -43,7 +43,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
     /** Allows authentication flows initiated by the IdP. This can be a security risk, as no validation of the request ID is done. */
     public var allowIdpInitiated: Bool?
     /** NameID Policy sent to the IdP. Can be unset, in which case no Policy is sent. */
-    public var nameIdPolicy: NameIdPolicyEnum?
+    public var nameIdPolicy: SAMLNameIDPolicyEnum?
     public var bindingType: BindingTypeEnum?
     /** When selected, incoming assertion's Signatures will be validated against this certificate. To allow unsigned Requests, leave on default. */
     public var verificationKp: UUID?
@@ -56,7 +56,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
     /** When selected, incoming assertions are encrypted by the IdP using the public key of the encryption keypair. The assertion is decrypted by the SP using the the private key. */
     public var encryptionKp: UUID?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: NameIdPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled

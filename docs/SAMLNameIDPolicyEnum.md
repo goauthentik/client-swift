@@ -1,4 +1,4 @@
-# NameIdPolicyEnum
+# SAMLNameIDPolicyEnum
 
 ## Properties
 Name | Type | Description | Notes

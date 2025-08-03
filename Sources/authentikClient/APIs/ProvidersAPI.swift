@@ -3831,6 +3831,18 @@ open class ProvidersAPI {
     }
 
     /**
+     * enum for parameter defaultNameIdPolicy
+     */
+    public enum DefaultNameIdPolicy_providersSamlList: String, Sendable, CaseIterable {
+        case urnOasisNamesTcSaml1Period1NameidFormatX509subjectname = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+        case urnOasisNamesTcSaml1Period1NameidFormatEmailaddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        case urnOasisNamesTcSaml1Period1NameidFormatUnspecified = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+        case urnOasisNamesTcSaml2Period0NameidFormatWindowsdomainqualifiedname = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
+        case urnOasisNamesTcSaml2Period0NameidFormatPersistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+        case urnOasisNamesTcSaml2Period0NameidFormatTransient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+    }
+
+    /**
      * enum for parameter digestAlgorithm
      */
     public enum DigestAlgorithm_providersSamlList: String, Sendable, CaseIterable {
@@ -3873,6 +3885,7 @@ open class ProvidersAPI {
      - parameter authnContextClassRefMapping: (query)  (optional)
      - parameter authorizationFlow: (query)  (optional)
      - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultNameIdPolicy: (query)  (optional)
      - parameter defaultRelayState: (query)  (optional)
      - parameter digestAlgorithm: (query)  (optional)
      - parameter encryptionKp: (query)  (optional)
@@ -3897,8 +3910,8 @@ open class ProvidersAPI {
      - returns: PaginatedSAMLProviderList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLProviderList {
-        return try await providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLProviderList {
+        return try await providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -3915,6 +3928,7 @@ open class ProvidersAPI {
      - parameter authnContextClassRefMapping: (query)  (optional)
      - parameter authorizationFlow: (query)  (optional)
      - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultNameIdPolicy: (query)  (optional)
      - parameter defaultRelayState: (query)  (optional)
      - parameter digestAlgorithm: (query)  (optional)
      - parameter encryptionKp: (query)  (optional)
@@ -3938,7 +3952,7 @@ open class ProvidersAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedSAMLProviderList> 
      */
-    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLProviderList> {
+    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLProviderList> {
         let localVariablePath = "/providers/saml/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -3953,6 +3967,7 @@ open class ProvidersAPI {
             "authn_context_class_ref_mapping": (wrappedValue: authnContextClassRefMapping?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "authorization_flow": (wrappedValue: authorizationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "backchannel_application": (wrappedValue: backchannelApplication?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "default_name_id_policy": (wrappedValue: defaultNameIdPolicy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "default_relay_state": (wrappedValue: defaultRelayState?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "digest_algorithm": (wrappedValue: digestAlgorithm?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "encryption_kp": (wrappedValue: encryptionKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

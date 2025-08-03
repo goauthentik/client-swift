@@ -64,6 +64,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
     public var spBinding: SpBindingEnum?
     /** Default relay_state value for IDP-initiated logins */
     public var defaultRelayState: String?
+    public var defaultNameIdPolicy: SAMLNameIDPolicyEnum?
     /** Get metadata download URL */
     public var urlDownloadMetadata: String
     /** Get SSO Post URL */
@@ -77,7 +78,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
     /** Get SLO redirect URL */
     public var urlSloRedirect: String
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, acsUrl: String, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil, urlDownloadMetadata: String, urlSsoPost: String, urlSsoRedirect: String, urlSsoInit: String, urlSloPost: String, urlSloRedirect: String) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, acsUrl: String, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil, urlDownloadMetadata: String, urlSsoPost: String, urlSsoRedirect: String, urlSsoInit: String, urlSloPost: String, urlSloRedirect: String) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow
@@ -109,6 +110,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         self.signResponse = signResponse
         self.spBinding = spBinding
         self.defaultRelayState = defaultRelayState
+        self.defaultNameIdPolicy = defaultNameIdPolicy
         self.urlDownloadMetadata = urlDownloadMetadata
         self.urlSsoPost = urlSsoPost
         self.urlSsoRedirect = urlSsoRedirect
@@ -149,6 +151,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         case signResponse = "sign_response"
         case spBinding = "sp_binding"
         case defaultRelayState = "default_relay_state"
+        case defaultNameIdPolicy = "default_name_id_policy"
         case urlDownloadMetadata = "url_download_metadata"
         case urlSsoPost = "url_sso_post"
         case urlSsoRedirect = "url_sso_redirect"
@@ -192,6 +195,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(signResponse, forKey: .signResponse)
         try container.encodeIfPresent(spBinding, forKey: .spBinding)
         try container.encodeIfPresent(defaultRelayState, forKey: .defaultRelayState)
+        try container.encodeIfPresent(defaultNameIdPolicy, forKey: .defaultNameIdPolicy)
         try container.encode(urlDownloadMetadata, forKey: .urlDownloadMetadata)
         try container.encode(urlSsoPost, forKey: .urlSsoPost)
         try container.encode(urlSsoRedirect, forKey: .urlSsoRedirect)

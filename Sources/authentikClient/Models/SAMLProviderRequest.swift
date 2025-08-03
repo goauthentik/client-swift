@@ -53,8 +53,9 @@ public struct SAMLProviderRequest: Sendable, Codable, ParameterConvertible, Hash
     public var spBinding: SpBindingEnum?
     /** Default relay_state value for IDP-initiated logins */
     public var defaultRelayState: String?
+    public var defaultNameIdPolicy: SAMLNameIDPolicyEnum?
 
-    public init(name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, acsUrl: String, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil) {
+    public init(name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, acsUrl: String, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil) {
         self.name = name
         self.authenticationFlow = authenticationFlow
         self.authorizationFlow = authorizationFlow
@@ -77,6 +78,7 @@ public struct SAMLProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         self.signResponse = signResponse
         self.spBinding = spBinding
         self.defaultRelayState = defaultRelayState
+        self.defaultNameIdPolicy = defaultNameIdPolicy
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -102,6 +104,7 @@ public struct SAMLProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         case signResponse = "sign_response"
         case spBinding = "sp_binding"
         case defaultRelayState = "default_relay_state"
+        case defaultNameIdPolicy = "default_name_id_policy"
     }
 
     // Encodable protocol methods
@@ -130,6 +133,7 @@ public struct SAMLProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         try container.encodeIfPresent(signResponse, forKey: .signResponse)
         try container.encodeIfPresent(spBinding, forKey: .spBinding)
         try container.encodeIfPresent(defaultRelayState, forKey: .defaultRelayState)
+        try container.encodeIfPresent(defaultNameIdPolicy, forKey: .defaultNameIdPolicy)
     }
 }
 

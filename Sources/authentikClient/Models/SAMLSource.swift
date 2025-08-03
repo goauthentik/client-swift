@@ -51,7 +51,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** Allows authentication flows initiated by the IdP. This can be a security risk, as no validation of the request ID is done. */
     public var allowIdpInitiated: Bool?
     /** NameID Policy sent to the IdP. Can be unset, in which case no Policy is sent. */
-    public var nameIdPolicy: NameIdPolicyEnum?
+    public var nameIdPolicy: SAMLNameIDPolicyEnum?
     public var bindingType: BindingTypeEnum?
     /** When selected, incoming assertion's Signatures will be validated against this certificate. To allow unsigned Requests, leave on default. */
     public var verificationKp: UUID?
@@ -64,7 +64,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** When selected, incoming assertions are encrypted by the IdP using the public key of the encryption keypair. The assertion is decrypted by the SP using the the private key. */
     public var encryptionKp: UUID?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID, issuer: String? = nil, ssoUrl: String, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: NameIdPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID, issuer: String? = nil, ssoUrl: String, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
