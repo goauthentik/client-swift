@@ -213,6 +213,7 @@ Sources/authentikClient/Models/GoogleWorkspaceProviderRequest.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderUser.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderUserRequest.swift
 Sources/authentikClient/Models/Group.swift
+Sources/authentikClient/Models/GroupChild.swift
 Sources/authentikClient/Models/GroupKerberosSourceConnection.swift
 Sources/authentikClient/Models/GroupKerberosSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupLDAPSourceConnection.swift
@@ -971,6 +972,7 @@ docs/GoogleWorkspaceProviderRequest.md
 docs/GoogleWorkspaceProviderUser.md
 docs/GoogleWorkspaceProviderUserRequest.md
 docs/Group.md
+docs/GroupChild.md
 docs/GroupKerberosSourceConnection.md
 docs/GroupKerberosSourceConnectionRequest.md
 docs/GroupLDAPSourceConnection.md

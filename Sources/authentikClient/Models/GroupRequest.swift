@@ -18,14 +18,16 @@ public struct GroupRequest: Sendable, Codable, ParameterConvertible, Hashable {
     public var users: [Int]?
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
+    public var children: [UUID]?
 
-    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil) {
+    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, children: [UUID]? = nil) {
         self.name = name
         self.isSuperuser = isSuperuser
         self.parent = parent
         self.users = users
         self.attributes = attributes
         self.roles = roles
+        self.children = children
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -35,6 +37,7 @@ public struct GroupRequest: Sendable, Codable, ParameterConvertible, Hashable {
         case users
         case attributes
         case roles
+        case children
     }
 
     // Encodable protocol methods
@@ -47,6 +50,7 @@ public struct GroupRequest: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(users, forKey: .users)
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
+        try container.encodeIfPresent(children, forKey: .children)
     }
 }
 

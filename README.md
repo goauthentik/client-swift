@@ -1210,6 +1210,7 @@ Class | Method | HTTP request | Description
  - [GoogleWorkspaceProviderUser](docs/GoogleWorkspaceProviderUser.md)
  - [GoogleWorkspaceProviderUserRequest](docs/GoogleWorkspaceProviderUserRequest.md)
  - [Group](docs/Group.md)
+ - [GroupChild](docs/GroupChild.md)
  - [GroupKerberosSourceConnection](docs/GroupKerberosSourceConnection.md)
  - [GroupKerberosSourceConnectionRequest](docs/GroupKerberosSourceConnectionRequest.md)
  - [GroupLDAPSourceConnection](docs/GroupLDAPSourceConnection.md)

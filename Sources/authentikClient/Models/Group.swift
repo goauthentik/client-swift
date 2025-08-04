@@ -22,8 +22,10 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
     public var rolesObj: [Role]
+    public var children: [UUID]?
+    public var childrenObj: [GroupChild]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role]) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID]? = nil, childrenObj: [GroupChild]?) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
@@ -35,6 +37,8 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         self.attributes = attributes
         self.roles = roles
         self.rolesObj = rolesObj
+        self.children = children
+        self.childrenObj = childrenObj
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,6 +53,8 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         case attributes
         case roles
         case rolesObj = "roles_obj"
+        case children
+        case childrenObj = "children_obj"
     }
 
     // Encodable protocol methods
@@ -66,6 +72,8 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
         try container.encode(rolesObj, forKey: .rolesObj)
+        try container.encodeIfPresent(children, forKey: .children)
+        try container.encode(childrenObj, forKey: .childrenObj)
     }
 }
 

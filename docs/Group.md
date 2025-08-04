@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **attributes** | **[String: JSONValue]** |  | [optional] 
 **roles** | **[UUID]** |  | [optional] 
 **rolesObj** | [Role] |  | [readonly] 
+**children** | **[UUID]** |  | [optional] 
+**childrenObj** | [GroupChild] |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

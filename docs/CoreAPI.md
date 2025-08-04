@@ -1659,7 +1659,7 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsCreate(groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
@@ -1745,7 +1745,7 @@ Void (empty response body)
 
 # **coreGroupsList**
 ```swift
-    open class func coreGroupsList(attributes: String? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
+    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1758,6 +1758,7 @@ Group Viewset
 import authentikClient
 
 let attributes = "attributes_example" // String | Attributes (optional)
+let includeChildren = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 let isSuperuser = true // Bool |  (optional)
 let membersByPk = [123] // [Int] |  (optional)
@@ -1768,7 +1769,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-CoreAPI.coreGroupsList(attributes: attributes, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+CoreAPI.coreGroupsList(attributes: attributes, includeChildren: includeChildren, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1785,6 +1786,7 @@ CoreAPI.coreGroupsList(attributes: attributes, includeUsers: includeUsers, isSup
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **String** | Attributes | [optional] 
+ **includeChildren** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
  **isSuperuser** | **Bool** |  | [optional] 
  **membersByPk** | [**[Int]**](Int.md) |  | [optional] 
@@ -1825,7 +1827,7 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
-let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // PatchedGroupRequest |  (optional)
+let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // PatchedGroupRequest |  (optional)
 
 CoreAPI.coreGroupsPartialUpdate(groupUuid: groupUuid, patchedGroupRequest: patchedGroupRequest) { (response, error) in
     guard error == nil else {
@@ -1914,7 +1916,7 @@ Void (empty response body)
 
 # **coreGroupsRetrieve**
 ```swift
-    open class func coreGroupsRetrieve(groupUuid: UUID, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
+    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
 ```
 
 
@@ -1927,9 +1929,10 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
+let includeChildren = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 
-CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeUsers: includeUsers) { (response, error) in
+CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeChildren: includeChildren, includeUsers: includeUsers) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1946,6 +1949,7 @@ CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeUsers: includeUsers) { (
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **UUID** | A UUID string identifying this Group. | 
+ **includeChildren** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
 
 ### Return type
@@ -1978,7 +1982,7 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsUpdate(groupUuid: groupUuid, groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
