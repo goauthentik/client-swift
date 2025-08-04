@@ -2985,7 +2985,7 @@ Void (empty response body)
 
 # **coreUsersList**
 ```swift
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2998,12 +2998,18 @@ User Viewset
 import authentikClient
 
 let attributes = "attributes_example" // String | Attributes (optional)
+let dateJoined = Date() // Date |  (optional)
+let dateJoinedGt = Date() // Date |  (optional)
+let dateJoinedLt = Date() // Date |  (optional)
 let email = "email_example" // String |  (optional)
 let groupsByName = ["inner_example"] // [String] |  (optional)
 let groupsByPk = [123] // [UUID] |  (optional)
 let includeGroups = true // Bool |  (optional) (default to true)
 let isActive = true // Bool |  (optional)
 let isSuperuser = true // Bool |  (optional)
+let lastUpdated = Date() // Date |  (optional)
+let lastUpdatedGt = Date() // Date |  (optional)
+let lastUpdatedLt = Date() // Date |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -3015,7 +3021,7 @@ let type = ["type_example"] // [String] |  (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
-CoreAPI.coreUsersList(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+CoreAPI.coreUsersList(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -3032,12 +3038,18 @@ CoreAPI.coreUsersList(attributes: attributes, email: email, groupsByName: groups
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **String** | Attributes | [optional] 
+ **dateJoined** | **Date** |  | [optional] 
+ **dateJoinedGt** | **Date** |  | [optional] 
+ **dateJoinedLt** | **Date** |  | [optional] 
  **email** | **String** |  | [optional] 
  **groupsByName** | [**[String]**](String.md) |  | [optional] 
  **groupsByPk** | [**[UUID]**](UUID.md) |  | [optional] 
  **includeGroups** | **Bool** |  | [optional] [default to true]
  **isActive** | **Bool** |  | [optional] 
  **isSuperuser** | **Bool** |  | [optional] 
+ **lastUpdated** | **Date** |  | [optional] 
+ **lastUpdatedGt** | **Date** |  | [optional] 
+ **lastUpdatedLt** | **Date** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 

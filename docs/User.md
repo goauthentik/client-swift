@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **type** | [**UserTypeEnum**](UserTypeEnum.md) |  | [optional] 
 **uuid** | **UUID** |  | [readonly] 
 **passwordChangeDate** | **Date** |  | [readonly] 
+**lastUpdated** | **Date** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,8 +32,9 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
     public var type: UserTypeEnum?
     public var uuid: UUID
     public var passwordChangeDate: Date
+    public var lastUpdated: Date
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date, lastUpdated: Date) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -51,6 +52,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         self.type = type
         self.uuid = uuid
         self.passwordChangeDate = passwordChangeDate
+        self.lastUpdated = lastUpdated
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -71,6 +73,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         case type
         case uuid
         case passwordChangeDate = "password_change_date"
+        case lastUpdated = "last_updated"
     }
 
     // Encodable protocol methods
@@ -94,6 +97,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(type, forKey: .type)
         try container.encode(uuid, forKey: .uuid)
         try container.encode(passwordChangeDate, forKey: .passwordChangeDate)
+        try container.encode(lastUpdated, forKey: .lastUpdated)
     }
 }
 

@@ -2607,12 +2607,18 @@ open class CoreAPI {
     /**
 
      - parameter attributes: (query) Attributes (optional)
+     - parameter dateJoined: (query)  (optional)
+     - parameter dateJoinedGt: (query)  (optional)
+     - parameter dateJoinedLt: (query)  (optional)
      - parameter email: (query)  (optional)
      - parameter groupsByName: (query)  (optional)
      - parameter groupsByPk: (query)  (optional)
      - parameter includeGroups: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastUpdated: (query)  (optional)
+     - parameter lastUpdatedGt: (query)  (optional)
+     - parameter lastUpdatedLt: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -2627,8 +2633,8 @@ open class CoreAPI {
      - returns: PaginatedUserList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreUsersList(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
-        return try await coreUsersListWithRequestBuilder(attributes: attributes, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
+        return try await coreUsersListWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -2638,12 +2644,18 @@ open class CoreAPI {
        - type: http
        - name: authentik
      - parameter attributes: (query) Attributes (optional)
+     - parameter dateJoined: (query)  (optional)
+     - parameter dateJoinedGt: (query)  (optional)
+     - parameter dateJoinedLt: (query)  (optional)
      - parameter email: (query)  (optional)
      - parameter groupsByName: (query)  (optional)
      - parameter groupsByPk: (query)  (optional)
      - parameter includeGroups: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastUpdated: (query)  (optional)
+     - parameter lastUpdatedGt: (query)  (optional)
+     - parameter lastUpdatedLt: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -2657,7 +2669,7 @@ open class CoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedUserList> 
      */
-    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
+    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -2665,12 +2677,18 @@ open class CoreAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "attributes": (wrappedValue: attributes?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined": (wrappedValue: dateJoined?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined__gt": (wrappedValue: dateJoinedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined__lt": (wrappedValue: dateJoinedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "email": (wrappedValue: email?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "groups_by_name": (wrappedValue: groupsByName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "groups_by_pk": (wrappedValue: groupsByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_groups": (wrappedValue: includeGroups?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_active": (wrappedValue: isActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated": (wrappedValue: lastUpdated?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated__gt": (wrappedValue: lastUpdatedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated__lt": (wrappedValue: lastUpdatedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
