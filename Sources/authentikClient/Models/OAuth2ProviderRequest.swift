@@ -41,6 +41,7 @@ public struct OAuth2ProviderRequest: Sendable, Codable, ParameterConvertible, Ha
     /** Key used to encrypt the tokens. When set, tokens will be encrypted and returned as JWEs. */
     public var encryptionKey: UUID?
     public var redirectUris: [RedirectURIRequest]
+    public var backchannelLogoutUri: String?
     /** Configure what data should be used as unique User Identifier. For most cases, the default should be fine. */
     public var subMode: SubModeEnum?
     /** Configure how the issuer field of the ID Token should be filled. */
@@ -48,7 +49,7 @@ public struct OAuth2ProviderRequest: Sendable, Codable, ParameterConvertible, Ha
     public var jwtFederationSources: [UUID]?
     public var jwtFederationProviders: [Int]?
 
-    public init(name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURIRequest], subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURIRequest], backchannelLogoutUri: String? = nil, subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
         self.name = name
         self.authenticationFlow = authenticationFlow
         self.authorizationFlow = authorizationFlow
@@ -64,6 +65,7 @@ public struct OAuth2ProviderRequest: Sendable, Codable, ParameterConvertible, Ha
         self.signingKey = signingKey
         self.encryptionKey = encryptionKey
         self.redirectUris = redirectUris
+        self.backchannelLogoutUri = backchannelLogoutUri
         self.subMode = subMode
         self.issuerMode = issuerMode
         self.jwtFederationSources = jwtFederationSources
@@ -86,6 +88,7 @@ public struct OAuth2ProviderRequest: Sendable, Codable, ParameterConvertible, Ha
         case signingKey = "signing_key"
         case encryptionKey = "encryption_key"
         case redirectUris = "redirect_uris"
+        case backchannelLogoutUri = "backchannel_logout_uri"
         case subMode = "sub_mode"
         case issuerMode = "issuer_mode"
         case jwtFederationSources = "jwt_federation_sources"
@@ -111,6 +114,7 @@ public struct OAuth2ProviderRequest: Sendable, Codable, ParameterConvertible, Ha
         try container.encodeIfPresent(signingKey, forKey: .signingKey)
         try container.encodeIfPresent(encryptionKey, forKey: .encryptionKey)
         try container.encode(redirectUris, forKey: .redirectUris)
+        try container.encodeIfPresent(backchannelLogoutUri, forKey: .backchannelLogoutUri)
         try container.encodeIfPresent(subMode, forKey: .subMode)
         try container.encodeIfPresent(issuerMode, forKey: .issuerMode)
         try container.encodeIfPresent(jwtFederationSources, forKey: .jwtFederationSources)
