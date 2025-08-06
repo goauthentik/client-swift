@@ -5142,7 +5142,7 @@ EmailStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false, recoveryMaxAttempts: 123, recoveryCacheTimeout: "recoveryCacheTimeout_example") // EmailStageRequest | 
 
 StagesAPI.stagesEmailCreate(emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {
@@ -5322,7 +5322,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // PatchedEmailStageRequest |  (optional)
+let patchedEmailStageRequest = PatchedEmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false, recoveryMaxAttempts: 123, recoveryCacheTimeout: "recoveryCacheTimeout_example") // PatchedEmailStageRequest |  (optional)
 
 StagesAPI.stagesEmailPartialUpdate(stageUuid: stageUuid, patchedEmailStageRequest: patchedEmailStageRequest) { (response, error) in
     guard error == nil else {
@@ -5467,7 +5467,7 @@ EmailStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Email Stage.
-let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false) // EmailStageRequest | 
+let emailStageRequest = EmailStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], useGlobalSettings: false, host: "host_example", port: 123, username: "username_example", password: "password_example", useTls: false, useSsl: false, timeout: 123, fromAddress: "fromAddress_example", tokenExpiry: "tokenExpiry_example", subject: "subject_example", template: "template_example", activateUserOnSuccess: false, recoveryMaxAttempts: 123, recoveryCacheTimeout: "recoveryCacheTimeout_example") // EmailStageRequest | 
 
 StagesAPI.stagesEmailUpdate(stageUuid: stageUuid, emailStageRequest: emailStageRequest) { (response, error) in
     guard error == nil else {

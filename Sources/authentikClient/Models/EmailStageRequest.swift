@@ -18,6 +18,8 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     public static let tokenExpiryRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let subjectRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let templateRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let recoveryMaxAttemptsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let recoveryCacheTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
     public var flowSet: [FlowSetRequest]?
     /** When enabled, global Email connection settings will be used and connection settings below will be ignored. */
@@ -36,8 +38,11 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     public var template: String?
     /** Activate users upon completion of stage. */
     public var activateUserOnSuccess: Bool?
+    public var recoveryMaxAttempts: Int?
+    /** The time window used to count recent account recovery attempts. If the number of attempts exceed recovery_max_attempts within this period, further attempts will be rate-limited. (Format: hours=1;minutes=2;seconds=3). */
+    public var recoveryCacheTimeout: String?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil) {
+    public init(name: String, flowSet: [FlowSetRequest]? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil, recoveryMaxAttempts: Int? = nil, recoveryCacheTimeout: String? = nil) {
         self.name = name
         self.flowSet = flowSet
         self.useGlobalSettings = useGlobalSettings
@@ -53,6 +58,8 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
         self.subject = subject
         self.template = template
         self.activateUserOnSuccess = activateUserOnSuccess
+        self.recoveryMaxAttempts = recoveryMaxAttempts
+        self.recoveryCacheTimeout = recoveryCacheTimeout
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -71,6 +78,8 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
         case subject
         case template
         case activateUserOnSuccess = "activate_user_on_success"
+        case recoveryMaxAttempts = "recovery_max_attempts"
+        case recoveryCacheTimeout = "recovery_cache_timeout"
     }
 
     // Encodable protocol methods
@@ -92,6 +101,8 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
         try container.encodeIfPresent(subject, forKey: .subject)
         try container.encodeIfPresent(template, forKey: .template)
         try container.encodeIfPresent(activateUserOnSuccess, forKey: .activateUserOnSuccess)
+        try container.encodeIfPresent(recoveryMaxAttempts, forKey: .recoveryMaxAttempts)
+        try container.encodeIfPresent(recoveryCacheTimeout, forKey: .recoveryCacheTimeout)
     }
 }
 

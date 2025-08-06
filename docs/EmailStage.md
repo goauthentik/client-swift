@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **subject** | **String** |  | [optional] 
 **template** | **String** |  | [optional] 
 **activateUserOnSuccess** | **Bool** | Activate users upon completion of stage. | [optional] 
+**recoveryMaxAttempts** | **Int** |  | [optional] 
+**recoveryCacheTimeout** | **String** | The time window used to count recent account recovery attempts. If the number of attempts exceed recovery_max_attempts within this period, further attempts will be rate-limited. (Format: hours&#x3D;1;minutes&#x3D;2;seconds&#x3D;3). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
