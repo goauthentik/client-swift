@@ -120,7 +120,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123) // PatchedSettingsRequest |  (optional)
+let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false)) // PatchedSettingsRequest |  (optional)
 
 AdminAPI.adminSettingsPartialUpdate(patchedSettingsRequest: patchedSettingsRequest) { (response, error) in
     guard error == nil else {
@@ -202,7 +202,7 @@ This endpoint does not need any parameter.
 
 # **adminSettingsUpdate**
 ```swift
-    open class func adminSettingsUpdate(settingsRequest: SettingsRequest? = nil, completion: @escaping (_ data: Settings?, _ error: Error?) -> Void)
+    open class func adminSettingsUpdate(settingsRequest: SettingsRequest, completion: @escaping (_ data: Settings?, _ error: Error?) -> Void)
 ```
 
 
@@ -214,7 +214,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123) // SettingsRequest |  (optional)
+let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false)) // SettingsRequest | 
 
 AdminAPI.adminSettingsUpdate(settingsRequest: settingsRequest) { (response, error) in
     guard error == nil else {
@@ -232,7 +232,7 @@ AdminAPI.adminSettingsUpdate(settingsRequest: settingsRequest) { (response, erro
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settingsRequest** | [**SettingsRequest**](SettingsRequest.md) |  | [optional] 
+ **settingsRequest** | [**SettingsRequest**](SettingsRequest.md) |  | 
 
 ### Return type
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **impersonationRequireReason** | **Bool** | Require administrators to provide a reason for impersonating a user. | [optional] 
 **defaultTokenDuration** | **String** | Default token duration | [optional] 
 **defaultTokenLength** | **Int** | Default token length | [optional] 
+**flags** | [**PatchedSettingsRequestFlags**](PatchedSettingsRequestFlags.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

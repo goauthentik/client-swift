@@ -38,8 +38,9 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
     public var defaultTokenDuration: String?
     /** Default token length */
     public var defaultTokenLength: Int?
+    public var flags: PatchedSettingsRequestFlags
 
-    public init(avatars: String? = nil, defaultUserChangeName: Bool? = nil, defaultUserChangeEmail: Bool? = nil, defaultUserChangeUsername: Bool? = nil, eventRetention: String? = nil, reputationLowerLimit: Int? = nil, reputationUpperLimit: Int? = nil, footerLinks: JSONValue? = nil, gdprCompliance: Bool? = nil, impersonation: Bool? = nil, impersonationRequireReason: Bool? = nil, defaultTokenDuration: String? = nil, defaultTokenLength: Int? = nil) {
+    public init(avatars: String? = nil, defaultUserChangeName: Bool? = nil, defaultUserChangeEmail: Bool? = nil, defaultUserChangeUsername: Bool? = nil, eventRetention: String? = nil, reputationLowerLimit: Int? = nil, reputationUpperLimit: Int? = nil, footerLinks: JSONValue? = nil, gdprCompliance: Bool? = nil, impersonation: Bool? = nil, impersonationRequireReason: Bool? = nil, defaultTokenDuration: String? = nil, defaultTokenLength: Int? = nil, flags: PatchedSettingsRequestFlags) {
         self.avatars = avatars
         self.defaultUserChangeName = defaultUserChangeName
         self.defaultUserChangeEmail = defaultUserChangeEmail
@@ -53,6 +54,7 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         self.impersonationRequireReason = impersonationRequireReason
         self.defaultTokenDuration = defaultTokenDuration
         self.defaultTokenLength = defaultTokenLength
+        self.flags = flags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -69,6 +71,7 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         case impersonationRequireReason = "impersonation_require_reason"
         case defaultTokenDuration = "default_token_duration"
         case defaultTokenLength = "default_token_length"
+        case flags
     }
 
     // Encodable protocol methods
@@ -88,6 +91,7 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(impersonationRequireReason, forKey: .impersonationRequireReason)
         try container.encodeIfPresent(defaultTokenDuration, forKey: .defaultTokenDuration)
         try container.encodeIfPresent(defaultTokenLength, forKey: .defaultTokenLength)
+        try container.encode(flags, forKey: .flags)
     }
 }
 

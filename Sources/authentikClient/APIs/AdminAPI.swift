@@ -161,12 +161,12 @@ open class AdminAPI {
 
     /**
 
-     - parameter settingsRequest: (body)  (optional)
+     - parameter settingsRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Settings
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func adminSettingsUpdate(settingsRequest: SettingsRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> Settings {
+    open class func adminSettingsUpdate(settingsRequest: SettingsRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> Settings {
         return try await adminSettingsUpdateWithRequestBuilder(settingsRequest: settingsRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -176,11 +176,11 @@ open class AdminAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter settingsRequest: (body)  (optional)
+     - parameter settingsRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Settings> 
      */
-    open class func adminSettingsUpdateWithRequestBuilder(settingsRequest: SettingsRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Settings> {
+    open class func adminSettingsUpdateWithRequestBuilder(settingsRequest: SettingsRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Settings> {
         let localVariablePath = "/admin/settings/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: settingsRequest, codableHelper: apiConfiguration.codableHelper)

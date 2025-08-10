@@ -128,6 +128,7 @@ Sources/authentikClient/Models/ContextualFlowInfo.swift
 Sources/authentikClient/Models/ContextualFlowInfoLayoutEnum.swift
 Sources/authentikClient/Models/CountryCodeEnum.swift
 Sources/authentikClient/Models/CurrentBrand.swift
+Sources/authentikClient/Models/CurrentBrandFlags.swift
 Sources/authentikClient/Models/DeliveryMethodEnum.swift
 Sources/authentikClient/Models/DeniedActionEnum.swift
 Sources/authentikClient/Models/DenyStage.swift
@@ -565,6 +566,7 @@ Sources/authentikClient/Models/PatchedSSFProviderRequest.swift
 Sources/authentikClient/Models/PatchedScheduleRequest.swift
 Sources/authentikClient/Models/PatchedScopeMappingRequest.swift
 Sources/authentikClient/Models/PatchedSettingsRequest.swift
+Sources/authentikClient/Models/PatchedSettingsRequestFlags.swift
 Sources/authentikClient/Models/PatchedSourceStageRequest.swift
 Sources/authentikClient/Models/PatchedStaticDeviceRequest.swift
 Sources/authentikClient/Models/PatchedTOTPDeviceRequest.swift
@@ -884,6 +886,7 @@ docs/CoreAPI.md
 docs/CountryCodeEnum.md
 docs/CryptoAPI.md
 docs/CurrentBrand.md
+docs/CurrentBrandFlags.md
 docs/DeliveryMethodEnum.md
 docs/DeniedActionEnum.md
 docs/DenyStage.md
@@ -1327,6 +1330,7 @@ docs/PatchedSSFProviderRequest.md
 docs/PatchedScheduleRequest.md
 docs/PatchedScopeMappingRequest.md
 docs/PatchedSettingsRequest.md
+docs/PatchedSettingsRequestFlags.md
 docs/PatchedSourceStageRequest.md
 docs/PatchedStaticDeviceRequest.md
 docs/PatchedTOTPDeviceRequest.md

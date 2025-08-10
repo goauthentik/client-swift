@@ -24,8 +24,9 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
     public var flowUserSettings: String?
     public var flowDeviceCode: String?
     public var defaultLocale: String
+    public var flags: CurrentBrandFlags
 
-    public init(matchedDomain: String, brandingTitle: String, brandingLogo: String, brandingFavicon: String, brandingCustomCss: String, uiFooterLinks: [FooterLink], uiTheme: UiThemeEnum, flowAuthentication: String? = nil, flowInvalidation: String? = nil, flowRecovery: String? = nil, flowUnenrollment: String? = nil, flowUserSettings: String? = nil, flowDeviceCode: String? = nil, defaultLocale: String) {
+    public init(matchedDomain: String, brandingTitle: String, brandingLogo: String, brandingFavicon: String, brandingCustomCss: String, uiFooterLinks: [FooterLink], uiTheme: UiThemeEnum, flowAuthentication: String? = nil, flowInvalidation: String? = nil, flowRecovery: String? = nil, flowUnenrollment: String? = nil, flowUserSettings: String? = nil, flowDeviceCode: String? = nil, defaultLocale: String, flags: CurrentBrandFlags) {
         self.matchedDomain = matchedDomain
         self.brandingTitle = brandingTitle
         self.brandingLogo = brandingLogo
@@ -40,6 +41,7 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
         self.flowUserSettings = flowUserSettings
         self.flowDeviceCode = flowDeviceCode
         self.defaultLocale = defaultLocale
+        self.flags = flags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -57,6 +59,7 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
         case flowUserSettings = "flow_user_settings"
         case flowDeviceCode = "flow_device_code"
         case defaultLocale = "default_locale"
+        case flags
     }
 
     // Encodable protocol methods
@@ -77,6 +80,7 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(flowUserSettings, forKey: .flowUserSettings)
         try container.encodeIfPresent(flowDeviceCode, forKey: .flowDeviceCode)
         try container.encode(defaultLocale, forKey: .defaultLocale)
+        try container.encode(flags, forKey: .flags)
     }
 }
 
