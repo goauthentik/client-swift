@@ -2848,7 +2848,7 @@ open class CoreAPI {
 
     /**
      - POST /core/users/{id}/recovery/
-     - Create a temporary link that a user can use to recover their accounts
+     - Create a temporary link that a user can use to recover their account
      - Bearer Token:
        - type: http
        - name: authentik
@@ -2891,7 +2891,7 @@ open class CoreAPI {
 
     /**
      - POST /core/users/{id}/recovery_email/
-     - Create a temporary link that a user can use to recover their accounts
+     - Send an email with a temporary link that a user can use to recover their account
      - Bearer Token:
        - type: http
        - name: authentik

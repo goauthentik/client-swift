@@ -3228,7 +3228,7 @@ Name | Type | Description  | Notes
 
 
 
-Create a temporary link that a user can use to recover their accounts
+Create a temporary link that a user can use to recover their account
 
 ### Example
 ```swift
@@ -3277,7 +3277,7 @@ Name | Type | Description  | Notes
 
 
 
-Create a temporary link that a user can use to recover their accounts
+Send an email with a temporary link that a user can use to recover their account
 
 ### Example
 ```swift
