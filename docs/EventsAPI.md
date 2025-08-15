@@ -1260,7 +1260,7 @@ NotificationTransport Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // NotificationTransportRequest | 
+let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, emailSubjectPrefix: "emailSubjectPrefix_example", emailTemplate: "emailTemplate_example", sendOnce: false) // NotificationTransportRequest | 
 
 EventsAPI.eventsTransportsCreate(notificationTransportRequest: notificationTransportRequest) { (response, error) in
     guard error == nil else {
@@ -1422,7 +1422,7 @@ NotificationTransport Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
-let patchedNotificationTransportRequest = PatchedNotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // PatchedNotificationTransportRequest |  (optional)
+let patchedNotificationTransportRequest = PatchedNotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, emailSubjectPrefix: "emailSubjectPrefix_example", emailTemplate: "emailTemplate_example", sendOnce: false) // PatchedNotificationTransportRequest |  (optional)
 
 EventsAPI.eventsTransportsPartialUpdate(uuid: uuid, patchedNotificationTransportRequest: patchedNotificationTransportRequest) { (response, error) in
     guard error == nil else {
@@ -1571,7 +1571,7 @@ NotificationTransport Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification Transport.
-let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, sendOnce: false) // NotificationTransportRequest | 
+let notificationTransportRequest = NotificationTransportRequest(name: "name_example", mode: NotificationTransportModeEnum(), webhookUrl: "webhookUrl_example", webhookMappingBody: 123, webhookMappingHeaders: 123, emailSubjectPrefix: "emailSubjectPrefix_example", emailTemplate: "emailTemplate_example", sendOnce: false) // NotificationTransportRequest | 
 
 EventsAPI.eventsTransportsUpdate(uuid: uuid, notificationTransportRequest: notificationTransportRequest) { (response, error) in
     guard error == nil else {

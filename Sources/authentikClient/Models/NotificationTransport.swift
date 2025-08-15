@@ -20,10 +20,12 @@ public struct NotificationTransport: Sendable, Codable, ParameterConvertible, Ha
     public var webhookMappingBody: UUID?
     /** Configure additional headers to be sent. Mapping should return a dictionary of key-value pairs */
     public var webhookMappingHeaders: UUID?
+    public var emailSubjectPrefix: String?
+    public var emailTemplate: String?
     /** Only send notification once, for example when sending a webhook into a chat channel. */
     public var sendOnce: Bool?
 
-    public init(pk: UUID, name: String, mode: NotificationTransportModeEnum? = nil, modeVerbose: String, webhookUrl: String? = nil, webhookMappingBody: UUID? = nil, webhookMappingHeaders: UUID? = nil, sendOnce: Bool? = nil) {
+    public init(pk: UUID, name: String, mode: NotificationTransportModeEnum? = nil, modeVerbose: String, webhookUrl: String? = nil, webhookMappingBody: UUID? = nil, webhookMappingHeaders: UUID? = nil, emailSubjectPrefix: String? = nil, emailTemplate: String? = nil, sendOnce: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.mode = mode
@@ -31,6 +33,8 @@ public struct NotificationTransport: Sendable, Codable, ParameterConvertible, Ha
         self.webhookUrl = webhookUrl
         self.webhookMappingBody = webhookMappingBody
         self.webhookMappingHeaders = webhookMappingHeaders
+        self.emailSubjectPrefix = emailSubjectPrefix
+        self.emailTemplate = emailTemplate
         self.sendOnce = sendOnce
     }
 
@@ -42,6 +46,8 @@ public struct NotificationTransport: Sendable, Codable, ParameterConvertible, Ha
         case webhookUrl = "webhook_url"
         case webhookMappingBody = "webhook_mapping_body"
         case webhookMappingHeaders = "webhook_mapping_headers"
+        case emailSubjectPrefix = "email_subject_prefix"
+        case emailTemplate = "email_template"
         case sendOnce = "send_once"
     }
 
@@ -56,6 +62,8 @@ public struct NotificationTransport: Sendable, Codable, ParameterConvertible, Ha
         try container.encodeIfPresent(webhookUrl, forKey: .webhookUrl)
         try container.encodeIfPresent(webhookMappingBody, forKey: .webhookMappingBody)
         try container.encodeIfPresent(webhookMappingHeaders, forKey: .webhookMappingHeaders)
+        try container.encodeIfPresent(emailSubjectPrefix, forKey: .emailSubjectPrefix)
+        try container.encodeIfPresent(emailTemplate, forKey: .emailTemplate)
         try container.encodeIfPresent(sendOnce, forKey: .sendOnce)
     }
 }

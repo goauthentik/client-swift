@@ -11,6 +11,7 @@ import Foundation
 public struct NotificationTransportRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let emailTemplateRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
     public var mode: NotificationTransportModeEnum?
     public var webhookUrl: String?
@@ -18,15 +19,19 @@ public struct NotificationTransportRequest: Sendable, Codable, ParameterConverti
     public var webhookMappingBody: UUID?
     /** Configure additional headers to be sent. Mapping should return a dictionary of key-value pairs */
     public var webhookMappingHeaders: UUID?
+    public var emailSubjectPrefix: String?
+    public var emailTemplate: String?
     /** Only send notification once, for example when sending a webhook into a chat channel. */
     public var sendOnce: Bool?
 
-    public init(name: String, mode: NotificationTransportModeEnum? = nil, webhookUrl: String? = nil, webhookMappingBody: UUID? = nil, webhookMappingHeaders: UUID? = nil, sendOnce: Bool? = nil) {
+    public init(name: String, mode: NotificationTransportModeEnum? = nil, webhookUrl: String? = nil, webhookMappingBody: UUID? = nil, webhookMappingHeaders: UUID? = nil, emailSubjectPrefix: String? = nil, emailTemplate: String? = nil, sendOnce: Bool? = nil) {
         self.name = name
         self.mode = mode
         self.webhookUrl = webhookUrl
         self.webhookMappingBody = webhookMappingBody
         self.webhookMappingHeaders = webhookMappingHeaders
+        self.emailSubjectPrefix = emailSubjectPrefix
+        self.emailTemplate = emailTemplate
         self.sendOnce = sendOnce
     }
 
@@ -36,6 +41,8 @@ public struct NotificationTransportRequest: Sendable, Codable, ParameterConverti
         case webhookUrl = "webhook_url"
         case webhookMappingBody = "webhook_mapping_body"
         case webhookMappingHeaders = "webhook_mapping_headers"
+        case emailSubjectPrefix = "email_subject_prefix"
+        case emailTemplate = "email_template"
         case sendOnce = "send_once"
     }
 
@@ -48,6 +55,8 @@ public struct NotificationTransportRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(webhookUrl, forKey: .webhookUrl)
         try container.encodeIfPresent(webhookMappingBody, forKey: .webhookMappingBody)
         try container.encodeIfPresent(webhookMappingHeaders, forKey: .webhookMappingHeaders)
+        try container.encodeIfPresent(emailSubjectPrefix, forKey: .emailSubjectPrefix)
+        try container.encodeIfPresent(emailTemplate, forKey: .emailTemplate)
         try container.encodeIfPresent(sendOnce, forKey: .sendOnce)
     }
 }
