@@ -7,6 +7,7 @@
 
 import Foundation
 
+/** Payload to set a users&#39; password directly */
 public struct UserPasswordSetRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let passwordRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
