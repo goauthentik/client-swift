@@ -1870,7 +1870,7 @@ Name | Type | Description  | Notes
 
 
 
-Add user to group
+Remove user from group
 
 ### Example
 ```swift

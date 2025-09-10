@@ -1623,7 +1623,7 @@ open class CoreAPI {
 
     /**
      - POST /core/groups/{group_uuid}/remove_user/
-     - Add user to group
+     - Remove user from group
      - Bearer Token:
        - type: http
        - name: authentik
