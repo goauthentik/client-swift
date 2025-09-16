@@ -11,7 +11,6 @@ import Foundation
 public struct PatchedAuthenticatorWebAuthnStageRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let friendlyNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let maxAttemptsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var name: String?
     public var flowSet: [FlowSetRequest]?

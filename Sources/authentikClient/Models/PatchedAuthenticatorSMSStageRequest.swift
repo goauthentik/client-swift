@@ -11,7 +11,6 @@ import Foundation
 public struct PatchedAuthenticatorSMSStageRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let friendlyNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let fromNumberRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let accountSidRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let authRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)

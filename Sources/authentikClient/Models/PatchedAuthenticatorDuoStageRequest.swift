@@ -11,7 +11,6 @@ import Foundation
 public struct PatchedAuthenticatorDuoStageRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let friendlyNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let clientIdRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let clientSecretRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let apiHostnameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)

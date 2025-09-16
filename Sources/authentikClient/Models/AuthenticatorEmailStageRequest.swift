@@ -11,7 +11,6 @@ import Foundation
 public struct AuthenticatorEmailStageRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let friendlyNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let hostRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let portRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let timeoutRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)

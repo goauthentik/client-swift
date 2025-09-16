@@ -11,7 +11,6 @@ import Foundation
 public struct AuthenticatorEndpointGDTCStageRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let friendlyNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
     public var flowSet: [FlowSetRequest]?
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
