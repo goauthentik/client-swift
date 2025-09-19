@@ -371,7 +371,7 @@ open class RacAPI {
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter provider: (query)  (optional)
-     - parameter search: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
      - parameter superuserFullList: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedEndpointList
@@ -392,7 +392,7 @@ open class RacAPI {
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter provider: (query)  (optional)
-     - parameter search: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
      - parameter superuserFullList: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedEndpointList> 

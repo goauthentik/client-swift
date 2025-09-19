@@ -2795,7 +2795,7 @@ open class CoreAPI {
 
     /**
 
-     - parameter search: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: UserPath
      */
@@ -2810,7 +2810,7 @@ open class CoreAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter search: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<UserPath> 
      */

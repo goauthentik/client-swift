@@ -446,7 +446,7 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let provider = 987 // Int |  (optional)
-let search = "search_example" // String |  (optional)
+let search = "search_example" // String | A search term. (optional)
 let superuserFullList = true // Bool |  (optional)
 
 RacAPI.racEndpointsList(name: name, ordering: ordering, page: page, pageSize: pageSize, provider: provider, search: search, superuserFullList: superuserFullList) { (response, error) in
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **provider** | **Int** |  | [optional] 
- **search** | **String** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
  **superuserFullList** | **Bool** |  | [optional] 
 
 ### Return type

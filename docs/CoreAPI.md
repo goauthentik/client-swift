@@ -3186,7 +3186,7 @@ Get all user paths
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let search = "search_example" // String |  (optional)
+let search = "search_example" // String | A search term. (optional)
 
 CoreAPI.coreUsersPathsRetrieve(search: search) { (response, error) in
     guard error == nil else {
@@ -3204,7 +3204,7 @@ CoreAPI.coreUsersPathsRetrieve(search: search) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | **String** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
 
 ### Return type
 
