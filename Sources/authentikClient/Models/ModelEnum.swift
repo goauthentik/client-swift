@@ -86,7 +86,6 @@ public enum ModelEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefa
     case authentikStagesAuthenticatorWebauthnPeriodWebauthndevice = "authentik_stages_authenticator_webauthn.webauthndevice"
     case authentikStagesCaptchaPeriodCaptchastage = "authentik_stages_captcha.captchastage"
     case authentikStagesConsentPeriodConsentstage = "authentik_stages_consent.consentstage"
-    case authentikStagesConsentPeriodUserconsent = "authentik_stages_consent.userconsent"
     case authentikStagesDenyPeriodDenystage = "authentik_stages_deny.denystage"
     case authentikStagesDummyPeriodDummystage = "authentik_stages_dummy.dummystage"
     case authentikStagesEmailPeriodEmailstage = "authentik_stages_email.emailstage"
