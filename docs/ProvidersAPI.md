@@ -3925,7 +3925,7 @@ RadiusProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
+let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false, certificate: 123) // RadiusProviderRequest | 
 
 ProvidersAPI.providersRadiusCreate(radiusProviderRequest: radiusProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4087,7 +4087,7 @@ RadiusProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
-let patchedRadiusProviderRequest = PatchedRadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // PatchedRadiusProviderRequest |  (optional)
+let patchedRadiusProviderRequest = PatchedRadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false, certificate: 123) // PatchedRadiusProviderRequest |  (optional)
 
 ProvidersAPI.providersRadiusPartialUpdate(id: id, patchedRadiusProviderRequest: patchedRadiusProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4187,7 +4187,7 @@ RadiusProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Radius Provider.
-let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false) // RadiusProviderRequest | 
+let radiusProviderRequest = RadiusProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", mfaSupport: false, certificate: 123) // RadiusProviderRequest | 
 
 ProvidersAPI.providersRadiusUpdate(id: id, radiusProviderRequest: radiusProviderRequest) { (response, error) in
     guard error == nil else {

@@ -10,11 +10,11 @@ import Foundation
 /** Get ASN Data */
 public struct AuthenticatedSessionAsn: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public var asn: Int
+    public var asn: Int?
     public var asOrg: String?
     public var network: String?
 
-    public init(asn: Int, asOrg: String?, network: String?) {
+    public init(asn: Int?, asOrg: String?, network: String?) {
         self.asn = asn
         self.asOrg = asOrg
         self.network = network

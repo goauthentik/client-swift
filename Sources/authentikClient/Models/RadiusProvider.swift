@@ -42,8 +42,9 @@ public struct RadiusProvider: Sendable, Codable, ParameterConvertible, Hashable 
     public var outpostSet: [String]
     /** When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon. */
     public var mfaSupport: Bool?
+    public var certificate: UUID?
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientNetworks: String? = nil, sharedSecret: String? = nil, outpostSet: [String], mfaSupport: Bool? = nil) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientNetworks: String? = nil, sharedSecret: String? = nil, outpostSet: [String], mfaSupport: Bool? = nil, certificate: UUID? = nil) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow
@@ -62,6 +63,7 @@ public struct RadiusProvider: Sendable, Codable, ParameterConvertible, Hashable 
         self.sharedSecret = sharedSecret
         self.outpostSet = outpostSet
         self.mfaSupport = mfaSupport
+        self.certificate = certificate
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -83,6 +85,7 @@ public struct RadiusProvider: Sendable, Codable, ParameterConvertible, Hashable 
         case sharedSecret = "shared_secret"
         case outpostSet = "outpost_set"
         case mfaSupport = "mfa_support"
+        case certificate
     }
 
     // Encodable protocol methods
@@ -107,6 +110,7 @@ public struct RadiusProvider: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encodeIfPresent(sharedSecret, forKey: .sharedSecret)
         try container.encode(outpostSet, forKey: .outpostSet)
         try container.encodeIfPresent(mfaSupport, forKey: .mfaSupport)
+        try container.encodeIfPresent(certificate, forKey: .certificate)
     }
 }
 

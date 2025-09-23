@@ -10,13 +10,13 @@ import Foundation
 /** Get GeoIP Data */
 public struct AuthenticatedSessionGeoIp: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public var continent: String
-    public var country: String
-    public var lat: Double
-    public var long: Double
+    public var continent: String?
+    public var country: String?
+    public var lat: Double?
+    public var long: Double?
     public var city: String
 
-    public init(continent: String, country: String, lat: Double, long: Double, city: String) {
+    public init(continent: String?, country: String?, lat: Double?, long: Double?, city: String) {
         self.continent = continent
         self.country = country
         self.lat = lat
