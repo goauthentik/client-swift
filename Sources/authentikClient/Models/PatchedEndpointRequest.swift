@@ -19,10 +19,10 @@ public struct PatchedEndpointRequest: Sendable, Codable, ParameterConvertible, H
     public var host: String?
     public var settings: [String: JSONValue]?
     public var propertyMappings: [UUID]?
-    public var authMode: AuthModeEnum?
+    public var authMode: EndpointAuthModeEnum?
     public var maximumConnections: Int?
 
-    public init(name: String? = nil, provider: Int? = nil, _protocol: ProtocolEnum? = nil, host: String? = nil, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum? = nil, maximumConnections: Int? = nil) {
+    public init(name: String? = nil, provider: Int? = nil, _protocol: ProtocolEnum? = nil, host: String? = nil, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: EndpointAuthModeEnum? = nil, maximumConnections: Int? = nil) {
         self.name = name
         self.provider = provider
         self._protocol = _protocol

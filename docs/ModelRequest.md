@@ -77,7 +77,10 @@ Name | Type | Description | Notes
 **defaultNameIdPolicy** | [**SAMLNameIDPolicyEnum**](SAMLNameIDPolicyEnum.md) |  | [optional] 
 **url** | **String** | Base URL to SCIM requests, usually ends in /v2 | 
 **verifyCertificates** | **Bool** |  | [optional] 
-**token** | **String** | Authentication token | 
+**token** | **String** | Authentication token | [optional] 
+**authMode** | [**SCIMAuthenticationModeEnum**](SCIMAuthenticationModeEnum.md) |  | [optional] 
+**authOauth** | **UUID** | OAuth Source used for authentication | [optional] 
+**authOauthParams** | **[String: JSONValue]** | Additional OAuth parameters, such as grant_type | [optional] 
 **compatibilityMode** | [**CompatibilityModeEnum**](CompatibilityModeEnum.md) | Alter authentik behavior for vendor-specific SCIM implementations. | [optional] 
 **oidcAuthProviders** | **[Int]** |  | [optional] 
 **eventRetention** | **String** |  | [optional] 

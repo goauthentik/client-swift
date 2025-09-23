@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **identifier** | **String** |  | 
 **created** | **Date** |  | [readonly] 
 **lastUpdated** | **Date** |  | [readonly] 
+**expires** | **Date** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **host** | **String** |  | 
 **settings** | **[String: JSONValue]** |  | [optional] 
 **propertyMappings** | **[UUID]** |  | [optional] 
-**authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  | 
+**authMode** | [**EndpointAuthModeEnum**](EndpointAuthModeEnum.md) |  | 
 **launchUrl** | **String** | Build actual launch URL (the provider itself does not have one, just individual endpoints) | [readonly] 
 **maximumConnections** | **Int** |  | [optional] 
 

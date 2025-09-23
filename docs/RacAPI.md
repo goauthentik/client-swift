@@ -343,7 +343,7 @@ Endpoint Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let endpointRequest = EndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: AuthModeEnum(), maximumConnections: 123) // EndpointRequest | 
+let endpointRequest = EndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: EndpointAuthModeEnum(), maximumConnections: 123) // EndpointRequest | 
 
 RacAPI.racEndpointsCreate(endpointRequest: endpointRequest) { (response, error) in
     guard error == nil else {
@@ -503,7 +503,7 @@ Endpoint Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this RAC Endpoint.
-let patchedEndpointRequest = PatchedEndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: AuthModeEnum(), maximumConnections: 123) // PatchedEndpointRequest |  (optional)
+let patchedEndpointRequest = PatchedEndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: EndpointAuthModeEnum(), maximumConnections: 123) // PatchedEndpointRequest |  (optional)
 
 RacAPI.racEndpointsPartialUpdate(pbmUuid: pbmUuid, patchedEndpointRequest: patchedEndpointRequest) { (response, error) in
     guard error == nil else {
@@ -603,7 +603,7 @@ Endpoint Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this RAC Endpoint.
-let endpointRequest = EndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: AuthModeEnum(), maximumConnections: 123) // EndpointRequest | 
+let endpointRequest = EndpointRequest(name: "name_example", provider: 123, _protocol: ProtocolEnum(), host: "host_example", settings: "TODO", propertyMappings: [123], authMode: EndpointAuthModeEnum(), maximumConnections: 123) // EndpointRequest | 
 
 RacAPI.racEndpointsUpdate(pbmUuid: pbmUuid, endpointRequest: endpointRequest) { (response, error) in
     guard error == nil else {

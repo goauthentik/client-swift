@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **host** | **String** |  | [optional] 
 **settings** | **[String: JSONValue]** |  | [optional] 
 **propertyMappings** | **[UUID]** |  | [optional] 
-**authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  | [optional] 
+**authMode** | [**EndpointAuthModeEnum**](EndpointAuthModeEnum.md) |  | [optional] 
 **maximumConnections** | **Int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

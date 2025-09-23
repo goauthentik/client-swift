@@ -19,12 +19,12 @@ public struct Endpoint: Sendable, Codable, ParameterConvertible, Hashable {
     public var host: String
     public var settings: [String: JSONValue]?
     public var propertyMappings: [UUID]?
-    public var authMode: AuthModeEnum
+    public var authMode: EndpointAuthModeEnum
     /** Build actual launch URL (the provider itself does not have one, just individual endpoints) */
     public var launchUrl: String?
     public var maximumConnections: Int?
 
-    public init(pk: UUID, name: String, provider: Int, providerObj: RACProvider, _protocol: ProtocolEnum, host: String, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum, launchUrl: String?, maximumConnections: Int? = nil) {
+    public init(pk: UUID, name: String, provider: Int, providerObj: RACProvider, _protocol: ProtocolEnum, host: String, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: EndpointAuthModeEnum, launchUrl: String?, maximumConnections: Int? = nil) {
         self.pk = pk
         self.name = name
         self.provider = provider

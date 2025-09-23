@@ -19,10 +19,10 @@ public struct EndpointRequest: Sendable, Codable, ParameterConvertible, Hashable
     public var host: String
     public var settings: [String: JSONValue]?
     public var propertyMappings: [UUID]?
-    public var authMode: AuthModeEnum
+    public var authMode: EndpointAuthModeEnum
     public var maximumConnections: Int?
 
-    public init(name: String, provider: Int, _protocol: ProtocolEnum, host: String, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: AuthModeEnum, maximumConnections: Int? = nil) {
+    public init(name: String, provider: Int, _protocol: ProtocolEnum, host: String, settings: [String: JSONValue]? = nil, propertyMappings: [UUID]? = nil, authMode: EndpointAuthModeEnum, maximumConnections: Int? = nil) {
         self.name = name
         self.provider = provider
         self._protocol = _protocol

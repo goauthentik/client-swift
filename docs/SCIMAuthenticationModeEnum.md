@@ -1,4 +1,4 @@
-# AuthModeEnum
+# SCIMAuthenticationModeEnum
 
 ## Properties
 Name | Type | Description | Notes

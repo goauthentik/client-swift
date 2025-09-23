@@ -17,8 +17,9 @@ public struct UserOAuthSourceConnection: Sendable, Codable, ParameterConvertible
     public var identifier: String
     public var created: Date
     public var lastUpdated: Date
+    public var expires: Date?
 
-    public init(pk: Int, user: Int, source: UUID, sourceObj: Source, identifier: String, created: Date, lastUpdated: Date) {
+    public init(pk: Int, user: Int, source: UUID, sourceObj: Source, identifier: String, created: Date, lastUpdated: Date, expires: Date? = nil) {
         self.pk = pk
         self.user = user
         self.source = source
@@ -26,6 +27,7 @@ public struct UserOAuthSourceConnection: Sendable, Codable, ParameterConvertible
         self.identifier = identifier
         self.created = created
         self.lastUpdated = lastUpdated
+        self.expires = expires
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -36,6 +38,7 @@ public struct UserOAuthSourceConnection: Sendable, Codable, ParameterConvertible
         case identifier
         case created
         case lastUpdated = "last_updated"
+        case expires
     }
 
     // Encodable protocol methods
@@ -49,6 +52,7 @@ public struct UserOAuthSourceConnection: Sendable, Codable, ParameterConvertible
         try container.encode(identifier, forKey: .identifier)
         try container.encode(created, forKey: .created)
         try container.encode(lastUpdated, forKey: .lastUpdated)
+        try container.encodeIfPresent(expires, forKey: .expires)
     }
 }
 

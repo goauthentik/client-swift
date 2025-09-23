@@ -47,7 +47,6 @@ Sources/authentikClient/Models/Application.swift
 Sources/authentikClient/Models/ApplicationEntitlement.swift
 Sources/authentikClient/Models/ApplicationEntitlementRequest.swift
 Sources/authentikClient/Models/ApplicationRequest.swift
-Sources/authentikClient/Models/AuthModeEnum.swift
 Sources/authentikClient/Models/AuthTypeEnum.swift
 Sources/authentikClient/Models/AuthenticatedSession.swift
 Sources/authentikClient/Models/AuthenticatedSessionAsn.swift
@@ -163,6 +162,7 @@ Sources/authentikClient/Models/EmailDeviceRequest.swift
 Sources/authentikClient/Models/EmailStage.swift
 Sources/authentikClient/Models/EmailStageRequest.swift
 Sources/authentikClient/Models/Endpoint.swift
+Sources/authentikClient/Models/EndpointAuthModeEnum.swift
 Sources/authentikClient/Models/EndpointDevice.swift
 Sources/authentikClient/Models/EndpointDeviceRequest.swift
 Sources/authentikClient/Models/EndpointRequest.swift
@@ -659,6 +659,7 @@ Sources/authentikClient/Models/SAMLSource.swift
 Sources/authentikClient/Models/SAMLSourcePropertyMapping.swift
 Sources/authentikClient/Models/SAMLSourcePropertyMappingRequest.swift
 Sources/authentikClient/Models/SAMLSourceRequest.swift
+Sources/authentikClient/Models/SCIMAuthenticationModeEnum.swift
 Sources/authentikClient/Models/SCIMMapping.swift
 Sources/authentikClient/Models/SCIMMappingRequest.swift
 Sources/authentikClient/Models/SCIMProvider.swift
@@ -802,7 +803,6 @@ docs/Application.md
 docs/ApplicationEntitlement.md
 docs/ApplicationEntitlementRequest.md
 docs/ApplicationRequest.md
-docs/AuthModeEnum.md
 docs/AuthTypeEnum.md
 docs/AuthenticatedSession.md
 docs/AuthenticatedSessionAsn.md
@@ -921,6 +921,7 @@ docs/EmailDeviceRequest.md
 docs/EmailStage.md
 docs/EmailStageRequest.md
 docs/Endpoint.md
+docs/EndpointAuthModeEnum.md
 docs/EndpointDevice.md
 docs/EndpointDeviceRequest.md
 docs/EndpointRequest.md
@@ -1429,6 +1430,7 @@ docs/SAMLSource.md
 docs/SAMLSourcePropertyMapping.md
 docs/SAMLSourcePropertyMappingRequest.md
 docs/SAMLSourceRequest.md
+docs/SCIMAuthenticationModeEnum.md
 docs/SCIMMapping.md
 docs/SCIMMappingRequest.md
 docs/SCIMProvider.md

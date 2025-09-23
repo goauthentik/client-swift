@@ -70,6 +70,7 @@ public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaul
     case authentikPeriodEnterprisePeriodPoliciesPeriodUniquePassword = "authentik.enterprise.policies.unique_password"
     case authentikPeriodEnterprisePeriodProvidersPeriodGoogleWorkspace = "authentik.enterprise.providers.google_workspace"
     case authentikPeriodEnterprisePeriodProvidersPeriodMicrosoftEntra = "authentik.enterprise.providers.microsoft_entra"
+    case authentikPeriodEnterprisePeriodProvidersPeriodScim = "authentik.enterprise.providers.scim"
     case authentikPeriodEnterprisePeriodProvidersPeriodSsf = "authentik.enterprise.providers.ssf"
     case authentikPeriodEnterprisePeriodSearch = "authentik.enterprise.search"
     case authentikPeriodEnterprisePeriodStagesPeriodAuthenticatorEndpointGdtc = "authentik.enterprise.stages.authenticator_endpoint_gdtc"

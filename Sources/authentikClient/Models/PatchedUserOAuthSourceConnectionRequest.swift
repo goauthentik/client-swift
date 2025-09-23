@@ -15,12 +15,14 @@ public struct PatchedUserOAuthSourceConnectionRequest: Sendable, Codable, Parame
     public var source: UUID?
     public var identifier: String?
     public var accessToken: String?
+    public var expires: Date?
 
-    public init(user: Int? = nil, source: UUID? = nil, identifier: String? = nil, accessToken: String? = nil) {
+    public init(user: Int? = nil, source: UUID? = nil, identifier: String? = nil, accessToken: String? = nil, expires: Date? = nil) {
         self.user = user
         self.source = source
         self.identifier = identifier
         self.accessToken = accessToken
+        self.expires = expires
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -28,6 +30,7 @@ public struct PatchedUserOAuthSourceConnectionRequest: Sendable, Codable, Parame
         case source
         case identifier
         case accessToken = "access_token"
+        case expires
     }
 
     // Encodable protocol methods
@@ -38,6 +41,7 @@ public struct PatchedUserOAuthSourceConnectionRequest: Sendable, Codable, Parame
         try container.encodeIfPresent(source, forKey: .source)
         try container.encodeIfPresent(identifier, forKey: .identifier)
         try container.encodeIfPresent(accessToken, forKey: .accessToken)
+        try container.encodeIfPresent(expires, forKey: .expires)
     }
 }
 

@@ -7055,7 +7055,7 @@ User-source connection Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example") // UserOAuthSourceConnectionRequest | 
+let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example", expires: Date()) // UserOAuthSourceConnectionRequest | 
 
 SourcesAPI.sourcesUserConnectionsOauthCreate(userOAuthSourceConnectionRequest: userOAuthSourceConnectionRequest) { (response, error) in
     guard error == nil else {
@@ -7213,7 +7213,7 @@ User-source connection Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
-let patchedUserOAuthSourceConnectionRequest = PatchedUserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example") // PatchedUserOAuthSourceConnectionRequest |  (optional)
+let patchedUserOAuthSourceConnectionRequest = PatchedUserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example", expires: Date()) // PatchedUserOAuthSourceConnectionRequest |  (optional)
 
 SourcesAPI.sourcesUserConnectionsOauthPartialUpdate(id: id, patchedUserOAuthSourceConnectionRequest: patchedUserOAuthSourceConnectionRequest) { (response, error) in
     guard error == nil else {
@@ -7313,7 +7313,7 @@ User-source connection Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User OAuth Source Connection.
-let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example") // UserOAuthSourceConnectionRequest | 
+let userOAuthSourceConnectionRequest = UserOAuthSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example", accessToken: "accessToken_example", expires: Date()) // UserOAuthSourceConnectionRequest | 
 
 SourcesAPI.sourcesUserConnectionsOauthUpdate(id: id, userOAuthSourceConnectionRequest: userOAuthSourceConnectionRequest) { (response, error) in
     guard error == nil else {

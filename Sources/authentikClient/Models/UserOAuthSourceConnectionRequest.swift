@@ -15,12 +15,14 @@ public struct UserOAuthSourceConnectionRequest: Sendable, Codable, ParameterConv
     public var source: UUID
     public var identifier: String
     public var accessToken: String?
+    public var expires: Date?
 
-    public init(user: Int, source: UUID, identifier: String, accessToken: String? = nil) {
+    public init(user: Int, source: UUID, identifier: String, accessToken: String? = nil, expires: Date? = nil) {
         self.user = user
         self.source = source
         self.identifier = identifier
         self.accessToken = accessToken
+        self.expires = expires
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -28,6 +30,7 @@ public struct UserOAuthSourceConnectionRequest: Sendable, Codable, ParameterConv
         case source
         case identifier
         case accessToken = "access_token"
+        case expires
     }
 
     // Encodable protocol methods
@@ -38,6 +41,7 @@ public struct UserOAuthSourceConnectionRequest: Sendable, Codable, ParameterConv
         try container.encode(source, forKey: .source)
         try container.encode(identifier, forKey: .identifier)
         try container.encodeIfPresent(accessToken, forKey: .accessToken)
+        try container.encodeIfPresent(expires, forKey: .expires)
     }
 }
 

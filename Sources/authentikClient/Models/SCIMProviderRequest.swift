@@ -12,7 +12,6 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let urlRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let tokenRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
     public var propertyMappings: [UUID]?
     /** Property mappings used for group creation/updating. */
@@ -21,7 +20,12 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
     public var url: String
     public var verifyCertificates: Bool?
     /** Authentication token */
-    public var token: String
+    public var token: String?
+    public var authMode: SCIMAuthenticationModeEnum?
+    /** OAuth Source used for authentication */
+    public var authOauth: UUID?
+    /** Additional OAuth parameters, such as grant_type */
+    public var authOauthParams: [String: JSONValue]?
     /** Alter authentik behavior for vendor-specific SCIM implementations. */
     public var compatibilityMode: CompatibilityModeEnum?
     public var excludeUsersServiceAccount: Bool?
@@ -29,13 +33,16 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String, verifyCertificates: Bool? = nil, token: String, compatibilityMode: CompatibilityModeEnum? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, dryRun: Bool? = nil) {
+    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, dryRun: Bool? = nil) {
         self.name = name
         self.propertyMappings = propertyMappings
         self.propertyMappingsGroup = propertyMappingsGroup
         self.url = url
         self.verifyCertificates = verifyCertificates
         self.token = token
+        self.authMode = authMode
+        self.authOauth = authOauth
+        self.authOauthParams = authOauthParams
         self.compatibilityMode = compatibilityMode
         self.excludeUsersServiceAccount = excludeUsersServiceAccount
         self.filterGroup = filterGroup
@@ -49,6 +56,9 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         case url
         case verifyCertificates = "verify_certificates"
         case token
+        case authMode = "auth_mode"
+        case authOauth = "auth_oauth"
+        case authOauthParams = "auth_oauth_params"
         case compatibilityMode = "compatibility_mode"
         case excludeUsersServiceAccount = "exclude_users_service_account"
         case filterGroup = "filter_group"
@@ -64,7 +74,10 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         try container.encodeIfPresent(propertyMappingsGroup, forKey: .propertyMappingsGroup)
         try container.encode(url, forKey: .url)
         try container.encodeIfPresent(verifyCertificates, forKey: .verifyCertificates)
-        try container.encode(token, forKey: .token)
+        try container.encodeIfPresent(token, forKey: .token)
+        try container.encodeIfPresent(authMode, forKey: .authMode)
+        try container.encodeIfPresent(authOauth, forKey: .authOauth)
+        try container.encodeIfPresent(authOauthParams, forKey: .authOauthParams)
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encodeIfPresent(excludeUsersServiceAccount, forKey: .excludeUsersServiceAccount)
         try container.encodeIfPresent(filterGroup, forKey: .filterGroup)
