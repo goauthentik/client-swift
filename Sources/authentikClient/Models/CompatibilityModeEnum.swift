@@ -11,5 +11,6 @@ public enum CompatibilityModeEnum: String, Sendable, Codable, CaseIterable, Case
     case _default = "default"
     case aws = "aws"
     case slack = "slack"
+    case sfdc = "sfdc"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }
