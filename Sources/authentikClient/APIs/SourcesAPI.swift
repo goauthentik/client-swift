@@ -4090,6 +4090,8 @@ open class SourcesAPI {
      - parameter preAuthenticationFlow: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter signatureAlgorithm: (query)  (optional)
+     - parameter signedAssertion: (query)  (optional)
+     - parameter signedResponse: (query)  (optional)
      - parameter signingKp: (query)  (optional)
      - parameter sloUrl: (query)  (optional)
      - parameter slug: (query)  (optional)
@@ -4101,8 +4103,8 @@ open class SourcesAPI {
      - returns: PaginatedSAMLSourceList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLSourceList {
-        return try await sourcesSamlListWithRequestBuilder(allowIdpInitiated: allowIdpInitiated, authenticationFlow: authenticationFlow, bindingType: bindingType, digestAlgorithm: digestAlgorithm, enabled: enabled, enrollmentFlow: enrollmentFlow, issuer: issuer, managed: managed, name: name, nameIdPolicy: nameIdPolicy, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, preAuthenticationFlow: preAuthenticationFlow, search: search, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, sloUrl: sloUrl, slug: slug, ssoUrl: ssoUrl, temporaryUserDeleteAfter: temporaryUserDeleteAfter, userMatchingMode: userMatchingMode, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
+    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLSourceList {
+        return try await sourcesSamlListWithRequestBuilder(allowIdpInitiated: allowIdpInitiated, authenticationFlow: authenticationFlow, bindingType: bindingType, digestAlgorithm: digestAlgorithm, enabled: enabled, enrollmentFlow: enrollmentFlow, issuer: issuer, managed: managed, name: name, nameIdPolicy: nameIdPolicy, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, preAuthenticationFlow: preAuthenticationFlow, search: search, signatureAlgorithm: signatureAlgorithm, signedAssertion: signedAssertion, signedResponse: signedResponse, signingKp: signingKp, sloUrl: sloUrl, slug: slug, ssoUrl: ssoUrl, temporaryUserDeleteAfter: temporaryUserDeleteAfter, userMatchingMode: userMatchingMode, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -4129,6 +4131,8 @@ open class SourcesAPI {
      - parameter preAuthenticationFlow: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter signatureAlgorithm: (query)  (optional)
+     - parameter signedAssertion: (query)  (optional)
+     - parameter signedResponse: (query)  (optional)
      - parameter signingKp: (query)  (optional)
      - parameter sloUrl: (query)  (optional)
      - parameter slug: (query)  (optional)
@@ -4139,7 +4143,7 @@ open class SourcesAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedSAMLSourceList> 
      */
-    open class func sourcesSamlListWithRequestBuilder(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLSourceList> {
+    open class func sourcesSamlListWithRequestBuilder(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLSourceList> {
         let localVariablePath = "/sources/saml/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -4164,6 +4168,8 @@ open class SourcesAPI {
             "pre_authentication_flow": (wrappedValue: preAuthenticationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "signature_algorithm": (wrappedValue: signatureAlgorithm?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "signed_assertion": (wrappedValue: signedAssertion?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "signed_response": (wrappedValue: signedResponse?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "signing_kp": (wrappedValue: signingKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "slo_url": (wrappedValue: sloUrl?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "slug": (wrappedValue: slug?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

@@ -55,8 +55,10 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
     public var temporaryUserDeleteAfter: String?
     /** When selected, incoming assertions are encrypted by the IdP using the public key of the encryption keypair. The assertion is decrypted by the SP using the the private key. */
     public var encryptionKp: UUID?
+    public var signedAssertion: Bool?
+    public var signedResponse: Bool?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -81,6 +83,8 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         self.signatureAlgorithm = signatureAlgorithm
         self.temporaryUserDeleteAfter = temporaryUserDeleteAfter
         self.encryptionKp = encryptionKp
+        self.signedAssertion = signedAssertion
+        self.signedResponse = signedResponse
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -108,6 +112,8 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         case signatureAlgorithm = "signature_algorithm"
         case temporaryUserDeleteAfter = "temporary_user_delete_after"
         case encryptionKp = "encryption_kp"
+        case signedAssertion = "signed_assertion"
+        case signedResponse = "signed_response"
     }
 
     // Encodable protocol methods
@@ -138,6 +144,8 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         try container.encodeIfPresent(signatureAlgorithm, forKey: .signatureAlgorithm)
         try container.encodeIfPresent(temporaryUserDeleteAfter, forKey: .temporaryUserDeleteAfter)
         try container.encodeIfPresent(encryptionKp, forKey: .encryptionKp)
+        try container.encodeIfPresent(signedAssertion, forKey: .signedAssertion)
+        try container.encodeIfPresent(signedResponse, forKey: .signedResponse)
     }
 }
 

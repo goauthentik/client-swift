@@ -4512,7 +4512,7 @@ SAMLSource Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123) // SAMLSourceRequest | 
+let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
 
 SourcesAPI.sourcesSamlCreate(sAMLSourceRequest: sAMLSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4598,7 +4598,7 @@ Void (empty response body)
 
 # **sourcesSamlList**
 ```swift
-    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLSourceList?, _ error: Error?) -> Void)
+    open class func sourcesSamlList(allowIdpInitiated: Bool? = nil, authenticationFlow: UUID? = nil, bindingType: BindingType_sourcesSamlList? = nil, digestAlgorithm: DigestAlgorithm_sourcesSamlList? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, issuer: String? = nil, managed: String? = nil, name: String? = nil, nameIdPolicy: NameIdPolicy_sourcesSamlList? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesSamlList? = nil, preAuthenticationFlow: UUID? = nil, search: String? = nil, signatureAlgorithm: SignatureAlgorithm_sourcesSamlList? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil, signingKp: UUID? = nil, sloUrl: String? = nil, slug: String? = nil, ssoUrl: String? = nil, temporaryUserDeleteAfter: String? = nil, userMatchingMode: UserMatchingMode_sourcesSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLSourceList?, _ error: Error?) -> Void)
 ```
 
 
@@ -4628,6 +4628,8 @@ let policyEngineMode = "policyEngineMode_example" // String |  (optional)
 let preAuthenticationFlow = 987 // UUID |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let signatureAlgorithm = "signatureAlgorithm_example" // String |  (optional)
+let signedAssertion = true // Bool |  (optional)
+let signedResponse = true // Bool |  (optional)
 let signingKp = 987 // UUID |  (optional)
 let sloUrl = "sloUrl_example" // String |  (optional)
 let slug = "slug_example" // String |  (optional)
@@ -4636,7 +4638,7 @@ let temporaryUserDeleteAfter = "temporaryUserDeleteAfter_example" // String |  (
 let userMatchingMode = "userMatchingMode_example" // String | How the source determines if an existing user should be authenticated or a new user enrolled.   (optional)
 let verificationKp = 987 // UUID |  (optional)
 
-SourcesAPI.sourcesSamlList(allowIdpInitiated: allowIdpInitiated, authenticationFlow: authenticationFlow, bindingType: bindingType, digestAlgorithm: digestAlgorithm, enabled: enabled, enrollmentFlow: enrollmentFlow, issuer: issuer, managed: managed, name: name, nameIdPolicy: nameIdPolicy, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, preAuthenticationFlow: preAuthenticationFlow, search: search, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, sloUrl: sloUrl, slug: slug, ssoUrl: ssoUrl, temporaryUserDeleteAfter: temporaryUserDeleteAfter, userMatchingMode: userMatchingMode, verificationKp: verificationKp) { (response, error) in
+SourcesAPI.sourcesSamlList(allowIdpInitiated: allowIdpInitiated, authenticationFlow: authenticationFlow, bindingType: bindingType, digestAlgorithm: digestAlgorithm, enabled: enabled, enrollmentFlow: enrollmentFlow, issuer: issuer, managed: managed, name: name, nameIdPolicy: nameIdPolicy, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, preAuthenticationFlow: preAuthenticationFlow, search: search, signatureAlgorithm: signatureAlgorithm, signedAssertion: signedAssertion, signedResponse: signedResponse, signingKp: signingKp, sloUrl: sloUrl, slug: slug, ssoUrl: ssoUrl, temporaryUserDeleteAfter: temporaryUserDeleteAfter, userMatchingMode: userMatchingMode, verificationKp: verificationKp) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -4670,6 +4672,8 @@ Name | Type | Description  | Notes
  **preAuthenticationFlow** | **UUID** |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **signatureAlgorithm** | **String** |  | [optional] 
+ **signedAssertion** | **Bool** |  | [optional] 
+ **signedResponse** | **Bool** |  | [optional] 
  **signingKp** | **UUID** |  | [optional] 
  **sloUrl** | **String** |  | [optional] 
  **slug** | **String** |  | [optional] 
@@ -4757,7 +4761,7 @@ SAMLSource Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedSAMLSourceRequest = PatchedSAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123) // PatchedSAMLSourceRequest |  (optional)
+let patchedSAMLSourceRequest = PatchedSAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // PatchedSAMLSourceRequest |  (optional)
 
 SourcesAPI.sourcesSamlPartialUpdate(slug: slug, patchedSAMLSourceRequest: patchedSAMLSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4857,7 +4861,7 @@ SAMLSource Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123) // SAMLSourceRequest | 
+let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
 
 SourcesAPI.sourcesSamlUpdate(slug: slug, sAMLSourceRequest: sAMLSourceRequest) { (response, error) in
     guard error == nil else {
