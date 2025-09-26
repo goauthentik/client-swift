@@ -16,6 +16,7 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
     public static let accessCodeValidityRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let accessTokenValidityRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let refreshTokenValidityRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let refreshTokenThresholdRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
     /** Flow used for authentication when the associated application is accessed by an un-authenticated user. */
     public var authenticationFlow: UUID?
@@ -34,6 +35,8 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
     public var accessTokenValidity: String?
     /** Tokens not valid on or after current time + this value (Format: hours=1;minutes=2;seconds=3). */
     public var refreshTokenValidity: String?
+    /** When refreshing a token, if the refresh token is valid for less than this duration, it will be renewed. When set to seconds=0, token will always be renewed. (Format: hours=1;minutes=2;seconds=3). */
+    public var refreshTokenThreshold: String?
     /** Include User claims from scopes in the id_token, for applications that don't access the userinfo endpoint. */
     public var includeClaimsInIdToken: Bool?
     /** Key used to sign the tokens. */
@@ -49,7 +52,7 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
     public var jwtFederationSources: [UUID]?
     public var jwtFederationProviders: [Int]?
 
-    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, invalidationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURIRequest]? = nil, backchannelLogoutUri: String? = nil, subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, invalidationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, refreshTokenThreshold: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURIRequest]? = nil, backchannelLogoutUri: String? = nil, subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
         self.name = name
         self.authenticationFlow = authenticationFlow
         self.authorizationFlow = authorizationFlow
@@ -61,6 +64,7 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
         self.accessCodeValidity = accessCodeValidity
         self.accessTokenValidity = accessTokenValidity
         self.refreshTokenValidity = refreshTokenValidity
+        self.refreshTokenThreshold = refreshTokenThreshold
         self.includeClaimsInIdToken = includeClaimsInIdToken
         self.signingKey = signingKey
         self.encryptionKey = encryptionKey
@@ -84,6 +88,7 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
         case accessCodeValidity = "access_code_validity"
         case accessTokenValidity = "access_token_validity"
         case refreshTokenValidity = "refresh_token_validity"
+        case refreshTokenThreshold = "refresh_token_threshold"
         case includeClaimsInIdToken = "include_claims_in_id_token"
         case signingKey = "signing_key"
         case encryptionKey = "encryption_key"
@@ -110,6 +115,7 @@ public struct PatchedOAuth2ProviderRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(accessCodeValidity, forKey: .accessCodeValidity)
         try container.encodeIfPresent(accessTokenValidity, forKey: .accessTokenValidity)
         try container.encodeIfPresent(refreshTokenValidity, forKey: .refreshTokenValidity)
+        try container.encodeIfPresent(refreshTokenThreshold, forKey: .refreshTokenThreshold)
         try container.encodeIfPresent(includeClaimsInIdToken, forKey: .includeClaimsInIdToken)
         try container.encodeIfPresent(signingKey, forKey: .signingKey)
         try container.encodeIfPresent(encryptionKey, forKey: .encryptionKey)
