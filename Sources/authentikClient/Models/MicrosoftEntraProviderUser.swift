@@ -13,11 +13,11 @@ public struct MicrosoftEntraProviderUser: Sendable, Codable, ParameterConvertibl
     public var id: UUID
     public var microsoftId: String
     public var user: Int
-    public var userObj: GroupMember
+    public var userObj: PartialUser
     public var provider: Int
     public var attributes: [String: JSONValue]
 
-    public init(id: UUID, microsoftId: String, user: Int, userObj: GroupMember, provider: Int, attributes: [String: JSONValue]) {
+    public init(id: UUID, microsoftId: String, user: Int, userObj: PartialUser, provider: Int, attributes: [String: JSONValue]) {
         self.id = id
         self.microsoftId = microsoftId
         self.user = user

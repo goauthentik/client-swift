@@ -14,9 +14,9 @@ public struct DuoDevice: Sendable, Codable, ParameterConvertible, Hashable {
     public var pk: Int
     /** The human-readable name of this device. */
     public var name: String
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(pk: Int, name: String, user: GroupMember) {
+    public init(pk: Int, name: String, user: PartialUser) {
         self.pk = pk
         self.name = name
         self.user = user

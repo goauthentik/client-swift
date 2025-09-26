@@ -13,11 +13,11 @@ public struct GoogleWorkspaceProviderGroup: Sendable, Codable, ParameterConverti
     public var id: UUID
     public var googleId: String
     public var group: UUID
-    public var groupObj: UserGroup
+    public var groupObj: PartialGroup
     public var provider: Int
     public var attributes: [String: JSONValue]
 
-    public init(id: UUID, googleId: String, group: UUID, groupObj: UserGroup, provider: Int, attributes: [String: JSONValue]) {
+    public init(id: UUID, googleId: String, group: UUID, groupObj: PartialGroup, provider: Int, attributes: [String: JSONValue]) {
         self.id = id
         self.googleId = googleId
         self.group = group

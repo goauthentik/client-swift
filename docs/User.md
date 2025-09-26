@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **dateJoined** | **Date** |  | [readonly] 
 **isSuperuser** | **Bool** |  | [readonly] 
 **groups** | **[UUID]** |  | [optional] 
-**groupsObj** | [UserGroup] |  | [readonly] 
+**groupsObj** | [PartialGroup] |  | [readonly] 
 **email** | **String** |  | [optional] 
 **avatar** | **String** | User&#39;s avatar, either a http/https URL or a data URI | [readonly] 
 **attributes** | **[String: JSONValue]** |  | [optional] 

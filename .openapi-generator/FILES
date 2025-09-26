@@ -134,7 +134,6 @@ Sources/authentikClient/Models/DenyStage.swift
 Sources/authentikClient/Models/DenyStageRequest.swift
 Sources/authentikClient/Models/DetailedCountry.swift
 Sources/authentikClient/Models/DetailedCountryField.swift
-Sources/authentikClient/Models/DetailedCountryFieldRequest.swift
 Sources/authentikClient/Models/Device.swift
 Sources/authentikClient/Models/DeviceChallenge.swift
 Sources/authentikClient/Models/DeviceChallengeRequest.swift
@@ -220,8 +219,6 @@ Sources/authentikClient/Models/GroupKerberosSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupLDAPSourceConnection.swift
 Sources/authentikClient/Models/GroupLDAPSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupMatchingModeEnum.swift
-Sources/authentikClient/Models/GroupMember.swift
-Sources/authentikClient/Models/GroupMemberRequest.swift
 Sources/authentikClient/Models/GroupOAuthSourceConnection.swift
 Sources/authentikClient/Models/GroupOAuthSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupPlexSourceConnection.swift
@@ -461,6 +458,8 @@ Sources/authentikClient/Models/PaginatedUserWriteStageList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceTypeList.swift
 Sources/authentikClient/Models/Pagination.swift
+Sources/authentikClient/Models/PartialGroup.swift
+Sources/authentikClient/Models/PartialUser.swift
 Sources/authentikClient/Models/PasswordChallenge.swift
 Sources/authentikClient/Models/PasswordChallengeResponseRequest.swift
 Sources/authentikClient/Models/PasswordExpiryPolicy.swift
@@ -709,7 +708,6 @@ Sources/authentikClient/Models/StateEnum.swift
 Sources/authentikClient/Models/StaticDevice.swift
 Sources/authentikClient/Models/StaticDeviceRequest.swift
 Sources/authentikClient/Models/StaticDeviceToken.swift
-Sources/authentikClient/Models/StaticDeviceTokenRequest.swift
 Sources/authentikClient/Models/SubModeEnum.swift
 Sources/authentikClient/Models/SyncObjectModelEnum.swift
 Sources/authentikClient/Models/SyncObjectRequest.swift
@@ -749,8 +747,6 @@ Sources/authentikClient/Models/UserCreationModeEnum.swift
 Sources/authentikClient/Models/UserDeleteStage.swift
 Sources/authentikClient/Models/UserDeleteStageRequest.swift
 Sources/authentikClient/Models/UserFieldsEnum.swift
-Sources/authentikClient/Models/UserGroup.swift
-Sources/authentikClient/Models/UserGroupRequest.swift
 Sources/authentikClient/Models/UserKerberosSourceConnection.swift
 Sources/authentikClient/Models/UserKerberosSourceConnectionRequest.swift
 Sources/authentikClient/Models/UserLDAPSourceConnection.swift
@@ -789,7 +785,6 @@ Sources/authentikClient/Models/VersionHistory.swift
 Sources/authentikClient/Models/WebAuthnDevice.swift
 Sources/authentikClient/Models/WebAuthnDeviceRequest.swift
 Sources/authentikClient/Models/WebAuthnDeviceType.swift
-Sources/authentikClient/Models/WebAuthnDeviceTypeRequest.swift
 Sources/authentikClient/Models/Worker.swift
 authentikClient.podspec
 docs/AccessDeniedChallenge.md
@@ -893,7 +888,6 @@ docs/DenyStage.md
 docs/DenyStageRequest.md
 docs/DetailedCountry.md
 docs/DetailedCountryField.md
-docs/DetailedCountryFieldRequest.md
 docs/Device.md
 docs/DeviceChallenge.md
 docs/DeviceChallengeRequest.md
@@ -982,8 +976,6 @@ docs/GroupKerberosSourceConnectionRequest.md
 docs/GroupLDAPSourceConnection.md
 docs/GroupLDAPSourceConnectionRequest.md
 docs/GroupMatchingModeEnum.md
-docs/GroupMember.md
-docs/GroupMemberRequest.md
 docs/GroupOAuthSourceConnection.md
 docs/GroupOAuthSourceConnectionRequest.md
 docs/GroupPlexSourceConnection.md
@@ -1226,6 +1218,8 @@ docs/PaginatedUserWriteStageList.md
 docs/PaginatedWebAuthnDeviceList.md
 docs/PaginatedWebAuthnDeviceTypeList.md
 docs/Pagination.md
+docs/PartialGroup.md
+docs/PartialUser.md
 docs/PasswordChallenge.md
 docs/PasswordChallengeResponseRequest.md
 docs/PasswordExpiryPolicy.md
@@ -1484,7 +1478,6 @@ docs/StateEnum.md
 docs/StaticDevice.md
 docs/StaticDeviceRequest.md
 docs/StaticDeviceToken.md
-docs/StaticDeviceTokenRequest.md
 docs/SubModeEnum.md
 docs/SyncObjectModelEnum.md
 docs/SyncObjectRequest.md
@@ -1526,8 +1519,6 @@ docs/UserCreationModeEnum.md
 docs/UserDeleteStage.md
 docs/UserDeleteStageRequest.md
 docs/UserFieldsEnum.md
-docs/UserGroup.md
-docs/UserGroupRequest.md
 docs/UserKerberosSourceConnection.md
 docs/UserKerberosSourceConnectionRequest.md
 docs/UserLDAPSourceConnection.md
@@ -1566,7 +1557,6 @@ docs/VersionHistory.md
 docs/WebAuthnDevice.md
 docs/WebAuthnDeviceRequest.md
 docs/WebAuthnDeviceType.md
-docs/WebAuthnDeviceTypeRequest.md
 docs/Worker.md
 git_push.sh
 project.yml

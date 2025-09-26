@@ -13,11 +13,11 @@ public struct SCIMSourceGroup: Sendable, Codable, ParameterConvertible, Hashable
     public var id: String?
     public var externalId: String
     public var group: UUID
-    public var groupObj: UserGroup
+    public var groupObj: PartialGroup
     public var source: UUID
     public var attributes: [String: JSONValue]?
 
-    public init(id: String? = nil, externalId: String, group: UUID, groupObj: UserGroup, source: UUID, attributes: [String: JSONValue]? = nil) {
+    public init(id: String? = nil, externalId: String, group: UUID, groupObj: PartialGroup, source: UUID, attributes: [String: JSONValue]? = nil) {
         self.id = id
         self.externalId = externalId
         self.group = group

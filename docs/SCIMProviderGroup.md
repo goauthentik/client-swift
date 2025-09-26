@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **UUID** |  | [readonly] 
 **scimId** | **String** |  | 
 **group** | **UUID** |  | 
-**groupObj** | [**UserGroup**](UserGroup.md) |  | [readonly] 
+**groupObj** | [**PartialGroup**](PartialGroup.md) |  | [readonly] 
 **provider** | **Int** |  | 
 **attributes** | **[String: JSONValue]** |  | [readonly] 
 

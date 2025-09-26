@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **parent** | **UUID** |  | [optional] 
 **parentName** | **String** |  | [readonly] 
 **users** | **[Int]** |  | [optional] 
-**usersObj** | [GroupMember] |  | [readonly] 
+**usersObj** | [PartialUser] |  | [readonly] 
 **attributes** | **[String: JSONValue]** |  | [optional] 
 **roles** | **[UUID]** |  | [optional] 
 **rolesObj** | [Role] |  | [readonly] 

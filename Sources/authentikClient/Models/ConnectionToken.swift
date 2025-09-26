@@ -15,9 +15,9 @@ public struct ConnectionToken: Sendable, Codable, ParameterConvertible, Hashable
     public var providerObj: RACProvider
     public var endpoint: UUID
     public var endpointObj: Endpoint
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(pk: UUID? = nil, provider: Int, providerObj: RACProvider, endpoint: UUID, endpointObj: Endpoint, user: GroupMember) {
+    public init(pk: UUID? = nil, provider: Int, providerObj: RACProvider, endpoint: UUID, endpointObj: Endpoint, user: PartialUser) {
         self.pk = pk
         self.provider = provider
         self.providerObj = providerObj

@@ -13,11 +13,11 @@ public struct SCIMProviderUser: Sendable, Codable, ParameterConvertible, Hashabl
     public var id: UUID
     public var scimId: String
     public var user: Int
-    public var userObj: GroupMember
+    public var userObj: PartialUser
     public var provider: Int
     public var attributes: [String: JSONValue]
 
-    public init(id: UUID, scimId: String, user: Int, userObj: GroupMember, provider: Int, attributes: [String: JSONValue]) {
+    public init(id: UUID, scimId: String, user: Int, userObj: PartialUser, provider: Int, attributes: [String: JSONValue]) {
         self.id = id
         self.scimId = scimId
         self.user = user

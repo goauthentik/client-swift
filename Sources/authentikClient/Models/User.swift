@@ -22,7 +22,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
     public var dateJoined: Date
     public var isSuperuser: Bool
     public var groups: [UUID]?
-    public var groupsObj: [UserGroup]?
+    public var groupsObj: [PartialGroup]?
     public var email: String?
     /** User's avatar, either a http/https URL or a data URI */
     public var avatar: String
@@ -34,7 +34,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
     public var passwordChangeDate: Date
     public var lastUpdated: Date
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [UserGroup]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date, lastUpdated: Date) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [PartialGroup]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date, lastUpdated: Date) {
         self.pk = pk
         self.username = username
         self.name = name

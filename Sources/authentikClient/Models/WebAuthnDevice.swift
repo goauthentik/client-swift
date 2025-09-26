@@ -16,9 +16,9 @@ public struct WebAuthnDevice: Sendable, Codable, ParameterConvertible, Hashable 
     public var createdOn: Date
     public var deviceType: WebAuthnDeviceType?
     public var aaguid: String
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(pk: Int, name: String, createdOn: Date, deviceType: WebAuthnDeviceType?, aaguid: String, user: GroupMember) {
+    public init(pk: Int, name: String, createdOn: Date, deviceType: WebAuthnDeviceType?, aaguid: String, user: PartialUser) {
         self.pk = pk
         self.name = name
         self.createdOn = createdOn

@@ -14,9 +14,9 @@ public struct TOTPDevice: Sendable, Codable, ParameterConvertible, Hashable {
     /** The human-readable name of this device. */
     public var name: String
     public var pk: Int
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(name: String, pk: Int, user: GroupMember) {
+    public init(name: String, pk: Int, user: PartialUser) {
         self.name = name
         self.pk = pk
         self.user = user

@@ -15,9 +15,9 @@ public struct EmailDevice: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     public var pk: Int
     public var email: String
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(name: String, pk: Int, email: String, user: GroupMember) {
+    public init(name: String, pk: Int, email: String, user: PartialUser) {
         self.name = name
         self.pk = pk
         self.email = email

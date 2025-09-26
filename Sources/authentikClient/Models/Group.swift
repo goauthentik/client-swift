@@ -18,14 +18,14 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
     public var parent: UUID?
     public var parentName: String?
     public var users: [Int]?
-    public var usersObj: [GroupMember]?
+    public var usersObj: [PartialUser]?
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
     public var rolesObj: [Role]
     public var children: [UUID]?
     public var childrenObj: [GroupChild]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [GroupMember]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID]? = nil, childrenObj: [GroupChild]?) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [PartialUser]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID]? = nil, childrenObj: [GroupChild]?) {
         self.pk = pk
         self.numPk = numPk
         self.name = name

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **externalId** | **String** |  | 
 **user** | **Int** |  | 
-**userObj** | [**GroupMember**](GroupMember.md) |  | [readonly] 
+**userObj** | [**PartialUser**](PartialUser.md) |  | [readonly] 
 **source** | **UUID** |  | 
 **attributes** | **[String: JSONValue]** |  | [optional] 
 

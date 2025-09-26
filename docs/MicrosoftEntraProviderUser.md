@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **UUID** |  | [readonly] 
 **microsoftId** | **String** |  | 
 **user** | **Int** |  | 
-**userObj** | [**GroupMember**](GroupMember.md) |  | [readonly] 
+**userObj** | [**PartialUser**](PartialUser.md) |  | [readonly] 
 **provider** | **Int** |  | 
 **attributes** | **[String: JSONValue]** |  | [readonly] 
 

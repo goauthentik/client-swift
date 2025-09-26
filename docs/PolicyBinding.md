@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **group** | **UUID** |  | [optional] 
 **user** | **Int** |  | [optional] 
 **policyObj** | [**Policy**](Policy.md) |  | [readonly] 
-**groupObj** | [**Group**](Group.md) |  | [readonly] 
-**userObj** | [**User**](User.md) |  | [readonly] 
+**groupObj** | [**PartialGroup**](PartialGroup.md) |  | [readonly] 
+**userObj** | [**PartialUser**](PartialUser.md) |  | [readonly] 
 **target** | **UUID** |  | 
 **negate** | **Bool** | Negates the outcome of the policy. Messages are unaffected. | [optional] 
 **enabled** | **Bool** |  | [optional] 

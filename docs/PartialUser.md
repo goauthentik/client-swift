@@ -1,4 +1,4 @@
-# GroupMember
+# PartialUser
 
 ## Properties
 Name | Type | Description | Notes

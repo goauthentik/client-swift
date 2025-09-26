@@ -17,8 +17,8 @@ public struct PolicyBinding: Sendable, Codable, ParameterConvertible, Hashable {
     public var group: UUID?
     public var user: Int?
     public var policyObj: Policy
-    public var groupObj: Group
-    public var userObj: User
+    public var groupObj: PartialGroup
+    public var userObj: PartialUser
     public var target: UUID
     /** Negates the outcome of the policy. Messages are unaffected. */
     public var negate: Bool?
@@ -29,7 +29,7 @@ public struct PolicyBinding: Sendable, Codable, ParameterConvertible, Hashable {
     /** Result if the Policy execution fails. */
     public var failureResult: Bool?
 
-    public init(pk: UUID, policy: UUID? = nil, group: UUID? = nil, user: Int? = nil, policyObj: Policy, groupObj: Group, userObj: User, target: UUID, negate: Bool? = nil, enabled: Bool? = nil, order: Int, timeout: Int? = nil, failureResult: Bool? = nil) {
+    public init(pk: UUID, policy: UUID? = nil, group: UUID? = nil, user: Int? = nil, policyObj: Policy, groupObj: PartialGroup, userObj: PartialUser, target: UUID, negate: Bool? = nil, enabled: Bool? = nil, order: Int, timeout: Int? = nil, failureResult: Bool? = nil) {
         self.pk = pk
         self.policy = policy
         self.group = group

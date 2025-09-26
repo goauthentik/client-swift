@@ -15,9 +15,9 @@ public struct StaticDevice: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     public var tokenSet: [StaticDeviceToken]
     public var pk: Int
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(name: String, tokenSet: [StaticDeviceToken], pk: Int, user: GroupMember) {
+    public init(name: String, tokenSet: [StaticDeviceToken], pk: Int, user: PartialUser) {
         self.name = name
         self.tokenSet = tokenSet
         self.pk = pk

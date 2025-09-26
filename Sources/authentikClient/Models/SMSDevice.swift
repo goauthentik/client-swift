@@ -15,9 +15,9 @@ public struct SMSDevice: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     public var pk: Int
     public var phoneNumber: String
-    public var user: GroupMember
+    public var user: PartialUser
 
-    public init(name: String, pk: Int, phoneNumber: String, user: GroupMember) {
+    public init(name: String, pk: Int, phoneNumber: String, user: PartialUser) {
         self.name = name
         self.pk = pk
         self.phoneNumber = phoneNumber

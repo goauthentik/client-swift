@@ -15,14 +15,14 @@ public struct Invitation: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     public var expires: Date?
     public var fixedData: [String: JSONValue]?
-    public var createdBy: GroupMember
+    public var createdBy: PartialUser
     /** When enabled, the invitation will be deleted after usage. */
     public var singleUse: Bool?
     /** When set, only the configured flow can use this invitation. */
     public var flow: UUID?
     public var flowObj: Flow
 
-    public init(pk: UUID, name: String, expires: Date? = nil, fixedData: [String: JSONValue]? = nil, createdBy: GroupMember, singleUse: Bool? = nil, flow: UUID? = nil, flowObj: Flow) {
+    public init(pk: UUID, name: String, expires: Date? = nil, fixedData: [String: JSONValue]? = nil, createdBy: PartialUser, singleUse: Bool? = nil, flow: UUID? = nil, flowObj: Flow) {
         self.pk = pk
         self.name = name
         self.expires = expires
