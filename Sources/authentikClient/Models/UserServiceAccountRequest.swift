@@ -7,6 +7,7 @@
 
 import Foundation
 
+/** Payload to create a service account */
 public struct UserServiceAccountRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
