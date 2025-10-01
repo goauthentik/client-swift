@@ -53,6 +53,13 @@ Method | HTTP request | Description
 [**sourcesGroupConnectionsSamlRetrieve**](SourcesAPI.md#sourcesgroupconnectionssamlretrieve) | **GET** /sources/group_connections/saml/{id}/ | 
 [**sourcesGroupConnectionsSamlUpdate**](SourcesAPI.md#sourcesgroupconnectionssamlupdate) | **PUT** /sources/group_connections/saml/{id}/ | 
 [**sourcesGroupConnectionsSamlUsedByList**](SourcesAPI.md#sourcesgroupconnectionssamlusedbylist) | **GET** /sources/group_connections/saml/{id}/used_by/ | 
+[**sourcesGroupConnectionsTelegramCreate**](SourcesAPI.md#sourcesgroupconnectionstelegramcreate) | **POST** /sources/group_connections/telegram/ | 
+[**sourcesGroupConnectionsTelegramDestroy**](SourcesAPI.md#sourcesgroupconnectionstelegramdestroy) | **DELETE** /sources/group_connections/telegram/{id}/ | 
+[**sourcesGroupConnectionsTelegramList**](SourcesAPI.md#sourcesgroupconnectionstelegramlist) | **GET** /sources/group_connections/telegram/ | 
+[**sourcesGroupConnectionsTelegramPartialUpdate**](SourcesAPI.md#sourcesgroupconnectionstelegrampartialupdate) | **PATCH** /sources/group_connections/telegram/{id}/ | 
+[**sourcesGroupConnectionsTelegramRetrieve**](SourcesAPI.md#sourcesgroupconnectionstelegramretrieve) | **GET** /sources/group_connections/telegram/{id}/ | 
+[**sourcesGroupConnectionsTelegramUpdate**](SourcesAPI.md#sourcesgroupconnectionstelegramupdate) | **PUT** /sources/group_connections/telegram/{id}/ | 
+[**sourcesGroupConnectionsTelegramUsedByList**](SourcesAPI.md#sourcesgroupconnectionstelegramusedbylist) | **GET** /sources/group_connections/telegram/{id}/used_by/ | 
 [**sourcesKerberosCreate**](SourcesAPI.md#sourceskerberoscreate) | **POST** /sources/kerberos/ | 
 [**sourcesKerberosDestroy**](SourcesAPI.md#sourceskerberosdestroy) | **DELETE** /sources/kerberos/{slug}/ | 
 [**sourcesKerberosList**](SourcesAPI.md#sourceskerberoslist) | **GET** /sources/kerberos/ | 
@@ -116,6 +123,13 @@ Method | HTTP request | Description
 [**sourcesScimUsersRetrieve**](SourcesAPI.md#sourcesscimusersretrieve) | **GET** /sources/scim_users/{id}/ | 
 [**sourcesScimUsersUpdate**](SourcesAPI.md#sourcesscimusersupdate) | **PUT** /sources/scim_users/{id}/ | 
 [**sourcesScimUsersUsedByList**](SourcesAPI.md#sourcesscimusersusedbylist) | **GET** /sources/scim_users/{id}/used_by/ | 
+[**sourcesTelegramCreate**](SourcesAPI.md#sourcestelegramcreate) | **POST** /sources/telegram/ | 
+[**sourcesTelegramDestroy**](SourcesAPI.md#sourcestelegramdestroy) | **DELETE** /sources/telegram/{slug}/ | 
+[**sourcesTelegramList**](SourcesAPI.md#sourcestelegramlist) | **GET** /sources/telegram/ | 
+[**sourcesTelegramPartialUpdate**](SourcesAPI.md#sourcestelegrampartialupdate) | **PATCH** /sources/telegram/{slug}/ | 
+[**sourcesTelegramRetrieve**](SourcesAPI.md#sourcestelegramretrieve) | **GET** /sources/telegram/{slug}/ | 
+[**sourcesTelegramUpdate**](SourcesAPI.md#sourcestelegramupdate) | **PUT** /sources/telegram/{slug}/ | 
+[**sourcesTelegramUsedByList**](SourcesAPI.md#sourcestelegramusedbylist) | **GET** /sources/telegram/{slug}/used_by/ | 
 [**sourcesUserConnectionsAllDestroy**](SourcesAPI.md#sourcesuserconnectionsalldestroy) | **DELETE** /sources/user_connections/all/{id}/ | 
 [**sourcesUserConnectionsAllList**](SourcesAPI.md#sourcesuserconnectionsalllist) | **GET** /sources/user_connections/all/ | 
 [**sourcesUserConnectionsAllPartialUpdate**](SourcesAPI.md#sourcesuserconnectionsallpartialupdate) | **PATCH** /sources/user_connections/all/{id}/ | 
@@ -157,6 +171,13 @@ Method | HTTP request | Description
 [**sourcesUserConnectionsSamlRetrieve**](SourcesAPI.md#sourcesuserconnectionssamlretrieve) | **GET** /sources/user_connections/saml/{id}/ | 
 [**sourcesUserConnectionsSamlUpdate**](SourcesAPI.md#sourcesuserconnectionssamlupdate) | **PUT** /sources/user_connections/saml/{id}/ | 
 [**sourcesUserConnectionsSamlUsedByList**](SourcesAPI.md#sourcesuserconnectionssamlusedbylist) | **GET** /sources/user_connections/saml/{id}/used_by/ | 
+[**sourcesUserConnectionsTelegramCreate**](SourcesAPI.md#sourcesuserconnectionstelegramcreate) | **POST** /sources/user_connections/telegram/ | 
+[**sourcesUserConnectionsTelegramDestroy**](SourcesAPI.md#sourcesuserconnectionstelegramdestroy) | **DELETE** /sources/user_connections/telegram/{id}/ | 
+[**sourcesUserConnectionsTelegramList**](SourcesAPI.md#sourcesuserconnectionstelegramlist) | **GET** /sources/user_connections/telegram/ | 
+[**sourcesUserConnectionsTelegramPartialUpdate**](SourcesAPI.md#sourcesuserconnectionstelegrampartialupdate) | **PATCH** /sources/user_connections/telegram/{id}/ | 
+[**sourcesUserConnectionsTelegramRetrieve**](SourcesAPI.md#sourcesuserconnectionstelegramretrieve) | **GET** /sources/user_connections/telegram/{id}/ | 
+[**sourcesUserConnectionsTelegramUpdate**](SourcesAPI.md#sourcesuserconnectionstelegramupdate) | **PUT** /sources/user_connections/telegram/{id}/ | 
+[**sourcesUserConnectionsTelegramUsedByList**](SourcesAPI.md#sourcesuserconnectionstelegramusedbylist) | **GET** /sources/user_connections/telegram/{id}/used_by/ | 
 
 
 # **sourcesAllDestroy**
@@ -2640,6 +2661,363 @@ SourcesAPI.sourcesGroupConnectionsSamlUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this Group SAML Source Connection. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramCreate**
+```swift
+    open class func sourcesGroupConnectionsTelegramCreate(groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, completion: @escaping (_ data: GroupTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let groupTelegramSourceConnectionRequest = GroupTelegramSourceConnectionRequest(group: 123, source: 123, identifier: "identifier_example") // GroupTelegramSourceConnectionRequest | 
+
+SourcesAPI.sourcesGroupConnectionsTelegramCreate(groupTelegramSourceConnectionRequest: groupTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupTelegramSourceConnectionRequest** | [**GroupTelegramSourceConnectionRequest**](GroupTelegramSourceConnectionRequest.md) |  | 
+
+### Return type
+
+[**GroupTelegramSourceConnection**](GroupTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramDestroy**
+```swift
+    open class func sourcesGroupConnectionsTelegramDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Group Telegram Source Connection.
+
+SourcesAPI.sourcesGroupConnectionsTelegramDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Group Telegram Source Connection. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramList**
+```swift
+    open class func sourcesGroupConnectionsTelegramList(group: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, completion: @escaping (_ data: PaginatedGroupTelegramSourceConnectionList?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let group = 987 // UUID |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let sourceSlug = "sourceSlug_example" // String |  (optional)
+
+SourcesAPI.sourcesGroupConnectionsTelegramList(group: group, ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **UUID** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **sourceSlug** | **String** |  | [optional] 
+
+### Return type
+
+[**PaginatedGroupTelegramSourceConnectionList**](PaginatedGroupTelegramSourceConnectionList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramPartialUpdate**
+```swift
+    open class func sourcesGroupConnectionsTelegramPartialUpdate(id: Int, patchedGroupTelegramSourceConnectionRequest: PatchedGroupTelegramSourceConnectionRequest? = nil, completion: @escaping (_ data: GroupTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Group Telegram Source Connection.
+let patchedGroupTelegramSourceConnectionRequest = PatchedGroupTelegramSourceConnectionRequest(group: 123, source: 123, identifier: "identifier_example") // PatchedGroupTelegramSourceConnectionRequest |  (optional)
+
+SourcesAPI.sourcesGroupConnectionsTelegramPartialUpdate(id: id, patchedGroupTelegramSourceConnectionRequest: patchedGroupTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Group Telegram Source Connection. | 
+ **patchedGroupTelegramSourceConnectionRequest** | [**PatchedGroupTelegramSourceConnectionRequest**](PatchedGroupTelegramSourceConnectionRequest.md) |  | [optional] 
+
+### Return type
+
+[**GroupTelegramSourceConnection**](GroupTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramRetrieve**
+```swift
+    open class func sourcesGroupConnectionsTelegramRetrieve(id: Int, completion: @escaping (_ data: GroupTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Group Telegram Source Connection.
+
+SourcesAPI.sourcesGroupConnectionsTelegramRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Group Telegram Source Connection. | 
+
+### Return type
+
+[**GroupTelegramSourceConnection**](GroupTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramUpdate**
+```swift
+    open class func sourcesGroupConnectionsTelegramUpdate(id: Int, groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, completion: @escaping (_ data: GroupTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+Group-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Group Telegram Source Connection.
+let groupTelegramSourceConnectionRequest = GroupTelegramSourceConnectionRequest(group: 123, source: 123, identifier: "identifier_example") // GroupTelegramSourceConnectionRequest | 
+
+SourcesAPI.sourcesGroupConnectionsTelegramUpdate(id: id, groupTelegramSourceConnectionRequest: groupTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Group Telegram Source Connection. | 
+ **groupTelegramSourceConnectionRequest** | [**GroupTelegramSourceConnectionRequest**](GroupTelegramSourceConnectionRequest.md) |  | 
+
+### Return type
+
+[**GroupTelegramSourceConnection**](GroupTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesGroupConnectionsTelegramUsedByList**
+```swift
+    open class func sourcesGroupConnectionsTelegramUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this Group Telegram Source Connection.
+
+SourcesAPI.sourcesGroupConnectionsTelegramUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this Group Telegram Source Connection. | 
 
 ### Return type
 
@@ -6023,6 +6401,381 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **sourcesTelegramCreate**
+```swift
+    open class func sourcesTelegramCreate(telegramSourceRequest: TelegramSourceRequest, completion: @escaping (_ data: TelegramSource?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
+
+SourcesAPI.sourcesTelegramCreate(telegramSourceRequest: telegramSourceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **telegramSourceRequest** | [**TelegramSourceRequest**](TelegramSourceRequest.md) |  | 
+
+### Return type
+
+[**TelegramSource**](TelegramSource.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramDestroy**
+```swift
+    open class func sourcesTelegramDestroy(slug: String, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+
+SourcesAPI.sourcesTelegramDestroy(slug: slug) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramList**
+```swift
+    open class func sourcesTelegramList(authenticationFlow: UUID? = nil, botUsername: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, groupMatchingMode: GroupMatchingMode_sourcesTelegramList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesTelegramList? = nil, requestMessageAccess: Bool? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesTelegramList? = nil, completion: @escaping (_ data: PaginatedTelegramSourceList?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let authenticationFlow = 987 // UUID |  (optional)
+let botUsername = "botUsername_example" // String |  (optional)
+let enabled = true // Bool |  (optional)
+let enrollmentFlow = 987 // UUID |  (optional)
+let groupMatchingMode = "groupMatchingMode_example" // String | How the source determines if an existing group should be used or a new group created.   (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let pbmUuid = 987 // UUID |  (optional)
+let policyEngineMode = "policyEngineMode_example" // String |  (optional)
+let requestMessageAccess = true // Bool |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let slug = "slug_example" // String |  (optional)
+let userMatchingMode = "userMatchingMode_example" // String | How the source determines if an existing user should be authenticated or a new user enrolled.   (optional)
+
+SourcesAPI.sourcesTelegramList(authenticationFlow: authenticationFlow, botUsername: botUsername, enabled: enabled, enrollmentFlow: enrollmentFlow, groupMatchingMode: groupMatchingMode, name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, requestMessageAccess: requestMessageAccess, search: search, slug: slug, userMatchingMode: userMatchingMode) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticationFlow** | **UUID** |  | [optional] 
+ **botUsername** | **String** |  | [optional] 
+ **enabled** | **Bool** |  | [optional] 
+ **enrollmentFlow** | **UUID** |  | [optional] 
+ **groupMatchingMode** | **String** | How the source determines if an existing group should be used or a new group created.   | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **pbmUuid** | **UUID** |  | [optional] 
+ **policyEngineMode** | **String** |  | [optional] 
+ **requestMessageAccess** | **Bool** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **slug** | **String** |  | [optional] 
+ **userMatchingMode** | **String** | How the source determines if an existing user should be authenticated or a new user enrolled.   | [optional] 
+
+### Return type
+
+[**PaginatedTelegramSourceList**](PaginatedTelegramSourceList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramPartialUpdate**
+```swift
+    open class func sourcesTelegramPartialUpdate(slug: String, patchedTelegramSourceRequest: PatchedTelegramSourceRequest? = nil, completion: @escaping (_ data: TelegramSource?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+let patchedTelegramSourceRequest = PatchedTelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // PatchedTelegramSourceRequest |  (optional)
+
+SourcesAPI.sourcesTelegramPartialUpdate(slug: slug, patchedTelegramSourceRequest: patchedTelegramSourceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+ **patchedTelegramSourceRequest** | [**PatchedTelegramSourceRequest**](PatchedTelegramSourceRequest.md) |  | [optional] 
+
+### Return type
+
+[**TelegramSource**](TelegramSource.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramRetrieve**
+```swift
+    open class func sourcesTelegramRetrieve(slug: String, completion: @escaping (_ data: TelegramSource?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+
+SourcesAPI.sourcesTelegramRetrieve(slug: slug) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+
+### Return type
+
+[**TelegramSource**](TelegramSource.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramUpdate**
+```swift
+    open class func sourcesTelegramUpdate(slug: String, telegramSourceRequest: TelegramSourceRequest, completion: @escaping (_ data: TelegramSource?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
+
+SourcesAPI.sourcesTelegramUpdate(slug: slug, telegramSourceRequest: telegramSourceRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+ **telegramSourceRequest** | [**TelegramSourceRequest**](TelegramSourceRequest.md) |  | 
+
+### Return type
+
+[**TelegramSource**](TelegramSource.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramUsedByList**
+```swift
+    open class func sourcesTelegramUsedByList(slug: String, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+
+SourcesAPI.sourcesTelegramUsedByList(slug: slug) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **sourcesUserConnectionsAllDestroy**
 ```swift
     open class func sourcesUserConnectionsAllDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
@@ -8100,6 +8853,363 @@ SourcesAPI.sourcesUserConnectionsSamlUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this User SAML Source Connection. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramCreate**
+```swift
+    open class func sourcesUserConnectionsTelegramCreate(userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, completion: @escaping (_ data: UserTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let userTelegramSourceConnectionRequest = UserTelegramSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example") // UserTelegramSourceConnectionRequest | 
+
+SourcesAPI.sourcesUserConnectionsTelegramCreate(userTelegramSourceConnectionRequest: userTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userTelegramSourceConnectionRequest** | [**UserTelegramSourceConnectionRequest**](UserTelegramSourceConnectionRequest.md) |  | 
+
+### Return type
+
+[**UserTelegramSourceConnection**](UserTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramDestroy**
+```swift
+    open class func sourcesUserConnectionsTelegramDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User Telegram Source Connection.
+
+SourcesAPI.sourcesUserConnectionsTelegramDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User Telegram Source Connection. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramList**
+```swift
+    open class func sourcesUserConnectionsTelegramList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, user: Int? = nil, completion: @escaping (_ data: PaginatedUserTelegramSourceConnectionList?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+let sourceSlug = "sourceSlug_example" // String |  (optional)
+let user = 987 // Int |  (optional)
+
+SourcesAPI.sourcesUserConnectionsTelegramList(ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug, user: user) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **sourceSlug** | **String** |  | [optional] 
+ **user** | **Int** |  | [optional] 
+
+### Return type
+
+[**PaginatedUserTelegramSourceConnectionList**](PaginatedUserTelegramSourceConnectionList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramPartialUpdate**
+```swift
+    open class func sourcesUserConnectionsTelegramPartialUpdate(id: Int, patchedUserTelegramSourceConnectionRequest: PatchedUserTelegramSourceConnectionRequest? = nil, completion: @escaping (_ data: UserTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User Telegram Source Connection.
+let patchedUserTelegramSourceConnectionRequest = PatchedUserTelegramSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example") // PatchedUserTelegramSourceConnectionRequest |  (optional)
+
+SourcesAPI.sourcesUserConnectionsTelegramPartialUpdate(id: id, patchedUserTelegramSourceConnectionRequest: patchedUserTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User Telegram Source Connection. | 
+ **patchedUserTelegramSourceConnectionRequest** | [**PatchedUserTelegramSourceConnectionRequest**](PatchedUserTelegramSourceConnectionRequest.md) |  | [optional] 
+
+### Return type
+
+[**UserTelegramSourceConnection**](UserTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramRetrieve**
+```swift
+    open class func sourcesUserConnectionsTelegramRetrieve(id: Int, completion: @escaping (_ data: UserTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User Telegram Source Connection.
+
+SourcesAPI.sourcesUserConnectionsTelegramRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User Telegram Source Connection. | 
+
+### Return type
+
+[**UserTelegramSourceConnection**](UserTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramUpdate**
+```swift
+    open class func sourcesUserConnectionsTelegramUpdate(id: Int, userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, completion: @escaping (_ data: UserTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+User-source connection Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User Telegram Source Connection.
+let userTelegramSourceConnectionRequest = UserTelegramSourceConnectionRequest(user: 123, source: 123, identifier: "identifier_example") // UserTelegramSourceConnectionRequest | 
+
+SourcesAPI.sourcesUserConnectionsTelegramUpdate(id: id, userTelegramSourceConnectionRequest: userTelegramSourceConnectionRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User Telegram Source Connection. | 
+ **userTelegramSourceConnectionRequest** | [**UserTelegramSourceConnectionRequest**](UserTelegramSourceConnectionRequest.md) |  | 
+
+### Return type
+
+[**UserTelegramSourceConnection**](UserTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesUserConnectionsTelegramUsedByList**
+```swift
+    open class func sourcesUserConnectionsTelegramUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this User Telegram Source Connection.
+
+SourcesAPI.sourcesUserConnectionsTelegramUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this User Telegram Source Connection. | 
 
 ### Return type
 

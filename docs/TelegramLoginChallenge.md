@@ -1,4 +1,4 @@
-# LoginChallengeTypes
+# TelegramLoginChallenge
 
 ## Properties
 Name | Type | Description | Notes
@@ -6,12 +6,6 @@ Name | Type | Description | Notes
 **flowInfo** | [**ContextualFlowInfo**](ContextualFlowInfo.md) |  | [optional] 
 **component** | **String** |  | [optional] [default to "ak-source-telegram"]
 **responseErrors** | [String: [ErrorDetail]] |  | [optional] 
-**to** | **String** |  | 
-**clientId** | **String** |  | 
-**scope** | **String** |  | 
-**redirectUri** | **String** |  | 
-**state** | **String** |  | 
-**slug** | **String** |  | 
 **botUsername** | **String** | Telegram bot username | 
 **requestMessageAccess** | **Bool** |  | 
 

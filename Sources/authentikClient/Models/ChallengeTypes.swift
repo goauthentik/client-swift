@@ -33,6 +33,7 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
     case typeRedirectChallenge(RedirectChallenge)
     case typeSessionEndChallenge(SessionEndChallenge)
     case typeShellChallenge(ShellChallenge)
+    case typeTelegramLoginChallenge(TelegramLoginChallenge)
     case typeUserLoginChallenge(UserLoginChallenge)
 
     public func encode(to encoder: Encoder) throws {
@@ -87,6 +88,8 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
         case .typeSessionEndChallenge(let value):
             try container.encode(value)
         case .typeShellChallenge(let value):
+            try container.encode(value)
+        case .typeTelegramLoginChallenge(let value):
             try container.encode(value)
         case .typeUserLoginChallenge(let value):
             try container.encode(value)
@@ -145,6 +148,8 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
             self = .typeSessionEndChallenge(value)
         } else if let value = try? container.decode(ShellChallenge.self) {
             self = .typeShellChallenge(value)
+        } else if let value = try? container.decode(TelegramLoginChallenge.self) {
+            self = .typeTelegramLoginChallenge(value)
         } else if let value = try? container.decode(UserLoginChallenge.self) {
             self = .typeUserLoginChallenge(value)
         } else {

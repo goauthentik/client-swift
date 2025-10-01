@@ -61,6 +61,8 @@ Name | Type | Description | Notes
 **invalidationFlowUrl** | **String** |  | [optional] 
 **brandName** | **String** |  | 
 **body** | **String** |  | 
+**botUsername** | **String** | Telegram bot username | 
+**requestMessageAccess** | **Bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

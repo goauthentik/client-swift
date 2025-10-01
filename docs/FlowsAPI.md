@@ -471,7 +471,7 @@ import authentikClient
 
 let flowSlug = "flowSlug_example" // String | 
 let query = "query_example" // String | Querystring as received
-let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: "code_example", email: "email_example", phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: DeviceClassesEnum(), deviceUid: "deviceUid_example", challenge: "TODO", lastUsed: Date()), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", captchaToken: "captchaToken_example", to: "to_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
+let flowChallengeResponseRequest = FlowChallengeResponseRequest(component: "component_example", code: "code_example", email: "email_example", phoneNumber: "phoneNumber_example", selectedChallenge: DeviceChallengeRequest(deviceClass: DeviceClassesEnum(), deviceUid: "deviceUid_example", challenge: "TODO", lastUsed: Date()), selectedStage: "selectedStage_example", webauthn: "TODO", duo: 123, response: "TODO", token: "token_example", uidField: "uidField_example", password: "password_example", captchaToken: "captchaToken_example", to: "to_example", id: 123, firstName: "firstName_example", lastName: "lastName_example", username: "username_example", photoUrl: "photoUrl_example", authDate: 123, hash: "hash_example", rememberMe: false) // FlowChallengeResponseRequest |  (optional)
 
 FlowsAPI.flowsExecutorSolve(flowSlug: flowSlug, query: query, flowChallengeResponseRequest: flowChallengeResponseRequest) { (response, error) in
     guard error == nil else {

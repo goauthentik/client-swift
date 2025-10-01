@@ -228,6 +228,8 @@ Sources/authentikClient/Models/GroupSAMLSourceConnection.swift
 Sources/authentikClient/Models/GroupSAMLSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupSourceConnection.swift
 Sources/authentikClient/Models/GroupSourceConnectionRequest.swift
+Sources/authentikClient/Models/GroupTelegramSourceConnection.swift
+Sources/authentikClient/Models/GroupTelegramSourceConnectionRequest.swift
 Sources/authentikClient/Models/IdentificationChallenge.swift
 Sources/authentikClient/Models/IdentificationChallengeResponseRequest.swift
 Sources/authentikClient/Models/IdentificationStage.swift
@@ -365,6 +367,7 @@ Sources/authentikClient/Models/PaginatedGroupOAuthSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedGroupPlexSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedGroupSAMLSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedGroupSourceConnectionList.swift
+Sources/authentikClient/Models/PaginatedGroupTelegramSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedIdentificationStageList.swift
 Sources/authentikClient/Models/PaginatedInitialPermissionsList.swift
 Sources/authentikClient/Models/PaginatedInvitationList.swift
@@ -438,6 +441,8 @@ Sources/authentikClient/Models/PaginatedStageList.swift
 Sources/authentikClient/Models/PaginatedStaticDeviceList.swift
 Sources/authentikClient/Models/PaginatedTOTPDeviceList.swift
 Sources/authentikClient/Models/PaginatedTaskList.swift
+Sources/authentikClient/Models/PaginatedTelegramSourceList.swift
+Sources/authentikClient/Models/PaginatedTelegramSourcePropertyMappingList.swift
 Sources/authentikClient/Models/PaginatedTenantList.swift
 Sources/authentikClient/Models/PaginatedTokenList.swift
 Sources/authentikClient/Models/PaginatedTokenModelList.swift
@@ -454,6 +459,7 @@ Sources/authentikClient/Models/PaginatedUserOAuthSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserPlexSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserSAMLSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserSourceConnectionList.swift
+Sources/authentikClient/Models/PaginatedUserTelegramSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserWriteStageList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceTypeList.swift
@@ -511,6 +517,7 @@ Sources/authentikClient/Models/PatchedGroupPlexSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedGroupRequest.swift
 Sources/authentikClient/Models/PatchedGroupSAMLSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedGroupSourceConnectionRequest.swift
+Sources/authentikClient/Models/PatchedGroupTelegramSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedIdentificationStageRequest.swift
 Sources/authentikClient/Models/PatchedInitialPermissionsRequest.swift
 Sources/authentikClient/Models/PatchedInvitationRequest.swift
@@ -569,6 +576,8 @@ Sources/authentikClient/Models/PatchedSettingsRequestFlags.swift
 Sources/authentikClient/Models/PatchedSourceStageRequest.swift
 Sources/authentikClient/Models/PatchedStaticDeviceRequest.swift
 Sources/authentikClient/Models/PatchedTOTPDeviceRequest.swift
+Sources/authentikClient/Models/PatchedTelegramSourcePropertyMappingRequest.swift
+Sources/authentikClient/Models/PatchedTelegramSourceRequest.swift
 Sources/authentikClient/Models/PatchedTenantRequest.swift
 Sources/authentikClient/Models/PatchedTokenRequest.swift
 Sources/authentikClient/Models/PatchedUniquePasswordPolicyRequest.swift
@@ -582,6 +591,7 @@ Sources/authentikClient/Models/PatchedUserPlexSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserRequest.swift
 Sources/authentikClient/Models/PatchedUserSAMLSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserSourceConnectionRequest.swift
+Sources/authentikClient/Models/PatchedUserTelegramSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserWriteStageRequest.swift
 Sources/authentikClient/Models/PatchedWebAuthnDeviceRequest.swift
 Sources/authentikClient/Models/Permission.swift
@@ -719,6 +729,12 @@ Sources/authentikClient/Models/TOTPDevice.swift
 Sources/authentikClient/Models/TOTPDeviceRequest.swift
 Sources/authentikClient/Models/Task.swift
 Sources/authentikClient/Models/TaskAggregatedStatusEnum.swift
+Sources/authentikClient/Models/TelegramChallengeResponseRequest.swift
+Sources/authentikClient/Models/TelegramLoginChallenge.swift
+Sources/authentikClient/Models/TelegramSource.swift
+Sources/authentikClient/Models/TelegramSourcePropertyMapping.swift
+Sources/authentikClient/Models/TelegramSourcePropertyMappingRequest.swift
+Sources/authentikClient/Models/TelegramSourceRequest.swift
 Sources/authentikClient/Models/Tenant.swift
 Sources/authentikClient/Models/TenantAdminGroupRequestRequest.swift
 Sources/authentikClient/Models/TenantRecoveryKeyRequestRequest.swift
@@ -775,6 +791,8 @@ Sources/authentikClient/Models/UserServiceAccountResponse.swift
 Sources/authentikClient/Models/UserSetting.swift
 Sources/authentikClient/Models/UserSourceConnection.swift
 Sources/authentikClient/Models/UserSourceConnectionRequest.swift
+Sources/authentikClient/Models/UserTelegramSourceConnection.swift
+Sources/authentikClient/Models/UserTelegramSourceConnectionRequest.swift
 Sources/authentikClient/Models/UserTypeEnum.swift
 Sources/authentikClient/Models/UserVerificationEnum.swift
 Sources/authentikClient/Models/UserWriteStage.swift
@@ -985,6 +1003,8 @@ docs/GroupSAMLSourceConnection.md
 docs/GroupSAMLSourceConnectionRequest.md
 docs/GroupSourceConnection.md
 docs/GroupSourceConnectionRequest.md
+docs/GroupTelegramSourceConnection.md
+docs/GroupTelegramSourceConnectionRequest.md
 docs/IdentificationChallenge.md
 docs/IdentificationChallengeResponseRequest.md
 docs/IdentificationStage.md
@@ -1125,6 +1145,7 @@ docs/PaginatedGroupOAuthSourceConnectionList.md
 docs/PaginatedGroupPlexSourceConnectionList.md
 docs/PaginatedGroupSAMLSourceConnectionList.md
 docs/PaginatedGroupSourceConnectionList.md
+docs/PaginatedGroupTelegramSourceConnectionList.md
 docs/PaginatedIdentificationStageList.md
 docs/PaginatedInitialPermissionsList.md
 docs/PaginatedInvitationList.md
@@ -1198,6 +1219,8 @@ docs/PaginatedStageList.md
 docs/PaginatedStaticDeviceList.md
 docs/PaginatedTOTPDeviceList.md
 docs/PaginatedTaskList.md
+docs/PaginatedTelegramSourceList.md
+docs/PaginatedTelegramSourcePropertyMappingList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
 docs/PaginatedTokenModelList.md
@@ -1214,6 +1237,7 @@ docs/PaginatedUserOAuthSourceConnectionList.md
 docs/PaginatedUserPlexSourceConnectionList.md
 docs/PaginatedUserSAMLSourceConnectionList.md
 docs/PaginatedUserSourceConnectionList.md
+docs/PaginatedUserTelegramSourceConnectionList.md
 docs/PaginatedUserWriteStageList.md
 docs/PaginatedWebAuthnDeviceList.md
 docs/PaginatedWebAuthnDeviceTypeList.md
@@ -1271,6 +1295,7 @@ docs/PatchedGroupPlexSourceConnectionRequest.md
 docs/PatchedGroupRequest.md
 docs/PatchedGroupSAMLSourceConnectionRequest.md
 docs/PatchedGroupSourceConnectionRequest.md
+docs/PatchedGroupTelegramSourceConnectionRequest.md
 docs/PatchedIdentificationStageRequest.md
 docs/PatchedInitialPermissionsRequest.md
 docs/PatchedInvitationRequest.md
@@ -1329,6 +1354,8 @@ docs/PatchedSettingsRequestFlags.md
 docs/PatchedSourceStageRequest.md
 docs/PatchedStaticDeviceRequest.md
 docs/PatchedTOTPDeviceRequest.md
+docs/PatchedTelegramSourcePropertyMappingRequest.md
+docs/PatchedTelegramSourceRequest.md
 docs/PatchedTenantRequest.md
 docs/PatchedTokenRequest.md
 docs/PatchedUniquePasswordPolicyRequest.md
@@ -1342,6 +1369,7 @@ docs/PatchedUserPlexSourceConnectionRequest.md
 docs/PatchedUserRequest.md
 docs/PatchedUserSAMLSourceConnectionRequest.md
 docs/PatchedUserSourceConnectionRequest.md
+docs/PatchedUserTelegramSourceConnectionRequest.md
 docs/PatchedUserWriteStageRequest.md
 docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
@@ -1490,6 +1518,12 @@ docs/TOTPDeviceRequest.md
 docs/Task.md
 docs/TaskAggregatedStatusEnum.md
 docs/TasksAPI.md
+docs/TelegramChallengeResponseRequest.md
+docs/TelegramLoginChallenge.md
+docs/TelegramSource.md
+docs/TelegramSourcePropertyMapping.md
+docs/TelegramSourcePropertyMappingRequest.md
+docs/TelegramSourceRequest.md
 docs/Tenant.md
 docs/TenantAdminGroupRequestRequest.md
 docs/TenantRecoveryKeyRequestRequest.md
@@ -1547,6 +1581,8 @@ docs/UserServiceAccountResponse.md
 docs/UserSetting.md
 docs/UserSourceConnection.md
 docs/UserSourceConnectionRequest.md
+docs/UserTelegramSourceConnection.md
+docs/UserTelegramSourceConnectionRequest.md
 docs/UserTypeEnum.md
 docs/UserVerificationEnum.md
 docs/UserWriteStage.md

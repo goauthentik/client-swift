@@ -17,6 +17,13 @@ Name | Type | Description | Notes
 **password** | **String** |  | 
 **captchaToken** | **String** |  | [optional] 
 **to** | **String** |  | 
+**id** | **Int** |  | 
+**firstName** | **String** |  | [optional] 
+**lastName** | **String** |  | [optional] 
+**username** | **String** |  | [optional] 
+**photoUrl** | **String** |  | [optional] 
+**authDate** | **Int** |  | 
+**hash** | **String** |  | 
 **rememberMe** | **Bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -2191,6 +2191,316 @@ open class SourcesAPI {
 
     /**
 
+     - parameter groupTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: GroupTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramCreate(groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GroupTelegramSourceConnection {
+        return try await sourcesGroupConnectionsTelegramCreateWithRequestBuilder(groupTelegramSourceConnectionRequest: groupTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /sources/group_connections/telegram/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter groupTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<GroupTelegramSourceConnection> 
+     */
+    open class func sourcesGroupConnectionsTelegramCreateWithRequestBuilder(groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GroupTelegramSourceConnection> {
+        let localVariablePath = "/sources/group_connections/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: groupTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<GroupTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramDestroy(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await sourcesGroupConnectionsTelegramDestroyWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /sources/group_connections/telegram/{id}/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func sourcesGroupConnectionsTelegramDestroyWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/sources/group_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter group: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sourceSlug: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedGroupTelegramSourceConnectionList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramList(group: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGroupTelegramSourceConnectionList {
+        return try await sourcesGroupConnectionsTelegramListWithRequestBuilder(group: group, ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/group_connections/telegram/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter group: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sourceSlug: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedGroupTelegramSourceConnectionList> 
+     */
+    open class func sourcesGroupConnectionsTelegramListWithRequestBuilder(group: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedGroupTelegramSourceConnectionList> {
+        let localVariablePath = "/sources/group_connections/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "group": (wrappedValue: group?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "source__slug": (wrappedValue: sourceSlug?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedGroupTelegramSourceConnectionList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter patchedGroupTelegramSourceConnectionRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: GroupTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramPartialUpdate(id: Int, patchedGroupTelegramSourceConnectionRequest: PatchedGroupTelegramSourceConnectionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GroupTelegramSourceConnection {
+        return try await sourcesGroupConnectionsTelegramPartialUpdateWithRequestBuilder(id: id, patchedGroupTelegramSourceConnectionRequest: patchedGroupTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /sources/group_connections/telegram/{id}/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter patchedGroupTelegramSourceConnectionRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<GroupTelegramSourceConnection> 
+     */
+    open class func sourcesGroupConnectionsTelegramPartialUpdateWithRequestBuilder(id: Int, patchedGroupTelegramSourceConnectionRequest: PatchedGroupTelegramSourceConnectionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GroupTelegramSourceConnection> {
+        var localVariablePath = "/sources/group_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedGroupTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<GroupTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: GroupTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramRetrieve(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GroupTelegramSourceConnection {
+        return try await sourcesGroupConnectionsTelegramRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/group_connections/telegram/{id}/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<GroupTelegramSourceConnection> 
+     */
+    open class func sourcesGroupConnectionsTelegramRetrieveWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GroupTelegramSourceConnection> {
+        var localVariablePath = "/sources/group_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<GroupTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter groupTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: GroupTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramUpdate(id: Int, groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GroupTelegramSourceConnection {
+        return try await sourcesGroupConnectionsTelegramUpdateWithRequestBuilder(id: id, groupTelegramSourceConnectionRequest: groupTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /sources/group_connections/telegram/{id}/
+     - Group-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter groupTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<GroupTelegramSourceConnection> 
+     */
+    open class func sourcesGroupConnectionsTelegramUpdateWithRequestBuilder(id: Int, groupTelegramSourceConnectionRequest: GroupTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GroupTelegramSourceConnection> {
+        var localVariablePath = "/sources/group_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: groupTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<GroupTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesGroupConnectionsTelegramUsedByList(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await sourcesGroupConnectionsTelegramUsedByListWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/group_connections/telegram/{id}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this Group Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func sourcesGroupConnectionsTelegramUsedByListWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/sources/group_connections/telegram/{id}/used_by/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter kerberosSourceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: KerberosSource
@@ -5345,6 +5655,371 @@ open class SourcesAPI {
 
     /**
 
+     - parameter telegramSourceRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSource
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramCreate(telegramSourceRequest: TelegramSourceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSource {
+        return try await sourcesTelegramCreateWithRequestBuilder(telegramSourceRequest: telegramSourceRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /sources/telegram/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter telegramSourceRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSource> 
+     */
+    open class func sourcesTelegramCreateWithRequestBuilder(telegramSourceRequest: TelegramSourceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSource> {
+        let localVariablePath = "/sources/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: telegramSourceRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSource>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramDestroy(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await sourcesTelegramDestroyWithRequestBuilder(slug: slug, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /sources/telegram/{slug}/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func sourcesTelegramDestroyWithRequestBuilder(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/sources/telegram/{slug}/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter groupMatchingMode
+     */
+    public enum GroupMatchingMode_sourcesTelegramList: String, Sendable, CaseIterable {
+        case identifier = "identifier"
+        case nameDeny = "name_deny"
+        case nameLink = "name_link"
+    }
+
+    /**
+     * enum for parameter policyEngineMode
+     */
+    public enum PolicyEngineMode_sourcesTelegramList: String, Sendable, CaseIterable {
+        case all = "all"
+        case any = "any"
+    }
+
+    /**
+     * enum for parameter userMatchingMode
+     */
+    public enum UserMatchingMode_sourcesTelegramList: String, Sendable, CaseIterable {
+        case emailDeny = "email_deny"
+        case emailLink = "email_link"
+        case identifier = "identifier"
+        case usernameDeny = "username_deny"
+        case usernameLink = "username_link"
+    }
+
+    /**
+
+     - parameter authenticationFlow: (query)  (optional)
+     - parameter botUsername: (query)  (optional)
+     - parameter enabled: (query)  (optional)
+     - parameter enrollmentFlow: (query)  (optional)
+     - parameter groupMatchingMode: (query) How the source determines if an existing group should be used or a new group created.   (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter pbmUuid: (query)  (optional)
+     - parameter policyEngineMode: (query)  (optional)
+     - parameter requestMessageAccess: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter slug: (query)  (optional)
+     - parameter userMatchingMode: (query) How the source determines if an existing user should be authenticated or a new user enrolled.   (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedTelegramSourceList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramList(authenticationFlow: UUID? = nil, botUsername: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, groupMatchingMode: GroupMatchingMode_sourcesTelegramList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesTelegramList? = nil, requestMessageAccess: Bool? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesTelegramList? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedTelegramSourceList {
+        return try await sourcesTelegramListWithRequestBuilder(authenticationFlow: authenticationFlow, botUsername: botUsername, enabled: enabled, enrollmentFlow: enrollmentFlow, groupMatchingMode: groupMatchingMode, name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, policyEngineMode: policyEngineMode, requestMessageAccess: requestMessageAccess, search: search, slug: slug, userMatchingMode: userMatchingMode, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/telegram/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter authenticationFlow: (query)  (optional)
+     - parameter botUsername: (query)  (optional)
+     - parameter enabled: (query)  (optional)
+     - parameter enrollmentFlow: (query)  (optional)
+     - parameter groupMatchingMode: (query) How the source determines if an existing group should be used or a new group created.   (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter pbmUuid: (query)  (optional)
+     - parameter policyEngineMode: (query)  (optional)
+     - parameter requestMessageAccess: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter slug: (query)  (optional)
+     - parameter userMatchingMode: (query) How the source determines if an existing user should be authenticated or a new user enrolled.   (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedTelegramSourceList> 
+     */
+    open class func sourcesTelegramListWithRequestBuilder(authenticationFlow: UUID? = nil, botUsername: String? = nil, enabled: Bool? = nil, enrollmentFlow: UUID? = nil, groupMatchingMode: GroupMatchingMode_sourcesTelegramList? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, policyEngineMode: PolicyEngineMode_sourcesTelegramList? = nil, requestMessageAccess: Bool? = nil, search: String? = nil, slug: String? = nil, userMatchingMode: UserMatchingMode_sourcesTelegramList? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedTelegramSourceList> {
+        let localVariablePath = "/sources/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "authentication_flow": (wrappedValue: authenticationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "bot_username": (wrappedValue: botUsername?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "enabled": (wrappedValue: enabled?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "enrollment_flow": (wrappedValue: enrollmentFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "group_matching_mode": (wrappedValue: groupMatchingMode?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "pbm_uuid": (wrappedValue: pbmUuid?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "policy_engine_mode": (wrappedValue: policyEngineMode?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "request_message_access": (wrappedValue: requestMessageAccess?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "slug": (wrappedValue: slug?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "user_matching_mode": (wrappedValue: userMatchingMode?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedTelegramSourceList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter slug: (path)  
+     - parameter patchedTelegramSourceRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSource
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramPartialUpdate(slug: String, patchedTelegramSourceRequest: PatchedTelegramSourceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSource {
+        return try await sourcesTelegramPartialUpdateWithRequestBuilder(slug: slug, patchedTelegramSourceRequest: patchedTelegramSourceRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /sources/telegram/{slug}/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter patchedTelegramSourceRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSource> 
+     */
+    open class func sourcesTelegramPartialUpdateWithRequestBuilder(slug: String, patchedTelegramSourceRequest: PatchedTelegramSourceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSource> {
+        var localVariablePath = "/sources/telegram/{slug}/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedTelegramSourceRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSource>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSource
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramRetrieve(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSource {
+        return try await sourcesTelegramRetrieveWithRequestBuilder(slug: slug, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/telegram/{slug}/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSource> 
+     */
+    open class func sourcesTelegramRetrieveWithRequestBuilder(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSource> {
+        var localVariablePath = "/sources/telegram/{slug}/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSource>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter slug: (path)  
+     - parameter telegramSourceRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSource
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramUpdate(slug: String, telegramSourceRequest: TelegramSourceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSource {
+        return try await sourcesTelegramUpdateWithRequestBuilder(slug: slug, telegramSourceRequest: telegramSourceRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /sources/telegram/{slug}/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter telegramSourceRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSource> 
+     */
+    open class func sourcesTelegramUpdateWithRequestBuilder(slug: String, telegramSourceRequest: TelegramSourceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSource> {
+        var localVariablePath = "/sources/telegram/{slug}/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: telegramSourceRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSource>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramUsedByList(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await sourcesTelegramUsedByListWithRequestBuilder(slug: slug, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/telegram/{slug}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func sourcesTelegramUsedByListWithRequestBuilder(slug: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/sources/telegram/{slug}/used_by/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter id: (path) A unique integer value identifying this user source connection. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
@@ -7145,6 +7820,316 @@ open class SourcesAPI {
      */
     open class func sourcesUserConnectionsSamlUsedByListWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
         var localVariablePath = "/sources/user_connections/saml/{id}/used_by/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter userTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramCreate(userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserTelegramSourceConnection {
+        return try await sourcesUserConnectionsTelegramCreateWithRequestBuilder(userTelegramSourceConnectionRequest: userTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /sources/user_connections/telegram/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter userTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserTelegramSourceConnection> 
+     */
+    open class func sourcesUserConnectionsTelegramCreateWithRequestBuilder(userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserTelegramSourceConnection> {
+        let localVariablePath = "/sources/user_connections/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramDestroy(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await sourcesUserConnectionsTelegramDestroyWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /sources/user_connections/telegram/{id}/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func sourcesUserConnectionsTelegramDestroyWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/sources/user_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sourceSlug: (query)  (optional)
+     - parameter user: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedUserTelegramSourceConnectionList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, user: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserTelegramSourceConnectionList {
+        return try await sourcesUserConnectionsTelegramListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, sourceSlug: sourceSlug, user: user, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/user_connections/telegram/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sourceSlug: (query)  (optional)
+     - parameter user: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedUserTelegramSourceConnectionList> 
+     */
+    open class func sourcesUserConnectionsTelegramListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, sourceSlug: String? = nil, user: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserTelegramSourceConnectionList> {
+        let localVariablePath = "/sources/user_connections/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "source__slug": (wrappedValue: sourceSlug?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "user": (wrappedValue: user?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedUserTelegramSourceConnectionList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter patchedUserTelegramSourceConnectionRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramPartialUpdate(id: Int, patchedUserTelegramSourceConnectionRequest: PatchedUserTelegramSourceConnectionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserTelegramSourceConnection {
+        return try await sourcesUserConnectionsTelegramPartialUpdateWithRequestBuilder(id: id, patchedUserTelegramSourceConnectionRequest: patchedUserTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /sources/user_connections/telegram/{id}/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter patchedUserTelegramSourceConnectionRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserTelegramSourceConnection> 
+     */
+    open class func sourcesUserConnectionsTelegramPartialUpdateWithRequestBuilder(id: Int, patchedUserTelegramSourceConnectionRequest: PatchedUserTelegramSourceConnectionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserTelegramSourceConnection> {
+        var localVariablePath = "/sources/user_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedUserTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramRetrieve(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserTelegramSourceConnection {
+        return try await sourcesUserConnectionsTelegramRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/user_connections/telegram/{id}/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserTelegramSourceConnection> 
+     */
+    open class func sourcesUserConnectionsTelegramRetrieveWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserTelegramSourceConnection> {
+        var localVariablePath = "/sources/user_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter userTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramUpdate(id: Int, userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserTelegramSourceConnection {
+        return try await sourcesUserConnectionsTelegramUpdateWithRequestBuilder(id: id, userTelegramSourceConnectionRequest: userTelegramSourceConnectionRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /sources/user_connections/telegram/{id}/
+     - User-source connection Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter userTelegramSourceConnectionRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserTelegramSourceConnection> 
+     */
+    open class func sourcesUserConnectionsTelegramUpdateWithRequestBuilder(id: Int, userTelegramSourceConnectionRequest: UserTelegramSourceConnectionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserTelegramSourceConnection> {
+        var localVariablePath = "/sources/user_connections/telegram/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userTelegramSourceConnectionRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesUserConnectionsTelegramUsedByList(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await sourcesUserConnectionsTelegramUsedByListWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /sources/user_connections/telegram/{id}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this User Telegram Source Connection. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func sourcesUserConnectionsTelegramUsedByListWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/sources/user_connections/telegram/{id}/used_by/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

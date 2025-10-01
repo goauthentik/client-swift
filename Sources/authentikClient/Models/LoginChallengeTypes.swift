@@ -11,6 +11,7 @@ public enum LoginChallengeTypes: Sendable, Codable, ParameterConvertible, Hashab
     case typeAppleLoginChallenge(AppleLoginChallenge)
     case typePlexAuthenticationChallenge(PlexAuthenticationChallenge)
     case typeRedirectChallenge(RedirectChallenge)
+    case typeTelegramLoginChallenge(TelegramLoginChallenge)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
@@ -20,6 +21,8 @@ public enum LoginChallengeTypes: Sendable, Codable, ParameterConvertible, Hashab
         case .typePlexAuthenticationChallenge(let value):
             try container.encode(value)
         case .typeRedirectChallenge(let value):
+            try container.encode(value)
+        case .typeTelegramLoginChallenge(let value):
             try container.encode(value)
         }
     }
@@ -32,6 +35,8 @@ public enum LoginChallengeTypes: Sendable, Codable, ParameterConvertible, Hashab
             self = .typePlexAuthenticationChallenge(value)
         } else if let value = try? container.decode(RedirectChallenge.self) {
             self = .typeRedirectChallenge(value)
+        } else if let value = try? container.decode(TelegramLoginChallenge.self) {
+            self = .typeTelegramLoginChallenge(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of LoginChallengeTypes"))
         }

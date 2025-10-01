@@ -4668,4 +4668,317 @@ open class PropertymappingsAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
+
+    /**
+
+     - parameter telegramSourcePropertyMappingRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSourcePropertyMapping
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramCreate(telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSourcePropertyMapping {
+        return try await propertymappingsSourceTelegramCreateWithRequestBuilder(telegramSourcePropertyMappingRequest: telegramSourcePropertyMappingRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /propertymappings/source/telegram/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter telegramSourcePropertyMappingRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSourcePropertyMapping> 
+     */
+    open class func propertymappingsSourceTelegramCreateWithRequestBuilder(telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSourcePropertyMapping> {
+        let localVariablePath = "/propertymappings/source/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: telegramSourcePropertyMappingRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSourcePropertyMapping>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramDestroy(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await propertymappingsSourceTelegramDestroyWithRequestBuilder(pmUuid: pmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /propertymappings/source/telegram/{pm_uuid}/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func propertymappingsSourceTelegramDestroyWithRequestBuilder(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/propertymappings/source/telegram/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter managed: (query)  (optional)
+     - parameter managedIsnull: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedTelegramSourcePropertyMappingList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramList(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedTelegramSourcePropertyMappingList {
+        return try await propertymappingsSourceTelegramListWithRequestBuilder(managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /propertymappings/source/telegram/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter managed: (query)  (optional)
+     - parameter managedIsnull: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedTelegramSourcePropertyMappingList> 
+     */
+    open class func propertymappingsSourceTelegramListWithRequestBuilder(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedTelegramSourcePropertyMappingList> {
+        let localVariablePath = "/propertymappings/source/telegram/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "managed": (wrappedValue: managed?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "managed__isnull": (wrappedValue: managedIsnull?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedTelegramSourcePropertyMappingList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter patchedTelegramSourcePropertyMappingRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSourcePropertyMapping
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramPartialUpdate(pmUuid: UUID, patchedTelegramSourcePropertyMappingRequest: PatchedTelegramSourcePropertyMappingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSourcePropertyMapping {
+        return try await propertymappingsSourceTelegramPartialUpdateWithRequestBuilder(pmUuid: pmUuid, patchedTelegramSourcePropertyMappingRequest: patchedTelegramSourcePropertyMappingRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /propertymappings/source/telegram/{pm_uuid}/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter patchedTelegramSourcePropertyMappingRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSourcePropertyMapping> 
+     */
+    open class func propertymappingsSourceTelegramPartialUpdateWithRequestBuilder(pmUuid: UUID, patchedTelegramSourcePropertyMappingRequest: PatchedTelegramSourcePropertyMappingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSourcePropertyMapping> {
+        var localVariablePath = "/propertymappings/source/telegram/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedTelegramSourcePropertyMappingRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSourcePropertyMapping>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSourcePropertyMapping
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramRetrieve(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSourcePropertyMapping {
+        return try await propertymappingsSourceTelegramRetrieveWithRequestBuilder(pmUuid: pmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /propertymappings/source/telegram/{pm_uuid}/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSourcePropertyMapping> 
+     */
+    open class func propertymappingsSourceTelegramRetrieveWithRequestBuilder(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSourcePropertyMapping> {
+        var localVariablePath = "/propertymappings/source/telegram/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSourcePropertyMapping>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter telegramSourcePropertyMappingRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TelegramSourcePropertyMapping
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramUpdate(pmUuid: UUID, telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> TelegramSourcePropertyMapping {
+        return try await propertymappingsSourceTelegramUpdateWithRequestBuilder(pmUuid: pmUuid, telegramSourcePropertyMappingRequest: telegramSourcePropertyMappingRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /propertymappings/source/telegram/{pm_uuid}/
+     - TelegramSourcePropertyMapping Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter telegramSourcePropertyMappingRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TelegramSourcePropertyMapping> 
+     */
+    open class func propertymappingsSourceTelegramUpdateWithRequestBuilder(pmUuid: UUID, telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<TelegramSourcePropertyMapping> {
+        var localVariablePath = "/propertymappings/source/telegram/{pm_uuid}/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: telegramSourcePropertyMappingRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TelegramSourcePropertyMapping>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func propertymappingsSourceTelegramUsedByList(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await propertymappingsSourceTelegramUsedByListWithRequestBuilder(pmUuid: pmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /propertymappings/source/telegram/{pm_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pmUuid: (path) A UUID string identifying this Telegram Source Property Mapping. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func propertymappingsSourceTelegramUsedByListWithRequestBuilder(pmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/propertymappings/source/telegram/{pm_uuid}/used_by/"
+        let pmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pmUuid))"
+        let pmUuidPostEscape = pmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pm_uuid}", with: pmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
 }

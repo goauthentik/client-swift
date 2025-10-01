@@ -41,6 +41,7 @@ public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaul
     case authentikPeriodSourcesPeriodPlex = "authentik.sources.plex"
     case authentikPeriodSourcesPeriodSaml = "authentik.sources.saml"
     case authentikPeriodSourcesPeriodScim = "authentik.sources.scim"
+    case authentikPeriodSourcesPeriodTelegram = "authentik.sources.telegram"
     case authentikPeriodStagesPeriodAuthenticator = "authentik.stages.authenticator"
     case authentikPeriodStagesPeriodAuthenticatorDuo = "authentik.stages.authenticator_duo"
     case authentikPeriodStagesPeriodAuthenticatorEmail = "authentik.stages.authenticator_email"

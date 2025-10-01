@@ -108,6 +108,13 @@ Method | HTTP request | Description
 [**propertymappingsSourceScimRetrieve**](PropertymappingsAPI.md#propertymappingssourcescimretrieve) | **GET** /propertymappings/source/scim/{pm_uuid}/ | 
 [**propertymappingsSourceScimUpdate**](PropertymappingsAPI.md#propertymappingssourcescimupdate) | **PUT** /propertymappings/source/scim/{pm_uuid}/ | 
 [**propertymappingsSourceScimUsedByList**](PropertymappingsAPI.md#propertymappingssourcescimusedbylist) | **GET** /propertymappings/source/scim/{pm_uuid}/used_by/ | 
+[**propertymappingsSourceTelegramCreate**](PropertymappingsAPI.md#propertymappingssourcetelegramcreate) | **POST** /propertymappings/source/telegram/ | 
+[**propertymappingsSourceTelegramDestroy**](PropertymappingsAPI.md#propertymappingssourcetelegramdestroy) | **DELETE** /propertymappings/source/telegram/{pm_uuid}/ | 
+[**propertymappingsSourceTelegramList**](PropertymappingsAPI.md#propertymappingssourcetelegramlist) | **GET** /propertymappings/source/telegram/ | 
+[**propertymappingsSourceTelegramPartialUpdate**](PropertymappingsAPI.md#propertymappingssourcetelegrampartialupdate) | **PATCH** /propertymappings/source/telegram/{pm_uuid}/ | 
+[**propertymappingsSourceTelegramRetrieve**](PropertymappingsAPI.md#propertymappingssourcetelegramretrieve) | **GET** /propertymappings/source/telegram/{pm_uuid}/ | 
+[**propertymappingsSourceTelegramUpdate**](PropertymappingsAPI.md#propertymappingssourcetelegramupdate) | **PUT** /propertymappings/source/telegram/{pm_uuid}/ | 
+[**propertymappingsSourceTelegramUsedByList**](PropertymappingsAPI.md#propertymappingssourcetelegramusedbylist) | **GET** /propertymappings/source/telegram/{pm_uuid}/used_by/ | 
 
 
 # **propertymappingsAllDestroy**
@@ -5430,6 +5437,365 @@ PropertymappingsAPI.propertymappingsSourceScimUsedByList(pmUuid: pmUuid) { (resp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pmUuid** | **UUID** | A UUID string identifying this SCIM Source Property Mapping. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramCreate**
+```swift
+    open class func propertymappingsSourceTelegramCreate(telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, completion: @escaping (_ data: TelegramSourcePropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let telegramSourcePropertyMappingRequest = TelegramSourcePropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // TelegramSourcePropertyMappingRequest | 
+
+PropertymappingsAPI.propertymappingsSourceTelegramCreate(telegramSourcePropertyMappingRequest: telegramSourcePropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **telegramSourcePropertyMappingRequest** | [**TelegramSourcePropertyMappingRequest**](TelegramSourcePropertyMappingRequest.md) |  | 
+
+### Return type
+
+[**TelegramSourcePropertyMapping**](TelegramSourcePropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramDestroy**
+```swift
+    open class func propertymappingsSourceTelegramDestroy(pmUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this Telegram Source Property Mapping.
+
+PropertymappingsAPI.propertymappingsSourceTelegramDestroy(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this Telegram Source Property Mapping. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramList**
+```swift
+    open class func propertymappingsSourceTelegramList(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedTelegramSourcePropertyMappingList?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let managed = ["inner_example"] // [String] |  (optional)
+let managedIsnull = true // Bool |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+PropertymappingsAPI.propertymappingsSourceTelegramList(managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managed** | [**[String]**](String.md) |  | [optional] 
+ **managedIsnull** | **Bool** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedTelegramSourcePropertyMappingList**](PaginatedTelegramSourcePropertyMappingList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramPartialUpdate**
+```swift
+    open class func propertymappingsSourceTelegramPartialUpdate(pmUuid: UUID, patchedTelegramSourcePropertyMappingRequest: PatchedTelegramSourcePropertyMappingRequest? = nil, completion: @escaping (_ data: TelegramSourcePropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this Telegram Source Property Mapping.
+let patchedTelegramSourcePropertyMappingRequest = PatchedTelegramSourcePropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // PatchedTelegramSourcePropertyMappingRequest |  (optional)
+
+PropertymappingsAPI.propertymappingsSourceTelegramPartialUpdate(pmUuid: pmUuid, patchedTelegramSourcePropertyMappingRequest: patchedTelegramSourcePropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this Telegram Source Property Mapping. | 
+ **patchedTelegramSourcePropertyMappingRequest** | [**PatchedTelegramSourcePropertyMappingRequest**](PatchedTelegramSourcePropertyMappingRequest.md) |  | [optional] 
+
+### Return type
+
+[**TelegramSourcePropertyMapping**](TelegramSourcePropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramRetrieve**
+```swift
+    open class func propertymappingsSourceTelegramRetrieve(pmUuid: UUID, completion: @escaping (_ data: TelegramSourcePropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this Telegram Source Property Mapping.
+
+PropertymappingsAPI.propertymappingsSourceTelegramRetrieve(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this Telegram Source Property Mapping. | 
+
+### Return type
+
+[**TelegramSourcePropertyMapping**](TelegramSourcePropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramUpdate**
+```swift
+    open class func propertymappingsSourceTelegramUpdate(pmUuid: UUID, telegramSourcePropertyMappingRequest: TelegramSourcePropertyMappingRequest, completion: @escaping (_ data: TelegramSourcePropertyMapping?, _ error: Error?) -> Void)
+```
+
+
+
+TelegramSourcePropertyMapping Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this Telegram Source Property Mapping.
+let telegramSourcePropertyMappingRequest = TelegramSourcePropertyMappingRequest(managed: "managed_example", name: "name_example", expression: "expression_example") // TelegramSourcePropertyMappingRequest | 
+
+PropertymappingsAPI.propertymappingsSourceTelegramUpdate(pmUuid: pmUuid, telegramSourcePropertyMappingRequest: telegramSourcePropertyMappingRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this Telegram Source Property Mapping. | 
+ **telegramSourcePropertyMappingRequest** | [**TelegramSourcePropertyMappingRequest**](TelegramSourcePropertyMappingRequest.md) |  | 
+
+### Return type
+
+[**TelegramSourcePropertyMapping**](TelegramSourcePropertyMapping.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **propertymappingsSourceTelegramUsedByList**
+```swift
+    open class func propertymappingsSourceTelegramUsedByList(pmUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pmUuid = 987 // UUID | A UUID string identifying this Telegram Source Property Mapping.
+
+PropertymappingsAPI.propertymappingsSourceTelegramUsedByList(pmUuid: pmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **UUID** | A UUID string identifying this Telegram Source Property Mapping. | 
 
 ### Return type
 

@@ -494,6 +494,13 @@ Class | Method | HTTP request | Description
 *PropertymappingsAPI* | [**propertymappingsSourceScimRetrieve**](docs/PropertymappingsAPI.md#propertymappingssourcescimretrieve) | **GET** /propertymappings/source/scim/{pm_uuid}/ | 
 *PropertymappingsAPI* | [**propertymappingsSourceScimUpdate**](docs/PropertymappingsAPI.md#propertymappingssourcescimupdate) | **PUT** /propertymappings/source/scim/{pm_uuid}/ | 
 *PropertymappingsAPI* | [**propertymappingsSourceScimUsedByList**](docs/PropertymappingsAPI.md#propertymappingssourcescimusedbylist) | **GET** /propertymappings/source/scim/{pm_uuid}/used_by/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramCreate**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramcreate) | **POST** /propertymappings/source/telegram/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramDestroy**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramdestroy) | **DELETE** /propertymappings/source/telegram/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramList**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramlist) | **GET** /propertymappings/source/telegram/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramPartialUpdate**](docs/PropertymappingsAPI.md#propertymappingssourcetelegrampartialupdate) | **PATCH** /propertymappings/source/telegram/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramRetrieve**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramretrieve) | **GET** /propertymappings/source/telegram/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramUpdate**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramupdate) | **PUT** /propertymappings/source/telegram/{pm_uuid}/ | 
+*PropertymappingsAPI* | [**propertymappingsSourceTelegramUsedByList**](docs/PropertymappingsAPI.md#propertymappingssourcetelegramusedbylist) | **GET** /propertymappings/source/telegram/{pm_uuid}/used_by/ | 
 *ProvidersAPI* | [**providersAllDestroy**](docs/ProvidersAPI.md#providersalldestroy) | **DELETE** /providers/all/{id}/ | 
 *ProvidersAPI* | [**providersAllList**](docs/ProvidersAPI.md#providersalllist) | **GET** /providers/all/ | 
 *ProvidersAPI* | [**providersAllRetrieve**](docs/ProvidersAPI.md#providersallretrieve) | **GET** /providers/all/{id}/ | 
@@ -706,6 +713,13 @@ Class | Method | HTTP request | Description
 *SourcesAPI* | [**sourcesGroupConnectionsSamlRetrieve**](docs/SourcesAPI.md#sourcesgroupconnectionssamlretrieve) | **GET** /sources/group_connections/saml/{id}/ | 
 *SourcesAPI* | [**sourcesGroupConnectionsSamlUpdate**](docs/SourcesAPI.md#sourcesgroupconnectionssamlupdate) | **PUT** /sources/group_connections/saml/{id}/ | 
 *SourcesAPI* | [**sourcesGroupConnectionsSamlUsedByList**](docs/SourcesAPI.md#sourcesgroupconnectionssamlusedbylist) | **GET** /sources/group_connections/saml/{id}/used_by/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramCreate**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramcreate) | **POST** /sources/group_connections/telegram/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramDestroy**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramdestroy) | **DELETE** /sources/group_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramList**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramlist) | **GET** /sources/group_connections/telegram/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramPartialUpdate**](docs/SourcesAPI.md#sourcesgroupconnectionstelegrampartialupdate) | **PATCH** /sources/group_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramRetrieve**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramretrieve) | **GET** /sources/group_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramUpdate**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramupdate) | **PUT** /sources/group_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesGroupConnectionsTelegramUsedByList**](docs/SourcesAPI.md#sourcesgroupconnectionstelegramusedbylist) | **GET** /sources/group_connections/telegram/{id}/used_by/ | 
 *SourcesAPI* | [**sourcesKerberosCreate**](docs/SourcesAPI.md#sourceskerberoscreate) | **POST** /sources/kerberos/ | 
 *SourcesAPI* | [**sourcesKerberosDestroy**](docs/SourcesAPI.md#sourceskerberosdestroy) | **DELETE** /sources/kerberos/{slug}/ | 
 *SourcesAPI* | [**sourcesKerberosList**](docs/SourcesAPI.md#sourceskerberoslist) | **GET** /sources/kerberos/ | 
@@ -769,6 +783,13 @@ Class | Method | HTTP request | Description
 *SourcesAPI* | [**sourcesScimUsersRetrieve**](docs/SourcesAPI.md#sourcesscimusersretrieve) | **GET** /sources/scim_users/{id}/ | 
 *SourcesAPI* | [**sourcesScimUsersUpdate**](docs/SourcesAPI.md#sourcesscimusersupdate) | **PUT** /sources/scim_users/{id}/ | 
 *SourcesAPI* | [**sourcesScimUsersUsedByList**](docs/SourcesAPI.md#sourcesscimusersusedbylist) | **GET** /sources/scim_users/{id}/used_by/ | 
+*SourcesAPI* | [**sourcesTelegramCreate**](docs/SourcesAPI.md#sourcestelegramcreate) | **POST** /sources/telegram/ | 
+*SourcesAPI* | [**sourcesTelegramDestroy**](docs/SourcesAPI.md#sourcestelegramdestroy) | **DELETE** /sources/telegram/{slug}/ | 
+*SourcesAPI* | [**sourcesTelegramList**](docs/SourcesAPI.md#sourcestelegramlist) | **GET** /sources/telegram/ | 
+*SourcesAPI* | [**sourcesTelegramPartialUpdate**](docs/SourcesAPI.md#sourcestelegrampartialupdate) | **PATCH** /sources/telegram/{slug}/ | 
+*SourcesAPI* | [**sourcesTelegramRetrieve**](docs/SourcesAPI.md#sourcestelegramretrieve) | **GET** /sources/telegram/{slug}/ | 
+*SourcesAPI* | [**sourcesTelegramUpdate**](docs/SourcesAPI.md#sourcestelegramupdate) | **PUT** /sources/telegram/{slug}/ | 
+*SourcesAPI* | [**sourcesTelegramUsedByList**](docs/SourcesAPI.md#sourcestelegramusedbylist) | **GET** /sources/telegram/{slug}/used_by/ | 
 *SourcesAPI* | [**sourcesUserConnectionsAllDestroy**](docs/SourcesAPI.md#sourcesuserconnectionsalldestroy) | **DELETE** /sources/user_connections/all/{id}/ | 
 *SourcesAPI* | [**sourcesUserConnectionsAllList**](docs/SourcesAPI.md#sourcesuserconnectionsalllist) | **GET** /sources/user_connections/all/ | 
 *SourcesAPI* | [**sourcesUserConnectionsAllPartialUpdate**](docs/SourcesAPI.md#sourcesuserconnectionsallpartialupdate) | **PATCH** /sources/user_connections/all/{id}/ | 
@@ -810,6 +831,13 @@ Class | Method | HTTP request | Description
 *SourcesAPI* | [**sourcesUserConnectionsSamlRetrieve**](docs/SourcesAPI.md#sourcesuserconnectionssamlretrieve) | **GET** /sources/user_connections/saml/{id}/ | 
 *SourcesAPI* | [**sourcesUserConnectionsSamlUpdate**](docs/SourcesAPI.md#sourcesuserconnectionssamlupdate) | **PUT** /sources/user_connections/saml/{id}/ | 
 *SourcesAPI* | [**sourcesUserConnectionsSamlUsedByList**](docs/SourcesAPI.md#sourcesuserconnectionssamlusedbylist) | **GET** /sources/user_connections/saml/{id}/used_by/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramCreate**](docs/SourcesAPI.md#sourcesuserconnectionstelegramcreate) | **POST** /sources/user_connections/telegram/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramDestroy**](docs/SourcesAPI.md#sourcesuserconnectionstelegramdestroy) | **DELETE** /sources/user_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramList**](docs/SourcesAPI.md#sourcesuserconnectionstelegramlist) | **GET** /sources/user_connections/telegram/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramPartialUpdate**](docs/SourcesAPI.md#sourcesuserconnectionstelegrampartialupdate) | **PATCH** /sources/user_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramRetrieve**](docs/SourcesAPI.md#sourcesuserconnectionstelegramretrieve) | **GET** /sources/user_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramUpdate**](docs/SourcesAPI.md#sourcesuserconnectionstelegramupdate) | **PUT** /sources/user_connections/telegram/{id}/ | 
+*SourcesAPI* | [**sourcesUserConnectionsTelegramUsedByList**](docs/SourcesAPI.md#sourcesuserconnectionstelegramusedbylist) | **GET** /sources/user_connections/telegram/{id}/used_by/ | 
 *SsfAPI* | [**ssfStreamsList**](docs/SsfAPI.md#ssfstreamslist) | **GET** /ssf/streams/ | 
 *SsfAPI* | [**ssfStreamsRetrieve**](docs/SsfAPI.md#ssfstreamsretrieve) | **GET** /ssf/streams/{uuid}/ | 
 *StagesAPI* | [**stagesAllDestroy**](docs/StagesAPI.md#stagesalldestroy) | **DELETE** /stages/all/{stage_uuid}/ | 
@@ -1225,6 +1253,8 @@ Class | Method | HTTP request | Description
  - [GroupSAMLSourceConnectionRequest](docs/GroupSAMLSourceConnectionRequest.md)
  - [GroupSourceConnection](docs/GroupSourceConnection.md)
  - [GroupSourceConnectionRequest](docs/GroupSourceConnectionRequest.md)
+ - [GroupTelegramSourceConnection](docs/GroupTelegramSourceConnection.md)
+ - [GroupTelegramSourceConnectionRequest](docs/GroupTelegramSourceConnectionRequest.md)
  - [IdentificationChallenge](docs/IdentificationChallenge.md)
  - [IdentificationChallengeResponseRequest](docs/IdentificationChallengeResponseRequest.md)
  - [IdentificationStage](docs/IdentificationStage.md)
@@ -1362,6 +1392,7 @@ Class | Method | HTTP request | Description
  - [PaginatedGroupPlexSourceConnectionList](docs/PaginatedGroupPlexSourceConnectionList.md)
  - [PaginatedGroupSAMLSourceConnectionList](docs/PaginatedGroupSAMLSourceConnectionList.md)
  - [PaginatedGroupSourceConnectionList](docs/PaginatedGroupSourceConnectionList.md)
+ - [PaginatedGroupTelegramSourceConnectionList](docs/PaginatedGroupTelegramSourceConnectionList.md)
  - [PaginatedIdentificationStageList](docs/PaginatedIdentificationStageList.md)
  - [PaginatedInitialPermissionsList](docs/PaginatedInitialPermissionsList.md)
  - [PaginatedInvitationList](docs/PaginatedInvitationList.md)
@@ -1435,6 +1466,8 @@ Class | Method | HTTP request | Description
  - [PaginatedStaticDeviceList](docs/PaginatedStaticDeviceList.md)
  - [PaginatedTOTPDeviceList](docs/PaginatedTOTPDeviceList.md)
  - [PaginatedTaskList](docs/PaginatedTaskList.md)
+ - [PaginatedTelegramSourceList](docs/PaginatedTelegramSourceList.md)
+ - [PaginatedTelegramSourcePropertyMappingList](docs/PaginatedTelegramSourcePropertyMappingList.md)
  - [PaginatedTenantList](docs/PaginatedTenantList.md)
  - [PaginatedTokenList](docs/PaginatedTokenList.md)
  - [PaginatedTokenModelList](docs/PaginatedTokenModelList.md)
@@ -1451,6 +1484,7 @@ Class | Method | HTTP request | Description
  - [PaginatedUserPlexSourceConnectionList](docs/PaginatedUserPlexSourceConnectionList.md)
  - [PaginatedUserSAMLSourceConnectionList](docs/PaginatedUserSAMLSourceConnectionList.md)
  - [PaginatedUserSourceConnectionList](docs/PaginatedUserSourceConnectionList.md)
+ - [PaginatedUserTelegramSourceConnectionList](docs/PaginatedUserTelegramSourceConnectionList.md)
  - [PaginatedUserWriteStageList](docs/PaginatedUserWriteStageList.md)
  - [PaginatedWebAuthnDeviceList](docs/PaginatedWebAuthnDeviceList.md)
  - [PaginatedWebAuthnDeviceTypeList](docs/PaginatedWebAuthnDeviceTypeList.md)
@@ -1508,6 +1542,7 @@ Class | Method | HTTP request | Description
  - [PatchedGroupRequest](docs/PatchedGroupRequest.md)
  - [PatchedGroupSAMLSourceConnectionRequest](docs/PatchedGroupSAMLSourceConnectionRequest.md)
  - [PatchedGroupSourceConnectionRequest](docs/PatchedGroupSourceConnectionRequest.md)
+ - [PatchedGroupTelegramSourceConnectionRequest](docs/PatchedGroupTelegramSourceConnectionRequest.md)
  - [PatchedIdentificationStageRequest](docs/PatchedIdentificationStageRequest.md)
  - [PatchedInitialPermissionsRequest](docs/PatchedInitialPermissionsRequest.md)
  - [PatchedInvitationRequest](docs/PatchedInvitationRequest.md)
@@ -1566,6 +1601,8 @@ Class | Method | HTTP request | Description
  - [PatchedSourceStageRequest](docs/PatchedSourceStageRequest.md)
  - [PatchedStaticDeviceRequest](docs/PatchedStaticDeviceRequest.md)
  - [PatchedTOTPDeviceRequest](docs/PatchedTOTPDeviceRequest.md)
+ - [PatchedTelegramSourcePropertyMappingRequest](docs/PatchedTelegramSourcePropertyMappingRequest.md)
+ - [PatchedTelegramSourceRequest](docs/PatchedTelegramSourceRequest.md)
  - [PatchedTenantRequest](docs/PatchedTenantRequest.md)
  - [PatchedTokenRequest](docs/PatchedTokenRequest.md)
  - [PatchedUniquePasswordPolicyRequest](docs/PatchedUniquePasswordPolicyRequest.md)
@@ -1579,6 +1616,7 @@ Class | Method | HTTP request | Description
  - [PatchedUserRequest](docs/PatchedUserRequest.md)
  - [PatchedUserSAMLSourceConnectionRequest](docs/PatchedUserSAMLSourceConnectionRequest.md)
  - [PatchedUserSourceConnectionRequest](docs/PatchedUserSourceConnectionRequest.md)
+ - [PatchedUserTelegramSourceConnectionRequest](docs/PatchedUserTelegramSourceConnectionRequest.md)
  - [PatchedUserWriteStageRequest](docs/PatchedUserWriteStageRequest.md)
  - [PatchedWebAuthnDeviceRequest](docs/PatchedWebAuthnDeviceRequest.md)
  - [Permission](docs/Permission.md)
@@ -1716,6 +1754,12 @@ Class | Method | HTTP request | Description
  - [TOTPDeviceRequest](docs/TOTPDeviceRequest.md)
  - [Task](docs/Task.md)
  - [TaskAggregatedStatusEnum](docs/TaskAggregatedStatusEnum.md)
+ - [TelegramChallengeResponseRequest](docs/TelegramChallengeResponseRequest.md)
+ - [TelegramLoginChallenge](docs/TelegramLoginChallenge.md)
+ - [TelegramSource](docs/TelegramSource.md)
+ - [TelegramSourcePropertyMapping](docs/TelegramSourcePropertyMapping.md)
+ - [TelegramSourcePropertyMappingRequest](docs/TelegramSourcePropertyMappingRequest.md)
+ - [TelegramSourceRequest](docs/TelegramSourceRequest.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAdminGroupRequestRequest](docs/TenantAdminGroupRequestRequest.md)
  - [TenantRecoveryKeyRequestRequest](docs/TenantRecoveryKeyRequestRequest.md)
@@ -1772,6 +1816,8 @@ Class | Method | HTTP request | Description
  - [UserSetting](docs/UserSetting.md)
  - [UserSourceConnection](docs/UserSourceConnection.md)
  - [UserSourceConnectionRequest](docs/UserSourceConnectionRequest.md)
+ - [UserTelegramSourceConnection](docs/UserTelegramSourceConnection.md)
+ - [UserTelegramSourceConnectionRequest](docs/UserTelegramSourceConnectionRequest.md)
  - [UserTypeEnum](docs/UserTypeEnum.md)
  - [UserVerificationEnum](docs/UserVerificationEnum.md)
  - [UserWriteStage](docs/UserWriteStage.md)

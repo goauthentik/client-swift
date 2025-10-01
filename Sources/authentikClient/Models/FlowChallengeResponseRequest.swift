@@ -29,6 +29,7 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
     case typePlexAuthenticationChallengeResponseRequest(PlexAuthenticationChallengeResponseRequest)
     case typePromptChallengeResponseRequest(PromptChallengeResponseRequest)
     case typeRedirectChallengeResponseRequest(RedirectChallengeResponseRequest)
+    case typeTelegramChallengeResponseRequest(TelegramChallengeResponseRequest)
     case typeUserLoginChallengeResponseRequest(UserLoginChallengeResponseRequest)
 
     public func encode(to encoder: Encoder) throws {
@@ -75,6 +76,8 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
         case .typePromptChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeRedirectChallengeResponseRequest(let value):
+            try container.encode(value)
+        case .typeTelegramChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeUserLoginChallengeResponseRequest(let value):
             try container.encode(value)
@@ -125,6 +128,8 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
             self = .typePromptChallengeResponseRequest(value)
         } else if let value = try? container.decode(RedirectChallengeResponseRequest.self) {
             self = .typeRedirectChallengeResponseRequest(value)
+        } else if let value = try? container.decode(TelegramChallengeResponseRequest.self) {
+            self = .typeTelegramChallengeResponseRequest(value)
         } else if let value = try? container.decode(UserLoginChallengeResponseRequest.self) {
             self = .typeUserLoginChallengeResponseRequest(value)
         } else {
@@ -133,3 +138,6 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
     }
 }
 
+
+@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
+extension FlowChallengeResponseRequest: Identifiable {}
