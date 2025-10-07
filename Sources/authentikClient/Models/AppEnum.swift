@@ -8,6 +8,7 @@
 import Foundation
 
 public enum AppEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
+    case authentikPeriodCommands = "authentik.commands"
     case authentikPeriodTenants = "authentik.tenants"
     case authentikPeriodTasks = "authentik.tasks"
     case authentikPeriodAdmin = "authentik.admin"

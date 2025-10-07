@@ -254,8 +254,11 @@ open class TasksAPI {
         case done = "done"
         case error = "error"
         case info = "info"
+        case postprocess = "postprocess"
+        case preprocess = "preprocess"
         case queued = "queued"
         case rejected = "rejected"
+        case running = "running"
         case warning = "warning"
     }
 
@@ -265,8 +268,11 @@ open class TasksAPI {
     public enum State_tasksTasksList: String, Sendable, CaseIterable {
         case consumed = "consumed"
         case done = "done"
+        case postprocess = "postprocess"
+        case preprocess = "preprocess"
         case queued = "queued"
         case rejected = "rejected"
+        case running = "running"
     }
 
     /**

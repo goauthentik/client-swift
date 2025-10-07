@@ -10,6 +10,9 @@ import Foundation
 public enum LastTaskStatusEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case queued = "queued"
     case consumed = "consumed"
+    case preprocess = "preprocess"
+    case running = "running"
+    case postprocess = "postprocess"
     case rejected = "rejected"
     case done = "done"
     case info = "info"
