@@ -435,6 +435,43 @@ open class TasksAPI {
     /**
 
      - parameter apiConfiguration: The configuration for the http request.
+     - returns: GlobalTaskStatus
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func tasksTasksStatusRetrieve(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GlobalTaskStatus {
+        return try await tasksTasksStatusRetrieveWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /tasks/tasks/status/
+     - Global status summary for all tasks
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<GlobalTaskStatus> 
+     */
+    open class func tasksTasksStatusRetrieveWithRequestBuilder(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GlobalTaskStatus> {
+        let localVariablePath = "/tasks/tasks/status/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<GlobalTaskStatus>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter apiConfiguration: The configuration for the http request.
      - returns: [Worker]
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)

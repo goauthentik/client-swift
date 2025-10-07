@@ -204,6 +204,7 @@ Sources/authentikClient/Models/GenericError.swift
 Sources/authentikClient/Models/GeoIPPolicy.swift
 Sources/authentikClient/Models/GeoIPPolicyRequest.swift
 Sources/authentikClient/Models/GeoipBindingEnum.swift
+Sources/authentikClient/Models/GlobalTaskStatus.swift
 Sources/authentikClient/Models/GoogleWorkspaceProvider.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderGroup.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderGroupRequest.swift
@@ -979,6 +980,7 @@ docs/GenericError.md
 docs/GeoIPPolicy.md
 docs/GeoIPPolicyRequest.md
 docs/GeoipBindingEnum.md
+docs/GlobalTaskStatus.md
 docs/GoogleWorkspaceProvider.md
 docs/GoogleWorkspaceProviderGroup.md
 docs/GoogleWorkspaceProviderGroupRequest.md

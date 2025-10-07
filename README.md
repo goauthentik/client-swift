@@ -1043,6 +1043,7 @@ Class | Method | HTTP request | Description
 *TasksAPI* | [**tasksTasksList**](docs/TasksAPI.md#taskstaskslist) | **GET** /tasks/tasks/ | 
 *TasksAPI* | [**tasksTasksRetrieve**](docs/TasksAPI.md#taskstasksretrieve) | **GET** /tasks/tasks/{message_id}/ | 
 *TasksAPI* | [**tasksTasksRetryCreate**](docs/TasksAPI.md#taskstasksretrycreate) | **POST** /tasks/tasks/{message_id}/retry/ | 
+*TasksAPI* | [**tasksTasksStatusRetrieve**](docs/TasksAPI.md#taskstasksstatusretrieve) | **GET** /tasks/tasks/status/ | 
 *TasksAPI* | [**tasksWorkersList**](docs/TasksAPI.md#tasksworkerslist) | **GET** /tasks/workers | 
 *TenantsAPI* | [**tenantsDomainsCreate**](docs/TenantsAPI.md#tenantsdomainscreate) | **POST** /tenants/domains/ | 
 *TenantsAPI* | [**tenantsDomainsDestroy**](docs/TenantsAPI.md#tenantsdomainsdestroy) | **DELETE** /tenants/domains/{id}/ | 
@@ -1229,6 +1230,7 @@ Class | Method | HTTP request | Description
  - [GeoIPPolicy](docs/GeoIPPolicy.md)
  - [GeoIPPolicyRequest](docs/GeoIPPolicyRequest.md)
  - [GeoipBindingEnum](docs/GeoipBindingEnum.md)
+ - [GlobalTaskStatus](docs/GlobalTaskStatus.md)
  - [GoogleWorkspaceProvider](docs/GoogleWorkspaceProvider.md)
  - [GoogleWorkspaceProviderGroup](docs/GoogleWorkspaceProviderGroup.md)
  - [GoogleWorkspaceProviderGroupRequest](docs/GoogleWorkspaceProviderGroupRequest.md)
