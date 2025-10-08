@@ -7385,7 +7385,7 @@ Prompt Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsCreate(promptRequest: promptRequest) { (response, error) in
     guard error == nil else {
@@ -7549,7 +7549,7 @@ Prompt Viewset
 import authentikClient
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
-let patchedPromptRequest = PatchedPromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PatchedPromptRequest |  (optional)
+let patchedPromptRequest = PatchedPromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PatchedPromptRequest |  (optional)
 
 StagesAPI.stagesPromptPromptsPartialUpdate(promptUuid: promptUuid, patchedPromptRequest: patchedPromptRequest) { (response, error) in
     guard error == nil else {
@@ -7599,7 +7599,7 @@ Preview a prompt as a challenge, just like a flow would receive
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsPreviewCreate(promptRequest: promptRequest) { (response, error) in
     guard error == nil else {
@@ -7698,7 +7698,7 @@ Prompt Viewset
 import authentikClient
 
 let promptUuid = 987 // UUID | A UUID string identifying this Prompt.
-let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, promptstageSet: [StageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())])], subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
+let promptRequest = PromptRequest(name: "name_example", fieldKey: "fieldKey_example", label: "label_example", type: PromptTypeEnum(), _required: false, placeholder: "placeholder_example", initialValue: "initialValue_example", order: 123, subText: "subText_example", placeholderExpression: false, initialValueExpression: false) // PromptRequest | 
 
 StagesAPI.stagesPromptPromptsUpdate(promptUuid: promptUuid, promptRequest: promptRequest) { (response, error) in
     guard error == nil else {

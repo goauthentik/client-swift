@@ -23,12 +23,12 @@ public struct Prompt: Sendable, Codable, ParameterConvertible, Hashable {
     /** Optionally pre-fill the input with an initial value. When creating a fixed choice field, enable interpreting as expression and return a list to return multiple default choices. */
     public var initialValue: String?
     public var order: Int?
-    public var promptstageSet: [Stage]?
+    public var promptStagesObj: [PromptStage]
     public var subText: String?
     public var placeholderExpression: Bool?
     public var initialValueExpression: Bool?
 
-    public init(pk: UUID, name: String, fieldKey: String, label: String, type: PromptTypeEnum, _required: Bool? = nil, placeholder: String? = nil, initialValue: String? = nil, order: Int? = nil, promptstageSet: [Stage]? = nil, subText: String? = nil, placeholderExpression: Bool? = nil, initialValueExpression: Bool? = nil) {
+    public init(pk: UUID, name: String, fieldKey: String, label: String, type: PromptTypeEnum, _required: Bool? = nil, placeholder: String? = nil, initialValue: String? = nil, order: Int? = nil, promptStagesObj: [PromptStage], subText: String? = nil, placeholderExpression: Bool? = nil, initialValueExpression: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.fieldKey = fieldKey
@@ -38,7 +38,7 @@ public struct Prompt: Sendable, Codable, ParameterConvertible, Hashable {
         self.placeholder = placeholder
         self.initialValue = initialValue
         self.order = order
-        self.promptstageSet = promptstageSet
+        self.promptStagesObj = promptStagesObj
         self.subText = subText
         self.placeholderExpression = placeholderExpression
         self.initialValueExpression = initialValueExpression
@@ -54,7 +54,7 @@ public struct Prompt: Sendable, Codable, ParameterConvertible, Hashable {
         case placeholder
         case initialValue = "initial_value"
         case order
-        case promptstageSet = "promptstage_set"
+        case promptStagesObj = "prompt_stages_obj"
         case subText = "sub_text"
         case placeholderExpression = "placeholder_expression"
         case initialValueExpression = "initial_value_expression"
@@ -73,7 +73,7 @@ public struct Prompt: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(placeholder, forKey: .placeholder)
         try container.encodeIfPresent(initialValue, forKey: .initialValue)
         try container.encodeIfPresent(order, forKey: .order)
-        try container.encodeIfPresent(promptstageSet, forKey: .promptstageSet)
+        try container.encode(promptStagesObj, forKey: .promptStagesObj)
         try container.encodeIfPresent(subText, forKey: .subText)
         try container.encodeIfPresent(placeholderExpression, forKey: .placeholderExpression)
         try container.encodeIfPresent(initialValueExpression, forKey: .initialValueExpression)

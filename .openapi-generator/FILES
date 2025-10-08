@@ -598,7 +598,6 @@ Sources/authentikClient/Models/PatchedWebAuthnDeviceRequest.swift
 Sources/authentikClient/Models/Permission.swift
 Sources/authentikClient/Models/PermissionAssignRequest.swift
 Sources/authentikClient/Models/PermissionAssignResult.swift
-Sources/authentikClient/Models/PermissionRequest.swift
 Sources/authentikClient/Models/PlexAuthenticationChallenge.swift
 Sources/authentikClient/Models/PlexAuthenticationChallengeResponseRequest.swift
 Sources/authentikClient/Models/PlexSource.swift
@@ -610,7 +609,6 @@ Sources/authentikClient/Models/Policy.swift
 Sources/authentikClient/Models/PolicyBinding.swift
 Sources/authentikClient/Models/PolicyBindingRequest.swift
 Sources/authentikClient/Models/PolicyEngineMode.swift
-Sources/authentikClient/Models/PolicyRequest.swift
 Sources/authentikClient/Models/PolicyTestRequest.swift
 Sources/authentikClient/Models/PolicyTestResult.swift
 Sources/authentikClient/Models/Prompt.swift
@@ -628,7 +626,6 @@ Sources/authentikClient/Models/ProtocolEnum.swift
 Sources/authentikClient/Models/Provider.swift
 Sources/authentikClient/Models/ProviderEnum.swift
 Sources/authentikClient/Models/ProviderModelEnum.swift
-Sources/authentikClient/Models/ProviderRequest.swift
 Sources/authentikClient/Models/ProviderTypeEnum.swift
 Sources/authentikClient/Models/ProxyMode.swift
 Sources/authentikClient/Models/ProxyOutpostConfig.swift
@@ -697,7 +694,6 @@ Sources/authentikClient/Models/ScopeMapping.swift
 Sources/authentikClient/Models/ScopeMappingRequest.swift
 Sources/authentikClient/Models/SelectableStage.swift
 Sources/authentikClient/Models/ServiceConnection.swift
-Sources/authentikClient/Models/ServiceConnectionRequest.swift
 Sources/authentikClient/Models/ServiceConnectionState.swift
 Sources/authentikClient/Models/SessionEndChallenge.swift
 Sources/authentikClient/Models/SessionUser.swift
@@ -707,14 +703,12 @@ Sources/authentikClient/Models/SeverityEnum.swift
 Sources/authentikClient/Models/ShellChallenge.swift
 Sources/authentikClient/Models/SignatureAlgorithmEnum.swift
 Sources/authentikClient/Models/Source.swift
-Sources/authentikClient/Models/SourceRequest.swift
 Sources/authentikClient/Models/SourceStage.swift
 Sources/authentikClient/Models/SourceStageRequest.swift
 Sources/authentikClient/Models/SourceType.swift
 Sources/authentikClient/Models/SpBindingEnum.swift
 Sources/authentikClient/Models/Stage.swift
 Sources/authentikClient/Models/StagePrompt.swift
-Sources/authentikClient/Models/StageRequest.swift
 Sources/authentikClient/Models/StateEnum.swift
 Sources/authentikClient/Models/StaticDevice.swift
 Sources/authentikClient/Models/StaticDeviceRequest.swift
@@ -1377,7 +1371,6 @@ docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
 docs/PermissionAssignRequest.md
 docs/PermissionAssignResult.md
-docs/PermissionRequest.md
 docs/PlexAuthenticationChallenge.md
 docs/PlexAuthenticationChallengeResponseRequest.md
 docs/PlexSource.md
@@ -1390,7 +1383,6 @@ docs/Policy.md
 docs/PolicyBinding.md
 docs/PolicyBindingRequest.md
 docs/PolicyEngineMode.md
-docs/PolicyRequest.md
 docs/PolicyTestRequest.md
 docs/PolicyTestResult.md
 docs/Prompt.md
@@ -1409,7 +1401,6 @@ docs/ProtocolEnum.md
 docs/Provider.md
 docs/ProviderEnum.md
 docs/ProviderModelEnum.md
-docs/ProviderRequest.md
 docs/ProviderTypeEnum.md
 docs/ProvidersAPI.md
 docs/ProxyMode.md
@@ -1483,7 +1474,6 @@ docs/ScopeMapping.md
 docs/ScopeMappingRequest.md
 docs/SelectableStage.md
 docs/ServiceConnection.md
-docs/ServiceConnectionRequest.md
 docs/ServiceConnectionState.md
 docs/SessionEndChallenge.md
 docs/SessionUser.md
@@ -1493,7 +1483,6 @@ docs/SeverityEnum.md
 docs/ShellChallenge.md
 docs/SignatureAlgorithmEnum.md
 docs/Source.md
-docs/SourceRequest.md
 docs/SourceStage.md
 docs/SourceStageRequest.md
 docs/SourceType.md
@@ -1502,7 +1491,6 @@ docs/SpBindingEnum.md
 docs/SsfAPI.md
 docs/Stage.md
 docs/StagePrompt.md
-docs/StageRequest.md
 docs/StagesAPI.md
 docs/StateEnum.md
 docs/StaticDevice.md
