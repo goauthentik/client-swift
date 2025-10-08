@@ -9,6 +9,7 @@ import Foundation
 
 public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public static let retriesRule = NumericRule<Int64>(minimum: 0, exclusiveMinimum: false, maximum: 9223372036854775807, exclusiveMaximum: false, multipleOf: nil)
     public var messageId: UUID?
     /** Queue name */
     public var queueName: String?
@@ -18,6 +19,10 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
     public var state: StateEnum?
     /** Task last modified time */
     public var mtime: Date?
+    /** Number of retries */
+    public var retries: Int64?
+    /** Planned execution time */
+    public var eta: Date?
     public var relObjAppLabel: String
     public var relObjModel: String
     public var relObjId: String?
@@ -27,12 +32,14 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
     public var aggregatedStatus: TaskAggregatedStatusEnum
     public var description: String?
 
-    public init(messageId: UUID? = nil, queueName: String? = nil, actorName: String, state: StateEnum? = nil, mtime: Date? = nil, relObjAppLabel: String, relObjModel: String, relObjId: String? = nil, uid: String, messages: [LogEvent], previousMessages: [LogEvent], aggregatedStatus: TaskAggregatedStatusEnum, description: String?) {
+    public init(messageId: UUID? = nil, queueName: String? = nil, actorName: String, state: StateEnum? = nil, mtime: Date? = nil, retries: Int64? = nil, eta: Date? = nil, relObjAppLabel: String, relObjModel: String, relObjId: String? = nil, uid: String, messages: [LogEvent], previousMessages: [LogEvent], aggregatedStatus: TaskAggregatedStatusEnum, description: String?) {
         self.messageId = messageId
         self.queueName = queueName
         self.actorName = actorName
         self.state = state
         self.mtime = mtime
+        self.retries = retries
+        self.eta = eta
         self.relObjAppLabel = relObjAppLabel
         self.relObjModel = relObjModel
         self.relObjId = relObjId
@@ -49,6 +56,8 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
         case actorName = "actor_name"
         case state
         case mtime
+        case retries
+        case eta
         case relObjAppLabel = "rel_obj_app_label"
         case relObjModel = "rel_obj_model"
         case relObjId = "rel_obj_id"
@@ -68,6 +77,8 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(actorName, forKey: .actorName)
         try container.encodeIfPresent(state, forKey: .state)
         try container.encodeIfPresent(mtime, forKey: .mtime)
+        try container.encodeIfPresent(retries, forKey: .retries)
+        try container.encodeIfPresent(eta, forKey: .eta)
         try container.encode(relObjAppLabel, forKey: .relObjAppLabel)
         try container.encode(relObjModel, forKey: .relObjModel)
         try container.encodeIfPresent(relObjId, forKey: .relObjId)

@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **actorName** | **String** | Dramatiq actor name | 
 **state** | [**StateEnum**](StateEnum.md) | Task status | [optional] 
 **mtime** | **Date** | Task last modified time | [optional] 
+**retries** | **Int64** | Number of retries | [optional] 
+**eta** | **Date** | Planned execution time | [optional] 
 **relObjAppLabel** | **String** |  | [readonly] 
 **relObjModel** | **String** |  | [readonly] 
 **relObjId** | **String** |  | [optional] 

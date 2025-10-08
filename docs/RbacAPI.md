@@ -1443,7 +1443,7 @@ Void (empty response body)
 
 # **rbacRolesList**
 ```swift
-    open class func rbacRolesList(groupName: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
+    open class func rbacRolesList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1455,13 +1455,13 @@ Role viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupName = "groupName_example" // String |  (optional)
+let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-RbacAPI.rbacRolesList(groupName: groupName, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+RbacAPI.rbacRolesList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1477,7 +1477,7 @@ RbacAPI.rbacRolesList(groupName: groupName, ordering: ordering, page: page, page
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupName** | **String** |  | [optional] 
+ **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
