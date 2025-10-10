@@ -27,12 +27,12 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
     public var relObjModel: String
     public var relObjId: String?
     public var uid: String
-    public var messages: [LogEvent]
-    public var previousMessages: [LogEvent]
+    public var logs: [LogEvent]
+    public var previousLogs: [LogEvent]
     public var aggregatedStatus: TaskAggregatedStatusEnum
     public var description: String?
 
-    public init(messageId: UUID? = nil, queueName: String? = nil, actorName: String, state: StateEnum? = nil, mtime: Date? = nil, retries: Int64? = nil, eta: Date? = nil, relObjAppLabel: String, relObjModel: String, relObjId: String? = nil, uid: String, messages: [LogEvent], previousMessages: [LogEvent], aggregatedStatus: TaskAggregatedStatusEnum, description: String?) {
+    public init(messageId: UUID? = nil, queueName: String? = nil, actorName: String, state: StateEnum? = nil, mtime: Date? = nil, retries: Int64? = nil, eta: Date? = nil, relObjAppLabel: String, relObjModel: String, relObjId: String? = nil, uid: String, logs: [LogEvent], previousLogs: [LogEvent], aggregatedStatus: TaskAggregatedStatusEnum, description: String?) {
         self.messageId = messageId
         self.queueName = queueName
         self.actorName = actorName
@@ -44,8 +44,8 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
         self.relObjModel = relObjModel
         self.relObjId = relObjId
         self.uid = uid
-        self.messages = messages
-        self.previousMessages = previousMessages
+        self.logs = logs
+        self.previousLogs = previousLogs
         self.aggregatedStatus = aggregatedStatus
         self.description = description
     }
@@ -62,8 +62,8 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
         case relObjModel = "rel_obj_model"
         case relObjId = "rel_obj_id"
         case uid
-        case messages
-        case previousMessages = "previous_messages"
+        case logs
+        case previousLogs = "previous_logs"
         case aggregatedStatus = "aggregated_status"
         case description
     }
@@ -83,8 +83,8 @@ public struct Task: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(relObjModel, forKey: .relObjModel)
         try container.encodeIfPresent(relObjId, forKey: .relObjId)
         try container.encode(uid, forKey: .uid)
-        try container.encode(messages, forKey: .messages)
-        try container.encode(previousMessages, forKey: .previousMessages)
+        try container.encode(logs, forKey: .logs)
+        try container.encode(previousLogs, forKey: .previousLogs)
         try container.encode(aggregatedStatus, forKey: .aggregatedStatus)
         try container.encode(description, forKey: .description)
     }

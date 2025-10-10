@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **relObjModel** | **String** |  | [readonly] 
 **relObjId** | **String** |  | [optional] 
 **uid** | **String** |  | [readonly] 
-**messages** | [LogEvent] |  | 
-**previousMessages** | [LogEvent] |  | 
+**logs** | [LogEvent] |  | [readonly] 
+**previousLogs** | [LogEvent] |  | [readonly] 
 **aggregatedStatus** | [**TaskAggregatedStatusEnum**](TaskAggregatedStatusEnum.md) |  | 
 **description** | **String** |  | [readonly] 
 
