@@ -25,6 +25,8 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
     case typeFlowErrorChallenge(FlowErrorChallenge)
     case typeFrameChallenge(FrameChallenge)
     case typeIdentificationChallenge(IdentificationChallenge)
+    case typeIframeLogoutChallenge(IframeLogoutChallenge)
+    case typeNativeLogoutChallenge(NativeLogoutChallenge)
     case typeOAuthDeviceCodeChallenge(OAuthDeviceCodeChallenge)
     case typeOAuthDeviceCodeFinishChallenge(OAuthDeviceCodeFinishChallenge)
     case typePasswordChallenge(PasswordChallenge)
@@ -72,6 +74,10 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
         case .typeFrameChallenge(let value):
             try container.encode(value)
         case .typeIdentificationChallenge(let value):
+            try container.encode(value)
+        case .typeIframeLogoutChallenge(let value):
+            try container.encode(value)
+        case .typeNativeLogoutChallenge(let value):
             try container.encode(value)
         case .typeOAuthDeviceCodeChallenge(let value):
             try container.encode(value)
@@ -132,6 +138,10 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
             self = .typeFrameChallenge(value)
         } else if let value = try? container.decode(IdentificationChallenge.self) {
             self = .typeIdentificationChallenge(value)
+        } else if let value = try? container.decode(IframeLogoutChallenge.self) {
+            self = .typeIframeLogoutChallenge(value)
+        } else if let value = try? container.decode(NativeLogoutChallenge.self) {
+            self = .typeNativeLogoutChallenge(value)
         } else if let value = try? container.decode(OAuthDeviceCodeChallenge.self) {
             self = .typeOAuthDeviceCodeChallenge(value)
         } else if let value = try? container.decode(OAuthDeviceCodeFinishChallenge.self) {

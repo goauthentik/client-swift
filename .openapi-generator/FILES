@@ -235,6 +235,8 @@ Sources/authentikClient/Models/IdentificationChallenge.swift
 Sources/authentikClient/Models/IdentificationChallengeResponseRequest.swift
 Sources/authentikClient/Models/IdentificationStage.swift
 Sources/authentikClient/Models/IdentificationStageRequest.swift
+Sources/authentikClient/Models/IframeLogoutChallenge.swift
+Sources/authentikClient/Models/IframeLogoutChallengeResponseRequest.swift
 Sources/authentikClient/Models/ImpersonationRequest.swift
 Sources/authentikClient/Models/InitialPermissions.swift
 Sources/authentikClient/Models/InitialPermissionsModeEnum.swift
@@ -291,6 +293,8 @@ Sources/authentikClient/Models/ModelRequest.swift
 Sources/authentikClient/Models/MutualTLSStage.swift
 Sources/authentikClient/Models/MutualTLSStageModeEnum.swift
 Sources/authentikClient/Models/MutualTLSStageRequest.swift
+Sources/authentikClient/Models/NativeLogoutChallenge.swift
+Sources/authentikClient/Models/NativeLogoutChallengeResponseRequest.swift
 Sources/authentikClient/Models/NetworkBindingEnum.swift
 Sources/authentikClient/Models/NotConfiguredActionEnum.swift
 Sources/authentikClient/Models/Notification.swift
@@ -304,6 +308,7 @@ Sources/authentikClient/Models/NotificationTransportTest.swift
 Sources/authentikClient/Models/NotificationWebhookMapping.swift
 Sources/authentikClient/Models/NotificationWebhookMappingRequest.swift
 Sources/authentikClient/Models/OAuth2Provider.swift
+Sources/authentikClient/Models/OAuth2ProviderLogoutMethodEnum.swift
 Sources/authentikClient/Models/OAuth2ProviderRequest.swift
 Sources/authentikClient/Models/OAuth2ProviderSetupURLs.swift
 Sources/authentikClient/Models/OAuthDeviceCodeChallenge.swift
@@ -656,11 +661,13 @@ Sources/authentikClient/Models/Role.swift
 Sources/authentikClient/Models/RoleAssignedObjectPermission.swift
 Sources/authentikClient/Models/RoleObjectPermission.swift
 Sources/authentikClient/Models/RoleRequest.swift
+Sources/authentikClient/Models/SAMLBindingsEnum.swift
 Sources/authentikClient/Models/SAMLMetadata.swift
 Sources/authentikClient/Models/SAMLNameIDPolicyEnum.swift
 Sources/authentikClient/Models/SAMLPropertyMapping.swift
 Sources/authentikClient/Models/SAMLPropertyMappingRequest.swift
 Sources/authentikClient/Models/SAMLProvider.swift
+Sources/authentikClient/Models/SAMLProviderLogoutMethodEnum.swift
 Sources/authentikClient/Models/SAMLProviderRequest.swift
 Sources/authentikClient/Models/SAMLSource.swift
 Sources/authentikClient/Models/SAMLSourcePropertyMapping.swift
@@ -706,7 +713,6 @@ Sources/authentikClient/Models/Source.swift
 Sources/authentikClient/Models/SourceStage.swift
 Sources/authentikClient/Models/SourceStageRequest.swift
 Sources/authentikClient/Models/SourceType.swift
-Sources/authentikClient/Models/SpBindingEnum.swift
 Sources/authentikClient/Models/Stage.swift
 Sources/authentikClient/Models/StagePrompt.swift
 Sources/authentikClient/Models/StateEnum.swift
@@ -1005,6 +1011,8 @@ docs/IdentificationChallenge.md
 docs/IdentificationChallengeResponseRequest.md
 docs/IdentificationStage.md
 docs/IdentificationStageRequest.md
+docs/IframeLogoutChallenge.md
+docs/IframeLogoutChallengeResponseRequest.md
 docs/ImpersonationRequest.md
 docs/InitialPermissions.md
 docs/InitialPermissionsModeEnum.md
@@ -1062,6 +1070,8 @@ docs/ModelRequest.md
 docs/MutualTLSStage.md
 docs/MutualTLSStageModeEnum.md
 docs/MutualTLSStageRequest.md
+docs/NativeLogoutChallenge.md
+docs/NativeLogoutChallengeResponseRequest.md
 docs/NetworkBindingEnum.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
@@ -1075,6 +1085,7 @@ docs/NotificationTransportTest.md
 docs/NotificationWebhookMapping.md
 docs/NotificationWebhookMappingRequest.md
 docs/OAuth2Provider.md
+docs/OAuth2ProviderLogoutMethodEnum.md
 docs/OAuth2ProviderRequest.md
 docs/OAuth2ProviderSetupURLs.md
 docs/OAuthDeviceCodeChallenge.md
@@ -1435,11 +1446,13 @@ docs/RoleAssignedObjectPermission.md
 docs/RoleObjectPermission.md
 docs/RoleRequest.md
 docs/RootAPI.md
+docs/SAMLBindingsEnum.md
 docs/SAMLMetadata.md
 docs/SAMLNameIDPolicyEnum.md
 docs/SAMLPropertyMapping.md
 docs/SAMLPropertyMappingRequest.md
 docs/SAMLProvider.md
+docs/SAMLProviderLogoutMethodEnum.md
 docs/SAMLProviderRequest.md
 docs/SAMLSource.md
 docs/SAMLSourcePropertyMapping.md
@@ -1487,7 +1500,6 @@ docs/SourceStage.md
 docs/SourceStageRequest.md
 docs/SourceType.md
 docs/SourcesAPI.md
-docs/SpBindingEnum.md
 docs/SsfAPI.md
 docs/Stage.md
 docs/StagePrompt.md

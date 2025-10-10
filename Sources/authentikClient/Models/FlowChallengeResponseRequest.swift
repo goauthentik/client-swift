@@ -23,6 +23,8 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
     case typeEmailChallengeResponseRequest(EmailChallengeResponseRequest)
     case typeFrameChallengeResponseRequest(FrameChallengeResponseRequest)
     case typeIdentificationChallengeResponseRequest(IdentificationChallengeResponseRequest)
+    case typeIframeLogoutChallengeResponseRequest(IframeLogoutChallengeResponseRequest)
+    case typeNativeLogoutChallengeResponseRequest(NativeLogoutChallengeResponseRequest)
     case typeOAuthDeviceCodeChallengeResponseRequest(OAuthDeviceCodeChallengeResponseRequest)
     case typeOAuthDeviceCodeFinishChallengeResponseRequest(OAuthDeviceCodeFinishChallengeResponseRequest)
     case typePasswordChallengeResponseRequest(PasswordChallengeResponseRequest)
@@ -64,6 +66,10 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
         case .typeFrameChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeIdentificationChallengeResponseRequest(let value):
+            try container.encode(value)
+        case .typeIframeLogoutChallengeResponseRequest(let value):
+            try container.encode(value)
+        case .typeNativeLogoutChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeOAuthDeviceCodeChallengeResponseRequest(let value):
             try container.encode(value)
@@ -116,6 +122,10 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
             self = .typeFrameChallengeResponseRequest(value)
         } else if let value = try? container.decode(IdentificationChallengeResponseRequest.self) {
             self = .typeIdentificationChallengeResponseRequest(value)
+        } else if let value = try? container.decode(IframeLogoutChallengeResponseRequest.self) {
+            self = .typeIframeLogoutChallengeResponseRequest(value)
+        } else if let value = try? container.decode(NativeLogoutChallengeResponseRequest.self) {
+            self = .typeNativeLogoutChallengeResponseRequest(value)
         } else if let value = try? container.decode(OAuthDeviceCodeChallengeResponseRequest.self) {
             self = .typeOAuthDeviceCodeChallengeResponseRequest(value)
         } else if let value = try? container.decode(OAuthDeviceCodeFinishChallengeResponseRequest.self) {

@@ -36,6 +36,8 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
     /** Return internal model name */
     public var metaModelName: String
     public var acsUrl: String
+    /** Single Logout Service URL where the logout response should be sent. */
+    public var slsUrl: String?
     /** Value of the audience restriction field of the assertion. When left empty, no audience restriction will be added. */
     public var audience: String?
     /** Also known as EntityID */
@@ -60,8 +62,13 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
     public var encryptionKp: UUID?
     public var signAssertion: Bool?
     public var signResponse: Bool?
+    public var signLogoutRequest: Bool?
     /** This determines how authentik sends the response back to the Service Provider. */
-    public var spBinding: SpBindingEnum?
+    public var spBinding: SAMLBindingsEnum?
+    /** This determines how authentik sends the logout response back to the Service Provider. */
+    public var slsBinding: SAMLBindingsEnum?
+    /** Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding). */
+    public var logoutMethod: SAMLProviderLogoutMethodEnum?
     /** Default relay_state value for IDP-initiated logins */
     public var defaultRelayState: String?
     public var defaultNameIdPolicy: SAMLNameIDPolicyEnum?
@@ -78,7 +85,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
     /** Get SLO redirect URL */
     public var urlSloRedirect: String
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, acsUrl: String, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, spBinding: SpBindingEnum? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil, urlDownloadMetadata: String, urlSsoPost: String, urlSsoRedirect: String, urlSsoInit: String, urlSloPost: String, urlSloRedirect: String) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, acsUrl: String, slsUrl: String? = nil, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signLogoutRequest: Bool? = nil, spBinding: SAMLBindingsEnum? = nil, slsBinding: SAMLBindingsEnum? = nil, logoutMethod: SAMLProviderLogoutMethodEnum? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil, urlDownloadMetadata: String, urlSsoPost: String, urlSsoRedirect: String, urlSsoInit: String, urlSloPost: String, urlSloRedirect: String) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow
@@ -94,6 +101,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName
         self.acsUrl = acsUrl
+        self.slsUrl = slsUrl
         self.audience = audience
         self.issuer = issuer
         self.assertionValidNotBefore = assertionValidNotBefore
@@ -108,7 +116,10 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         self.encryptionKp = encryptionKp
         self.signAssertion = signAssertion
         self.signResponse = signResponse
+        self.signLogoutRequest = signLogoutRequest
         self.spBinding = spBinding
+        self.slsBinding = slsBinding
+        self.logoutMethod = logoutMethod
         self.defaultRelayState = defaultRelayState
         self.defaultNameIdPolicy = defaultNameIdPolicy
         self.urlDownloadMetadata = urlDownloadMetadata
@@ -135,6 +146,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         case verboseNamePlural = "verbose_name_plural"
         case metaModelName = "meta_model_name"
         case acsUrl = "acs_url"
+        case slsUrl = "sls_url"
         case audience
         case issuer
         case assertionValidNotBefore = "assertion_valid_not_before"
@@ -149,7 +161,10 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         case encryptionKp = "encryption_kp"
         case signAssertion = "sign_assertion"
         case signResponse = "sign_response"
+        case signLogoutRequest = "sign_logout_request"
         case spBinding = "sp_binding"
+        case slsBinding = "sls_binding"
+        case logoutMethod = "logout_method"
         case defaultRelayState = "default_relay_state"
         case defaultNameIdPolicy = "default_name_id_policy"
         case urlDownloadMetadata = "url_download_metadata"
@@ -179,6 +194,7 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
         try container.encode(acsUrl, forKey: .acsUrl)
+        try container.encodeIfPresent(slsUrl, forKey: .slsUrl)
         try container.encodeIfPresent(audience, forKey: .audience)
         try container.encodeIfPresent(issuer, forKey: .issuer)
         try container.encodeIfPresent(assertionValidNotBefore, forKey: .assertionValidNotBefore)
@@ -193,7 +209,10 @@ public struct SAMLProvider: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(encryptionKp, forKey: .encryptionKp)
         try container.encodeIfPresent(signAssertion, forKey: .signAssertion)
         try container.encodeIfPresent(signResponse, forKey: .signResponse)
+        try container.encodeIfPresent(signLogoutRequest, forKey: .signLogoutRequest)
         try container.encodeIfPresent(spBinding, forKey: .spBinding)
+        try container.encodeIfPresent(slsBinding, forKey: .slsBinding)
+        try container.encodeIfPresent(logoutMethod, forKey: .logoutMethod)
         try container.encodeIfPresent(defaultRelayState, forKey: .defaultRelayState)
         try container.encodeIfPresent(defaultNameIdPolicy, forKey: .defaultNameIdPolicy)
         try container.encode(urlDownloadMetadata, forKey: .urlDownloadMetadata)

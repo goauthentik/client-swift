@@ -1,4 +1,4 @@
-# SpBindingEnum
+# SAMLBindingsEnum
 
 ## Properties
 Name | Type | Description | Notes

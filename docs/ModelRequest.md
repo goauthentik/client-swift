@@ -38,7 +38,8 @@ Name | Type | Description | Notes
 **signingKey** | **UUID** | Key used to sign the SSF Events. | 
 **encryptionKey** | **UUID** | Key used to encrypt the tokens. When set, tokens will be encrypted and returned as JWEs. | [optional] 
 **redirectUris** | [RedirectURIRequest] |  | 
-**backchannelLogoutUri** | **String** |  | [optional] 
+**logoutUri** | **String** |  | [optional] 
+**logoutMethod** | [**SAMLProviderLogoutMethodEnum**](SAMLProviderLogoutMethodEnum.md) | Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding). | [optional] 
 **subMode** | [**SubModeEnum**](SubModeEnum.md) | Configure what data should be used as unique User Identifier. For most cases, the default should be fine. | [optional] 
 **issuerMode** | [**IssuerModeEnum**](IssuerModeEnum.md) | Configure how the issuer field of the ID Token should be filled. | [optional] 
 **jwtFederationSources** | **[UUID]** |  | [optional] 
@@ -59,6 +60,7 @@ Name | Type | Description | Notes
 **clientNetworks** | **String** | List of CIDRs (comma-separated) that clients can connect from. A more specific CIDR will match before a looser one. Clients connecting from a non-specified CIDR will be dropped. | [optional] 
 **sharedSecret** | **String** | Shared secret between clients and server to hash packets. | [optional] 
 **acsUrl** | **String** |  | 
+**slsUrl** | **String** | Single Logout Service URL where the logout response should be sent. | [optional] 
 **audience** | **String** | Value of the audience restriction field of the assertion. When left empty, no audience restriction will be added. | [optional] 
 **issuer** | **String** | Also known as EntityID | [optional] 
 **assertionValidNotBefore** | **String** | Assertion valid not before current time + this value (Format: hours&#x3D;-1;minutes&#x3D;-2;seconds&#x3D;-3). | [optional] 
@@ -73,7 +75,9 @@ Name | Type | Description | Notes
 **encryptionKp** | **UUID** | When selected, incoming assertions are encrypted by the IdP using the public key of the encryption keypair. The assertion is decrypted by the SP using the the private key. | [optional] 
 **signAssertion** | **Bool** |  | [optional] 
 **signResponse** | **Bool** |  | [optional] 
-**spBinding** | [**SpBindingEnum**](SpBindingEnum.md) | This determines how authentik sends the response back to the Service Provider. | [optional] 
+**signLogoutRequest** | **Bool** |  | [optional] 
+**spBinding** | [**SAMLBindingsEnum**](SAMLBindingsEnum.md) | This determines how authentik sends the response back to the Service Provider. | [optional] 
+**slsBinding** | [**SAMLBindingsEnum**](SAMLBindingsEnum.md) | This determines how authentik sends the logout response back to the Service Provider. | [optional] 
 **defaultRelayState** | **String** | Default relay_state value for IDP-initiated logins | [optional] 
 **defaultNameIdPolicy** | [**SAMLNameIDPolicyEnum**](SAMLNameIDPolicyEnum.md) |  | [optional] 
 **url** | **String** | Base URL to SCIM requests, usually ends in /v2 | 

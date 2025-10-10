@@ -2706,7 +2706,7 @@ OAuth2Provider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], backchannelLogoutUri: "backchannelLogoutUri_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
+let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], logoutUri: "logoutUri_example", logoutMethod: OAuth2ProviderLogoutMethodEnum(), subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
 
 ProvidersAPI.providersOauth2Create(oAuth2ProviderRequest: oAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2886,7 +2886,7 @@ OAuth2Provider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
-let patchedOAuth2ProviderRequest = PatchedOAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], backchannelLogoutUri: "backchannelLogoutUri_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // PatchedOAuth2ProviderRequest |  (optional)
+let patchedOAuth2ProviderRequest = PatchedOAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], logoutUri: "logoutUri_example", logoutMethod: OAuth2ProviderLogoutMethodEnum(), subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // PatchedOAuth2ProviderRequest |  (optional)
 
 ProvidersAPI.providersOauth2PartialUpdate(id: id, patchedOAuth2ProviderRequest: patchedOAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -3086,7 +3086,7 @@ OAuth2Provider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this OAuth2/OpenID Provider.
-let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], backchannelLogoutUri: "backchannelLogoutUri_example", subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
+let oAuth2ProviderRequest = OAuth2ProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], clientType: ClientTypeEnum(), clientId: "clientId_example", clientSecret: "clientSecret_example", accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], logoutUri: "logoutUri_example", logoutMethod: OAuth2ProviderLogoutMethodEnum(), subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123]) // OAuth2ProviderRequest | 
 
 ProvidersAPI.providersOauth2Update(id: id, oAuth2ProviderRequest: oAuth2ProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4286,7 +4286,7 @@ SAMLProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlCreate(sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4427,7 +4427,7 @@ Void (empty response body)
 
 # **providersSamlList**
 ```swift
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersSamlList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersSamlList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedSAMLProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -4454,6 +4454,7 @@ let encryptionKp = 987 // UUID |  (optional)
 let invalidationFlow = 987 // UUID |  (optional)
 let isBackchannel = true // Bool |  (optional)
 let issuer = "issuer_example" // String |  (optional)
+let logoutMethod = "logoutMethod_example" // String | Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
 let name = "name_example" // String |  (optional)
 let nameIdMapping = 987 // UUID |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -4463,13 +4464,16 @@ let propertyMappings = [123] // [UUID] |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let sessionValidNotOnOrAfter = "sessionValidNotOnOrAfter_example" // String |  (optional)
 let signAssertion = true // Bool |  (optional)
+let signLogoutRequest = true // Bool |  (optional)
 let signResponse = true // Bool |  (optional)
 let signatureAlgorithm = "signatureAlgorithm_example" // String |  (optional)
 let signingKp = 987 // UUID |  (optional)
+let slsBinding = "slsBinding_example" // String | This determines how authentik sends the logout response back to the Service Provider.   (optional)
+let slsUrl = "slsUrl_example" // String |  (optional)
 let spBinding = "spBinding_example" // String | This determines how authentik sends the response back to the Service Provider.   (optional)
 let verificationKp = 987 // UUID |  (optional)
 
-ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
+ProvidersAPI.providersSamlList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, logoutMethod: logoutMethod, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signLogoutRequest: signLogoutRequest, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, slsBinding: slsBinding, slsUrl: slsUrl, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -4500,6 +4504,7 @@ Name | Type | Description  | Notes
  **invalidationFlow** | **UUID** |  | [optional] 
  **isBackchannel** | **Bool** |  | [optional] 
  **issuer** | **String** |  | [optional] 
+ **logoutMethod** | **String** | Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   | [optional] 
  **name** | **String** |  | [optional] 
  **nameIdMapping** | **UUID** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
@@ -4509,9 +4514,12 @@ Name | Type | Description  | Notes
  **search** | **String** | A search term. | [optional] 
  **sessionValidNotOnOrAfter** | **String** |  | [optional] 
  **signAssertion** | **Bool** |  | [optional] 
+ **signLogoutRequest** | **Bool** |  | [optional] 
  **signResponse** | **Bool** |  | [optional] 
  **signatureAlgorithm** | **String** |  | [optional] 
  **signingKp** | **UUID** |  | [optional] 
+ **slsBinding** | **String** | This determines how authentik sends the logout response back to the Service Provider.   | [optional] 
+ **slsUrl** | **String** |  | [optional] 
  **spBinding** | **String** | This determines how authentik sends the response back to the Service Provider.   | [optional] 
  **verificationKp** | **UUID** |  | [optional] 
 
@@ -4598,7 +4606,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // PatchedSAMLProviderRequest |  (optional)
+let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // PatchedSAMLProviderRequest |  (optional)
 
 ProvidersAPI.providersSamlPartialUpdate(id: id, patchedSAMLProviderRequest: patchedSAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4749,7 +4757,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, spBinding: SpBindingEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlUpdate(id: id, sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {

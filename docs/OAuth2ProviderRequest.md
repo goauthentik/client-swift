@@ -19,7 +19,8 @@ Name | Type | Description | Notes
 **signingKey** | **UUID** | Key used to sign the tokens. | [optional] 
 **encryptionKey** | **UUID** | Key used to encrypt the tokens. When set, tokens will be encrypted and returned as JWEs. | [optional] 
 **redirectUris** | [RedirectURIRequest] |  | 
-**backchannelLogoutUri** | **String** |  | [optional] 
+**logoutUri** | **String** |  | [optional] 
+**logoutMethod** | [**OAuth2ProviderLogoutMethodEnum**](OAuth2ProviderLogoutMethodEnum.md) | Backchannel logs out with server to server calls. Frontchannel uses iframes in your browser | [optional] 
 **subMode** | [**SubModeEnum**](SubModeEnum.md) | Configure what data should be used as unique User Identifier. For most cases, the default should be fine. | [optional] 
 **issuerMode** | [**IssuerModeEnum**](IssuerModeEnum.md) | Configure how the issuer field of the ID Token should be filled. | [optional] 
 **jwtFederationSources** | **[UUID]** |  | [optional] 

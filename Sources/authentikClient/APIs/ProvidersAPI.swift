@@ -3853,6 +3853,15 @@ open class ProvidersAPI {
     }
 
     /**
+     * enum for parameter logoutMethod
+     */
+    public enum LogoutMethod_providersSamlList: String, Sendable, CaseIterable {
+        case backchannel = "backchannel"
+        case frontchannelIframe = "frontchannel_iframe"
+        case frontchannelNative = "frontchannel_native"
+    }
+
+    /**
      * enum for parameter signatureAlgorithm
      */
     public enum SignatureAlgorithm_providersSamlList: String, Sendable, CaseIterable {
@@ -3865,6 +3874,14 @@ open class ProvidersAPI {
         case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
         case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
         case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+    }
+
+    /**
+     * enum for parameter slsBinding
+     */
+    public enum SlsBinding_providersSamlList: String, Sendable, CaseIterable {
+        case post = "post"
+        case redirect = "redirect"
     }
 
     /**
@@ -3892,6 +3909,7 @@ open class ProvidersAPI {
      - parameter invalidationFlow: (query)  (optional)
      - parameter isBackchannel: (query)  (optional)
      - parameter issuer: (query)  (optional)
+     - parameter logoutMethod: (query) Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
      - parameter name: (query)  (optional)
      - parameter nameIdMapping: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
@@ -3901,17 +3919,20 @@ open class ProvidersAPI {
      - parameter search: (query) A search term. (optional)
      - parameter sessionValidNotOnOrAfter: (query)  (optional)
      - parameter signAssertion: (query)  (optional)
+     - parameter signLogoutRequest: (query)  (optional)
      - parameter signResponse: (query)  (optional)
      - parameter signatureAlgorithm: (query)  (optional)
      - parameter signingKp: (query)  (optional)
+     - parameter slsBinding: (query) This determines how authentik sends the logout response back to the Service Provider.   (optional)
+     - parameter slsUrl: (query)  (optional)
      - parameter spBinding: (query) This determines how authentik sends the response back to the Service Provider.   (optional)
      - parameter verificationKp: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedSAMLProviderList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLProviderList {
-        return try await providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, spBinding: spBinding, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
+    open class func providersSamlList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersSamlList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersSamlList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSAMLProviderList {
+        return try await providersSamlListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, logoutMethod: logoutMethod, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signLogoutRequest: signLogoutRequest, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, slsBinding: slsBinding, slsUrl: slsUrl, spBinding: spBinding, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -3935,6 +3956,7 @@ open class ProvidersAPI {
      - parameter invalidationFlow: (query)  (optional)
      - parameter isBackchannel: (query)  (optional)
      - parameter issuer: (query)  (optional)
+     - parameter logoutMethod: (query) Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
      - parameter name: (query)  (optional)
      - parameter nameIdMapping: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
@@ -3944,15 +3966,18 @@ open class ProvidersAPI {
      - parameter search: (query) A search term. (optional)
      - parameter sessionValidNotOnOrAfter: (query)  (optional)
      - parameter signAssertion: (query)  (optional)
+     - parameter signLogoutRequest: (query)  (optional)
      - parameter signResponse: (query)  (optional)
      - parameter signatureAlgorithm: (query)  (optional)
      - parameter signingKp: (query)  (optional)
+     - parameter slsBinding: (query) This determines how authentik sends the logout response back to the Service Provider.   (optional)
+     - parameter slsUrl: (query)  (optional)
      - parameter spBinding: (query) This determines how authentik sends the response back to the Service Provider.   (optional)
      - parameter verificationKp: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedSAMLProviderList> 
      */
-    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLProviderList> {
+    open class func providersSamlListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersSamlList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersSamlList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersSamlList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersSamlList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersSamlList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSAMLProviderList> {
         let localVariablePath = "/providers/saml/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -3974,6 +3999,7 @@ open class ProvidersAPI {
             "invalidation_flow": (wrappedValue: invalidationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_backchannel": (wrappedValue: isBackchannel?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "issuer": (wrappedValue: issuer?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "logout_method": (wrappedValue: logoutMethod?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name_id_mapping": (wrappedValue: nameIdMapping?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -3983,9 +4009,12 @@ open class ProvidersAPI {
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "session_valid_not_on_or_after": (wrappedValue: sessionValidNotOnOrAfter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sign_assertion": (wrappedValue: signAssertion?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sign_logout_request": (wrappedValue: signLogoutRequest?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sign_response": (wrappedValue: signResponse?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "signature_algorithm": (wrappedValue: signatureAlgorithm?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "signing_kp": (wrappedValue: signingKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sls_binding": (wrappedValue: slsBinding?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sls_url": (wrappedValue: slsUrl?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sp_binding": (wrappedValue: spBinding?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "verification_kp": (wrappedValue: verificationKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
