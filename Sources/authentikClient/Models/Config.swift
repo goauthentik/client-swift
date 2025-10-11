@@ -15,15 +15,13 @@ public struct Config: Sendable, Codable, ParameterConvertible, Hashable {
     public var cacheTimeout: Int
     public var cacheTimeoutFlows: Int
     public var cacheTimeoutPolicies: Int
-    public var cacheTimeoutReputation: Int
 
-    public init(errorReporting: ErrorReportingConfig, capabilities: [CapabilitiesEnum], cacheTimeout: Int, cacheTimeoutFlows: Int, cacheTimeoutPolicies: Int, cacheTimeoutReputation: Int) {
+    public init(errorReporting: ErrorReportingConfig, capabilities: [CapabilitiesEnum], cacheTimeout: Int, cacheTimeoutFlows: Int, cacheTimeoutPolicies: Int) {
         self.errorReporting = errorReporting
         self.capabilities = capabilities
         self.cacheTimeout = cacheTimeout
         self.cacheTimeoutFlows = cacheTimeoutFlows
         self.cacheTimeoutPolicies = cacheTimeoutPolicies
-        self.cacheTimeoutReputation = cacheTimeoutReputation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -32,7 +30,6 @@ public struct Config: Sendable, Codable, ParameterConvertible, Hashable {
         case cacheTimeout = "cache_timeout"
         case cacheTimeoutFlows = "cache_timeout_flows"
         case cacheTimeoutPolicies = "cache_timeout_policies"
-        case cacheTimeoutReputation = "cache_timeout_reputation"
     }
 
     // Encodable protocol methods
@@ -44,7 +41,6 @@ public struct Config: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(cacheTimeout, forKey: .cacheTimeout)
         try container.encode(cacheTimeoutFlows, forKey: .cacheTimeoutFlows)
         try container.encode(cacheTimeoutPolicies, forKey: .cacheTimeoutPolicies)
-        try container.encode(cacheTimeoutReputation, forKey: .cacheTimeoutReputation)
     }
 }
 
