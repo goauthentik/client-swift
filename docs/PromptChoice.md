@@ -1,17 +1,10 @@
-# StagePrompt
+# PromptChoice
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldKey** | **String** |  | 
+**value** | **String** |  | 
 **label** | **String** |  | 
-**type** | [**PromptTypeEnum**](PromptTypeEnum.md) |  | 
-**_required** | **Bool** |  | 
-**placeholder** | **String** |  | 
-**initialValue** | **String** |  | 
-**order** | **Int** |  | 
-**subText** | **String** |  | 
-**choices** | [PromptChoice] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

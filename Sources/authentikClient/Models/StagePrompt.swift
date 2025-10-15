@@ -18,9 +18,9 @@ public struct StagePrompt: Sendable, Codable, ParameterConvertible, Hashable {
     public var initialValue: String
     public var order: Int
     public var subText: String
-    public var choices: [String]?
+    public var choices: [PromptChoice]?
 
-    public init(fieldKey: String, label: String, type: PromptTypeEnum, _required: Bool, placeholder: String, initialValue: String, order: Int, subText: String, choices: [String]?) {
+    public init(fieldKey: String, label: String, type: PromptTypeEnum, _required: Bool, placeholder: String, initialValue: String, order: Int, subText: String, choices: [PromptChoice]?) {
         self.fieldKey = fieldKey
         self.label = label
         self.type = type

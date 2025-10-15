@@ -1645,6 +1645,7 @@ Class | Method | HTTP request | Description
  - [Prompt](docs/Prompt.md)
  - [PromptChallenge](docs/PromptChallenge.md)
  - [PromptChallengeResponseRequest](docs/PromptChallengeResponseRequest.md)
+ - [PromptChoice](docs/PromptChoice.md)
  - [PromptRequest](docs/PromptRequest.md)
  - [PromptStage](docs/PromptStage.md)
  - [PromptStageRequest](docs/PromptStageRequest.md)

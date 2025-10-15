@@ -619,6 +619,7 @@ Sources/authentikClient/Models/PolicyTestResult.swift
 Sources/authentikClient/Models/Prompt.swift
 Sources/authentikClient/Models/PromptChallenge.swift
 Sources/authentikClient/Models/PromptChallengeResponseRequest.swift
+Sources/authentikClient/Models/PromptChoice.swift
 Sources/authentikClient/Models/PromptRequest.swift
 Sources/authentikClient/Models/PromptStage.swift
 Sources/authentikClient/Models/PromptStageRequest.swift
@@ -1399,6 +1400,7 @@ docs/PolicyTestResult.md
 docs/Prompt.md
 docs/PromptChallenge.md
 docs/PromptChallengeResponseRequest.md
+docs/PromptChoice.md
 docs/PromptRequest.md
 docs/PromptStage.md
 docs/PromptStageRequest.md
