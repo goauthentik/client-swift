@@ -53,6 +53,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var accessTokenUrl: String?
     /** URL used by authentik to get user information. */
     public var profileUrl: String?
+    public var pkce: PKCEMethodEnum?
     public var consumerKey: String
     /** Get OAuth Callback URL */
     public var callbackUrl: String
@@ -64,7 +65,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** How to perform authentication during an authorization_code token request flow */
     public var authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -88,6 +89,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.authorizationUrl = authorizationUrl
         self.accessTokenUrl = accessTokenUrl
         self.profileUrl = profileUrl
+        self.pkce = pkce
         self.consumerKey = consumerKey
         self.callbackUrl = callbackUrl
         self.additionalScopes = additionalScopes
@@ -122,6 +124,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         case authorizationUrl = "authorization_url"
         case accessTokenUrl = "access_token_url"
         case profileUrl = "profile_url"
+        case pkce
         case consumerKey = "consumer_key"
         case callbackUrl = "callback_url"
         case additionalScopes = "additional_scopes"
@@ -159,6 +162,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(authorizationUrl, forKey: .authorizationUrl)
         try container.encodeIfPresent(accessTokenUrl, forKey: .accessTokenUrl)
         try container.encodeIfPresent(profileUrl, forKey: .profileUrl)
+        try container.encodeIfPresent(pkce, forKey: .pkce)
         try container.encode(consumerKey, forKey: .consumerKey)
         try container.encode(callbackUrl, forKey: .callbackUrl)
         try container.encodeIfPresent(additionalScopes, forKey: .additionalScopes)

@@ -1352,6 +1352,7 @@ Class | Method | HTTP request | Description
  - [OutpostHealth](docs/OutpostHealth.md)
  - [OutpostRequest](docs/OutpostRequest.md)
  - [OutpostTypeEnum](docs/OutpostTypeEnum.md)
+ - [PKCEMethodEnum](docs/PKCEMethodEnum.md)
  - [PaginatedApplicationEntitlementList](docs/PaginatedApplicationEntitlementList.md)
  - [PaginatedApplicationList](docs/PaginatedApplicationList.md)
  - [PaginatedAuthenticatedSessionList](docs/PaginatedAuthenticatedSessionList.md)

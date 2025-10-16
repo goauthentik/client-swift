@@ -45,6 +45,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
     public var accessTokenUrl: String?
     /** URL used by authentik to get user information. */
     public var profileUrl: String?
+    public var pkce: PKCEMethodEnum?
     public var consumerKey: String?
     public var consumerSecret: String?
     public var additionalScopes: String?
@@ -54,7 +55,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
     /** How to perform authentication during an authorization_code token request flow */
     public var authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -71,6 +72,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
         self.authorizationUrl = authorizationUrl
         self.accessTokenUrl = accessTokenUrl
         self.profileUrl = profileUrl
+        self.pkce = pkce
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
         self.additionalScopes = additionalScopes
@@ -97,6 +99,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
         case authorizationUrl = "authorization_url"
         case accessTokenUrl = "access_token_url"
         case profileUrl = "profile_url"
+        case pkce
         case consumerKey = "consumer_key"
         case consumerSecret = "consumer_secret"
         case additionalScopes = "additional_scopes"
@@ -126,6 +129,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
         try container.encodeIfPresent(authorizationUrl, forKey: .authorizationUrl)
         try container.encodeIfPresent(accessTokenUrl, forKey: .accessTokenUrl)
         try container.encodeIfPresent(profileUrl, forKey: .profileUrl)
+        try container.encodeIfPresent(pkce, forKey: .pkce)
         try container.encodeIfPresent(consumerKey, forKey: .consumerKey)
         try container.encodeIfPresent(consumerSecret, forKey: .consumerSecret)
         try container.encodeIfPresent(additionalScopes, forKey: .additionalScopes)

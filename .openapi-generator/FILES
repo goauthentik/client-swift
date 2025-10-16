@@ -326,6 +326,7 @@ Sources/authentikClient/Models/OutpostDefaultConfig.swift
 Sources/authentikClient/Models/OutpostHealth.swift
 Sources/authentikClient/Models/OutpostRequest.swift
 Sources/authentikClient/Models/OutpostTypeEnum.swift
+Sources/authentikClient/Models/PKCEMethodEnum.swift
 Sources/authentikClient/Models/PaginatedApplicationEntitlementList.swift
 Sources/authentikClient/Models/PaginatedApplicationList.swift
 Sources/authentikClient/Models/PaginatedAuthenticatedSessionList.swift
@@ -1106,6 +1107,7 @@ docs/OutpostHealth.md
 docs/OutpostRequest.md
 docs/OutpostTypeEnum.md
 docs/OutpostsAPI.md
+docs/PKCEMethodEnum.md
 docs/PaginatedApplicationEntitlementList.md
 docs/PaginatedApplicationList.md
 docs/PaginatedAuthenticatedSessionList.md
