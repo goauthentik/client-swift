@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **userDeleteAction** | [**OutgoingSyncDeleteAction**](OutgoingSyncDeleteAction.md) |  | [optional] 
 **groupDeleteAction** | [**OutgoingSyncDeleteAction**](OutgoingSyncDeleteAction.md) |  | [optional] 
 **defaultGroupEmailDomain** | **String** |  | [optional] 
+**syncPageSize** | **Int** | Controls the number of objects synced in a single task | [optional] 
+**syncPageTimeout** | **String** | Timeout for synchronization of a single page | [optional] 
 **dryRun** | **Bool** | When enabled, provider will not modify or create objects in the remote system. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

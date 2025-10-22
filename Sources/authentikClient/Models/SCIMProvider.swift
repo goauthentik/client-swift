@@ -10,6 +10,7 @@ import Foundation
 /** SCIMProvider Serializer */
 public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public static let syncPageSizeRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var pk: Int
     public var name: String
     public var propertyMappings: [UUID]?
@@ -41,10 +42,14 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
     public var compatibilityMode: CompatibilityModeEnum?
     public var excludeUsersServiceAccount: Bool?
     public var filterGroup: UUID?
+    /** Controls the number of objects synced in a single task */
+    public var syncPageSize: Int?
+    /** Timeout for synchronization of a single page */
+    public var syncPageTimeout: String?
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, dryRun: Bool? = nil) {
+    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.propertyMappings = propertyMappings
@@ -64,6 +69,8 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
         self.compatibilityMode = compatibilityMode
         self.excludeUsersServiceAccount = excludeUsersServiceAccount
         self.filterGroup = filterGroup
+        self.syncPageSize = syncPageSize
+        self.syncPageTimeout = syncPageTimeout
         self.dryRun = dryRun
     }
 
@@ -87,6 +94,8 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
         case compatibilityMode = "compatibility_mode"
         case excludeUsersServiceAccount = "exclude_users_service_account"
         case filterGroup = "filter_group"
+        case syncPageSize = "sync_page_size"
+        case syncPageTimeout = "sync_page_timeout"
         case dryRun = "dry_run"
     }
 
@@ -113,6 +122,8 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encodeIfPresent(excludeUsersServiceAccount, forKey: .excludeUsersServiceAccount)
         try container.encodeIfPresent(filterGroup, forKey: .filterGroup)
+        try container.encodeIfPresent(syncPageSize, forKey: .syncPageSize)
+        try container.encodeIfPresent(syncPageTimeout, forKey: .syncPageTimeout)
         try container.encodeIfPresent(dryRun, forKey: .dryRun)
     }
 }

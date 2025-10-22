@@ -10,6 +10,7 @@ import Foundation
 /** MicrosoftEntraProvider Serializer */
 public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public static let syncPageSizeRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var pk: Int
     public var name: String
     public var propertyMappings: [UUID]?
@@ -34,10 +35,14 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
     public var filterGroup: UUID?
     public var userDeleteAction: OutgoingSyncDeleteAction?
     public var groupDeleteAction: OutgoingSyncDeleteAction?
+    /** Controls the number of objects synced in a single task */
+    public var syncPageSize: Int?
+    /** Timeout for synchronization of a single page */
+    public var syncPageTimeout: String?
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientId: String, clientSecret: String, tenantId: String, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, dryRun: Bool? = nil) {
+    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientId: String, clientSecret: String, tenantId: String, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.propertyMappings = propertyMappings
@@ -55,6 +60,8 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
         self.filterGroup = filterGroup
         self.userDeleteAction = userDeleteAction
         self.groupDeleteAction = groupDeleteAction
+        self.syncPageSize = syncPageSize
+        self.syncPageTimeout = syncPageTimeout
         self.dryRun = dryRun
     }
 
@@ -76,6 +83,8 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
         case filterGroup = "filter_group"
         case userDeleteAction = "user_delete_action"
         case groupDeleteAction = "group_delete_action"
+        case syncPageSize = "sync_page_size"
+        case syncPageTimeout = "sync_page_timeout"
         case dryRun = "dry_run"
     }
 
@@ -100,6 +109,8 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
         try container.encodeIfPresent(filterGroup, forKey: .filterGroup)
         try container.encodeIfPresent(userDeleteAction, forKey: .userDeleteAction)
         try container.encodeIfPresent(groupDeleteAction, forKey: .groupDeleteAction)
+        try container.encodeIfPresent(syncPageSize, forKey: .syncPageSize)
+        try container.encodeIfPresent(syncPageTimeout, forKey: .syncPageTimeout)
         try container.encodeIfPresent(dryRun, forKey: .dryRun)
     }
 }

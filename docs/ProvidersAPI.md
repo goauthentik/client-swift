@@ -387,7 +387,7 @@ GoogleWorkspaceProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
+let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
 
 ProvidersAPI.providersGoogleWorkspaceCreate(googleWorkspaceProviderRequest: googleWorkspaceProviderRequest) { (response, error) in
     guard error == nil else {
@@ -806,7 +806,7 @@ GoogleWorkspaceProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
-let patchedGoogleWorkspaceProviderRequest = PatchedGoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // PatchedGoogleWorkspaceProviderRequest |  (optional)
+let patchedGoogleWorkspaceProviderRequest = PatchedGoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedGoogleWorkspaceProviderRequest |  (optional)
 
 ProvidersAPI.providersGoogleWorkspacePartialUpdate(id: id, patchedGoogleWorkspaceProviderRequest: patchedGoogleWorkspaceProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1006,7 +1006,7 @@ GoogleWorkspaceProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Google Workspace Provider.
-let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
+let googleWorkspaceProviderRequest = GoogleWorkspaceProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // GoogleWorkspaceProviderRequest | 
 
 ProvidersAPI.providersGoogleWorkspaceUpdate(id: id, googleWorkspaceProviderRequest: googleWorkspaceProviderRequest) { (response, error) in
     guard error == nil else {
@@ -1733,7 +1733,7 @@ MicrosoftEntraProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // MicrosoftEntraProviderRequest | 
+let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // MicrosoftEntraProviderRequest | 
 
 ProvidersAPI.providersMicrosoftEntraCreate(microsoftEntraProviderRequest: microsoftEntraProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2150,7 +2150,7 @@ MicrosoftEntraProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
-let patchedMicrosoftEntraProviderRequest = PatchedMicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // PatchedMicrosoftEntraProviderRequest |  (optional)
+let patchedMicrosoftEntraProviderRequest = PatchedMicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedMicrosoftEntraProviderRequest |  (optional)
 
 ProvidersAPI.providersMicrosoftEntraPartialUpdate(id: id, patchedMicrosoftEntraProviderRequest: patchedMicrosoftEntraProviderRequest) { (response, error) in
     guard error == nil else {
@@ -2350,7 +2350,7 @@ MicrosoftEntraProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Microsoft Entra Provider.
-let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, dryRun: false) // MicrosoftEntraProviderRequest | 
+let microsoftEntraProviderRequest = MicrosoftEntraProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // MicrosoftEntraProviderRequest | 
 
 ProvidersAPI.providersMicrosoftEntraUpdate(id: id, microsoftEntraProviderRequest: microsoftEntraProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4856,7 +4856,7 @@ SCIMProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimCreate(sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5275,7 +5275,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // PatchedSCIMProviderRequest |  (optional)
+let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedSCIMProviderRequest |  (optional)
 
 ProvidersAPI.providersScimPartialUpdate(id: id, patchedSCIMProviderRequest: patchedSCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5475,7 +5475,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimUpdate(id: id, sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {

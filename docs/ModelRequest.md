@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **userDeleteAction** | [**OutgoingSyncDeleteAction**](OutgoingSyncDeleteAction.md) |  | [optional] 
 **groupDeleteAction** | [**OutgoingSyncDeleteAction**](OutgoingSyncDeleteAction.md) |  | [optional] 
 **defaultGroupEmailDomain** | **String** |  | 
+**syncPageSize** | **Int** | Controls the number of objects synced in a single task | [optional] 
+**syncPageTimeout** | **String** | Timeout for synchronization of a single page | [optional] 
 **dryRun** | **Bool** | When enabled, provider will not modify or create objects in the remote system. | [optional] 
 **authenticationFlow** | **UUID** | Flow used for authentication when the associated application is accessed by an un-authenticated user. | [optional] 
 **authorizationFlow** | **UUID** | Flow used when authorizing this provider. | 

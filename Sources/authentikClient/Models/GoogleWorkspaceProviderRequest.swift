@@ -14,6 +14,8 @@ public struct GoogleWorkspaceProviderRequest: Sendable, Codable, ParameterConver
     public static let delegatedSubjectRule = StringRule(minLength: 1, maxLength: 254, pattern: nil)
     public static let scopesRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let defaultGroupEmailDomainRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let syncPageSizeRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let syncPageTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
     public var propertyMappings: [UUID]?
     /** Property mappings used for group creation/updating. */
@@ -26,10 +28,14 @@ public struct GoogleWorkspaceProviderRequest: Sendable, Codable, ParameterConver
     public var userDeleteAction: OutgoingSyncDeleteAction?
     public var groupDeleteAction: OutgoingSyncDeleteAction?
     public var defaultGroupEmailDomain: String
+    /** Controls the number of objects synced in a single task */
+    public var syncPageSize: Int?
+    /** Timeout for synchronization of a single page */
+    public var syncPageTimeout: String?
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, delegatedSubject: String, credentials: [String: JSONValue], scopes: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, defaultGroupEmailDomain: String, dryRun: Bool? = nil) {
+    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, delegatedSubject: String, credentials: [String: JSONValue], scopes: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, defaultGroupEmailDomain: String, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.name = name
         self.propertyMappings = propertyMappings
         self.propertyMappingsGroup = propertyMappingsGroup
@@ -41,6 +47,8 @@ public struct GoogleWorkspaceProviderRequest: Sendable, Codable, ParameterConver
         self.userDeleteAction = userDeleteAction
         self.groupDeleteAction = groupDeleteAction
         self.defaultGroupEmailDomain = defaultGroupEmailDomain
+        self.syncPageSize = syncPageSize
+        self.syncPageTimeout = syncPageTimeout
         self.dryRun = dryRun
     }
 
@@ -56,6 +64,8 @@ public struct GoogleWorkspaceProviderRequest: Sendable, Codable, ParameterConver
         case userDeleteAction = "user_delete_action"
         case groupDeleteAction = "group_delete_action"
         case defaultGroupEmailDomain = "default_group_email_domain"
+        case syncPageSize = "sync_page_size"
+        case syncPageTimeout = "sync_page_timeout"
         case dryRun = "dry_run"
     }
 
@@ -74,6 +84,8 @@ public struct GoogleWorkspaceProviderRequest: Sendable, Codable, ParameterConver
         try container.encodeIfPresent(userDeleteAction, forKey: .userDeleteAction)
         try container.encodeIfPresent(groupDeleteAction, forKey: .groupDeleteAction)
         try container.encode(defaultGroupEmailDomain, forKey: .defaultGroupEmailDomain)
+        try container.encodeIfPresent(syncPageSize, forKey: .syncPageSize)
+        try container.encodeIfPresent(syncPageTimeout, forKey: .syncPageTimeout)
         try container.encodeIfPresent(dryRun, forKey: .dryRun)
     }
 }
