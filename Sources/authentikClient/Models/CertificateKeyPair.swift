@@ -22,8 +22,7 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
     public var certSubject: String?
     /** Show if this keypair has a private key configured or not */
     public var privateKeyAvailable: Bool
-    /** Get the private key's type, if set */
-    public var privateKeyType: String?
+    public var keyType: KeyTypeEnum?
     /** Get URL to download certificate */
     public var certificateDownloadUrl: String
     /** Get URL to download private key */
@@ -31,7 +30,7 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
 
-    public init(pk: UUID, name: String, fingerprintSha256: String?, fingerprintSha1: String?, certExpiry: Date?, certSubject: String?, privateKeyAvailable: Bool, privateKeyType: String?, certificateDownloadUrl: String, privateKeyDownloadUrl: String, managed: String?) {
+    public init(pk: UUID, name: String, fingerprintSha256: String?, fingerprintSha1: String?, certExpiry: Date?, certSubject: String?, privateKeyAvailable: Bool, keyType: KeyTypeEnum?, certificateDownloadUrl: String, privateKeyDownloadUrl: String, managed: String?) {
         self.pk = pk
         self.name = name
         self.fingerprintSha256 = fingerprintSha256
@@ -39,7 +38,7 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
         self.certExpiry = certExpiry
         self.certSubject = certSubject
         self.privateKeyAvailable = privateKeyAvailable
-        self.privateKeyType = privateKeyType
+        self.keyType = keyType
         self.certificateDownloadUrl = certificateDownloadUrl
         self.privateKeyDownloadUrl = privateKeyDownloadUrl
         self.managed = managed
@@ -53,7 +52,7 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
         case certExpiry = "cert_expiry"
         case certSubject = "cert_subject"
         case privateKeyAvailable = "private_key_available"
-        case privateKeyType = "private_key_type"
+        case keyType = "key_type"
         case certificateDownloadUrl = "certificate_download_url"
         case privateKeyDownloadUrl = "private_key_download_url"
         case managed
@@ -70,7 +69,7 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
         try container.encode(certExpiry, forKey: .certExpiry)
         try container.encode(certSubject, forKey: .certSubject)
         try container.encode(privateKeyAvailable, forKey: .privateKeyAvailable)
-        try container.encode(privateKeyType, forKey: .privateKeyType)
+        try container.encode(keyType, forKey: .keyType)
         try container.encode(certificateDownloadUrl, forKey: .certificateDownloadUrl)
         try container.encode(privateKeyDownloadUrl, forKey: .privateKeyDownloadUrl)
         try container.encode(managed, forKey: .managed)

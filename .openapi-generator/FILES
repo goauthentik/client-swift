@@ -254,6 +254,7 @@ Sources/authentikClient/Models/KerberosSource.swift
 Sources/authentikClient/Models/KerberosSourcePropertyMapping.swift
 Sources/authentikClient/Models/KerberosSourcePropertyMappingRequest.swift
 Sources/authentikClient/Models/KerberosSourceRequest.swift
+Sources/authentikClient/Models/KeyTypeEnum.swift
 Sources/authentikClient/Models/KubernetesServiceConnection.swift
 Sources/authentikClient/Models/KubernetesServiceConnectionRequest.swift
 Sources/authentikClient/Models/LDAPAPIAccessMode.swift
@@ -1032,6 +1033,7 @@ docs/KerberosSource.md
 docs/KerberosSourcePropertyMapping.md
 docs/KerberosSourcePropertyMappingRequest.md
 docs/KerberosSourceRequest.md
+docs/KeyTypeEnum.md
 docs/KubernetesServiceConnection.md
 docs/KubernetesServiceConnectionRequest.md
 docs/LDAPAPIAccessMode.md

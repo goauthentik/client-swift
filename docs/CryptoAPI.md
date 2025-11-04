@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 # **cryptoCertificatekeypairsList**
 ```swift
-    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, includeDetails: Bool? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedCertificateKeyPairList?, _ error: Error?) -> Void)
+    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, includeDetails: Bool? = nil, keyType: [KeyType_cryptoCertificatekeypairsList]? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedCertificateKeyPairList?, _ error: Error?) -> Void)
 ```
 
 
@@ -179,6 +179,7 @@ import authentikClient
 
 let hasKey = true // Bool | Only return certificate-key pairs with keys (optional)
 let includeDetails = true // Bool |  (optional) (default to true)
+let keyType = ["keyType_example"] // [String] | Filter by key algorithm type (RSA, EC, DSA, etc). Can be specified multiple times (e.g. '?key_type=rsa&key_type=ec') (optional)
 let managed = "managed_example" // String |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
@@ -186,7 +187,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-CryptoAPI.cryptoCertificatekeypairsList(hasKey: hasKey, includeDetails: includeDetails, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+CryptoAPI.cryptoCertificatekeypairsList(hasKey: hasKey, includeDetails: includeDetails, keyType: keyType, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -204,6 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hasKey** | **Bool** | Only return certificate-key pairs with keys | [optional] 
  **includeDetails** | **Bool** |  | [optional] [default to true]
+ **keyType** | [**[String]**](String.md) | Filter by key algorithm type (RSA, EC, DSA, etc). Can be specified multiple times (e.g. &#39;?key_type&#x3D;rsa&amp;key_type&#x3D;ec&#39;) | [optional] 
  **managed** | **String** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
