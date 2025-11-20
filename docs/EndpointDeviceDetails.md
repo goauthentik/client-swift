@@ -1,0 +1,21 @@
+# EndpointDeviceDetails
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**deviceUuid** | **UUID** |  | [optional] 
+**pbmUuid** | **UUID** |  | [readonly] 
+**name** | **String** |  | 
+**group** | **UUID** |  | [optional] 
+**groupObj** | [**DeviceGroup**](DeviceGroup.md) |  | 
+**expiring** | **Bool** |  | [optional] 
+**expires** | **Date** |  | [optional] 
+**facts** | [**DeviceFactSnapshot**](DeviceFactSnapshot.md) |  | [readonly] 
+**attributes** | **[String: JSONValue]** |  | [optional] 
+**connectionsObj** | [DeviceConnection] |  | 
+**policies** | **[UUID]** |  | [readonly] 
+**connections** | **[UUID]** |  | [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

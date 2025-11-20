@@ -583,13 +583,13 @@ open class AuthenticatorsAPI {
 
     /**
 
-     - parameter endpointDeviceRequest: (body)  
+     - parameter googleEndpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EndpointDevice
+     - returns: GoogleEndpointDevice
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsAdminEndpointCreate(endpointDeviceRequest: EndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointDevice {
-        return try await authenticatorsAdminEndpointCreateWithRequestBuilder(endpointDeviceRequest: endpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func authenticatorsAdminEndpointCreate(googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GoogleEndpointDevice {
+        return try await authenticatorsAdminEndpointCreateWithRequestBuilder(googleEndpointDeviceRequest: googleEndpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -598,14 +598,14 @@ open class AuthenticatorsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter endpointDeviceRequest: (body)  
+     - parameter googleEndpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EndpointDevice> 
+     - returns: RequestBuilder<GoogleEndpointDevice> 
      */
-    open class func authenticatorsAdminEndpointCreateWithRequestBuilder(endpointDeviceRequest: EndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointDevice> {
+    open class func authenticatorsAdminEndpointCreateWithRequestBuilder(googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GoogleEndpointDevice> {
         let localVariablePath = "/authenticators/admin/endpoint/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: endpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: googleEndpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -615,7 +615,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GoogleEndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -670,10 +670,10 @@ open class AuthenticatorsAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedEndpointDeviceList
+     - returns: PaginatedGoogleEndpointDeviceList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsAdminEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEndpointDeviceList {
+    open class func authenticatorsAdminEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGoogleEndpointDeviceList {
         return try await authenticatorsAdminEndpointListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -689,9 +689,9 @@ open class AuthenticatorsAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedEndpointDeviceList> 
+     - returns: RequestBuilder<PaginatedGoogleEndpointDeviceList> 
      */
-    open class func authenticatorsAdminEndpointListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEndpointDeviceList> {
+    open class func authenticatorsAdminEndpointListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedGoogleEndpointDeviceList> {
         let localVariablePath = "/authenticators/admin/endpoint/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -711,7 +711,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedEndpointDeviceList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedGoogleEndpointDeviceList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -719,13 +719,13 @@ open class AuthenticatorsAPI {
     /**
 
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
-     - parameter patchedEndpointDeviceRequest: (body)  (optional)
+     - parameter patchedGoogleEndpointDeviceRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EndpointDevice
+     - returns: GoogleEndpointDevice
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsAdminEndpointPartialUpdate(uuid: UUID, patchedEndpointDeviceRequest: PatchedEndpointDeviceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointDevice {
-        return try await authenticatorsAdminEndpointPartialUpdateWithRequestBuilder(uuid: uuid, patchedEndpointDeviceRequest: patchedEndpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func authenticatorsAdminEndpointPartialUpdate(uuid: UUID, patchedGoogleEndpointDeviceRequest: PatchedGoogleEndpointDeviceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GoogleEndpointDevice {
+        return try await authenticatorsAdminEndpointPartialUpdateWithRequestBuilder(uuid: uuid, patchedGoogleEndpointDeviceRequest: patchedGoogleEndpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -735,17 +735,17 @@ open class AuthenticatorsAPI {
        - type: http
        - name: authentik
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
-     - parameter patchedEndpointDeviceRequest: (body)  (optional)
+     - parameter patchedGoogleEndpointDeviceRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EndpointDevice> 
+     - returns: RequestBuilder<GoogleEndpointDevice> 
      */
-    open class func authenticatorsAdminEndpointPartialUpdateWithRequestBuilder(uuid: UUID, patchedEndpointDeviceRequest: PatchedEndpointDeviceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointDevice> {
+    open class func authenticatorsAdminEndpointPartialUpdateWithRequestBuilder(uuid: UUID, patchedGoogleEndpointDeviceRequest: PatchedGoogleEndpointDeviceRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GoogleEndpointDevice> {
         var localVariablePath = "/authenticators/admin/endpoint/{uuid}/"
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedEndpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedGoogleEndpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -755,7 +755,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GoogleEndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -764,10 +764,10 @@ open class AuthenticatorsAPI {
 
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EndpointDevice
+     - returns: GoogleEndpointDevice
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsAdminEndpointRetrieve(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointDevice {
+    open class func authenticatorsAdminEndpointRetrieve(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GoogleEndpointDevice {
         return try await authenticatorsAdminEndpointRetrieveWithRequestBuilder(uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -779,9 +779,9 @@ open class AuthenticatorsAPI {
        - name: authentik
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EndpointDevice> 
+     - returns: RequestBuilder<GoogleEndpointDevice> 
      */
-    open class func authenticatorsAdminEndpointRetrieveWithRequestBuilder(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointDevice> {
+    open class func authenticatorsAdminEndpointRetrieveWithRequestBuilder(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GoogleEndpointDevice> {
         var localVariablePath = "/authenticators/admin/endpoint/{uuid}/"
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -797,7 +797,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GoogleEndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -805,13 +805,13 @@ open class AuthenticatorsAPI {
     /**
 
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
-     - parameter endpointDeviceRequest: (body)  
+     - parameter googleEndpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EndpointDevice
+     - returns: GoogleEndpointDevice
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsAdminEndpointUpdate(uuid: UUID, endpointDeviceRequest: EndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointDevice {
-        return try await authenticatorsAdminEndpointUpdateWithRequestBuilder(uuid: uuid, endpointDeviceRequest: endpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func authenticatorsAdminEndpointUpdate(uuid: UUID, googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GoogleEndpointDevice {
+        return try await authenticatorsAdminEndpointUpdateWithRequestBuilder(uuid: uuid, googleEndpointDeviceRequest: googleEndpointDeviceRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -821,17 +821,17 @@ open class AuthenticatorsAPI {
        - type: http
        - name: authentik
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
-     - parameter endpointDeviceRequest: (body)  
+     - parameter googleEndpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EndpointDevice> 
+     - returns: RequestBuilder<GoogleEndpointDevice> 
      */
-    open class func authenticatorsAdminEndpointUpdateWithRequestBuilder(uuid: UUID, endpointDeviceRequest: EndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointDevice> {
+    open class func authenticatorsAdminEndpointUpdateWithRequestBuilder(uuid: UUID, googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GoogleEndpointDevice> {
         var localVariablePath = "/authenticators/admin/endpoint/{uuid}/"
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: endpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: googleEndpointDeviceRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -841,7 +841,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GoogleEndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -2487,10 +2487,10 @@ open class AuthenticatorsAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedEndpointDeviceList
+     - returns: PaginatedGoogleEndpointDeviceList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEndpointDeviceList {
+    open class func authenticatorsEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGoogleEndpointDeviceList {
         return try await authenticatorsEndpointListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -2506,9 +2506,9 @@ open class AuthenticatorsAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedEndpointDeviceList> 
+     - returns: RequestBuilder<PaginatedGoogleEndpointDeviceList> 
      */
-    open class func authenticatorsEndpointListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEndpointDeviceList> {
+    open class func authenticatorsEndpointListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedGoogleEndpointDeviceList> {
         let localVariablePath = "/authenticators/endpoint/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -2528,7 +2528,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedEndpointDeviceList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedGoogleEndpointDeviceList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -2537,10 +2537,10 @@ open class AuthenticatorsAPI {
 
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EndpointDevice
+     - returns: GoogleEndpointDevice
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func authenticatorsEndpointRetrieve(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointDevice {
+    open class func authenticatorsEndpointRetrieve(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> GoogleEndpointDevice {
         return try await authenticatorsEndpointRetrieveWithRequestBuilder(uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -2552,9 +2552,9 @@ open class AuthenticatorsAPI {
        - name: authentik
      - parameter uuid: (path) A UUID string identifying this Endpoint Device. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EndpointDevice> 
+     - returns: RequestBuilder<GoogleEndpointDevice> 
      */
-    open class func authenticatorsEndpointRetrieveWithRequestBuilder(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointDevice> {
+    open class func authenticatorsEndpointRetrieveWithRequestBuilder(uuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<GoogleEndpointDevice> {
         var localVariablePath = "/authenticators/endpoint/{uuid}/"
         let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
         let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -2570,7 +2570,7 @@ open class AuthenticatorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GoogleEndpointDevice>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

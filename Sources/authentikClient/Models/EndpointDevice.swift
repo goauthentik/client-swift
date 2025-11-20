@@ -7,30 +7,55 @@
 
 import Foundation
 
-/** Serializer for Endpoint authenticator devices */
 public struct EndpointDevice: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 64, pattern: nil)
-    public var pk: UUID?
-    /** The human-readable name of this device. */
+    public var deviceUuid: UUID?
+    public var pbmUuid: UUID
     public var name: String
+    public var group: UUID?
+    public var groupObj: DeviceGroup
+    public var expiring: Bool?
+    public var expires: Date?
+    public var facts: DeviceFactSnapshot
+    public var attributes: [String: JSONValue]?
 
-    public init(pk: UUID? = nil, name: String) {
-        self.pk = pk
+    public init(deviceUuid: UUID? = nil, pbmUuid: UUID, name: String, group: UUID? = nil, groupObj: DeviceGroup, expiring: Bool? = nil, expires: Date? = nil, facts: DeviceFactSnapshot, attributes: [String: JSONValue]? = nil) {
+        self.deviceUuid = deviceUuid
+        self.pbmUuid = pbmUuid
         self.name = name
+        self.group = group
+        self.groupObj = groupObj
+        self.expiring = expiring
+        self.expires = expires
+        self.facts = facts
+        self.attributes = attributes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pk
+        case deviceUuid = "device_uuid"
+        case pbmUuid = "pbm_uuid"
         case name
+        case group
+        case groupObj = "group_obj"
+        case expiring
+        case expires
+        case facts
+        case attributes
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(pk, forKey: .pk)
+        try container.encodeIfPresent(deviceUuid, forKey: .deviceUuid)
+        try container.encode(pbmUuid, forKey: .pbmUuid)
         try container.encode(name, forKey: .name)
+        try container.encodeIfPresent(group, forKey: .group)
+        try container.encode(groupObj, forKey: .groupObj)
+        try container.encodeIfPresent(expiring, forKey: .expiring)
+        try container.encodeIfPresent(expires, forKey: .expires)
+        try container.encode(facts, forKey: .facts)
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
 

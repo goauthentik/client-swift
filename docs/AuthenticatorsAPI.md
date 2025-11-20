@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsAdminEndpointCreate**
 ```swift
-    open class func authenticatorsAdminEndpointCreate(endpointDeviceRequest: EndpointDeviceRequest, completion: @escaping (_ data: EndpointDevice?, _ error: Error?) -> Void)
+    open class func authenticatorsAdminEndpointCreate(googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, completion: @escaping (_ data: GoogleEndpointDevice?, _ error: Error?) -> Void)
 ```
 
 
@@ -764,9 +764,9 @@ Viewset for Endpoint authenticator devices (for admins)
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let endpointDeviceRequest = EndpointDeviceRequest(pk: 123, name: "name_example") // EndpointDeviceRequest | 
+let googleEndpointDeviceRequest = GoogleEndpointDeviceRequest(pk: 123, name: "name_example") // GoogleEndpointDeviceRequest | 
 
-AuthenticatorsAPI.authenticatorsAdminEndpointCreate(endpointDeviceRequest: endpointDeviceRequest) { (response, error) in
+AuthenticatorsAPI.authenticatorsAdminEndpointCreate(googleEndpointDeviceRequest: googleEndpointDeviceRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -782,11 +782,11 @@ AuthenticatorsAPI.authenticatorsAdminEndpointCreate(endpointDeviceRequest: endpo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **endpointDeviceRequest** | [**EndpointDeviceRequest**](EndpointDeviceRequest.md) |  | 
+ **googleEndpointDeviceRequest** | [**GoogleEndpointDeviceRequest**](GoogleEndpointDeviceRequest.md) |  | 
 
 ### Return type
 
-[**EndpointDevice**](EndpointDevice.md)
+[**GoogleEndpointDevice**](GoogleEndpointDevice.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ Void (empty response body)
 
 # **authenticatorsAdminEndpointList**
 ```swift
-    open class func authenticatorsAdminEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedEndpointDeviceList?, _ error: Error?) -> Void)
+    open class func authenticatorsAdminEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGoogleEndpointDeviceList?, _ error: Error?) -> Void)
 ```
 
 
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedEndpointDeviceList**](PaginatedEndpointDeviceList.md)
+[**PaginatedGoogleEndpointDeviceList**](PaginatedGoogleEndpointDeviceList.md)
 
 ### Authorization
 
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsAdminEndpointPartialUpdate**
 ```swift
-    open class func authenticatorsAdminEndpointPartialUpdate(uuid: UUID, patchedEndpointDeviceRequest: PatchedEndpointDeviceRequest? = nil, completion: @escaping (_ data: EndpointDevice?, _ error: Error?) -> Void)
+    open class func authenticatorsAdminEndpointPartialUpdate(uuid: UUID, patchedGoogleEndpointDeviceRequest: PatchedGoogleEndpointDeviceRequest? = nil, completion: @escaping (_ data: GoogleEndpointDevice?, _ error: Error?) -> Void)
 ```
 
 
@@ -920,9 +920,9 @@ Viewset for Endpoint authenticator devices (for admins)
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Endpoint Device.
-let patchedEndpointDeviceRequest = PatchedEndpointDeviceRequest(pk: 123, name: "name_example") // PatchedEndpointDeviceRequest |  (optional)
+let patchedGoogleEndpointDeviceRequest = PatchedGoogleEndpointDeviceRequest(pk: 123, name: "name_example") // PatchedGoogleEndpointDeviceRequest |  (optional)
 
-AuthenticatorsAPI.authenticatorsAdminEndpointPartialUpdate(uuid: uuid, patchedEndpointDeviceRequest: patchedEndpointDeviceRequest) { (response, error) in
+AuthenticatorsAPI.authenticatorsAdminEndpointPartialUpdate(uuid: uuid, patchedGoogleEndpointDeviceRequest: patchedGoogleEndpointDeviceRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -939,11 +939,11 @@ AuthenticatorsAPI.authenticatorsAdminEndpointPartialUpdate(uuid: uuid, patchedEn
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **UUID** | A UUID string identifying this Endpoint Device. | 
- **patchedEndpointDeviceRequest** | [**PatchedEndpointDeviceRequest**](PatchedEndpointDeviceRequest.md) |  | [optional] 
+ **patchedGoogleEndpointDeviceRequest** | [**PatchedGoogleEndpointDeviceRequest**](PatchedGoogleEndpointDeviceRequest.md) |  | [optional] 
 
 ### Return type
 
-[**EndpointDevice**](EndpointDevice.md)
+[**GoogleEndpointDevice**](GoogleEndpointDevice.md)
 
 ### Authorization
 
@@ -958,7 +958,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsAdminEndpointRetrieve**
 ```swift
-    open class func authenticatorsAdminEndpointRetrieve(uuid: UUID, completion: @escaping (_ data: EndpointDevice?, _ error: Error?) -> Void)
+    open class func authenticatorsAdminEndpointRetrieve(uuid: UUID, completion: @escaping (_ data: GoogleEndpointDevice?, _ error: Error?) -> Void)
 ```
 
 
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EndpointDevice**](EndpointDevice.md)
+[**GoogleEndpointDevice**](GoogleEndpointDevice.md)
 
 ### Authorization
 
@@ -1007,7 +1007,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsAdminEndpointUpdate**
 ```swift
-    open class func authenticatorsAdminEndpointUpdate(uuid: UUID, endpointDeviceRequest: EndpointDeviceRequest, completion: @escaping (_ data: EndpointDevice?, _ error: Error?) -> Void)
+    open class func authenticatorsAdminEndpointUpdate(uuid: UUID, googleEndpointDeviceRequest: GoogleEndpointDeviceRequest, completion: @escaping (_ data: GoogleEndpointDevice?, _ error: Error?) -> Void)
 ```
 
 
@@ -1020,9 +1020,9 @@ Viewset for Endpoint authenticator devices (for admins)
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Endpoint Device.
-let endpointDeviceRequest = EndpointDeviceRequest(pk: 123, name: "name_example") // EndpointDeviceRequest | 
+let googleEndpointDeviceRequest = GoogleEndpointDeviceRequest(pk: 123, name: "name_example") // GoogleEndpointDeviceRequest | 
 
-AuthenticatorsAPI.authenticatorsAdminEndpointUpdate(uuid: uuid, endpointDeviceRequest: endpointDeviceRequest) { (response, error) in
+AuthenticatorsAPI.authenticatorsAdminEndpointUpdate(uuid: uuid, googleEndpointDeviceRequest: googleEndpointDeviceRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1039,11 +1039,11 @@ AuthenticatorsAPI.authenticatorsAdminEndpointUpdate(uuid: uuid, endpointDeviceRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **UUID** | A UUID string identifying this Endpoint Device. | 
- **endpointDeviceRequest** | [**EndpointDeviceRequest**](EndpointDeviceRequest.md) |  | 
+ **googleEndpointDeviceRequest** | [**GoogleEndpointDeviceRequest**](GoogleEndpointDeviceRequest.md) |  | 
 
 ### Return type
 
-[**EndpointDevice**](EndpointDevice.md)
+[**GoogleEndpointDevice**](GoogleEndpointDevice.md)
 
 ### Authorization
 
@@ -2939,7 +2939,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsEndpointList**
 ```swift
-    open class func authenticatorsEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedEndpointDeviceList?, _ error: Error?) -> Void)
+    open class func authenticatorsEndpointList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGoogleEndpointDeviceList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2981,7 +2981,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedEndpointDeviceList**](PaginatedEndpointDeviceList.md)
+[**PaginatedGoogleEndpointDeviceList**](PaginatedGoogleEndpointDeviceList.md)
 
 ### Authorization
 
@@ -2996,7 +2996,7 @@ Name | Type | Description  | Notes
 
 # **authenticatorsEndpointRetrieve**
 ```swift
-    open class func authenticatorsEndpointRetrieve(uuid: UUID, completion: @escaping (_ data: EndpointDevice?, _ error: Error?) -> Void)
+    open class func authenticatorsEndpointRetrieve(uuid: UUID, completion: @escaping (_ data: GoogleEndpointDevice?, _ error: Error?) -> Void)
 ```
 
 
@@ -3030,7 +3030,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EndpointDevice**](EndpointDevice.md)
+[**GoogleEndpointDevice**](GoogleEndpointDevice.md)
 
 ### Authorization
 

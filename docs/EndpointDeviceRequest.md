@@ -3,8 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pk** | **UUID** |  | [optional] 
-**name** | **String** | The human-readable name of this device. | 
+**deviceUuid** | **UUID** |  | [optional] 
+**name** | **String** |  | 
+**group** | **UUID** |  | [optional] 
+**groupObj** | [**DeviceGroupRequest**](DeviceGroupRequest.md) |  | 
+**expiring** | **Bool** |  | [optional] 
+**expires** | **Date** |  | [optional] 
+**attributes** | **[String: JSONValue]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

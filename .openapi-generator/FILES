@@ -7,6 +7,7 @@ Sources/authentikClient/APIs/AdminAPI.swift
 Sources/authentikClient/APIs/AuthenticatorsAPI.swift
 Sources/authentikClient/APIs/CoreAPI.swift
 Sources/authentikClient/APIs/CryptoAPI.swift
+Sources/authentikClient/APIs/EndpointsAPI.swift
 Sources/authentikClient/APIs/EnterpriseAPI.swift
 Sources/authentikClient/APIs/EventsAPI.swift
 Sources/authentikClient/APIs/FlowsAPI.swift
@@ -38,6 +39,9 @@ Sources/authentikClient/Infrastructure/SynchronizedDictionary.swift
 Sources/authentikClient/Infrastructure/URLSessionImplementations.swift
 Sources/authentikClient/Infrastructure/Validation.swift
 Sources/authentikClient/Models/AccessDeniedChallenge.swift
+Sources/authentikClient/Models/AgentConfig.swift
+Sources/authentikClient/Models/AgentConnector.swift
+Sources/authentikClient/Models/AgentConnectorRequest.swift
 Sources/authentikClient/Models/AlgEnum.swift
 Sources/authentikClient/Models/App.swift
 Sources/authentikClient/Models/AppEnum.swift
@@ -117,6 +121,7 @@ Sources/authentikClient/Models/CompatibilityModeEnum.swift
 Sources/authentikClient/Models/Config.swift
 Sources/authentikClient/Models/ConnectionToken.swift
 Sources/authentikClient/Models/ConnectionTokenRequest.swift
+Sources/authentikClient/Models/Connector.swift
 Sources/authentikClient/Models/ConsentChallenge.swift
 Sources/authentikClient/Models/ConsentChallengeResponseRequest.swift
 Sources/authentikClient/Models/ConsentPermission.swift
@@ -138,8 +143,17 @@ Sources/authentikClient/Models/Device.swift
 Sources/authentikClient/Models/DeviceChallenge.swift
 Sources/authentikClient/Models/DeviceChallengeRequest.swift
 Sources/authentikClient/Models/DeviceClassesEnum.swift
+Sources/authentikClient/Models/DeviceConnection.swift
+Sources/authentikClient/Models/DeviceFactSnapshot.swift
+Sources/authentikClient/Models/DeviceFacts.swift
+Sources/authentikClient/Models/DeviceFactsOSFamily.swift
+Sources/authentikClient/Models/DeviceFactsRequest.swift
+Sources/authentikClient/Models/DeviceGroup.swift
+Sources/authentikClient/Models/DeviceGroupRequest.swift
 Sources/authentikClient/Models/DigestAlgorithmEnum.swift
 Sources/authentikClient/Models/DigitsEnum.swift
+Sources/authentikClient/Models/Disk.swift
+Sources/authentikClient/Models/DiskRequest.swift
 Sources/authentikClient/Models/DockerServiceConnection.swift
 Sources/authentikClient/Models/DockerServiceConnectionRequest.swift
 Sources/authentikClient/Models/Domain.swift
@@ -163,8 +177,13 @@ Sources/authentikClient/Models/EmailStageRequest.swift
 Sources/authentikClient/Models/Endpoint.swift
 Sources/authentikClient/Models/EndpointAuthModeEnum.swift
 Sources/authentikClient/Models/EndpointDevice.swift
+Sources/authentikClient/Models/EndpointDeviceDetails.swift
 Sources/authentikClient/Models/EndpointDeviceRequest.swift
 Sources/authentikClient/Models/EndpointRequest.swift
+Sources/authentikClient/Models/EnrollRequest.swift
+Sources/authentikClient/Models/EnrollResponse.swift
+Sources/authentikClient/Models/EnrollmentToken.swift
+Sources/authentikClient/Models/EnrollmentTokenRequest.swift
 Sources/authentikClient/Models/ErrorDetail.swift
 Sources/authentikClient/Models/ErrorReportingConfig.swift
 Sources/authentikClient/Models/Event.swift
@@ -205,6 +224,8 @@ Sources/authentikClient/Models/GeoIPPolicy.swift
 Sources/authentikClient/Models/GeoIPPolicyRequest.swift
 Sources/authentikClient/Models/GeoipBindingEnum.swift
 Sources/authentikClient/Models/GlobalTaskStatus.swift
+Sources/authentikClient/Models/GoogleEndpointDevice.swift
+Sources/authentikClient/Models/GoogleEndpointDeviceRequest.swift
 Sources/authentikClient/Models/GoogleWorkspaceProvider.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderGroup.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderGroupRequest.swift
@@ -231,6 +252,8 @@ Sources/authentikClient/Models/GroupSourceConnection.swift
 Sources/authentikClient/Models/GroupSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupTelegramSourceConnection.swift
 Sources/authentikClient/Models/GroupTelegramSourceConnectionRequest.swift
+Sources/authentikClient/Models/Hardware.swift
+Sources/authentikClient/Models/HardwareRequest.swift
 Sources/authentikClient/Models/IdentificationChallenge.swift
 Sources/authentikClient/Models/IdentificationChallengeResponseRequest.swift
 Sources/authentikClient/Models/IdentificationStage.swift
@@ -279,6 +302,8 @@ Sources/authentikClient/Models/LogEvent.swift
 Sources/authentikClient/Models/LogLevelEnum.swift
 Sources/authentikClient/Models/LoginChallengeTypes.swift
 Sources/authentikClient/Models/LoginSource.swift
+Sources/authentikClient/Models/MDMConfigRequest.swift
+Sources/authentikClient/Models/MDMConfigResponse.swift
 Sources/authentikClient/Models/MatchingModeEnum.swift
 Sources/authentikClient/Models/Metadata.swift
 Sources/authentikClient/Models/MicrosoftEntraProvider.swift
@@ -296,7 +321,11 @@ Sources/authentikClient/Models/MutualTLSStageModeEnum.swift
 Sources/authentikClient/Models/MutualTLSStageRequest.swift
 Sources/authentikClient/Models/NativeLogoutChallenge.swift
 Sources/authentikClient/Models/NativeLogoutChallengeResponseRequest.swift
+Sources/authentikClient/Models/Network.swift
 Sources/authentikClient/Models/NetworkBindingEnum.swift
+Sources/authentikClient/Models/NetworkInterface.swift
+Sources/authentikClient/Models/NetworkInterfaceRequest.swift
+Sources/authentikClient/Models/NetworkRequest.swift
 Sources/authentikClient/Models/NotConfiguredActionEnum.swift
 Sources/authentikClient/Models/Notification.swift
 Sources/authentikClient/Models/NotificationRequest.swift
@@ -321,6 +350,8 @@ Sources/authentikClient/Models/OAuthSourcePropertyMapping.swift
 Sources/authentikClient/Models/OAuthSourcePropertyMappingRequest.swift
 Sources/authentikClient/Models/OAuthSourceRequest.swift
 Sources/authentikClient/Models/OpenIDConnectConfiguration.swift
+Sources/authentikClient/Models/OperatingSystem.swift
+Sources/authentikClient/Models/OperatingSystemRequest.swift
 Sources/authentikClient/Models/OutgoingSyncDeleteAction.swift
 Sources/authentikClient/Models/Outpost.swift
 Sources/authentikClient/Models/OutpostDefaultConfig.swift
@@ -328,6 +359,7 @@ Sources/authentikClient/Models/OutpostHealth.swift
 Sources/authentikClient/Models/OutpostRequest.swift
 Sources/authentikClient/Models/OutpostTypeEnum.swift
 Sources/authentikClient/Models/PKCEMethodEnum.swift
+Sources/authentikClient/Models/PaginatedAgentConnectorList.swift
 Sources/authentikClient/Models/PaginatedApplicationEntitlementList.swift
 Sources/authentikClient/Models/PaginatedApplicationList.swift
 Sources/authentikClient/Models/PaginatedAuthenticatedSessionList.swift
@@ -344,8 +376,10 @@ Sources/authentikClient/Models/PaginatedBrandList.swift
 Sources/authentikClient/Models/PaginatedCaptchaStageList.swift
 Sources/authentikClient/Models/PaginatedCertificateKeyPairList.swift
 Sources/authentikClient/Models/PaginatedConnectionTokenList.swift
+Sources/authentikClient/Models/PaginatedConnectorList.swift
 Sources/authentikClient/Models/PaginatedConsentStageList.swift
 Sources/authentikClient/Models/PaginatedDenyStageList.swift
+Sources/authentikClient/Models/PaginatedDeviceGroupList.swift
 Sources/authentikClient/Models/PaginatedDockerServiceConnectionList.swift
 Sources/authentikClient/Models/PaginatedDomainList.swift
 Sources/authentikClient/Models/PaginatedDummyPolicyList.swift
@@ -355,6 +389,7 @@ Sources/authentikClient/Models/PaginatedEmailDeviceList.swift
 Sources/authentikClient/Models/PaginatedEmailStageList.swift
 Sources/authentikClient/Models/PaginatedEndpointDeviceList.swift
 Sources/authentikClient/Models/PaginatedEndpointList.swift
+Sources/authentikClient/Models/PaginatedEnrollmentTokenList.swift
 Sources/authentikClient/Models/PaginatedEventList.swift
 Sources/authentikClient/Models/PaginatedEventMatcherPolicyList.swift
 Sources/authentikClient/Models/PaginatedExpiringBaseGrantModelList.swift
@@ -364,6 +399,7 @@ Sources/authentikClient/Models/PaginatedExtraUserObjectPermissionList.swift
 Sources/authentikClient/Models/PaginatedFlowList.swift
 Sources/authentikClient/Models/PaginatedFlowStageBindingList.swift
 Sources/authentikClient/Models/PaginatedGeoIPPolicyList.swift
+Sources/authentikClient/Models/PaginatedGoogleEndpointDeviceList.swift
 Sources/authentikClient/Models/PaginatedGoogleWorkspaceProviderGroupList.swift
 Sources/authentikClient/Models/PaginatedGoogleWorkspaceProviderList.swift
 Sources/authentikClient/Models/PaginatedGoogleWorkspaceProviderMappingList.swift
@@ -482,6 +518,7 @@ Sources/authentikClient/Models/PasswordPolicy.swift
 Sources/authentikClient/Models/PasswordPolicyRequest.swift
 Sources/authentikClient/Models/PasswordStage.swift
 Sources/authentikClient/Models/PasswordStageRequest.swift
+Sources/authentikClient/Models/PatchedAgentConnectorRequest.swift
 Sources/authentikClient/Models/PatchedApplicationEntitlementRequest.swift
 Sources/authentikClient/Models/PatchedApplicationRequest.swift
 Sources/authentikClient/Models/PatchedAuthenticatorDuoStageRequest.swift
@@ -499,6 +536,7 @@ Sources/authentikClient/Models/PatchedCertificateKeyPairRequest.swift
 Sources/authentikClient/Models/PatchedConnectionTokenRequest.swift
 Sources/authentikClient/Models/PatchedConsentStageRequest.swift
 Sources/authentikClient/Models/PatchedDenyStageRequest.swift
+Sources/authentikClient/Models/PatchedDeviceGroupRequest.swift
 Sources/authentikClient/Models/PatchedDockerServiceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedDomainRequest.swift
 Sources/authentikClient/Models/PatchedDummyPolicyRequest.swift
@@ -508,6 +546,7 @@ Sources/authentikClient/Models/PatchedEmailDeviceRequest.swift
 Sources/authentikClient/Models/PatchedEmailStageRequest.swift
 Sources/authentikClient/Models/PatchedEndpointDeviceRequest.swift
 Sources/authentikClient/Models/PatchedEndpointRequest.swift
+Sources/authentikClient/Models/PatchedEnrollmentTokenRequest.swift
 Sources/authentikClient/Models/PatchedEventMatcherPolicyRequest.swift
 Sources/authentikClient/Models/PatchedEventRequest.swift
 Sources/authentikClient/Models/PatchedExpressionPolicyRequest.swift
@@ -516,6 +555,7 @@ Sources/authentikClient/Models/PatchedExtraUserObjectPermissionRequest.swift
 Sources/authentikClient/Models/PatchedFlowRequest.swift
 Sources/authentikClient/Models/PatchedFlowStageBindingRequest.swift
 Sources/authentikClient/Models/PatchedGeoIPPolicyRequest.swift
+Sources/authentikClient/Models/PatchedGoogleEndpointDeviceRequest.swift
 Sources/authentikClient/Models/PatchedGoogleWorkspaceProviderMappingRequest.swift
 Sources/authentikClient/Models/PatchedGoogleWorkspaceProviderRequest.swift
 Sources/authentikClient/Models/PatchedGroupKerberosSourceConnectionRequest.swift
@@ -618,6 +658,8 @@ Sources/authentikClient/Models/PolicyBindingRequest.swift
 Sources/authentikClient/Models/PolicyEngineMode.swift
 Sources/authentikClient/Models/PolicyTestRequest.swift
 Sources/authentikClient/Models/PolicyTestResult.swift
+Sources/authentikClient/Models/Process.swift
+Sources/authentikClient/Models/ProcessRequest.swift
 Sources/authentikClient/Models/Prompt.swift
 Sources/authentikClient/Models/PromptChallenge.swift
 Sources/authentikClient/Models/PromptChallengeResponseRequest.swift
@@ -712,6 +754,8 @@ Sources/authentikClient/Models/SettingsRequest.swift
 Sources/authentikClient/Models/SeverityEnum.swift
 Sources/authentikClient/Models/ShellChallenge.swift
 Sources/authentikClient/Models/SignatureAlgorithmEnum.swift
+Sources/authentikClient/Models/Software.swift
+Sources/authentikClient/Models/SoftwareRequest.swift
 Sources/authentikClient/Models/Source.swift
 Sources/authentikClient/Models/SourceStage.swift
 Sources/authentikClient/Models/SourceStageRequest.swift
@@ -811,6 +855,9 @@ Sources/authentikClient/Models/Worker.swift
 authentikClient.podspec
 docs/AccessDeniedChallenge.md
 docs/AdminAPI.md
+docs/AgentConfig.md
+docs/AgentConnector.md
+docs/AgentConnectorRequest.md
 docs/AlgEnum.md
 docs/App.md
 docs/AppEnum.md
@@ -891,6 +938,7 @@ docs/CompatibilityModeEnum.md
 docs/Config.md
 docs/ConnectionToken.md
 docs/ConnectionTokenRequest.md
+docs/Connector.md
 docs/ConsentChallenge.md
 docs/ConsentChallengeResponseRequest.md
 docs/ConsentPermission.md
@@ -914,8 +962,17 @@ docs/Device.md
 docs/DeviceChallenge.md
 docs/DeviceChallengeRequest.md
 docs/DeviceClassesEnum.md
+docs/DeviceConnection.md
+docs/DeviceFactSnapshot.md
+docs/DeviceFacts.md
+docs/DeviceFactsOSFamily.md
+docs/DeviceFactsRequest.md
+docs/DeviceGroup.md
+docs/DeviceGroupRequest.md
 docs/DigestAlgorithmEnum.md
 docs/DigitsEnum.md
+docs/Disk.md
+docs/DiskRequest.md
 docs/DockerServiceConnection.md
 docs/DockerServiceConnectionRequest.md
 docs/Domain.md
@@ -939,8 +996,14 @@ docs/EmailStageRequest.md
 docs/Endpoint.md
 docs/EndpointAuthModeEnum.md
 docs/EndpointDevice.md
+docs/EndpointDeviceDetails.md
 docs/EndpointDeviceRequest.md
 docs/EndpointRequest.md
+docs/EndpointsAPI.md
+docs/EnrollRequest.md
+docs/EnrollResponse.md
+docs/EnrollmentToken.md
+docs/EnrollmentTokenRequest.md
 docs/EnterpriseAPI.md
 docs/ErrorDetail.md
 docs/ErrorReportingConfig.md
@@ -984,6 +1047,8 @@ docs/GeoIPPolicy.md
 docs/GeoIPPolicyRequest.md
 docs/GeoipBindingEnum.md
 docs/GlobalTaskStatus.md
+docs/GoogleEndpointDevice.md
+docs/GoogleEndpointDeviceRequest.md
 docs/GoogleWorkspaceProvider.md
 docs/GoogleWorkspaceProviderGroup.md
 docs/GoogleWorkspaceProviderGroupRequest.md
@@ -1010,6 +1075,8 @@ docs/GroupSourceConnection.md
 docs/GroupSourceConnectionRequest.md
 docs/GroupTelegramSourceConnection.md
 docs/GroupTelegramSourceConnectionRequest.md
+docs/Hardware.md
+docs/HardwareRequest.md
 docs/IdentificationChallenge.md
 docs/IdentificationChallengeResponseRequest.md
 docs/IdentificationStage.md
@@ -1058,6 +1125,8 @@ docs/LogEvent.md
 docs/LogLevelEnum.md
 docs/LoginChallengeTypes.md
 docs/LoginSource.md
+docs/MDMConfigRequest.md
+docs/MDMConfigResponse.md
 docs/ManagedAPI.md
 docs/MatchingModeEnum.md
 docs/Metadata.md
@@ -1076,7 +1145,11 @@ docs/MutualTLSStageModeEnum.md
 docs/MutualTLSStageRequest.md
 docs/NativeLogoutChallenge.md
 docs/NativeLogoutChallengeResponseRequest.md
+docs/Network.md
 docs/NetworkBindingEnum.md
+docs/NetworkInterface.md
+docs/NetworkInterfaceRequest.md
+docs/NetworkRequest.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
 docs/NotificationRequest.md
@@ -1102,6 +1175,8 @@ docs/OAuthSourcePropertyMappingRequest.md
 docs/OAuthSourceRequest.md
 docs/Oauth2API.md
 docs/OpenIDConnectConfiguration.md
+docs/OperatingSystem.md
+docs/OperatingSystemRequest.md
 docs/OutgoingSyncDeleteAction.md
 docs/Outpost.md
 docs/OutpostDefaultConfig.md
@@ -1110,6 +1185,7 @@ docs/OutpostRequest.md
 docs/OutpostTypeEnum.md
 docs/OutpostsAPI.md
 docs/PKCEMethodEnum.md
+docs/PaginatedAgentConnectorList.md
 docs/PaginatedApplicationEntitlementList.md
 docs/PaginatedApplicationList.md
 docs/PaginatedAuthenticatedSessionList.md
@@ -1126,8 +1202,10 @@ docs/PaginatedBrandList.md
 docs/PaginatedCaptchaStageList.md
 docs/PaginatedCertificateKeyPairList.md
 docs/PaginatedConnectionTokenList.md
+docs/PaginatedConnectorList.md
 docs/PaginatedConsentStageList.md
 docs/PaginatedDenyStageList.md
+docs/PaginatedDeviceGroupList.md
 docs/PaginatedDockerServiceConnectionList.md
 docs/PaginatedDomainList.md
 docs/PaginatedDummyPolicyList.md
@@ -1137,6 +1215,7 @@ docs/PaginatedEmailDeviceList.md
 docs/PaginatedEmailStageList.md
 docs/PaginatedEndpointDeviceList.md
 docs/PaginatedEndpointList.md
+docs/PaginatedEnrollmentTokenList.md
 docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
@@ -1146,6 +1225,7 @@ docs/PaginatedExtraUserObjectPermissionList.md
 docs/PaginatedFlowList.md
 docs/PaginatedFlowStageBindingList.md
 docs/PaginatedGeoIPPolicyList.md
+docs/PaginatedGoogleEndpointDeviceList.md
 docs/PaginatedGoogleWorkspaceProviderGroupList.md
 docs/PaginatedGoogleWorkspaceProviderList.md
 docs/PaginatedGoogleWorkspaceProviderMappingList.md
@@ -1264,6 +1344,7 @@ docs/PasswordPolicy.md
 docs/PasswordPolicyRequest.md
 docs/PasswordStage.md
 docs/PasswordStageRequest.md
+docs/PatchedAgentConnectorRequest.md
 docs/PatchedApplicationEntitlementRequest.md
 docs/PatchedApplicationRequest.md
 docs/PatchedAuthenticatorDuoStageRequest.md
@@ -1281,6 +1362,7 @@ docs/PatchedCertificateKeyPairRequest.md
 docs/PatchedConnectionTokenRequest.md
 docs/PatchedConsentStageRequest.md
 docs/PatchedDenyStageRequest.md
+docs/PatchedDeviceGroupRequest.md
 docs/PatchedDockerServiceConnectionRequest.md
 docs/PatchedDomainRequest.md
 docs/PatchedDummyPolicyRequest.md
@@ -1290,6 +1372,7 @@ docs/PatchedEmailDeviceRequest.md
 docs/PatchedEmailStageRequest.md
 docs/PatchedEndpointDeviceRequest.md
 docs/PatchedEndpointRequest.md
+docs/PatchedEnrollmentTokenRequest.md
 docs/PatchedEventMatcherPolicyRequest.md
 docs/PatchedEventRequest.md
 docs/PatchedExpressionPolicyRequest.md
@@ -1298,6 +1381,7 @@ docs/PatchedExtraUserObjectPermissionRequest.md
 docs/PatchedFlowRequest.md
 docs/PatchedFlowStageBindingRequest.md
 docs/PatchedGeoIPPolicyRequest.md
+docs/PatchedGoogleEndpointDeviceRequest.md
 docs/PatchedGoogleWorkspaceProviderMappingRequest.md
 docs/PatchedGoogleWorkspaceProviderRequest.md
 docs/PatchedGroupKerberosSourceConnectionRequest.md
@@ -1401,6 +1485,8 @@ docs/PolicyBindingRequest.md
 docs/PolicyEngineMode.md
 docs/PolicyTestRequest.md
 docs/PolicyTestResult.md
+docs/Process.md
+docs/ProcessRequest.md
 docs/Prompt.md
 docs/PromptChallenge.md
 docs/PromptChallengeResponseRequest.md
@@ -1501,6 +1587,8 @@ docs/SettingsRequest.md
 docs/SeverityEnum.md
 docs/ShellChallenge.md
 docs/SignatureAlgorithmEnum.md
+docs/Software.md
+docs/SoftwareRequest.md
 docs/Source.md
 docs/SourceStage.md
 docs/SourceStageRequest.md

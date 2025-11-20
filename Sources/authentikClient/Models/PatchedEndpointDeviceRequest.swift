@@ -7,30 +7,48 @@
 
 import Foundation
 
-/** Serializer for Endpoint authenticator devices */
 public struct PatchedEndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let nameRule = StringRule(minLength: 1, maxLength: 64, pattern: nil)
-    public var pk: UUID?
-    /** The human-readable name of this device. */
+    public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public var deviceUuid: UUID?
     public var name: String?
+    public var group: UUID?
+    public var groupObj: DeviceGroupRequest?
+    public var expiring: Bool?
+    public var expires: Date?
+    public var attributes: [String: JSONValue]?
 
-    public init(pk: UUID? = nil, name: String? = nil) {
-        self.pk = pk
+    public init(deviceUuid: UUID? = nil, name: String? = nil, group: UUID? = nil, groupObj: DeviceGroupRequest? = nil, expiring: Bool? = nil, expires: Date? = nil, attributes: [String: JSONValue]? = nil) {
+        self.deviceUuid = deviceUuid
         self.name = name
+        self.group = group
+        self.groupObj = groupObj
+        self.expiring = expiring
+        self.expires = expires
+        self.attributes = attributes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pk
+        case deviceUuid = "device_uuid"
         case name
+        case group
+        case groupObj = "group_obj"
+        case expiring
+        case expires
+        case attributes
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(pk, forKey: .pk)
+        try container.encodeIfPresent(deviceUuid, forKey: .deviceUuid)
         try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(group, forKey: .group)
+        try container.encodeIfPresent(groupObj, forKey: .groupObj)
+        try container.encodeIfPresent(expiring, forKey: .expiring)
+        try container.encodeIfPresent(expires, forKey: .expires)
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
 
