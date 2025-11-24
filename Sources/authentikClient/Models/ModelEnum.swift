@@ -18,6 +18,7 @@ public enum ModelEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefa
     case authentikEndpointsPeriodDeviceuserbinding = "authentik_endpoints.deviceuserbinding"
     case authentikEndpointsPeriodEndpointstage = "authentik_endpoints.endpointstage"
     case authentikEndpointsConnectorsAgentPeriodAgentconnector = "authentik_endpoints_connectors_agent.agentconnector"
+    case authentikEndpointsConnectorsAgentPeriodAgentdeviceuserbinding = "authentik_endpoints_connectors_agent.agentdeviceuserbinding"
     case authentikEndpointsConnectorsAgentPeriodEnrollmenttoken = "authentik_endpoints_connectors_agent.enrollmenttoken"
     case authentikEnterprisePeriodLicense = "authentik_enterprise.license"
     case authentikEventsPeriodEvent = "authentik_events.event"
