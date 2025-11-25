@@ -10,7 +10,7 @@ import Foundation
 /** Invitation Serializer */
 public struct PatchedInvitationRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let nameRule = StringRule(minLength: 1, maxLength: 50, pattern: "/^[-a-zA-Z0-9_]+$/")
+    public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: "/^[-a-zA-Z0-9_]+$/")
     public var name: String?
     public var expires: Date?
     public var fixedData: [String: JSONValue]?

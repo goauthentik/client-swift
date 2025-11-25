@@ -10,7 +10,7 @@ import Foundation
 /** OAuth Source Serializer */
 public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let slugRule = StringRule(minLength: nil, maxLength: 50, pattern: "/^[-a-zA-Z0-9_]+$/")
+    public static let slugRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[-a-zA-Z0-9_]+$/")
     public static let requestTokenUrlRule = StringRule(minLength: nil, maxLength: 255, pattern: nil)
     public static let authorizationUrlRule = StringRule(minLength: nil, maxLength: 255, pattern: nil)
     public static let accessTokenUrlRule = StringRule(minLength: nil, maxLength: 255, pattern: nil)

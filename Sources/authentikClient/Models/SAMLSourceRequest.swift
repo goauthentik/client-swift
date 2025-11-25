@@ -11,7 +11,7 @@ import Foundation
 public struct SAMLSourceRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let slugRule = StringRule(minLength: 1, maxLength: 50, pattern: "/^[-a-zA-Z0-9_]+$/")
+    public static let slugRule = StringRule(minLength: 1, maxLength: nil, pattern: "/^[-a-zA-Z0-9_]+$/")
     public static let userPathTemplateRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let ssoUrlRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let temporaryUserDeleteAfterRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)

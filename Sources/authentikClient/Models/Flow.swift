@@ -10,7 +10,7 @@ import Foundation
 /** Flow Serializer */
 public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let slugRule = StringRule(minLength: nil, maxLength: 50, pattern: "/^[-a-zA-Z0-9_]+$/")
+    public static let slugRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[-a-zA-Z0-9_]+$/")
     public var pk: UUID
     public var policybindingmodelPtrId: UUID
     public var name: String

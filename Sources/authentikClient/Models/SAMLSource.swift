@@ -10,7 +10,7 @@ import Foundation
 /** SAMLSource Serializer */
 public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let slugRule = StringRule(minLength: nil, maxLength: 50, pattern: "/^[-a-zA-Z0-9_]+$/")
+    public static let slugRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[-a-zA-Z0-9_]+$/")
     public var pk: UUID
     /** Source's display Name. */
     public var name: String
