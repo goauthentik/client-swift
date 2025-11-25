@@ -24,6 +24,8 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
     /** Internal source name, used in URLs. */
     public var slug: String?
     public var enabled: Bool?
+    /** When enabled, this source will be displayed as a prominent button on the login page, instead of a small icon. */
+    public var promoted: Bool?
     /** Flow to use when authenticating existing users. */
     public var authenticationFlow: UUID?
     /** Flow to use when enrolling new users. */
@@ -55,10 +57,11 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
     /** How to perform authentication during an authorization_code token request flow */
     public var authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum? = nil, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String? = nil, consumerSecret: String? = nil, additionalScopes: String? = nil, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
+        self.promoted = promoted
         self.authenticationFlow = authenticationFlow
         self.enrollmentFlow = enrollmentFlow
         self.userPropertyMappings = userPropertyMappings
@@ -86,6 +89,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
         case name
         case slug
         case enabled
+        case promoted
         case authenticationFlow = "authentication_flow"
         case enrollmentFlow = "enrollment_flow"
         case userPropertyMappings = "user_property_mappings"
@@ -116,6 +120,7 @@ public struct PatchedOAuthSourceRequest: Sendable, Codable, ParameterConvertible
         try container.encodeIfPresent(name, forKey: .name)
         try container.encodeIfPresent(slug, forKey: .slug)
         try container.encodeIfPresent(enabled, forKey: .enabled)
+        try container.encodeIfPresent(promoted, forKey: .promoted)
         try container.encodeIfPresent(authenticationFlow, forKey: .authenticationFlow)
         try container.encodeIfPresent(enrollmentFlow, forKey: .enrollmentFlow)
         try container.encodeIfPresent(userPropertyMappings, forKey: .userPropertyMappings)

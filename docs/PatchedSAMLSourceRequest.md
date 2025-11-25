@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **name** | **String** | Source&#39;s display Name. | [optional] 
 **slug** | **String** | Internal source name, used in URLs. | [optional] 
 **enabled** | **Bool** |  | [optional] 
+**promoted** | **Bool** | When enabled, this source will be displayed as a prominent button on the login page, instead of a small icon. | [optional] 
 **authenticationFlow** | **UUID** | Flow to use when authenticating existing users. | [optional] 
 **enrollmentFlow** | **UUID** | Flow to use when enrolling new users. | [optional] 
 **userPropertyMappings** | **[UUID]** |  | [optional] 

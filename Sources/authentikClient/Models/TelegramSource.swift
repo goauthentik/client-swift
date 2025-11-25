@@ -17,6 +17,8 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
     /** Internal source name, used in URLs. */
     public var slug: String
     public var enabled: Bool?
+    /** When enabled, this source will be displayed as a prominent button on the login page, instead of a small icon. */
+    public var promoted: Bool?
     /** Flow to use when authenticating existing users. */
     public var authenticationFlow: UUID?
     /** Flow to use when enrolling new users. */
@@ -45,11 +47,12 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
     /** Flow used before authentication. */
     public var preAuthenticationFlow: UUID
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, botUsername: String, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, botUsername: String, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID) {
         self.pk = pk
         self.name = name
         self.slug = slug
         self.enabled = enabled
+        self.promoted = promoted
         self.authenticationFlow = authenticationFlow
         self.enrollmentFlow = enrollmentFlow
         self.userPropertyMappings = userPropertyMappings
@@ -73,6 +76,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
         case name
         case slug
         case enabled
+        case promoted
         case authenticationFlow = "authentication_flow"
         case enrollmentFlow = "enrollment_flow"
         case userPropertyMappings = "user_property_mappings"
@@ -99,6 +103,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encode(name, forKey: .name)
         try container.encode(slug, forKey: .slug)
         try container.encodeIfPresent(enabled, forKey: .enabled)
+        try container.encodeIfPresent(promoted, forKey: .promoted)
         try container.encodeIfPresent(authenticationFlow, forKey: .authenticationFlow)
         try container.encodeIfPresent(enrollmentFlow, forKey: .enrollmentFlow)
         try container.encodeIfPresent(userPropertyMappings, forKey: .userPropertyMappings)

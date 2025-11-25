@@ -20,6 +20,8 @@ public struct PlexSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
     /** Internal source name, used in URLs. */
     public var slug: String
     public var enabled: Bool?
+    /** When enabled, this source will be displayed as a prominent button on the login page, instead of a small icon. */
+    public var promoted: Bool?
     /** Flow to use when authenticating existing users. */
     public var authenticationFlow: UUID?
     /** Flow to use when enrolling new users. */
@@ -41,10 +43,11 @@ public struct PlexSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
     /** Plex token used to check friends */
     public var plexToken: String
 
-    public init(name: String, slug: String, enabled: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, clientId: String? = nil, allowedServers: [String]? = nil, allowFriends: Bool? = nil, plexToken: String) {
+    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, clientId: String? = nil, allowedServers: [String]? = nil, allowFriends: Bool? = nil, plexToken: String) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
+        self.promoted = promoted
         self.authenticationFlow = authenticationFlow
         self.enrollmentFlow = enrollmentFlow
         self.userPropertyMappings = userPropertyMappings
@@ -63,6 +66,7 @@ public struct PlexSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         case name
         case slug
         case enabled
+        case promoted
         case authenticationFlow = "authentication_flow"
         case enrollmentFlow = "enrollment_flow"
         case userPropertyMappings = "user_property_mappings"
@@ -84,6 +88,7 @@ public struct PlexSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         try container.encode(name, forKey: .name)
         try container.encode(slug, forKey: .slug)
         try container.encodeIfPresent(enabled, forKey: .enabled)
+        try container.encodeIfPresent(promoted, forKey: .promoted)
         try container.encodeIfPresent(authenticationFlow, forKey: .authenticationFlow)
         try container.encodeIfPresent(enrollmentFlow, forKey: .enrollmentFlow)
         try container.encodeIfPresent(userPropertyMappings, forKey: .userPropertyMappings)
