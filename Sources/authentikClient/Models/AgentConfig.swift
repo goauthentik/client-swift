@@ -10,6 +10,7 @@ import Foundation
 /** Base serializer class which doesn&#39;t implement create/update methods */
 public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public var deviceId: String
     public var refreshInterval: Int
     public var authorizationFlow: String
     public var jwks: [String: JSONValue]
@@ -18,7 +19,8 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
     public var authTerminateSessionOnExpiry: Bool
     public var systemConfig: Config
 
-    public init(refreshInterval: Int, authorizationFlow: String, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+        self.deviceId = deviceId
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow
         self.jwks = jwks
@@ -29,6 +31,7 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case deviceId = "device_id"
         case refreshInterval = "refresh_interval"
         case authorizationFlow = "authorization_flow"
         case jwks
@@ -42,6 +45,7 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(deviceId, forKey: .deviceId)
         try container.encode(refreshInterval, forKey: .refreshInterval)
         try container.encode(authorizationFlow, forKey: .authorizationFlow)
         try container.encode(jwks, forKey: .jwks)

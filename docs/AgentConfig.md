@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deviceId** | **String** |  | [readonly] 
 **refreshInterval** | **Int** |  | [readonly] 
 **authorizationFlow** | **String** |  | 
 **jwks** | **[String: JSONValue]** |  | [readonly] 

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/** Set token&#39;s key */
 public struct TokenSetKeyRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let keyRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
