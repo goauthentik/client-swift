@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deviceUuid** | **UUID** |  | [optional] 
 **name** | **String** |  | [optional] 
-**group** | **UUID** |  | [optional] 
-**groupObj** | [**DeviceGroupRequest**](DeviceGroupRequest.md) |  | [optional] 
+**accessGroup** | **UUID** |  | [optional] 
+**accessGroupObj** | [**DeviceAccessGroupRequest**](DeviceAccessGroupRequest.md) |  | [optional] 
 **expiring** | **Bool** |  | [optional] 
 **expires** | **Date** |  | [optional] 
 **attributes** | **[String: JSONValue]** |  | [optional] 

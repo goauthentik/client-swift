@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **enabled** | **Bool** |  | [optional] 
 **snapshotExpiry** | **String** |  | [optional] 
-**nssUidOffset** | **Int** |  | [optional] 
-**nssGidOffset** | **Int** |  | [optional] 
 **authTerminateSessionOnExpiry** | **Bool** |  | [optional] 
 **refreshInterval** | **String** |  | [optional] 
-**authenticationFlow** | **UUID** |  | [optional] 
+**authorizationFlow** | **UUID** |  | [optional] 
+**nssUidOffset** | **Int** |  | [optional] 
+**nssGidOffset** | **Int** |  | [optional] 
 **challengeKey** | **UUID** |  | [optional] 
+**jwtFederationProviders** | **[Int]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

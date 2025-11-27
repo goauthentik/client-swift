@@ -45,6 +45,79 @@ open class EndpointsAPI {
 
     /**
 
+     - parameter device: (query)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: AgentTokenResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsAgentsConnectorsAuthFedCreate(device: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> AgentTokenResponse {
+        return try await endpointsAgentsConnectorsAuthFedCreateWithRequestBuilder(device: device, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/agents/connectors/auth_fed/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - parameter device: (query)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<AgentTokenResponse> 
+     */
+    open class func endpointsAgentsConnectorsAuthFedCreateWithRequestBuilder(device: String, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<AgentTokenResponse> {
+        let localVariablePath = "/endpoints/agents/connectors/auth_fed/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "device": (wrappedValue: device.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AgentTokenResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: AgentAuthenticationResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsAgentsConnectorsAuthIaCreate(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> AgentAuthenticationResponse {
+        return try await endpointsAgentsConnectorsAuthIaCreateWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/agents/connectors/auth_ia/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<AgentAuthenticationResponse> 
+     */
+    open class func endpointsAgentsConnectorsAuthIaCreateWithRequestBuilder(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<AgentAuthenticationResponse> {
+        let localVariablePath = "/endpoints/agents/connectors/auth_ia/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AgentAuthenticationResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter deviceFactsRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
@@ -164,10 +237,10 @@ open class EndpointsAPI {
 
      - parameter enrollRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: EnrollResponse
+     - returns: AgentTokenResponse
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsAgentsConnectorsEnrollCreate(enrollRequest: EnrollRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EnrollResponse {
+    open class func endpointsAgentsConnectorsEnrollCreate(enrollRequest: EnrollRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> AgentTokenResponse {
         return try await endpointsAgentsConnectorsEnrollCreateWithRequestBuilder(enrollRequest: enrollRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -176,9 +249,9 @@ open class EndpointsAPI {
      - Mixin to add a used_by endpoint to return a list of all objects using this object
      - parameter enrollRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<EnrollResponse> 
+     - returns: RequestBuilder<AgentTokenResponse> 
      */
-    open class func endpointsAgentsConnectorsEnrollCreateWithRequestBuilder(enrollRequest: EnrollRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EnrollResponse> {
+    open class func endpointsAgentsConnectorsEnrollCreateWithRequestBuilder(enrollRequest: EnrollRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<AgentTokenResponse> {
         let localVariablePath = "/endpoints/agents/connectors/enroll/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: enrollRequest, codableHelper: apiConfiguration.codableHelper)
@@ -191,7 +264,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EnrollResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AgentTokenResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
@@ -1037,6 +1110,316 @@ open class EndpointsAPI {
 
     /**
 
+     - parameter deviceAccessGroupRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DeviceAccessGroup
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsCreate(deviceAccessGroupRequest: DeviceAccessGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceAccessGroup {
+        return try await endpointsDeviceAccessGroupsCreateWithRequestBuilder(deviceAccessGroupRequest: deviceAccessGroupRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/device_access_groups/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter deviceAccessGroupRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DeviceAccessGroup> 
+     */
+    open class func endpointsDeviceAccessGroupsCreateWithRequestBuilder(deviceAccessGroupRequest: DeviceAccessGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceAccessGroup> {
+        let localVariablePath = "/endpoints/device_access_groups/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceAccessGroupRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DeviceAccessGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsDestroy(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await endpointsDeviceAccessGroupsDestroyWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /endpoints/device_access_groups/{pbm_uuid}/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func endpointsDeviceAccessGroupsDestroyWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/endpoints/device_access_groups/{pbm_uuid}/"
+        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
+        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter pbmUuid: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedDeviceAccessGroupList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedDeviceAccessGroupList {
+        return try await endpointsDeviceAccessGroupsListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, search: search, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/device_access_groups/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter pbmUuid: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedDeviceAccessGroupList> 
+     */
+    open class func endpointsDeviceAccessGroupsListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedDeviceAccessGroupList> {
+        let localVariablePath = "/endpoints/device_access_groups/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "pbm_uuid": (wrappedValue: pbmUuid?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDeviceAccessGroupList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter patchedDeviceAccessGroupRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DeviceAccessGroup
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsPartialUpdate(pbmUuid: UUID, patchedDeviceAccessGroupRequest: PatchedDeviceAccessGroupRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceAccessGroup {
+        return try await endpointsDeviceAccessGroupsPartialUpdateWithRequestBuilder(pbmUuid: pbmUuid, patchedDeviceAccessGroupRequest: patchedDeviceAccessGroupRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /endpoints/device_access_groups/{pbm_uuid}/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter patchedDeviceAccessGroupRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DeviceAccessGroup> 
+     */
+    open class func endpointsDeviceAccessGroupsPartialUpdateWithRequestBuilder(pbmUuid: UUID, patchedDeviceAccessGroupRequest: PatchedDeviceAccessGroupRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceAccessGroup> {
+        var localVariablePath = "/endpoints/device_access_groups/{pbm_uuid}/"
+        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
+        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDeviceAccessGroupRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DeviceAccessGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DeviceAccessGroup
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsRetrieve(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceAccessGroup {
+        return try await endpointsDeviceAccessGroupsRetrieveWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/device_access_groups/{pbm_uuid}/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DeviceAccessGroup> 
+     */
+    open class func endpointsDeviceAccessGroupsRetrieveWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceAccessGroup> {
+        var localVariablePath = "/endpoints/device_access_groups/{pbm_uuid}/"
+        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
+        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DeviceAccessGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter deviceAccessGroupRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DeviceAccessGroup
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsUpdate(pbmUuid: UUID, deviceAccessGroupRequest: DeviceAccessGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceAccessGroup {
+        return try await endpointsDeviceAccessGroupsUpdateWithRequestBuilder(pbmUuid: pbmUuid, deviceAccessGroupRequest: deviceAccessGroupRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /endpoints/device_access_groups/{pbm_uuid}/
+     - DeviceAccessGroup Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter deviceAccessGroupRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DeviceAccessGroup> 
+     */
+    open class func endpointsDeviceAccessGroupsUpdateWithRequestBuilder(pbmUuid: UUID, deviceAccessGroupRequest: DeviceAccessGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceAccessGroup> {
+        var localVariablePath = "/endpoints/device_access_groups/{pbm_uuid}/"
+        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
+        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceAccessGroupRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DeviceAccessGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDeviceAccessGroupsUsedByList(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await endpointsDeviceAccessGroupsUsedByListWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/device_access_groups/{pbm_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter pbmUuid: (path) A UUID string identifying this Device access group. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func endpointsDeviceAccessGroupsUsedByListWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/endpoints/device_access_groups/{pbm_uuid}/used_by/"
+        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
+        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter policyBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PolicyBinding
@@ -1076,7 +1459,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
@@ -1091,7 +1474,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
@@ -1190,7 +1573,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter patchedPolicyBindingRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PolicyBinding
@@ -1206,7 +1589,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter patchedPolicyBindingRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PolicyBinding> 
@@ -1234,7 +1617,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PolicyBinding
      */
@@ -1249,7 +1632,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PolicyBinding> 
      */
@@ -1276,7 +1659,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter policyBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PolicyBinding
@@ -1292,7 +1675,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter policyBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PolicyBinding> 
@@ -1320,7 +1703,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [UsedBy]
      */
@@ -1335,7 +1718,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingUuid: (path) A UUID string identifying this device user binding. 
+     - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[UsedBy]> 
      */
@@ -1362,317 +1745,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter deviceGroupRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeviceGroup
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsCreate(deviceGroupRequest: DeviceGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceGroup {
-        return try await endpointsDeviceGroupsCreateWithRequestBuilder(deviceGroupRequest: deviceGroupRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - POST /endpoints/device_groups/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter deviceGroupRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeviceGroup> 
-     */
-    open class func endpointsDeviceGroupsCreateWithRequestBuilder(deviceGroupRequest: DeviceGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceGroup> {
-        let localVariablePath = "/endpoints/device_groups/"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceGroupRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeviceGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: Void
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsDestroy(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await endpointsDeviceGroupsDestroyWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - DELETE /endpoints/device_groups/{pbm_uuid}/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<Void> 
-     */
-    open class func endpointsDeviceGroupsDestroyWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/endpoints/device_groups/{pbm_uuid}/"
-        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
-        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter name: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter pbmUuid: (query)  (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedDeviceGroupList
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedDeviceGroupList {
-        return try await endpointsDeviceGroupsListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, search: search, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /endpoints/device_groups/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter name: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter pbmUuid: (query)  (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedDeviceGroupList> 
-     */
-    open class func endpointsDeviceGroupsListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedDeviceGroupList> {
-        let localVariablePath = "/endpoints/device_groups/"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "pbm_uuid": (wrappedValue: pbmUuid?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<PaginatedDeviceGroupList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter patchedDeviceGroupRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeviceGroup
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsPartialUpdate(pbmUuid: UUID, patchedDeviceGroupRequest: PatchedDeviceGroupRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceGroup {
-        return try await endpointsDeviceGroupsPartialUpdateWithRequestBuilder(pbmUuid: pbmUuid, patchedDeviceGroupRequest: patchedDeviceGroupRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PATCH /endpoints/device_groups/{pbm_uuid}/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter patchedDeviceGroupRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeviceGroup> 
-     */
-    open class func endpointsDeviceGroupsPartialUpdateWithRequestBuilder(pbmUuid: UUID, patchedDeviceGroupRequest: PatchedDeviceGroupRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceGroup> {
-        var localVariablePath = "/endpoints/device_groups/{pbm_uuid}/"
-        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
-        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDeviceGroupRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeviceGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeviceGroup
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsRetrieve(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceGroup {
-        return try await endpointsDeviceGroupsRetrieveWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /endpoints/device_groups/{pbm_uuid}/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeviceGroup> 
-     */
-    open class func endpointsDeviceGroupsRetrieveWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceGroup> {
-        var localVariablePath = "/endpoints/device_groups/{pbm_uuid}/"
-        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
-        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeviceGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter deviceGroupRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeviceGroup
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsUpdate(pbmUuid: UUID, deviceGroupRequest: DeviceGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceGroup {
-        return try await endpointsDeviceGroupsUpdateWithRequestBuilder(pbmUuid: pbmUuid, deviceGroupRequest: deviceGroupRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PUT /endpoints/device_groups/{pbm_uuid}/
-     - DeviceGroup Viewset
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter deviceGroupRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeviceGroup> 
-     */
-    open class func endpointsDeviceGroupsUpdateWithRequestBuilder(pbmUuid: UUID, deviceGroupRequest: DeviceGroupRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceGroup> {
-        var localVariablePath = "/endpoints/device_groups/{pbm_uuid}/"
-        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
-        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceGroupRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeviceGroup>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: [UsedBy]
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceGroupsUsedByList(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
-        return try await endpointsDeviceGroupsUsedByListWithRequestBuilder(pbmUuid: pbmUuid, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /endpoints/device_groups/{pbm_uuid}/used_by/
-     - Get a list of all objects that use this object
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter pbmUuid: (path) A UUID string identifying this device group. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<[UsedBy]> 
-     */
-    open class func endpointsDeviceGroupsUsedByListWithRequestBuilder(pbmUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
-        var localVariablePath = "/endpoints/device_groups/{pbm_uuid}/used_by/"
-        let pbmUuidPreEscape = "\(APIHelper.mapValueToPathItem(pbmUuid))"
-        let pbmUuidPostEscape = pbmUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pbm_uuid}", with: pbmUuidPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
@@ -1687,7 +1760,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
@@ -1771,7 +1844,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter patchedEndpointDeviceRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EndpointDevice
@@ -1787,7 +1860,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter patchedEndpointDeviceRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EndpointDevice> 
@@ -1815,7 +1888,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EndpointDeviceDetails
      */
@@ -1830,7 +1903,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EndpointDeviceDetails> 
      */
@@ -1857,7 +1930,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter endpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EndpointDevice
@@ -1873,7 +1946,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter endpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EndpointDevice> 
@@ -1901,7 +1974,7 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [UsedBy]
      */
@@ -1916,7 +1989,7 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter deviceUuid: (path) A UUID string identifying this device. 
+     - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[UsedBy]> 
      */

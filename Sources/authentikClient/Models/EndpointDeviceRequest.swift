@@ -12,17 +12,17 @@ public struct EndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Ha
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var deviceUuid: UUID?
     public var name: String
-    public var group: UUID?
-    public var groupObj: DeviceGroupRequest
+    public var accessGroup: UUID?
+    public var accessGroupObj: DeviceAccessGroupRequest
     public var expiring: Bool?
     public var expires: Date?
     public var attributes: [String: JSONValue]?
 
-    public init(deviceUuid: UUID? = nil, name: String, group: UUID? = nil, groupObj: DeviceGroupRequest, expiring: Bool? = nil, expires: Date? = nil, attributes: [String: JSONValue]? = nil) {
+    public init(deviceUuid: UUID? = nil, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroupRequest, expiring: Bool? = nil, expires: Date? = nil, attributes: [String: JSONValue]? = nil) {
         self.deviceUuid = deviceUuid
         self.name = name
-        self.group = group
-        self.groupObj = groupObj
+        self.accessGroup = accessGroup
+        self.accessGroupObj = accessGroupObj
         self.expiring = expiring
         self.expires = expires
         self.attributes = attributes
@@ -31,8 +31,8 @@ public struct EndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Ha
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case deviceUuid = "device_uuid"
         case name
-        case group
-        case groupObj = "group_obj"
+        case accessGroup = "access_group"
+        case accessGroupObj = "access_group_obj"
         case expiring
         case expires
         case attributes
@@ -44,8 +44,8 @@ public struct EndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Ha
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(deviceUuid, forKey: .deviceUuid)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(group, forKey: .group)
-        try container.encode(groupObj, forKey: .groupObj)
+        try container.encodeIfPresent(accessGroup, forKey: .accessGroup)
+        try container.encode(accessGroupObj, forKey: .accessGroupObj)
         try container.encodeIfPresent(expiring, forKey: .expiring)
         try container.encodeIfPresent(expires, forKey: .expires)
         try container.encodeIfPresent(attributes, forKey: .attributes)

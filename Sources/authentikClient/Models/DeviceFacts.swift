@@ -15,15 +15,19 @@ public struct DeviceFacts: Sendable, Codable, ParameterConvertible, Hashable {
     public var hardware: Hardware?
     public var software: [Software]?
     public var processes: [Process]?
+    public var users: [DeviceUser]?
+    public var groups: [DeviceGroup]?
     public var vendor: [String: JSONValue]?
 
-    public init(os: OperatingSystem? = nil, disks: [Disk]? = nil, network: Network? = nil, hardware: Hardware? = nil, software: [Software]? = nil, processes: [Process]? = nil, vendor: [String: JSONValue]? = nil) {
+    public init(os: OperatingSystem? = nil, disks: [Disk]? = nil, network: Network? = nil, hardware: Hardware? = nil, software: [Software]? = nil, processes: [Process]? = nil, users: [DeviceUser]? = nil, groups: [DeviceGroup]? = nil, vendor: [String: JSONValue]? = nil) {
         self.os = os
         self.disks = disks
         self.network = network
         self.hardware = hardware
         self.software = software
         self.processes = processes
+        self.users = users
+        self.groups = groups
         self.vendor = vendor
     }
 
@@ -34,6 +38,8 @@ public struct DeviceFacts: Sendable, Codable, ParameterConvertible, Hashable {
         case hardware
         case software
         case processes
+        case users
+        case groups
         case vendor
     }
 
@@ -47,6 +53,8 @@ public struct DeviceFacts: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(hardware, forKey: .hardware)
         try container.encodeIfPresent(software, forKey: .software)
         try container.encodeIfPresent(processes, forKey: .processes)
+        try container.encodeIfPresent(users, forKey: .users)
+        try container.encodeIfPresent(groups, forKey: .groups)
         try container.encodeIfPresent(vendor, forKey: .vendor)
     }
 }

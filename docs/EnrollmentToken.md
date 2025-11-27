@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tokenUuid** | **UUID** |  | [readonly] 
 **deviceGroup** | **UUID** |  | [optional] 
-**deviceGroupObj** | [**DeviceGroup**](DeviceGroup.md) |  | [readonly] 
+**deviceGroupObj** | [**DeviceAccessGroup**](DeviceAccessGroup.md) |  | [readonly] 
 **connector** | **UUID** |  | 
 **name** | **String** |  | 
 **expiring** | **Bool** |  | [optional] 

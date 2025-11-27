@@ -39,9 +39,11 @@ Sources/authentikClient/Infrastructure/SynchronizedDictionary.swift
 Sources/authentikClient/Infrastructure/URLSessionImplementations.swift
 Sources/authentikClient/Infrastructure/Validation.swift
 Sources/authentikClient/Models/AccessDeniedChallenge.swift
+Sources/authentikClient/Models/AgentAuthenticationResponse.swift
 Sources/authentikClient/Models/AgentConfig.swift
 Sources/authentikClient/Models/AgentConnector.swift
 Sources/authentikClient/Models/AgentConnectorRequest.swift
+Sources/authentikClient/Models/AgentTokenResponse.swift
 Sources/authentikClient/Models/AlgEnum.swift
 Sources/authentikClient/Models/App.swift
 Sources/authentikClient/Models/AppEnum.swift
@@ -140,6 +142,8 @@ Sources/authentikClient/Models/DenyStageRequest.swift
 Sources/authentikClient/Models/DetailedCountry.swift
 Sources/authentikClient/Models/DetailedCountryField.swift
 Sources/authentikClient/Models/Device.swift
+Sources/authentikClient/Models/DeviceAccessGroup.swift
+Sources/authentikClient/Models/DeviceAccessGroupRequest.swift
 Sources/authentikClient/Models/DeviceChallenge.swift
 Sources/authentikClient/Models/DeviceChallengeRequest.swift
 Sources/authentikClient/Models/DeviceClassesEnum.swift
@@ -150,6 +154,8 @@ Sources/authentikClient/Models/DeviceFactsOSFamily.swift
 Sources/authentikClient/Models/DeviceFactsRequest.swift
 Sources/authentikClient/Models/DeviceGroup.swift
 Sources/authentikClient/Models/DeviceGroupRequest.swift
+Sources/authentikClient/Models/DeviceUser.swift
+Sources/authentikClient/Models/DeviceUserRequest.swift
 Sources/authentikClient/Models/DigestAlgorithmEnum.swift
 Sources/authentikClient/Models/DigitsEnum.swift
 Sources/authentikClient/Models/Disk.swift
@@ -181,7 +187,6 @@ Sources/authentikClient/Models/EndpointDeviceDetails.swift
 Sources/authentikClient/Models/EndpointDeviceRequest.swift
 Sources/authentikClient/Models/EndpointRequest.swift
 Sources/authentikClient/Models/EnrollRequest.swift
-Sources/authentikClient/Models/EnrollResponse.swift
 Sources/authentikClient/Models/EnrollmentToken.swift
 Sources/authentikClient/Models/EnrollmentTokenRequest.swift
 Sources/authentikClient/Models/ErrorDetail.swift
@@ -379,7 +384,7 @@ Sources/authentikClient/Models/PaginatedConnectionTokenList.swift
 Sources/authentikClient/Models/PaginatedConnectorList.swift
 Sources/authentikClient/Models/PaginatedConsentStageList.swift
 Sources/authentikClient/Models/PaginatedDenyStageList.swift
-Sources/authentikClient/Models/PaginatedDeviceGroupList.swift
+Sources/authentikClient/Models/PaginatedDeviceAccessGroupList.swift
 Sources/authentikClient/Models/PaginatedDockerServiceConnectionList.swift
 Sources/authentikClient/Models/PaginatedDomainList.swift
 Sources/authentikClient/Models/PaginatedDummyPolicyList.swift
@@ -536,7 +541,7 @@ Sources/authentikClient/Models/PatchedCertificateKeyPairRequest.swift
 Sources/authentikClient/Models/PatchedConnectionTokenRequest.swift
 Sources/authentikClient/Models/PatchedConsentStageRequest.swift
 Sources/authentikClient/Models/PatchedDenyStageRequest.swift
-Sources/authentikClient/Models/PatchedDeviceGroupRequest.swift
+Sources/authentikClient/Models/PatchedDeviceAccessGroupRequest.swift
 Sources/authentikClient/Models/PatchedDockerServiceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedDomainRequest.swift
 Sources/authentikClient/Models/PatchedDummyPolicyRequest.swift
@@ -855,9 +860,11 @@ Sources/authentikClient/Models/Worker.swift
 authentikClient.podspec
 docs/AccessDeniedChallenge.md
 docs/AdminAPI.md
+docs/AgentAuthenticationResponse.md
 docs/AgentConfig.md
 docs/AgentConnector.md
 docs/AgentConnectorRequest.md
+docs/AgentTokenResponse.md
 docs/AlgEnum.md
 docs/App.md
 docs/AppEnum.md
@@ -959,6 +966,8 @@ docs/DenyStageRequest.md
 docs/DetailedCountry.md
 docs/DetailedCountryField.md
 docs/Device.md
+docs/DeviceAccessGroup.md
+docs/DeviceAccessGroupRequest.md
 docs/DeviceChallenge.md
 docs/DeviceChallengeRequest.md
 docs/DeviceClassesEnum.md
@@ -969,6 +978,8 @@ docs/DeviceFactsOSFamily.md
 docs/DeviceFactsRequest.md
 docs/DeviceGroup.md
 docs/DeviceGroupRequest.md
+docs/DeviceUser.md
+docs/DeviceUserRequest.md
 docs/DigestAlgorithmEnum.md
 docs/DigitsEnum.md
 docs/Disk.md
@@ -1001,7 +1012,6 @@ docs/EndpointDeviceRequest.md
 docs/EndpointRequest.md
 docs/EndpointsAPI.md
 docs/EnrollRequest.md
-docs/EnrollResponse.md
 docs/EnrollmentToken.md
 docs/EnrollmentTokenRequest.md
 docs/EnterpriseAPI.md
@@ -1205,7 +1215,7 @@ docs/PaginatedConnectionTokenList.md
 docs/PaginatedConnectorList.md
 docs/PaginatedConsentStageList.md
 docs/PaginatedDenyStageList.md
-docs/PaginatedDeviceGroupList.md
+docs/PaginatedDeviceAccessGroupList.md
 docs/PaginatedDockerServiceConnectionList.md
 docs/PaginatedDomainList.md
 docs/PaginatedDummyPolicyList.md
@@ -1362,7 +1372,7 @@ docs/PatchedCertificateKeyPairRequest.md
 docs/PatchedConnectionTokenRequest.md
 docs/PatchedConsentStageRequest.md
 docs/PatchedDenyStageRequest.md
-docs/PatchedDeviceGroupRequest.md
+docs/PatchedDeviceAccessGroupRequest.md
 docs/PatchedDockerServiceConnectionRequest.md
 docs/PatchedDomainRequest.md
 docs/PatchedDummyPolicyRequest.md

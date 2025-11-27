@@ -194,6 +194,8 @@ Class | Method | HTTP request | Description
 *CryptoAPI* | [**cryptoCertificatekeypairsViewCertificateRetrieve**](docs/CryptoAPI.md#cryptocertificatekeypairsviewcertificateretrieve) | **GET** /crypto/certificatekeypairs/{kp_uuid}/view_certificate/ | 
 *CryptoAPI* | [**cryptoCertificatekeypairsViewPrivateKeyRetrieve**](docs/CryptoAPI.md#cryptocertificatekeypairsviewprivatekeyretrieve) | **GET** /crypto/certificatekeypairs/{kp_uuid}/view_private_key/ | 
 *EndpointsAPI* | [**endpointsAgentsConnectorsAgentConfigRetrieve**](docs/EndpointsAPI.md#endpointsagentsconnectorsagentconfigretrieve) | **GET** /endpoints/agents/connectors/agent_config/ | 
+*EndpointsAPI* | [**endpointsAgentsConnectorsAuthFedCreate**](docs/EndpointsAPI.md#endpointsagentsconnectorsauthfedcreate) | **POST** /endpoints/agents/connectors/auth_fed/ | 
+*EndpointsAPI* | [**endpointsAgentsConnectorsAuthIaCreate**](docs/EndpointsAPI.md#endpointsagentsconnectorsauthiacreate) | **POST** /endpoints/agents/connectors/auth_ia/ | 
 *EndpointsAPI* | [**endpointsAgentsConnectorsCheckInCreate**](docs/EndpointsAPI.md#endpointsagentsconnectorscheckincreate) | **POST** /endpoints/agents/connectors/check_in/ | 
 *EndpointsAPI* | [**endpointsAgentsConnectorsCreate**](docs/EndpointsAPI.md#endpointsagentsconnectorscreate) | **POST** /endpoints/agents/connectors/ | 
 *EndpointsAPI* | [**endpointsAgentsConnectorsDestroy**](docs/EndpointsAPI.md#endpointsagentsconnectorsdestroy) | **DELETE** /endpoints/agents/connectors/{connector_uuid}/ | 
@@ -217,6 +219,13 @@ Class | Method | HTTP request | Description
 *EndpointsAPI* | [**endpointsConnectorsRetrieve**](docs/EndpointsAPI.md#endpointsconnectorsretrieve) | **GET** /endpoints/connectors/{connector_uuid}/ | 
 *EndpointsAPI* | [**endpointsConnectorsTypesList**](docs/EndpointsAPI.md#endpointsconnectorstypeslist) | **GET** /endpoints/connectors/types/ | 
 *EndpointsAPI* | [**endpointsConnectorsUsedByList**](docs/EndpointsAPI.md#endpointsconnectorsusedbylist) | **GET** /endpoints/connectors/{connector_uuid}/used_by/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsCreate**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupscreate) | **POST** /endpoints/device_access_groups/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsDestroy**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupsdestroy) | **DELETE** /endpoints/device_access_groups/{pbm_uuid}/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsList**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupslist) | **GET** /endpoints/device_access_groups/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsPartialUpdate**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupspartialupdate) | **PATCH** /endpoints/device_access_groups/{pbm_uuid}/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsRetrieve**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupsretrieve) | **GET** /endpoints/device_access_groups/{pbm_uuid}/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsUpdate**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupsupdate) | **PUT** /endpoints/device_access_groups/{pbm_uuid}/ | 
+*EndpointsAPI* | [**endpointsDeviceAccessGroupsUsedByList**](docs/EndpointsAPI.md#endpointsdeviceaccessgroupsusedbylist) | **GET** /endpoints/device_access_groups/{pbm_uuid}/used_by/ | 
 *EndpointsAPI* | [**endpointsDeviceBindingsCreate**](docs/EndpointsAPI.md#endpointsdevicebindingscreate) | **POST** /endpoints/device_bindings/ | 
 *EndpointsAPI* | [**endpointsDeviceBindingsDestroy**](docs/EndpointsAPI.md#endpointsdevicebindingsdestroy) | **DELETE** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 *EndpointsAPI* | [**endpointsDeviceBindingsList**](docs/EndpointsAPI.md#endpointsdevicebindingslist) | **GET** /endpoints/device_bindings/ | 
@@ -224,13 +233,6 @@ Class | Method | HTTP request | Description
 *EndpointsAPI* | [**endpointsDeviceBindingsRetrieve**](docs/EndpointsAPI.md#endpointsdevicebindingsretrieve) | **GET** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 *EndpointsAPI* | [**endpointsDeviceBindingsUpdate**](docs/EndpointsAPI.md#endpointsdevicebindingsupdate) | **PUT** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 *EndpointsAPI* | [**endpointsDeviceBindingsUsedByList**](docs/EndpointsAPI.md#endpointsdevicebindingsusedbylist) | **GET** /endpoints/device_bindings/{policy_binding_uuid}/used_by/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsCreate**](docs/EndpointsAPI.md#endpointsdevicegroupscreate) | **POST** /endpoints/device_groups/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsDestroy**](docs/EndpointsAPI.md#endpointsdevicegroupsdestroy) | **DELETE** /endpoints/device_groups/{pbm_uuid}/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsList**](docs/EndpointsAPI.md#endpointsdevicegroupslist) | **GET** /endpoints/device_groups/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsPartialUpdate**](docs/EndpointsAPI.md#endpointsdevicegroupspartialupdate) | **PATCH** /endpoints/device_groups/{pbm_uuid}/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsRetrieve**](docs/EndpointsAPI.md#endpointsdevicegroupsretrieve) | **GET** /endpoints/device_groups/{pbm_uuid}/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsUpdate**](docs/EndpointsAPI.md#endpointsdevicegroupsupdate) | **PUT** /endpoints/device_groups/{pbm_uuid}/ | 
-*EndpointsAPI* | [**endpointsDeviceGroupsUsedByList**](docs/EndpointsAPI.md#endpointsdevicegroupsusedbylist) | **GET** /endpoints/device_groups/{pbm_uuid}/used_by/ | 
 *EndpointsAPI* | [**endpointsDevicesDestroy**](docs/EndpointsAPI.md#endpointsdevicesdestroy) | **DELETE** /endpoints/devices/{device_uuid}/ | 
 *EndpointsAPI* | [**endpointsDevicesList**](docs/EndpointsAPI.md#endpointsdeviceslist) | **GET** /endpoints/devices/ | 
 *EndpointsAPI* | [**endpointsDevicesPartialUpdate**](docs/EndpointsAPI.md#endpointsdevicespartialupdate) | **PATCH** /endpoints/devices/{device_uuid}/ | 
@@ -1108,9 +1110,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessDeniedChallenge](docs/AccessDeniedChallenge.md)
+ - [AgentAuthenticationResponse](docs/AgentAuthenticationResponse.md)
  - [AgentConfig](docs/AgentConfig.md)
  - [AgentConnector](docs/AgentConnector.md)
  - [AgentConnectorRequest](docs/AgentConnectorRequest.md)
+ - [AgentTokenResponse](docs/AgentTokenResponse.md)
  - [AlgEnum](docs/AlgEnum.md)
  - [App](docs/App.md)
  - [AppEnum](docs/AppEnum.md)
@@ -1209,6 +1213,8 @@ Class | Method | HTTP request | Description
  - [DetailedCountry](docs/DetailedCountry.md)
  - [DetailedCountryField](docs/DetailedCountryField.md)
  - [Device](docs/Device.md)
+ - [DeviceAccessGroup](docs/DeviceAccessGroup.md)
+ - [DeviceAccessGroupRequest](docs/DeviceAccessGroupRequest.md)
  - [DeviceChallenge](docs/DeviceChallenge.md)
  - [DeviceChallengeRequest](docs/DeviceChallengeRequest.md)
  - [DeviceClassesEnum](docs/DeviceClassesEnum.md)
@@ -1219,6 +1225,8 @@ Class | Method | HTTP request | Description
  - [DeviceFactsRequest](docs/DeviceFactsRequest.md)
  - [DeviceGroup](docs/DeviceGroup.md)
  - [DeviceGroupRequest](docs/DeviceGroupRequest.md)
+ - [DeviceUser](docs/DeviceUser.md)
+ - [DeviceUserRequest](docs/DeviceUserRequest.md)
  - [DigestAlgorithmEnum](docs/DigestAlgorithmEnum.md)
  - [DigitsEnum](docs/DigitsEnum.md)
  - [Disk](docs/Disk.md)
@@ -1250,7 +1258,6 @@ Class | Method | HTTP request | Description
  - [EndpointDeviceRequest](docs/EndpointDeviceRequest.md)
  - [EndpointRequest](docs/EndpointRequest.md)
  - [EnrollRequest](docs/EnrollRequest.md)
- - [EnrollResponse](docs/EnrollResponse.md)
  - [EnrollmentToken](docs/EnrollmentToken.md)
  - [EnrollmentTokenRequest](docs/EnrollmentTokenRequest.md)
  - [ErrorDetail](docs/ErrorDetail.md)
@@ -1448,7 +1455,7 @@ Class | Method | HTTP request | Description
  - [PaginatedConnectorList](docs/PaginatedConnectorList.md)
  - [PaginatedConsentStageList](docs/PaginatedConsentStageList.md)
  - [PaginatedDenyStageList](docs/PaginatedDenyStageList.md)
- - [PaginatedDeviceGroupList](docs/PaginatedDeviceGroupList.md)
+ - [PaginatedDeviceAccessGroupList](docs/PaginatedDeviceAccessGroupList.md)
  - [PaginatedDockerServiceConnectionList](docs/PaginatedDockerServiceConnectionList.md)
  - [PaginatedDomainList](docs/PaginatedDomainList.md)
  - [PaginatedDummyPolicyList](docs/PaginatedDummyPolicyList.md)
@@ -1605,7 +1612,7 @@ Class | Method | HTTP request | Description
  - [PatchedConnectionTokenRequest](docs/PatchedConnectionTokenRequest.md)
  - [PatchedConsentStageRequest](docs/PatchedConsentStageRequest.md)
  - [PatchedDenyStageRequest](docs/PatchedDenyStageRequest.md)
- - [PatchedDeviceGroupRequest](docs/PatchedDeviceGroupRequest.md)
+ - [PatchedDeviceAccessGroupRequest](docs/PatchedDeviceAccessGroupRequest.md)
  - [PatchedDockerServiceConnectionRequest](docs/PatchedDockerServiceConnectionRequest.md)
  - [PatchedDomainRequest](docs/PatchedDomainRequest.md)
  - [PatchedDummyPolicyRequest](docs/PatchedDummyPolicyRequest.md)

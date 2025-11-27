@@ -11,13 +11,13 @@ public struct EnrollmentToken: Sendable, Codable, ParameterConvertible, Hashable
 
     public var tokenUuid: UUID
     public var deviceGroup: UUID?
-    public var deviceGroupObj: DeviceGroup
+    public var deviceGroupObj: DeviceAccessGroup
     public var connector: UUID
     public var name: String
     public var expiring: Bool?
     public var expires: Date?
 
-    public init(tokenUuid: UUID, deviceGroup: UUID? = nil, deviceGroupObj: DeviceGroup, connector: UUID, name: String, expiring: Bool? = nil, expires: Date? = nil) {
+    public init(tokenUuid: UUID, deviceGroup: UUID? = nil, deviceGroupObj: DeviceAccessGroup, connector: UUID, name: String, expiring: Bool? = nil, expires: Date? = nil) {
         self.tokenUuid = tokenUuid
         self.deviceGroup = deviceGroup
         self.deviceGroupObj = deviceGroupObj

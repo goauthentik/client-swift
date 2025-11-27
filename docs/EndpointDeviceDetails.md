@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **deviceUuid** | **UUID** |  | [optional] 
 **pbmUuid** | **UUID** |  | [readonly] 
 **name** | **String** |  | 
-**group** | **UUID** |  | [optional] 
-**groupObj** | [**DeviceGroup**](DeviceGroup.md) |  | 
+**accessGroup** | **UUID** |  | [optional] 
+**accessGroupObj** | [**DeviceAccessGroup**](DeviceAccessGroup.md) |  | 
 **expiring** | **Bool** |  | [optional] 
 **expires** | **Date** |  | [optional] 
 **facts** | [**DeviceFactSnapshot**](DeviceFactSnapshot.md) |  | [readonly] 

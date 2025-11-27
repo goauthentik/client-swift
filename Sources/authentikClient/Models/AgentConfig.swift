@@ -10,37 +10,45 @@ import Foundation
 /** Base serializer class which doesn&#39;t implement create/update methods */
 public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public var refreshInterval: Int
+    public var authorizationFlow: String
+    public var jwks: [String: JSONValue]
     public var nssUidOffset: Int
     public var nssGidOffset: Int
-    public var authenticationFlow: String
     public var authTerminateSessionOnExpiry: Bool
-    public var refreshInterval: Int
+    public var systemConfig: Config
 
-    public init(nssUidOffset: Int, nssGidOffset: Int, authenticationFlow: String, authTerminateSessionOnExpiry: Bool, refreshInterval: Int) {
+    public init(refreshInterval: Int, authorizationFlow: String, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+        self.refreshInterval = refreshInterval
+        self.authorizationFlow = authorizationFlow
+        self.jwks = jwks
         self.nssUidOffset = nssUidOffset
         self.nssGidOffset = nssGidOffset
-        self.authenticationFlow = authenticationFlow
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
-        self.refreshInterval = refreshInterval
+        self.systemConfig = systemConfig
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case refreshInterval = "refresh_interval"
+        case authorizationFlow = "authorization_flow"
+        case jwks
         case nssUidOffset = "nss_uid_offset"
         case nssGidOffset = "nss_gid_offset"
-        case authenticationFlow = "authentication_flow"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
-        case refreshInterval = "refresh_interval"
+        case systemConfig = "system_config"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(refreshInterval, forKey: .refreshInterval)
+        try container.encode(authorizationFlow, forKey: .authorizationFlow)
+        try container.encode(jwks, forKey: .jwks)
         try container.encode(nssUidOffset, forKey: .nssUidOffset)
         try container.encode(nssGidOffset, forKey: .nssGidOffset)
-        try container.encode(authenticationFlow, forKey: .authenticationFlow)
         try container.encode(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)
-        try container.encode(refreshInterval, forKey: .refreshInterval)
+        try container.encode(systemConfig, forKey: .systemConfig)
     }
 }
 

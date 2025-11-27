@@ -5,6 +5,8 @@ All URIs are relative to */api/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**endpointsAgentsConnectorsAgentConfigRetrieve**](EndpointsAPI.md#endpointsagentsconnectorsagentconfigretrieve) | **GET** /endpoints/agents/connectors/agent_config/ | 
+[**endpointsAgentsConnectorsAuthFedCreate**](EndpointsAPI.md#endpointsagentsconnectorsauthfedcreate) | **POST** /endpoints/agents/connectors/auth_fed/ | 
+[**endpointsAgentsConnectorsAuthIaCreate**](EndpointsAPI.md#endpointsagentsconnectorsauthiacreate) | **POST** /endpoints/agents/connectors/auth_ia/ | 
 [**endpointsAgentsConnectorsCheckInCreate**](EndpointsAPI.md#endpointsagentsconnectorscheckincreate) | **POST** /endpoints/agents/connectors/check_in/ | 
 [**endpointsAgentsConnectorsCreate**](EndpointsAPI.md#endpointsagentsconnectorscreate) | **POST** /endpoints/agents/connectors/ | 
 [**endpointsAgentsConnectorsDestroy**](EndpointsAPI.md#endpointsagentsconnectorsdestroy) | **DELETE** /endpoints/agents/connectors/{connector_uuid}/ | 
@@ -28,6 +30,13 @@ Method | HTTP request | Description
 [**endpointsConnectorsRetrieve**](EndpointsAPI.md#endpointsconnectorsretrieve) | **GET** /endpoints/connectors/{connector_uuid}/ | 
 [**endpointsConnectorsTypesList**](EndpointsAPI.md#endpointsconnectorstypeslist) | **GET** /endpoints/connectors/types/ | 
 [**endpointsConnectorsUsedByList**](EndpointsAPI.md#endpointsconnectorsusedbylist) | **GET** /endpoints/connectors/{connector_uuid}/used_by/ | 
+[**endpointsDeviceAccessGroupsCreate**](EndpointsAPI.md#endpointsdeviceaccessgroupscreate) | **POST** /endpoints/device_access_groups/ | 
+[**endpointsDeviceAccessGroupsDestroy**](EndpointsAPI.md#endpointsdeviceaccessgroupsdestroy) | **DELETE** /endpoints/device_access_groups/{pbm_uuid}/ | 
+[**endpointsDeviceAccessGroupsList**](EndpointsAPI.md#endpointsdeviceaccessgroupslist) | **GET** /endpoints/device_access_groups/ | 
+[**endpointsDeviceAccessGroupsPartialUpdate**](EndpointsAPI.md#endpointsdeviceaccessgroupspartialupdate) | **PATCH** /endpoints/device_access_groups/{pbm_uuid}/ | 
+[**endpointsDeviceAccessGroupsRetrieve**](EndpointsAPI.md#endpointsdeviceaccessgroupsretrieve) | **GET** /endpoints/device_access_groups/{pbm_uuid}/ | 
+[**endpointsDeviceAccessGroupsUpdate**](EndpointsAPI.md#endpointsdeviceaccessgroupsupdate) | **PUT** /endpoints/device_access_groups/{pbm_uuid}/ | 
+[**endpointsDeviceAccessGroupsUsedByList**](EndpointsAPI.md#endpointsdeviceaccessgroupsusedbylist) | **GET** /endpoints/device_access_groups/{pbm_uuid}/used_by/ | 
 [**endpointsDeviceBindingsCreate**](EndpointsAPI.md#endpointsdevicebindingscreate) | **POST** /endpoints/device_bindings/ | 
 [**endpointsDeviceBindingsDestroy**](EndpointsAPI.md#endpointsdevicebindingsdestroy) | **DELETE** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 [**endpointsDeviceBindingsList**](EndpointsAPI.md#endpointsdevicebindingslist) | **GET** /endpoints/device_bindings/ | 
@@ -35,13 +44,6 @@ Method | HTTP request | Description
 [**endpointsDeviceBindingsRetrieve**](EndpointsAPI.md#endpointsdevicebindingsretrieve) | **GET** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 [**endpointsDeviceBindingsUpdate**](EndpointsAPI.md#endpointsdevicebindingsupdate) | **PUT** /endpoints/device_bindings/{policy_binding_uuid}/ | 
 [**endpointsDeviceBindingsUsedByList**](EndpointsAPI.md#endpointsdevicebindingsusedbylist) | **GET** /endpoints/device_bindings/{policy_binding_uuid}/used_by/ | 
-[**endpointsDeviceGroupsCreate**](EndpointsAPI.md#endpointsdevicegroupscreate) | **POST** /endpoints/device_groups/ | 
-[**endpointsDeviceGroupsDestroy**](EndpointsAPI.md#endpointsdevicegroupsdestroy) | **DELETE** /endpoints/device_groups/{pbm_uuid}/ | 
-[**endpointsDeviceGroupsList**](EndpointsAPI.md#endpointsdevicegroupslist) | **GET** /endpoints/device_groups/ | 
-[**endpointsDeviceGroupsPartialUpdate**](EndpointsAPI.md#endpointsdevicegroupspartialupdate) | **PATCH** /endpoints/device_groups/{pbm_uuid}/ | 
-[**endpointsDeviceGroupsRetrieve**](EndpointsAPI.md#endpointsdevicegroupsretrieve) | **GET** /endpoints/device_groups/{pbm_uuid}/ | 
-[**endpointsDeviceGroupsUpdate**](EndpointsAPI.md#endpointsdevicegroupsupdate) | **PUT** /endpoints/device_groups/{pbm_uuid}/ | 
-[**endpointsDeviceGroupsUsedByList**](EndpointsAPI.md#endpointsdevicegroupsusedbylist) | **GET** /endpoints/device_groups/{pbm_uuid}/used_by/ | 
 [**endpointsDevicesDestroy**](EndpointsAPI.md#endpointsdevicesdestroy) | **DELETE** /endpoints/devices/{device_uuid}/ | 
 [**endpointsDevicesList**](EndpointsAPI.md#endpointsdeviceslist) | **GET** /endpoints/devices/ | 
 [**endpointsDevicesPartialUpdate**](EndpointsAPI.md#endpointsdevicespartialupdate) | **PATCH** /endpoints/devices/{device_uuid}/ | 
@@ -95,6 +97,100 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **endpointsAgentsConnectorsAuthFedCreate**
+```swift
+    open class func endpointsAgentsConnectorsAuthFedCreate(device: String, completion: @escaping (_ data: AgentTokenResponse?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let device = "device_example" // String | 
+
+EndpointsAPI.endpointsAgentsConnectorsAuthFedCreate(device: device) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device** | **String** |  | 
+
+### Return type
+
+[**AgentTokenResponse**](AgentTokenResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsAgentsConnectorsAuthIaCreate**
+```swift
+    open class func endpointsAgentsConnectorsAuthIaCreate(completion: @escaping (_ data: AgentAuthenticationResponse?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+
+EndpointsAPI.endpointsAgentsConnectorsAuthIaCreate() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AgentAuthenticationResponse**](AgentAuthenticationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **endpointsAgentsConnectorsCheckInCreate**
 ```swift
     open class func endpointsAgentsConnectorsCheckInCreate(deviceFactsRequest: DeviceFactsRequest? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
@@ -109,7 +205,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceFactsRequest = DeviceFactsRequest(os: OperatingSystemRequest(family: DeviceFactsOSFamily(), name: "name_example", version: "version_example", arch: "arch_example"), disks: [DiskRequest(name: "name_example", mountpoint: "mountpoint_example", label: "label_example", capacityTotalBytes: 123, capacityUsedBytes: 123, encryptionEnabled: false)], network: NetworkRequest(hostname: "hostname_example", firewallEnabled: false, interfaces: [NetworkInterfaceRequest(name: "name_example", hardwareAddress: "hardwareAddress_example", ipAddresses: ["ipAddresses_example"], dnsServers: ["dnsServers_example"])], gateway: "gateway_example"), hardware: HardwareRequest(model: "model_example", manufacturer: "manufacturer_example", serial: "serial_example", cpuName: "cpuName_example", cpuCount: 123, memoryBytes: 123), software: [SoftwareRequest(name: "name_example", version: "version_example", source: "source_example", path: "path_example")], processes: [ProcessRequest(id: 123, name: "name_example", user: "user_example")], vendor: "TODO") // DeviceFactsRequest |  (optional)
+let deviceFactsRequest = DeviceFactsRequest(os: OperatingSystemRequest(family: DeviceFactsOSFamily(), name: "name_example", version: "version_example", arch: "arch_example"), disks: [DiskRequest(name: "name_example", mountpoint: "mountpoint_example", label: "label_example", capacityTotalBytes: 123, capacityUsedBytes: 123, encryptionEnabled: false)], network: NetworkRequest(hostname: "hostname_example", firewallEnabled: false, interfaces: [NetworkInterfaceRequest(name: "name_example", hardwareAddress: "hardwareAddress_example", ipAddresses: ["ipAddresses_example"], dnsServers: ["dnsServers_example"])], gateway: "gateway_example"), hardware: HardwareRequest(model: "model_example", manufacturer: "manufacturer_example", serial: "serial_example", cpuName: "cpuName_example", cpuCount: 123, memoryBytes: 123), software: [SoftwareRequest(name: "name_example", version: "version_example", source: "source_example", path: "path_example")], processes: [ProcessRequest(id: 123, name: "name_example", user: "user_example")], users: [DeviceUserRequest(id: "id_example", username: "username_example", name: "name_example", home: "home_example")], groups: [DeviceGroupRequest(id: "id_example", name: "name_example")], vendor: "TODO") // DeviceFactsRequest |  (optional)
 
 EndpointsAPI.endpointsAgentsConnectorsCheckInCreate(deviceFactsRequest: deviceFactsRequest) { (response, error) in
     guard error == nil else {
@@ -158,7 +254,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", nssUidOffset: 123, nssGidOffset: 123, authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authenticationFlow: 123, challengeKey: 123) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsCreate(agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -244,7 +340,7 @@ Void (empty response body)
 
 # **endpointsAgentsConnectorsEnrollCreate**
 ```swift
-    open class func endpointsAgentsConnectorsEnrollCreate(enrollRequest: EnrollRequest, completion: @escaping (_ data: EnrollResponse?, _ error: Error?) -> Void)
+    open class func endpointsAgentsConnectorsEnrollCreate(enrollRequest: EnrollRequest, completion: @escaping (_ data: AgentTokenResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -278,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnrollResponse**](EnrollResponse.md)
+[**AgentTokenResponse**](AgentTokenResponse.md)
 
 ### Authorization
 
@@ -416,7 +512,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", nssUidOffset: 123, nssGidOffset: 123, authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authenticationFlow: 123, challengeKey: 123) // PatchedAgentConnectorRequest |  (optional)
+let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // PatchedAgentConnectorRequest |  (optional)
 
 EndpointsAPI.endpointsAgentsConnectorsPartialUpdate(connectorUuid: connectorUuid, patchedAgentConnectorRequest: patchedAgentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -516,7 +612,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", nssUidOffset: 123, nssGidOffset: 123, authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authenticationFlow: 123, challengeKey: 123) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsUpdate(connectorUuid: connectorUuid, agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -1254,6 +1350,363 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **endpointsDeviceAccessGroupsCreate**
+```swift
+    open class func endpointsDeviceAccessGroupsCreate(deviceAccessGroupRequest: DeviceAccessGroupRequest, completion: @escaping (_ data: DeviceAccessGroup?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example") // DeviceAccessGroupRequest | 
+
+EndpointsAPI.endpointsDeviceAccessGroupsCreate(deviceAccessGroupRequest: deviceAccessGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceAccessGroupRequest** | [**DeviceAccessGroupRequest**](DeviceAccessGroupRequest.md) |  | 
+
+### Return type
+
+[**DeviceAccessGroup**](DeviceAccessGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsDestroy**
+```swift
+    open class func endpointsDeviceAccessGroupsDestroy(pbmUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
+
+EndpointsAPI.endpointsDeviceAccessGroupsDestroy(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Device access group. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsList**
+```swift
+    open class func endpointsDeviceAccessGroupsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedDeviceAccessGroupList?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let pbmUuid = 987 // UUID |  (optional)
+let search = "search_example" // String | A search term. (optional)
+
+EndpointsAPI.endpointsDeviceAccessGroupsList(name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **pbmUuid** | **UUID** |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedDeviceAccessGroupList**](PaginatedDeviceAccessGroupList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsPartialUpdate**
+```swift
+    open class func endpointsDeviceAccessGroupsPartialUpdate(pbmUuid: UUID, patchedDeviceAccessGroupRequest: PatchedDeviceAccessGroupRequest? = nil, completion: @escaping (_ data: DeviceAccessGroup?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
+let patchedDeviceAccessGroupRequest = PatchedDeviceAccessGroupRequest(name: "name_example") // PatchedDeviceAccessGroupRequest |  (optional)
+
+EndpointsAPI.endpointsDeviceAccessGroupsPartialUpdate(pbmUuid: pbmUuid, patchedDeviceAccessGroupRequest: patchedDeviceAccessGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Device access group. | 
+ **patchedDeviceAccessGroupRequest** | [**PatchedDeviceAccessGroupRequest**](PatchedDeviceAccessGroupRequest.md) |  | [optional] 
+
+### Return type
+
+[**DeviceAccessGroup**](DeviceAccessGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsRetrieve**
+```swift
+    open class func endpointsDeviceAccessGroupsRetrieve(pbmUuid: UUID, completion: @escaping (_ data: DeviceAccessGroup?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
+
+EndpointsAPI.endpointsDeviceAccessGroupsRetrieve(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Device access group. | 
+
+### Return type
+
+[**DeviceAccessGroup**](DeviceAccessGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsUpdate**
+```swift
+    open class func endpointsDeviceAccessGroupsUpdate(pbmUuid: UUID, deviceAccessGroupRequest: DeviceAccessGroupRequest, completion: @escaping (_ data: DeviceAccessGroup?, _ error: Error?) -> Void)
+```
+
+
+
+DeviceAccessGroup Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
+let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example") // DeviceAccessGroupRequest | 
+
+EndpointsAPI.endpointsDeviceAccessGroupsUpdate(pbmUuid: pbmUuid, deviceAccessGroupRequest: deviceAccessGroupRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Device access group. | 
+ **deviceAccessGroupRequest** | [**DeviceAccessGroupRequest**](DeviceAccessGroupRequest.md) |  | 
+
+### Return type
+
+[**DeviceAccessGroup**](DeviceAccessGroup.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDeviceAccessGroupsUsedByList**
+```swift
+    open class func endpointsDeviceAccessGroupsUsedByList(pbmUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
+
+EndpointsAPI.endpointsDeviceAccessGroupsUsedByList(pbmUuid: pbmUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbmUuid** | **UUID** | A UUID string identifying this Device access group. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **endpointsDeviceBindingsCreate**
 ```swift
     open class func endpointsDeviceBindingsCreate(policyBindingRequest: PolicyBindingRequest, completion: @escaping (_ data: PolicyBinding?, _ error: Error?) -> Void)
@@ -1317,7 +1770,7 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingUuid = 987 // UUID | A UUID string identifying this device user binding.
+let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
 
 EndpointsAPI.endpointsDeviceBindingsDestroy(policyBindingUuid: policyBindingUuid) { (response, error) in
     guard error == nil else {
@@ -1335,7 +1788,7 @@ EndpointsAPI.endpointsDeviceBindingsDestroy(policyBindingUuid: policyBindingUuid
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingUuid** | **UUID** | A UUID string identifying this device user binding. | 
+ **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
 
 ### Return type
 
@@ -1435,7 +1888,7 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingUuid = 987 // UUID | A UUID string identifying this device user binding.
+let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
 let patchedPolicyBindingRequest = PatchedPolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PatchedPolicyBindingRequest |  (optional)
 
 EndpointsAPI.endpointsDeviceBindingsPartialUpdate(policyBindingUuid: policyBindingUuid, patchedPolicyBindingRequest: patchedPolicyBindingRequest) { (response, error) in
@@ -1454,7 +1907,7 @@ EndpointsAPI.endpointsDeviceBindingsPartialUpdate(policyBindingUuid: policyBindi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingUuid** | **UUID** | A UUID string identifying this device user binding. | 
+ **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
  **patchedPolicyBindingRequest** | [**PatchedPolicyBindingRequest**](PatchedPolicyBindingRequest.md) |  | [optional] 
 
 ### Return type
@@ -1486,7 +1939,7 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingUuid = 987 // UUID | A UUID string identifying this device user binding.
+let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
 
 EndpointsAPI.endpointsDeviceBindingsRetrieve(policyBindingUuid: policyBindingUuid) { (response, error) in
     guard error == nil else {
@@ -1504,7 +1957,7 @@ EndpointsAPI.endpointsDeviceBindingsRetrieve(policyBindingUuid: policyBindingUui
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingUuid** | **UUID** | A UUID string identifying this device user binding. | 
+ **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
 
 ### Return type
 
@@ -1535,7 +1988,7 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingUuid = 987 // UUID | A UUID string identifying this device user binding.
+let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
 let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PolicyBindingRequest | 
 
 EndpointsAPI.endpointsDeviceBindingsUpdate(policyBindingUuid: policyBindingUuid, policyBindingRequest: policyBindingRequest) { (response, error) in
@@ -1554,7 +2007,7 @@ EndpointsAPI.endpointsDeviceBindingsUpdate(policyBindingUuid: policyBindingUuid,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingUuid** | **UUID** | A UUID string identifying this device user binding. | 
+ **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
  **policyBindingRequest** | [**PolicyBindingRequest**](PolicyBindingRequest.md) |  | 
 
 ### Return type
@@ -1586,7 +2039,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingUuid = 987 // UUID | A UUID string identifying this device user binding.
+let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
 
 EndpointsAPI.endpointsDeviceBindingsUsedByList(policyBindingUuid: policyBindingUuid) { (response, error) in
     guard error == nil else {
@@ -1604,364 +2057,7 @@ EndpointsAPI.endpointsDeviceBindingsUsedByList(policyBindingUuid: policyBindingU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingUuid** | **UUID** | A UUID string identifying this device user binding. | 
-
-### Return type
-
-[**[UsedBy]**](UsedBy.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsCreate**
-```swift
-    open class func endpointsDeviceGroupsCreate(deviceGroupRequest: DeviceGroupRequest, completion: @escaping (_ data: DeviceGroup?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let deviceGroupRequest = DeviceGroupRequest(name: "name_example") // DeviceGroupRequest | 
-
-EndpointsAPI.endpointsDeviceGroupsCreate(deviceGroupRequest: deviceGroupRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deviceGroupRequest** | [**DeviceGroupRequest**](DeviceGroupRequest.md) |  | 
-
-### Return type
-
-[**DeviceGroup**](DeviceGroup.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsDestroy**
-```swift
-    open class func endpointsDeviceGroupsDestroy(pbmUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let pbmUuid = 987 // UUID | A UUID string identifying this device group.
-
-EndpointsAPI.endpointsDeviceGroupsDestroy(pbmUuid: pbmUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbmUuid** | **UUID** | A UUID string identifying this device group. | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsList**
-```swift
-    open class func endpointsDeviceGroupsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, pbmUuid: UUID? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedDeviceGroupList?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let name = "name_example" // String |  (optional)
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let pbmUuid = 987 // UUID |  (optional)
-let search = "search_example" // String | A search term. (optional)
-
-EndpointsAPI.endpointsDeviceGroupsList(name: name, ordering: ordering, page: page, pageSize: pageSize, pbmUuid: pbmUuid, search: search) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String** |  | [optional] 
- **ordering** | **String** | Which field to use when ordering the results. | [optional] 
- **page** | **Int** | A page number within the paginated result set. | [optional] 
- **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **pbmUuid** | **UUID** |  | [optional] 
- **search** | **String** | A search term. | [optional] 
-
-### Return type
-
-[**PaginatedDeviceGroupList**](PaginatedDeviceGroupList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsPartialUpdate**
-```swift
-    open class func endpointsDeviceGroupsPartialUpdate(pbmUuid: UUID, patchedDeviceGroupRequest: PatchedDeviceGroupRequest? = nil, completion: @escaping (_ data: DeviceGroup?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let pbmUuid = 987 // UUID | A UUID string identifying this device group.
-let patchedDeviceGroupRequest = PatchedDeviceGroupRequest(name: "name_example") // PatchedDeviceGroupRequest |  (optional)
-
-EndpointsAPI.endpointsDeviceGroupsPartialUpdate(pbmUuid: pbmUuid, patchedDeviceGroupRequest: patchedDeviceGroupRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbmUuid** | **UUID** | A UUID string identifying this device group. | 
- **patchedDeviceGroupRequest** | [**PatchedDeviceGroupRequest**](PatchedDeviceGroupRequest.md) |  | [optional] 
-
-### Return type
-
-[**DeviceGroup**](DeviceGroup.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsRetrieve**
-```swift
-    open class func endpointsDeviceGroupsRetrieve(pbmUuid: UUID, completion: @escaping (_ data: DeviceGroup?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let pbmUuid = 987 // UUID | A UUID string identifying this device group.
-
-EndpointsAPI.endpointsDeviceGroupsRetrieve(pbmUuid: pbmUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbmUuid** | **UUID** | A UUID string identifying this device group. | 
-
-### Return type
-
-[**DeviceGroup**](DeviceGroup.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsUpdate**
-```swift
-    open class func endpointsDeviceGroupsUpdate(pbmUuid: UUID, deviceGroupRequest: DeviceGroupRequest, completion: @escaping (_ data: DeviceGroup?, _ error: Error?) -> Void)
-```
-
-
-
-DeviceGroup Viewset
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let pbmUuid = 987 // UUID | A UUID string identifying this device group.
-let deviceGroupRequest = DeviceGroupRequest(name: "name_example") // DeviceGroupRequest | 
-
-EndpointsAPI.endpointsDeviceGroupsUpdate(pbmUuid: pbmUuid, deviceGroupRequest: deviceGroupRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbmUuid** | **UUID** | A UUID string identifying this device group. | 
- **deviceGroupRequest** | [**DeviceGroupRequest**](DeviceGroupRequest.md) |  | 
-
-### Return type
-
-[**DeviceGroup**](DeviceGroup.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **endpointsDeviceGroupsUsedByList**
-```swift
-    open class func endpointsDeviceGroupsUsedByList(pbmUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
-```
-
-
-
-Get a list of all objects that use this object
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let pbmUuid = 987 // UUID | A UUID string identifying this device group.
-
-EndpointsAPI.endpointsDeviceGroupsUsedByList(pbmUuid: pbmUuid) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbmUuid** | **UUID** | A UUID string identifying this device group. | 
+ **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
 
 ### Return type
 
@@ -1992,7 +2088,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceUuid = 987 // UUID | A UUID string identifying this device.
+let deviceUuid = 987 // UUID | A UUID string identifying this Device.
 
 EndpointsAPI.endpointsDevicesDestroy(deviceUuid: deviceUuid) { (response, error) in
     guard error == nil else {
@@ -2010,7 +2106,7 @@ EndpointsAPI.endpointsDevicesDestroy(deviceUuid: deviceUuid) { (response, error)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceUuid** | **UUID** | A UUID string identifying this device. | 
+ **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
 
 ### Return type
 
@@ -2100,8 +2196,8 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceUuid = 987 // UUID | A UUID string identifying this device.
-let patchedEndpointDeviceRequest = PatchedEndpointDeviceRequest(deviceUuid: 123, name: "name_example", group: 123, groupObj: DeviceGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // PatchedEndpointDeviceRequest |  (optional)
+let deviceUuid = 987 // UUID | A UUID string identifying this Device.
+let patchedEndpointDeviceRequest = PatchedEndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // PatchedEndpointDeviceRequest |  (optional)
 
 EndpointsAPI.endpointsDevicesPartialUpdate(deviceUuid: deviceUuid, patchedEndpointDeviceRequest: patchedEndpointDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2119,7 +2215,7 @@ EndpointsAPI.endpointsDevicesPartialUpdate(deviceUuid: deviceUuid, patchedEndpoi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceUuid** | **UUID** | A UUID string identifying this device. | 
+ **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
  **patchedEndpointDeviceRequest** | [**PatchedEndpointDeviceRequest**](PatchedEndpointDeviceRequest.md) |  | [optional] 
 
 ### Return type
@@ -2151,7 +2247,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceUuid = 987 // UUID | A UUID string identifying this device.
+let deviceUuid = 987 // UUID | A UUID string identifying this Device.
 
 EndpointsAPI.endpointsDevicesRetrieve(deviceUuid: deviceUuid) { (response, error) in
     guard error == nil else {
@@ -2169,7 +2265,7 @@ EndpointsAPI.endpointsDevicesRetrieve(deviceUuid: deviceUuid) { (response, error
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceUuid** | **UUID** | A UUID string identifying this device. | 
+ **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
 
 ### Return type
 
@@ -2200,8 +2296,8 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceUuid = 987 // UUID | A UUID string identifying this device.
-let endpointDeviceRequest = EndpointDeviceRequest(deviceUuid: 123, name: "name_example", group: 123, groupObj: DeviceGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // EndpointDeviceRequest | 
+let deviceUuid = 987 // UUID | A UUID string identifying this Device.
+let endpointDeviceRequest = EndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // EndpointDeviceRequest | 
 
 EndpointsAPI.endpointsDevicesUpdate(deviceUuid: deviceUuid, endpointDeviceRequest: endpointDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2219,7 +2315,7 @@ EndpointsAPI.endpointsDevicesUpdate(deviceUuid: deviceUuid, endpointDeviceReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceUuid** | **UUID** | A UUID string identifying this device. | 
+ **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
  **endpointDeviceRequest** | [**EndpointDeviceRequest**](EndpointDeviceRequest.md) |  | 
 
 ### Return type
@@ -2251,7 +2347,7 @@ Get a list of all objects that use this object
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceUuid = 987 // UUID | A UUID string identifying this device.
+let deviceUuid = 987 // UUID | A UUID string identifying this Device.
 
 EndpointsAPI.endpointsDevicesUsedByList(deviceUuid: deviceUuid) { (response, error) in
     guard error == nil else {
@@ -2269,7 +2365,7 @@ EndpointsAPI.endpointsDevicesUsedByList(deviceUuid: deviceUuid) { (response, err
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceUuid** | **UUID** | A UUID string identifying this device. | 
+ **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
 
 ### Return type
 

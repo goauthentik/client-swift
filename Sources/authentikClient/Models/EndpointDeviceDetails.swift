@@ -12,8 +12,8 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
     public var deviceUuid: UUID?
     public var pbmUuid: UUID
     public var name: String
-    public var group: UUID?
-    public var groupObj: DeviceGroup
+    public var accessGroup: UUID?
+    public var accessGroupObj: DeviceAccessGroup
     public var expiring: Bool?
     public var expires: Date?
     public var facts: DeviceFactSnapshot
@@ -22,12 +22,12 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
     public var policies: [UUID]
     public var connections: [UUID]
 
-    public init(deviceUuid: UUID? = nil, pbmUuid: UUID, name: String, group: UUID? = nil, groupObj: DeviceGroup, expiring: Bool? = nil, expires: Date? = nil, facts: DeviceFactSnapshot, attributes: [String: JSONValue]? = nil, connectionsObj: [DeviceConnection], policies: [UUID], connections: [UUID]) {
+    public init(deviceUuid: UUID? = nil, pbmUuid: UUID, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroup, expiring: Bool? = nil, expires: Date? = nil, facts: DeviceFactSnapshot, attributes: [String: JSONValue]? = nil, connectionsObj: [DeviceConnection], policies: [UUID], connections: [UUID]) {
         self.deviceUuid = deviceUuid
         self.pbmUuid = pbmUuid
         self.name = name
-        self.group = group
-        self.groupObj = groupObj
+        self.accessGroup = accessGroup
+        self.accessGroupObj = accessGroupObj
         self.expiring = expiring
         self.expires = expires
         self.facts = facts
@@ -41,8 +41,8 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
         case deviceUuid = "device_uuid"
         case pbmUuid = "pbm_uuid"
         case name
-        case group
-        case groupObj = "group_obj"
+        case accessGroup = "access_group"
+        case accessGroupObj = "access_group_obj"
         case expiring
         case expires
         case facts
@@ -59,8 +59,8 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
         try container.encodeIfPresent(deviceUuid, forKey: .deviceUuid)
         try container.encode(pbmUuid, forKey: .pbmUuid)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(group, forKey: .group)
-        try container.encode(groupObj, forKey: .groupObj)
+        try container.encodeIfPresent(accessGroup, forKey: .accessGroup)
+        try container.encode(accessGroupObj, forKey: .accessGroupObj)
         try container.encodeIfPresent(expiring, forKey: .expiring)
         try container.encodeIfPresent(expires, forKey: .expires)
         try container.encode(facts, forKey: .facts)

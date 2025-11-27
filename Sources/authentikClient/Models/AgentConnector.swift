@@ -12,56 +12,59 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
     public static let nssUidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let nssGidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var connectorUuid: UUID?
+    public var name: String
+    public var enabled: Bool?
+    /** Get object component so that we know how to edit the object */
+    public var component: String
     /** Return object's verbose_name */
     public var verboseName: String
     /** Return object's plural verbose_name */
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    /** Get object component so that we know how to edit the object */
-    public var component: String
-    public var name: String
-    public var enabled: Bool?
     public var snapshotExpiry: String?
-    public var nssUidOffset: Int?
-    public var nssGidOffset: Int?
     public var authTerminateSessionOnExpiry: Bool?
     public var refreshInterval: String?
-    public var authenticationFlow: UUID?
+    public var authorizationFlow: UUID?
+    public var nssUidOffset: Int?
+    public var nssGidOffset: Int?
     public var challengeKey: UUID?
+    public var jwtFederationProviders: [Int]?
 
-    public init(connectorUuid: UUID? = nil, verboseName: String, verboseNamePlural: String, metaModelName: String, component: String, name: String, enabled: Bool? = nil, snapshotExpiry: String? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authenticationFlow: UUID? = nil, challengeKey: UUID? = nil) {
+    public init(connectorUuid: UUID? = nil, name: String, enabled: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, snapshotExpiry: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
         self.connectorUuid = connectorUuid
+        self.name = name
+        self.enabled = enabled
+        self.component = component
         self.verboseName = verboseName
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName
-        self.component = component
-        self.name = name
-        self.enabled = enabled
         self.snapshotExpiry = snapshotExpiry
-        self.nssUidOffset = nssUidOffset
-        self.nssGidOffset = nssGidOffset
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
         self.refreshInterval = refreshInterval
-        self.authenticationFlow = authenticationFlow
+        self.authorizationFlow = authorizationFlow
+        self.nssUidOffset = nssUidOffset
+        self.nssGidOffset = nssGidOffset
         self.challengeKey = challengeKey
+        self.jwtFederationProviders = jwtFederationProviders
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case connectorUuid = "connector_uuid"
+        case name
+        case enabled
+        case component
         case verboseName = "verbose_name"
         case verboseNamePlural = "verbose_name_plural"
         case metaModelName = "meta_model_name"
-        case component
-        case name
-        case enabled
         case snapshotExpiry = "snapshot_expiry"
-        case nssUidOffset = "nss_uid_offset"
-        case nssGidOffset = "nss_gid_offset"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
         case refreshInterval = "refresh_interval"
-        case authenticationFlow = "authentication_flow"
+        case authorizationFlow = "authorization_flow"
+        case nssUidOffset = "nss_uid_offset"
+        case nssGidOffset = "nss_gid_offset"
         case challengeKey = "challenge_key"
+        case jwtFederationProviders = "jwt_federation_providers"
     }
 
     // Encodable protocol methods
@@ -69,19 +72,20 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(connectorUuid, forKey: .connectorUuid)
+        try container.encode(name, forKey: .name)
+        try container.encodeIfPresent(enabled, forKey: .enabled)
+        try container.encode(component, forKey: .component)
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encode(component, forKey: .component)
-        try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(enabled, forKey: .enabled)
         try container.encodeIfPresent(snapshotExpiry, forKey: .snapshotExpiry)
-        try container.encodeIfPresent(nssUidOffset, forKey: .nssUidOffset)
-        try container.encodeIfPresent(nssGidOffset, forKey: .nssGidOffset)
         try container.encodeIfPresent(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)
         try container.encodeIfPresent(refreshInterval, forKey: .refreshInterval)
-        try container.encodeIfPresent(authenticationFlow, forKey: .authenticationFlow)
+        try container.encodeIfPresent(authorizationFlow, forKey: .authorizationFlow)
+        try container.encodeIfPresent(nssUidOffset, forKey: .nssUidOffset)
+        try container.encodeIfPresent(nssGidOffset, forKey: .nssGidOffset)
         try container.encodeIfPresent(challengeKey, forKey: .challengeKey)
+        try container.encodeIfPresent(jwtFederationProviders, forKey: .jwtFederationProviders)
     }
 }
 

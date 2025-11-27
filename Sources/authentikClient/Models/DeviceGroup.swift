@@ -9,16 +9,16 @@ import Foundation
 
 public struct DeviceGroup: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public var pbmUuid: UUID
-    public var name: String
+    public var id: String
+    public var name: String?
 
-    public init(pbmUuid: UUID, name: String) {
-        self.pbmUuid = pbmUuid
+    public init(id: String, name: String? = nil) {
+        self.id = id
         self.name = name
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pbmUuid = "pbm_uuid"
+        case id
         case name
     }
 
@@ -26,8 +26,11 @@ public struct DeviceGroup: Sendable, Codable, ParameterConvertible, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pbmUuid, forKey: .pbmUuid)
-        try container.encode(name, forKey: .name)
+        try container.encode(id, forKey: .id)
+        try container.encodeIfPresent(name, forKey: .name)
     }
 }
 
+
+@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
+extension DeviceGroup: Identifiable {}
