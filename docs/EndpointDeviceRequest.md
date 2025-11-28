@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **deviceUuid** | **UUID** |  | [optional] 
 **name** | **String** |  | 
 **accessGroup** | **UUID** |  | [optional] 
-**accessGroupObj** | [**DeviceAccessGroupRequest**](DeviceAccessGroupRequest.md) |  | 
+**accessGroupObj** | [**DeviceAccessGroupRequest**](DeviceAccessGroupRequest.md) |  | [optional] 
 **expiring** | **Bool** |  | [optional] 
 **expires** | **Date** |  | [optional] 
 **attributes** | **[String: JSONValue]** |  | [optional] 

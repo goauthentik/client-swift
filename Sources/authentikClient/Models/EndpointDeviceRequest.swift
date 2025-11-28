@@ -13,12 +13,12 @@ public struct EndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Ha
     public var deviceUuid: UUID?
     public var name: String
     public var accessGroup: UUID?
-    public var accessGroupObj: DeviceAccessGroupRequest
+    public var accessGroupObj: DeviceAccessGroupRequest?
     public var expiring: Bool?
     public var expires: Date?
     public var attributes: [String: JSONValue]?
 
-    public init(deviceUuid: UUID? = nil, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroupRequest, expiring: Bool? = nil, expires: Date? = nil, attributes: [String: JSONValue]? = nil) {
+    public init(deviceUuid: UUID? = nil, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroupRequest? = nil, expiring: Bool? = nil, expires: Date? = nil, attributes: [String: JSONValue]? = nil) {
         self.deviceUuid = deviceUuid
         self.name = name
         self.accessGroup = accessGroup
@@ -45,7 +45,7 @@ public struct EndpointDeviceRequest: Sendable, Codable, ParameterConvertible, Ha
         try container.encodeIfPresent(deviceUuid, forKey: .deviceUuid)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(accessGroup, forKey: .accessGroup)
-        try container.encode(accessGroupObj, forKey: .accessGroupObj)
+        try container.encodeIfPresent(accessGroupObj, forKey: .accessGroupObj)
         try container.encodeIfPresent(expiring, forKey: .expiring)
         try container.encodeIfPresent(expires, forKey: .expires)
         try container.encodeIfPresent(attributes, forKey: .attributes)

@@ -13,7 +13,7 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
     public var pbmUuid: UUID
     public var name: String
     public var accessGroup: UUID?
-    public var accessGroupObj: DeviceAccessGroup
+    public var accessGroupObj: DeviceAccessGroup?
     public var expiring: Bool?
     public var expires: Date?
     public var facts: DeviceFactSnapshot
@@ -22,7 +22,7 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
     public var policies: [UUID]
     public var connections: [UUID]
 
-    public init(deviceUuid: UUID? = nil, pbmUuid: UUID, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroup, expiring: Bool? = nil, expires: Date? = nil, facts: DeviceFactSnapshot, attributes: [String: JSONValue]? = nil, connectionsObj: [DeviceConnection], policies: [UUID], connections: [UUID]) {
+    public init(deviceUuid: UUID? = nil, pbmUuid: UUID, name: String, accessGroup: UUID? = nil, accessGroupObj: DeviceAccessGroup? = nil, expiring: Bool? = nil, expires: Date? = nil, facts: DeviceFactSnapshot, attributes: [String: JSONValue]? = nil, connectionsObj: [DeviceConnection], policies: [UUID], connections: [UUID]) {
         self.deviceUuid = deviceUuid
         self.pbmUuid = pbmUuid
         self.name = name
@@ -60,7 +60,7 @@ public struct EndpointDeviceDetails: Sendable, Codable, ParameterConvertible, Ha
         try container.encode(pbmUuid, forKey: .pbmUuid)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(accessGroup, forKey: .accessGroup)
-        try container.encode(accessGroupObj, forKey: .accessGroupObj)
+        try container.encodeIfPresent(accessGroupObj, forKey: .accessGroupObj)
         try container.encodeIfPresent(expiring, forKey: .expiring)
         try container.encodeIfPresent(expires, forKey: .expires)
         try container.encode(facts, forKey: .facts)

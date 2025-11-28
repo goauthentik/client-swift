@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **pbmUuid** | **UUID** |  | [readonly] 
 **name** | **String** |  | 
 **accessGroup** | **UUID** |  | [optional] 
-**accessGroupObj** | [**DeviceAccessGroup**](DeviceAccessGroup.md) |  | 
+**accessGroupObj** | [**DeviceAccessGroup**](DeviceAccessGroup.md) |  | [optional] 
 **expiring** | **Bool** |  | [optional] 
 **expires** | **Date** |  | [optional] 
 **facts** | [**DeviceFactSnapshot**](DeviceFactSnapshot.md) |  | [readonly] 

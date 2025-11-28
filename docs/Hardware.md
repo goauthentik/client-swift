@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**model** | **String** |  | 
-**manufacturer** | **String** |  | 
+**model** | **String** |  | [optional] 
+**manufacturer** | **String** |  | [optional] 
 **serial** | **String** |  | 
 **cpuName** | **String** |  | [optional] 
 **cpuCount** | **Int** |  | [optional] 

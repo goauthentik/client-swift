@@ -12,14 +12,14 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var deviceId: String
     public var refreshInterval: Int
-    public var authorizationFlow: String
+    public var authorizationFlow: String?
     public var jwks: [String: JSONValue]
     public var nssUidOffset: Int
     public var nssGidOffset: Int
     public var authTerminateSessionOnExpiry: Bool
     public var systemConfig: Config
 
-    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String?, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
         self.deviceId = deviceId
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deviceId** | **String** |  | [readonly] 
 **refreshInterval** | **Int** |  | [readonly] 
-**authorizationFlow** | **String** |  | 
+**authorizationFlow** | **String** |  | [readonly] 
 **jwks** | **[String: JSONValue]** |  | [readonly] 
 **nssUidOffset** | **Int** |  | 
 **nssGidOffset** | **Int** |  | 

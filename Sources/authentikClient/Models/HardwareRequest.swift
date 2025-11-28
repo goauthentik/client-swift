@@ -11,15 +11,16 @@ public struct HardwareRequest: Sendable, Codable, ParameterConvertible, Hashable
 
     public static let modelRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let manufacturerRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let serialRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let cpuNameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public var model: String
-    public var manufacturer: String
+    public var model: String?
+    public var manufacturer: String?
     public var serial: String
     public var cpuName: String?
     public var cpuCount: Int?
     public var memoryBytes: Int64?
 
-    public init(model: String, manufacturer: String, serial: String, cpuName: String? = nil, cpuCount: Int? = nil, memoryBytes: Int64? = nil) {
+    public init(model: String? = nil, manufacturer: String? = nil, serial: String, cpuName: String? = nil, cpuCount: Int? = nil, memoryBytes: Int64? = nil) {
         self.model = model
         self.manufacturer = manufacturer
         self.serial = serial
@@ -41,8 +42,8 @@ public struct HardwareRequest: Sendable, Codable, ParameterConvertible, Hashable
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(model, forKey: .model)
-        try container.encode(manufacturer, forKey: .manufacturer)
+        try container.encodeIfPresent(model, forKey: .model)
+        try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
         try container.encode(serial, forKey: .serial)
         try container.encodeIfPresent(cpuName, forKey: .cpuName)
         try container.encodeIfPresent(cpuCount, forKey: .cpuCount)
