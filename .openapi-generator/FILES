@@ -43,6 +43,9 @@ Sources/authentikClient/Models/AgentAuthenticationResponse.swift
 Sources/authentikClient/Models/AgentConfig.swift
 Sources/authentikClient/Models/AgentConnector.swift
 Sources/authentikClient/Models/AgentConnectorRequest.swift
+Sources/authentikClient/Models/AgentPSSODeviceRegistrationRequest.swift
+Sources/authentikClient/Models/AgentPSSODeviceRegistrationResponse.swift
+Sources/authentikClient/Models/AgentPSSOUserRegistrationRequest.swift
 Sources/authentikClient/Models/AgentTokenResponse.swift
 Sources/authentikClient/Models/AlgEnum.swift
 Sources/authentikClient/Models/App.swift
@@ -864,6 +867,9 @@ docs/AgentAuthenticationResponse.md
 docs/AgentConfig.md
 docs/AgentConnector.md
 docs/AgentConnectorRequest.md
+docs/AgentPSSODeviceRegistrationRequest.md
+docs/AgentPSSODeviceRegistrationResponse.md
+docs/AgentPSSOUserRegistrationRequest.md
 docs/AgentTokenResponse.md
 docs/AlgEnum.md
 docs/App.md

@@ -25,6 +25,8 @@ Method | HTTP request | Description
 [**endpointsAgentsEnrollmentTokensUpdate**](EndpointsAPI.md#endpointsagentsenrollmenttokensupdate) | **PUT** /endpoints/agents/enrollment_tokens/{token_uuid}/ | 
 [**endpointsAgentsEnrollmentTokensUsedByList**](EndpointsAPI.md#endpointsagentsenrollmenttokensusedbylist) | **GET** /endpoints/agents/enrollment_tokens/{token_uuid}/used_by/ | 
 [**endpointsAgentsEnrollmentTokensViewKeyRetrieve**](EndpointsAPI.md#endpointsagentsenrollmenttokensviewkeyretrieve) | **GET** /endpoints/agents/enrollment_tokens/{token_uuid}/view_key/ | 
+[**endpointsAgentsPssoRegisterDeviceCreate**](EndpointsAPI.md#endpointsagentspssoregisterdevicecreate) | **POST** /endpoints/agents/psso/register/device/ | 
+[**endpointsAgentsPssoRegisterUserCreate**](EndpointsAPI.md#endpointsagentspssoregisterusercreate) | **POST** /endpoints/agents/psso/register/user/ | 
 [**endpointsConnectorsDestroy**](EndpointsAPI.md#endpointsconnectorsdestroy) | **DELETE** /endpoints/connectors/{connector_uuid}/ | 
 [**endpointsConnectorsList**](EndpointsAPI.md#endpointsconnectorslist) | **GET** /endpoints/connectors/ | 
 [**endpointsConnectorsRetrieve**](EndpointsAPI.md#endpointsconnectorsretrieve) | **GET** /endpoints/connectors/{connector_uuid}/ | 
@@ -254,7 +256,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsCreate(agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -512,7 +514,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // PatchedAgentConnectorRequest |  (optional)
+let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // PatchedAgentConnectorRequest |  (optional)
 
 EndpointsAPI.endpointsAgentsConnectorsPartialUpdate(connectorUuid: connectorUuid, patchedAgentConnectorRequest: patchedAgentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -612,7 +614,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsUpdate(connectorUuid: connectorUuid, agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -1099,6 +1101,100 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsAgentsPssoRegisterDeviceCreate**
+```swift
+    open class func endpointsAgentsPssoRegisterDeviceCreate(agentPSSODeviceRegistrationRequest: AgentPSSODeviceRegistrationRequest, completion: @escaping (_ data: AgentPSSODeviceRegistrationResponse?, _ error: Error?) -> Void)
+```
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let agentPSSODeviceRegistrationRequest = AgentPSSODeviceRegistrationRequest(deviceSigningKey: "deviceSigningKey_example", deviceEncryptionKey: "deviceEncryptionKey_example", signKeyId: "signKeyId_example", encKeyId: "encKeyId_example") // AgentPSSODeviceRegistrationRequest | 
+
+EndpointsAPI.endpointsAgentsPssoRegisterDeviceCreate(agentPSSODeviceRegistrationRequest: agentPSSODeviceRegistrationRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agentPSSODeviceRegistrationRequest** | [**AgentPSSODeviceRegistrationRequest**](AgentPSSODeviceRegistrationRequest.md) |  | 
+
+### Return type
+
+[**AgentPSSODeviceRegistrationResponse**](AgentPSSODeviceRegistrationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsAgentsPssoRegisterUserCreate**
+```swift
+    open class func endpointsAgentsPssoRegisterUserCreate(agentPSSOUserRegistrationRequest: AgentPSSOUserRegistrationRequest, completion: @escaping (_ data: UserSelf?, _ error: Error?) -> Void)
+```
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let agentPSSOUserRegistrationRequest = AgentPSSOUserRegistrationRequest(userAuth: "userAuth_example", userSecureEnclaveKey: "userSecureEnclaveKey_example", enclaveKeyId: "enclaveKeyId_example") // AgentPSSOUserRegistrationRequest | 
+
+EndpointsAPI.endpointsAgentsPssoRegisterUserCreate(agentPSSOUserRegistrationRequest: agentPSSOUserRegistrationRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agentPSSOUserRegistrationRequest** | [**AgentPSSOUserRegistrationRequest**](AgentPSSOUserRegistrationRequest.md) |  | 
+
+### Return type
+
+[**UserSelf**](UserSelf.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

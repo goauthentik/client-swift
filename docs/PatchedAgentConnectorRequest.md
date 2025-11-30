@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **enabled** | **Bool** |  | [optional] 
 **snapshotExpiry** | **String** |  | [optional] 
+**authSessionDuration** | **String** |  | [optional] 
 **authTerminateSessionOnExpiry** | **Bool** |  | [optional] 
 **refreshInterval** | **String** |  | [optional] 
 **authorizationFlow** | **UUID** |  | [optional] 

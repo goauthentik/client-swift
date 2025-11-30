@@ -11,6 +11,7 @@ public struct AgentConnectorRequest: Sendable, Codable, ParameterConvertible, Ha
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let snapshotExpiryRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let authSessionDurationRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let refreshIntervalRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let nssUidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let nssGidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
@@ -18,6 +19,7 @@ public struct AgentConnectorRequest: Sendable, Codable, ParameterConvertible, Ha
     public var name: String
     public var enabled: Bool?
     public var snapshotExpiry: String?
+    public var authSessionDuration: String?
     public var authTerminateSessionOnExpiry: Bool?
     public var refreshInterval: String?
     public var authorizationFlow: UUID?
@@ -26,11 +28,12 @@ public struct AgentConnectorRequest: Sendable, Codable, ParameterConvertible, Ha
     public var challengeKey: UUID?
     public var jwtFederationProviders: [Int]?
 
-    public init(connectorUuid: UUID? = nil, name: String, enabled: Bool? = nil, snapshotExpiry: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(connectorUuid: UUID? = nil, name: String, enabled: Bool? = nil, snapshotExpiry: String? = nil, authSessionDuration: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
         self.connectorUuid = connectorUuid
         self.name = name
         self.enabled = enabled
         self.snapshotExpiry = snapshotExpiry
+        self.authSessionDuration = authSessionDuration
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow
@@ -45,6 +48,7 @@ public struct AgentConnectorRequest: Sendable, Codable, ParameterConvertible, Ha
         case name
         case enabled
         case snapshotExpiry = "snapshot_expiry"
+        case authSessionDuration = "auth_session_duration"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
         case refreshInterval = "refresh_interval"
         case authorizationFlow = "authorization_flow"
@@ -62,6 +66,7 @@ public struct AgentConnectorRequest: Sendable, Codable, ParameterConvertible, Ha
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(enabled, forKey: .enabled)
         try container.encodeIfPresent(snapshotExpiry, forKey: .snapshotExpiry)
+        try container.encodeIfPresent(authSessionDuration, forKey: .authSessionDuration)
         try container.encodeIfPresent(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)
         try container.encodeIfPresent(refreshInterval, forKey: .refreshInterval)
         try container.encodeIfPresent(authorizationFlow, forKey: .authorizationFlow)

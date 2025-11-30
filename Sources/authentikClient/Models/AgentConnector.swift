@@ -23,6 +23,7 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
     /** Return internal model name */
     public var metaModelName: String
     public var snapshotExpiry: String?
+    public var authSessionDuration: String?
     public var authTerminateSessionOnExpiry: Bool?
     public var refreshInterval: String?
     public var authorizationFlow: UUID?
@@ -31,7 +32,7 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
     public var challengeKey: UUID?
     public var jwtFederationProviders: [Int]?
 
-    public init(connectorUuid: UUID? = nil, name: String, enabled: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, snapshotExpiry: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(connectorUuid: UUID? = nil, name: String, enabled: Bool? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, snapshotExpiry: String? = nil, authSessionDuration: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
         self.connectorUuid = connectorUuid
         self.name = name
         self.enabled = enabled
@@ -40,6 +41,7 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
         self.verboseNamePlural = verboseNamePlural
         self.metaModelName = metaModelName
         self.snapshotExpiry = snapshotExpiry
+        self.authSessionDuration = authSessionDuration
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow
@@ -58,6 +60,7 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
         case verboseNamePlural = "verbose_name_plural"
         case metaModelName = "meta_model_name"
         case snapshotExpiry = "snapshot_expiry"
+        case authSessionDuration = "auth_session_duration"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
         case refreshInterval = "refresh_interval"
         case authorizationFlow = "authorization_flow"
@@ -79,6 +82,7 @@ public struct AgentConnector: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
         try container.encodeIfPresent(snapshotExpiry, forKey: .snapshotExpiry)
+        try container.encodeIfPresent(authSessionDuration, forKey: .authSessionDuration)
         try container.encodeIfPresent(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)
         try container.encodeIfPresent(refreshInterval, forKey: .refreshInterval)
         try container.encodeIfPresent(authorizationFlow, forKey: .authorizationFlow)

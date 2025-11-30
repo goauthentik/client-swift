@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
 **snapshotExpiry** | **String** |  | [optional] 
+**authSessionDuration** | **String** |  | [optional] 
 **authTerminateSessionOnExpiry** | **Bool** |  | [optional] 
 **refreshInterval** | **String** |  | [optional] 
 **authorizationFlow** | **UUID** |  | [optional] 

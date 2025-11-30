@@ -896,6 +896,76 @@ open class EndpointsAPI {
 
     /**
 
+     - parameter agentPSSODeviceRegistrationRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: AgentPSSODeviceRegistrationResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsAgentsPssoRegisterDeviceCreate(agentPSSODeviceRegistrationRequest: AgentPSSODeviceRegistrationRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> AgentPSSODeviceRegistrationResponse {
+        return try await endpointsAgentsPssoRegisterDeviceCreateWithRequestBuilder(agentPSSODeviceRegistrationRequest: agentPSSODeviceRegistrationRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/agents/psso/register/device/
+     - parameter agentPSSODeviceRegistrationRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<AgentPSSODeviceRegistrationResponse> 
+     */
+    open class func endpointsAgentsPssoRegisterDeviceCreateWithRequestBuilder(agentPSSODeviceRegistrationRequest: AgentPSSODeviceRegistrationRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<AgentPSSODeviceRegistrationResponse> {
+        let localVariablePath = "/endpoints/agents/psso/register/device/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: agentPSSODeviceRegistrationRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AgentPSSODeviceRegistrationResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter agentPSSOUserRegistrationRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserSelf
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsAgentsPssoRegisterUserCreate(agentPSSOUserRegistrationRequest: AgentPSSOUserRegistrationRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserSelf {
+        return try await endpointsAgentsPssoRegisterUserCreateWithRequestBuilder(agentPSSOUserRegistrationRequest: agentPSSOUserRegistrationRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/agents/psso/register/user/
+     - parameter agentPSSOUserRegistrationRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserSelf> 
+     */
+    open class func endpointsAgentsPssoRegisterUserCreateWithRequestBuilder(agentPSSOUserRegistrationRequest: AgentPSSOUserRegistrationRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserSelf> {
+        let localVariablePath = "/endpoints/agents/psso/register/user/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: agentPSSOUserRegistrationRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserSelf>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter connectorUuid: (path) A UUID string identifying this connector. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
