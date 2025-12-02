@@ -48,6 +48,204 @@ open class AdminAPI {
 
     /**
 
+     - parameter file: (form)  
+     - parameter name: (form)  (optional)
+     - parameter usage: (form)  (optional, default to "media")
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func adminFileCreate(file: URL, name: String? = nil, usage: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await adminFileCreateWithRequestBuilder(file: file, name: name, usage: usage, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /admin/file/
+     - Upload file to storage backend.
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter file: (form)  
+     - parameter name: (form)  (optional)
+     - parameter usage: (form)  (optional, default to "media")
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func adminFileCreateWithRequestBuilder(file: URL, name: String? = nil, usage: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/admin/file/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableFormParams: [String: (any Sendable)?] = [
+            "file": file.asParameter(codableHelper: apiConfiguration.codableHelper),
+            "name": name?.asParameter(codableHelper: apiConfiguration.codableHelper),
+            "usage": usage?.asParameter(codableHelper: apiConfiguration.codableHelper),
+        ]
+
+        let localVariableNonNullParameters = APIHelper.rejectNil(localVariableFormParams)
+        let localVariableParameters = APIHelper.convertBoolToString(localVariableNonNullParameters)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "multipart/form-data",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter usage
+     */
+    public enum Usage_adminFileDestroy: String, Sendable, CaseIterable {
+        case media = "media"
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter usage: (query)  (optional, default to .media)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func adminFileDestroy(name: String? = nil, usage: Usage_adminFileDestroy? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await adminFileDestroyWithRequestBuilder(name: name, usage: usage, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /admin/file/
+     - Delete file from storage backend.
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter usage: (query)  (optional, default to .media)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func adminFileDestroyWithRequestBuilder(name: String? = nil, usage: Usage_adminFileDestroy? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/admin/file/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "usage": (wrappedValue: usage?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter usage
+     */
+    public enum Usage_adminFileList: String, Sendable, CaseIterable {
+        case media = "media"
+    }
+
+    /**
+
+     - parameter manageableOnly: (query)  (optional, default to false)
+     - parameter search: (query) A search term. (optional)
+     - parameter usage: (query)  (optional, default to .media)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [FileList]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func adminFileList(manageableOnly: Bool? = nil, search: String? = nil, usage: Usage_adminFileList? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [FileList] {
+        return try await adminFileListWithRequestBuilder(manageableOnly: manageableOnly, search: search, usage: usage, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /admin/file/
+     - List files from storage backend.
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter manageableOnly: (query)  (optional, default to false)
+     - parameter search: (query) A search term. (optional)
+     - parameter usage: (query)  (optional, default to .media)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[FileList]> 
+     */
+    open class func adminFileListWithRequestBuilder(manageableOnly: Bool? = nil, search: String? = nil, usage: Usage_adminFileList? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[FileList]> {
+        let localVariablePath = "/admin/file/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "manageable_only": (wrappedValue: manageableOnly?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "usage": (wrappedValue: usage?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[FileList]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func adminFileUsedByList(name: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await adminFileUsedByListWithRequestBuilder(name: name, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /admin/file/used_by/
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func adminFileUsedByListWithRequestBuilder(name: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        let localVariablePath = "/admin/file/used_by/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [App]
      */

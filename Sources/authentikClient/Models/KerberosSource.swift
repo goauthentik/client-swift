@@ -39,7 +39,8 @@ public struct KerberosSource: Sendable, Codable, ParameterConvertible, Hashable 
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
     public var userPathTemplate: String?
-    public var icon: String
+    public var icon: String?
+    public var iconUrl: String
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     /** Kerberos realm */
@@ -65,7 +66,7 @@ public struct KerberosSource: Sendable, Codable, ParameterConvertible, Hashable 
     /** If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend */
     public var passwordLoginUpdateInternalPassword: Bool?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncCcache: String? = nil, connectivity: [String: String]?, spnegoServerName: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncCcache: String? = nil, connectivity: [String: String]?, spnegoServerName: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -84,6 +85,7 @@ public struct KerberosSource: Sendable, Codable, ParameterConvertible, Hashable 
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
         self.groupMatchingMode = groupMatchingMode
         self.realm = realm
         self.krb5Conf = krb5Conf
@@ -117,6 +119,7 @@ public struct KerberosSource: Sendable, Codable, ParameterConvertible, Hashable 
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
         case groupMatchingMode = "group_matching_mode"
         case realm
         case krb5Conf = "krb5_conf"
@@ -152,7 +155,8 @@ public struct KerberosSource: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encode(realm, forKey: .realm)
         try container.encodeIfPresent(krb5Conf, forKey: .krb5Conf)

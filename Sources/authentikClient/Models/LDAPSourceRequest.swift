@@ -37,6 +37,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
     /** How the source determines if an existing user should be authenticated or a new user enrolled. */
     public var userMatchingMode: UserMatchingModeEnum?
     public var userPathTemplate: String?
+    public var icon: String?
     public var serverUri: String
     /** Optionally verify the LDAP Server's Certificate against the CA Chain in this keypair. */
     public var peerCertificate: UUID?
@@ -73,7 +74,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
     /** Delete authentik users and groups which were previously supplied by this source, but are now missing from it. */
     public var deleteNotFoundObjects: Bool?
 
-    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, bindPassword: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
+    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, bindPassword: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -85,6 +86,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         self.policyEngineMode = policyEngineMode
         self.userMatchingMode = userMatchingMode
         self.userPathTemplate = userPathTemplate
+        self.icon = icon
         self.serverUri = serverUri
         self.peerCertificate = peerCertificate
         self.clientCertificate = clientCertificate
@@ -121,6 +123,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         case policyEngineMode = "policy_engine_mode"
         case userMatchingMode = "user_matching_mode"
         case userPathTemplate = "user_path_template"
+        case icon
         case serverUri = "server_uri"
         case peerCertificate = "peer_certificate"
         case clientCertificate = "client_certificate"
@@ -160,6 +163,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
+        try container.encodeIfPresent(icon, forKey: .icon)
         try container.encode(serverUri, forKey: .serverUri)
         try container.encodeIfPresent(peerCertificate, forKey: .peerCertificate)
         try container.encodeIfPresent(clientCertificate, forKey: .clientCertificate)

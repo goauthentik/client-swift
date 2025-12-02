@@ -39,7 +39,8 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
     public var userPathTemplate: String?
-    public var icon: String
+    public var icon: String?
+    public var iconUrl: String
     public var serverUri: String
     /** Optionally verify the LDAP Server's Certificate against the CA Chain in this keypair. */
     public var peerCertificate: UUID?
@@ -77,7 +78,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** Delete authentik users and groups which were previously supplied by this source, but are now missing from it. */
     public var deleteNotFoundObjects: Bool?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -96,6 +97,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
         self.serverUri = serverUri
         self.peerCertificate = peerCertificate
         self.clientCertificate = clientCertificate
@@ -139,6 +141,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
         case serverUri = "server_uri"
         case peerCertificate = "peer_certificate"
         case clientCertificate = "client_certificate"
@@ -184,7 +187,8 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
         try container.encode(serverUri, forKey: .serverUri)
         try container.encodeIfPresent(peerCertificate, forKey: .peerCertificate)
         try container.encodeIfPresent(clientCertificate, forKey: .clientCertificate)

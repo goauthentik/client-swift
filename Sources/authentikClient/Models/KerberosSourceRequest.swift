@@ -31,6 +31,7 @@ public struct KerberosSourceRequest: Sendable, Codable, ParameterConvertible, Ha
     /** How the source determines if an existing user should be authenticated or a new user enrolled. */
     public var userMatchingMode: UserMatchingModeEnum?
     public var userPathTemplate: String?
+    public var icon: String?
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     /** Kerberos realm */
@@ -60,7 +61,7 @@ public struct KerberosSourceRequest: Sendable, Codable, ParameterConvertible, Ha
     /** If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend */
     public var passwordLoginUpdateInternalPassword: Bool?
 
-    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncPassword: String? = nil, syncKeytab: String? = nil, syncCcache: String? = nil, spnegoServerName: String? = nil, spnegoKeytab: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil) {
+    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncPassword: String? = nil, syncKeytab: String? = nil, syncCcache: String? = nil, spnegoServerName: String? = nil, spnegoKeytab: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -72,6 +73,7 @@ public struct KerberosSourceRequest: Sendable, Codable, ParameterConvertible, Ha
         self.policyEngineMode = policyEngineMode
         self.userMatchingMode = userMatchingMode
         self.userPathTemplate = userPathTemplate
+        self.icon = icon
         self.groupMatchingMode = groupMatchingMode
         self.realm = realm
         self.krb5Conf = krb5Conf
@@ -100,6 +102,7 @@ public struct KerberosSourceRequest: Sendable, Codable, ParameterConvertible, Ha
         case policyEngineMode = "policy_engine_mode"
         case userMatchingMode = "user_matching_mode"
         case userPathTemplate = "user_path_template"
+        case icon
         case groupMatchingMode = "group_matching_mode"
         case realm
         case krb5Conf = "krb5_conf"
@@ -131,6 +134,7 @@ public struct KerberosSourceRequest: Sendable, Codable, ParameterConvertible, Ha
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
+        try container.encodeIfPresent(icon, forKey: .icon)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encode(realm, forKey: .realm)
         try container.encodeIfPresent(krb5Conf, forKey: .krb5Conf)

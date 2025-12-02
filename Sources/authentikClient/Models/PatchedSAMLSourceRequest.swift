@@ -32,6 +32,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
     /** How the source determines if an existing user should be authenticated or a new user enrolled. */
     public var userMatchingMode: UserMatchingModeEnum?
     public var userPathTemplate: String?
+    public var icon: String?
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     /** Flow used before authentication. */
@@ -60,7 +61,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
     public var signedAssertion: Bool?
     public var signedResponse: Bool?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID? = nil, issuer: String? = nil, ssoUrl: String? = nil, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -72,6 +73,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         self.policyEngineMode = policyEngineMode
         self.userMatchingMode = userMatchingMode
         self.userPathTemplate = userPathTemplate
+        self.icon = icon
         self.groupMatchingMode = groupMatchingMode
         self.preAuthenticationFlow = preAuthenticationFlow
         self.issuer = issuer
@@ -102,6 +104,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         case policyEngineMode = "policy_engine_mode"
         case userMatchingMode = "user_matching_mode"
         case userPathTemplate = "user_path_template"
+        case icon
         case groupMatchingMode = "group_matching_mode"
         case preAuthenticationFlow = "pre_authentication_flow"
         case issuer
@@ -135,6 +138,7 @@ public struct PatchedSAMLSourceRequest: Sendable, Codable, ParameterConvertible,
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
+        try container.encodeIfPresent(icon, forKey: .icon)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encodeIfPresent(preAuthenticationFlow, forKey: .preAuthenticationFlow)
         try container.encodeIfPresent(issuer, forKey: .issuer)

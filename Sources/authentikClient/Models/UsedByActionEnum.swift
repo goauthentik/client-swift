@@ -12,5 +12,6 @@ public enum UsedByActionEnum: String, Sendable, Codable, CaseIterable, CaseItera
     case cascadeMany = "cascade_many"
     case setNull = "set_null"
     case setDefault = "set_default"
+    case leftDangling = "left_dangling"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

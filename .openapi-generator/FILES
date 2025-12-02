@@ -209,7 +209,7 @@ Sources/authentikClient/Models/ExtraRoleObjectPermission.swift
 Sources/authentikClient/Models/ExtraRoleObjectPermissionRequest.swift
 Sources/authentikClient/Models/ExtraUserObjectPermission.swift
 Sources/authentikClient/Models/ExtraUserObjectPermissionRequest.swift
-Sources/authentikClient/Models/FilePathRequest.swift
+Sources/authentikClient/Models/FileList.swift
 Sources/authentikClient/Models/Flow.swift
 Sources/authentikClient/Models/FlowChallengeResponseRequest.swift
 Sources/authentikClient/Models/FlowDesignationEnum.swift
@@ -1039,7 +1039,7 @@ docs/ExtraRoleObjectPermission.md
 docs/ExtraRoleObjectPermissionRequest.md
 docs/ExtraUserObjectPermission.md
 docs/ExtraUserObjectPermissionRequest.md
-docs/FilePathRequest.md
+docs/FileList.md
 docs/Flow.md
 docs/FlowChallengeResponseRequest.md
 docs/FlowDesignationEnum.md

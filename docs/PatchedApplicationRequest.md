@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **backchannelProviders** | **[Int]** |  | [optional] 
 **openInNewTab** | **Bool** | Open launch URL in a new browser tab or window. | [optional] 
 **metaLaunchUrl** | **String** |  | [optional] 
+**metaIcon** | **String** |  | [optional] 
 **metaDescription** | **String** |  | [optional] 
 **metaPublisher** | **String** |  | [optional] 
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 

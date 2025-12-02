@@ -5,6 +5,10 @@ All URIs are relative to */api/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adminAppsList**](AdminAPI.md#adminappslist) | **GET** /admin/apps/ | 
+[**adminFileCreate**](AdminAPI.md#adminfilecreate) | **POST** /admin/file/ | 
+[**adminFileDestroy**](AdminAPI.md#adminfiledestroy) | **DELETE** /admin/file/ | 
+[**adminFileList**](AdminAPI.md#adminfilelist) | **GET** /admin/file/ | 
+[**adminFileUsedByList**](AdminAPI.md#adminfileusedbylist) | **GET** /admin/file/used_by/ | 
 [**adminModelsList**](AdminAPI.md#adminmodelslist) | **GET** /admin/models/ | 
 [**adminSettingsPartialUpdate**](AdminAPI.md#adminsettingspartialupdate) | **PATCH** /admin/settings/ | 
 [**adminSettingsRetrieve**](AdminAPI.md#adminsettingsretrieve) | **GET** /admin/settings/ | 
@@ -49,6 +53,210 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**[App]**](App.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adminFileCreate**
+```swift
+    open class func adminFileCreate(file: URL, name: String? = nil, usage: String? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Upload file to storage backend.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let file = URL(string: "https://example.com")! // URL | 
+let name = "name_example" // String |  (optional)
+let usage = "usage_example" // String |  (optional) (default to "media")
+
+AdminAPI.adminFileCreate(file: file, name: name, usage: usage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **URL** |  | 
+ **name** | **String** |  | [optional] 
+ **usage** | **String** |  | [optional] [default to &quot;media&quot;]
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adminFileDestroy**
+```swift
+    open class func adminFileDestroy(name: String? = nil, usage: Usage_adminFileDestroy? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Delete file from storage backend.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let usage = "usage_example" // String |  (optional) (default to .media)
+
+AdminAPI.adminFileDestroy(name: name, usage: usage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **usage** | **String** |  | [optional] [default to .media]
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adminFileList**
+```swift
+    open class func adminFileList(manageableOnly: Bool? = nil, search: String? = nil, usage: Usage_adminFileList? = nil, completion: @escaping (_ data: [FileList]?, _ error: Error?) -> Void)
+```
+
+
+
+List files from storage backend.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let manageableOnly = true // Bool |  (optional) (default to false)
+let search = "search_example" // String | A search term. (optional)
+let usage = "usage_example" // String |  (optional) (default to .media)
+
+AdminAPI.adminFileList(manageableOnly: manageableOnly, search: search, usage: usage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **manageableOnly** | **Bool** |  | [optional] [default to false]
+ **search** | **String** | A search term. | [optional] 
+ **usage** | **String** |  | [optional] [default to .media]
+
+### Return type
+
+[**[FileList]**](FileList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adminFileUsedByList**
+```swift
+    open class func adminFileUsedByList(name: String? = nil, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+
+AdminAPI.adminFileUsedByList(name: name) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
 
 ### Authorization
 

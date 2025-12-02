@@ -20,6 +20,8 @@ public struct PatchedFlowRequest: Sendable, Codable, ParameterConvertible, Hasha
     public var title: String?
     /** Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. */
     public var designation: FlowDesignationEnum?
+    /** Background shown during execution */
+    public var background: String?
     public var policyEngineMode: PolicyEngineMode?
     /** Enable compatibility mode, increases compatibility with password managers on mobile devices. */
     public var compatibilityMode: Bool?
@@ -29,11 +31,12 @@ public struct PatchedFlowRequest: Sendable, Codable, ParameterConvertible, Hasha
     /** Required level of authentication and authorization to access a flow. */
     public var authentication: AuthenticationEnum?
 
-    public init(name: String? = nil, slug: String? = nil, title: String? = nil, designation: FlowDesignationEnum? = nil, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
+    public init(name: String? = nil, slug: String? = nil, title: String? = nil, designation: FlowDesignationEnum? = nil, background: String? = nil, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
         self.name = name
         self.slug = slug
         self.title = title
         self.designation = designation
+        self.background = background
         self.policyEngineMode = policyEngineMode
         self.compatibilityMode = compatibilityMode
         self.layout = layout
@@ -46,6 +49,7 @@ public struct PatchedFlowRequest: Sendable, Codable, ParameterConvertible, Hasha
         case slug
         case title
         case designation
+        case background
         case policyEngineMode = "policy_engine_mode"
         case compatibilityMode = "compatibility_mode"
         case layout
@@ -61,6 +65,7 @@ public struct PatchedFlowRequest: Sendable, Codable, ParameterConvertible, Hasha
         try container.encodeIfPresent(slug, forKey: .slug)
         try container.encodeIfPresent(title, forKey: .title)
         try container.encodeIfPresent(designation, forKey: .designation)
+        try container.encodeIfPresent(background, forKey: .background)
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encodeIfPresent(layout, forKey: .layout)

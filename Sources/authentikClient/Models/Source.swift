@@ -39,10 +39,11 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
     public var userPathTemplate: String?
-    /** Get the URL to the Icon. If the name is /static or starts with http it is returned as-is */
     public var icon: String?
+    /** Get the URL to the source icon */
+    public var iconUrl: String?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String?) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -61,6 +62,7 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -82,6 +84,7 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
     }
 
     // Encodable protocol methods
@@ -105,7 +108,8 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
     }
 }
 

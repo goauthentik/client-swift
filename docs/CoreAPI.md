@@ -17,8 +17,6 @@ Method | HTTP request | Description
 [**coreApplicationsList**](CoreAPI.md#coreapplicationslist) | **GET** /core/applications/ | 
 [**coreApplicationsPartialUpdate**](CoreAPI.md#coreapplicationspartialupdate) | **PATCH** /core/applications/{slug}/ | 
 [**coreApplicationsRetrieve**](CoreAPI.md#coreapplicationsretrieve) | **GET** /core/applications/{slug}/ | 
-[**coreApplicationsSetIconCreate**](CoreAPI.md#coreapplicationsseticoncreate) | **POST** /core/applications/{slug}/set_icon/ | 
-[**coreApplicationsSetIconUrlCreate**](CoreAPI.md#coreapplicationsseticonurlcreate) | **POST** /core/applications/{slug}/set_icon_url/ | 
 [**coreApplicationsUpdate**](CoreAPI.md#coreapplicationsupdate) | **PUT** /core/applications/{slug}/ | 
 [**coreApplicationsUsedByList**](CoreAPI.md#coreapplicationsusedbylist) | **GET** /core/applications/{slug}/used_by/ | 
 [**coreAuthenticatedSessionsDestroy**](CoreAPI.md#coreauthenticatedsessionsdestroy) | **DELETE** /core/authenticated_sessions/{uuid}/ | 
@@ -497,7 +495,7 @@ Application Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
+let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaIcon: "metaIcon_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
 
 CoreAPI.coreApplicationsCreate(applicationRequest: applicationRequest) { (response, error) in
     guard error == nil else {
@@ -669,7 +667,7 @@ Application Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedApplicationRequest = PatchedApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // PatchedApplicationRequest |  (optional)
+let patchedApplicationRequest = PatchedApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaIcon: "metaIcon_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // PatchedApplicationRequest |  (optional)
 
 CoreAPI.coreApplicationsPartialUpdate(slug: slug, patchedApplicationRequest: patchedApplicationRequest) { (response, error) in
     guard error == nil else {
@@ -754,110 +752,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **coreApplicationsSetIconCreate**
-```swift
-    open class func coreApplicationsSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set application icon
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let file = URL(string: "https://example.com")! // URL |  (optional)
-let clear = true // Bool |  (optional) (default to false)
-
-CoreAPI.coreApplicationsSetIconCreate(slug: slug, file: file, clear: clear) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **file** | **URL** |  | [optional] 
- **clear** | **Bool** |  | [optional] [default to false]
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coreApplicationsSetIconUrlCreate**
-```swift
-    open class func coreApplicationsSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set application icon (as URL)
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
-
-CoreAPI.coreApplicationsSetIconUrlCreate(slug: slug, filePathRequest: filePathRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **filePathRequest** | [**FilePathRequest**](FilePathRequest.md) |  | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **coreApplicationsUpdate**
 ```swift
     open class func coreApplicationsUpdate(slug: String, applicationRequest: ApplicationRequest, completion: @escaping (_ data: Application?, _ error: Error?) -> Void)
@@ -873,7 +767,7 @@ Application Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
+let applicationRequest = ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaIcon: "metaIcon_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example") // ApplicationRequest | 
 
 CoreAPI.coreApplicationsUpdate(slug: slug, applicationRequest: applicationRequest) { (response, error) in
     guard error == nil else {
@@ -2548,7 +2442,7 @@ Convert data into a blueprint, validate it and apply it
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let transactionApplicationRequest = TransactionApplicationRequest(app: ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example"), providerModel: ProviderModelEnum(), provider: modelRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false, authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false, clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", clientType: ClientTypeEnum(), accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], logoutUri: "logoutUri_example", logoutMethod: SAMLProviderLogoutMethodEnum(), subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false, clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum(), url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), oidcAuthProviders: [123], eventRetention: "eventRetention_example"), policyBindings: [TransactionPolicyBindingRequest(policy: 123, group: 123, user: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false)]) // TransactionApplicationRequest | 
+let transactionApplicationRequest = TransactionApplicationRequest(app: ApplicationRequest(name: "name_example", slug: "slug_example", provider: 123, backchannelProviders: [123], openInNewTab: false, metaLaunchUrl: "metaLaunchUrl_example", metaIcon: "metaIcon_example", metaDescription: "metaDescription_example", metaPublisher: "metaPublisher_example", policyEngineMode: PolicyEngineMode(), group: "group_example"), providerModel: ProviderModelEnum(), provider: modelRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], delegatedSubject: "delegatedSubject_example", credentials: "TODO", scopes: "scopes_example", excludeUsersServiceAccount: false, filterGroup: 123, userDeleteAction: OutgoingSyncDeleteAction(), groupDeleteAction: nil, defaultGroupEmailDomain: "defaultGroupEmailDomain_example", syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false, authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, baseDn: "baseDn_example", certificate: 123, tlsServerName: "tlsServerName_example", uidStartNumber: 123, gidStartNumber: 123, searchMode: LDAPAPIAccessMode(), bindMode: nil, mfaSupport: false, clientId: "clientId_example", clientSecret: "clientSecret_example", tenantId: "tenantId_example", clientType: ClientTypeEnum(), accessCodeValidity: "accessCodeValidity_example", accessTokenValidity: "accessTokenValidity_example", refreshTokenValidity: "refreshTokenValidity_example", refreshTokenThreshold: "refreshTokenThreshold_example", includeClaimsInIdToken: false, signingKey: 123, encryptionKey: 123, redirectUris: [RedirectURIRequest(matchingMode: MatchingModeEnum(), url: "url_example")], logoutUri: "logoutUri_example", logoutMethod: SAMLProviderLogoutMethodEnum(), subMode: SubModeEnum(), issuerMode: IssuerModeEnum(), jwtFederationSources: [123], jwtFederationProviders: [123], internalHost: "internalHost_example", externalHost: "externalHost_example", internalHostSslValidation: false, skipPathRegex: "skipPathRegex_example", basicAuthEnabled: false, basicAuthPasswordAttribute: "basicAuthPasswordAttribute_example", basicAuthUserAttribute: "basicAuthUserAttribute_example", mode: ProxyMode(), interceptHeaderAuth: false, cookieDomain: "cookieDomain_example", settings: "TODO", connectionExpiry: "connectionExpiry_example", deleteTokenOnDisconnect: false, clientNetworks: "clientNetworks_example", sharedSecret: "sharedSecret_example", acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum(), url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), oidcAuthProviders: [123], eventRetention: "eventRetention_example"), policyBindings: [TransactionPolicyBindingRequest(policy: 123, group: 123, user: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false)]) // TransactionApplicationRequest | 
 
 CoreAPI.coreTransactionalApplicationsUpdate(transactionApplicationRequest: transactionApplicationRequest) { (response, error) in
     guard error == nil else {

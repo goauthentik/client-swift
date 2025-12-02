@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **slug** | **String** | Visible in the URL. | [optional] 
 **title** | **String** | Shown as the Title in Flow pages. | [optional] 
 **designation** | [**FlowDesignationEnum**](FlowDesignationEnum.md) | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. | [optional] 
+**background** | **String** | Background shown during execution | [optional] 
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 
 **compatibilityMode** | **Bool** | Enable compatibility mode, increases compatibility with password managers on mobile devices. | [optional] 
 **layout** | [**FlowLayoutEnum**](FlowLayoutEnum.md) |  | [optional] 

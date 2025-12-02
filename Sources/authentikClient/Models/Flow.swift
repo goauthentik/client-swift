@@ -20,8 +20,10 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
     public var title: String
     /** Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. */
     public var designation: FlowDesignationEnum
-    /** Get the URL to the background image. If the name is /static or starts with http it is returned as-is */
-    public var background: String
+    /** Background shown during execution */
+    public var background: String?
+    /** Get the URL to the background image */
+    public var backgroundUrl: String
     public var stages: [UUID]
     public var policies: [UUID]
     /** Get count of cached flows */
@@ -37,7 +39,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
     /** Required level of authentication and authorization to access a flow. */
     public var authentication: AuthenticationEnum?
 
-    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
+    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String? = nil, backgroundUrl: String, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
         self.pk = pk
         self.policybindingmodelPtrId = policybindingmodelPtrId
         self.name = name
@@ -45,6 +47,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         self.title = title
         self.designation = designation
         self.background = background
+        self.backgroundUrl = backgroundUrl
         self.stages = stages
         self.policies = policies
         self.cacheCount = cacheCount
@@ -64,6 +67,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         case title
         case designation
         case background
+        case backgroundUrl = "background_url"
         case stages
         case policies
         case cacheCount = "cache_count"
@@ -85,7 +89,8 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(slug, forKey: .slug)
         try container.encode(title, forKey: .title)
         try container.encode(designation, forKey: .designation)
-        try container.encode(background, forKey: .background)
+        try container.encodeIfPresent(background, forKey: .background)
+        try container.encode(backgroundUrl, forKey: .backgroundUrl)
         try container.encode(stages, forKey: .stages)
         try container.encode(policies, forKey: .policies)
         try container.encode(cacheCount, forKey: .cacheCount)

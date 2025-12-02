@@ -20,8 +20,8 @@ public struct FlowSet: Sendable, Codable, ParameterConvertible, Hashable {
     public var title: String
     /** Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. */
     public var designation: FlowDesignationEnum
-    /** Get the URL to the background image. If the name is /static or starts with http it is returned as-is */
-    public var background: String
+    /** Get the URL to the background image */
+    public var backgroundUrl: String
     public var policyEngineMode: PolicyEngineMode?
     /** Enable compatibility mode, increases compatibility with password managers on mobile devices. */
     public var compatibilityMode: Bool?
@@ -31,14 +31,14 @@ public struct FlowSet: Sendable, Codable, ParameterConvertible, Hashable {
     /** Configure what should happen when a flow denies access to a user. */
     public var deniedAction: DeniedActionEnum?
 
-    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil) {
+    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, backgroundUrl: String, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil) {
         self.pk = pk
         self.policybindingmodelPtrId = policybindingmodelPtrId
         self.name = name
         self.slug = slug
         self.title = title
         self.designation = designation
-        self.background = background
+        self.backgroundUrl = backgroundUrl
         self.policyEngineMode = policyEngineMode
         self.compatibilityMode = compatibilityMode
         self.exportUrl = exportUrl
@@ -53,7 +53,7 @@ public struct FlowSet: Sendable, Codable, ParameterConvertible, Hashable {
         case slug
         case title
         case designation
-        case background
+        case backgroundUrl = "background_url"
         case policyEngineMode = "policy_engine_mode"
         case compatibilityMode = "compatibility_mode"
         case exportUrl = "export_url"
@@ -71,7 +71,7 @@ public struct FlowSet: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(slug, forKey: .slug)
         try container.encode(title, forKey: .title)
         try container.encode(designation, forKey: .designation)
-        try container.encode(background, forKey: .background)
+        try container.encode(backgroundUrl, forKey: .backgroundUrl)
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encode(exportUrl, forKey: .exportUrl)

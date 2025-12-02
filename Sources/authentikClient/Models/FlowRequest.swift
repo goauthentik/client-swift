@@ -20,6 +20,8 @@ public struct FlowRequest: Sendable, Codable, ParameterConvertible, Hashable {
     public var title: String
     /** Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. */
     public var designation: FlowDesignationEnum
+    /** Background shown during execution */
+    public var background: String?
     public var policyEngineMode: PolicyEngineMode?
     /** Enable compatibility mode, increases compatibility with password managers on mobile devices. */
     public var compatibilityMode: Bool?
@@ -29,11 +31,12 @@ public struct FlowRequest: Sendable, Codable, ParameterConvertible, Hashable {
     /** Required level of authentication and authorization to access a flow. */
     public var authentication: AuthenticationEnum?
 
-    public init(name: String, slug: String, title: String, designation: FlowDesignationEnum, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
+    public init(name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String? = nil, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
         self.name = name
         self.slug = slug
         self.title = title
         self.designation = designation
+        self.background = background
         self.policyEngineMode = policyEngineMode
         self.compatibilityMode = compatibilityMode
         self.layout = layout
@@ -46,6 +49,7 @@ public struct FlowRequest: Sendable, Codable, ParameterConvertible, Hashable {
         case slug
         case title
         case designation
+        case background
         case policyEngineMode = "policy_engine_mode"
         case compatibilityMode = "compatibility_mode"
         case layout
@@ -61,6 +65,7 @@ public struct FlowRequest: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(slug, forKey: .slug)
         try container.encode(title, forKey: .title)
         try container.encode(designation, forKey: .designation)
+        try container.encodeIfPresent(background, forKey: .background)
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encodeIfPresent(layout, forKey: .layout)

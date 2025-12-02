@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 
 **userMatchingMode** | [**UserMatchingModeEnum**](UserMatchingModeEnum.md) | How the source determines if an existing user should be authenticated or a new user enrolled. | [optional] 
 **userPathTemplate** | **String** |  | [optional] 
+**icon** | **String** |  | [optional] 
 **groupMatchingMode** | [**GroupMatchingModeEnum**](GroupMatchingModeEnum.md) | How the source determines if an existing group should be used or a new group created. | [optional] 
 **clientId** | **String** | Client identifier used to talk to Plex. | [optional] 
 **allowedServers** | **[String]** | Which servers a user has to be a member of to be granted access. Empty list allows every server. | [optional] 

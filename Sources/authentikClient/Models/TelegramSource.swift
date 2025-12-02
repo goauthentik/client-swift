@@ -40,6 +40,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
     public var managed: String?
     public var userPathTemplate: String?
     public var icon: String?
+    public var iconUrl: String?
     /** Telegram bot username */
     public var botUsername: String
     /** Request access to send messages from your bot. */
@@ -47,7 +48,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
     /** Flow used before authentication. */
     public var preAuthenticationFlow: UUID
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, botUsername: String, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String?, botUsername: String, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -66,6 +67,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
         self.botUsername = botUsername
         self.requestMessageAccess = requestMessageAccess
         self.preAuthenticationFlow = preAuthenticationFlow
@@ -90,6 +92,7 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
         case botUsername = "bot_username"
         case requestMessageAccess = "request_message_access"
         case preAuthenticationFlow = "pre_authentication_flow"
@@ -116,7 +119,8 @@ public struct TelegramSource: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
         try container.encode(botUsername, forKey: .botUsername)
         try container.encodeIfPresent(requestMessageAccess, forKey: .requestMessageAccess)
         try container.encode(preAuthenticationFlow, forKey: .preAuthenticationFlow)

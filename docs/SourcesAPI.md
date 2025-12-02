@@ -7,8 +7,6 @@ Method | HTTP request | Description
 [**sourcesAllDestroy**](SourcesAPI.md#sourcesalldestroy) | **DELETE** /sources/all/{slug}/ | 
 [**sourcesAllList**](SourcesAPI.md#sourcesalllist) | **GET** /sources/all/ | 
 [**sourcesAllRetrieve**](SourcesAPI.md#sourcesallretrieve) | **GET** /sources/all/{slug}/ | 
-[**sourcesAllSetIconCreate**](SourcesAPI.md#sourcesallseticoncreate) | **POST** /sources/all/{slug}/set_icon/ | 
-[**sourcesAllSetIconUrlCreate**](SourcesAPI.md#sourcesallseticonurlcreate) | **POST** /sources/all/{slug}/set_icon_url/ | 
 [**sourcesAllTypesList**](SourcesAPI.md#sourcesalltypeslist) | **GET** /sources/all/types/ | 
 [**sourcesAllUsedByList**](SourcesAPI.md#sourcesallusedbylist) | **GET** /sources/all/{slug}/used_by/ | 
 [**sourcesAllUserSettingsList**](SourcesAPI.md#sourcesallusersettingslist) | **GET** /sources/all/user_settings/ | 
@@ -337,110 +335,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **sourcesAllSetIconCreate**
-```swift
-    open class func sourcesAllSetIconCreate(slug: String, file: URL? = nil, clear: Bool? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set source icon
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let file = URL(string: "https://example.com")! // URL |  (optional)
-let clear = true // Bool |  (optional) (default to false)
-
-SourcesAPI.sourcesAllSetIconCreate(slug: slug, file: file, clear: clear) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **file** | **URL** |  | [optional] 
- **clear** | **Bool** |  | [optional] [default to false]
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **sourcesAllSetIconUrlCreate**
-```swift
-    open class func sourcesAllSetIconUrlCreate(slug: String, filePathRequest: FilePathRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set source icon (as URL)
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
-
-SourcesAPI.sourcesAllSetIconUrlCreate(slug: slug, filePathRequest: filePathRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **filePathRequest** | [**FilePathRequest**](FilePathRequest.md) |  | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3048,7 +2942,7 @@ Kerberos Source Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let kerberosSourceRequest = KerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // KerberosSourceRequest | 
+let kerberosSourceRequest = KerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // KerberosSourceRequest | 
 
 SourcesAPI.sourcesKerberosCreate(kerberosSourceRequest: kerberosSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3224,7 +3118,7 @@ Kerberos Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedKerberosSourceRequest = PatchedKerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // PatchedKerberosSourceRequest |  (optional)
+let patchedKerberosSourceRequest = PatchedKerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // PatchedKerberosSourceRequest |  (optional)
 
 SourcesAPI.sourcesKerberosPartialUpdate(slug: slug, patchedKerberosSourceRequest: patchedKerberosSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3373,7 +3267,7 @@ Kerberos Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let kerberosSourceRequest = KerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // KerberosSourceRequest | 
+let kerberosSourceRequest = KerberosSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), realm: "realm_example", krb5Conf: "krb5Conf_example", kadminType: KadminTypeEnum(), syncUsers: false, syncUsersPassword: false, syncPrincipal: "syncPrincipal_example", syncPassword: "syncPassword_example", syncKeytab: "syncKeytab_example", syncCcache: "syncCcache_example", spnegoServerName: "spnegoServerName_example", spnegoKeytab: "spnegoKeytab_example", spnegoCcache: "spnegoCcache_example", passwordLoginUpdateInternalPassword: false) // KerberosSourceRequest | 
 
 SourcesAPI.sourcesKerberosUpdate(slug: slug, kerberosSourceRequest: kerberosSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3472,7 +3366,7 @@ LDAP Source Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // LDAPSourceRequest | 
+let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // LDAPSourceRequest | 
 
 SourcesAPI.sourcesLdapCreate(lDAPSourceRequest: lDAPSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3729,7 +3623,7 @@ LDAP Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedLDAPSourceRequest = PatchedLDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // PatchedLDAPSourceRequest |  (optional)
+let patchedLDAPSourceRequest = PatchedLDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // PatchedLDAPSourceRequest |  (optional)
 
 SourcesAPI.sourcesLdapPartialUpdate(slug: slug, patchedLDAPSourceRequest: patchedLDAPSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3878,7 +3772,7 @@ LDAP Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // LDAPSourceRequest | 
+let lDAPSourceRequest = LDAPSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", serverUri: "serverUri_example", peerCertificate: 123, clientCertificate: 123, bindCn: "bindCn_example", bindPassword: "bindPassword_example", startTls: false, sni: false, baseDn: "baseDn_example", additionalUserDn: "additionalUserDn_example", additionalGroupDn: "additionalGroupDn_example", userObjectFilter: "userObjectFilter_example", groupObjectFilter: "groupObjectFilter_example", groupMembershipField: "groupMembershipField_example", userMembershipAttribute: "userMembershipAttribute_example", objectUniquenessField: "objectUniquenessField_example", passwordLoginUpdateInternalPassword: false, syncUsers: false, syncUsersPassword: false, syncGroups: false, syncParentGroup: 123, lookupGroupsFromUser: false, deleteNotFoundObjects: false) // LDAPSourceRequest | 
 
 SourcesAPI.sourcesLdapUpdate(slug: slug, lDAPSourceRequest: lDAPSourceRequest) { (response, error) in
     guard error == nil else {
@@ -3977,7 +3871,7 @@ Source Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // OAuthSourceRequest | 
+let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // OAuthSourceRequest | 
 
 SourcesAPI.sourcesOauthCreate(oAuthSourceRequest: oAuthSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4165,7 +4059,7 @@ Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedOAuthSourceRequest = PatchedOAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // PatchedOAuthSourceRequest |  (optional)
+let patchedOAuthSourceRequest = PatchedOAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // PatchedOAuthSourceRequest |  (optional)
 
 SourcesAPI.sourcesOauthPartialUpdate(slug: slug, patchedOAuthSourceRequest: patchedOAuthSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4314,7 +4208,7 @@ Source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // OAuthSourceRequest | 
+let oAuthSourceRequest = OAuthSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), providerType: ProviderTypeEnum(), requestTokenUrl: "requestTokenUrl_example", authorizationUrl: "authorizationUrl_example", accessTokenUrl: "accessTokenUrl_example", profileUrl: "profileUrl_example", pkce: PKCEMethodEnum(), consumerKey: "consumerKey_example", consumerSecret: "consumerSecret_example", additionalScopes: "additionalScopes_example", oidcWellKnownUrl: "oidcWellKnownUrl_example", oidcJwksUrl: "oidcJwksUrl_example", oidcJwks: "TODO", authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum()) // OAuthSourceRequest | 
 
 SourcesAPI.sourcesOauthUpdate(slug: slug, oAuthSourceRequest: oAuthSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4413,7 +4307,7 @@ Plex source Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
+let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
 
 SourcesAPI.sourcesPlexCreate(plexSourceRequest: plexSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4589,7 +4483,7 @@ Plex source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedPlexSourceRequest = PatchedPlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PatchedPlexSourceRequest |  (optional)
+let patchedPlexSourceRequest = PatchedPlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PatchedPlexSourceRequest |  (optional)
 
 SourcesAPI.sourcesPlexPartialUpdate(slug: slug, patchedPlexSourceRequest: patchedPlexSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4791,7 +4685,7 @@ Plex source Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
+let plexSourceRequest = PlexSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), clientId: "clientId_example", allowedServers: ["allowedServers_example"], allowFriends: false, plexToken: "plexToken_example") // PlexSourceRequest | 
 
 SourcesAPI.sourcesPlexUpdate(slug: slug, plexSourceRequest: plexSourceRequest) { (response, error) in
     guard error == nil else {
@@ -4890,7 +4784,7 @@ SAMLSource Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
+let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
 
 SourcesAPI.sourcesSamlCreate(sAMLSourceRequest: sAMLSourceRequest) { (response, error) in
     guard error == nil else {
@@ -5139,7 +5033,7 @@ SAMLSource Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedSAMLSourceRequest = PatchedSAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // PatchedSAMLSourceRequest |  (optional)
+let patchedSAMLSourceRequest = PatchedSAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // PatchedSAMLSourceRequest |  (optional)
 
 SourcesAPI.sourcesSamlPartialUpdate(slug: slug, patchedSAMLSourceRequest: patchedSAMLSourceRequest) { (response, error) in
     guard error == nil else {
@@ -5239,7 +5133,7 @@ SAMLSource Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
+let sAMLSourceRequest = SAMLSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", groupMatchingMode: GroupMatchingModeEnum(), preAuthenticationFlow: 123, issuer: "issuer_example", ssoUrl: "ssoUrl_example", sloUrl: "sloUrl_example", allowIdpInitiated: false, nameIdPolicy: SAMLNameIDPolicyEnum(), bindingType: BindingTypeEnum(), verificationKp: 123, signingKp: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), temporaryUserDeleteAfter: "temporaryUserDeleteAfter_example", encryptionKp: 123, signedAssertion: false, signedResponse: false) // SAMLSourceRequest | 
 
 SourcesAPI.sourcesSamlUpdate(slug: slug, sAMLSourceRequest: sAMLSourceRequest) { (response, error) in
     guard error == nil else {
@@ -6415,7 +6309,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
+let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
 
 SourcesAPI.sourcesTelegramCreate(telegramSourceRequest: telegramSourceRequest) { (response, error) in
     guard error == nil else {
@@ -6591,7 +6485,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedTelegramSourceRequest = PatchedTelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // PatchedTelegramSourceRequest |  (optional)
+let patchedTelegramSourceRequest = PatchedTelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // PatchedTelegramSourceRequest |  (optional)
 
 SourcesAPI.sourcesTelegramPartialUpdate(slug: slug, patchedTelegramSourceRequest: patchedTelegramSourceRequest) { (response, error) in
     guard error == nil else {
@@ -6691,7 +6585,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let slug = "slug_example" // String | 
-let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
+let telegramSourceRequest = TelegramSourceRequest(name: "name_example", slug: "slug_example", enabled: false, promoted: false, authenticationFlow: 123, enrollmentFlow: 123, userPropertyMappings: [123], groupPropertyMappings: [123], policyEngineMode: PolicyEngineMode(), userMatchingMode: UserMatchingModeEnum(), userPathTemplate: "userPathTemplate_example", icon: "icon_example", botUsername: "botUsername_example", botToken: "botToken_example", requestMessageAccess: false, preAuthenticationFlow: 123) // TelegramSourceRequest | 
 
 SourcesAPI.sourcesTelegramUpdate(slug: slug, telegramSourceRequest: telegramSourceRequest) { (response, error) in
     guard error == nil else {

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 
 **userMatchingMode** | [**UserMatchingModeEnum**](UserMatchingModeEnum.md) | How the source determines if an existing user should be authenticated or a new user enrolled. | [optional] 
 **userPathTemplate** | **String** |  | [optional] 
+**icon** | **String** |  | [optional] 
 **botUsername** | **String** | Telegram bot username | [optional] 
 **botToken** | **String** | Telegram bot token | [optional] 
 **requestMessageAccess** | **Bool** | Request access to send messages from your bot. | [optional] 

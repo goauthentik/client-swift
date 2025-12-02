@@ -20,7 +20,8 @@ Name | Type | Description | Notes
 **userMatchingMode** | [**UserMatchingModeEnum**](UserMatchingModeEnum.md) | How the source determines if an existing user should be authenticated or a new user enrolled. | [optional] 
 **managed** | **String** | Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. | [readonly] 
 **userPathTemplate** | **String** |  | [optional] 
-**icon** | **String** | Get the URL to the Icon. If the name is /static or starts with http it is returned as-is | [readonly] 
+**icon** | **String** |  | [optional] 
+**iconUrl** | **String** | Get the URL to the source icon | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

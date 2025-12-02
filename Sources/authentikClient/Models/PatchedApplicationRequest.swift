@@ -21,18 +21,20 @@ public struct PatchedApplicationRequest: Sendable, Codable, ParameterConvertible
     /** Open launch URL in a new browser tab or window. */
     public var openInNewTab: Bool?
     public var metaLaunchUrl: String?
+    public var metaIcon: String?
     public var metaDescription: String?
     public var metaPublisher: String?
     public var policyEngineMode: PolicyEngineMode?
     public var group: String?
 
-    public init(name: String? = nil, slug: String? = nil, provider: Int? = nil, backchannelProviders: [Int]? = nil, openInNewTab: Bool? = nil, metaLaunchUrl: String? = nil, metaDescription: String? = nil, metaPublisher: String? = nil, policyEngineMode: PolicyEngineMode? = nil, group: String? = nil) {
+    public init(name: String? = nil, slug: String? = nil, provider: Int? = nil, backchannelProviders: [Int]? = nil, openInNewTab: Bool? = nil, metaLaunchUrl: String? = nil, metaIcon: String? = nil, metaDescription: String? = nil, metaPublisher: String? = nil, policyEngineMode: PolicyEngineMode? = nil, group: String? = nil) {
         self.name = name
         self.slug = slug
         self.provider = provider
         self.backchannelProviders = backchannelProviders
         self.openInNewTab = openInNewTab
         self.metaLaunchUrl = metaLaunchUrl
+        self.metaIcon = metaIcon
         self.metaDescription = metaDescription
         self.metaPublisher = metaPublisher
         self.policyEngineMode = policyEngineMode
@@ -46,6 +48,7 @@ public struct PatchedApplicationRequest: Sendable, Codable, ParameterConvertible
         case backchannelProviders = "backchannel_providers"
         case openInNewTab = "open_in_new_tab"
         case metaLaunchUrl = "meta_launch_url"
+        case metaIcon = "meta_icon"
         case metaDescription = "meta_description"
         case metaPublisher = "meta_publisher"
         case policyEngineMode = "policy_engine_mode"
@@ -62,6 +65,7 @@ public struct PatchedApplicationRequest: Sendable, Codable, ParameterConvertible
         try container.encodeIfPresent(backchannelProviders, forKey: .backchannelProviders)
         try container.encodeIfPresent(openInNewTab, forKey: .openInNewTab)
         try container.encodeIfPresent(metaLaunchUrl, forKey: .metaLaunchUrl)
+        try container.encodeIfPresent(metaIcon, forKey: .metaIcon)
         try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
         try container.encodeIfPresent(metaPublisher, forKey: .metaPublisher)
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)

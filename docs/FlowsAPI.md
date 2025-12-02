@@ -25,8 +25,6 @@ Method | HTTP request | Description
 [**flowsInstancesList**](FlowsAPI.md#flowsinstanceslist) | **GET** /flows/instances/ | 
 [**flowsInstancesPartialUpdate**](FlowsAPI.md#flowsinstancespartialupdate) | **PATCH** /flows/instances/{slug}/ | 
 [**flowsInstancesRetrieve**](FlowsAPI.md#flowsinstancesretrieve) | **GET** /flows/instances/{slug}/ | 
-[**flowsInstancesSetBackgroundCreate**](FlowsAPI.md#flowsinstancessetbackgroundcreate) | **POST** /flows/instances/{slug}/set_background/ | 
-[**flowsInstancesSetBackgroundUrlCreate**](FlowsAPI.md#flowsinstancessetbackgroundurlcreate) | **POST** /flows/instances/{slug}/set_background_url/ | 
 [**flowsInstancesUpdate**](FlowsAPI.md#flowsinstancesupdate) | **PUT** /flows/instances/{slug}/ | 
 [**flowsInstancesUsedByList**](FlowsAPI.md#flowsinstancesusedbylist) | **GET** /flows/instances/{slug}/used_by/ | 
 
@@ -661,7 +659,7 @@ Flow Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
+let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), background: "background_example", policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
 
 FlowsAPI.flowsInstancesCreate(flowRequest: flowRequest) { (response, error) in
     guard error == nil else {
@@ -1023,7 +1021,7 @@ Flow Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let patchedFlowRequest = PatchedFlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // PatchedFlowRequest |  (optional)
+let patchedFlowRequest = PatchedFlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), background: "background_example", policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // PatchedFlowRequest |  (optional)
 
 FlowsAPI.flowsInstancesPartialUpdate(slug: slug, patchedFlowRequest: patchedFlowRequest) { (response, error) in
     guard error == nil else {
@@ -1108,110 +1106,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **flowsInstancesSetBackgroundCreate**
-```swift
-    open class func flowsInstancesSetBackgroundCreate(slug: String, file: URL? = nil, clear: Bool? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set Flow background
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let file = URL(string: "https://example.com")! // URL |  (optional)
-let clear = true // Bool |  (optional) (default to false)
-
-FlowsAPI.flowsInstancesSetBackgroundCreate(slug: slug, file: file, clear: clear) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **file** | **URL** |  | [optional] 
- **clear** | **Bool** |  | [optional] [default to false]
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **flowsInstancesSetBackgroundUrlCreate**
-```swift
-    open class func flowsInstancesSetBackgroundUrlCreate(slug: String, filePathRequest: FilePathRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Set Flow background (as URL)
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let slug = "slug_example" // String | 
-let filePathRequest = FilePathRequest(url: "url_example") // FilePathRequest | 
-
-FlowsAPI.flowsInstancesSetBackgroundUrlCreate(slug: slug, filePathRequest: filePathRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String** |  | 
- **filePathRequest** | [**FilePathRequest**](FilePathRequest.md) |  | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **flowsInstancesUpdate**
 ```swift
     open class func flowsInstancesUpdate(slug: String, flowRequest: FlowRequest, completion: @escaping (_ data: Flow?, _ error: Error?) -> Void)
@@ -1227,7 +1121,7 @@ Flow Viewset
 import authentikClient
 
 let slug = "slug_example" // String | 
-let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
+let flowRequest = FlowRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), background: "background_example", policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum(), authentication: AuthenticationEnum()) // FlowRequest | 
 
 FlowsAPI.flowsInstancesUpdate(slug: slug, flowRequest: flowRequest) { (response, error) in
     guard error == nil else {

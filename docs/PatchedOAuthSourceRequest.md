@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 
 **userMatchingMode** | [**UserMatchingModeEnum**](UserMatchingModeEnum.md) | How the source determines if an existing user should be authenticated or a new user enrolled. | [optional] 
 **userPathTemplate** | **String** |  | [optional] 
+**icon** | **String** |  | [optional] 
 **groupMatchingMode** | [**GroupMatchingModeEnum**](GroupMatchingModeEnum.md) | How the source determines if an existing group should be used or a new group created. | [optional] 
 **providerType** | [**ProviderTypeEnum**](ProviderTypeEnum.md) |  | [optional] 
 **requestTokenUrl** | **String** | URL used to request the initial token. This URL is only required for OAuth 1. | [optional] 

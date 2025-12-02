@@ -32,6 +32,7 @@ public struct PatchedTelegramSourceRequest: Sendable, Codable, ParameterConverti
     /** How the source determines if an existing user should be authenticated or a new user enrolled. */
     public var userMatchingMode: UserMatchingModeEnum?
     public var userPathTemplate: String?
+    public var icon: String?
     /** Telegram bot username */
     public var botUsername: String?
     /** Telegram bot token */
@@ -41,7 +42,7 @@ public struct PatchedTelegramSourceRequest: Sendable, Codable, ParameterConverti
     /** Flow used before authentication. */
     public var preAuthenticationFlow: UUID?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, botUsername: String? = nil, botToken: String? = nil, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, botUsername: String? = nil, botToken: String? = nil, requestMessageAccess: Bool? = nil, preAuthenticationFlow: UUID? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -53,6 +54,7 @@ public struct PatchedTelegramSourceRequest: Sendable, Codable, ParameterConverti
         self.policyEngineMode = policyEngineMode
         self.userMatchingMode = userMatchingMode
         self.userPathTemplate = userPathTemplate
+        self.icon = icon
         self.botUsername = botUsername
         self.botToken = botToken
         self.requestMessageAccess = requestMessageAccess
@@ -71,6 +73,7 @@ public struct PatchedTelegramSourceRequest: Sendable, Codable, ParameterConverti
         case policyEngineMode = "policy_engine_mode"
         case userMatchingMode = "user_matching_mode"
         case userPathTemplate = "user_path_template"
+        case icon
         case botUsername = "bot_username"
         case botToken = "bot_token"
         case requestMessageAccess = "request_message_access"
@@ -92,6 +95,7 @@ public struct PatchedTelegramSourceRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
+        try container.encodeIfPresent(icon, forKey: .icon)
         try container.encodeIfPresent(botUsername, forKey: .botUsername)
         try container.encodeIfPresent(botToken, forKey: .botToken)
         try container.encodeIfPresent(requestMessageAccess, forKey: .requestMessageAccess)

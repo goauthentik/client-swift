@@ -39,7 +39,8 @@ public struct PlexSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
     public var userPathTemplate: String?
-    public var icon: String
+    public var icon: String?
+    public var iconUrl: String
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     /** Client identifier used to talk to Plex. */
@@ -51,7 +52,7 @@ public struct PlexSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** Plex token used to check friends */
     public var plexToken: String
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String, groupMatchingMode: GroupMatchingModeEnum? = nil, clientId: String? = nil, allowedServers: [String]? = nil, allowFriends: Bool? = nil, plexToken: String) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, groupMatchingMode: GroupMatchingModeEnum? = nil, clientId: String? = nil, allowedServers: [String]? = nil, allowFriends: Bool? = nil, plexToken: String) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -70,6 +71,7 @@ public struct PlexSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
         self.groupMatchingMode = groupMatchingMode
         self.clientId = clientId
         self.allowedServers = allowedServers
@@ -96,6 +98,7 @@ public struct PlexSource: Sendable, Codable, ParameterConvertible, Hashable {
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
         case groupMatchingMode = "group_matching_mode"
         case clientId = "client_id"
         case allowedServers = "allowed_servers"
@@ -124,7 +127,8 @@ public struct PlexSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encodeIfPresent(clientId, forKey: .clientId)
         try container.encodeIfPresent(allowedServers, forKey: .allowedServers)

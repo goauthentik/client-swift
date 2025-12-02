@@ -44,6 +44,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var managed: String?
     public var userPathTemplate: String?
     public var icon: String?
+    public var iconUrl: String?
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     public var providerType: ProviderTypeEnum
@@ -67,7 +68,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** How to perform authentication during an authorization_code token request flow */
     public var authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String?, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String?, groupMatchingMode: GroupMatchingModeEnum? = nil, providerType: ProviderTypeEnum, requestTokenUrl: String? = nil, authorizationUrl: String? = nil, accessTokenUrl: String? = nil, profileUrl: String? = nil, pkce: PKCEMethodEnum? = nil, consumerKey: String, callbackUrl: String, additionalScopes: String? = nil, type: SourceType, oidcWellKnownUrl: String? = nil, oidcJwksUrl: String? = nil, oidcJwks: [String: JSONValue]? = nil, authorizationCodeAuthMethod: AuthorizationCodeAuthMethodEnum? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -86,6 +87,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.managed = managed
         self.userPathTemplate = userPathTemplate
         self.icon = icon
+        self.iconUrl = iconUrl
         self.groupMatchingMode = groupMatchingMode
         self.providerType = providerType
         self.requestTokenUrl = requestTokenUrl
@@ -122,6 +124,7 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         case managed
         case userPathTemplate = "user_path_template"
         case icon
+        case iconUrl = "icon_url"
         case groupMatchingMode = "group_matching_mode"
         case providerType = "provider_type"
         case requestTokenUrl = "request_token_url"
@@ -160,7 +163,8 @@ public struct OAuthSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userMatchingMode, forKey: .userMatchingMode)
         try container.encode(managed, forKey: .managed)
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
-        try container.encode(icon, forKey: .icon)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encode(iconUrl, forKey: .iconUrl)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encode(providerType, forKey: .providerType)
         try container.encodeIfPresent(requestTokenUrl, forKey: .requestTokenUrl)
