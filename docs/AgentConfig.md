@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 **deviceId** | **String** |  | [readonly] 
 **refreshInterval** | **Int** |  | [readonly] 
 **authorizationFlow** | **String** |  | [readonly] 
-**jwks** | **[String: JSONValue]** |  | [readonly] 
+**jwksAuth** | **[String: JSONValue]** |  | [readonly] 
+**jwksChallenge** | **[String: JSONValue]** |  | [readonly] 
 **nssUidOffset** | **Int** |  | 
 **nssGidOffset** | **Int** |  | 
 **authTerminateSessionOnExpiry** | **Bool** |  | 

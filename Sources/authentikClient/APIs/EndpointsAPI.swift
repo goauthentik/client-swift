@@ -2000,6 +2000,43 @@ open class EndpointsAPI {
 
     /**
 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DeviceSummary
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsDevicesSummaryRetrieve(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceSummary {
+        return try await endpointsDevicesSummaryRetrieveWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/devices/summary/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DeviceSummary> 
+     */
+    open class func endpointsDevicesSummaryRetrieveWithRequestBuilder(apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceSummary> {
+        let localVariablePath = "/endpoints/devices/summary/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DeviceSummary>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter deviceUuid: (path) A UUID string identifying this Device. 
      - parameter endpointDeviceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.

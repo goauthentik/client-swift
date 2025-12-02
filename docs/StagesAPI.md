@@ -107,6 +107,13 @@ Method | HTTP request | Description
 [**stagesEmailTemplatesList**](StagesAPI.md#stagesemailtemplateslist) | **GET** /stages/email/templates/ | 
 [**stagesEmailUpdate**](StagesAPI.md#stagesemailupdate) | **PUT** /stages/email/{stage_uuid}/ | 
 [**stagesEmailUsedByList**](StagesAPI.md#stagesemailusedbylist) | **GET** /stages/email/{stage_uuid}/used_by/ | 
+[**stagesEndpointsCreate**](StagesAPI.md#stagesendpointscreate) | **POST** /stages/endpoints/ | 
+[**stagesEndpointsDestroy**](StagesAPI.md#stagesendpointsdestroy) | **DELETE** /stages/endpoints/{stage_uuid}/ | 
+[**stagesEndpointsList**](StagesAPI.md#stagesendpointslist) | **GET** /stages/endpoints/ | 
+[**stagesEndpointsPartialUpdate**](StagesAPI.md#stagesendpointspartialupdate) | **PATCH** /stages/endpoints/{stage_uuid}/ | 
+[**stagesEndpointsRetrieve**](StagesAPI.md#stagesendpointsretrieve) | **GET** /stages/endpoints/{stage_uuid}/ | 
+[**stagesEndpointsUpdate**](StagesAPI.md#stagesendpointsupdate) | **PUT** /stages/endpoints/{stage_uuid}/ | 
+[**stagesEndpointsUsedByList**](StagesAPI.md#stagesendpointsusedbylist) | **GET** /stages/endpoints/{stage_uuid}/used_by/ | 
 [**stagesIdentificationCreate**](StagesAPI.md#stagesidentificationcreate) | **POST** /stages/identification/ | 
 [**stagesIdentificationDestroy**](StagesAPI.md#stagesidentificationdestroy) | **DELETE** /stages/identification/{stage_uuid}/ | 
 [**stagesIdentificationList**](StagesAPI.md#stagesidentificationlist) | **GET** /stages/identification/ | 
@@ -5552,6 +5559,361 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **stagesEndpointsCreate**
+```swift
+    open class func stagesEndpointsCreate(endpointStageRequest: EndpointStageRequest, completion: @escaping (_ data: EndpointStage?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let endpointStageRequest = EndpointStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], connector: 123, mode: StageModeEnum()) // EndpointStageRequest | 
+
+StagesAPI.stagesEndpointsCreate(endpointStageRequest: endpointStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointStageRequest** | [**EndpointStageRequest**](EndpointStageRequest.md) |  | 
+
+### Return type
+
+[**EndpointStage**](EndpointStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsDestroy**
+```swift
+    open class func stagesEndpointsDestroy(stageUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Stage.
+
+StagesAPI.stagesEndpointsDestroy(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Stage. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsList**
+```swift
+    open class func stagesEndpointsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedEndpointStageList?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+StagesAPI.stagesEndpointsList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedEndpointStageList**](PaginatedEndpointStageList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsPartialUpdate**
+```swift
+    open class func stagesEndpointsPartialUpdate(stageUuid: UUID, patchedEndpointStageRequest: PatchedEndpointStageRequest? = nil, completion: @escaping (_ data: EndpointStage?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Stage.
+let patchedEndpointStageRequest = PatchedEndpointStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], connector: 123, mode: StageModeEnum()) // PatchedEndpointStageRequest |  (optional)
+
+StagesAPI.stagesEndpointsPartialUpdate(stageUuid: stageUuid, patchedEndpointStageRequest: patchedEndpointStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Stage. | 
+ **patchedEndpointStageRequest** | [**PatchedEndpointStageRequest**](PatchedEndpointStageRequest.md) |  | [optional] 
+
+### Return type
+
+[**EndpointStage**](EndpointStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsRetrieve**
+```swift
+    open class func stagesEndpointsRetrieve(stageUuid: UUID, completion: @escaping (_ data: EndpointStage?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Stage.
+
+StagesAPI.stagesEndpointsRetrieve(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Stage. | 
+
+### Return type
+
+[**EndpointStage**](EndpointStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsUpdate**
+```swift
+    open class func stagesEndpointsUpdate(stageUuid: UUID, endpointStageRequest: EndpointStageRequest, completion: @escaping (_ data: EndpointStage?, _ error: Error?) -> Void)
+```
+
+
+
+EndpointStage Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Stage.
+let endpointStageRequest = EndpointStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], connector: 123, mode: StageModeEnum()) // EndpointStageRequest | 
+
+StagesAPI.stagesEndpointsUpdate(stageUuid: stageUuid, endpointStageRequest: endpointStageRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Stage. | 
+ **endpointStageRequest** | [**EndpointStageRequest**](EndpointStageRequest.md) |  | 
+
+### Return type
+
+[**EndpointStage**](EndpointStage.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stagesEndpointsUsedByList**
+```swift
+    open class func stagesEndpointsUsedByList(stageUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let stageUuid = 987 // UUID | A UUID string identifying this Endpoint Stage.
+
+StagesAPI.stagesEndpointsUsedByList(stageUuid: stageUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **UUID** | A UUID string identifying this Endpoint Stage. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **stagesIdentificationCreate**
 ```swift
     open class func stagesIdentificationCreate(identificationStageRequest: IdentificationStageRequest, completion: @escaping (_ data: IdentificationStage?, _ error: Error?) -> Void)
@@ -6659,7 +7021,7 @@ MutualTLSStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
+let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: StageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
 
 StagesAPI.stagesMtlsCreate(mutualTLSStageRequest: mutualTLSStageRequest) { (response, error) in
     guard error == nil else {
@@ -6825,7 +7187,7 @@ MutualTLSStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
-let patchedMutualTLSStageRequest = PatchedMutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // PatchedMutualTLSStageRequest |  (optional)
+let patchedMutualTLSStageRequest = PatchedMutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: StageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // PatchedMutualTLSStageRequest |  (optional)
 
 StagesAPI.stagesMtlsPartialUpdate(stageUuid: stageUuid, patchedMutualTLSStageRequest: patchedMutualTLSStageRequest) { (response, error) in
     guard error == nil else {
@@ -6925,7 +7287,7 @@ MutualTLSStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Mutual TLS Stage.
-let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: MutualTLSStageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
+let mutualTLSStageRequest = MutualTLSStageRequest(name: "name_example", flowSet: [FlowSetRequest(name: "name_example", slug: "slug_example", title: "title_example", designation: FlowDesignationEnum(), policyEngineMode: PolicyEngineMode(), compatibilityMode: false, layout: FlowLayoutEnum(), deniedAction: DeniedActionEnum())], mode: StageModeEnum(), certificateAuthorities: [123], certAttribute: CertAttributeEnum(), userAttribute: UserAttributeEnum()) // MutualTLSStageRequest | 
 
 StagesAPI.stagesMtlsUpdate(stageUuid: stageUuid, mutualTLSStageRequest: mutualTLSStageRequest) { (response, error) in
     guard error == nil else {

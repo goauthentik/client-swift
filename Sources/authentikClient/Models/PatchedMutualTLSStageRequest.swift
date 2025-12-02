@@ -13,13 +13,13 @@ public struct PatchedMutualTLSStageRequest: Sendable, Codable, ParameterConverti
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
     public var flowSet: [FlowSetRequest]?
-    public var mode: MutualTLSStageModeEnum?
+    public var mode: StageModeEnum?
     /** Configure certificate authorities to validate the certificate against. This option has a higher priority than the `client_certificate` option on `Brand`. */
     public var certificateAuthorities: [UUID]?
     public var certAttribute: CertAttributeEnum?
     public var userAttribute: UserAttributeEnum?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, mode: MutualTLSStageModeEnum? = nil, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum? = nil, userAttribute: UserAttributeEnum? = nil) {
+    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, mode: StageModeEnum? = nil, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum? = nil, userAttribute: UserAttributeEnum? = nil) {
         self.name = name
         self.flowSet = flowSet
         self.mode = mode

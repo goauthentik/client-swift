@@ -22,6 +22,7 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
     case typeConsentChallenge(ConsentChallenge)
     case typeDummyChallenge(DummyChallenge)
     case typeEmailChallenge(EmailChallenge)
+    case typeEndpointAgentChallenge(EndpointAgentChallenge)
     case typeFlowErrorChallenge(FlowErrorChallenge)
     case typeFrameChallenge(FrameChallenge)
     case typeIdentificationChallenge(IdentificationChallenge)
@@ -68,6 +69,8 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
         case .typeDummyChallenge(let value):
             try container.encode(value)
         case .typeEmailChallenge(let value):
+            try container.encode(value)
+        case .typeEndpointAgentChallenge(let value):
             try container.encode(value)
         case .typeFlowErrorChallenge(let value):
             try container.encode(value)
@@ -132,6 +135,8 @@ public enum ChallengeTypes: Sendable, Codable, ParameterConvertible, Hashable {
             self = .typeDummyChallenge(value)
         } else if let value = try? container.decode(EmailChallenge.self) {
             self = .typeEmailChallenge(value)
+        } else if let value = try? container.decode(EndpointAgentChallenge.self) {
+            self = .typeEndpointAgentChallenge(value)
         } else if let value = try? container.decode(FlowErrorChallenge.self) {
             self = .typeFlowErrorChallenge(value)
         } else if let value = try? container.decode(FrameChallenge.self) {

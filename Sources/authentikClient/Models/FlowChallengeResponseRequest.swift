@@ -21,6 +21,7 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
     case typeConsentChallengeResponseRequest(ConsentChallengeResponseRequest)
     case typeDummyChallengeResponseRequest(DummyChallengeResponseRequest)
     case typeEmailChallengeResponseRequest(EmailChallengeResponseRequest)
+    case typeEndpointAgentChallengeResponseRequest(EndpointAgentChallengeResponseRequest)
     case typeFrameChallengeResponseRequest(FrameChallengeResponseRequest)
     case typeIdentificationChallengeResponseRequest(IdentificationChallengeResponseRequest)
     case typeIframeLogoutChallengeResponseRequest(IframeLogoutChallengeResponseRequest)
@@ -62,6 +63,8 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
         case .typeDummyChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeEmailChallengeResponseRequest(let value):
+            try container.encode(value)
+        case .typeEndpointAgentChallengeResponseRequest(let value):
             try container.encode(value)
         case .typeFrameChallengeResponseRequest(let value):
             try container.encode(value)
@@ -118,6 +121,8 @@ public enum FlowChallengeResponseRequest: Sendable, Codable, ParameterConvertibl
             self = .typeDummyChallengeResponseRequest(value)
         } else if let value = try? container.decode(EmailChallengeResponseRequest.self) {
             self = .typeEmailChallengeResponseRequest(value)
+        } else if let value = try? container.decode(EndpointAgentChallengeResponseRequest.self) {
+            self = .typeEndpointAgentChallengeResponseRequest(value)
         } else if let value = try? container.decode(FrameChallengeResponseRequest.self) {
             self = .typeFrameChallengeResponseRequest(value)
         } else if let value = try? container.decode(IdentificationChallengeResponseRequest.self) {

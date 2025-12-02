@@ -157,6 +157,7 @@ Sources/authentikClient/Models/DeviceFactsOSFamily.swift
 Sources/authentikClient/Models/DeviceFactsRequest.swift
 Sources/authentikClient/Models/DeviceGroup.swift
 Sources/authentikClient/Models/DeviceGroupRequest.swift
+Sources/authentikClient/Models/DeviceSummary.swift
 Sources/authentikClient/Models/DeviceUser.swift
 Sources/authentikClient/Models/DeviceUserRequest.swift
 Sources/authentikClient/Models/DigestAlgorithmEnum.swift
@@ -184,11 +185,15 @@ Sources/authentikClient/Models/EmailDeviceRequest.swift
 Sources/authentikClient/Models/EmailStage.swift
 Sources/authentikClient/Models/EmailStageRequest.swift
 Sources/authentikClient/Models/Endpoint.swift
+Sources/authentikClient/Models/EndpointAgentChallenge.swift
+Sources/authentikClient/Models/EndpointAgentChallengeResponseRequest.swift
 Sources/authentikClient/Models/EndpointAuthModeEnum.swift
 Sources/authentikClient/Models/EndpointDevice.swift
 Sources/authentikClient/Models/EndpointDeviceDetails.swift
 Sources/authentikClient/Models/EndpointDeviceRequest.swift
 Sources/authentikClient/Models/EndpointRequest.swift
+Sources/authentikClient/Models/EndpointStage.swift
+Sources/authentikClient/Models/EndpointStageRequest.swift
 Sources/authentikClient/Models/EnrollRequest.swift
 Sources/authentikClient/Models/EnrollmentToken.swift
 Sources/authentikClient/Models/EnrollmentTokenRequest.swift
@@ -325,7 +330,6 @@ Sources/authentikClient/Models/MicrosoftEntraProviderUserRequest.swift
 Sources/authentikClient/Models/ModelEnum.swift
 Sources/authentikClient/Models/ModelRequest.swift
 Sources/authentikClient/Models/MutualTLSStage.swift
-Sources/authentikClient/Models/MutualTLSStageModeEnum.swift
 Sources/authentikClient/Models/MutualTLSStageRequest.swift
 Sources/authentikClient/Models/NativeLogoutChallenge.swift
 Sources/authentikClient/Models/NativeLogoutChallengeResponseRequest.swift
@@ -397,6 +401,7 @@ Sources/authentikClient/Models/PaginatedEmailDeviceList.swift
 Sources/authentikClient/Models/PaginatedEmailStageList.swift
 Sources/authentikClient/Models/PaginatedEndpointDeviceList.swift
 Sources/authentikClient/Models/PaginatedEndpointList.swift
+Sources/authentikClient/Models/PaginatedEndpointStageList.swift
 Sources/authentikClient/Models/PaginatedEnrollmentTokenList.swift
 Sources/authentikClient/Models/PaginatedEventList.swift
 Sources/authentikClient/Models/PaginatedEventMatcherPolicyList.swift
@@ -554,6 +559,7 @@ Sources/authentikClient/Models/PatchedEmailDeviceRequest.swift
 Sources/authentikClient/Models/PatchedEmailStageRequest.swift
 Sources/authentikClient/Models/PatchedEndpointDeviceRequest.swift
 Sources/authentikClient/Models/PatchedEndpointRequest.swift
+Sources/authentikClient/Models/PatchedEndpointStageRequest.swift
 Sources/authentikClient/Models/PatchedEnrollmentTokenRequest.swift
 Sources/authentikClient/Models/PatchedEventMatcherPolicyRequest.swift
 Sources/authentikClient/Models/PatchedEventRequest.swift
@@ -769,6 +775,7 @@ Sources/authentikClient/Models/SourceStage.swift
 Sources/authentikClient/Models/SourceStageRequest.swift
 Sources/authentikClient/Models/SourceType.swift
 Sources/authentikClient/Models/Stage.swift
+Sources/authentikClient/Models/StageModeEnum.swift
 Sources/authentikClient/Models/StagePrompt.swift
 Sources/authentikClient/Models/StateEnum.swift
 Sources/authentikClient/Models/StaticDevice.swift
@@ -984,6 +991,7 @@ docs/DeviceFactsOSFamily.md
 docs/DeviceFactsRequest.md
 docs/DeviceGroup.md
 docs/DeviceGroupRequest.md
+docs/DeviceSummary.md
 docs/DeviceUser.md
 docs/DeviceUserRequest.md
 docs/DigestAlgorithmEnum.md
@@ -1011,11 +1019,15 @@ docs/EmailDeviceRequest.md
 docs/EmailStage.md
 docs/EmailStageRequest.md
 docs/Endpoint.md
+docs/EndpointAgentChallenge.md
+docs/EndpointAgentChallengeResponseRequest.md
 docs/EndpointAuthModeEnum.md
 docs/EndpointDevice.md
 docs/EndpointDeviceDetails.md
 docs/EndpointDeviceRequest.md
 docs/EndpointRequest.md
+docs/EndpointStage.md
+docs/EndpointStageRequest.md
 docs/EndpointsAPI.md
 docs/EnrollRequest.md
 docs/EnrollmentToken.md
@@ -1157,7 +1169,6 @@ docs/MicrosoftEntraProviderUserRequest.md
 docs/ModelEnum.md
 docs/ModelRequest.md
 docs/MutualTLSStage.md
-docs/MutualTLSStageModeEnum.md
 docs/MutualTLSStageRequest.md
 docs/NativeLogoutChallenge.md
 docs/NativeLogoutChallengeResponseRequest.md
@@ -1231,6 +1242,7 @@ docs/PaginatedEmailDeviceList.md
 docs/PaginatedEmailStageList.md
 docs/PaginatedEndpointDeviceList.md
 docs/PaginatedEndpointList.md
+docs/PaginatedEndpointStageList.md
 docs/PaginatedEnrollmentTokenList.md
 docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
@@ -1388,6 +1400,7 @@ docs/PatchedEmailDeviceRequest.md
 docs/PatchedEmailStageRequest.md
 docs/PatchedEndpointDeviceRequest.md
 docs/PatchedEndpointRequest.md
+docs/PatchedEndpointStageRequest.md
 docs/PatchedEnrollmentTokenRequest.md
 docs/PatchedEventMatcherPolicyRequest.md
 docs/PatchedEventRequest.md
@@ -1612,6 +1625,7 @@ docs/SourceType.md
 docs/SourcesAPI.md
 docs/SsfAPI.md
 docs/Stage.md
+docs/StageModeEnum.md
 docs/StagePrompt.md
 docs/StagesAPI.md
 docs/StateEnum.md

@@ -50,6 +50,7 @@ Method | HTTP request | Description
 [**endpointsDevicesList**](EndpointsAPI.md#endpointsdeviceslist) | **GET** /endpoints/devices/ | 
 [**endpointsDevicesPartialUpdate**](EndpointsAPI.md#endpointsdevicespartialupdate) | **PATCH** /endpoints/devices/{device_uuid}/ | 
 [**endpointsDevicesRetrieve**](EndpointsAPI.md#endpointsdevicesretrieve) | **GET** /endpoints/devices/{device_uuid}/ | 
+[**endpointsDevicesSummaryRetrieve**](EndpointsAPI.md#endpointsdevicessummaryretrieve) | **GET** /endpoints/devices/summary/ | 
 [**endpointsDevicesUpdate**](EndpointsAPI.md#endpointsdevicesupdate) | **PUT** /endpoints/devices/{device_uuid}/ | 
 [**endpointsDevicesUsedByList**](EndpointsAPI.md#endpointsdevicesusedbylist) | **GET** /endpoints/devices/{device_uuid}/used_by/ | 
 
@@ -2366,6 +2367,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EndpointDeviceDetails**](EndpointDeviceDetails.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsDevicesSummaryRetrieve**
+```swift
+    open class func endpointsDevicesSummaryRetrieve(completion: @escaping (_ data: DeviceSummary?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+
+EndpointsAPI.endpointsDevicesSummaryRetrieve() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeviceSummary**](DeviceSummary.md)
 
 ### Authorization
 

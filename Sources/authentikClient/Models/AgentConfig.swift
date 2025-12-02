@@ -13,17 +13,19 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
     public var deviceId: String
     public var refreshInterval: Int
     public var authorizationFlow: String?
-    public var jwks: [String: JSONValue]
+    public var jwksAuth: [String: JSONValue]
+    public var jwksChallenge: [String: JSONValue]?
     public var nssUidOffset: Int
     public var nssGidOffset: Int
     public var authTerminateSessionOnExpiry: Bool
     public var systemConfig: Config
 
-    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String?, jwks: [String: JSONValue], nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String?, jwksAuth: [String: JSONValue], jwksChallenge: [String: JSONValue]?, nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
         self.deviceId = deviceId
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow
-        self.jwks = jwks
+        self.jwksAuth = jwksAuth
+        self.jwksChallenge = jwksChallenge
         self.nssUidOffset = nssUidOffset
         self.nssGidOffset = nssGidOffset
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
@@ -34,7 +36,8 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
         case deviceId = "device_id"
         case refreshInterval = "refresh_interval"
         case authorizationFlow = "authorization_flow"
-        case jwks
+        case jwksAuth = "jwks_auth"
+        case jwksChallenge = "jwks_challenge"
         case nssUidOffset = "nss_uid_offset"
         case nssGidOffset = "nss_gid_offset"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
@@ -48,7 +51,8 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(deviceId, forKey: .deviceId)
         try container.encode(refreshInterval, forKey: .refreshInterval)
         try container.encode(authorizationFlow, forKey: .authorizationFlow)
-        try container.encode(jwks, forKey: .jwks)
+        try container.encode(jwksAuth, forKey: .jwksAuth)
+        try container.encode(jwksChallenge, forKey: .jwksChallenge)
         try container.encode(nssUidOffset, forKey: .nssUidOffset)
         try container.encode(nssGidOffset, forKey: .nssGidOffset)
         try container.encode(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)

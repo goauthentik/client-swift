@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **additionalPermissions** | [ConsentPermission] |  | 
 **token** | **String** |  | 
 **name** | **String** |  | 
+**challenge** | **String** |  | 
 **requestId** | **String** |  | 
 **error** | **String** |  | [optional] 
 **traceback** | **String** |  | [optional] 

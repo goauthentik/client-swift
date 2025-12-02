@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
 **flowSet** | [FlowSetRequest] |  | [optional] 
-**mode** | [**MutualTLSStageModeEnum**](MutualTLSStageModeEnum.md) |  | 
+**mode** | [**StageModeEnum**](StageModeEnum.md) |  | 
 **certificateAuthorities** | **[UUID]** | Configure certificate authorities to validate the certificate against. This option has a higher priority than the &#x60;client_certificate&#x60; option on &#x60;Brand&#x60;. | [optional] 
 **certAttribute** | [**CertAttributeEnum**](CertAttributeEnum.md) |  | 
 **userAttribute** | [**UserAttributeEnum**](UserAttributeEnum.md) |  | 

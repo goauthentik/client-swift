@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **selectedStage** | **String** |  | [optional] 
 **webauthn** | **[String: JSONValue]** |  | [optional] 
 **duo** | **Int** |  | [optional] 
-**response** | **[String: JSONValue]** |  | 
+**response** | **String** |  | 
 **token** | **String** |  | 
 **uidField** | **String** |  | 
 **password** | **String** |  | 

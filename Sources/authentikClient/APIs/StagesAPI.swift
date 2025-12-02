@@ -4798,6 +4798,313 @@ open class StagesAPI {
 
     /**
 
+     - parameter endpointStageRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EndpointStage
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsCreate(endpointStageRequest: EndpointStageRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointStage {
+        return try await stagesEndpointsCreateWithRequestBuilder(endpointStageRequest: endpointStageRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /stages/endpoints/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter endpointStageRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EndpointStage> 
+     */
+    open class func stagesEndpointsCreateWithRequestBuilder(endpointStageRequest: EndpointStageRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointStage> {
+        let localVariablePath = "/stages/endpoints/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: endpointStageRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EndpointStage>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsDestroy(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await stagesEndpointsDestroyWithRequestBuilder(stageUuid: stageUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /stages/endpoints/{stage_uuid}/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func stagesEndpointsDestroyWithRequestBuilder(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/stages/endpoints/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedEndpointStageList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEndpointStageList {
+        return try await stagesEndpointsListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /stages/endpoints/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedEndpointStageList> 
+     */
+    open class func stagesEndpointsListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEndpointStageList> {
+        let localVariablePath = "/stages/endpoints/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedEndpointStageList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter patchedEndpointStageRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EndpointStage
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsPartialUpdate(stageUuid: UUID, patchedEndpointStageRequest: PatchedEndpointStageRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointStage {
+        return try await stagesEndpointsPartialUpdateWithRequestBuilder(stageUuid: stageUuid, patchedEndpointStageRequest: patchedEndpointStageRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /stages/endpoints/{stage_uuid}/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter patchedEndpointStageRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EndpointStage> 
+     */
+    open class func stagesEndpointsPartialUpdateWithRequestBuilder(stageUuid: UUID, patchedEndpointStageRequest: PatchedEndpointStageRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointStage> {
+        var localVariablePath = "/stages/endpoints/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedEndpointStageRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EndpointStage>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EndpointStage
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsRetrieve(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointStage {
+        return try await stagesEndpointsRetrieveWithRequestBuilder(stageUuid: stageUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /stages/endpoints/{stage_uuid}/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EndpointStage> 
+     */
+    open class func stagesEndpointsRetrieveWithRequestBuilder(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointStage> {
+        var localVariablePath = "/stages/endpoints/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EndpointStage>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter endpointStageRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EndpointStage
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsUpdate(stageUuid: UUID, endpointStageRequest: EndpointStageRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> EndpointStage {
+        return try await stagesEndpointsUpdateWithRequestBuilder(stageUuid: stageUuid, endpointStageRequest: endpointStageRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /stages/endpoints/{stage_uuid}/
+     - EndpointStage Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter endpointStageRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EndpointStage> 
+     */
+    open class func stagesEndpointsUpdateWithRequestBuilder(stageUuid: UUID, endpointStageRequest: EndpointStageRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<EndpointStage> {
+        var localVariablePath = "/stages/endpoints/{stage_uuid}/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: endpointStageRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EndpointStage>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func stagesEndpointsUsedByList(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await stagesEndpointsUsedByListWithRequestBuilder(stageUuid: stageUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /stages/endpoints/{stage_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter stageUuid: (path) A UUID string identifying this Endpoint Stage. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func stagesEndpointsUsedByListWithRequestBuilder(stageUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/stages/endpoints/{stage_uuid}/used_by/"
+        let stageUuidPreEscape = "\(APIHelper.mapValueToPathItem(stageUuid))"
+        let stageUuidPostEscape = stageUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{stage_uuid}", with: stageUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter identificationStageRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: IdentificationStage

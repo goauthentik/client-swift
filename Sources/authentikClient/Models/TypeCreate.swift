@@ -16,14 +16,16 @@ public struct TypeCreate: Sendable, Codable, ParameterConvertible, Hashable {
     public var modelName: String
     public var iconUrl: String?
     public var requiresEnterprise: Bool? = false
+    public var deprecated: Bool? = false
 
-    public init(name: String, description: String, component: String, modelName: String, iconUrl: String? = nil, requiresEnterprise: Bool? = false) {
+    public init(name: String, description: String, component: String, modelName: String, iconUrl: String? = nil, requiresEnterprise: Bool? = false, deprecated: Bool? = false) {
         self.name = name
         self.description = description
         self.component = component
         self.modelName = modelName
         self.iconUrl = iconUrl
         self.requiresEnterprise = requiresEnterprise
+        self.deprecated = deprecated
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,6 +35,7 @@ public struct TypeCreate: Sendable, Codable, ParameterConvertible, Hashable {
         case modelName = "model_name"
         case iconUrl = "icon_url"
         case requiresEnterprise = "requires_enterprise"
+        case deprecated
     }
 
     // Encodable protocol methods
@@ -45,6 +48,7 @@ public struct TypeCreate: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(modelName, forKey: .modelName)
         try container.encodeIfPresent(iconUrl, forKey: .iconUrl)
         try container.encodeIfPresent(requiresEnterprise, forKey: .requiresEnterprise)
+        try container.encodeIfPresent(deprecated, forKey: .deprecated)
     }
 }
 
