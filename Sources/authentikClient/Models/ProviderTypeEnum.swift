@@ -21,6 +21,7 @@ public enum ProviderTypeEnum: String, Sendable, Codable, CaseIterable, CaseItera
     case okta = "okta"
     case patreon = "patreon"
     case reddit = "reddit"
+    case slack = "slack"
     case twitch = "twitch"
     case twitter = "twitter"
     case unknownDefaultOpenApi = "unknown_default_open_api"
