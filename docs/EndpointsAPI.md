@@ -257,7 +257,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, challengeIdleTimeout: "challengeIdleTimeout_example", challengeTriggerCheckIn: false, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsCreate(agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -515,7 +515,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // PatchedAgentConnectorRequest |  (optional)
+let patchedAgentConnectorRequest = PatchedAgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, challengeIdleTimeout: "challengeIdleTimeout_example", challengeTriggerCheckIn: false, jwtFederationProviders: [123]) // PatchedAgentConnectorRequest |  (optional)
 
 EndpointsAPI.endpointsAgentsConnectorsPartialUpdate(connectorUuid: connectorUuid, patchedAgentConnectorRequest: patchedAgentConnectorRequest) { (response, error) in
     guard error == nil else {
@@ -615,7 +615,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let connectorUuid = 987 // UUID | A UUID string identifying this Agent Connector.
-let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, jwtFederationProviders: [123]) // AgentConnectorRequest | 
+let agentConnectorRequest = AgentConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, snapshotExpiry: "snapshotExpiry_example", authSessionDuration: "authSessionDuration_example", authTerminateSessionOnExpiry: false, refreshInterval: "refreshInterval_example", authorizationFlow: 123, nssUidOffset: 123, nssGidOffset: 123, challengeKey: 123, challengeIdleTimeout: "challengeIdleTimeout_example", challengeTriggerCheckIn: false, jwtFederationProviders: [123]) // AgentConnectorRequest | 
 
 EndpointsAPI.endpointsAgentsConnectorsUpdate(connectorUuid: connectorUuid, agentConnectorRequest: agentConnectorRequest) { (response, error) in
     guard error == nil else {

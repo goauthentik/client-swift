@@ -15,6 +15,7 @@ public struct PatchedAgentConnectorRequest: Sendable, Codable, ParameterConverti
     public static let refreshIntervalRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let nssUidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let nssGidOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let challengeIdleTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var connectorUuid: UUID?
     public var name: String?
     public var enabled: Bool?
@@ -26,9 +27,11 @@ public struct PatchedAgentConnectorRequest: Sendable, Codable, ParameterConverti
     public var nssUidOffset: Int?
     public var nssGidOffset: Int?
     public var challengeKey: UUID?
+    public var challengeIdleTimeout: String?
+    public var challengeTriggerCheckIn: Bool?
     public var jwtFederationProviders: [Int]?
 
-    public init(connectorUuid: UUID? = nil, name: String? = nil, enabled: Bool? = nil, snapshotExpiry: String? = nil, authSessionDuration: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(connectorUuid: UUID? = nil, name: String? = nil, enabled: Bool? = nil, snapshotExpiry: String? = nil, authSessionDuration: String? = nil, authTerminateSessionOnExpiry: Bool? = nil, refreshInterval: String? = nil, authorizationFlow: UUID? = nil, nssUidOffset: Int? = nil, nssGidOffset: Int? = nil, challengeKey: UUID? = nil, challengeIdleTimeout: String? = nil, challengeTriggerCheckIn: Bool? = nil, jwtFederationProviders: [Int]? = nil) {
         self.connectorUuid = connectorUuid
         self.name = name
         self.enabled = enabled
@@ -40,6 +43,8 @@ public struct PatchedAgentConnectorRequest: Sendable, Codable, ParameterConverti
         self.nssUidOffset = nssUidOffset
         self.nssGidOffset = nssGidOffset
         self.challengeKey = challengeKey
+        self.challengeIdleTimeout = challengeIdleTimeout
+        self.challengeTriggerCheckIn = challengeTriggerCheckIn
         self.jwtFederationProviders = jwtFederationProviders
     }
 
@@ -55,6 +60,8 @@ public struct PatchedAgentConnectorRequest: Sendable, Codable, ParameterConverti
         case nssUidOffset = "nss_uid_offset"
         case nssGidOffset = "nss_gid_offset"
         case challengeKey = "challenge_key"
+        case challengeIdleTimeout = "challenge_idle_timeout"
+        case challengeTriggerCheckIn = "challenge_trigger_check_in"
         case jwtFederationProviders = "jwt_federation_providers"
     }
 
@@ -73,6 +80,8 @@ public struct PatchedAgentConnectorRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(nssUidOffset, forKey: .nssUidOffset)
         try container.encodeIfPresent(nssGidOffset, forKey: .nssGidOffset)
         try container.encodeIfPresent(challengeKey, forKey: .challengeKey)
+        try container.encodeIfPresent(challengeIdleTimeout, forKey: .challengeIdleTimeout)
+        try container.encodeIfPresent(challengeTriggerCheckIn, forKey: .challengeTriggerCheckIn)
         try container.encodeIfPresent(jwtFederationProviders, forKey: .jwtFederationProviders)
     }
 }

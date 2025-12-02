@@ -14,12 +14,14 @@ public struct EndpointAgentChallenge: Sendable, Codable, ParameterConvertible, H
     public var component: String? = "ak-stage-endpoint-agent"
     public var responseErrors: [String: [ErrorDetail]]?
     public var challenge: String
+    public var challengeIdleTimeout: Int
 
-    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-endpoint-agent", responseErrors: [String: [ErrorDetail]]? = nil, challenge: String) {
+    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-endpoint-agent", responseErrors: [String: [ErrorDetail]]? = nil, challenge: String, challengeIdleTimeout: Int) {
         self.flowInfo = flowInfo
         self.component = component
         self.responseErrors = responseErrors
         self.challenge = challenge
+        self.challengeIdleTimeout = challengeIdleTimeout
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -27,6 +29,7 @@ public struct EndpointAgentChallenge: Sendable, Codable, ParameterConvertible, H
         case component
         case responseErrors = "response_errors"
         case challenge
+        case challengeIdleTimeout = "challenge_idle_timeout"
     }
 
     // Encodable protocol methods
@@ -37,6 +40,7 @@ public struct EndpointAgentChallenge: Sendable, Codable, ParameterConvertible, H
         try container.encodeIfPresent(component, forKey: .component)
         try container.encodeIfPresent(responseErrors, forKey: .responseErrors)
         try container.encode(challenge, forKey: .challenge)
+        try container.encode(challengeIdleTimeout, forKey: .challengeIdleTimeout)
     }
 }
 

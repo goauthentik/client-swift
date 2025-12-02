@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **token** | **String** |  | 
 **name** | **String** |  | 
 **challenge** | **String** |  | 
+**challengeIdleTimeout** | **Int** |  | 
 **requestId** | **String** |  | 
 **error** | **String** |  | [optional] 
 **traceback** | **String** |  | [optional] 
