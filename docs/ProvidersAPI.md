@@ -4856,7 +4856,7 @@ SCIMProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimCreate(sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5275,7 +5275,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedSCIMProviderRequest |  (optional)
+let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedSCIMProviderRequest |  (optional)
 
 ProvidersAPI.providersScimPartialUpdate(id: id, patchedSCIMProviderRequest: patchedSCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5475,7 +5475,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimUpdate(id: id, sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {

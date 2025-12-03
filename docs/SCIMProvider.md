@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **authOauth** | **UUID** | OAuth Source used for authentication | [optional] 
 **authOauthParams** | **[String: JSONValue]** | Additional OAuth parameters, such as grant_type | [optional] 
 **compatibilityMode** | [**CompatibilityModeEnum**](CompatibilityModeEnum.md) | Alter authentik behavior for vendor-specific SCIM implementations. | [optional] 
+**serviceProviderConfigCacheTimeout** | **String** | Cache duration for ServiceProviderConfig responses. Set minutes&#x3D;0 to disable. | [optional] 
 **excludeUsersServiceAccount** | **Bool** |  | [optional] 
 **filterGroup** | **UUID** |  | [optional] 
 **syncPageSize** | **Int** | Controls the number of objects synced in a single task | [optional] 

@@ -12,6 +12,7 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let urlRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let serviceProviderConfigCacheTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let syncPageSizeRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let syncPageTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
@@ -30,6 +31,8 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
     public var authOauthParams: [String: JSONValue]?
     /** Alter authentik behavior for vendor-specific SCIM implementations. */
     public var compatibilityMode: CompatibilityModeEnum?
+    /** Cache duration for ServiceProviderConfig responses. Set minutes=0 to disable. */
+    public var serviceProviderConfigCacheTimeout: String?
     public var excludeUsersServiceAccount: Bool?
     public var filterGroup: UUID?
     /** Controls the number of objects synced in a single task */
@@ -39,7 +42,7 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(name: String? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String? = nil, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
+    public init(name: String? = nil, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String? = nil, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, serviceProviderConfigCacheTimeout: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.name = name
         self.propertyMappings = propertyMappings
         self.propertyMappingsGroup = propertyMappingsGroup
@@ -50,6 +53,7 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
         self.authOauth = authOauth
         self.authOauthParams = authOauthParams
         self.compatibilityMode = compatibilityMode
+        self.serviceProviderConfigCacheTimeout = serviceProviderConfigCacheTimeout
         self.excludeUsersServiceAccount = excludeUsersServiceAccount
         self.filterGroup = filterGroup
         self.syncPageSize = syncPageSize
@@ -68,6 +72,7 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
         case authOauth = "auth_oauth"
         case authOauthParams = "auth_oauth_params"
         case compatibilityMode = "compatibility_mode"
+        case serviceProviderConfigCacheTimeout = "service_provider_config_cache_timeout"
         case excludeUsersServiceAccount = "exclude_users_service_account"
         case filterGroup = "filter_group"
         case syncPageSize = "sync_page_size"
@@ -89,6 +94,7 @@ public struct PatchedSCIMProviderRequest: Sendable, Codable, ParameterConvertibl
         try container.encodeIfPresent(authOauth, forKey: .authOauth)
         try container.encodeIfPresent(authOauthParams, forKey: .authOauthParams)
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
+        try container.encodeIfPresent(serviceProviderConfigCacheTimeout, forKey: .serviceProviderConfigCacheTimeout)
         try container.encodeIfPresent(excludeUsersServiceAccount, forKey: .excludeUsersServiceAccount)
         try container.encodeIfPresent(filterGroup, forKey: .filterGroup)
         try container.encodeIfPresent(syncPageSize, forKey: .syncPageSize)
