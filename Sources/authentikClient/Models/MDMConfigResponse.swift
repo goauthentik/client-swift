@@ -11,13 +11,19 @@ import Foundation
 public struct MDMConfigResponse: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var config: String
+    public var mimeType: String
+    public var filename: String
 
-    public init(config: String) {
+    public init(config: String, mimeType: String, filename: String) {
         self.config = config
+        self.mimeType = mimeType
+        self.filename = filename
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case config
+        case mimeType = "mime_type"
+        case filename
     }
 
     // Encodable protocol methods
@@ -25,6 +31,8 @@ public struct MDMConfigResponse: Sendable, Codable, ParameterConvertible, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(config, forKey: .config)
+        try container.encode(mimeType, forKey: .mimeType)
+        try container.encode(filename, forKey: .filename)
     }
 }
 

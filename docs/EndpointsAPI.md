@@ -1806,7 +1806,7 @@ Name | Type | Description  | Notes
 
 # **endpointsDeviceBindingsCreate**
 ```swift
-    open class func endpointsDeviceBindingsCreate(policyBindingRequest: PolicyBindingRequest, completion: @escaping (_ data: PolicyBinding?, _ error: Error?) -> Void)
+    open class func endpointsDeviceBindingsCreate(deviceUserBindingRequest: DeviceUserBindingRequest, completion: @escaping (_ data: DeviceUserBinding?, _ error: Error?) -> Void)
 ```
 
 
@@ -1818,9 +1818,9 @@ PolicyBinding Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PolicyBindingRequest | 
+let deviceUserBindingRequest = DeviceUserBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false, isPrimary: false) // DeviceUserBindingRequest | 
 
-EndpointsAPI.endpointsDeviceBindingsCreate(policyBindingRequest: policyBindingRequest) { (response, error) in
+EndpointsAPI.endpointsDeviceBindingsCreate(deviceUserBindingRequest: deviceUserBindingRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1836,11 +1836,11 @@ EndpointsAPI.endpointsDeviceBindingsCreate(policyBindingRequest: policyBindingRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyBindingRequest** | [**PolicyBindingRequest**](PolicyBindingRequest.md) |  | 
+ **deviceUserBindingRequest** | [**DeviceUserBindingRequest**](DeviceUserBindingRequest.md) |  | 
 
 ### Return type
 
-[**PolicyBinding**](PolicyBinding.md)
+[**DeviceUserBinding**](DeviceUserBinding.md)
 
 ### Authorization
 
@@ -1904,7 +1904,7 @@ Void (empty response body)
 
 # **endpointsDeviceBindingsList**
 ```swift
-    open class func endpointsDeviceBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, completion: @escaping (_ data: PaginatedPolicyBindingList?, _ error: Error?) -> Void)
+    open class func endpointsDeviceBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, completion: @escaping (_ data: PaginatedDeviceUserBindingList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1958,7 +1958,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedPolicyBindingList**](PaginatedPolicyBindingList.md)
+[**PaginatedDeviceUserBindingList**](PaginatedDeviceUserBindingList.md)
 
 ### Authorization
 
@@ -1973,7 +1973,7 @@ Name | Type | Description  | Notes
 
 # **endpointsDeviceBindingsPartialUpdate**
 ```swift
-    open class func endpointsDeviceBindingsPartialUpdate(policyBindingUuid: UUID, patchedPolicyBindingRequest: PatchedPolicyBindingRequest? = nil, completion: @escaping (_ data: PolicyBinding?, _ error: Error?) -> Void)
+    open class func endpointsDeviceBindingsPartialUpdate(policyBindingUuid: UUID, patchedDeviceUserBindingRequest: PatchedDeviceUserBindingRequest? = nil, completion: @escaping (_ data: DeviceUserBinding?, _ error: Error?) -> Void)
 ```
 
 
@@ -1986,9 +1986,9 @@ PolicyBinding Viewset
 import authentikClient
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
-let patchedPolicyBindingRequest = PatchedPolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PatchedPolicyBindingRequest |  (optional)
+let patchedDeviceUserBindingRequest = PatchedDeviceUserBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false, isPrimary: false) // PatchedDeviceUserBindingRequest |  (optional)
 
-EndpointsAPI.endpointsDeviceBindingsPartialUpdate(policyBindingUuid: policyBindingUuid, patchedPolicyBindingRequest: patchedPolicyBindingRequest) { (response, error) in
+EndpointsAPI.endpointsDeviceBindingsPartialUpdate(policyBindingUuid: policyBindingUuid, patchedDeviceUserBindingRequest: patchedDeviceUserBindingRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2005,11 +2005,11 @@ EndpointsAPI.endpointsDeviceBindingsPartialUpdate(policyBindingUuid: policyBindi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
- **patchedPolicyBindingRequest** | [**PatchedPolicyBindingRequest**](PatchedPolicyBindingRequest.md) |  | [optional] 
+ **patchedDeviceUserBindingRequest** | [**PatchedDeviceUserBindingRequest**](PatchedDeviceUserBindingRequest.md) |  | [optional] 
 
 ### Return type
 
-[**PolicyBinding**](PolicyBinding.md)
+[**DeviceUserBinding**](DeviceUserBinding.md)
 
 ### Authorization
 
@@ -2024,7 +2024,7 @@ Name | Type | Description  | Notes
 
 # **endpointsDeviceBindingsRetrieve**
 ```swift
-    open class func endpointsDeviceBindingsRetrieve(policyBindingUuid: UUID, completion: @escaping (_ data: PolicyBinding?, _ error: Error?) -> Void)
+    open class func endpointsDeviceBindingsRetrieve(policyBindingUuid: UUID, completion: @escaping (_ data: DeviceUserBinding?, _ error: Error?) -> Void)
 ```
 
 
@@ -2058,7 +2058,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PolicyBinding**](PolicyBinding.md)
+[**DeviceUserBinding**](DeviceUserBinding.md)
 
 ### Authorization
 
@@ -2073,7 +2073,7 @@ Name | Type | Description  | Notes
 
 # **endpointsDeviceBindingsUpdate**
 ```swift
-    open class func endpointsDeviceBindingsUpdate(policyBindingUuid: UUID, policyBindingRequest: PolicyBindingRequest, completion: @escaping (_ data: PolicyBinding?, _ error: Error?) -> Void)
+    open class func endpointsDeviceBindingsUpdate(policyBindingUuid: UUID, deviceUserBindingRequest: DeviceUserBindingRequest, completion: @escaping (_ data: DeviceUserBinding?, _ error: Error?) -> Void)
 ```
 
 
@@ -2086,9 +2086,9 @@ PolicyBinding Viewset
 import authentikClient
 
 let policyBindingUuid = 987 // UUID | A UUID string identifying this Device User binding.
-let policyBindingRequest = PolicyBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false) // PolicyBindingRequest | 
+let deviceUserBindingRequest = DeviceUserBindingRequest(policy: 123, group: 123, user: 123, target: 123, negate: false, enabled: false, order: 123, timeout: 123, failureResult: false, isPrimary: false) // DeviceUserBindingRequest | 
 
-EndpointsAPI.endpointsDeviceBindingsUpdate(policyBindingUuid: policyBindingUuid, policyBindingRequest: policyBindingRequest) { (response, error) in
+EndpointsAPI.endpointsDeviceBindingsUpdate(policyBindingUuid: policyBindingUuid, deviceUserBindingRequest: deviceUserBindingRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2105,11 +2105,11 @@ EndpointsAPI.endpointsDeviceBindingsUpdate(policyBindingUuid: policyBindingUuid,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyBindingUuid** | **UUID** | A UUID string identifying this Device User binding. | 
- **policyBindingRequest** | [**PolicyBindingRequest**](PolicyBindingRequest.md) |  | 
+ **deviceUserBindingRequest** | [**DeviceUserBindingRequest**](DeviceUserBindingRequest.md) |  | 
 
 ### Return type
 
-[**PolicyBinding**](PolicyBinding.md)
+[**DeviceUserBinding**](DeviceUserBinding.md)
 
 ### Authorization
 

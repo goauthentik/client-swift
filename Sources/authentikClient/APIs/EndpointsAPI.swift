@@ -1490,13 +1490,13 @@ open class EndpointsAPI {
 
     /**
 
-     - parameter policyBindingRequest: (body)  
+     - parameter deviceUserBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PolicyBinding
+     - returns: DeviceUserBinding
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceBindingsCreate(policyBindingRequest: PolicyBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PolicyBinding {
-        return try await endpointsDeviceBindingsCreateWithRequestBuilder(policyBindingRequest: policyBindingRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func endpointsDeviceBindingsCreate(deviceUserBindingRequest: DeviceUserBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceUserBinding {
+        return try await endpointsDeviceBindingsCreateWithRequestBuilder(deviceUserBindingRequest: deviceUserBindingRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1505,14 +1505,14 @@ open class EndpointsAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter policyBindingRequest: (body)  
+     - parameter deviceUserBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PolicyBinding> 
+     - returns: RequestBuilder<DeviceUserBinding> 
      */
-    open class func endpointsDeviceBindingsCreateWithRequestBuilder(policyBindingRequest: PolicyBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PolicyBinding> {
+    open class func endpointsDeviceBindingsCreateWithRequestBuilder(deviceUserBindingRequest: DeviceUserBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceUserBinding> {
         let localVariablePath = "/endpoints/device_bindings/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyBindingRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceUserBindingRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1522,7 +1522,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DeviceUserBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -1583,10 +1583,10 @@ open class EndpointsAPI {
      - parameter targetIn: (query)  (optional)
      - parameter timeout: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedPolicyBindingList
+     - returns: PaginatedDeviceUserBindingList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPolicyBindingList {
+    open class func endpointsDeviceBindingsList(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedDeviceUserBindingList {
         return try await endpointsDeviceBindingsListWithRequestBuilder(enabled: enabled, order: order, ordering: ordering, page: page, pageSize: pageSize, policy: policy, policyIsnull: policyIsnull, search: search, target: target, targetIn: targetIn, timeout: timeout, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -1608,9 +1608,9 @@ open class EndpointsAPI {
      - parameter targetIn: (query)  (optional)
      - parameter timeout: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedPolicyBindingList> 
+     - returns: RequestBuilder<PaginatedDeviceUserBindingList> 
      */
-    open class func endpointsDeviceBindingsListWithRequestBuilder(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedPolicyBindingList> {
+    open class func endpointsDeviceBindingsListWithRequestBuilder(enabled: Bool? = nil, order: Int? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, policy: UUID? = nil, policyIsnull: Bool? = nil, search: String? = nil, target: UUID? = nil, targetIn: [UUID]? = nil, timeout: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedDeviceUserBindingList> {
         let localVariablePath = "/endpoints/device_bindings/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -1636,7 +1636,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PaginatedPolicyBindingList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedDeviceUserBindingList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -1644,13 +1644,13 @@ open class EndpointsAPI {
     /**
 
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
-     - parameter patchedPolicyBindingRequest: (body)  (optional)
+     - parameter patchedDeviceUserBindingRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PolicyBinding
+     - returns: DeviceUserBinding
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceBindingsPartialUpdate(policyBindingUuid: UUID, patchedPolicyBindingRequest: PatchedPolicyBindingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PolicyBinding {
-        return try await endpointsDeviceBindingsPartialUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, patchedPolicyBindingRequest: patchedPolicyBindingRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func endpointsDeviceBindingsPartialUpdate(policyBindingUuid: UUID, patchedDeviceUserBindingRequest: PatchedDeviceUserBindingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceUserBinding {
+        return try await endpointsDeviceBindingsPartialUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, patchedDeviceUserBindingRequest: patchedDeviceUserBindingRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1660,17 +1660,17 @@ open class EndpointsAPI {
        - type: http
        - name: authentik
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
-     - parameter patchedPolicyBindingRequest: (body)  (optional)
+     - parameter patchedDeviceUserBindingRequest: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PolicyBinding> 
+     - returns: RequestBuilder<DeviceUserBinding> 
      */
-    open class func endpointsDeviceBindingsPartialUpdateWithRequestBuilder(policyBindingUuid: UUID, patchedPolicyBindingRequest: PatchedPolicyBindingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PolicyBinding> {
+    open class func endpointsDeviceBindingsPartialUpdateWithRequestBuilder(policyBindingUuid: UUID, patchedDeviceUserBindingRequest: PatchedDeviceUserBindingRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceUserBinding> {
         var localVariablePath = "/endpoints/device_bindings/{policy_binding_uuid}/"
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPolicyBindingRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedDeviceUserBindingRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1680,7 +1680,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DeviceUserBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -1689,10 +1689,10 @@ open class EndpointsAPI {
 
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PolicyBinding
+     - returns: DeviceUserBinding
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceBindingsRetrieve(policyBindingUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PolicyBinding {
+    open class func endpointsDeviceBindingsRetrieve(policyBindingUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceUserBinding {
         return try await endpointsDeviceBindingsRetrieveWithRequestBuilder(policyBindingUuid: policyBindingUuid, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -1704,9 +1704,9 @@ open class EndpointsAPI {
        - name: authentik
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PolicyBinding> 
+     - returns: RequestBuilder<DeviceUserBinding> 
      */
-    open class func endpointsDeviceBindingsRetrieveWithRequestBuilder(policyBindingUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PolicyBinding> {
+    open class func endpointsDeviceBindingsRetrieveWithRequestBuilder(policyBindingUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceUserBinding> {
         var localVariablePath = "/endpoints/device_bindings/{policy_binding_uuid}/"
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1722,7 +1722,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DeviceUserBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -1730,13 +1730,13 @@ open class EndpointsAPI {
     /**
 
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
-     - parameter policyBindingRequest: (body)  
+     - parameter deviceUserBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: PolicyBinding
+     - returns: DeviceUserBinding
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func endpointsDeviceBindingsUpdate(policyBindingUuid: UUID, policyBindingRequest: PolicyBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PolicyBinding {
-        return try await endpointsDeviceBindingsUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, policyBindingRequest: policyBindingRequest, apiConfiguration: apiConfiguration).execute().body
+    open class func endpointsDeviceBindingsUpdate(policyBindingUuid: UUID, deviceUserBindingRequest: DeviceUserBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DeviceUserBinding {
+        return try await endpointsDeviceBindingsUpdateWithRequestBuilder(policyBindingUuid: policyBindingUuid, deviceUserBindingRequest: deviceUserBindingRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1746,17 +1746,17 @@ open class EndpointsAPI {
        - type: http
        - name: authentik
      - parameter policyBindingUuid: (path) A UUID string identifying this Device User binding. 
-     - parameter policyBindingRequest: (body)  
+     - parameter deviceUserBindingRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PolicyBinding> 
+     - returns: RequestBuilder<DeviceUserBinding> 
      */
-    open class func endpointsDeviceBindingsUpdateWithRequestBuilder(policyBindingUuid: UUID, policyBindingRequest: PolicyBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PolicyBinding> {
+    open class func endpointsDeviceBindingsUpdateWithRequestBuilder(policyBindingUuid: UUID, deviceUserBindingRequest: DeviceUserBindingRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DeviceUserBinding> {
         var localVariablePath = "/endpoints/device_bindings/{policy_binding_uuid}/"
         let policyBindingUuidPreEscape = "\(APIHelper.mapValueToPathItem(policyBindingUuid))"
         let policyBindingUuidPostEscape = policyBindingUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{policy_binding_uuid}", with: policyBindingUuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: policyBindingRequest, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: deviceUserBindingRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -1766,7 +1766,7 @@ open class EndpointsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<PolicyBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DeviceUserBinding>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

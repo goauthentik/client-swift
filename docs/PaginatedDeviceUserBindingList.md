@@ -1,11 +1,11 @@
-# MDMConfigResponse
+# PaginatedDeviceUserBindingList
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config** | **String** |  | 
-**mimeType** | **String** |  | 
-**filename** | **String** |  | 
+**pagination** | [**Pagination**](Pagination.md) |  | 
+**results** | [DeviceUserBinding] |  | 
+**autocomplete** | **[String: JSONValue]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

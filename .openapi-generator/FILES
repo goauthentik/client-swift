@@ -159,6 +159,8 @@ Sources/authentikClient/Models/DeviceGroup.swift
 Sources/authentikClient/Models/DeviceGroupRequest.swift
 Sources/authentikClient/Models/DeviceSummary.swift
 Sources/authentikClient/Models/DeviceUser.swift
+Sources/authentikClient/Models/DeviceUserBinding.swift
+Sources/authentikClient/Models/DeviceUserBindingRequest.swift
 Sources/authentikClient/Models/DeviceUserRequest.swift
 Sources/authentikClient/Models/DigestAlgorithmEnum.swift
 Sources/authentikClient/Models/DigitsEnum.swift
@@ -392,6 +394,7 @@ Sources/authentikClient/Models/PaginatedConnectorList.swift
 Sources/authentikClient/Models/PaginatedConsentStageList.swift
 Sources/authentikClient/Models/PaginatedDenyStageList.swift
 Sources/authentikClient/Models/PaginatedDeviceAccessGroupList.swift
+Sources/authentikClient/Models/PaginatedDeviceUserBindingList.swift
 Sources/authentikClient/Models/PaginatedDockerServiceConnectionList.swift
 Sources/authentikClient/Models/PaginatedDomainList.swift
 Sources/authentikClient/Models/PaginatedDummyPolicyList.swift
@@ -550,6 +553,7 @@ Sources/authentikClient/Models/PatchedConnectionTokenRequest.swift
 Sources/authentikClient/Models/PatchedConsentStageRequest.swift
 Sources/authentikClient/Models/PatchedDenyStageRequest.swift
 Sources/authentikClient/Models/PatchedDeviceAccessGroupRequest.swift
+Sources/authentikClient/Models/PatchedDeviceUserBindingRequest.swift
 Sources/authentikClient/Models/PatchedDockerServiceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedDomainRequest.swift
 Sources/authentikClient/Models/PatchedDummyPolicyRequest.swift
@@ -993,6 +997,8 @@ docs/DeviceGroup.md
 docs/DeviceGroupRequest.md
 docs/DeviceSummary.md
 docs/DeviceUser.md
+docs/DeviceUserBinding.md
+docs/DeviceUserBindingRequest.md
 docs/DeviceUserRequest.md
 docs/DigestAlgorithmEnum.md
 docs/DigitsEnum.md
@@ -1233,6 +1239,7 @@ docs/PaginatedConnectorList.md
 docs/PaginatedConsentStageList.md
 docs/PaginatedDenyStageList.md
 docs/PaginatedDeviceAccessGroupList.md
+docs/PaginatedDeviceUserBindingList.md
 docs/PaginatedDockerServiceConnectionList.md
 docs/PaginatedDomainList.md
 docs/PaginatedDummyPolicyList.md
@@ -1391,6 +1398,7 @@ docs/PatchedConnectionTokenRequest.md
 docs/PatchedConsentStageRequest.md
 docs/PatchedDenyStageRequest.md
 docs/PatchedDeviceAccessGroupRequest.md
+docs/PatchedDeviceUserBindingRequest.md
 docs/PatchedDockerServiceConnectionRequest.md
 docs/PatchedDomainRequest.md
 docs/PatchedDummyPolicyRequest.md
