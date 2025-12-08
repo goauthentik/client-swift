@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pk** | **Int** |  | [readonly] 
 **name** | **String** |  | 
-**mode** | [**InitialPermissionsModeEnum**](InitialPermissionsModeEnum.md) |  | 
 **role** | **UUID** |  | 
 **permissions** | **[Int]** |  | [optional] 
 **permissionsObj** | [Permission] |  | [readonly] 

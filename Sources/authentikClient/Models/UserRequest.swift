@@ -20,17 +20,19 @@ public struct UserRequest: Sendable, Codable, ParameterConvertible, Hashable {
     public var isActive: Bool?
     public var lastLogin: Date?
     public var groups: [UUID]?
+    public var roles: [UUID]?
     public var email: String?
     public var attributes: [String: JSONValue]?
     public var path: String?
     public var type: UserTypeEnum?
 
-    public init(username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, groups: [UUID]? = nil, email: String? = nil, attributes: [String: JSONValue]? = nil, path: String? = nil, type: UserTypeEnum? = nil) {
+    public init(username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, groups: [UUID]? = nil, roles: [UUID]? = nil, email: String? = nil, attributes: [String: JSONValue]? = nil, path: String? = nil, type: UserTypeEnum? = nil) {
         self.username = username
         self.name = name
         self.isActive = isActive
         self.lastLogin = lastLogin
         self.groups = groups
+        self.roles = roles
         self.email = email
         self.attributes = attributes
         self.path = path
@@ -43,6 +45,7 @@ public struct UserRequest: Sendable, Codable, ParameterConvertible, Hashable {
         case isActive = "is_active"
         case lastLogin = "last_login"
         case groups
+        case roles
         case email
         case attributes
         case path
@@ -58,6 +61,7 @@ public struct UserRequest: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(isActive, forKey: .isActive)
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(groups, forKey: .groups)
+        try container.encodeIfPresent(roles, forKey: .roles)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(path, forKey: .path)

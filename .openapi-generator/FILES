@@ -213,9 +213,6 @@ Sources/authentikClient/Models/ExpiringBaseGrantModel.swift
 Sources/authentikClient/Models/ExpressionPolicy.swift
 Sources/authentikClient/Models/ExpressionPolicyRequest.swift
 Sources/authentikClient/Models/ExtraRoleObjectPermission.swift
-Sources/authentikClient/Models/ExtraRoleObjectPermissionRequest.swift
-Sources/authentikClient/Models/ExtraUserObjectPermission.swift
-Sources/authentikClient/Models/ExtraUserObjectPermissionRequest.swift
 Sources/authentikClient/Models/FileList.swift
 Sources/authentikClient/Models/Flow.swift
 Sources/authentikClient/Models/FlowChallengeResponseRequest.swift
@@ -250,7 +247,6 @@ Sources/authentikClient/Models/GoogleWorkspaceProviderRequest.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderUser.swift
 Sources/authentikClient/Models/GoogleWorkspaceProviderUserRequest.swift
 Sources/authentikClient/Models/Group.swift
-Sources/authentikClient/Models/GroupChild.swift
 Sources/authentikClient/Models/GroupKerberosSourceConnection.swift
 Sources/authentikClient/Models/GroupKerberosSourceConnectionRequest.swift
 Sources/authentikClient/Models/GroupLDAPSourceConnection.swift
@@ -277,7 +273,6 @@ Sources/authentikClient/Models/IframeLogoutChallenge.swift
 Sources/authentikClient/Models/IframeLogoutChallengeResponseRequest.swift
 Sources/authentikClient/Models/ImpersonationRequest.swift
 Sources/authentikClient/Models/InitialPermissions.swift
-Sources/authentikClient/Models/InitialPermissionsModeEnum.swift
 Sources/authentikClient/Models/InitialPermissionsRequest.swift
 Sources/authentikClient/Models/InstallID.swift
 Sources/authentikClient/Models/IntentEnum.swift
@@ -411,7 +406,6 @@ Sources/authentikClient/Models/PaginatedEventMatcherPolicyList.swift
 Sources/authentikClient/Models/PaginatedExpiringBaseGrantModelList.swift
 Sources/authentikClient/Models/PaginatedExpressionPolicyList.swift
 Sources/authentikClient/Models/PaginatedExtraRoleObjectPermissionList.swift
-Sources/authentikClient/Models/PaginatedExtraUserObjectPermissionList.swift
 Sources/authentikClient/Models/PaginatedFlowList.swift
 Sources/authentikClient/Models/PaginatedFlowStageBindingList.swift
 Sources/authentikClient/Models/PaginatedGeoIPPolicyList.swift
@@ -507,7 +501,6 @@ Sources/authentikClient/Models/PaginatedTenantList.swift
 Sources/authentikClient/Models/PaginatedTokenList.swift
 Sources/authentikClient/Models/PaginatedTokenModelList.swift
 Sources/authentikClient/Models/PaginatedUniquePasswordPolicyList.swift
-Sources/authentikClient/Models/PaginatedUserAssignedObjectPermissionList.swift
 Sources/authentikClient/Models/PaginatedUserConsentList.swift
 Sources/authentikClient/Models/PaginatedUserDeleteStageList.swift
 Sources/authentikClient/Models/PaginatedUserKerberosSourceConnectionList.swift
@@ -568,8 +561,6 @@ Sources/authentikClient/Models/PatchedEnrollmentTokenRequest.swift
 Sources/authentikClient/Models/PatchedEventMatcherPolicyRequest.swift
 Sources/authentikClient/Models/PatchedEventRequest.swift
 Sources/authentikClient/Models/PatchedExpressionPolicyRequest.swift
-Sources/authentikClient/Models/PatchedExtraRoleObjectPermissionRequest.swift
-Sources/authentikClient/Models/PatchedExtraUserObjectPermissionRequest.swift
 Sources/authentikClient/Models/PatchedFlowRequest.swift
 Sources/authentikClient/Models/PatchedFlowStageBindingRequest.swift
 Sources/authentikClient/Models/PatchedGeoIPPolicyRequest.swift
@@ -716,12 +707,14 @@ Sources/authentikClient/Models/RedirectStageModeEnum.swift
 Sources/authentikClient/Models/RedirectStageRequest.swift
 Sources/authentikClient/Models/RedirectURI.swift
 Sources/authentikClient/Models/RedirectURIRequest.swift
+Sources/authentikClient/Models/RelatedGroup.swift
 Sources/authentikClient/Models/Reputation.swift
 Sources/authentikClient/Models/ReputationPolicy.swift
 Sources/authentikClient/Models/ReputationPolicyRequest.swift
 Sources/authentikClient/Models/ResidentKeyRequirementEnum.swift
 Sources/authentikClient/Models/Role.swift
 Sources/authentikClient/Models/RoleAssignedObjectPermission.swift
+Sources/authentikClient/Models/RoleModelPermission.swift
 Sources/authentikClient/Models/RoleObjectPermission.swift
 Sources/authentikClient/Models/RoleRequest.swift
 Sources/authentikClient/Models/SAMLBindingsEnum.swift
@@ -823,7 +816,7 @@ Sources/authentikClient/Models/UsedBy.swift
 Sources/authentikClient/Models/UsedByActionEnum.swift
 Sources/authentikClient/Models/User.swift
 Sources/authentikClient/Models/UserAccountRequest.swift
-Sources/authentikClient/Models/UserAssignedObjectPermission.swift
+Sources/authentikClient/Models/UserAccountSerializerForRoleRequest.swift
 Sources/authentikClient/Models/UserAttributeEnum.swift
 Sources/authentikClient/Models/UserConsent.swift
 Sources/authentikClient/Models/UserCreationModeEnum.swift
@@ -843,7 +836,6 @@ Sources/authentikClient/Models/UserLogoutStageRequest.swift
 Sources/authentikClient/Models/UserMatchingModeEnum.swift
 Sources/authentikClient/Models/UserOAuthSourceConnection.swift
 Sources/authentikClient/Models/UserOAuthSourceConnectionRequest.swift
-Sources/authentikClient/Models/UserObjectPermission.swift
 Sources/authentikClient/Models/UserPasswordSetRequest.swift
 Sources/authentikClient/Models/UserPath.swift
 Sources/authentikClient/Models/UserPlexSourceConnection.swift
@@ -853,6 +845,7 @@ Sources/authentikClient/Models/UserSAMLSourceConnection.swift
 Sources/authentikClient/Models/UserSAMLSourceConnectionRequest.swift
 Sources/authentikClient/Models/UserSelf.swift
 Sources/authentikClient/Models/UserSelfGroups.swift
+Sources/authentikClient/Models/UserSelfRoles.swift
 Sources/authentikClient/Models/UserServiceAccountRequest.swift
 Sources/authentikClient/Models/UserServiceAccountResponse.swift
 Sources/authentikClient/Models/UserSetting.swift
@@ -1054,9 +1047,6 @@ docs/ExpiringBaseGrantModel.md
 docs/ExpressionPolicy.md
 docs/ExpressionPolicyRequest.md
 docs/ExtraRoleObjectPermission.md
-docs/ExtraRoleObjectPermissionRequest.md
-docs/ExtraUserObjectPermission.md
-docs/ExtraUserObjectPermissionRequest.md
 docs/FileList.md
 docs/Flow.md
 docs/FlowChallengeResponseRequest.md
@@ -1092,7 +1082,6 @@ docs/GoogleWorkspaceProviderRequest.md
 docs/GoogleWorkspaceProviderUser.md
 docs/GoogleWorkspaceProviderUserRequest.md
 docs/Group.md
-docs/GroupChild.md
 docs/GroupKerberosSourceConnection.md
 docs/GroupKerberosSourceConnectionRequest.md
 docs/GroupLDAPSourceConnection.md
@@ -1119,7 +1108,6 @@ docs/IframeLogoutChallenge.md
 docs/IframeLogoutChallengeResponseRequest.md
 docs/ImpersonationRequest.md
 docs/InitialPermissions.md
-docs/InitialPermissionsModeEnum.md
 docs/InitialPermissionsRequest.md
 docs/InstallID.md
 docs/IntentEnum.md
@@ -1256,7 +1244,6 @@ docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
 docs/PaginatedExpressionPolicyList.md
 docs/PaginatedExtraRoleObjectPermissionList.md
-docs/PaginatedExtraUserObjectPermissionList.md
 docs/PaginatedFlowList.md
 docs/PaginatedFlowStageBindingList.md
 docs/PaginatedGeoIPPolicyList.md
@@ -1352,7 +1339,6 @@ docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
 docs/PaginatedTokenModelList.md
 docs/PaginatedUniquePasswordPolicyList.md
-docs/PaginatedUserAssignedObjectPermissionList.md
 docs/PaginatedUserConsentList.md
 docs/PaginatedUserDeleteStageList.md
 docs/PaginatedUserKerberosSourceConnectionList.md
@@ -1413,8 +1399,6 @@ docs/PatchedEnrollmentTokenRequest.md
 docs/PatchedEventMatcherPolicyRequest.md
 docs/PatchedEventRequest.md
 docs/PatchedExpressionPolicyRequest.md
-docs/PatchedExtraRoleObjectPermissionRequest.md
-docs/PatchedExtraUserObjectPermissionRequest.md
 docs/PatchedFlowRequest.md
 docs/PatchedFlowStageBindingRequest.md
 docs/PatchedGeoIPPolicyRequest.md
@@ -1566,12 +1550,14 @@ docs/RedirectStageModeEnum.md
 docs/RedirectStageRequest.md
 docs/RedirectURI.md
 docs/RedirectURIRequest.md
+docs/RelatedGroup.md
 docs/Reputation.md
 docs/ReputationPolicy.md
 docs/ReputationPolicyRequest.md
 docs/ResidentKeyRequirementEnum.md
 docs/Role.md
 docs/RoleAssignedObjectPermission.md
+docs/RoleModelPermission.md
 docs/RoleObjectPermission.md
 docs/RoleRequest.md
 docs/RootAPI.md
@@ -1680,7 +1666,7 @@ docs/UsedBy.md
 docs/UsedByActionEnum.md
 docs/User.md
 docs/UserAccountRequest.md
-docs/UserAssignedObjectPermission.md
+docs/UserAccountSerializerForRoleRequest.md
 docs/UserAttributeEnum.md
 docs/UserConsent.md
 docs/UserCreationModeEnum.md
@@ -1700,7 +1686,6 @@ docs/UserLogoutStageRequest.md
 docs/UserMatchingModeEnum.md
 docs/UserOAuthSourceConnection.md
 docs/UserOAuthSourceConnectionRequest.md
-docs/UserObjectPermission.md
 docs/UserPasswordSetRequest.md
 docs/UserPath.md
 docs/UserPlexSourceConnection.md
@@ -1710,6 +1695,7 @@ docs/UserSAMLSourceConnection.md
 docs/UserSAMLSourceConnectionRequest.md
 docs/UserSelf.md
 docs/UserSelfGroups.md
+docs/UserSelfRoles.md
 docs/UserServiceAccountRequest.md
 docs/UserServiceAccountResponse.md
 docs/UserSetting.md

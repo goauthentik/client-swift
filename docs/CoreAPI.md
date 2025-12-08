@@ -1553,7 +1553,7 @@ Group Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // GroupRequest | 
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parents: [123], users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsCreate(groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
@@ -1639,7 +1639,7 @@ Void (empty response body)
 
 # **coreGroupsList**
 ```swift
-    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
+    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1653,6 +1653,7 @@ import authentikClient
 
 let attributes = "attributes_example" // String | Attributes (optional)
 let includeChildren = true // Bool |  (optional) (default to false)
+let includeParents = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 let isSuperuser = true // Bool |  (optional)
 let membersByPk = [123] // [Int] |  (optional)
@@ -1663,7 +1664,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-CoreAPI.coreGroupsList(attributes: attributes, includeChildren: includeChildren, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+CoreAPI.coreGroupsList(attributes: attributes, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1681,6 +1682,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **String** | Attributes | [optional] 
  **includeChildren** | **Bool** |  | [optional] [default to false]
+ **includeParents** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
  **isSuperuser** | **Bool** |  | [optional] 
  **membersByPk** | [**[Int]**](Int.md) |  | [optional] 
@@ -1721,7 +1723,7 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
-let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // PatchedGroupRequest |  (optional)
+let patchedGroupRequest = PatchedGroupRequest(name: "name_example", isSuperuser: false, parents: [123], users: [123], attributes: "TODO", roles: [123]) // PatchedGroupRequest |  (optional)
 
 CoreAPI.coreGroupsPartialUpdate(groupUuid: groupUuid, patchedGroupRequest: patchedGroupRequest) { (response, error) in
     guard error == nil else {
@@ -1810,7 +1812,7 @@ Void (empty response body)
 
 # **coreGroupsRetrieve**
 ```swift
-    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
+    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
 ```
 
 
@@ -1824,9 +1826,10 @@ import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
 let includeChildren = true // Bool |  (optional) (default to false)
+let includeParents = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 
-CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeChildren: includeChildren, includeUsers: includeUsers) { (response, error) in
+CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1844,6 +1847,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **includeChildren** | **Bool** |  | [optional] [default to false]
+ **includeParents** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
 
 ### Return type
@@ -1876,7 +1880,7 @@ Group Viewset
 import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
-let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parent: 123, users: [123], attributes: "TODO", roles: [123], children: [123]) // GroupRequest | 
+let groupRequest = GroupRequest(name: "name_example", isSuperuser: false, parents: [123], users: [123], attributes: "TODO", roles: [123]) // GroupRequest | 
 
 CoreAPI.coreGroupsUpdate(groupUuid: groupUuid, groupRequest: groupRequest) { (response, error) in
     guard error == nil else {
@@ -2697,7 +2701,7 @@ User Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
+let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], roles: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
 
 CoreAPI.coreUsersCreate(userRequest: userRequest) { (response, error) in
     guard error == nil else {
@@ -2879,7 +2883,7 @@ Void (empty response body)
 
 # **coreUsersList**
 ```swift
-    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
 ```
 
 
@@ -2899,6 +2903,7 @@ let email = "email_example" // String |  (optional)
 let groupsByName = ["inner_example"] // [String] |  (optional)
 let groupsByPk = [123] // [UUID] |  (optional)
 let includeGroups = true // Bool |  (optional) (default to true)
+let includeRoles = true // Bool |  (optional) (default to true)
 let isActive = true // Bool |  (optional)
 let isSuperuser = true // Bool |  (optional)
 let lastUpdated = Date() // Date |  (optional)
@@ -2910,12 +2915,14 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let path = "path_example" // String |  (optional)
 let pathStartswith = "pathStartswith_example" // String |  (optional)
+let rolesByName = ["inner_example"] // [String] |  (optional)
+let rolesByPk = [123] // [UUID] |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let type = ["type_example"] // [String] |  (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
-CoreAPI.coreUsersList(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+CoreAPI.coreUsersList(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2939,6 +2946,7 @@ Name | Type | Description  | Notes
  **groupsByName** | [**[String]**](String.md) |  | [optional] 
  **groupsByPk** | [**[UUID]**](UUID.md) |  | [optional] 
  **includeGroups** | **Bool** |  | [optional] [default to true]
+ **includeRoles** | **Bool** |  | [optional] [default to true]
  **isActive** | **Bool** |  | [optional] 
  **isSuperuser** | **Bool** |  | [optional] 
  **lastUpdated** | **Date** |  | [optional] 
@@ -2950,6 +2958,8 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **path** | **String** |  | [optional] 
  **pathStartswith** | **String** |  | [optional] 
+ **rolesByName** | [**[String]**](String.md) |  | [optional] 
+ **rolesByPk** | [**[UUID]**](UUID.md) |  | [optional] 
  **search** | **String** | A search term. | [optional] 
  **type** | [**[String]**](String.md) |  | [optional] 
  **username** | **String** |  | [optional] 
@@ -3030,7 +3040,7 @@ User Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User.
-let patchedUserRequest = PatchedUserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // PatchedUserRequest |  (optional)
+let patchedUserRequest = PatchedUserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], roles: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // PatchedUserRequest |  (optional)
 
 CoreAPI.coreUsersPartialUpdate(id: id, patchedUserRequest: patchedUserRequest) { (response, error) in
     guard error == nil else {
@@ -3379,7 +3389,7 @@ User Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this User.
-let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
+let userRequest = UserRequest(username: "username_example", name: "name_example", isActive: false, lastLogin: Date(), groups: [123], roles: [123], email: "email_example", attributes: "TODO", path: "path_example", type: UserTypeEnum()) // UserRequest | 
 
 CoreAPI.coreUsersUpdate(id: id, userRequest: userRequest) { (response, error) in
     guard error == nil else {

@@ -582,270 +582,6 @@ open class RbacAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter permissionAssignRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: [PermissionAssignResult]
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsAssignedByUsersAssign(id: Int, permissionAssignRequest: PermissionAssignRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PermissionAssignResult] {
-        return try await rbacPermissionsAssignedByUsersAssignWithRequestBuilder(id: id, permissionAssignRequest: permissionAssignRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - POST /rbac/permissions/assigned_by_users/{id}/assign/
-     - Assign permission(s) to user
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter permissionAssignRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<[PermissionAssignResult]> 
-     */
-    open class func rbacPermissionsAssignedByUsersAssignWithRequestBuilder(id: Int, permissionAssignRequest: PermissionAssignRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[PermissionAssignResult]> {
-        var localVariablePath = "/rbac/permissions/assigned_by_users/{id}/assign/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: permissionAssignRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<[PermissionAssignResult]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     * enum for parameter model
-     */
-    public enum Model_rbacPermissionsAssignedByUsersList: String, Sendable, CaseIterable {
-        case authentikBlueprintsPeriodBlueprintinstance = "authentik_blueprints.blueprintinstance"
-        case authentikBrandsPeriodBrand = "authentik_brands.brand"
-        case authentikCorePeriodApplication = "authentik_core.application"
-        case authentikCorePeriodApplicationentitlement = "authentik_core.applicationentitlement"
-        case authentikCorePeriodGroup = "authentik_core.group"
-        case authentikCorePeriodToken = "authentik_core.token"
-        case authentikCorePeriodUser = "authentik_core.user"
-        case authentikCryptoPeriodCertificatekeypair = "authentik_crypto.certificatekeypair"
-        case authentikEndpointsPeriodDeviceuserbinding = "authentik_endpoints.deviceuserbinding"
-        case authentikEndpointsPeriodEndpointstage = "authentik_endpoints.endpointstage"
-        case authentikEndpointsConnectorsAgentPeriodAgentconnector = "authentik_endpoints_connectors_agent.agentconnector"
-        case authentikEndpointsConnectorsAgentPeriodAgentdeviceuserbinding = "authentik_endpoints_connectors_agent.agentdeviceuserbinding"
-        case authentikEndpointsConnectorsAgentPeriodEnrollmenttoken = "authentik_endpoints_connectors_agent.enrollmenttoken"
-        case authentikEnterprisePeriodLicense = "authentik_enterprise.license"
-        case authentikEventsPeriodEvent = "authentik_events.event"
-        case authentikEventsPeriodNotification = "authentik_events.notification"
-        case authentikEventsPeriodNotificationrule = "authentik_events.notificationrule"
-        case authentikEventsPeriodNotificationtransport = "authentik_events.notificationtransport"
-        case authentikEventsPeriodNotificationwebhookmapping = "authentik_events.notificationwebhookmapping"
-        case authentikFlowsPeriodFlow = "authentik_flows.flow"
-        case authentikFlowsPeriodFlowstagebinding = "authentik_flows.flowstagebinding"
-        case authentikOutpostsPeriodDockerserviceconnection = "authentik_outposts.dockerserviceconnection"
-        case authentikOutpostsPeriodKubernetesserviceconnection = "authentik_outposts.kubernetesserviceconnection"
-        case authentikOutpostsPeriodOutpost = "authentik_outposts.outpost"
-        case authentikPoliciesPeriodPolicybinding = "authentik_policies.policybinding"
-        case authentikPoliciesDummyPeriodDummypolicy = "authentik_policies_dummy.dummypolicy"
-        case authentikPoliciesEventMatcherPeriodEventmatcherpolicy = "authentik_policies_event_matcher.eventmatcherpolicy"
-        case authentikPoliciesExpiryPeriodPasswordexpirypolicy = "authentik_policies_expiry.passwordexpirypolicy"
-        case authentikPoliciesExpressionPeriodExpressionpolicy = "authentik_policies_expression.expressionpolicy"
-        case authentikPoliciesGeoipPeriodGeoippolicy = "authentik_policies_geoip.geoippolicy"
-        case authentikPoliciesPasswordPeriodPasswordpolicy = "authentik_policies_password.passwordpolicy"
-        case authentikPoliciesReputationPeriodReputationpolicy = "authentik_policies_reputation.reputationpolicy"
-        case authentikPoliciesUniquePasswordPeriodUniquepasswordpolicy = "authentik_policies_unique_password.uniquepasswordpolicy"
-        case authentikProvidersGoogleWorkspacePeriodGoogleworkspaceprovider = "authentik_providers_google_workspace.googleworkspaceprovider"
-        case authentikProvidersGoogleWorkspacePeriodGoogleworkspaceprovidermapping = "authentik_providers_google_workspace.googleworkspaceprovidermapping"
-        case authentikProvidersLdapPeriodLdapprovider = "authentik_providers_ldap.ldapprovider"
-        case authentikProvidersMicrosoftEntraPeriodMicrosoftentraprovider = "authentik_providers_microsoft_entra.microsoftentraprovider"
-        case authentikProvidersMicrosoftEntraPeriodMicrosoftentraprovidermapping = "authentik_providers_microsoft_entra.microsoftentraprovidermapping"
-        case authentikProvidersOauth2PeriodOauth2provider = "authentik_providers_oauth2.oauth2provider"
-        case authentikProvidersOauth2PeriodScopemapping = "authentik_providers_oauth2.scopemapping"
-        case authentikProvidersProxyPeriodProxyprovider = "authentik_providers_proxy.proxyprovider"
-        case authentikProvidersRacPeriodEndpoint = "authentik_providers_rac.endpoint"
-        case authentikProvidersRacPeriodRacpropertymapping = "authentik_providers_rac.racpropertymapping"
-        case authentikProvidersRacPeriodRacprovider = "authentik_providers_rac.racprovider"
-        case authentikProvidersRadiusPeriodRadiusprovider = "authentik_providers_radius.radiusprovider"
-        case authentikProvidersRadiusPeriodRadiusproviderpropertymapping = "authentik_providers_radius.radiusproviderpropertymapping"
-        case authentikProvidersSamlPeriodSamlpropertymapping = "authentik_providers_saml.samlpropertymapping"
-        case authentikProvidersSamlPeriodSamlprovider = "authentik_providers_saml.samlprovider"
-        case authentikProvidersScimPeriodScimmapping = "authentik_providers_scim.scimmapping"
-        case authentikProvidersScimPeriodScimprovider = "authentik_providers_scim.scimprovider"
-        case authentikProvidersSsfPeriodSsfprovider = "authentik_providers_ssf.ssfprovider"
-        case authentikRbacPeriodInitialpermissions = "authentik_rbac.initialpermissions"
-        case authentikRbacPeriodRole = "authentik_rbac.role"
-        case authentikSourcesKerberosPeriodGroupkerberossourceconnection = "authentik_sources_kerberos.groupkerberossourceconnection"
-        case authentikSourcesKerberosPeriodKerberossource = "authentik_sources_kerberos.kerberossource"
-        case authentikSourcesKerberosPeriodKerberossourcepropertymapping = "authentik_sources_kerberos.kerberossourcepropertymapping"
-        case authentikSourcesKerberosPeriodUserkerberossourceconnection = "authentik_sources_kerberos.userkerberossourceconnection"
-        case authentikSourcesLdapPeriodGroupldapsourceconnection = "authentik_sources_ldap.groupldapsourceconnection"
-        case authentikSourcesLdapPeriodLdapsource = "authentik_sources_ldap.ldapsource"
-        case authentikSourcesLdapPeriodLdapsourcepropertymapping = "authentik_sources_ldap.ldapsourcepropertymapping"
-        case authentikSourcesLdapPeriodUserldapsourceconnection = "authentik_sources_ldap.userldapsourceconnection"
-        case authentikSourcesOauthPeriodGroupoauthsourceconnection = "authentik_sources_oauth.groupoauthsourceconnection"
-        case authentikSourcesOauthPeriodOauthsource = "authentik_sources_oauth.oauthsource"
-        case authentikSourcesOauthPeriodOauthsourcepropertymapping = "authentik_sources_oauth.oauthsourcepropertymapping"
-        case authentikSourcesOauthPeriodUseroauthsourceconnection = "authentik_sources_oauth.useroauthsourceconnection"
-        case authentikSourcesPlexPeriodGroupplexsourceconnection = "authentik_sources_plex.groupplexsourceconnection"
-        case authentikSourcesPlexPeriodPlexsource = "authentik_sources_plex.plexsource"
-        case authentikSourcesPlexPeriodPlexsourcepropertymapping = "authentik_sources_plex.plexsourcepropertymapping"
-        case authentikSourcesPlexPeriodUserplexsourceconnection = "authentik_sources_plex.userplexsourceconnection"
-        case authentikSourcesSamlPeriodGroupsamlsourceconnection = "authentik_sources_saml.groupsamlsourceconnection"
-        case authentikSourcesSamlPeriodSamlsource = "authentik_sources_saml.samlsource"
-        case authentikSourcesSamlPeriodSamlsourcepropertymapping = "authentik_sources_saml.samlsourcepropertymapping"
-        case authentikSourcesSamlPeriodUsersamlsourceconnection = "authentik_sources_saml.usersamlsourceconnection"
-        case authentikSourcesScimPeriodScimsource = "authentik_sources_scim.scimsource"
-        case authentikSourcesScimPeriodScimsourcepropertymapping = "authentik_sources_scim.scimsourcepropertymapping"
-        case authentikSourcesTelegramPeriodGrouptelegramsourceconnection = "authentik_sources_telegram.grouptelegramsourceconnection"
-        case authentikSourcesTelegramPeriodTelegramsource = "authentik_sources_telegram.telegramsource"
-        case authentikSourcesTelegramPeriodTelegramsourcepropertymapping = "authentik_sources_telegram.telegramsourcepropertymapping"
-        case authentikSourcesTelegramPeriodUsertelegramsourceconnection = "authentik_sources_telegram.usertelegramsourceconnection"
-        case authentikStagesAuthenticatorDuoPeriodAuthenticatorduostage = "authentik_stages_authenticator_duo.authenticatorduostage"
-        case authentikStagesAuthenticatorDuoPeriodDuodevice = "authentik_stages_authenticator_duo.duodevice"
-        case authentikStagesAuthenticatorEmailPeriodAuthenticatoremailstage = "authentik_stages_authenticator_email.authenticatoremailstage"
-        case authentikStagesAuthenticatorEmailPeriodEmaildevice = "authentik_stages_authenticator_email.emaildevice"
-        case authentikStagesAuthenticatorEndpointGdtcPeriodAuthenticatorendpointgdtcstage = "authentik_stages_authenticator_endpoint_gdtc.authenticatorendpointgdtcstage"
-        case authentikStagesAuthenticatorSmsPeriodAuthenticatorsmsstage = "authentik_stages_authenticator_sms.authenticatorsmsstage"
-        case authentikStagesAuthenticatorSmsPeriodSmsdevice = "authentik_stages_authenticator_sms.smsdevice"
-        case authentikStagesAuthenticatorStaticPeriodAuthenticatorstaticstage = "authentik_stages_authenticator_static.authenticatorstaticstage"
-        case authentikStagesAuthenticatorStaticPeriodStaticdevice = "authentik_stages_authenticator_static.staticdevice"
-        case authentikStagesAuthenticatorTotpPeriodAuthenticatortotpstage = "authentik_stages_authenticator_totp.authenticatortotpstage"
-        case authentikStagesAuthenticatorTotpPeriodTotpdevice = "authentik_stages_authenticator_totp.totpdevice"
-        case authentikStagesAuthenticatorValidatePeriodAuthenticatorvalidatestage = "authentik_stages_authenticator_validate.authenticatorvalidatestage"
-        case authentikStagesAuthenticatorWebauthnPeriodAuthenticatorwebauthnstage = "authentik_stages_authenticator_webauthn.authenticatorwebauthnstage"
-        case authentikStagesAuthenticatorWebauthnPeriodWebauthndevice = "authentik_stages_authenticator_webauthn.webauthndevice"
-        case authentikStagesCaptchaPeriodCaptchastage = "authentik_stages_captcha.captchastage"
-        case authentikStagesConsentPeriodConsentstage = "authentik_stages_consent.consentstage"
-        case authentikStagesDenyPeriodDenystage = "authentik_stages_deny.denystage"
-        case authentikStagesDummyPeriodDummystage = "authentik_stages_dummy.dummystage"
-        case authentikStagesEmailPeriodEmailstage = "authentik_stages_email.emailstage"
-        case authentikStagesIdentificationPeriodIdentificationstage = "authentik_stages_identification.identificationstage"
-        case authentikStagesInvitationPeriodInvitation = "authentik_stages_invitation.invitation"
-        case authentikStagesInvitationPeriodInvitationstage = "authentik_stages_invitation.invitationstage"
-        case authentikStagesMtlsPeriodMutualtlsstage = "authentik_stages_mtls.mutualtlsstage"
-        case authentikStagesPasswordPeriodPasswordstage = "authentik_stages_password.passwordstage"
-        case authentikStagesPromptPeriodPrompt = "authentik_stages_prompt.prompt"
-        case authentikStagesPromptPeriodPromptstage = "authentik_stages_prompt.promptstage"
-        case authentikStagesRedirectPeriodRedirectstage = "authentik_stages_redirect.redirectstage"
-        case authentikStagesSourcePeriodSourcestage = "authentik_stages_source.sourcestage"
-        case authentikStagesUserDeletePeriodUserdeletestage = "authentik_stages_user_delete.userdeletestage"
-        case authentikStagesUserLoginPeriodUserloginstage = "authentik_stages_user_login.userloginstage"
-        case authentikStagesUserLogoutPeriodUserlogoutstage = "authentik_stages_user_logout.userlogoutstage"
-        case authentikStagesUserWritePeriodUserwritestage = "authentik_stages_user_write.userwritestage"
-        case authentikTasksSchedulesPeriodSchedule = "authentik_tasks_schedules.schedule"
-        case authentikTenantsPeriodDomain = "authentik_tenants.domain"
-    }
-
-    /**
-
-     - parameter model: (query)  
-     - parameter objectPk: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedUserAssignedObjectPermissionList
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsAssignedByUsersList(model: Model_rbacPermissionsAssignedByUsersList, objectPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserAssignedObjectPermissionList {
-        return try await rbacPermissionsAssignedByUsersListWithRequestBuilder(model: model, objectPk: objectPk, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /rbac/permissions/assigned_by_users/
-     - Get assigned object permissions for a single object
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter model: (query)  
-     - parameter objectPk: (query)  (optional)
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedUserAssignedObjectPermissionList> 
-     */
-    open class func rbacPermissionsAssignedByUsersListWithRequestBuilder(model: Model_rbacPermissionsAssignedByUsersList, objectPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserAssignedObjectPermissionList> {
-        let localVariablePath = "/rbac/permissions/assigned_by_users/"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "model": (wrappedValue: model.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "object_pk": (wrappedValue: objectPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<PaginatedUserAssignedObjectPermissionList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter patchedPermissionAssignRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: Void
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsAssignedByUsersUnassignPartialUpdate(id: Int, patchedPermissionAssignRequest: PatchedPermissionAssignRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await rbacPermissionsAssignedByUsersUnassignPartialUpdateWithRequestBuilder(id: id, patchedPermissionAssignRequest: patchedPermissionAssignRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PATCH /rbac/permissions/assigned_by_users/{id}/unassign/
-     - Unassign permission(s) to user. When `object_pk` is set, the permissions are only assigned to the specific object, otherwise they are assigned globally.
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this User. 
-     - parameter patchedPermissionAssignRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<Void> 
-     */
-    open class func rbacPermissionsAssignedByUsersUnassignPartialUpdateWithRequestBuilder(id: Int, patchedPermissionAssignRequest: PatchedPermissionAssignRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/rbac/permissions/assigned_by_users/{id}/unassign/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedPermissionAssignRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
-
-        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
      - parameter codename: (query)  (optional)
      - parameter contentTypeAppLabel: (query)  (optional)
      - parameter contentTypeModel: (query)  (optional)
@@ -954,48 +690,6 @@ open class RbacAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: Void
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsRolesDestroy(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await rbacPermissionsRolesDestroyWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - DELETE /rbac/permissions/roles/{id}/
-     - Get a role's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<Void> 
-     */
-    open class func rbacPermissionsRolesDestroyWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/rbac/permissions/roles/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
@@ -1050,358 +744,46 @@ open class RbacAPI {
 
     /**
 
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter patchedExtraRoleObjectPermissionRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraRoleObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsRolesPartialUpdate(id: Int, patchedExtraRoleObjectPermissionRequest: PatchedExtraRoleObjectPermissionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraRoleObjectPermission {
-        return try await rbacPermissionsRolesPartialUpdateWithRequestBuilder(id: id, patchedExtraRoleObjectPermissionRequest: patchedExtraRoleObjectPermissionRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PATCH /rbac/permissions/roles/{id}/
-     - Get a role's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter patchedExtraRoleObjectPermissionRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraRoleObjectPermission> 
-     */
-    open class func rbacPermissionsRolesPartialUpdateWithRequestBuilder(id: Int, patchedExtraRoleObjectPermissionRequest: PatchedExtraRoleObjectPermissionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraRoleObjectPermission> {
-        var localVariablePath = "/rbac/permissions/roles/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedExtraRoleObjectPermissionRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraRoleObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraRoleObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsRolesRetrieve(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraRoleObjectPermission {
-        return try await rbacPermissionsRolesRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /rbac/permissions/roles/{id}/
-     - Get a role's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraRoleObjectPermission> 
-     */
-    open class func rbacPermissionsRolesRetrieveWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraRoleObjectPermission> {
-        var localVariablePath = "/rbac/permissions/roles/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraRoleObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter extraRoleObjectPermissionRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraRoleObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsRolesUpdate(id: Int, extraRoleObjectPermissionRequest: ExtraRoleObjectPermissionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraRoleObjectPermission {
-        return try await rbacPermissionsRolesUpdateWithRequestBuilder(id: id, extraRoleObjectPermissionRequest: extraRoleObjectPermissionRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PUT /rbac/permissions/roles/{id}/
-     - Get a role's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this group object permission. 
-     - parameter extraRoleObjectPermissionRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraRoleObjectPermission> 
-     */
-    open class func rbacPermissionsRolesUpdateWithRequestBuilder(id: Int, extraRoleObjectPermissionRequest: ExtraRoleObjectPermissionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraRoleObjectPermission> {
-        var localVariablePath = "/rbac/permissions/roles/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: extraRoleObjectPermissionRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraRoleObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this user object permission. 
+     - parameter uuid: (path) A UUID string identifying this Role. 
+     - parameter userAccountSerializerForRoleRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsUsersDestroy(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await rbacPermissionsUsersDestroyWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func rbacRolesAddUserCreate(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await rbacRolesAddUserCreateWithRequestBuilder(uuid: uuid, userAccountSerializerForRoleRequest: userAccountSerializerForRoleRequest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
-     - DELETE /rbac/permissions/users/{id}/
-     - Get a users's assigned object permissions
+     - POST /rbac/roles/{uuid}/add_user/
+     - Add user to role
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter id: (path) A unique integer value identifying this user object permission. 
+     - parameter uuid: (path) A UUID string identifying this Role. 
+     - parameter userAccountSerializerForRoleRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func rbacPermissionsUsersDestroyWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/rbac/permissions/users/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+    open class func rbacRolesAddUserCreateWithRequestBuilder(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/rbac/roles/{uuid}/add_user/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userAccountSerializerForRoleRequest, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
+            "Content-Type": "application/json",
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
 
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter userId: (query)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: PaginatedExtraUserObjectPermissionList
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userId: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedExtraUserObjectPermissionList {
-        return try await rbacPermissionsUsersListWithRequestBuilder(ordering: ordering, page: page, pageSize: pageSize, search: search, userId: userId, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /rbac/permissions/users/
-     - Get a users's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter ordering: (query) Which field to use when ordering the results. (optional)
-     - parameter page: (query) A page number within the paginated result set. (optional)
-     - parameter pageSize: (query) Number of results to return per page. (optional)
-     - parameter search: (query) A search term. (optional)
-     - parameter userId: (query)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<PaginatedExtraUserObjectPermissionList> 
-     */
-    open class func rbacPermissionsUsersListWithRequestBuilder(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userId: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedExtraUserObjectPermissionList> {
-        let localVariablePath = "/rbac/permissions/users/"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "user_id": (wrappedValue: userId?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<PaginatedExtraUserObjectPermissionList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter patchedExtraUserObjectPermissionRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraUserObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsUsersPartialUpdate(id: Int, patchedExtraUserObjectPermissionRequest: PatchedExtraUserObjectPermissionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraUserObjectPermission {
-        return try await rbacPermissionsUsersPartialUpdateWithRequestBuilder(id: id, patchedExtraUserObjectPermissionRequest: patchedExtraUserObjectPermissionRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PATCH /rbac/permissions/users/{id}/
-     - Get a users's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter patchedExtraUserObjectPermissionRequest: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraUserObjectPermission> 
-     */
-    open class func rbacPermissionsUsersPartialUpdateWithRequestBuilder(id: Int, patchedExtraUserObjectPermissionRequest: PatchedExtraUserObjectPermissionRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraUserObjectPermission> {
-        var localVariablePath = "/rbac/permissions/users/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedExtraUserObjectPermissionRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraUserObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraUserObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsUsersRetrieve(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraUserObjectPermission {
-        return try await rbacPermissionsUsersRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - GET /rbac/permissions/users/{id}/
-     - Get a users's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraUserObjectPermission> 
-     */
-    open class func rbacPermissionsUsersRetrieveWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraUserObjectPermission> {
-        var localVariablePath = "/rbac/permissions/users/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraUserObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter extraUserObjectPermissionRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ExtraUserObjectPermission
-     */
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsUsersUpdate(id: Int, extraUserObjectPermissionRequest: ExtraUserObjectPermissionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> ExtraUserObjectPermission {
-        return try await rbacPermissionsUsersUpdateWithRequestBuilder(id: id, extraUserObjectPermissionRequest: extraUserObjectPermissionRequest, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     - PUT /rbac/permissions/users/{id}/
-     - Get a users's assigned object permissions
-     - Bearer Token:
-       - type: http
-       - name: authentik
-     - parameter id: (path) A unique integer value identifying this user object permission. 
-     - parameter extraUserObjectPermissionRequest: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ExtraUserObjectPermission> 
-     */
-    open class func rbacPermissionsUsersUpdateWithRequestBuilder(id: Int, extraUserObjectPermissionRequest: ExtraUserObjectPermissionRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<ExtraUserObjectPermission> {
-        var localVariablePath = "/rbac/permissions/users/{id}/"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: extraUserObjectPermissionRequest, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ExtraUserObjectPermission>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -1487,17 +869,20 @@ open class RbacAPI {
 
     /**
 
+     - parameter managed: (query)  (optional)
+     - parameter managedIsnull: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
+     - parameter users: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedRoleList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacRolesList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedRoleList {
-        return try await rbacRolesListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    open class func rbacRolesList(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: [Int]? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedRoleList {
+        return try await rbacRolesListWithRequestBuilder(managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1506,26 +891,32 @@ open class RbacAPI {
      - Bearer Token:
        - type: http
        - name: authentik
+     - parameter managed: (query)  (optional)
+     - parameter managedIsnull: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter search: (query) A search term. (optional)
+     - parameter users: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedRoleList> 
      */
-    open class func rbacRolesListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedRoleList> {
+    open class func rbacRolesListWithRequestBuilder(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: [Int]? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedRoleList> {
         let localVariablePath = "/rbac/roles/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "managed": (wrappedValue: managed?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "managed__isnull": (wrappedValue: managedIsnull?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "users": (wrappedValue: users?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
@@ -1581,6 +972,50 @@ open class RbacAPI {
         let localVariableRequestBuilder: RequestBuilder<Role>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter uuid: (path) A UUID string identifying this Role. 
+     - parameter userAccountSerializerForRoleRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func rbacRolesRemoveUserCreate(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await rbacRolesRemoveUserCreateWithRequestBuilder(uuid: uuid, userAccountSerializerForRoleRequest: userAccountSerializerForRoleRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /rbac/roles/{uuid}/remove_user/
+     - Remove user from role
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter uuid: (path) A UUID string identifying this Role. 
+     - parameter userAccountSerializerForRoleRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func rbacRolesRemoveUserCreateWithRequestBuilder(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/rbac/roles/{uuid}/remove_user/"
+        let uuidPreEscape = "\(APIHelper.mapValueToPathItem(uuid))"
+        let uuidPostEscape = uuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{uuid}", with: uuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userAccountSerializerForRoleRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
 
     /**

@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**mode** | [**InitialPermissionsModeEnum**](InitialPermissionsModeEnum.md) |  | 
 **role** | **UUID** |  | 
 **permissions** | **[Int]** |  | [optional] 
 

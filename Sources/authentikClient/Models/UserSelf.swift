@@ -21,6 +21,7 @@ public struct UserSelf: Sendable, Codable, ParameterConvertible, Hashable {
     public var isActive: Bool
     public var isSuperuser: Bool
     public var groups: [UserSelfGroups]
+    public var roles: [UserSelfRoles]
     public var email: String?
     /** User's avatar, either a http/https URL or a data URI */
     public var avatar: String
@@ -31,13 +32,14 @@ public struct UserSelf: Sendable, Codable, ParameterConvertible, Hashable {
     /** Get all system permissions assigned to the user */
     public var systemPermissions: [String]
 
-    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], email: String? = nil, avatar: String, uid: String, settings: [String: JSONValue], type: UserTypeEnum? = nil, systemPermissions: [String]) {
+    public init(pk: Int, username: String, name: String, isActive: Bool, isSuperuser: Bool, groups: [UserSelfGroups], roles: [UserSelfRoles], email: String? = nil, avatar: String, uid: String, settings: [String: JSONValue], type: UserTypeEnum? = nil, systemPermissions: [String]) {
         self.pk = pk
         self.username = username
         self.name = name
         self.isActive = isActive
         self.isSuperuser = isSuperuser
         self.groups = groups
+        self.roles = roles
         self.email = email
         self.avatar = avatar
         self.uid = uid
@@ -53,6 +55,7 @@ public struct UserSelf: Sendable, Codable, ParameterConvertible, Hashable {
         case isActive = "is_active"
         case isSuperuser = "is_superuser"
         case groups
+        case roles
         case email
         case avatar
         case uid
@@ -71,6 +74,7 @@ public struct UserSelf: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(isActive, forKey: .isActive)
         try container.encode(isSuperuser, forKey: .isSuperuser)
         try container.encode(groups, forKey: .groups)
+        try container.encode(roles, forKey: .roles)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encode(avatar, forKey: .avatar)
         try container.encode(uid, forKey: .uid)

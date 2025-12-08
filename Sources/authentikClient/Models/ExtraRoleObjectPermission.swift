@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** User permission with additional object-related data */
+/** Role permission with additional object-related data */
 public struct ExtraRoleObjectPermission: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var id: Int
@@ -20,7 +20,7 @@ public struct ExtraRoleObjectPermission: Sendable, Codable, ParameterConvertible
     public var appLabelVerbose: String
     /** Get model label from permission's model */
     public var modelVerbose: String
-    /** Get model description from attached model. This operation takes at least one additional query, and the description is only shown if the user/role has the view_ permission on the object */
+    /** Get model description from attached model. This operation takes at least one additional query, and the description is only shown if the role has the view_ permission on the object */
     public var objectDescription: String?
 
     public init(id: Int, codename: String, model: String, appLabel: String, objectPk: String, name: String, appLabelVerbose: String, modelVerbose: String, objectDescription: String?) {

@@ -12,20 +12,17 @@ public struct PatchedInitialPermissionsRequest: Sendable, Codable, ParameterConv
 
     public static let nameRule = StringRule(minLength: 1, maxLength: 150, pattern: nil)
     public var name: String?
-    public var mode: InitialPermissionsModeEnum?
     public var role: UUID?
     public var permissions: [Int]?
 
-    public init(name: String? = nil, mode: InitialPermissionsModeEnum? = nil, role: UUID? = nil, permissions: [Int]? = nil) {
+    public init(name: String? = nil, role: UUID? = nil, permissions: [Int]? = nil) {
         self.name = name
-        self.mode = mode
         self.role = role
         self.permissions = permissions
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case mode
         case role
         case permissions
     }
@@ -35,7 +32,6 @@ public struct PatchedInitialPermissionsRequest: Sendable, Codable, ParameterConv
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(role, forKey: .role)
         try container.encodeIfPresent(permissions, forKey: .permissions)
     }

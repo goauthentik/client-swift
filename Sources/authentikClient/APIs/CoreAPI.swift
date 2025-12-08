@@ -1401,6 +1401,7 @@ open class CoreAPI {
 
      - parameter attributes: (query) Attributes (optional)
      - parameter includeChildren: (query)  (optional, default to false)
+     - parameter includeParents: (query)  (optional, default to false)
      - parameter includeUsers: (query)  (optional, default to true)
      - parameter isSuperuser: (query)  (optional)
      - parameter membersByPk: (query)  (optional)
@@ -1414,8 +1415,8 @@ open class CoreAPI {
      - returns: PaginatedGroupList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGroupList {
-        return try await coreGroupsListWithRequestBuilder(attributes: attributes, includeChildren: includeChildren, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedGroupList {
+        return try await coreGroupsListWithRequestBuilder(attributes: attributes, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1426,6 +1427,7 @@ open class CoreAPI {
        - name: authentik
      - parameter attributes: (query) Attributes (optional)
      - parameter includeChildren: (query)  (optional, default to false)
+     - parameter includeParents: (query)  (optional, default to false)
      - parameter includeUsers: (query)  (optional, default to true)
      - parameter isSuperuser: (query)  (optional)
      - parameter membersByPk: (query)  (optional)
@@ -1438,7 +1440,7 @@ open class CoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedGroupList> 
      */
-    open class func coreGroupsListWithRequestBuilder(attributes: String? = nil, includeChildren: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedGroupList> {
+    open class func coreGroupsListWithRequestBuilder(attributes: String? = nil, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedGroupList> {
         let localVariablePath = "/core/groups/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -1447,6 +1449,7 @@ open class CoreAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "attributes": (wrappedValue: attributes?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_children": (wrappedValue: includeChildren?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_parents": (wrappedValue: includeParents?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_users": (wrappedValue: includeUsers?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "members_by_pk": (wrappedValue: membersByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -1561,13 +1564,14 @@ open class CoreAPI {
 
      - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter includeChildren: (query)  (optional, default to false)
+     - parameter includeParents: (query)  (optional, default to false)
      - parameter includeUsers: (query)  (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Group
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeUsers: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> Group {
-        return try await coreGroupsRetrieveWithRequestBuilder(groupUuid: groupUuid, includeChildren: includeChildren, includeUsers: includeUsers, apiConfiguration: apiConfiguration).execute().body
+    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> Group {
+        return try await coreGroupsRetrieveWithRequestBuilder(groupUuid: groupUuid, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1578,11 +1582,12 @@ open class CoreAPI {
        - name: authentik
      - parameter groupUuid: (path) A UUID string identifying this Group. 
      - parameter includeChildren: (query)  (optional, default to false)
+     - parameter includeParents: (query)  (optional, default to false)
      - parameter includeUsers: (query)  (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Group> 
      */
-    open class func coreGroupsRetrieveWithRequestBuilder(groupUuid: UUID, includeChildren: Bool? = nil, includeUsers: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Group> {
+    open class func coreGroupsRetrieveWithRequestBuilder(groupUuid: UUID, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Group> {
         var localVariablePath = "/core/groups/{group_uuid}/"
         let groupUuidPreEscape = "\(APIHelper.mapValueToPathItem(groupUuid))"
         let groupUuidPostEscape = groupUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -1593,6 +1598,7 @@ open class CoreAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "include_children": (wrappedValue: includeChildren?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_parents": (wrappedValue: includeParents?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_users": (wrappedValue: includeUsers?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -2518,6 +2524,7 @@ open class CoreAPI {
      - parameter groupsByName: (query)  (optional)
      - parameter groupsByPk: (query)  (optional)
      - parameter includeGroups: (query)  (optional, default to true)
+     - parameter includeRoles: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
@@ -2529,6 +2536,8 @@ open class CoreAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter path: (query)  (optional)
      - parameter pathStartswith: (query)  (optional)
+     - parameter rolesByName: (query)  (optional)
+     - parameter rolesByPk: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter type: (query)  (optional)
      - parameter username: (query)  (optional)
@@ -2537,8 +2546,8 @@ open class CoreAPI {
      - returns: PaginatedUserList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
-        return try await coreUsersListWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
+        return try await coreUsersListWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -2555,6 +2564,7 @@ open class CoreAPI {
      - parameter groupsByName: (query)  (optional)
      - parameter groupsByPk: (query)  (optional)
      - parameter includeGroups: (query)  (optional, default to true)
+     - parameter includeRoles: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
@@ -2566,6 +2576,8 @@ open class CoreAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter path: (query)  (optional)
      - parameter pathStartswith: (query)  (optional)
+     - parameter rolesByName: (query)  (optional)
+     - parameter rolesByPk: (query)  (optional)
      - parameter search: (query) A search term. (optional)
      - parameter type: (query)  (optional)
      - parameter username: (query)  (optional)
@@ -2573,7 +2585,7 @@ open class CoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedUserList> 
      */
-    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
+    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -2588,6 +2600,7 @@ open class CoreAPI {
             "groups_by_name": (wrappedValue: groupsByName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "groups_by_pk": (wrappedValue: groupsByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_groups": (wrappedValue: includeGroups?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_roles": (wrappedValue: includeRoles?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_active": (wrappedValue: isActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated": (wrappedValue: lastUpdated?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -2599,6 +2612,8 @@ open class CoreAPI {
             "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "path": (wrappedValue: path?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "path_startswith": (wrappedValue: pathStartswith?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "roles_by_name": (wrappedValue: rolesByName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "roles_by_pk": (wrappedValue: rolesByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "type": (wrappedValue: type?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "username": (wrappedValue: username?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

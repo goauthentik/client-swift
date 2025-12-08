@@ -13,15 +13,13 @@ public struct InitialPermissions: Sendable, Codable, ParameterConvertible, Hasha
     public static let nameRule = StringRule(minLength: nil, maxLength: 150, pattern: nil)
     public var pk: Int
     public var name: String
-    public var mode: InitialPermissionsModeEnum
     public var role: UUID
     public var permissions: [Int]?
     public var permissionsObj: [Permission]
 
-    public init(pk: Int, name: String, mode: InitialPermissionsModeEnum, role: UUID, permissions: [Int]? = nil, permissionsObj: [Permission]) {
+    public init(pk: Int, name: String, role: UUID, permissions: [Int]? = nil, permissionsObj: [Permission]) {
         self.pk = pk
         self.name = name
-        self.mode = mode
         self.role = role
         self.permissions = permissions
         self.permissionsObj = permissionsObj
@@ -30,7 +28,6 @@ public struct InitialPermissions: Sendable, Codable, ParameterConvertible, Hasha
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pk
         case name
-        case mode
         case role
         case permissions
         case permissionsObj = "permissions_obj"
@@ -42,7 +39,6 @@ public struct InitialPermissions: Sendable, Codable, ParameterConvertible, Hasha
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pk, forKey: .pk)
         try container.encode(name, forKey: .name)
-        try container.encode(mode, forKey: .mode)
         try container.encode(role, forKey: .role)
         try container.encodeIfPresent(permissions, forKey: .permissions)
         try container.encode(permissionsObj, forKey: .permissionsObj)

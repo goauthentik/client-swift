@@ -12,18 +12,21 @@ public struct RoleAssignedObjectPermission: Sendable, Codable, ParameterConverti
 
     public var rolePk: String
     public var name: String
-    public var permissions: [RoleObjectPermission]
+    public var objectPermissions: [RoleObjectPermission]
+    public var modelPermissions: [RoleModelPermission]
 
-    public init(rolePk: String, name: String, permissions: [RoleObjectPermission]) {
+    public init(rolePk: String, name: String, objectPermissions: [RoleObjectPermission], modelPermissions: [RoleModelPermission]) {
         self.rolePk = rolePk
         self.name = name
-        self.permissions = permissions
+        self.objectPermissions = objectPermissions
+        self.modelPermissions = modelPermissions
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case rolePk = "role_pk"
         case name
-        case permissions
+        case objectPermissions = "object_permissions"
+        case modelPermissions = "model_permissions"
     }
 
     // Encodable protocol methods
@@ -32,7 +35,8 @@ public struct RoleAssignedObjectPermission: Sendable, Codable, ParameterConverti
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(rolePk, forKey: .rolePk)
         try container.encode(name, forKey: .name)
-        try container.encode(permissions, forKey: .permissions)
+        try container.encode(objectPermissions, forKey: .objectPermissions)
+        try container.encode(modelPermissions, forKey: .modelPermissions)
     }
 }
 

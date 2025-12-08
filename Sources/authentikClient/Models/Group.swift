@@ -15,23 +15,23 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     /** Users added to this group will be superusers. */
     public var isSuperuser: Bool?
-    public var parent: UUID?
-    public var parentName: String?
+    public var parents: [UUID]?
+    public var parentsObj: [RelatedGroup]?
     public var users: [Int]?
     public var usersObj: [PartialUser]?
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
     public var rolesObj: [Role]
-    public var children: [UUID]?
-    public var childrenObj: [GroupChild]?
+    public var children: [UUID]
+    public var childrenObj: [RelatedGroup]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, users: [Int]? = nil, usersObj: [PartialUser]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID]? = nil, childrenObj: [GroupChild]?) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parents: [UUID]? = nil, parentsObj: [RelatedGroup]?, users: [Int]? = nil, usersObj: [PartialUser]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID], childrenObj: [RelatedGroup]?) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
         self.isSuperuser = isSuperuser
-        self.parent = parent
-        self.parentName = parentName
+        self.parents = parents
+        self.parentsObj = parentsObj
         self.users = users
         self.usersObj = usersObj
         self.attributes = attributes
@@ -46,8 +46,8 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         case numPk = "num_pk"
         case name
         case isSuperuser = "is_superuser"
-        case parent
-        case parentName = "parent_name"
+        case parents
+        case parentsObj = "parents_obj"
         case users
         case usersObj = "users_obj"
         case attributes
@@ -65,14 +65,14 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(numPk, forKey: .numPk)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
-        try container.encodeIfPresent(parent, forKey: .parent)
-        try container.encode(parentName, forKey: .parentName)
+        try container.encodeIfPresent(parents, forKey: .parents)
+        try container.encode(parentsObj, forKey: .parentsObj)
         try container.encodeIfPresent(users, forKey: .users)
         try container.encode(usersObj, forKey: .usersObj)
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
         try container.encode(rolesObj, forKey: .rolesObj)
-        try container.encodeIfPresent(children, forKey: .children)
+        try container.encode(children, forKey: .children)
         try container.encode(childrenObj, forKey: .childrenObj)
     }
 }

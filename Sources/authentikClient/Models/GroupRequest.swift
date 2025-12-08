@@ -14,30 +14,27 @@ public struct GroupRequest: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     /** Users added to this group will be superusers. */
     public var isSuperuser: Bool?
-    public var parent: UUID?
+    public var parents: [UUID]?
     public var users: [Int]?
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
-    public var children: [UUID]?
 
-    public init(name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, users: [Int]? = nil, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, children: [UUID]? = nil) {
+    public init(name: String, isSuperuser: Bool? = nil, parents: [UUID]? = nil, users: [Int]? = nil, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil) {
         self.name = name
         self.isSuperuser = isSuperuser
-        self.parent = parent
+        self.parents = parents
         self.users = users
         self.attributes = attributes
         self.roles = roles
-        self.children = children
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case isSuperuser = "is_superuser"
-        case parent
+        case parents
         case users
         case attributes
         case roles
-        case children
     }
 
     // Encodable protocol methods
@@ -46,11 +43,10 @@ public struct GroupRequest: Sendable, Codable, ParameterConvertible, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
-        try container.encodeIfPresent(parent, forKey: .parent)
+        try container.encodeIfPresent(parents, forKey: .parents)
         try container.encodeIfPresent(users, forKey: .users)
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
-        try container.encodeIfPresent(children, forKey: .children)
     }
 }
 

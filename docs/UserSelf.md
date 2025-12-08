@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **isActive** | **Bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [readonly] 
 **isSuperuser** | **Bool** |  | [readonly] 
 **groups** | [UserSelfGroups] |  | [readonly] 
+**roles** | [UserSelfRoles] |  | [readonly] 
 **email** | **String** |  | [optional] 
 **avatar** | **String** | User&#39;s avatar, either a http/https URL or a data URI | [readonly] 
 **uid** | **String** |  | [readonly] 

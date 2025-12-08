@@ -689,25 +689,15 @@ Class | Method | HTTP request | Description
 *RbacAPI* | [**rbacPermissionsAssignedByRolesAssign**](docs/RbacAPI.md#rbacpermissionsassignedbyrolesassign) | **POST** /rbac/permissions/assigned_by_roles/{uuid}/assign/ | 
 *RbacAPI* | [**rbacPermissionsAssignedByRolesList**](docs/RbacAPI.md#rbacpermissionsassignedbyroleslist) | **GET** /rbac/permissions/assigned_by_roles/ | 
 *RbacAPI* | [**rbacPermissionsAssignedByRolesUnassignPartialUpdate**](docs/RbacAPI.md#rbacpermissionsassignedbyrolesunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_roles/{uuid}/unassign/ | 
-*RbacAPI* | [**rbacPermissionsAssignedByUsersAssign**](docs/RbacAPI.md#rbacpermissionsassignedbyusersassign) | **POST** /rbac/permissions/assigned_by_users/{id}/assign/ | 
-*RbacAPI* | [**rbacPermissionsAssignedByUsersList**](docs/RbacAPI.md#rbacpermissionsassignedbyuserslist) | **GET** /rbac/permissions/assigned_by_users/ | 
-*RbacAPI* | [**rbacPermissionsAssignedByUsersUnassignPartialUpdate**](docs/RbacAPI.md#rbacpermissionsassignedbyusersunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_users/{id}/unassign/ | 
 *RbacAPI* | [**rbacPermissionsList**](docs/RbacAPI.md#rbacpermissionslist) | **GET** /rbac/permissions/ | 
 *RbacAPI* | [**rbacPermissionsRetrieve**](docs/RbacAPI.md#rbacpermissionsretrieve) | **GET** /rbac/permissions/{id}/ | 
-*RbacAPI* | [**rbacPermissionsRolesDestroy**](docs/RbacAPI.md#rbacpermissionsrolesdestroy) | **DELETE** /rbac/permissions/roles/{id}/ | 
 *RbacAPI* | [**rbacPermissionsRolesList**](docs/RbacAPI.md#rbacpermissionsroleslist) | **GET** /rbac/permissions/roles/ | 
-*RbacAPI* | [**rbacPermissionsRolesPartialUpdate**](docs/RbacAPI.md#rbacpermissionsrolespartialupdate) | **PATCH** /rbac/permissions/roles/{id}/ | 
-*RbacAPI* | [**rbacPermissionsRolesRetrieve**](docs/RbacAPI.md#rbacpermissionsrolesretrieve) | **GET** /rbac/permissions/roles/{id}/ | 
-*RbacAPI* | [**rbacPermissionsRolesUpdate**](docs/RbacAPI.md#rbacpermissionsrolesupdate) | **PUT** /rbac/permissions/roles/{id}/ | 
-*RbacAPI* | [**rbacPermissionsUsersDestroy**](docs/RbacAPI.md#rbacpermissionsusersdestroy) | **DELETE** /rbac/permissions/users/{id}/ | 
-*RbacAPI* | [**rbacPermissionsUsersList**](docs/RbacAPI.md#rbacpermissionsuserslist) | **GET** /rbac/permissions/users/ | 
-*RbacAPI* | [**rbacPermissionsUsersPartialUpdate**](docs/RbacAPI.md#rbacpermissionsuserspartialupdate) | **PATCH** /rbac/permissions/users/{id}/ | 
-*RbacAPI* | [**rbacPermissionsUsersRetrieve**](docs/RbacAPI.md#rbacpermissionsusersretrieve) | **GET** /rbac/permissions/users/{id}/ | 
-*RbacAPI* | [**rbacPermissionsUsersUpdate**](docs/RbacAPI.md#rbacpermissionsusersupdate) | **PUT** /rbac/permissions/users/{id}/ | 
+*RbacAPI* | [**rbacRolesAddUserCreate**](docs/RbacAPI.md#rbacrolesaddusercreate) | **POST** /rbac/roles/{uuid}/add_user/ | 
 *RbacAPI* | [**rbacRolesCreate**](docs/RbacAPI.md#rbacrolescreate) | **POST** /rbac/roles/ | 
 *RbacAPI* | [**rbacRolesDestroy**](docs/RbacAPI.md#rbacrolesdestroy) | **DELETE** /rbac/roles/{uuid}/ | 
 *RbacAPI* | [**rbacRolesList**](docs/RbacAPI.md#rbacroleslist) | **GET** /rbac/roles/ | 
 *RbacAPI* | [**rbacRolesPartialUpdate**](docs/RbacAPI.md#rbacrolespartialupdate) | **PATCH** /rbac/roles/{uuid}/ | 
+*RbacAPI* | [**rbacRolesRemoveUserCreate**](docs/RbacAPI.md#rbacrolesremoveusercreate) | **POST** /rbac/roles/{uuid}/remove_user/ | 
 *RbacAPI* | [**rbacRolesRetrieve**](docs/RbacAPI.md#rbacrolesretrieve) | **GET** /rbac/roles/{uuid}/ | 
 *RbacAPI* | [**rbacRolesUpdate**](docs/RbacAPI.md#rbacrolesupdate) | **PUT** /rbac/roles/{uuid}/ | 
 *RbacAPI* | [**rbacRolesUsedByList**](docs/RbacAPI.md#rbacrolesusedbylist) | **GET** /rbac/roles/{uuid}/used_by/ | 
@@ -1292,9 +1282,6 @@ Class | Method | HTTP request | Description
  - [ExpressionPolicy](docs/ExpressionPolicy.md)
  - [ExpressionPolicyRequest](docs/ExpressionPolicyRequest.md)
  - [ExtraRoleObjectPermission](docs/ExtraRoleObjectPermission.md)
- - [ExtraRoleObjectPermissionRequest](docs/ExtraRoleObjectPermissionRequest.md)
- - [ExtraUserObjectPermission](docs/ExtraUserObjectPermission.md)
- - [ExtraUserObjectPermissionRequest](docs/ExtraUserObjectPermissionRequest.md)
  - [FileList](docs/FileList.md)
  - [Flow](docs/Flow.md)
  - [FlowChallengeResponseRequest](docs/FlowChallengeResponseRequest.md)
@@ -1329,7 +1316,6 @@ Class | Method | HTTP request | Description
  - [GoogleWorkspaceProviderUser](docs/GoogleWorkspaceProviderUser.md)
  - [GoogleWorkspaceProviderUserRequest](docs/GoogleWorkspaceProviderUserRequest.md)
  - [Group](docs/Group.md)
- - [GroupChild](docs/GroupChild.md)
  - [GroupKerberosSourceConnection](docs/GroupKerberosSourceConnection.md)
  - [GroupKerberosSourceConnectionRequest](docs/GroupKerberosSourceConnectionRequest.md)
  - [GroupLDAPSourceConnection](docs/GroupLDAPSourceConnection.md)
@@ -1356,7 +1342,6 @@ Class | Method | HTTP request | Description
  - [IframeLogoutChallengeResponseRequest](docs/IframeLogoutChallengeResponseRequest.md)
  - [ImpersonationRequest](docs/ImpersonationRequest.md)
  - [InitialPermissions](docs/InitialPermissions.md)
- - [InitialPermissionsModeEnum](docs/InitialPermissionsModeEnum.md)
  - [InitialPermissionsRequest](docs/InitialPermissionsRequest.md)
  - [InstallID](docs/InstallID.md)
  - [IntentEnum](docs/IntentEnum.md)
@@ -1490,7 +1475,6 @@ Class | Method | HTTP request | Description
  - [PaginatedExpiringBaseGrantModelList](docs/PaginatedExpiringBaseGrantModelList.md)
  - [PaginatedExpressionPolicyList](docs/PaginatedExpressionPolicyList.md)
  - [PaginatedExtraRoleObjectPermissionList](docs/PaginatedExtraRoleObjectPermissionList.md)
- - [PaginatedExtraUserObjectPermissionList](docs/PaginatedExtraUserObjectPermissionList.md)
  - [PaginatedFlowList](docs/PaginatedFlowList.md)
  - [PaginatedFlowStageBindingList](docs/PaginatedFlowStageBindingList.md)
  - [PaginatedGeoIPPolicyList](docs/PaginatedGeoIPPolicyList.md)
@@ -1586,7 +1570,6 @@ Class | Method | HTTP request | Description
  - [PaginatedTokenList](docs/PaginatedTokenList.md)
  - [PaginatedTokenModelList](docs/PaginatedTokenModelList.md)
  - [PaginatedUniquePasswordPolicyList](docs/PaginatedUniquePasswordPolicyList.md)
- - [PaginatedUserAssignedObjectPermissionList](docs/PaginatedUserAssignedObjectPermissionList.md)
  - [PaginatedUserConsentList](docs/PaginatedUserConsentList.md)
  - [PaginatedUserDeleteStageList](docs/PaginatedUserDeleteStageList.md)
  - [PaginatedUserKerberosSourceConnectionList](docs/PaginatedUserKerberosSourceConnectionList.md)
@@ -1647,8 +1630,6 @@ Class | Method | HTTP request | Description
  - [PatchedEventMatcherPolicyRequest](docs/PatchedEventMatcherPolicyRequest.md)
  - [PatchedEventRequest](docs/PatchedEventRequest.md)
  - [PatchedExpressionPolicyRequest](docs/PatchedExpressionPolicyRequest.md)
- - [PatchedExtraRoleObjectPermissionRequest](docs/PatchedExtraRoleObjectPermissionRequest.md)
- - [PatchedExtraUserObjectPermissionRequest](docs/PatchedExtraUserObjectPermissionRequest.md)
  - [PatchedFlowRequest](docs/PatchedFlowRequest.md)
  - [PatchedFlowStageBindingRequest](docs/PatchedFlowStageBindingRequest.md)
  - [PatchedGeoIPPolicyRequest](docs/PatchedGeoIPPolicyRequest.md)
@@ -1795,12 +1776,14 @@ Class | Method | HTTP request | Description
  - [RedirectStageRequest](docs/RedirectStageRequest.md)
  - [RedirectURI](docs/RedirectURI.md)
  - [RedirectURIRequest](docs/RedirectURIRequest.md)
+ - [RelatedGroup](docs/RelatedGroup.md)
  - [Reputation](docs/Reputation.md)
  - [ReputationPolicy](docs/ReputationPolicy.md)
  - [ReputationPolicyRequest](docs/ReputationPolicyRequest.md)
  - [ResidentKeyRequirementEnum](docs/ResidentKeyRequirementEnum.md)
  - [Role](docs/Role.md)
  - [RoleAssignedObjectPermission](docs/RoleAssignedObjectPermission.md)
+ - [RoleModelPermission](docs/RoleModelPermission.md)
  - [RoleObjectPermission](docs/RoleObjectPermission.md)
  - [RoleRequest](docs/RoleRequest.md)
  - [SAMLBindingsEnum](docs/SAMLBindingsEnum.md)
@@ -1902,7 +1885,7 @@ Class | Method | HTTP request | Description
  - [UsedByActionEnum](docs/UsedByActionEnum.md)
  - [User](docs/User.md)
  - [UserAccountRequest](docs/UserAccountRequest.md)
- - [UserAssignedObjectPermission](docs/UserAssignedObjectPermission.md)
+ - [UserAccountSerializerForRoleRequest](docs/UserAccountSerializerForRoleRequest.md)
  - [UserAttributeEnum](docs/UserAttributeEnum.md)
  - [UserConsent](docs/UserConsent.md)
  - [UserCreationModeEnum](docs/UserCreationModeEnum.md)
@@ -1922,7 +1905,6 @@ Class | Method | HTTP request | Description
  - [UserMatchingModeEnum](docs/UserMatchingModeEnum.md)
  - [UserOAuthSourceConnection](docs/UserOAuthSourceConnection.md)
  - [UserOAuthSourceConnectionRequest](docs/UserOAuthSourceConnectionRequest.md)
- - [UserObjectPermission](docs/UserObjectPermission.md)
  - [UserPasswordSetRequest](docs/UserPasswordSetRequest.md)
  - [UserPath](docs/UserPath.md)
  - [UserPlexSourceConnection](docs/UserPlexSourceConnection.md)
@@ -1932,6 +1914,7 @@ Class | Method | HTTP request | Description
  - [UserSAMLSourceConnectionRequest](docs/UserSAMLSourceConnectionRequest.md)
  - [UserSelf](docs/UserSelf.md)
  - [UserSelfGroups](docs/UserSelfGroups.md)
+ - [UserSelfRoles](docs/UserSelfRoles.md)
  - [UserServiceAccountRequest](docs/UserServiceAccountRequest.md)
  - [UserServiceAccountResponse](docs/UserServiceAccountResponse.md)
  - [UserSetting](docs/UserSetting.md)

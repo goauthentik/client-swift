@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **isActive** | **Bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **lastLogin** | **Date** |  | [optional] 
 **groups** | **[UUID]** |  | [optional] 
+**roles** | **[UUID]** |  | [optional] 
 **email** | **String** |  | [optional] 
 **attributes** | **[String: JSONValue]** |  | [optional] 
 **path** | **String** |  | [optional] 

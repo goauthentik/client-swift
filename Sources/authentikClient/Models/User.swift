@@ -23,6 +23,8 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
     public var isSuperuser: Bool
     public var groups: [UUID]?
     public var groupsObj: [PartialGroup]?
+    public var roles: [UUID]?
+    public var rolesObj: [Role]?
     public var email: String?
     /** User's avatar, either a http/https URL or a data URI */
     public var avatar: String
@@ -34,7 +36,7 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
     public var passwordChangeDate: Date
     public var lastUpdated: Date
 
-    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [PartialGroup]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date, lastUpdated: Date) {
+    public init(pk: Int, username: String, name: String, isActive: Bool? = nil, lastLogin: Date? = nil, dateJoined: Date, isSuperuser: Bool, groups: [UUID]? = nil, groupsObj: [PartialGroup]?, roles: [UUID]? = nil, rolesObj: [Role]?, email: String? = nil, avatar: String, attributes: [String: JSONValue]? = nil, uid: String, path: String? = nil, type: UserTypeEnum? = nil, uuid: UUID, passwordChangeDate: Date, lastUpdated: Date) {
         self.pk = pk
         self.username = username
         self.name = name
@@ -44,6 +46,8 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         self.isSuperuser = isSuperuser
         self.groups = groups
         self.groupsObj = groupsObj
+        self.roles = roles
+        self.rolesObj = rolesObj
         self.email = email
         self.avatar = avatar
         self.attributes = attributes
@@ -65,6 +69,8 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         case isSuperuser = "is_superuser"
         case groups
         case groupsObj = "groups_obj"
+        case roles
+        case rolesObj = "roles_obj"
         case email
         case avatar
         case attributes
@@ -89,6 +95,8 @@ public struct User: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(isSuperuser, forKey: .isSuperuser)
         try container.encodeIfPresent(groups, forKey: .groups)
         try container.encode(groupsObj, forKey: .groupsObj)
+        try container.encodeIfPresent(roles, forKey: .roles)
+        try container.encode(rolesObj, forKey: .rolesObj)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encode(avatar, forKey: .avatar)
         try container.encodeIfPresent(attributes, forKey: .attributes)

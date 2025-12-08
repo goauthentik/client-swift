@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **isSuperuser** | **Bool** |  | [readonly] 
 **groups** | **[UUID]** |  | [optional] 
 **groupsObj** | [PartialGroup] |  | [readonly] 
+**roles** | **[UUID]** |  | [optional] 
+**rolesObj** | [Role] |  | [readonly] 
 **email** | **String** |  | [optional] 
 **avatar** | **String** | User&#39;s avatar, either a http/https URL or a data URI | [readonly] 
 **attributes** | **[String: JSONValue]** |  | [optional] 

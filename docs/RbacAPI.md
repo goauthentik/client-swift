@@ -14,25 +14,15 @@ Method | HTTP request | Description
 [**rbacPermissionsAssignedByRolesAssign**](RbacAPI.md#rbacpermissionsassignedbyrolesassign) | **POST** /rbac/permissions/assigned_by_roles/{uuid}/assign/ | 
 [**rbacPermissionsAssignedByRolesList**](RbacAPI.md#rbacpermissionsassignedbyroleslist) | **GET** /rbac/permissions/assigned_by_roles/ | 
 [**rbacPermissionsAssignedByRolesUnassignPartialUpdate**](RbacAPI.md#rbacpermissionsassignedbyrolesunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_roles/{uuid}/unassign/ | 
-[**rbacPermissionsAssignedByUsersAssign**](RbacAPI.md#rbacpermissionsassignedbyusersassign) | **POST** /rbac/permissions/assigned_by_users/{id}/assign/ | 
-[**rbacPermissionsAssignedByUsersList**](RbacAPI.md#rbacpermissionsassignedbyuserslist) | **GET** /rbac/permissions/assigned_by_users/ | 
-[**rbacPermissionsAssignedByUsersUnassignPartialUpdate**](RbacAPI.md#rbacpermissionsassignedbyusersunassignpartialupdate) | **PATCH** /rbac/permissions/assigned_by_users/{id}/unassign/ | 
 [**rbacPermissionsList**](RbacAPI.md#rbacpermissionslist) | **GET** /rbac/permissions/ | 
 [**rbacPermissionsRetrieve**](RbacAPI.md#rbacpermissionsretrieve) | **GET** /rbac/permissions/{id}/ | 
-[**rbacPermissionsRolesDestroy**](RbacAPI.md#rbacpermissionsrolesdestroy) | **DELETE** /rbac/permissions/roles/{id}/ | 
 [**rbacPermissionsRolesList**](RbacAPI.md#rbacpermissionsroleslist) | **GET** /rbac/permissions/roles/ | 
-[**rbacPermissionsRolesPartialUpdate**](RbacAPI.md#rbacpermissionsrolespartialupdate) | **PATCH** /rbac/permissions/roles/{id}/ | 
-[**rbacPermissionsRolesRetrieve**](RbacAPI.md#rbacpermissionsrolesretrieve) | **GET** /rbac/permissions/roles/{id}/ | 
-[**rbacPermissionsRolesUpdate**](RbacAPI.md#rbacpermissionsrolesupdate) | **PUT** /rbac/permissions/roles/{id}/ | 
-[**rbacPermissionsUsersDestroy**](RbacAPI.md#rbacpermissionsusersdestroy) | **DELETE** /rbac/permissions/users/{id}/ | 
-[**rbacPermissionsUsersList**](RbacAPI.md#rbacpermissionsuserslist) | **GET** /rbac/permissions/users/ | 
-[**rbacPermissionsUsersPartialUpdate**](RbacAPI.md#rbacpermissionsuserspartialupdate) | **PATCH** /rbac/permissions/users/{id}/ | 
-[**rbacPermissionsUsersRetrieve**](RbacAPI.md#rbacpermissionsusersretrieve) | **GET** /rbac/permissions/users/{id}/ | 
-[**rbacPermissionsUsersUpdate**](RbacAPI.md#rbacpermissionsusersupdate) | **PUT** /rbac/permissions/users/{id}/ | 
+[**rbacRolesAddUserCreate**](RbacAPI.md#rbacrolesaddusercreate) | **POST** /rbac/roles/{uuid}/add_user/ | 
 [**rbacRolesCreate**](RbacAPI.md#rbacrolescreate) | **POST** /rbac/roles/ | 
 [**rbacRolesDestroy**](RbacAPI.md#rbacrolesdestroy) | **DELETE** /rbac/roles/{uuid}/ | 
 [**rbacRolesList**](RbacAPI.md#rbacroleslist) | **GET** /rbac/roles/ | 
 [**rbacRolesPartialUpdate**](RbacAPI.md#rbacrolespartialupdate) | **PATCH** /rbac/roles/{uuid}/ | 
+[**rbacRolesRemoveUserCreate**](RbacAPI.md#rbacrolesremoveusercreate) | **POST** /rbac/roles/{uuid}/remove_user/ | 
 [**rbacRolesRetrieve**](RbacAPI.md#rbacrolesretrieve) | **GET** /rbac/roles/{uuid}/ | 
 [**rbacRolesUpdate**](RbacAPI.md#rbacrolesupdate) | **PUT** /rbac/roles/{uuid}/ | 
 [**rbacRolesUsedByList**](RbacAPI.md#rbacrolesusedbylist) | **GET** /rbac/roles/{uuid}/used_by/ | 
@@ -52,7 +42,7 @@ InitialPermissions viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // InitialPermissionsRequest | 
+let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", role: 123, permissions: [123]) // InitialPermissionsRequest | 
 
 RbacAPI.rbacInitialPermissionsCreate(initialPermissionsRequest: initialPermissionsRequest) { (response, error) in
     guard error == nil else {
@@ -208,7 +198,7 @@ InitialPermissions viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Initial Permissions.
-let patchedInitialPermissionsRequest = PatchedInitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // PatchedInitialPermissionsRequest |  (optional)
+let patchedInitialPermissionsRequest = PatchedInitialPermissionsRequest(name: "name_example", role: 123, permissions: [123]) // PatchedInitialPermissionsRequest |  (optional)
 
 RbacAPI.rbacInitialPermissionsPartialUpdate(id: id, patchedInitialPermissionsRequest: patchedInitialPermissionsRequest) { (response, error) in
     guard error == nil else {
@@ -308,7 +298,7 @@ InitialPermissions viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this Initial Permissions.
-let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", mode: InitialPermissionsModeEnum(), role: 123, permissions: [123]) // InitialPermissionsRequest | 
+let initialPermissionsRequest = InitialPermissionsRequest(name: "name_example", role: 123, permissions: [123]) // InitialPermissionsRequest | 
 
 RbacAPI.rbacInitialPermissionsUpdate(id: id, initialPermissionsRequest: initialPermissionsRequest) { (response, error) in
     guard error == nil else {
@@ -554,167 +544,6 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsAssignedByUsersAssign**
-```swift
-    open class func rbacPermissionsAssignedByUsersAssign(id: Int, permissionAssignRequest: PermissionAssignRequest, completion: @escaping (_ data: [PermissionAssignResult]?, _ error: Error?) -> Void)
-```
-
-
-
-Assign permission(s) to user
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this User.
-let permissionAssignRequest = PermissionAssignRequest(permissions: ["permissions_example"], model: ModelEnum(), objectPk: "objectPk_example") // PermissionAssignRequest | 
-
-RbacAPI.rbacPermissionsAssignedByUsersAssign(id: id, permissionAssignRequest: permissionAssignRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this User. | 
- **permissionAssignRequest** | [**PermissionAssignRequest**](PermissionAssignRequest.md) |  | 
-
-### Return type
-
-[**[PermissionAssignResult]**](PermissionAssignResult.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsAssignedByUsersList**
-```swift
-    open class func rbacPermissionsAssignedByUsersList(model: Model_rbacPermissionsAssignedByUsersList, objectPk: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedUserAssignedObjectPermissionList?, _ error: Error?) -> Void)
-```
-
-
-
-Get assigned object permissions for a single object
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let model = "model_example" // String | 
-let objectPk = "objectPk_example" // String |  (optional)
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let search = "search_example" // String | A search term. (optional)
-
-RbacAPI.rbacPermissionsAssignedByUsersList(model: model, objectPk: objectPk, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **model** | **String** |  | 
- **objectPk** | **String** |  | [optional] 
- **ordering** | **String** | Which field to use when ordering the results. | [optional] 
- **page** | **Int** | A page number within the paginated result set. | [optional] 
- **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **search** | **String** | A search term. | [optional] 
-
-### Return type
-
-[**PaginatedUserAssignedObjectPermissionList**](PaginatedUserAssignedObjectPermissionList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsAssignedByUsersUnassignPartialUpdate**
-```swift
-    open class func rbacPermissionsAssignedByUsersUnassignPartialUpdate(id: Int, patchedPermissionAssignRequest: PatchedPermissionAssignRequest? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Unassign permission(s) to user. When `object_pk` is set, the permissions are only assigned to the specific object, otherwise they are assigned globally.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this User.
-let patchedPermissionAssignRequest = PatchedPermissionAssignRequest(permissions: ["permissions_example"], model: ModelEnum(), objectPk: "objectPk_example") // PatchedPermissionAssignRequest |  (optional)
-
-RbacAPI.rbacPermissionsAssignedByUsersUnassignPartialUpdate(id: id, patchedPermissionAssignRequest: patchedPermissionAssignRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this User. | 
- **patchedPermissionAssignRequest** | [**PatchedPermissionAssignRequest**](PatchedPermissionAssignRequest.md) |  | [optional] 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **rbacPermissionsList**
 ```swift
     open class func rbacPermissionsList(codename: String? = nil, contentTypeAppLabel: String? = nil, contentTypeModel: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, role: String? = nil, search: String? = nil, user: Int? = nil, completion: @escaping (_ data: PaginatedPermissionList?, _ error: Error?) -> Void)
@@ -829,55 +658,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsRolesDestroy**
-```swift
-    open class func rbacPermissionsRolesDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Get a role's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this group object permission.
-
-RbacAPI.rbacPermissionsRolesDestroy(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this group object permission. | 
-
-### Return type
-
-Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **rbacPermissionsRolesList**
 ```swift
     open class func rbacPermissionsRolesList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedExtraRoleObjectPermissionList?, _ error: Error?) -> Void)
@@ -935,24 +715,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rbacPermissionsRolesPartialUpdate**
+# **rbacRolesAddUserCreate**
 ```swift
-    open class func rbacPermissionsRolesPartialUpdate(id: Int, patchedExtraRoleObjectPermissionRequest: PatchedExtraRoleObjectPermissionRequest? = nil, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
+    open class func rbacRolesAddUserCreate(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 
 
-Get a role's assigned object permissions
+Add user to role
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let id = 987 // Int | A unique integer value identifying this group object permission.
-let patchedExtraRoleObjectPermissionRequest = PatchedExtraRoleObjectPermissionRequest(objectPk: "objectPk_example") // PatchedExtraRoleObjectPermissionRequest |  (optional)
+let uuid = 987 // UUID | A UUID string identifying this Role.
+let userAccountSerializerForRoleRequest = UserAccountSerializerForRoleRequest(pk: 123) // UserAccountSerializerForRoleRequest | 
 
-RbacAPI.rbacPermissionsRolesPartialUpdate(id: id, patchedExtraRoleObjectPermissionRequest: patchedExtraRoleObjectPermissionRequest) { (response, error) in
+RbacAPI.rbacRolesAddUserCreate(uuid: uuid, userAccountSerializerForRoleRequest: userAccountSerializerForRoleRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -968,369 +748,12 @@ RbacAPI.rbacPermissionsRolesPartialUpdate(id: id, patchedExtraRoleObjectPermissi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this group object permission. | 
- **patchedExtraRoleObjectPermissionRequest** | [**PatchedExtraRoleObjectPermissionRequest**](PatchedExtraRoleObjectPermissionRequest.md) |  | [optional] 
-
-### Return type
-
-[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsRolesRetrieve**
-```swift
-    open class func rbacPermissionsRolesRetrieve(id: Int, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
-```
-
-
-
-Get a role's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this group object permission.
-
-RbacAPI.rbacPermissionsRolesRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this group object permission. | 
-
-### Return type
-
-[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsRolesUpdate**
-```swift
-    open class func rbacPermissionsRolesUpdate(id: Int, extraRoleObjectPermissionRequest: ExtraRoleObjectPermissionRequest, completion: @escaping (_ data: ExtraRoleObjectPermission?, _ error: Error?) -> Void)
-```
-
-
-
-Get a role's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this group object permission.
-let extraRoleObjectPermissionRequest = ExtraRoleObjectPermissionRequest(objectPk: "objectPk_example") // ExtraRoleObjectPermissionRequest | 
-
-RbacAPI.rbacPermissionsRolesUpdate(id: id, extraRoleObjectPermissionRequest: extraRoleObjectPermissionRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this group object permission. | 
- **extraRoleObjectPermissionRequest** | [**ExtraRoleObjectPermissionRequest**](ExtraRoleObjectPermissionRequest.md) |  | 
-
-### Return type
-
-[**ExtraRoleObjectPermission**](ExtraRoleObjectPermission.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsUsersDestroy**
-```swift
-    open class func rbacPermissionsUsersDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
-```
-
-
-
-Get a users's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this user object permission.
-
-RbacAPI.rbacPermissionsUsersDestroy(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this user object permission. | 
+ **uuid** | **UUID** | A UUID string identifying this Role. | 
+ **userAccountSerializerForRoleRequest** | [**UserAccountSerializerForRoleRequest**](UserAccountSerializerForRoleRequest.md) |  | 
 
 ### Return type
 
 Void (empty response body)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsUsersList**
-```swift
-    open class func rbacPermissionsUsersList(ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, userId: Int? = nil, completion: @escaping (_ data: PaginatedExtraUserObjectPermissionList?, _ error: Error?) -> Void)
-```
-
-
-
-Get a users's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
-let page = 987 // Int | A page number within the paginated result set. (optional)
-let pageSize = 987 // Int | Number of results to return per page. (optional)
-let search = "search_example" // String | A search term. (optional)
-let userId = 987 // Int |  (optional)
-
-RbacAPI.rbacPermissionsUsersList(ordering: ordering, page: page, pageSize: pageSize, search: search, userId: userId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ordering** | **String** | Which field to use when ordering the results. | [optional] 
- **page** | **Int** | A page number within the paginated result set. | [optional] 
- **pageSize** | **Int** | Number of results to return per page. | [optional] 
- **search** | **String** | A search term. | [optional] 
- **userId** | **Int** |  | [optional] 
-
-### Return type
-
-[**PaginatedExtraUserObjectPermissionList**](PaginatedExtraUserObjectPermissionList.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsUsersPartialUpdate**
-```swift
-    open class func rbacPermissionsUsersPartialUpdate(id: Int, patchedExtraUserObjectPermissionRequest: PatchedExtraUserObjectPermissionRequest? = nil, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
-```
-
-
-
-Get a users's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this user object permission.
-let patchedExtraUserObjectPermissionRequest = PatchedExtraUserObjectPermissionRequest(objectPk: "objectPk_example") // PatchedExtraUserObjectPermissionRequest |  (optional)
-
-RbacAPI.rbacPermissionsUsersPartialUpdate(id: id, patchedExtraUserObjectPermissionRequest: patchedExtraUserObjectPermissionRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this user object permission. | 
- **patchedExtraUserObjectPermissionRequest** | [**PatchedExtraUserObjectPermissionRequest**](PatchedExtraUserObjectPermissionRequest.md) |  | [optional] 
-
-### Return type
-
-[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsUsersRetrieve**
-```swift
-    open class func rbacPermissionsUsersRetrieve(id: Int, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
-```
-
-
-
-Get a users's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this user object permission.
-
-RbacAPI.rbacPermissionsUsersRetrieve(id: id) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this user object permission. | 
-
-### Return type
-
-[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
-
-### Authorization
-
-[authentik](../README.md#authentik)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rbacPermissionsUsersUpdate**
-```swift
-    open class func rbacPermissionsUsersUpdate(id: Int, extraUserObjectPermissionRequest: ExtraUserObjectPermissionRequest, completion: @escaping (_ data: ExtraUserObjectPermission?, _ error: Error?) -> Void)
-```
-
-
-
-Get a users's assigned object permissions
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import authentikClient
-
-let id = 987 // Int | A unique integer value identifying this user object permission.
-let extraUserObjectPermissionRequest = ExtraUserObjectPermissionRequest(objectPk: "objectPk_example") // ExtraUserObjectPermissionRequest | 
-
-RbacAPI.rbacPermissionsUsersUpdate(id: id, extraUserObjectPermissionRequest: extraUserObjectPermissionRequest) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Int** | A unique integer value identifying this user object permission. | 
- **extraUserObjectPermissionRequest** | [**ExtraUserObjectPermissionRequest**](ExtraUserObjectPermissionRequest.md) |  | 
-
-### Return type
-
-[**ExtraUserObjectPermission**](ExtraUserObjectPermission.md)
 
 ### Authorization
 
@@ -1443,7 +866,7 @@ Void (empty response body)
 
 # **rbacRolesList**
 ```swift
-    open class func rbacRolesList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
+    open class func rbacRolesList(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: [Int]? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1455,13 +878,16 @@ Role viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let managed = ["inner_example"] // [String] |  (optional)
+let managedIsnull = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
+let users = [123] // [Int] |  (optional)
 
-RbacAPI.rbacRolesList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+RbacAPI.rbacRolesList(managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1477,11 +903,14 @@ RbacAPI.rbacRolesList(name: name, ordering: ordering, page: page, pageSize: page
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **managed** | [**[String]**](String.md) |  | [optional] 
+ **managedIsnull** | **Bool** |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
+ **users** | [**[Int]**](Int.md) |  | [optional] 
 
 ### Return type
 
@@ -1537,6 +966,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Role**](Role.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rbacRolesRemoveUserCreate**
+```swift
+    open class func rbacRolesRemoveUserCreate(uuid: UUID, userAccountSerializerForRoleRequest: UserAccountSerializerForRoleRequest, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+Remove user from role
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let uuid = 987 // UUID | A UUID string identifying this Role.
+let userAccountSerializerForRoleRequest = UserAccountSerializerForRoleRequest(pk: 123) // UserAccountSerializerForRoleRequest | 
+
+RbacAPI.rbacRolesRemoveUserCreate(uuid: uuid, userAccountSerializerForRoleRequest: userAccountSerializerForRoleRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **UUID** | A UUID string identifying this Role. | 
+ **userAccountSerializerForRoleRequest** | [**UserAccountSerializerForRoleRequest**](UserAccountSerializerForRoleRequest.md) |  | 
+
+### Return type
+
+Void (empty response body)
 
 ### Authorization
 

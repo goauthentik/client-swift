@@ -16,17 +16,13 @@ public struct PartialGroup: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     /** Users added to this group will be superusers. */
     public var isSuperuser: Bool?
-    public var parent: UUID?
-    public var parentName: String?
     public var attributes: [String: JSONValue]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parent: UUID? = nil, parentName: String?, attributes: [String: JSONValue]? = nil) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, attributes: [String: JSONValue]? = nil) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
         self.isSuperuser = isSuperuser
-        self.parent = parent
-        self.parentName = parentName
         self.attributes = attributes
     }
 
@@ -35,8 +31,6 @@ public struct PartialGroup: Sendable, Codable, ParameterConvertible, Hashable {
         case numPk = "num_pk"
         case name
         case isSuperuser = "is_superuser"
-        case parent
-        case parentName = "parent_name"
         case attributes
     }
 
@@ -48,8 +42,6 @@ public struct PartialGroup: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(numPk, forKey: .numPk)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(isSuperuser, forKey: .isSuperuser)
-        try container.encodeIfPresent(parent, forKey: .parent)
-        try container.encode(parentName, forKey: .parentName)
         try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
