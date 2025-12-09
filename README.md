@@ -1301,7 +1301,6 @@ Class | Method | HTTP request | Description
  - [FlowLayoutEnum](docs/FlowLayoutEnum.md)
  - [FlowRequest](docs/FlowRequest.md)
  - [FlowSet](docs/FlowSet.md)
- - [FlowSetRequest](docs/FlowSetRequest.md)
  - [FlowStageBinding](docs/FlowStageBinding.md)
  - [FlowStageBindingRequest](docs/FlowStageBindingRequest.md)
  - [FooterLink](docs/FooterLink.md)

@@ -12,7 +12,6 @@ public struct UserWriteStageRequest: Sendable, Codable, ParameterConvertible, Ha
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     public var userCreationMode: UserCreationModeEnum?
     /** When set, newly created users are inactive and cannot login. */
     public var createUsersAsInactive: Bool?
@@ -21,9 +20,8 @@ public struct UserWriteStageRequest: Sendable, Codable, ParameterConvertible, Ha
     public var userType: UserTypeEnum?
     public var userPathTemplate: String?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, userCreationMode: UserCreationModeEnum? = nil, createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, userType: UserTypeEnum? = nil, userPathTemplate: String? = nil) {
+    public init(name: String, userCreationMode: UserCreationModeEnum? = nil, createUsersAsInactive: Bool? = nil, createUsersGroup: UUID? = nil, userType: UserTypeEnum? = nil, userPathTemplate: String? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.userCreationMode = userCreationMode
         self.createUsersAsInactive = createUsersAsInactive
         self.createUsersGroup = createUsersGroup
@@ -33,7 +31,6 @@ public struct UserWriteStageRequest: Sendable, Codable, ParameterConvertible, Ha
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case userCreationMode = "user_creation_mode"
         case createUsersAsInactive = "create_users_as_inactive"
         case createUsersGroup = "create_users_group"
@@ -46,7 +43,6 @@ public struct UserWriteStageRequest: Sendable, Codable, ParameterConvertible, Ha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(userCreationMode, forKey: .userCreationMode)
         try container.encodeIfPresent(createUsersAsInactive, forKey: .createUsersAsInactive)
         try container.encodeIfPresent(createUsersGroup, forKey: .createUsersGroup)

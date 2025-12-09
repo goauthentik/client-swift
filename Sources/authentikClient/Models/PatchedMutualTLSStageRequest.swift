@@ -12,16 +12,14 @@ public struct PatchedMutualTLSStageRequest: Sendable, Codable, ParameterConverti
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     public var mode: StageModeEnum?
     /** Configure certificate authorities to validate the certificate against. This option has a higher priority than the `client_certificate` option on `Brand`. */
     public var certificateAuthorities: [UUID]?
     public var certAttribute: CertAttributeEnum?
     public var userAttribute: UserAttributeEnum?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, mode: StageModeEnum? = nil, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum? = nil, userAttribute: UserAttributeEnum? = nil) {
+    public init(name: String? = nil, mode: StageModeEnum? = nil, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum? = nil, userAttribute: UserAttributeEnum? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.mode = mode
         self.certificateAuthorities = certificateAuthorities
         self.certAttribute = certAttribute
@@ -30,7 +28,6 @@ public struct PatchedMutualTLSStageRequest: Sendable, Codable, ParameterConverti
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case mode
         case certificateAuthorities = "certificate_authorities"
         case certAttribute = "cert_attribute"
@@ -42,7 +39,6 @@ public struct PatchedMutualTLSStageRequest: Sendable, Codable, ParameterConverti
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(certificateAuthorities, forKey: .certificateAuthorities)
         try container.encodeIfPresent(certAttribute, forKey: .certAttribute)

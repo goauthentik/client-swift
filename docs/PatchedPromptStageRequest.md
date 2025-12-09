@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **fields** | **[UUID]** |  | [optional] 
 **validationPolicies** | **[UUID]** |  | [optional] 
 

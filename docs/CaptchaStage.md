@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **publicKey** | **String** | Public key, acquired your captcha Provider. | 
 **jsUrl** | **String** |  | [optional] 
 **apiUrl** | **String** |  | [optional] 

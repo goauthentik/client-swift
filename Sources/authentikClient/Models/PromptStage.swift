@@ -20,11 +20,11 @@ public struct PromptStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     public var fields: [UUID]
     public var validationPolicies: [UUID]?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, fields: [UUID], validationPolicies: [UUID]? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], fields: [UUID], validationPolicies: [UUID]? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -58,7 +58,7 @@ public struct PromptStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encode(fields, forKey: .fields)
         try container.encodeIfPresent(validationPolicies, forKey: .validationPolicies)
     }

@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **notConfiguredAction** | [**NotConfiguredActionEnum**](NotConfiguredActionEnum.md) |  | [optional] 
 **deviceClasses** | [DeviceClassesEnum] | Device classes which can be used to authenticate | [optional] 
 **configurationStages** | **[UUID]** | Stages used to configure Authenticator when user doesn&#39;t have any compatible devices. After this configuration Stage passes, the user is not prompted again. | [optional] 

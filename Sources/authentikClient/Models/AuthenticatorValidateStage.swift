@@ -20,7 +20,7 @@ public struct AuthenticatorValidateStage: Sendable, Codable, ParameterConvertibl
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     public var notConfiguredAction: NotConfiguredActionEnum?
     /** Device classes which can be used to authenticate */
     public var deviceClasses: [DeviceClassesEnum]?
@@ -33,7 +33,7 @@ public struct AuthenticatorValidateStage: Sendable, Codable, ParameterConvertibl
     public var webauthnAllowedDeviceTypes: [UUID]?
     public var webauthnAllowedDeviceTypesObj: [WebAuthnDeviceType]
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, notConfiguredAction: NotConfiguredActionEnum? = nil, deviceClasses: [DeviceClassesEnum]? = nil, configurationStages: [UUID]? = nil, lastAuthThreshold: String? = nil, webauthnUserVerification: UserVerificationEnum? = nil, webauthnAllowedDeviceTypes: [UUID]? = nil, webauthnAllowedDeviceTypesObj: [WebAuthnDeviceType]) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], notConfiguredAction: NotConfiguredActionEnum? = nil, deviceClasses: [DeviceClassesEnum]? = nil, configurationStages: [UUID]? = nil, lastAuthThreshold: String? = nil, webauthnUserVerification: UserVerificationEnum? = nil, webauthnAllowedDeviceTypes: [UUID]? = nil, webauthnAllowedDeviceTypesObj: [WebAuthnDeviceType]) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -77,7 +77,7 @@ public struct AuthenticatorValidateStage: Sendable, Codable, ParameterConvertibl
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(notConfiguredAction, forKey: .notConfiguredAction)
         try container.encodeIfPresent(deviceClasses, forKey: .deviceClasses)
         try container.encodeIfPresent(configurationStages, forKey: .configurationStages)

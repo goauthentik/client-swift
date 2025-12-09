@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **notConfiguredAction** | [**NotConfiguredActionEnum**](NotConfiguredActionEnum.md) |  | [optional] 
 **deviceClasses** | [DeviceClassesEnum] | Device classes which can be used to authenticate | [optional] 
 **configurationStages** | **[UUID]** | Stages used to configure Authenticator when user doesn&#39;t have any compatible devices. After this configuration Stage passes, the user is not prompted again. | [optional] 

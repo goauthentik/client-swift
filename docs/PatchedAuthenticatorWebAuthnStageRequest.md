@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **configureFlow** | **UUID** | Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. | [optional] 
 **friendlyName** | **String** |  | [optional] 
 **userVerification** | [**UserVerificationEnum**](UserVerificationEnum.md) |  | [optional] 

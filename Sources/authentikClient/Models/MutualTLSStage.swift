@@ -20,14 +20,14 @@ public struct MutualTLSStage: Sendable, Codable, ParameterConvertible, Hashable 
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     public var mode: StageModeEnum
     /** Configure certificate authorities to validate the certificate against. This option has a higher priority than the `client_certificate` option on `Brand`. */
     public var certificateAuthorities: [UUID]?
     public var certAttribute: CertAttributeEnum
     public var userAttribute: UserAttributeEnum
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, mode: StageModeEnum, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum, userAttribute: UserAttributeEnum) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], mode: StageModeEnum, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum, userAttribute: UserAttributeEnum) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -65,7 +65,7 @@ public struct MutualTLSStage: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encode(mode, forKey: .mode)
         try container.encodeIfPresent(certificateAuthorities, forKey: .certificateAuthorities)
         try container.encode(certAttribute, forKey: .certAttribute)

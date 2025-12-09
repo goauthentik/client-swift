@@ -21,7 +21,6 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     public static let recoveryMaxAttemptsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let recoveryCacheTimeoutRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     /** When enabled, global Email connection settings will be used and connection settings below will be ignored. */
     public var useGlobalSettings: Bool?
     public var host: String?
@@ -42,9 +41,8 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     /** The time window used to count recent account recovery attempts. If the number of attempts exceed recovery_max_attempts within this period, further attempts will be rate-limited. (Format: hours=1;minutes=2;seconds=3). */
     public var recoveryCacheTimeout: String?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil, recoveryMaxAttempts: Int? = nil, recoveryCacheTimeout: String? = nil) {
+    public init(name: String, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil, recoveryMaxAttempts: Int? = nil, recoveryCacheTimeout: String? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.useGlobalSettings = useGlobalSettings
         self.host = host
         self.port = port
@@ -64,7 +62,6 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case useGlobalSettings = "use_global_settings"
         case host
         case port
@@ -87,7 +84,6 @@ public struct EmailStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(useGlobalSettings, forKey: .useGlobalSettings)
         try container.encodeIfPresent(host, forKey: .host)
         try container.encodeIfPresent(port, forKey: .port)

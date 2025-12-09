@@ -22,14 +22,14 @@ public struct AuthenticatorStaticStage: Sendable, Codable, ParameterConvertible,
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
     public var tokenCount: Int?
     public var tokenLength: Int?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], configureFlow: UUID? = nil, friendlyName: String? = nil, tokenCount: Int? = nil, tokenLength: Int? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -67,7 +67,7 @@ public struct AuthenticatorStaticStage: Sendable, Codable, ParameterConvertible,
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(tokenCount, forKey: .tokenCount)

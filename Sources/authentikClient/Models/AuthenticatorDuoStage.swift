@@ -20,7 +20,7 @@ public struct AuthenticatorDuoStage: Sendable, Codable, ParameterConvertible, Ha
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
@@ -28,7 +28,7 @@ public struct AuthenticatorDuoStage: Sendable, Codable, ParameterConvertible, Ha
     public var apiHostname: String
     public var adminIntegrationKey: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, clientId: String, apiHostname: String, adminIntegrationKey: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], configureFlow: UUID? = nil, friendlyName: String? = nil, clientId: String, apiHostname: String, adminIntegrationKey: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -68,7 +68,7 @@ public struct AuthenticatorDuoStage: Sendable, Codable, ParameterConvertible, Ha
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encode(clientId, forKey: .clientId)

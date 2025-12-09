@@ -23,7 +23,7 @@ public struct AuthenticatorEmailStage: Sendable, Codable, ParameterConvertible, 
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
@@ -42,7 +42,7 @@ public struct AuthenticatorEmailStage: Sendable, Codable, ParameterConvertible, 
     public var tokenExpiry: String?
     public var template: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, subject: String? = nil, tokenExpiry: String? = nil, template: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], configureFlow: UUID? = nil, friendlyName: String? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, subject: String? = nil, tokenExpiry: String? = nil, template: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -100,7 +100,7 @@ public struct AuthenticatorEmailStage: Sendable, Codable, ParameterConvertible, 
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(useGlobalSettings, forKey: .useGlobalSettings)

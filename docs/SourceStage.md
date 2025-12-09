@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **source** | **UUID** |  | 
 **resumeTimeout** | **String** | Amount of time a user can take to return from the source to continue the flow (Format: hours&#x3D;-1;minutes&#x3D;-2;seconds&#x3D;-3) | [optional] 
 

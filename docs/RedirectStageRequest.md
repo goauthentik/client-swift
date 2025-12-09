@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **keepContext** | **Bool** |  | [optional] 
 **mode** | [**RedirectStageModeEnum**](RedirectStageModeEnum.md) |  | 
 **targetStatic** | **String** |  | [optional] 

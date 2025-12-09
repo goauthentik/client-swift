@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **mode** | [**ConsentStageModeEnum**](ConsentStageModeEnum.md) |  | [optional] 
 **consentExpireIn** | **String** | Offset after which consent expires. (Format: hours&#x3D;1;minutes&#x3D;2;seconds&#x3D;3). | [optional] 
 

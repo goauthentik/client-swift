@@ -13,7 +13,6 @@ public struct PatchedAuthenticatorValidateStageRequest: Sendable, Codable, Param
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let lastAuthThresholdRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     public var notConfiguredAction: NotConfiguredActionEnum?
     /** Device classes which can be used to authenticate */
     public var deviceClasses: [DeviceClassesEnum]?
@@ -25,9 +24,8 @@ public struct PatchedAuthenticatorValidateStageRequest: Sendable, Codable, Param
     public var webauthnUserVerification: UserVerificationEnum?
     public var webauthnAllowedDeviceTypes: [UUID]?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, notConfiguredAction: NotConfiguredActionEnum? = nil, deviceClasses: [DeviceClassesEnum]? = nil, configurationStages: [UUID]? = nil, lastAuthThreshold: String? = nil, webauthnUserVerification: UserVerificationEnum? = nil, webauthnAllowedDeviceTypes: [UUID]? = nil) {
+    public init(name: String? = nil, notConfiguredAction: NotConfiguredActionEnum? = nil, deviceClasses: [DeviceClassesEnum]? = nil, configurationStages: [UUID]? = nil, lastAuthThreshold: String? = nil, webauthnUserVerification: UserVerificationEnum? = nil, webauthnAllowedDeviceTypes: [UUID]? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.notConfiguredAction = notConfiguredAction
         self.deviceClasses = deviceClasses
         self.configurationStages = configurationStages
@@ -38,7 +36,6 @@ public struct PatchedAuthenticatorValidateStageRequest: Sendable, Codable, Param
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case notConfiguredAction = "not_configured_action"
         case deviceClasses = "device_classes"
         case configurationStages = "configuration_stages"
@@ -52,7 +49,6 @@ public struct PatchedAuthenticatorValidateStageRequest: Sendable, Codable, Param
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(notConfiguredAction, forKey: .notConfiguredAction)
         try container.encodeIfPresent(deviceClasses, forKey: .deviceClasses)
         try container.encodeIfPresent(configurationStages, forKey: .configurationStages)

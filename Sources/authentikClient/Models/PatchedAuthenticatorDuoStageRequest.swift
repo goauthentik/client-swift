@@ -15,7 +15,6 @@ public struct PatchedAuthenticatorDuoStageRequest: Sendable, Codable, ParameterC
     public static let clientSecretRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let apiHostnameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
@@ -25,9 +24,8 @@ public struct PatchedAuthenticatorDuoStageRequest: Sendable, Codable, ParameterC
     public var adminIntegrationKey: String?
     public var adminSecretKey: String?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, clientId: String? = nil, clientSecret: String? = nil, apiHostname: String? = nil, adminIntegrationKey: String? = nil, adminSecretKey: String? = nil) {
+    public init(name: String? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, clientId: String? = nil, clientSecret: String? = nil, apiHostname: String? = nil, adminIntegrationKey: String? = nil, adminSecretKey: String? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.configureFlow = configureFlow
         self.friendlyName = friendlyName
         self.clientId = clientId
@@ -39,7 +37,6 @@ public struct PatchedAuthenticatorDuoStageRequest: Sendable, Codable, ParameterC
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case configureFlow = "configure_flow"
         case friendlyName = "friendly_name"
         case clientId = "client_id"
@@ -54,7 +51,6 @@ public struct PatchedAuthenticatorDuoStageRequest: Sendable, Codable, ParameterC
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(clientId, forKey: .clientId)

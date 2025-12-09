@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **denyMessage** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

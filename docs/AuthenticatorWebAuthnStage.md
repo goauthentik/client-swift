@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **configureFlow** | **UUID** | Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. | [optional] 
 **friendlyName** | **String** |  | [optional] 
 **userVerification** | [**UserVerificationEnum**](UserVerificationEnum.md) |  | [optional] 

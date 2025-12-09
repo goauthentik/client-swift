@@ -13,7 +13,6 @@ public struct PatchedPasswordStageRequest: Sendable, Codable, ParameterConvertib
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let failedAttemptsBeforeCancelRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** Selection of backends to test the password against. */
     public var backends: [BackendsEnum]?
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
@@ -23,9 +22,8 @@ public struct PatchedPasswordStageRequest: Sendable, Codable, ParameterConvertib
     /** When enabled, provides a 'show password' button with the password input field. */
     public var allowShowPassword: Bool?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, backends: [BackendsEnum]? = nil, configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, allowShowPassword: Bool? = nil) {
+    public init(name: String? = nil, backends: [BackendsEnum]? = nil, configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, allowShowPassword: Bool? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.backends = backends
         self.configureFlow = configureFlow
         self.failedAttemptsBeforeCancel = failedAttemptsBeforeCancel
@@ -34,7 +32,6 @@ public struct PatchedPasswordStageRequest: Sendable, Codable, ParameterConvertib
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case backends
         case configureFlow = "configure_flow"
         case failedAttemptsBeforeCancel = "failed_attempts_before_cancel"
@@ -46,7 +43,6 @@ public struct PatchedPasswordStageRequest: Sendable, Codable, ParameterConvertib
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(backends, forKey: .backends)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(failedAttemptsBeforeCancel, forKey: .failedAttemptsBeforeCancel)

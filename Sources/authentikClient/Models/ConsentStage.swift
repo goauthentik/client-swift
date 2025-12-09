@@ -20,12 +20,12 @@ public struct ConsentStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     public var mode: ConsentStageModeEnum?
     /** Offset after which consent expires. (Format: hours=1;minutes=2;seconds=3). */
     public var consentExpireIn: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, mode: ConsentStageModeEnum? = nil, consentExpireIn: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], mode: ConsentStageModeEnum? = nil, consentExpireIn: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -59,7 +59,7 @@ public struct ConsentStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(consentExpireIn, forKey: .consentExpireIn)
     }

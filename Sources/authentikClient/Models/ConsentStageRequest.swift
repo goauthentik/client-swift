@@ -13,21 +13,18 @@ public struct ConsentStageRequest: Sendable, Codable, ParameterConvertible, Hash
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let consentExpireInRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     public var mode: ConsentStageModeEnum?
     /** Offset after which consent expires. (Format: hours=1;minutes=2;seconds=3). */
     public var consentExpireIn: String?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, mode: ConsentStageModeEnum? = nil, consentExpireIn: String? = nil) {
+    public init(name: String, mode: ConsentStageModeEnum? = nil, consentExpireIn: String? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.mode = mode
         self.consentExpireIn = consentExpireIn
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case mode
         case consentExpireIn = "consent_expire_in"
     }
@@ -37,7 +34,6 @@ public struct ConsentStageRequest: Sendable, Codable, ParameterConvertible, Hash
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(consentExpireIn, forKey: .consentExpireIn)
     }

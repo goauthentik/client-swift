@@ -12,7 +12,6 @@ public struct PatchedIdentificationStageRequest: Sendable, Codable, ParameterCon
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** Fields of the user object to match against. (Hold shift to select multiple options) */
     public var userFields: [UserFieldsEnum]?
     /** When set, shows a password field, instead of showing the password field as separate step. */
@@ -37,9 +36,8 @@ public struct PatchedIdentificationStageRequest: Sendable, Codable, ParameterCon
     /** Show the user the 'Remember me on this device' toggle, allowing repeat users to skip straight to entering their password. */
     public var enableRememberMe: Bool?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil) {
+    public init(name: String? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.userFields = userFields
         self.passwordStage = passwordStage
         self.captchaStage = captchaStage
@@ -56,7 +54,6 @@ public struct PatchedIdentificationStageRequest: Sendable, Codable, ParameterCon
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case userFields = "user_fields"
         case passwordStage = "password_stage"
         case captchaStage = "captcha_stage"
@@ -76,7 +73,6 @@ public struct PatchedIdentificationStageRequest: Sendable, Codable, ParameterCon
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(userFields, forKey: .userFields)
         try container.encodeIfPresent(passwordStage, forKey: .passwordStage)
         try container.encodeIfPresent(captchaStage, forKey: .captchaStage)

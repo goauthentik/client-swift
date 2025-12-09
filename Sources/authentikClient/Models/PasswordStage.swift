@@ -21,7 +21,7 @@ public struct PasswordStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Selection of backends to test the password against. */
     public var backends: [BackendsEnum]
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
@@ -31,7 +31,7 @@ public struct PasswordStage: Sendable, Codable, ParameterConvertible, Hashable {
     /** When enabled, provides a 'show password' button with the password input field. */
     public var allowShowPassword: Bool?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, backends: [BackendsEnum], configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, allowShowPassword: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], backends: [BackendsEnum], configureFlow: UUID? = nil, failedAttemptsBeforeCancel: Int? = nil, allowShowPassword: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -69,7 +69,7 @@ public struct PasswordStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encode(backends, forKey: .backends)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(failedAttemptsBeforeCancel, forKey: .failedAttemptsBeforeCancel)

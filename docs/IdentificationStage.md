@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **verboseName** | **String** | Return object&#39;s verbose_name | [readonly] 
 **verboseNamePlural** | **String** | Return object&#39;s plural verbose_name | [readonly] 
 **metaModelName** | **String** | Return internal model name | [readonly] 
-**flowSet** | [FlowSet] |  | [optional] 
+**flowSet** | [FlowSet] |  | [readonly] 
 **userFields** | [UserFieldsEnum] | Fields of the user object to match against. (Hold shift to select multiple options) | [optional] 
 **passwordStage** | **UUID** | When set, shows a password field, instead of showing the password field as separate step. | [optional] 
 **captchaStage** | **UUID** | When set, adds functionality exactly like a Captcha stage, but baked into the Identification stage. | [optional] 

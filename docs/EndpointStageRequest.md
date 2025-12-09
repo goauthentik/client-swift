@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **connector** | **UUID** |  | 
 **mode** | [**StageModeEnum**](StageModeEnum.md) |  | [optional] 
 

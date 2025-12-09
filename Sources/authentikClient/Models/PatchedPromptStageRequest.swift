@@ -12,20 +12,17 @@ public struct PatchedPromptStageRequest: Sendable, Codable, ParameterConvertible
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     public var fields: [UUID]?
     public var validationPolicies: [UUID]?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, fields: [UUID]? = nil, validationPolicies: [UUID]? = nil) {
+    public init(name: String? = nil, fields: [UUID]? = nil, validationPolicies: [UUID]? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.fields = fields
         self.validationPolicies = validationPolicies
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case fields
         case validationPolicies = "validation_policies"
     }
@@ -35,7 +32,6 @@ public struct PatchedPromptStageRequest: Sendable, Codable, ParameterConvertible
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(fields, forKey: .fields)
         try container.encodeIfPresent(validationPolicies, forKey: .validationPolicies)
     }

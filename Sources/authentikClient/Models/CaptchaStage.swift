@@ -20,7 +20,7 @@ public struct CaptchaStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Public key, acquired your captcha Provider. */
     public var publicKey: String
     public var jsUrl: String?
@@ -31,7 +31,7 @@ public struct CaptchaStage: Sendable, Codable, ParameterConvertible, Hashable {
     /** When enabled and the received captcha score is outside of the given threshold, the stage will show an error message. When not enabled, the flow will continue, but the data from the captcha will be available in the context for policy decisions */
     public var errorOnInvalidScore: Bool?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, publicKey: String, jsUrl: String? = nil, apiUrl: String? = nil, interactive: Bool? = nil, scoreMinThreshold: Double? = nil, scoreMaxThreshold: Double? = nil, errorOnInvalidScore: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], publicKey: String, jsUrl: String? = nil, apiUrl: String? = nil, interactive: Bool? = nil, scoreMinThreshold: Double? = nil, scoreMaxThreshold: Double? = nil, errorOnInvalidScore: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -75,7 +75,7 @@ public struct CaptchaStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encode(publicKey, forKey: .publicKey)
         try container.encodeIfPresent(jsUrl, forKey: .jsUrl)
         try container.encodeIfPresent(apiUrl, forKey: .apiUrl)

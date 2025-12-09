@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **userFields** | [UserFieldsEnum] | Fields of the user object to match against. (Hold shift to select multiple options) | [optional] 
 **passwordStage** | **UUID** | When set, shows a password field, instead of showing the password field as separate step. | [optional] 
 **captchaStage** | **UUID** | When set, adds functionality exactly like a Captcha stage, but baked into the Identification stage. | [optional] 

@@ -20,7 +20,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Fields of the user object to match against. (Hold shift to select multiple options) */
     public var userFields: [UserFieldsEnum]?
     /** When set, shows a password field, instead of showing the password field as separate step. */
@@ -45,7 +45,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
     /** Show the user the 'Remember me on this device' toggle, allowing repeat users to skip straight to entering their password. */
     public var enableRememberMe: Bool?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -99,7 +99,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(userFields, forKey: .userFields)
         try container.encodeIfPresent(passwordStage, forKey: .passwordStage)
         try container.encodeIfPresent(captchaStage, forKey: .captchaStage)

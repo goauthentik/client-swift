@@ -15,7 +15,6 @@ public struct AuthenticatorSMSStageRequest: Sendable, Codable, ParameterConverti
     public static let accountSidRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let authRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
@@ -30,9 +29,8 @@ public struct AuthenticatorSMSStageRequest: Sendable, Codable, ParameterConverti
     /** Optionally modify the payload being sent to custom providers. */
     public var mapping: UUID?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, provider: ProviderEnum, fromNumber: String, accountSid: String, auth: String, authPassword: String? = nil, authType: AuthTypeEnum? = nil, verifyOnly: Bool? = nil, mapping: UUID? = nil) {
+    public init(name: String, configureFlow: UUID? = nil, friendlyName: String? = nil, provider: ProviderEnum, fromNumber: String, accountSid: String, auth: String, authPassword: String? = nil, authType: AuthTypeEnum? = nil, verifyOnly: Bool? = nil, mapping: UUID? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.configureFlow = configureFlow
         self.friendlyName = friendlyName
         self.provider = provider
@@ -47,7 +45,6 @@ public struct AuthenticatorSMSStageRequest: Sendable, Codable, ParameterConverti
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case configureFlow = "configure_flow"
         case friendlyName = "friendly_name"
         case provider
@@ -65,7 +62,6 @@ public struct AuthenticatorSMSStageRequest: Sendable, Codable, ParameterConverti
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encode(provider, forKey: .provider)

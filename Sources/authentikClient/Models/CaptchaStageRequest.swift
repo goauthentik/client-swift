@@ -16,7 +16,6 @@ public struct CaptchaStageRequest: Sendable, Codable, ParameterConvertible, Hash
     public static let jsUrlRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let apiUrlRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     /** Public key, acquired your captcha Provider. */
     public var publicKey: String
     /** Private key, acquired your captcha Provider. */
@@ -29,9 +28,8 @@ public struct CaptchaStageRequest: Sendable, Codable, ParameterConvertible, Hash
     /** When enabled and the received captcha score is outside of the given threshold, the stage will show an error message. When not enabled, the flow will continue, but the data from the captcha will be available in the context for policy decisions */
     public var errorOnInvalidScore: Bool?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, publicKey: String, privateKey: String, jsUrl: String? = nil, apiUrl: String? = nil, interactive: Bool? = nil, scoreMinThreshold: Double? = nil, scoreMaxThreshold: Double? = nil, errorOnInvalidScore: Bool? = nil) {
+    public init(name: String, publicKey: String, privateKey: String, jsUrl: String? = nil, apiUrl: String? = nil, interactive: Bool? = nil, scoreMinThreshold: Double? = nil, scoreMaxThreshold: Double? = nil, errorOnInvalidScore: Bool? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.publicKey = publicKey
         self.privateKey = privateKey
         self.jsUrl = jsUrl
@@ -44,7 +42,6 @@ public struct CaptchaStageRequest: Sendable, Codable, ParameterConvertible, Hash
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case publicKey = "public_key"
         case privateKey = "private_key"
         case jsUrl = "js_url"
@@ -60,7 +57,6 @@ public struct CaptchaStageRequest: Sendable, Codable, ParameterConvertible, Hash
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encode(publicKey, forKey: .publicKey)
         try container.encode(privateKey, forKey: .privateKey)
         try container.encodeIfPresent(jsUrl, forKey: .jsUrl)

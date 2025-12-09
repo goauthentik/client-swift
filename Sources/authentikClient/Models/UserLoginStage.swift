@@ -20,7 +20,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3) */
     public var sessionDuration: String?
     /** Terminate all other sessions of the user logging in. */
@@ -34,7 +34,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
     /** When set to a non-zero value, authentik will save a cookie with a longer expiry,to remember the device the user is logging in from. (Format: hours=-1;minutes=-2;seconds=-3) */
     public var rememberDevice: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -76,7 +76,7 @@ public struct UserLoginStage: Sendable, Codable, ParameterConvertible, Hashable 
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(sessionDuration, forKey: .sessionDuration)
         try container.encodeIfPresent(terminateOtherSessions, forKey: .terminateOtherSessions)
         try container.encodeIfPresent(rememberMeOffset, forKey: .rememberMeOffset)

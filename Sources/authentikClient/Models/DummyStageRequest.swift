@@ -12,18 +12,15 @@ public struct DummyStageRequest: Sendable, Codable, ParameterConvertible, Hashab
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     public var throwError: Bool?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, throwError: Bool? = nil) {
+    public init(name: String, throwError: Bool? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.throwError = throwError
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case throwError = "throw_error"
     }
 
@@ -32,7 +29,6 @@ public struct DummyStageRequest: Sendable, Codable, ParameterConvertible, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(throwError, forKey: .throwError)
     }
 }

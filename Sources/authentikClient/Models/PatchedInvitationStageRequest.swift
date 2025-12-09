@@ -12,19 +12,16 @@ public struct PatchedInvitationStageRequest: Sendable, Codable, ParameterConvert
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** If this flag is set, this Stage will jump to the next Stage when no Invitation is given. By default this Stage will cancel the Flow when no invitation is given. */
     public var continueFlowWithoutInvitation: Bool?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, continueFlowWithoutInvitation: Bool? = nil) {
+    public init(name: String? = nil, continueFlowWithoutInvitation: Bool? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.continueFlowWithoutInvitation = continueFlowWithoutInvitation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case continueFlowWithoutInvitation = "continue_flow_without_invitation"
     }
 
@@ -33,7 +30,6 @@ public struct PatchedInvitationStageRequest: Sendable, Codable, ParameterConvert
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(continueFlowWithoutInvitation, forKey: .continueFlowWithoutInvitation)
     }
 }

@@ -372,6 +372,7 @@ open class RbacAPI {
         case authentikCorePeriodToken = "authentik_core.token"
         case authentikCorePeriodUser = "authentik_core.user"
         case authentikCryptoPeriodCertificatekeypair = "authentik_crypto.certificatekeypair"
+        case authentikEndpointsPeriodDeviceaccessgroup = "authentik_endpoints.deviceaccessgroup"
         case authentikEndpointsPeriodDeviceuserbinding = "authentik_endpoints.deviceuserbinding"
         case authentikEndpointsPeriodEndpointstage = "authentik_endpoints.endpointstage"
         case authentikEndpointsConnectorsAgentPeriodAgentconnector = "authentik_endpoints_connectors_agent.agentconnector"

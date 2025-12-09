@@ -20,11 +20,11 @@ public struct InvitationStage: Sendable, Codable, ParameterConvertible, Hashable
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** If this flag is set, this Stage will jump to the next Stage when no Invitation is given. By default this Stage will cancel the Flow when no invitation is given. */
     public var continueFlowWithoutInvitation: Bool?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, continueFlowWithoutInvitation: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], continueFlowWithoutInvitation: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -56,7 +56,7 @@ public struct InvitationStage: Sendable, Codable, ParameterConvertible, Hashable
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(continueFlowWithoutInvitation, forKey: .continueFlowWithoutInvitation)
     }
 }

@@ -12,16 +12,14 @@ public struct MutualTLSStageRequest: Sendable, Codable, ParameterConvertible, Ha
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     public var mode: StageModeEnum
     /** Configure certificate authorities to validate the certificate against. This option has a higher priority than the `client_certificate` option on `Brand`. */
     public var certificateAuthorities: [UUID]?
     public var certAttribute: CertAttributeEnum
     public var userAttribute: UserAttributeEnum
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, mode: StageModeEnum, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum, userAttribute: UserAttributeEnum) {
+    public init(name: String, mode: StageModeEnum, certificateAuthorities: [UUID]? = nil, certAttribute: CertAttributeEnum, userAttribute: UserAttributeEnum) {
         self.name = name
-        self.flowSet = flowSet
         self.mode = mode
         self.certificateAuthorities = certificateAuthorities
         self.certAttribute = certAttribute
@@ -30,7 +28,6 @@ public struct MutualTLSStageRequest: Sendable, Codable, ParameterConvertible, Ha
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case mode
         case certificateAuthorities = "certificate_authorities"
         case certAttribute = "cert_attribute"
@@ -42,7 +39,6 @@ public struct MutualTLSStageRequest: Sendable, Codable, ParameterConvertible, Ha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encode(mode, forKey: .mode)
         try container.encodeIfPresent(certificateAuthorities, forKey: .certificateAuthorities)
         try container.encode(certAttribute, forKey: .certAttribute)

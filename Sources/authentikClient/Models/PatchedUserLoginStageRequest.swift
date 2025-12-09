@@ -15,7 +15,6 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
     public static let rememberMeOffsetRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let rememberDeviceRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3) */
     public var sessionDuration: String?
     /** Terminate all other sessions of the user logging in. */
@@ -29,9 +28,8 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
     /** When set to a non-zero value, authentik will save a cookie with a longer expiry,to remember the device the user is logging in from. (Format: hours=-1;minutes=-2;seconds=-3) */
     public var rememberDevice: String?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
+    public init(name: String? = nil, sessionDuration: String? = nil, terminateOtherSessions: Bool? = nil, rememberMeOffset: String? = nil, networkBinding: NetworkBindingEnum? = nil, geoipBinding: GeoipBindingEnum? = nil, rememberDevice: String? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.sessionDuration = sessionDuration
         self.terminateOtherSessions = terminateOtherSessions
         self.rememberMeOffset = rememberMeOffset
@@ -42,7 +40,6 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case sessionDuration = "session_duration"
         case terminateOtherSessions = "terminate_other_sessions"
         case rememberMeOffset = "remember_me_offset"
@@ -56,7 +53,6 @@ public struct PatchedUserLoginStageRequest: Sendable, Codable, ParameterConverti
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(sessionDuration, forKey: .sessionDuration)
         try container.encodeIfPresent(terminateOtherSessions, forKey: .terminateOtherSessions)
         try container.encodeIfPresent(rememberMeOffset, forKey: .rememberMeOffset)

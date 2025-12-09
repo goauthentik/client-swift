@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**flowSet** | [FlowSetRequest] |  | [optional] 
 **useGlobalSettings** | **Bool** | When enabled, global Email connection settings will be used and connection settings below will be ignored. | [optional] 
 **host** | **String** |  | [optional] 
 **port** | **Int** |  | [optional] 

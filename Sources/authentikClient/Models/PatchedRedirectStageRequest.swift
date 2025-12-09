@@ -12,15 +12,13 @@ public struct PatchedRedirectStageRequest: Sendable, Codable, ParameterConvertib
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     public var keepContext: Bool?
     public var mode: RedirectStageModeEnum?
     public var targetStatic: String?
     public var targetFlow: UUID?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, keepContext: Bool? = nil, mode: RedirectStageModeEnum? = nil, targetStatic: String? = nil, targetFlow: UUID? = nil) {
+    public init(name: String? = nil, keepContext: Bool? = nil, mode: RedirectStageModeEnum? = nil, targetStatic: String? = nil, targetFlow: UUID? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.keepContext = keepContext
         self.mode = mode
         self.targetStatic = targetStatic
@@ -29,7 +27,6 @@ public struct PatchedRedirectStageRequest: Sendable, Codable, ParameterConvertib
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case keepContext = "keep_context"
         case mode
         case targetStatic = "target_static"
@@ -41,7 +38,6 @@ public struct PatchedRedirectStageRequest: Sendable, Codable, ParameterConvertib
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(keepContext, forKey: .keepContext)
         try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(targetStatic, forKey: .targetStatic)

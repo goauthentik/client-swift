@@ -13,7 +13,6 @@ public struct PatchedAuthenticatorWebAuthnStageRequest: Sendable, Codable, Param
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let maxAttemptsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public var name: String?
-    public var flowSet: [FlowSetRequest]?
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?
     public var friendlyName: String?
@@ -23,9 +22,8 @@ public struct PatchedAuthenticatorWebAuthnStageRequest: Sendable, Codable, Param
     public var deviceTypeRestrictions: [UUID]?
     public var maxAttempts: Int?
 
-    public init(name: String? = nil, flowSet: [FlowSetRequest]? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, userVerification: UserVerificationEnum? = nil, authenticatorAttachment: AuthenticatorAttachmentEnum? = nil, residentKeyRequirement: ResidentKeyRequirementEnum? = nil, deviceTypeRestrictions: [UUID]? = nil, maxAttempts: Int? = nil) {
+    public init(name: String? = nil, configureFlow: UUID? = nil, friendlyName: String? = nil, userVerification: UserVerificationEnum? = nil, authenticatorAttachment: AuthenticatorAttachmentEnum? = nil, residentKeyRequirement: ResidentKeyRequirementEnum? = nil, deviceTypeRestrictions: [UUID]? = nil, maxAttempts: Int? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.configureFlow = configureFlow
         self.friendlyName = friendlyName
         self.userVerification = userVerification
@@ -37,7 +35,6 @@ public struct PatchedAuthenticatorWebAuthnStageRequest: Sendable, Codable, Param
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case configureFlow = "configure_flow"
         case friendlyName = "friendly_name"
         case userVerification = "user_verification"
@@ -52,7 +49,6 @@ public struct PatchedAuthenticatorWebAuthnStageRequest: Sendable, Codable, Param
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(configureFlow, forKey: .configureFlow)
         try container.encodeIfPresent(friendlyName, forKey: .friendlyName)
         try container.encodeIfPresent(userVerification, forKey: .userVerification)

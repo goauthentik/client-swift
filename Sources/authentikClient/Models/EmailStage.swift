@@ -24,7 +24,7 @@ public struct EmailStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     /** When enabled, global Email connection settings will be used and connection settings below will be ignored. */
     public var useGlobalSettings: Bool?
     public var host: String?
@@ -44,7 +44,7 @@ public struct EmailStage: Sendable, Codable, ParameterConvertible, Hashable {
     /** The time window used to count recent account recovery attempts. If the number of attempts exceed recovery_max_attempts within this period, further attempts will be rate-limited. (Format: hours=1;minutes=2;seconds=3). */
     public var recoveryCacheTimeout: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil, recoveryMaxAttempts: Int? = nil, recoveryCacheTimeout: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], useGlobalSettings: Bool? = nil, host: String? = nil, port: Int? = nil, username: String? = nil, useTls: Bool? = nil, useSsl: Bool? = nil, timeout: Int? = nil, fromAddress: String? = nil, tokenExpiry: String? = nil, subject: String? = nil, template: String? = nil, activateUserOnSuccess: Bool? = nil, recoveryMaxAttempts: Int? = nil, recoveryCacheTimeout: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -102,7 +102,7 @@ public struct EmailStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encodeIfPresent(useGlobalSettings, forKey: .useGlobalSettings)
         try container.encodeIfPresent(host, forKey: .host)
         try container.encodeIfPresent(port, forKey: .port)

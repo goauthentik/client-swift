@@ -20,12 +20,12 @@ public struct SourceStage: Sendable, Codable, ParameterConvertible, Hashable {
     public var verboseNamePlural: String
     /** Return internal model name */
     public var metaModelName: String
-    public var flowSet: [FlowSet]?
+    public var flowSet: [FlowSet]
     public var source: UUID
     /** Amount of time a user can take to return from the source to continue the flow (Format: hours=-1;minutes=-2;seconds=-3) */
     public var resumeTimeout: String?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet]? = nil, source: UUID, resumeTimeout: String? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], source: UUID, resumeTimeout: String? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -59,7 +59,7 @@ public struct SourceStage: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(verboseName, forKey: .verboseName)
         try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
         try container.encode(metaModelName, forKey: .metaModelName)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
+        try container.encode(flowSet, forKey: .flowSet)
         try container.encode(source, forKey: .source)
         try container.encodeIfPresent(resumeTimeout, forKey: .resumeTimeout)
     }

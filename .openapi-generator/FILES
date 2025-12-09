@@ -228,7 +228,6 @@ Sources/authentikClient/Models/FlowInspectorPlan.swift
 Sources/authentikClient/Models/FlowLayoutEnum.swift
 Sources/authentikClient/Models/FlowRequest.swift
 Sources/authentikClient/Models/FlowSet.swift
-Sources/authentikClient/Models/FlowSetRequest.swift
 Sources/authentikClient/Models/FlowStageBinding.swift
 Sources/authentikClient/Models/FlowStageBindingRequest.swift
 Sources/authentikClient/Models/FooterLink.swift
@@ -1066,7 +1065,6 @@ docs/FlowInspectorPlan.md
 docs/FlowLayoutEnum.md
 docs/FlowRequest.md
 docs/FlowSet.md
-docs/FlowSetRequest.md
 docs/FlowStageBinding.md
 docs/FlowStageBindingRequest.md
 docs/FlowsAPI.md

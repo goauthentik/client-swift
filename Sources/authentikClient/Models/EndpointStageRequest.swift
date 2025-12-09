@@ -12,20 +12,17 @@ public struct EndpointStageRequest: Sendable, Codable, ParameterConvertible, Has
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
-    public var flowSet: [FlowSetRequest]?
     public var connector: UUID
     public var mode: StageModeEnum?
 
-    public init(name: String, flowSet: [FlowSetRequest]? = nil, connector: UUID, mode: StageModeEnum? = nil) {
+    public init(name: String, connector: UUID, mode: StageModeEnum? = nil) {
         self.name = name
-        self.flowSet = flowSet
         self.connector = connector
         self.mode = mode
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
-        case flowSet = "flow_set"
         case connector
         case mode
     }
@@ -35,7 +32,6 @@ public struct EndpointStageRequest: Sendable, Codable, ParameterConvertible, Has
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(flowSet, forKey: .flowSet)
         try container.encode(connector, forKey: .connector)
         try container.encodeIfPresent(mode, forKey: .mode)
     }
