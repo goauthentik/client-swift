@@ -10,17 +10,22 @@ import Foundation
 /** Notification Serializer */
 public struct Notification: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public static let hyperlinkRule = StringRule(minLength: nil, maxLength: 4096, pattern: nil)
     public var pk: UUID
     public var severity: SeverityEnum
     public var body: String
+    public var hyperlink: String?
+    public var hyperlinkLabel: String?
     public var created: Date
     public var event: Event?
     public var seen: Bool?
 
-    public init(pk: UUID, severity: SeverityEnum, body: String, created: Date, event: Event? = nil, seen: Bool? = nil) {
+    public init(pk: UUID, severity: SeverityEnum, body: String, hyperlink: String? = nil, hyperlinkLabel: String? = nil, created: Date, event: Event? = nil, seen: Bool? = nil) {
         self.pk = pk
         self.severity = severity
         self.body = body
+        self.hyperlink = hyperlink
+        self.hyperlinkLabel = hyperlinkLabel
         self.created = created
         self.event = event
         self.seen = seen
@@ -30,6 +35,8 @@ public struct Notification: Sendable, Codable, ParameterConvertible, Hashable {
         case pk
         case severity
         case body
+        case hyperlink
+        case hyperlinkLabel = "hyperlink_label"
         case created
         case event
         case seen
@@ -42,6 +49,8 @@ public struct Notification: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(pk, forKey: .pk)
         try container.encode(severity, forKey: .severity)
         try container.encode(body, forKey: .body)
+        try container.encodeIfPresent(hyperlink, forKey: .hyperlink)
+        try container.encodeIfPresent(hyperlinkLabel, forKey: .hyperlinkLabel)
         try container.encode(created, forKey: .created)
         try container.encodeIfPresent(event, forKey: .event)
         try container.encodeIfPresent(seen, forKey: .seen)

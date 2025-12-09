@@ -172,6 +172,7 @@ Class | Method | HTTP request | Description
 *CoreAPI* | [**coreUserConsentUsedByList**](docs/CoreAPI.md#coreuserconsentusedbylist) | **GET** /core/user_consent/{id}/used_by/ | 
 *CoreAPI* | [**coreUsersCreate**](docs/CoreAPI.md#coreuserscreate) | **POST** /core/users/ | 
 *CoreAPI* | [**coreUsersDestroy**](docs/CoreAPI.md#coreusersdestroy) | **DELETE** /core/users/{id}/ | 
+*CoreAPI* | [**coreUsersExportCreate**](docs/CoreAPI.md#coreusersexportcreate) | **POST** /core/users/export/ | 
 *CoreAPI* | [**coreUsersImpersonateCreate**](docs/CoreAPI.md#coreusersimpersonatecreate) | **POST** /core/users/{id}/impersonate/ | 
 *CoreAPI* | [**coreUsersImpersonateEndRetrieve**](docs/CoreAPI.md#coreusersimpersonateendretrieve) | **GET** /core/users/impersonate_end/ | 
 *CoreAPI* | [**coreUsersList**](docs/CoreAPI.md#coreuserslist) | **GET** /core/users/ | 
@@ -257,6 +258,7 @@ Class | Method | HTTP request | Description
 *EventsAPI* | [**eventsEventsActionsList**](docs/EventsAPI.md#eventseventsactionslist) | **GET** /events/events/actions/ | 
 *EventsAPI* | [**eventsEventsCreate**](docs/EventsAPI.md#eventseventscreate) | **POST** /events/events/ | 
 *EventsAPI* | [**eventsEventsDestroy**](docs/EventsAPI.md#eventseventsdestroy) | **DELETE** /events/events/{event_uuid}/ | 
+*EventsAPI* | [**eventsEventsExportCreate**](docs/EventsAPI.md#eventseventsexportcreate) | **POST** /events/events/export/ | 
 *EventsAPI* | [**eventsEventsList**](docs/EventsAPI.md#eventseventslist) | **GET** /events/events/ | 
 *EventsAPI* | [**eventsEventsPartialUpdate**](docs/EventsAPI.md#eventseventspartialupdate) | **PATCH** /events/events/{event_uuid}/ | 
 *EventsAPI* | [**eventsEventsRetrieve**](docs/EventsAPI.md#eventseventsretrieve) | **GET** /events/events/{event_uuid}/ | 
@@ -701,6 +703,9 @@ Class | Method | HTTP request | Description
 *RbacAPI* | [**rbacRolesRetrieve**](docs/RbacAPI.md#rbacrolesretrieve) | **GET** /rbac/roles/{uuid}/ | 
 *RbacAPI* | [**rbacRolesUpdate**](docs/RbacAPI.md#rbacrolesupdate) | **PUT** /rbac/roles/{uuid}/ | 
 *RbacAPI* | [**rbacRolesUsedByList**](docs/RbacAPI.md#rbacrolesusedbylist) | **GET** /rbac/roles/{uuid}/used_by/ | 
+*ReportsAPI* | [**reportsExportsDestroy**](docs/ReportsAPI.md#reportsexportsdestroy) | **DELETE** /reports/exports/{id}/ | 
+*ReportsAPI* | [**reportsExportsList**](docs/ReportsAPI.md#reportsexportslist) | **GET** /reports/exports/ | 
+*ReportsAPI* | [**reportsExportsRetrieve**](docs/ReportsAPI.md#reportsexportsretrieve) | **GET** /reports/exports/{id}/ | 
 *RootAPI* | [**rootConfigRetrieve**](docs/RootAPI.md#rootconfigretrieve) | **GET** /root/config/ | 
 *SchemaAPI* | [**schemaRetrieve**](docs/SchemaAPI.md#schemaretrieve) | **GET** /schema/ | 
 *SourcesAPI* | [**sourcesAllDestroy**](docs/SourcesAPI.md#sourcesalldestroy) | **DELETE** /sources/all/{slug}/ | 
@@ -1202,11 +1207,13 @@ Class | Method | HTTP request | Description
  - [ConsentStage](docs/ConsentStage.md)
  - [ConsentStageModeEnum](docs/ConsentStageModeEnum.md)
  - [ConsentStageRequest](docs/ConsentStageRequest.md)
+ - [ContentType](docs/ContentType.md)
  - [ContextualFlowInfo](docs/ContextualFlowInfo.md)
  - [ContextualFlowInfoLayoutEnum](docs/ContextualFlowInfoLayoutEnum.md)
  - [CountryCodeEnum](docs/CountryCodeEnum.md)
  - [CurrentBrand](docs/CurrentBrand.md)
  - [CurrentBrandFlags](docs/CurrentBrandFlags.md)
+ - [DataExport](docs/DataExport.md)
  - [DeliveryMethodEnum](docs/DeliveryMethodEnum.md)
  - [DeniedActionEnum](docs/DeniedActionEnum.md)
  - [DenyStage](docs/DenyStage.md)
@@ -1456,6 +1463,7 @@ Class | Method | HTTP request | Description
  - [PaginatedConnectionTokenList](docs/PaginatedConnectionTokenList.md)
  - [PaginatedConnectorList](docs/PaginatedConnectorList.md)
  - [PaginatedConsentStageList](docs/PaginatedConsentStageList.md)
+ - [PaginatedDataExportList](docs/PaginatedDataExportList.md)
  - [PaginatedDenyStageList](docs/PaginatedDenyStageList.md)
  - [PaginatedDeviceAccessGroupList](docs/PaginatedDeviceAccessGroupList.md)
  - [PaginatedDeviceUserBindingList](docs/PaginatedDeviceUserBindingList.md)
@@ -1780,6 +1788,7 @@ Class | Method | HTTP request | Description
  - [Reputation](docs/Reputation.md)
  - [ReputationPolicy](docs/ReputationPolicy.md)
  - [ReputationPolicyRequest](docs/ReputationPolicyRequest.md)
+ - [RequestedBy](docs/RequestedBy.md)
  - [ResidentKeyRequirementEnum](docs/ResidentKeyRequirementEnum.md)
  - [Role](docs/Role.md)
  - [RoleAssignedObjectPermission](docs/RoleAssignedObjectPermission.md)

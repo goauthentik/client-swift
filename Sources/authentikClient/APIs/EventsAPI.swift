@@ -130,11 +130,118 @@ open class EventsAPI {
     /**
      * enum for parameter actions
      */
+    public enum Actions_eventsEventsExportCreate: String, Sendable, CaseIterable {
+        case authorizeApplication = "authorize_application"
+        case configurationError = "configuration_error"
+        case custom = "custom_"
+        case emailSent = "email_sent"
+        case exportReady = "export_ready"
+        case flowExecution = "flow_execution"
+        case impersonationEnded = "impersonation_ended"
+        case impersonationStarted = "impersonation_started"
+        case invitationUsed = "invitation_used"
+        case login = "login"
+        case loginFailed = "login_failed"
+        case logout = "logout"
+        case modelCreated = "model_created"
+        case modelDeleted = "model_deleted"
+        case modelUpdated = "model_updated"
+        case passwordSet = "password_set"
+        case policyException = "policy_exception"
+        case policyExecution = "policy_execution"
+        case propertyMappingException = "property_mapping_exception"
+        case secretRotate = "secret_rotate"
+        case secretView = "secret_view"
+        case sourceLinked = "source_linked"
+        case suspiciousRequest = "suspicious_request"
+        case systemException = "system_exception"
+        case systemTaskException = "system_task_exception"
+        case systemTaskExecution = "system_task_execution"
+        case updateAvailable = "update_available"
+        case userWrite = "user_write"
+    }
+
+    /**
+
+     - parameter action: (query)  (optional)
+     - parameter actions: (query)  (optional)
+     - parameter brandName: (query) Brand name (optional)
+     - parameter clientIp: (query)  (optional)
+     - parameter contextAuthorizedApp: (query) Context Authorized application (optional)
+     - parameter contextModelApp: (query) Context Model App (optional)
+     - parameter contextModelName: (query) Context Model Name (optional)
+     - parameter contextModelPk: (query) Context Model Primary Key (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter username: (query) Username (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DataExport
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func eventsEventsExportCreate(action: String? = nil, actions: [Actions_eventsEventsExportCreate]? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DataExport {
+        return try await eventsEventsExportCreateWithRequestBuilder(action: action, actions: actions, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, username: username, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /events/events/export/
+     - Create a data export for this data type. Note that the export is generated asynchronously: this method returns a `DataExport` object that will initially have `completed=false` as well as the permanent URL to that object in the `Location` header. You can poll that URL until `completed=true`, at which point the `file_url` property will contain a URL to download
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter action: (query)  (optional)
+     - parameter actions: (query)  (optional)
+     - parameter brandName: (query) Brand name (optional)
+     - parameter clientIp: (query)  (optional)
+     - parameter contextAuthorizedApp: (query) Context Authorized application (optional)
+     - parameter contextModelApp: (query) Context Model App (optional)
+     - parameter contextModelName: (query) Context Model Name (optional)
+     - parameter contextModelPk: (query) Context Model Primary Key (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter username: (query) Username (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DataExport> 
+     */
+    open class func eventsEventsExportCreateWithRequestBuilder(action: String? = nil, actions: [Actions_eventsEventsExportCreate]? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DataExport> {
+        let localVariablePath = "/events/events/export/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "action": (wrappedValue: action?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "actions": (wrappedValue: actions?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "brand_name": (wrappedValue: brandName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "client_ip": (wrappedValue: clientIp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "context_authorized_app": (wrappedValue: contextAuthorizedApp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "context_model_app": (wrappedValue: contextModelApp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "context_model_name": (wrappedValue: contextModelName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "context_model_pk": (wrappedValue: contextModelPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "username": (wrappedValue: username?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DataExport>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter actions
+     */
     public enum Actions_eventsEventsList: String, Sendable, CaseIterable {
         case authorizeApplication = "authorize_application"
         case configurationError = "configuration_error"
         case custom = "custom_"
         case emailSent = "email_sent"
+        case exportReady = "export_ready"
         case flowExecution = "flow_execution"
         case impersonationEnded = "impersonation_ended"
         case impersonationStarted = "impersonation_started"
@@ -421,6 +528,7 @@ open class EventsAPI {
         case configurationError = "configuration_error"
         case custom = "custom_"
         case emailSent = "email_sent"
+        case exportReady = "export_ready"
         case flowExecution = "flow_execution"
         case impersonationEnded = "impersonation_ended"
         case impersonationStarted = "impersonation_started"

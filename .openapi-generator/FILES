@@ -19,6 +19,7 @@ Sources/authentikClient/APIs/PropertymappingsAPI.swift
 Sources/authentikClient/APIs/ProvidersAPI.swift
 Sources/authentikClient/APIs/RacAPI.swift
 Sources/authentikClient/APIs/RbacAPI.swift
+Sources/authentikClient/APIs/ReportsAPI.swift
 Sources/authentikClient/APIs/RootAPI.swift
 Sources/authentikClient/APIs/SchemaAPI.swift
 Sources/authentikClient/APIs/SourcesAPI.swift
@@ -133,11 +134,13 @@ Sources/authentikClient/Models/ConsentPermission.swift
 Sources/authentikClient/Models/ConsentStage.swift
 Sources/authentikClient/Models/ConsentStageModeEnum.swift
 Sources/authentikClient/Models/ConsentStageRequest.swift
+Sources/authentikClient/Models/ContentType.swift
 Sources/authentikClient/Models/ContextualFlowInfo.swift
 Sources/authentikClient/Models/ContextualFlowInfoLayoutEnum.swift
 Sources/authentikClient/Models/CountryCodeEnum.swift
 Sources/authentikClient/Models/CurrentBrand.swift
 Sources/authentikClient/Models/CurrentBrandFlags.swift
+Sources/authentikClient/Models/DataExport.swift
 Sources/authentikClient/Models/DeliveryMethodEnum.swift
 Sources/authentikClient/Models/DeniedActionEnum.swift
 Sources/authentikClient/Models/DenyStage.swift
@@ -387,6 +390,7 @@ Sources/authentikClient/Models/PaginatedCertificateKeyPairList.swift
 Sources/authentikClient/Models/PaginatedConnectionTokenList.swift
 Sources/authentikClient/Models/PaginatedConnectorList.swift
 Sources/authentikClient/Models/PaginatedConsentStageList.swift
+Sources/authentikClient/Models/PaginatedDataExportList.swift
 Sources/authentikClient/Models/PaginatedDenyStageList.swift
 Sources/authentikClient/Models/PaginatedDeviceAccessGroupList.swift
 Sources/authentikClient/Models/PaginatedDeviceUserBindingList.swift
@@ -711,6 +715,7 @@ Sources/authentikClient/Models/RelatedGroup.swift
 Sources/authentikClient/Models/Reputation.swift
 Sources/authentikClient/Models/ReputationPolicy.swift
 Sources/authentikClient/Models/ReputationPolicyRequest.swift
+Sources/authentikClient/Models/RequestedBy.swift
 Sources/authentikClient/Models/ResidentKeyRequirementEnum.swift
 Sources/authentikClient/Models/Role.swift
 Sources/authentikClient/Models/RoleAssignedObjectPermission.swift
@@ -962,6 +967,7 @@ docs/ConsentPermission.md
 docs/ConsentStage.md
 docs/ConsentStageModeEnum.md
 docs/ConsentStageRequest.md
+docs/ContentType.md
 docs/ContextualFlowInfo.md
 docs/ContextualFlowInfoLayoutEnum.md
 docs/CoreAPI.md
@@ -969,6 +975,7 @@ docs/CountryCodeEnum.md
 docs/CryptoAPI.md
 docs/CurrentBrand.md
 docs/CurrentBrandFlags.md
+docs/DataExport.md
 docs/DeliveryMethodEnum.md
 docs/DeniedActionEnum.md
 docs/DenyStage.md
@@ -1225,6 +1232,7 @@ docs/PaginatedCertificateKeyPairList.md
 docs/PaginatedConnectionTokenList.md
 docs/PaginatedConnectorList.md
 docs/PaginatedConsentStageList.md
+docs/PaginatedDataExportList.md
 docs/PaginatedDenyStageList.md
 docs/PaginatedDeviceAccessGroupList.md
 docs/PaginatedDeviceUserBindingList.md
@@ -1551,9 +1559,11 @@ docs/RedirectStageRequest.md
 docs/RedirectURI.md
 docs/RedirectURIRequest.md
 docs/RelatedGroup.md
+docs/ReportsAPI.md
 docs/Reputation.md
 docs/ReputationPolicy.md
 docs/ReputationPolicyRequest.md
+docs/RequestedBy.md
 docs/ResidentKeyRequirementEnum.md
 docs/Role.md
 docs/RoleAssignedObjectPermission.md

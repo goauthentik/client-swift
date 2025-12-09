@@ -2424,6 +2424,121 @@ open class CoreAPI {
     }
 
     /**
+     * enum for parameter type
+     */
+    public enum ModelType_coreUsersExportCreate: String, Sendable, CaseIterable {
+        case external = "external"
+        case _internal = "internal"
+        case internalServiceAccount = "internal_service_account"
+        case serviceAccount = "service_account"
+    }
+
+    /**
+
+     - parameter attributes: (query) Attributes (optional)
+     - parameter dateJoined: (query)  (optional)
+     - parameter dateJoinedGt: (query)  (optional)
+     - parameter dateJoinedLt: (query)  (optional)
+     - parameter email: (query)  (optional)
+     - parameter groupsByName: (query)  (optional)
+     - parameter groupsByPk: (query)  (optional)
+     - parameter isActive: (query)  (optional)
+     - parameter isSuperuser: (query)  (optional)
+     - parameter lastUpdated: (query)  (optional)
+     - parameter lastUpdatedGt: (query)  (optional)
+     - parameter lastUpdatedLt: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter path: (query)  (optional)
+     - parameter pathStartswith: (query)  (optional)
+     - parameter rolesByName: (query)  (optional)
+     - parameter rolesByPk: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter type: (query)  (optional)
+     - parameter username: (query)  (optional)
+     - parameter uuid: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: DataExport
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DataExport {
+        return try await coreUsersExportCreateWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /core/users/export/
+     - Create a data export for this data type. Note that the export is generated asynchronously: this method returns a `DataExport` object that will initially have `completed=false` as well as the permanent URL to that object in the `Location` header. You can poll that URL until `completed=true`, at which point the `file_url` property will contain a URL to download
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter attributes: (query) Attributes (optional)
+     - parameter dateJoined: (query)  (optional)
+     - parameter dateJoinedGt: (query)  (optional)
+     - parameter dateJoinedLt: (query)  (optional)
+     - parameter email: (query)  (optional)
+     - parameter groupsByName: (query)  (optional)
+     - parameter groupsByPk: (query)  (optional)
+     - parameter isActive: (query)  (optional)
+     - parameter isSuperuser: (query)  (optional)
+     - parameter lastUpdated: (query)  (optional)
+     - parameter lastUpdatedGt: (query)  (optional)
+     - parameter lastUpdatedLt: (query)  (optional)
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter path: (query)  (optional)
+     - parameter pathStartswith: (query)  (optional)
+     - parameter rolesByName: (query)  (optional)
+     - parameter rolesByPk: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter type: (query)  (optional)
+     - parameter username: (query)  (optional)
+     - parameter uuid: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<DataExport> 
+     */
+    open class func coreUsersExportCreateWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DataExport> {
+        let localVariablePath = "/core/users/export/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "attributes": (wrappedValue: attributes?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined": (wrappedValue: dateJoined?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined__gt": (wrappedValue: dateJoinedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "date_joined__lt": (wrappedValue: dateJoinedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "email": (wrappedValue: email?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "groups_by_name": (wrappedValue: groupsByName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "groups_by_pk": (wrappedValue: groupsByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "is_active": (wrappedValue: isActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated": (wrappedValue: lastUpdated?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated__gt": (wrappedValue: lastUpdatedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_updated__lt": (wrappedValue: lastUpdatedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "path": (wrappedValue: path?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "path_startswith": (wrappedValue: pathStartswith?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "roles_by_name": (wrappedValue: rolesByName?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "roles_by_pk": (wrappedValue: rolesByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "type": (wrappedValue: type?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "username": (wrappedValue: username?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "uuid": (wrappedValue: uuid?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DataExport>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
 
      - parameter id: (path) A unique integer value identifying this User. 
      - parameter impersonationRequest: (body)  

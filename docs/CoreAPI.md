@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**coreUserConsentUsedByList**](CoreAPI.md#coreuserconsentusedbylist) | **GET** /core/user_consent/{id}/used_by/ | 
 [**coreUsersCreate**](CoreAPI.md#coreuserscreate) | **POST** /core/users/ | 
 [**coreUsersDestroy**](CoreAPI.md#coreusersdestroy) | **DELETE** /core/users/{id}/ | 
+[**coreUsersExportCreate**](CoreAPI.md#coreusersexportcreate) | **POST** /core/users/export/ | 
 [**coreUsersImpersonateCreate**](CoreAPI.md#coreusersimpersonatecreate) | **POST** /core/users/{id}/impersonate/ | 
 [**coreUsersImpersonateEndRetrieve**](CoreAPI.md#coreusersimpersonateendretrieve) | **GET** /core/users/impersonate_end/ | 
 [**coreUsersList**](CoreAPI.md#coreuserslist) | **GET** /core/users/ | 
@@ -2773,6 +2774,97 @@ Name | Type | Description  | Notes
 ### Return type
 
 Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreUsersExportCreate**
+```swift
+    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: DataExport?, _ error: Error?) -> Void)
+```
+
+
+
+Create a data export for this data type. Note that the export is generated asynchronously: this method returns a `DataExport` object that will initially have `completed=false` as well as the permanent URL to that object in the `Location` header. You can poll that URL until `completed=true`, at which point the `file_url` property will contain a URL to download
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let attributes = "attributes_example" // String | Attributes (optional)
+let dateJoined = Date() // Date |  (optional)
+let dateJoinedGt = Date() // Date |  (optional)
+let dateJoinedLt = Date() // Date |  (optional)
+let email = "email_example" // String |  (optional)
+let groupsByName = ["inner_example"] // [String] |  (optional)
+let groupsByPk = [123] // [UUID] |  (optional)
+let isActive = true // Bool |  (optional)
+let isSuperuser = true // Bool |  (optional)
+let lastUpdated = Date() // Date |  (optional)
+let lastUpdatedGt = Date() // Date |  (optional)
+let lastUpdatedLt = Date() // Date |  (optional)
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let path = "path_example" // String |  (optional)
+let pathStartswith = "pathStartswith_example" // String |  (optional)
+let rolesByName = ["inner_example"] // [String] |  (optional)
+let rolesByPk = [123] // [UUID] |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let type = ["type_example"] // [String] |  (optional)
+let username = "username_example" // String |  (optional)
+let uuid = 987 // UUID |  (optional)
+
+CoreAPI.coreUsersExportCreate(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **attributes** | **String** | Attributes | [optional] 
+ **dateJoined** | **Date** |  | [optional] 
+ **dateJoinedGt** | **Date** |  | [optional] 
+ **dateJoinedLt** | **Date** |  | [optional] 
+ **email** | **String** |  | [optional] 
+ **groupsByName** | [**[String]**](String.md) |  | [optional] 
+ **groupsByPk** | [**[UUID]**](UUID.md) |  | [optional] 
+ **isActive** | **Bool** |  | [optional] 
+ **isSuperuser** | **Bool** |  | [optional] 
+ **lastUpdated** | **Date** |  | [optional] 
+ **lastUpdatedGt** | **Date** |  | [optional] 
+ **lastUpdatedLt** | **Date** |  | [optional] 
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **path** | **String** |  | [optional] 
+ **pathStartswith** | **String** |  | [optional] 
+ **rolesByName** | [**[String]**](String.md) |  | [optional] 
+ **rolesByPk** | [**[UUID]**](UUID.md) |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **type** | [**[String]**](String.md) |  | [optional] 
+ **username** | **String** |  | [optional] 
+ **uuid** | **UUID** |  | [optional] 
+
+### Return type
+
+[**DataExport**](DataExport.md)
 
 ### Authorization
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**eventsEventsActionsList**](EventsAPI.md#eventseventsactionslist) | **GET** /events/events/actions/ | 
 [**eventsEventsCreate**](EventsAPI.md#eventseventscreate) | **POST** /events/events/ | 
 [**eventsEventsDestroy**](EventsAPI.md#eventseventsdestroy) | **DELETE** /events/events/{event_uuid}/ | 
+[**eventsEventsExportCreate**](EventsAPI.md#eventseventsexportcreate) | **POST** /events/events/export/ | 
 [**eventsEventsList**](EventsAPI.md#eventseventslist) | **GET** /events/events/ | 
 [**eventsEventsPartialUpdate**](EventsAPI.md#eventseventspartialupdate) | **PATCH** /events/events/{event_uuid}/ | 
 [**eventsEventsRetrieve**](EventsAPI.md#eventseventsretrieve) | **GET** /events/events/{event_uuid}/ | 
@@ -168,6 +169,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **eventsEventsExportCreate**
+```swift
+    open class func eventsEventsExportCreate(action: String? = nil, actions: [Actions_eventsEventsExportCreate]? = nil, brandName: String? = nil, clientIp: String? = nil, contextAuthorizedApp: String? = nil, contextModelApp: String? = nil, contextModelName: String? = nil, contextModelPk: String? = nil, ordering: String? = nil, search: String? = nil, username: String? = nil, completion: @escaping (_ data: DataExport?, _ error: Error?) -> Void)
+```
+
+
+
+Create a data export for this data type. Note that the export is generated asynchronously: this method returns a `DataExport` object that will initially have `completed=false` as well as the permanent URL to that object in the `Location` header. You can poll that URL until `completed=true`, at which point the `file_url` property will contain a URL to download
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let action = "action_example" // String |  (optional)
+let actions = ["actions_example"] // [String] |  (optional)
+let brandName = "brandName_example" // String | Brand name (optional)
+let clientIp = "clientIp_example" // String |  (optional)
+let contextAuthorizedApp = "contextAuthorizedApp_example" // String | Context Authorized application (optional)
+let contextModelApp = "contextModelApp_example" // String | Context Model App (optional)
+let contextModelName = "contextModelName_example" // String | Context Model Name (optional)
+let contextModelPk = "contextModelPk_example" // String | Context Model Primary Key (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let search = "search_example" // String | A search term. (optional)
+let username = "username_example" // String | Username (optional)
+
+EventsAPI.eventsEventsExportCreate(action: action, actions: actions, brandName: brandName, clientIp: clientIp, contextAuthorizedApp: contextAuthorizedApp, contextModelApp: contextModelApp, contextModelName: contextModelName, contextModelPk: contextModelPk, ordering: ordering, search: search, username: username) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | **String** |  | [optional] 
+ **actions** | [**[String]**](String.md) |  | [optional] 
+ **brandName** | **String** | Brand name | [optional] 
+ **clientIp** | **String** |  | [optional] 
+ **contextAuthorizedApp** | **String** | Context Authorized application | [optional] 
+ **contextModelApp** | **String** | Context Model App | [optional] 
+ **contextModelName** | **String** | Context Model Name | [optional] 
+ **contextModelPk** | **String** | Context Model Primary Key | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **username** | **String** | Username | [optional] 
+
+### Return type
+
+[**DataExport**](DataExport.md)
 
 ### Authorization
 
@@ -702,7 +772,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let patchedNotificationRequest = PatchedNotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
+let patchedNotificationRequest = PatchedNotificationRequest(hyperlink: "hyperlink_example", hyperlinkLabel: "hyperlinkLabel_example", event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // PatchedNotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsPartialUpdate(uuid: uuid, patchedNotificationRequest: patchedNotificationRequest) { (response, error) in
     guard error == nil else {
@@ -802,7 +872,7 @@ Notification Viewset
 import authentikClient
 
 let uuid = 987 // UUID | A UUID string identifying this Notification.
-let notificationRequest = NotificationRequest(event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // NotificationRequest |  (optional)
+let notificationRequest = NotificationRequest(hyperlink: "hyperlink_example", hyperlinkLabel: "hyperlinkLabel_example", event: EventRequest(user: "TODO", action: EventActions(), app: "app_example", context: "TODO", clientIp: "clientIp_example", expires: Date(), brand: "TODO"), seen: false) // NotificationRequest |  (optional)
 
 EventsAPI.eventsNotificationsUpdate(uuid: uuid, notificationRequest: notificationRequest) { (response, error) in
     guard error == nil else {

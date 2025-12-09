@@ -1089,6 +1089,7 @@ open class PoliciesAPI {
         case configurationError = "configuration_error"
         case custom = "custom_"
         case emailSent = "email_sent"
+        case exportReady = "export_ready"
         case flowExecution = "flow_execution"
         case impersonationEnded = "impersonation_ended"
         case impersonationStarted = "impersonation_started"

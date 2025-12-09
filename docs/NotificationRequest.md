@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**hyperlink** | **String** |  | [optional] 
+**hyperlinkLabel** | **String** |  | [optional] 
 **event** | [**EventRequest**](EventRequest.md) |  | [optional] 
 **seen** | **Bool** |  | [optional] 
 

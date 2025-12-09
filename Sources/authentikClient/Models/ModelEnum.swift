@@ -118,6 +118,7 @@ public enum ModelEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefa
     case authentikProvidersMicrosoftEntraPeriodMicrosoftentraprovider = "authentik_providers_microsoft_entra.microsoftentraprovider"
     case authentikProvidersMicrosoftEntraPeriodMicrosoftentraprovidermapping = "authentik_providers_microsoft_entra.microsoftentraprovidermapping"
     case authentikProvidersSsfPeriodSsfprovider = "authentik_providers_ssf.ssfprovider"
+    case authentikReportsPeriodDataexport = "authentik_reports.dataexport"
     case authentikStagesAuthenticatorEndpointGdtcPeriodAuthenticatorendpointgdtcstage = "authentik_stages_authenticator_endpoint_gdtc.authenticatorendpointgdtcstage"
     case authentikStagesMtlsPeriodMutualtlsstage = "authentik_stages_mtls.mutualtlsstage"
     case authentikStagesSourcePeriodSourcestage = "authentik_stages_source.sourcestage"

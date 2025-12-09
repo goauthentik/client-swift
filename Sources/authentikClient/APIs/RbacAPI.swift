@@ -417,6 +417,7 @@ open class RbacAPI {
         case authentikProvidersSsfPeriodSsfprovider = "authentik_providers_ssf.ssfprovider"
         case authentikRbacPeriodInitialpermissions = "authentik_rbac.initialpermissions"
         case authentikRbacPeriodRole = "authentik_rbac.role"
+        case authentikReportsPeriodDataexport = "authentik_reports.dataexport"
         case authentikSourcesKerberosPeriodGroupkerberossourceconnection = "authentik_sources_kerberos.groupkerberossourceconnection"
         case authentikSourcesKerberosPeriodKerberossource = "authentik_sources_kerberos.kerberossource"
         case authentikSourcesKerberosPeriodKerberossourcepropertymapping = "authentik_sources_kerberos.kerberossourcepropertymapping"

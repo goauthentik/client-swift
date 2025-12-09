@@ -10,15 +10,22 @@ import Foundation
 /** Notification Serializer */
 public struct PatchedNotificationRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
+    public static let hyperlinkRule = StringRule(minLength: nil, maxLength: 4096, pattern: nil)
+    public var hyperlink: String?
+    public var hyperlinkLabel: String?
     public var event: EventRequest?
     public var seen: Bool?
 
-    public init(event: EventRequest? = nil, seen: Bool? = nil) {
+    public init(hyperlink: String? = nil, hyperlinkLabel: String? = nil, event: EventRequest? = nil, seen: Bool? = nil) {
+        self.hyperlink = hyperlink
+        self.hyperlinkLabel = hyperlinkLabel
         self.event = event
         self.seen = seen
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case hyperlink
+        case hyperlinkLabel = "hyperlink_label"
         case event
         case seen
     }
@@ -27,6 +34,8 @@ public struct PatchedNotificationRequest: Sendable, Codable, ParameterConvertibl
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(hyperlink, forKey: .hyperlink)
+        try container.encodeIfPresent(hyperlinkLabel, forKey: .hyperlinkLabel)
         try container.encodeIfPresent(event, forKey: .event)
         try container.encodeIfPresent(seen, forKey: .seen)
     }

@@ -34,6 +34,7 @@ public enum EventActions: String, Sendable, Codable, CaseIterable, CaseIterableD
     case modelDeleted = "model_deleted"
     case emailSent = "email_sent"
     case updateAvailable = "update_available"
+    case exportReady = "export_ready"
     case custom = "custom_"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }
