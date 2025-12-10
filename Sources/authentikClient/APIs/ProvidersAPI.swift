@@ -3784,10 +3784,10 @@ open class ProvidersAPI {
      - parameter invalidationFlow: (form)  
      - parameter file: (form)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: Void
+     - returns: SAMLProvider
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> SAMLProvider {
         return try await providersSamlImportMetadataCreateWithRequestBuilder(name: name, authorizationFlow: authorizationFlow, invalidationFlow: invalidationFlow, file: file, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -3802,9 +3802,9 @@ open class ProvidersAPI {
      - parameter invalidationFlow: (form)  
      - parameter file: (form)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<SAMLProvider> 
      */
-    open class func providersSamlImportMetadataCreateWithRequestBuilder(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+    open class func providersSamlImportMetadataCreateWithRequestBuilder(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<SAMLProvider> {
         let localVariablePath = "/providers/saml/import_metadata/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableFormParams: [String: (any Sendable)?] = [
@@ -3825,7 +3825,7 @@ open class ProvidersAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SAMLProvider>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

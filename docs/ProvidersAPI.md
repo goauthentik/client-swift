@@ -4372,7 +4372,7 @@ Void (empty response body)
 
 # **providersSamlImportMetadataCreate**
 ```swift
-    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func providersSamlImportMetadataCreate(name: String, authorizationFlow: UUID, invalidationFlow: UUID, file: URL, completion: @escaping (_ data: SAMLProvider?, _ error: Error?) -> Void)
 ```
 
 
@@ -4412,7 +4412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-Void (empty response body)
+[**SAMLProvider**](SAMLProvider.md)
 
 ### Authorization
 
