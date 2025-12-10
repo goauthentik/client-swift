@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **spnegoKeytab** | **String** | SPNEGO keytab base64-encoded or path to keytab in the form FILE:path | [optional] 
 **spnegoCcache** | **String** | Credential cache to use for SPNEGO in form type:residual | [optional] 
 **passwordLoginUpdateInternalPassword** | **Bool** | If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend | [optional] 
+**syncOutgoingTriggerMode** | [**SyncOutgoingTriggerModeEnum**](SyncOutgoingTriggerModeEnum.md) | When to trigger sync for outgoing providers | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

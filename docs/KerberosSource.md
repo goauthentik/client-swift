@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **spnegoServerName** | **String** | Force the use of a specific server name for SPNEGO. Must be in the form HTTP@hostname | [optional] 
 **spnegoCcache** | **String** | Credential cache to use for SPNEGO in form type:residual | [optional] 
 **passwordLoginUpdateInternalPassword** | **Bool** | If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend | [optional] 
+**syncOutgoingTriggerMode** | [**SyncOutgoingTriggerModeEnum**](SyncOutgoingTriggerModeEnum.md) | When to trigger sync for outgoing providers | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

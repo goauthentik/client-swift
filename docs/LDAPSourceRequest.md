@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **syncParentGroup** | **UUID** |  | [optional] 
 **lookupGroupsFromUser** | **Bool** | Lookup group membership based on a user attribute instead of a group attribute. This allows nested group resolution on systems like FreeIPA and Active Directory | [optional] 
 **deleteNotFoundObjects** | **Bool** | Delete authentik users and groups which were previously supplied by this source, but are now missing from it. | [optional] 
+**syncOutgoingTriggerMode** | [**SyncOutgoingTriggerModeEnum**](SyncOutgoingTriggerModeEnum.md) | When to trigger sync for outgoing providers | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

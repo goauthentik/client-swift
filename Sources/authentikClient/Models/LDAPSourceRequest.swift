@@ -73,8 +73,10 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
     public var lookupGroupsFromUser: Bool?
     /** Delete authentik users and groups which were previously supplied by this source, but are now missing from it. */
     public var deleteNotFoundObjects: Bool?
+    /** When to trigger sync for outgoing providers */
+    public var syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum?
 
-    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, bindPassword: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
+    public init(name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, bindPassword: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil, syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -109,6 +111,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         self.syncParentGroup = syncParentGroup
         self.lookupGroupsFromUser = lookupGroupsFromUser
         self.deleteNotFoundObjects = deleteNotFoundObjects
+        self.syncOutgoingTriggerMode = syncOutgoingTriggerMode
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -146,6 +149,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         case syncParentGroup = "sync_parent_group"
         case lookupGroupsFromUser = "lookup_groups_from_user"
         case deleteNotFoundObjects = "delete_not_found_objects"
+        case syncOutgoingTriggerMode = "sync_outgoing_trigger_mode"
     }
 
     // Encodable protocol methods
@@ -186,6 +190,7 @@ public struct LDAPSourceRequest: Sendable, Codable, ParameterConvertible, Hashab
         try container.encodeIfPresent(syncParentGroup, forKey: .syncParentGroup)
         try container.encodeIfPresent(lookupGroupsFromUser, forKey: .lookupGroupsFromUser)
         try container.encodeIfPresent(deleteNotFoundObjects, forKey: .deleteNotFoundObjects)
+        try container.encodeIfPresent(syncOutgoingTriggerMode, forKey: .syncOutgoingTriggerMode)
     }
 }
 

@@ -77,8 +77,10 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var lookupGroupsFromUser: Bool?
     /** Delete authentik users and groups which were previously supplied by this source, but are now missing from it. */
     public var deleteNotFoundObjects: Bool?
+    /** When to trigger sync for outgoing providers */
+    public var syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil, syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -120,6 +122,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.connectivity = connectivity
         self.lookupGroupsFromUser = lookupGroupsFromUser
         self.deleteNotFoundObjects = deleteNotFoundObjects
+        self.syncOutgoingTriggerMode = syncOutgoingTriggerMode
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -164,6 +167,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         case connectivity
         case lookupGroupsFromUser = "lookup_groups_from_user"
         case deleteNotFoundObjects = "delete_not_found_objects"
+        case syncOutgoingTriggerMode = "sync_outgoing_trigger_mode"
     }
 
     // Encodable protocol methods
@@ -211,6 +215,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(connectivity, forKey: .connectivity)
         try container.encodeIfPresent(lookupGroupsFromUser, forKey: .lookupGroupsFromUser)
         try container.encodeIfPresent(deleteNotFoundObjects, forKey: .deleteNotFoundObjects)
+        try container.encodeIfPresent(syncOutgoingTriggerMode, forKey: .syncOutgoingTriggerMode)
     }
 }
 

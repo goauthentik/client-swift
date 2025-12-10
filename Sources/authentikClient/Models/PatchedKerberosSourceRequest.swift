@@ -60,8 +60,10 @@ public struct PatchedKerberosSourceRequest: Sendable, Codable, ParameterConverti
     public var spnegoCcache: String?
     /** If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend */
     public var passwordLoginUpdateInternalPassword: Bool?
+    /** When to trigger sync for outgoing providers */
+    public var syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum?
 
-    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String? = nil, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncPassword: String? = nil, syncKeytab: String? = nil, syncCcache: String? = nil, spnegoServerName: String? = nil, spnegoKeytab: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil) {
+    public init(name: String? = nil, slug: String? = nil, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, userPathTemplate: String? = nil, icon: String? = nil, groupMatchingMode: GroupMatchingModeEnum? = nil, realm: String? = nil, krb5Conf: String? = nil, kadminType: KadminTypeEnum? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncPrincipal: String? = nil, syncPassword: String? = nil, syncKeytab: String? = nil, syncCcache: String? = nil, spnegoServerName: String? = nil, spnegoKeytab: String? = nil, spnegoCcache: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum? = nil) {
         self.name = name
         self.slug = slug
         self.enabled = enabled
@@ -88,6 +90,7 @@ public struct PatchedKerberosSourceRequest: Sendable, Codable, ParameterConverti
         self.spnegoKeytab = spnegoKeytab
         self.spnegoCcache = spnegoCcache
         self.passwordLoginUpdateInternalPassword = passwordLoginUpdateInternalPassword
+        self.syncOutgoingTriggerMode = syncOutgoingTriggerMode
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -117,6 +120,7 @@ public struct PatchedKerberosSourceRequest: Sendable, Codable, ParameterConverti
         case spnegoKeytab = "spnego_keytab"
         case spnegoCcache = "spnego_ccache"
         case passwordLoginUpdateInternalPassword = "password_login_update_internal_password"
+        case syncOutgoingTriggerMode = "sync_outgoing_trigger_mode"
     }
 
     // Encodable protocol methods
@@ -149,6 +153,7 @@ public struct PatchedKerberosSourceRequest: Sendable, Codable, ParameterConverti
         try container.encodeIfPresent(spnegoKeytab, forKey: .spnegoKeytab)
         try container.encodeIfPresent(spnegoCcache, forKey: .spnegoCcache)
         try container.encodeIfPresent(passwordLoginUpdateInternalPassword, forKey: .passwordLoginUpdateInternalPassword)
+        try container.encodeIfPresent(syncOutgoingTriggerMode, forKey: .syncOutgoingTriggerMode)
     }
 }
 

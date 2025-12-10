@@ -786,6 +786,7 @@ Sources/authentikClient/Models/SubModeEnum.swift
 Sources/authentikClient/Models/SyncObjectModelEnum.swift
 Sources/authentikClient/Models/SyncObjectRequest.swift
 Sources/authentikClient/Models/SyncObjectResult.swift
+Sources/authentikClient/Models/SyncOutgoingTriggerModeEnum.swift
 Sources/authentikClient/Models/SyncStatus.swift
 Sources/authentikClient/Models/SystemInfo.swift
 Sources/authentikClient/Models/SystemInfoRuntime.swift
@@ -1638,6 +1639,7 @@ docs/SubModeEnum.md
 docs/SyncObjectModelEnum.md
 docs/SyncObjectRequest.md
 docs/SyncObjectResult.md
+docs/SyncOutgoingTriggerModeEnum.md
 docs/SyncStatus.md
 docs/SystemInfo.md
 docs/SystemInfoRuntime.md
