@@ -121,6 +121,7 @@ Method | HTTP request | Description
 [**sourcesScimUsersRetrieve**](SourcesAPI.md#sourcesscimusersretrieve) | **GET** /sources/scim_users/{id}/ | 
 [**sourcesScimUsersUpdate**](SourcesAPI.md#sourcesscimusersupdate) | **PUT** /sources/scim_users/{id}/ | 
 [**sourcesScimUsersUsedByList**](SourcesAPI.md#sourcesscimusersusedbylist) | **GET** /sources/scim_users/{id}/used_by/ | 
+[**sourcesTelegramConnectUserCreate**](SourcesAPI.md#sourcestelegramconnectusercreate) | **POST** /sources/telegram/{slug}/connect_user/ | 
 [**sourcesTelegramCreate**](SourcesAPI.md#sourcestelegramcreate) | **POST** /sources/telegram/ | 
 [**sourcesTelegramDestroy**](SourcesAPI.md#sourcestelegramdestroy) | **DELETE** /sources/telegram/{slug}/ | 
 [**sourcesTelegramList**](SourcesAPI.md#sourcestelegramlist) | **GET** /sources/telegram/ | 
@@ -6291,6 +6292,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sourcesTelegramConnectUserCreate**
+```swift
+    open class func sourcesTelegramConnectUserCreate(slug: String, telegramAuthRequest: TelegramAuthRequest, completion: @escaping (_ data: UserTelegramSourceConnection?, _ error: Error?) -> Void)
+```
+
+
+
+Mixin to add a used_by endpoint to return a list of all objects using this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let slug = "slug_example" // String | 
+let telegramAuthRequest = TelegramAuthRequest(id: 123, firstName: "firstName_example", lastName: "lastName_example", username: "username_example", photoUrl: "photoUrl_example", authDate: 123, hash: "hash_example") // TelegramAuthRequest | 
+
+SourcesAPI.sourcesTelegramConnectUserCreate(slug: slug, telegramAuthRequest: telegramAuthRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **String** |  | 
+ **telegramAuthRequest** | [**TelegramAuthRequest**](TelegramAuthRequest.md) |  | 
+
+### Return type
+
+[**UserTelegramSourceConnection**](UserTelegramSourceConnection.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

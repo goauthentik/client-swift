@@ -1,4 +1,4 @@
-# TelegramChallengeResponseRequest
+# TelegramAuthRequest
 
 ## Properties
 Name | Type | Description | Notes
@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **photoUrl** | **String** |  | [optional] 
 **authDate** | **Int** |  | 
 **hash** | **String** |  | 
-**component** | **String** |  | [optional] [default to "ak-source-telegram"]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

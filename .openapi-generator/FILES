@@ -794,6 +794,7 @@ Sources/authentikClient/Models/TOTPDevice.swift
 Sources/authentikClient/Models/TOTPDeviceRequest.swift
 Sources/authentikClient/Models/Task.swift
 Sources/authentikClient/Models/TaskAggregatedStatusEnum.swift
+Sources/authentikClient/Models/TelegramAuthRequest.swift
 Sources/authentikClient/Models/TelegramChallengeResponseRequest.swift
 Sources/authentikClient/Models/TelegramLoginChallenge.swift
 Sources/authentikClient/Models/TelegramSource.swift
@@ -1648,6 +1649,7 @@ docs/TOTPDeviceRequest.md
 docs/Task.md
 docs/TaskAggregatedStatusEnum.md
 docs/TasksAPI.md
+docs/TelegramAuthRequest.md
 docs/TelegramChallengeResponseRequest.md
 docs/TelegramLoginChallenge.md
 docs/TelegramSource.md

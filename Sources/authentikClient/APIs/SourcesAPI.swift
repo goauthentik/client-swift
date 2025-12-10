@@ -5559,6 +5559,50 @@ open class SourcesAPI {
 
     /**
 
+     - parameter slug: (path)  
+     - parameter telegramAuthRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: UserTelegramSourceConnection
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func sourcesTelegramConnectUserCreate(slug: String, telegramAuthRequest: TelegramAuthRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserTelegramSourceConnection {
+        return try await sourcesTelegramConnectUserCreateWithRequestBuilder(slug: slug, telegramAuthRequest: telegramAuthRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /sources/telegram/{slug}/connect_user/
+     - Mixin to add a used_by endpoint to return a list of all objects using this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter slug: (path)  
+     - parameter telegramAuthRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<UserTelegramSourceConnection> 
+     */
+    open class func sourcesTelegramConnectUserCreateWithRequestBuilder(slug: String, telegramAuthRequest: TelegramAuthRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<UserTelegramSourceConnection> {
+        var localVariablePath = "/sources/telegram/{slug}/connect_user/"
+        let slugPreEscape = "\(APIHelper.mapValueToPathItem(slug))"
+        let slugPostEscape = slugPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{slug}", with: slugPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: telegramAuthRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserTelegramSourceConnection>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter telegramSourceRequest: (body)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TelegramSource
