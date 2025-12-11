@@ -5199,12 +5199,13 @@ open class StagesAPI {
      - parameter search: (query) A search term. (optional)
      - parameter showMatchedUser: (query)  (optional)
      - parameter showSourceLabels: (query)  (optional)
+     - parameter webauthnStage: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedIdentificationStageList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func stagesIdentificationList(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedIdentificationStageList {
-        return try await stagesIdentificationListWithRequestBuilder(captchaStage: captchaStage, caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels, apiConfiguration: apiConfiguration).execute().body
+    open class func stagesIdentificationList(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, webauthnStage: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedIdentificationStageList {
+        return try await stagesIdentificationListWithRequestBuilder(captchaStage: captchaStage, caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels, webauthnStage: webauthnStage, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -5226,10 +5227,11 @@ open class StagesAPI {
      - parameter search: (query) A search term. (optional)
      - parameter showMatchedUser: (query)  (optional)
      - parameter showSourceLabels: (query)  (optional)
+     - parameter webauthnStage: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedIdentificationStageList> 
      */
-    open class func stagesIdentificationListWithRequestBuilder(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedIdentificationStageList> {
+    open class func stagesIdentificationListWithRequestBuilder(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, webauthnStage: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedIdentificationStageList> {
         let localVariablePath = "/stages/identification/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -5249,6 +5251,7 @@ open class StagesAPI {
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "show_matched_user": (wrappedValue: showMatchedUser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "show_source_labels": (wrappedValue: showSourceLabels?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "webauthn_stage": (wrappedValue: webauthnStage?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [

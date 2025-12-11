@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **showSourceLabels** | **Bool** |  | [optional] 
 **pretendUserExists** | **Bool** | When enabled, the stage will succeed and continue even when incorrect user info is entered. | [optional] 
 **enableRememberMe** | **Bool** | Show the user the &#39;Remember me on this device&#39; toggle, allowing repeat users to skip straight to entering their password. | [optional] 
+**webauthnStage** | **UUID** | When set, and conditional WebAuthn is available, allow the user to use their passkey as a first factor. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

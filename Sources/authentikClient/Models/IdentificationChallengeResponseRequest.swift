@@ -11,17 +11,18 @@ import Foundation
 public struct IdentificationChallengeResponseRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let componentRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    public static let uidFieldRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var component: String? = "ak-stage-identification"
-    public var uidField: String
+    public var uidField: String?
     public var password: String?
     public var captchaToken: String?
+    public var passkey: [String: JSONValue]?
 
-    public init(component: String? = "ak-stage-identification", uidField: String, password: String? = nil, captchaToken: String? = nil) {
+    public init(component: String? = "ak-stage-identification", uidField: String? = nil, password: String? = nil, captchaToken: String? = nil, passkey: [String: JSONValue]? = nil) {
         self.component = component
         self.uidField = uidField
         self.password = password
         self.captchaToken = captchaToken
+        self.passkey = passkey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -29,6 +30,7 @@ public struct IdentificationChallengeResponseRequest: Sendable, Codable, Paramet
         case uidField = "uid_field"
         case password
         case captchaToken = "captcha_token"
+        case passkey
     }
 
     // Encodable protocol methods
@@ -36,9 +38,10 @@ public struct IdentificationChallengeResponseRequest: Sendable, Codable, Paramet
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(component, forKey: .component)
-        try container.encode(uidField, forKey: .uidField)
+        try container.encodeIfPresent(uidField, forKey: .uidField)
         try container.encodeIfPresent(password, forKey: .password)
         try container.encodeIfPresent(captchaToken, forKey: .captchaToken)
+        try container.encodeIfPresent(passkey, forKey: .passkey)
     }
 }
 

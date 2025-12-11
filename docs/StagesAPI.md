@@ -5928,7 +5928,7 @@ IdentificationStage Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false, webauthnStage: 123) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationCreate(identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -6014,7 +6014,7 @@ Void (empty response body)
 
 # **stagesIdentificationList**
 ```swift
-    open class func stagesIdentificationList(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, completion: @escaping (_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)
+    open class func stagesIdentificationList(captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, enrollmentFlow: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, passwordStage: UUID? = nil, passwordlessFlow: UUID? = nil, recoveryFlow: UUID? = nil, search: String? = nil, showMatchedUser: Bool? = nil, showSourceLabels: Bool? = nil, webauthnStage: UUID? = nil, completion: @escaping (_ data: PaginatedIdentificationStageList?, _ error: Error?) -> Void)
 ```
 
 
@@ -6039,8 +6039,9 @@ let recoveryFlow = 987 // UUID |  (optional)
 let search = "search_example" // String | A search term. (optional)
 let showMatchedUser = true // Bool |  (optional)
 let showSourceLabels = true // Bool |  (optional)
+let webauthnStage = 987 // UUID |  (optional)
 
-StagesAPI.stagesIdentificationList(captchaStage: captchaStage, caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels) { (response, error) in
+StagesAPI.stagesIdentificationList(captchaStage: captchaStage, caseInsensitiveMatching: caseInsensitiveMatching, enrollmentFlow: enrollmentFlow, name: name, ordering: ordering, page: page, pageSize: pageSize, passwordStage: passwordStage, passwordlessFlow: passwordlessFlow, recoveryFlow: recoveryFlow, search: search, showMatchedUser: showMatchedUser, showSourceLabels: showSourceLabels, webauthnStage: webauthnStage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -6069,6 +6070,7 @@ Name | Type | Description  | Notes
  **search** | **String** | A search term. | [optional] 
  **showMatchedUser** | **Bool** |  | [optional] 
  **showSourceLabels** | **Bool** |  | [optional] 
+ **webauthnStage** | **UUID** |  | [optional] 
 
 ### Return type
 
@@ -6100,7 +6102,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // PatchedIdentificationStageRequest |  (optional)
+let patchedIdentificationStageRequest = PatchedIdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false, webauthnStage: 123) // PatchedIdentificationStageRequest |  (optional)
 
 StagesAPI.stagesIdentificationPartialUpdate(stageUuid: stageUuid, patchedIdentificationStageRequest: patchedIdentificationStageRequest) { (response, error) in
     guard error == nil else {
@@ -6200,7 +6202,7 @@ IdentificationStage Viewset
 import authentikClient
 
 let stageUuid = 987 // UUID | A UUID string identifying this Identification Stage.
-let identificationStageRequest = IdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false) // IdentificationStageRequest | 
+let identificationStageRequest = IdentificationStageRequest(name: "name_example", userFields: [UserFieldsEnum()], passwordStage: 123, captchaStage: 123, caseInsensitiveMatching: false, showMatchedUser: false, enrollmentFlow: 123, recoveryFlow: 123, passwordlessFlow: 123, sources: [123], showSourceLabels: false, pretendUserExists: false, enableRememberMe: false, webauthnStage: 123) // IdentificationStageRequest | 
 
 StagesAPI.stagesIdentificationUpdate(stageUuid: stageUuid, identificationStageRequest: identificationStageRequest) { (response, error) in
     guard error == nil else {

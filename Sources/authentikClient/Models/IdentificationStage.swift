@@ -44,8 +44,10 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
     public var pretendUserExists: Bool?
     /** Show the user the 'Remember me on this device' toggle, allowing repeat users to skip straight to entering their password. */
     public var enableRememberMe: Bool?
+    /** When set, and conditional WebAuthn is available, allow the user to use their passkey as a first factor. */
+    public var webauthnStage: UUID?
 
-    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil) {
+    public init(pk: UUID, name: String, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, flowSet: [FlowSet], userFields: [UserFieldsEnum]? = nil, passwordStage: UUID? = nil, captchaStage: UUID? = nil, caseInsensitiveMatching: Bool? = nil, showMatchedUser: Bool? = nil, enrollmentFlow: UUID? = nil, recoveryFlow: UUID? = nil, passwordlessFlow: UUID? = nil, sources: [UUID]? = nil, showSourceLabels: Bool? = nil, pretendUserExists: Bool? = nil, enableRememberMe: Bool? = nil, webauthnStage: UUID? = nil) {
         self.pk = pk
         self.name = name
         self.component = component
@@ -65,6 +67,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
         self.showSourceLabels = showSourceLabels
         self.pretendUserExists = pretendUserExists
         self.enableRememberMe = enableRememberMe
+        self.webauthnStage = webauthnStage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -87,6 +90,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
         case showSourceLabels = "show_source_labels"
         case pretendUserExists = "pretend_user_exists"
         case enableRememberMe = "enable_remember_me"
+        case webauthnStage = "webauthn_stage"
     }
 
     // Encodable protocol methods
@@ -112,6 +116,7 @@ public struct IdentificationStage: Sendable, Codable, ParameterConvertible, Hash
         try container.encodeIfPresent(showSourceLabels, forKey: .showSourceLabels)
         try container.encodeIfPresent(pretendUserExists, forKey: .pretendUserExists)
         try container.encodeIfPresent(enableRememberMe, forKey: .enableRememberMe)
+        try container.encodeIfPresent(webauthnStage, forKey: .webauthnStage)
     }
 }
 

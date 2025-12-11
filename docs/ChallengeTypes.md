@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **sources** | [LoginSource] |  | [optional] 
 **showSourceLabels** | **Bool** |  | 
 **enableRememberMe** | **Bool** |  | [optional] [default to true]
+**passkeyChallenge** | **[String: JSONValue]** |  | [optional] 
 **logoutUrls** | [[String: JSONValue]] |  | [optional] 
 **postUrl** | **String** |  | [optional] 
 **samlRequest** | **String** |  | [optional] 

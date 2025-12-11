@@ -26,8 +26,9 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
     public var sources: [LoginSource]?
     public var showSourceLabels: Bool
     public var enableRememberMe: Bool? = true
+    public var passkeyChallenge: [String: JSONValue]?
 
-    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-identification", responseErrors: [String: [ErrorDetail]]? = nil, userFields: [String]?, passwordFields: Bool, allowShowPassword: Bool? = false, applicationPre: String? = nil, flowDesignation: FlowDesignationEnum, captchaStage: CaptchaChallenge? = nil, enrollUrl: String? = nil, recoveryUrl: String? = nil, passwordlessUrl: String? = nil, primaryAction: String, sources: [LoginSource]? = nil, showSourceLabels: Bool, enableRememberMe: Bool? = true) {
+    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-identification", responseErrors: [String: [ErrorDetail]]? = nil, userFields: [String]?, passwordFields: Bool, allowShowPassword: Bool? = false, applicationPre: String? = nil, flowDesignation: FlowDesignationEnum, captchaStage: CaptchaChallenge? = nil, enrollUrl: String? = nil, recoveryUrl: String? = nil, passwordlessUrl: String? = nil, primaryAction: String, sources: [LoginSource]? = nil, showSourceLabels: Bool, enableRememberMe: Bool? = true, passkeyChallenge: [String: JSONValue]? = nil) {
         self.flowInfo = flowInfo
         self.component = component
         self.responseErrors = responseErrors
@@ -44,6 +45,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         self.sources = sources
         self.showSourceLabels = showSourceLabels
         self.enableRememberMe = enableRememberMe
+        self.passkeyChallenge = passkeyChallenge
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -63,6 +65,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         case sources
         case showSourceLabels = "show_source_labels"
         case enableRememberMe = "enable_remember_me"
+        case passkeyChallenge = "passkey_challenge"
     }
 
     // Encodable protocol methods
@@ -85,6 +88,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         try container.encodeIfPresent(sources, forKey: .sources)
         try container.encode(showSourceLabels, forKey: .showSourceLabels)
         try container.encodeIfPresent(enableRememberMe, forKey: .enableRememberMe)
+        try container.encodeIfPresent(passkeyChallenge, forKey: .passkeyChallenge)
     }
 }
 

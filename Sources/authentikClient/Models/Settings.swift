@@ -13,6 +13,8 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
     public static let reputationLowerLimitRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 0, exclusiveMaximum: false, multipleOf: nil)
     public static let reputationUpperLimitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let defaultTokenLengthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let paginationDefaultPageSizeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let paginationMaxPageSizeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     /** Configure how authentik should show avatars for users. */
     public var avatars: String?
     /** Enable the ability for users to change their name. */
@@ -38,9 +40,13 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
     public var defaultTokenDuration: String?
     /** Default token length */
     public var defaultTokenLength: Int?
+    /** Default page size for API responses, if no size was requested. */
+    public var paginationDefaultPageSize: Int?
+    /** Maximum page size */
+    public var paginationMaxPageSize: Int?
     public var flags: PatchedSettingsRequestFlags
 
-    public init(avatars: String? = nil, defaultUserChangeName: Bool? = nil, defaultUserChangeEmail: Bool? = nil, defaultUserChangeUsername: Bool? = nil, eventRetention: String? = nil, reputationLowerLimit: Int? = nil, reputationUpperLimit: Int? = nil, footerLinks: JSONValue? = nil, gdprCompliance: Bool? = nil, impersonation: Bool? = nil, impersonationRequireReason: Bool? = nil, defaultTokenDuration: String? = nil, defaultTokenLength: Int? = nil, flags: PatchedSettingsRequestFlags) {
+    public init(avatars: String? = nil, defaultUserChangeName: Bool? = nil, defaultUserChangeEmail: Bool? = nil, defaultUserChangeUsername: Bool? = nil, eventRetention: String? = nil, reputationLowerLimit: Int? = nil, reputationUpperLimit: Int? = nil, footerLinks: JSONValue? = nil, gdprCompliance: Bool? = nil, impersonation: Bool? = nil, impersonationRequireReason: Bool? = nil, defaultTokenDuration: String? = nil, defaultTokenLength: Int? = nil, paginationDefaultPageSize: Int? = nil, paginationMaxPageSize: Int? = nil, flags: PatchedSettingsRequestFlags) {
         self.avatars = avatars
         self.defaultUserChangeName = defaultUserChangeName
         self.defaultUserChangeEmail = defaultUserChangeEmail
@@ -54,6 +60,8 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         self.impersonationRequireReason = impersonationRequireReason
         self.defaultTokenDuration = defaultTokenDuration
         self.defaultTokenLength = defaultTokenLength
+        self.paginationDefaultPageSize = paginationDefaultPageSize
+        self.paginationMaxPageSize = paginationMaxPageSize
         self.flags = flags
     }
 
@@ -71,6 +79,8 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         case impersonationRequireReason = "impersonation_require_reason"
         case defaultTokenDuration = "default_token_duration"
         case defaultTokenLength = "default_token_length"
+        case paginationDefaultPageSize = "pagination_default_page_size"
+        case paginationMaxPageSize = "pagination_max_page_size"
         case flags
     }
 
@@ -91,6 +101,8 @@ public struct Settings: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(impersonationRequireReason, forKey: .impersonationRequireReason)
         try container.encodeIfPresent(defaultTokenDuration, forKey: .defaultTokenDuration)
         try container.encodeIfPresent(defaultTokenLength, forKey: .defaultTokenLength)
+        try container.encodeIfPresent(paginationDefaultPageSize, forKey: .paginationDefaultPageSize)
+        try container.encodeIfPresent(paginationMaxPageSize, forKey: .paginationMaxPageSize)
         try container.encode(flags, forKey: .flags)
     }
 }

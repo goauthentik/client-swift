@@ -13,9 +13,10 @@ Name | Type | Description | Notes
 **duo** | **Int** |  | [optional] 
 **response** | **String** |  | 
 **token** | **String** |  | 
-**uidField** | **String** |  | 
+**uidField** | **String** |  | [optional] 
 **password** | **String** |  | 
 **captchaToken** | **String** |  | [optional] 
+**passkey** | **[String: JSONValue]** |  | [optional] 
 **to** | **String** |  | 
 **id** | **Int** |  | 
 **firstName** | **String** |  | [optional] 

@@ -328,7 +328,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false, flowsRefreshOthers: false)) // PatchedSettingsRequest |  (optional)
+let patchedSettingsRequest = PatchedSettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, paginationDefaultPageSize: 123, paginationMaxPageSize: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false, flowsRefreshOthers: false)) // PatchedSettingsRequest |  (optional)
 
 AdminAPI.adminSettingsPartialUpdate(patchedSettingsRequest: patchedSettingsRequest) { (response, error) in
     guard error == nil else {
@@ -422,7 +422,7 @@ Settings view
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false, flowsRefreshOthers: false)) // SettingsRequest | 
+let settingsRequest = SettingsRequest(avatars: "avatars_example", defaultUserChangeName: false, defaultUserChangeEmail: false, defaultUserChangeUsername: false, eventRetention: "eventRetention_example", reputationLowerLimit: 123, reputationUpperLimit: 123, footerLinks: 123, gdprCompliance: false, impersonation: false, impersonationRequireReason: false, defaultTokenDuration: "defaultTokenDuration_example", defaultTokenLength: 123, paginationDefaultPageSize: 123, paginationMaxPageSize: 123, flags: PatchedSettingsRequest_flags(policiesBufferedAccessView: false, flowsRefreshOthers: false)) // SettingsRequest | 
 
 AdminAPI.adminSettingsUpdate(settingsRequest: settingsRequest) { (response, error) in
     guard error == nil else {
