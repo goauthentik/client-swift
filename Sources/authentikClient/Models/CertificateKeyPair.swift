@@ -12,16 +12,17 @@ public struct CertificateKeyPair: Sendable, Codable, ParameterConvertible, Hasha
 
     public var pk: UUID
     public var name: String
-    /** Get certificate Hash (SHA256) */
+    /** SHA256 fingerprint of the certificate */
     public var fingerprintSha256: String?
-    /** Get certificate Hash (SHA1) */
+    /** SHA1 fingerprint of the certificate */
     public var fingerprintSha1: String?
-    /** Get certificate expiry */
+    /** Certificate expiry date */
     public var certExpiry: Date?
-    /** Get certificate subject as full rfc4514 */
+    /** Certificate subject as RFC4514 string */
     public var certSubject: String?
     /** Show if this keypair has a private key configured or not */
     public var privateKeyAvailable: Bool
+    /** Key algorithm type detected from the certificate's public key */
     public var keyType: KeyTypeEnum?
     /** Get URL to download certificate */
     public var certificateDownloadUrl: String

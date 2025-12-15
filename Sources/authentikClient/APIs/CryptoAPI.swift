@@ -143,7 +143,6 @@ open class CryptoAPI {
     /**
 
      - parameter hasKey: (query) Only return certificate-key pairs with keys (optional)
-     - parameter includeDetails: (query)  (optional, default to true)
      - parameter keyType: (query) Filter by key algorithm type (RSA, EC, DSA, etc). Can be specified multiple times (e.g. &#39;?key_type&#x3D;rsa&amp;key_type&#x3D;ec&#39;) (optional)
      - parameter managed: (query)  (optional)
      - parameter name: (query)  (optional)
@@ -155,8 +154,8 @@ open class CryptoAPI {
      - returns: PaginatedCertificateKeyPairList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, includeDetails: Bool? = nil, keyType: [KeyType_cryptoCertificatekeypairsList]? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedCertificateKeyPairList {
-        return try await cryptoCertificatekeypairsListWithRequestBuilder(hasKey: hasKey, includeDetails: includeDetails, keyType: keyType, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    open class func cryptoCertificatekeypairsList(hasKey: Bool? = nil, keyType: [KeyType_cryptoCertificatekeypairsList]? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedCertificateKeyPairList {
+        return try await cryptoCertificatekeypairsListWithRequestBuilder(hasKey: hasKey, keyType: keyType, managed: managed, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -166,7 +165,6 @@ open class CryptoAPI {
        - type: http
        - name: authentik
      - parameter hasKey: (query) Only return certificate-key pairs with keys (optional)
-     - parameter includeDetails: (query)  (optional, default to true)
      - parameter keyType: (query) Filter by key algorithm type (RSA, EC, DSA, etc). Can be specified multiple times (e.g. &#39;?key_type&#x3D;rsa&amp;key_type&#x3D;ec&#39;) (optional)
      - parameter managed: (query)  (optional)
      - parameter name: (query)  (optional)
@@ -177,7 +175,7 @@ open class CryptoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedCertificateKeyPairList> 
      */
-    open class func cryptoCertificatekeypairsListWithRequestBuilder(hasKey: Bool? = nil, includeDetails: Bool? = nil, keyType: [KeyType_cryptoCertificatekeypairsList]? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedCertificateKeyPairList> {
+    open class func cryptoCertificatekeypairsListWithRequestBuilder(hasKey: Bool? = nil, keyType: [KeyType_cryptoCertificatekeypairsList]? = nil, managed: String? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedCertificateKeyPairList> {
         let localVariablePath = "/crypto/certificatekeypairs/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -185,7 +183,6 @@ open class CryptoAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "has_key": (wrappedValue: hasKey?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "include_details": (wrappedValue: includeDetails?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "key_type": (wrappedValue: keyType?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "managed": (wrappedValue: managed?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
