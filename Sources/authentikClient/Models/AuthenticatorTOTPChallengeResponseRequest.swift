@@ -11,10 +11,11 @@ import Foundation
 public struct AuthenticatorTOTPChallengeResponseRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let componentRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let codeRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var component: String? = "ak-stage-authenticator-totp"
-    public var code: Int
+    public var code: String
 
-    public init(component: String? = "ak-stage-authenticator-totp", code: Int) {
+    public init(component: String? = "ak-stage-authenticator-totp", code: String) {
         self.component = component
         self.code = code
     }

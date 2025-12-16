@@ -11,12 +11,13 @@ import Foundation
 public struct AuthenticatorSMSChallengeResponseRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let componentRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let codeRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let phoneNumberRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var component: String? = "ak-stage-authenticator-sms"
-    public var code: Int?
+    public var code: String?
     public var phoneNumber: String?
 
-    public init(component: String? = "ak-stage-authenticator-sms", code: Int? = nil, phoneNumber: String? = nil) {
+    public init(component: String? = "ak-stage-authenticator-sms", code: String? = nil, phoneNumber: String? = nil) {
         self.component = component
         self.code = code
         self.phoneNumber = phoneNumber
