@@ -358,9 +358,6 @@ open class StagesAPI {
     /**
      - POST /stages/authenticator/duo/{stage_uuid}/enrollment_status/
      - Check enrollment status of user details in current session
-     - Bearer Token:
-       - type: http
-       - name: authentik
      - parameter stageUuid: (path) A UUID string identifying this Duo Authenticator Setup Stage. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DuoDeviceEnrollmentStatus> 
@@ -383,7 +380,7 @@ open class StagesAPI {
 
         let localVariableRequestBuilder: RequestBuilder<DuoDeviceEnrollmentStatus>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
