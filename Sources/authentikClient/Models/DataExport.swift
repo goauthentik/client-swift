@@ -11,14 +11,14 @@ import Foundation
 public struct DataExport: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var id: UUID
-    public var requestedBy: RequestedBy
+    public var requestedBy: PartialUser
     public var requestedOn: Date
     public var contentType: ContentType
     public var queryParams: [String: JSONValue]
     public var fileUrl: String
     public var completed: Bool
 
-    public init(id: UUID, requestedBy: RequestedBy, requestedOn: Date, contentType: ContentType, queryParams: [String: JSONValue], fileUrl: String, completed: Bool) {
+    public init(id: UUID, requestedBy: PartialUser, requestedOn: Date, contentType: ContentType, queryParams: [String: JSONValue], fileUrl: String, completed: Bool) {
         self.id = id
         self.requestedBy = requestedBy
         self.requestedOn = requestedOn

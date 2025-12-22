@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  | [readonly] 
-**requestedBy** | [**RequestedBy**](RequestedBy.md) |  | [readonly] 
+**requestedBy** | [**PartialUser**](PartialUser.md) |  | [readonly] 
 **requestedOn** | **Date** |  | [readonly] 
 **contentType** | [**ContentType**](ContentType.md) |  | [readonly] 
 **queryParams** | **[String: JSONValue]** |  | 

@@ -12,17 +12,20 @@ public struct ContentType: Sendable, Codable, ParameterConvertible, Hashable {
     public var id: Int
     public var appLabel: String
     public var model: String
+    public var verboseNamePlural: String
 
-    public init(id: Int, appLabel: String, model: String) {
+    public init(id: Int, appLabel: String, model: String, verboseNamePlural: String) {
         self.id = id
         self.appLabel = appLabel
         self.model = model
+        self.verboseNamePlural = verboseNamePlural
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case appLabel = "app_label"
         case model
+        case verboseNamePlural = "verbose_name_plural"
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct ContentType: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(id, forKey: .id)
         try container.encode(appLabel, forKey: .appLabel)
         try container.encode(model, forKey: .model)
+        try container.encode(verboseNamePlural, forKey: .verboseNamePlural)
     }
 }
 

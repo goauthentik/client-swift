@@ -714,7 +714,6 @@ Sources/authentikClient/Models/RelatedGroup.swift
 Sources/authentikClient/Models/Reputation.swift
 Sources/authentikClient/Models/ReputationPolicy.swift
 Sources/authentikClient/Models/ReputationPolicyRequest.swift
-Sources/authentikClient/Models/RequestedBy.swift
 Sources/authentikClient/Models/ResidentKeyRequirementEnum.swift
 Sources/authentikClient/Models/Role.swift
 Sources/authentikClient/Models/RoleAssignedObjectPermission.swift
@@ -1563,7 +1562,6 @@ docs/ReportsAPI.md
 docs/Reputation.md
 docs/ReputationPolicy.md
 docs/ReputationPolicyRequest.md
-docs/RequestedBy.md
 docs/ResidentKeyRequirementEnum.md
 docs/Role.md
 docs/RoleAssignedObjectPermission.md
