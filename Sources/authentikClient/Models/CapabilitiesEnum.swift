@@ -9,6 +9,7 @@ import Foundation
 
 public enum CapabilitiesEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case canSaveMedia = "can_save_media"
+    case canSaveReports = "can_save_reports"
     case canGeoIp = "can_geo_ip"
     case canAsn = "can_asn"
     case canImpersonate = "can_impersonate"
