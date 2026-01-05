@@ -866,7 +866,7 @@ Void (empty response body)
 
 # **rbacRolesList**
 ```swift
-    open class func rbacRolesList(managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: [Int]? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
+    open class func rbacRolesList(akGroups: UUID? = nil, inherited: Bool? = nil, managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: Int? = nil, completion: @escaping (_ data: PaginatedRoleList?, _ error: Error?) -> Void)
 ```
 
 
@@ -878,6 +878,8 @@ Role viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
+let akGroups = 987 // UUID |  (optional)
+let inherited = true // Bool | Include inherited roles (requires users or ak_groups filter) (optional)
 let managed = ["inner_example"] // [String] |  (optional)
 let managedIsnull = true // Bool |  (optional)
 let name = "name_example" // String |  (optional)
@@ -885,9 +887,9 @@ let ordering = "ordering_example" // String | Which field to use when ordering t
 let page = 987 // Int | A page number within the paginated result set. (optional)
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
-let users = [123] // [Int] |  (optional)
+let users = 987 // Int |  (optional)
 
-RbacAPI.rbacRolesList(managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users) { (response, error) in
+RbacAPI.rbacRolesList(akGroups: akGroups, inherited: inherited, managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -903,6 +905,8 @@ RbacAPI.rbacRolesList(managed: managed, managedIsnull: managedIsnull, name: name
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **akGroups** | **UUID** |  | [optional] 
+ **inherited** | **Bool** | Include inherited roles (requires users or ak_groups filter) | [optional] 
  **managed** | [**[String]**](String.md) |  | [optional] 
  **managedIsnull** | **Bool** |  | [optional] 
  **name** | **String** |  | [optional] 
@@ -910,7 +914,7 @@ Name | Type | Description  | Notes
  **page** | **Int** | A page number within the paginated result set. | [optional] 
  **pageSize** | **Int** | Number of results to return per page. | [optional] 
  **search** | **String** | A search term. | [optional] 
- **users** | [**[Int]**](Int.md) |  | [optional] 
+ **users** | **Int** |  | [optional] 
 
 ### Return type
 

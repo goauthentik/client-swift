@@ -1640,7 +1640,7 @@ Void (empty response body)
 
 # **coreGroupsList**
 ```swift
-    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
+    open class func coreGroupsList(attributes: String? = nil, includeChildren: Bool? = nil, includeInheritedRoles: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, isSuperuser: Bool? = nil, membersByPk: [Int]? = nil, membersByUsername: [String]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedGroupList?, _ error: Error?) -> Void)
 ```
 
 
@@ -1654,6 +1654,7 @@ import authentikClient
 
 let attributes = "attributes_example" // String | Attributes (optional)
 let includeChildren = true // Bool |  (optional) (default to false)
+let includeInheritedRoles = true // Bool |  (optional) (default to false)
 let includeParents = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 let isSuperuser = true // Bool |  (optional)
@@ -1665,7 +1666,7 @@ let page = 987 // Int | A page number within the paginated result set. (optional
 let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 
-CoreAPI.coreGroupsList(attributes: attributes, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+CoreAPI.coreGroupsList(attributes: attributes, includeChildren: includeChildren, includeInheritedRoles: includeInheritedRoles, includeParents: includeParents, includeUsers: includeUsers, isSuperuser: isSuperuser, membersByPk: membersByPk, membersByUsername: membersByUsername, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1683,6 +1684,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **String** | Attributes | [optional] 
  **includeChildren** | **Bool** |  | [optional] [default to false]
+ **includeInheritedRoles** | **Bool** |  | [optional] [default to false]
  **includeParents** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
  **isSuperuser** | **Bool** |  | [optional] 
@@ -1813,7 +1815,7 @@ Void (empty response body)
 
 # **coreGroupsRetrieve**
 ```swift
-    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
+    open class func coreGroupsRetrieve(groupUuid: UUID, includeChildren: Bool? = nil, includeInheritedRoles: Bool? = nil, includeParents: Bool? = nil, includeUsers: Bool? = nil, completion: @escaping (_ data: Group?, _ error: Error?) -> Void)
 ```
 
 
@@ -1827,10 +1829,11 @@ import authentikClient
 
 let groupUuid = 987 // UUID | A UUID string identifying this Group.
 let includeChildren = true // Bool |  (optional) (default to false)
+let includeInheritedRoles = true // Bool |  (optional) (default to false)
 let includeParents = true // Bool |  (optional) (default to false)
 let includeUsers = true // Bool |  (optional) (default to true)
 
-CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeChildren: includeChildren, includeParents: includeParents, includeUsers: includeUsers) { (response, error) in
+CoreAPI.coreGroupsRetrieve(groupUuid: groupUuid, includeChildren: includeChildren, includeInheritedRoles: includeInheritedRoles, includeParents: includeParents, includeUsers: includeUsers) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1848,6 +1851,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **UUID** | A UUID string identifying this Group. | 
  **includeChildren** | **Bool** |  | [optional] [default to false]
+ **includeInheritedRoles** | **Bool** |  | [optional] [default to false]
  **includeParents** | **Bool** |  | [optional] [default to false]
  **includeUsers** | **Bool** |  | [optional] [default to true]
 

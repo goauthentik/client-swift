@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **attributes** | **[String: JSONValue]** |  | [optional] 
 **roles** | **[UUID]** |  | [optional] 
 **rolesObj** | [Role] |  | [readonly] 
+**inheritedRolesObj** | [Role] |  | [readonly] 
 **children** | **[UUID]** |  | [readonly] 
 **childrenObj** | [RelatedGroup] |  | [readonly] 
 

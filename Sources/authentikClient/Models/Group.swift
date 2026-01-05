@@ -22,10 +22,11 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
     public var attributes: [String: JSONValue]?
     public var roles: [UUID]?
     public var rolesObj: [Role]
+    public var inheritedRolesObj: [Role]?
     public var children: [UUID]
     public var childrenObj: [RelatedGroup]?
 
-    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parents: [UUID]? = nil, parentsObj: [RelatedGroup]?, users: [Int]? = nil, usersObj: [PartialUser]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], children: [UUID], childrenObj: [RelatedGroup]?) {
+    public init(pk: UUID, numPk: Int, name: String, isSuperuser: Bool? = nil, parents: [UUID]? = nil, parentsObj: [RelatedGroup]?, users: [Int]? = nil, usersObj: [PartialUser]?, attributes: [String: JSONValue]? = nil, roles: [UUID]? = nil, rolesObj: [Role], inheritedRolesObj: [Role]?, children: [UUID], childrenObj: [RelatedGroup]?) {
         self.pk = pk
         self.numPk = numPk
         self.name = name
@@ -37,6 +38,7 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         self.attributes = attributes
         self.roles = roles
         self.rolesObj = rolesObj
+        self.inheritedRolesObj = inheritedRolesObj
         self.children = children
         self.childrenObj = childrenObj
     }
@@ -53,6 +55,7 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         case attributes
         case roles
         case rolesObj = "roles_obj"
+        case inheritedRolesObj = "inherited_roles_obj"
         case children
         case childrenObj = "children_obj"
     }
@@ -72,6 +75,7 @@ public struct Group: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(attributes, forKey: .attributes)
         try container.encodeIfPresent(roles, forKey: .roles)
         try container.encode(rolesObj, forKey: .rolesObj)
+        try container.encode(inheritedRolesObj, forKey: .inheritedRolesObj)
         try container.encode(children, forKey: .children)
         try container.encode(childrenObj, forKey: .childrenObj)
     }
