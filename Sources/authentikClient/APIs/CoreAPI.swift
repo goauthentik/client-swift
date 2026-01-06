@@ -2450,6 +2450,10 @@ open class CoreAPI {
      - parameter groupsByPk: (query)  (optional)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastLogin: (query)  (optional)
+     - parameter lastLoginGt: (query)  (optional)
+     - parameter lastLoginIsnull: (query)  (optional)
+     - parameter lastLoginLt: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
      - parameter lastUpdatedGt: (query)  (optional)
      - parameter lastUpdatedLt: (query)  (optional)
@@ -2467,8 +2471,8 @@ open class CoreAPI {
      - returns: DataExport
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DataExport {
-        return try await coreUsersExportCreateWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
+    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> DataExport {
+        return try await coreUsersExportCreateWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastLogin: lastLogin, lastLoginGt: lastLoginGt, lastLoginIsnull: lastLoginIsnull, lastLoginLt: lastLoginLt, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -2486,6 +2490,10 @@ open class CoreAPI {
      - parameter groupsByPk: (query)  (optional)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastLogin: (query)  (optional)
+     - parameter lastLoginGt: (query)  (optional)
+     - parameter lastLoginIsnull: (query)  (optional)
+     - parameter lastLoginLt: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
      - parameter lastUpdatedGt: (query)  (optional)
      - parameter lastUpdatedLt: (query)  (optional)
@@ -2502,7 +2510,7 @@ open class CoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DataExport> 
      */
-    open class func coreUsersExportCreateWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DataExport> {
+    open class func coreUsersExportCreateWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<DataExport> {
         let localVariablePath = "/core/users/export/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -2518,6 +2526,10 @@ open class CoreAPI {
             "groups_by_pk": (wrappedValue: groupsByPk?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_active": (wrappedValue: isActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login": (wrappedValue: lastLogin?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__gt": (wrappedValue: lastLoginGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__isnull": (wrappedValue: lastLoginIsnull?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__lt": (wrappedValue: lastLoginLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated": (wrappedValue: lastUpdated?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated__gt": (wrappedValue: lastUpdatedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated__lt": (wrappedValue: lastUpdatedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -2648,6 +2660,10 @@ open class CoreAPI {
      - parameter includeRoles: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastLogin: (query)  (optional)
+     - parameter lastLoginGt: (query)  (optional)
+     - parameter lastLoginIsnull: (query)  (optional)
+     - parameter lastLoginLt: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
      - parameter lastUpdatedGt: (query)  (optional)
      - parameter lastUpdatedLt: (query)  (optional)
@@ -2667,8 +2683,8 @@ open class CoreAPI {
      - returns: PaginatedUserList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
-        return try await coreUsersListWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedUserList {
+        return try await coreUsersListWithRequestBuilder(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastLogin: lastLogin, lastLoginGt: lastLoginGt, lastLoginIsnull: lastLoginIsnull, lastLoginLt: lastLoginLt, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -2688,6 +2704,10 @@ open class CoreAPI {
      - parameter includeRoles: (query)  (optional, default to true)
      - parameter isActive: (query)  (optional)
      - parameter isSuperuser: (query)  (optional)
+     - parameter lastLogin: (query)  (optional)
+     - parameter lastLoginGt: (query)  (optional)
+     - parameter lastLoginIsnull: (query)  (optional)
+     - parameter lastLoginLt: (query)  (optional)
      - parameter lastUpdated: (query)  (optional)
      - parameter lastUpdatedGt: (query)  (optional)
      - parameter lastUpdatedLt: (query)  (optional)
@@ -2706,7 +2726,7 @@ open class CoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedUserList> 
      */
-    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
+    open class func coreUsersListWithRequestBuilder(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedUserList> {
         let localVariablePath = "/core/users/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -2724,6 +2744,10 @@ open class CoreAPI {
             "include_roles": (wrappedValue: includeRoles?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_active": (wrappedValue: isActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_superuser": (wrappedValue: isSuperuser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login": (wrappedValue: lastLogin?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__gt": (wrappedValue: lastLoginGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__isnull": (wrappedValue: lastLoginIsnull?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "last_login__lt": (wrappedValue: lastLoginLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated": (wrappedValue: lastUpdated?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated__gt": (wrappedValue: lastUpdatedGt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "last_updated__lt": (wrappedValue: lastUpdatedLt?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

@@ -2792,7 +2792,7 @@ Void (empty response body)
 
 # **coreUsersExportCreate**
 ```swift
-    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: DataExport?, _ error: Error?) -> Void)
+    open class func coreUsersExportCreate(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersExportCreate]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: DataExport?, _ error: Error?) -> Void)
 ```
 
 
@@ -2813,6 +2813,10 @@ let groupsByName = ["inner_example"] // [String] |  (optional)
 let groupsByPk = [123] // [UUID] |  (optional)
 let isActive = true // Bool |  (optional)
 let isSuperuser = true // Bool |  (optional)
+let lastLogin = Date() // Date |  (optional)
+let lastLoginGt = Date() // Date |  (optional)
+let lastLoginIsnull = true // Bool |  (optional)
+let lastLoginLt = Date() // Date |  (optional)
 let lastUpdated = Date() // Date |  (optional)
 let lastUpdatedGt = Date() // Date |  (optional)
 let lastUpdatedLt = Date() // Date |  (optional)
@@ -2827,7 +2831,7 @@ let type = ["type_example"] // [String] |  (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
-CoreAPI.coreUsersExportCreate(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+CoreAPI.coreUsersExportCreate(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, isActive: isActive, isSuperuser: isSuperuser, lastLogin: lastLogin, lastLoginGt: lastLoginGt, lastLoginIsnull: lastLoginIsnull, lastLoginLt: lastLoginLt, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2852,6 +2856,10 @@ Name | Type | Description  | Notes
  **groupsByPk** | [**[UUID]**](UUID.md) |  | [optional] 
  **isActive** | **Bool** |  | [optional] 
  **isSuperuser** | **Bool** |  | [optional] 
+ **lastLogin** | **Date** |  | [optional] 
+ **lastLoginGt** | **Date** |  | [optional] 
+ **lastLoginIsnull** | **Bool** |  | [optional] 
+ **lastLoginLt** | **Date** |  | [optional] 
  **lastUpdated** | **Date** |  | [optional] 
  **lastUpdatedGt** | **Date** |  | [optional] 
  **lastUpdatedLt** | **Date** |  | [optional] 
@@ -2979,7 +2987,7 @@ Void (empty response body)
 
 # **coreUsersList**
 ```swift
-    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
+    open class func coreUsersList(attributes: String? = nil, dateJoined: Date? = nil, dateJoinedGt: Date? = nil, dateJoinedLt: Date? = nil, email: String? = nil, groupsByName: [String]? = nil, groupsByPk: [UUID]? = nil, includeGroups: Bool? = nil, includeRoles: Bool? = nil, isActive: Bool? = nil, isSuperuser: Bool? = nil, lastLogin: Date? = nil, lastLoginGt: Date? = nil, lastLoginIsnull: Bool? = nil, lastLoginLt: Date? = nil, lastUpdated: Date? = nil, lastUpdatedGt: Date? = nil, lastUpdatedLt: Date? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, path: String? = nil, pathStartswith: String? = nil, rolesByName: [String]? = nil, rolesByPk: [UUID]? = nil, search: String? = nil, type: [ModelType_coreUsersList]? = nil, username: String? = nil, uuid: UUID? = nil, completion: @escaping (_ data: PaginatedUserList?, _ error: Error?) -> Void)
 ```
 
 
@@ -3002,6 +3010,10 @@ let includeGroups = true // Bool |  (optional) (default to true)
 let includeRoles = true // Bool |  (optional) (default to true)
 let isActive = true // Bool |  (optional)
 let isSuperuser = true // Bool |  (optional)
+let lastLogin = Date() // Date |  (optional)
+let lastLoginGt = Date() // Date |  (optional)
+let lastLoginIsnull = true // Bool |  (optional)
+let lastLoginLt = Date() // Date |  (optional)
 let lastUpdated = Date() // Date |  (optional)
 let lastUpdatedGt = Date() // Date |  (optional)
 let lastUpdatedLt = Date() // Date |  (optional)
@@ -3018,7 +3030,7 @@ let type = ["type_example"] // [String] |  (optional)
 let username = "username_example" // String |  (optional)
 let uuid = 987 // UUID |  (optional)
 
-CoreAPI.coreUsersList(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
+CoreAPI.coreUsersList(attributes: attributes, dateJoined: dateJoined, dateJoinedGt: dateJoinedGt, dateJoinedLt: dateJoinedLt, email: email, groupsByName: groupsByName, groupsByPk: groupsByPk, includeGroups: includeGroups, includeRoles: includeRoles, isActive: isActive, isSuperuser: isSuperuser, lastLogin: lastLogin, lastLoginGt: lastLoginGt, lastLoginIsnull: lastLoginIsnull, lastLoginLt: lastLoginLt, lastUpdated: lastUpdated, lastUpdatedGt: lastUpdatedGt, lastUpdatedLt: lastUpdatedLt, name: name, ordering: ordering, page: page, pageSize: pageSize, path: path, pathStartswith: pathStartswith, rolesByName: rolesByName, rolesByPk: rolesByPk, search: search, type: type, username: username, uuid: uuid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -3045,6 +3057,10 @@ Name | Type | Description  | Notes
  **includeRoles** | **Bool** |  | [optional] [default to true]
  **isActive** | **Bool** |  | [optional] 
  **isSuperuser** | **Bool** |  | [optional] 
+ **lastLogin** | **Date** |  | [optional] 
+ **lastLoginGt** | **Date** |  | [optional] 
+ **lastLoginIsnull** | **Bool** |  | [optional] 
+ **lastLoginLt** | **Date** |  | [optional] 
  **lastUpdated** | **Date** |  | [optional] 
  **lastUpdatedGt** | **Date** |  | [optional] 
  **lastUpdatedLt** | **Date** |  | [optional] 
