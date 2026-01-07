@@ -19,8 +19,9 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
     public var nssGidOffset: Int
     public var authTerminateSessionOnExpiry: Bool
     public var systemConfig: Config
+    public var licenseStatus: LicenseStatusEnum?
 
-    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String?, jwksAuth: [String: JSONValue], jwksChallenge: [String: JSONValue]?, nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config) {
+    public init(deviceId: String, refreshInterval: Int, authorizationFlow: String?, jwksAuth: [String: JSONValue], jwksChallenge: [String: JSONValue]?, nssUidOffset: Int, nssGidOffset: Int, authTerminateSessionOnExpiry: Bool, systemConfig: Config, licenseStatus: LicenseStatusEnum?) {
         self.deviceId = deviceId
         self.refreshInterval = refreshInterval
         self.authorizationFlow = authorizationFlow
@@ -30,6 +31,7 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
         self.nssGidOffset = nssGidOffset
         self.authTerminateSessionOnExpiry = authTerminateSessionOnExpiry
         self.systemConfig = systemConfig
+        self.licenseStatus = licenseStatus
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -42,6 +44,7 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
         case nssGidOffset = "nss_gid_offset"
         case authTerminateSessionOnExpiry = "auth_terminate_session_on_expiry"
         case systemConfig = "system_config"
+        case licenseStatus = "license_status"
     }
 
     // Encodable protocol methods
@@ -57,6 +60,7 @@ public struct AgentConfig: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(nssGidOffset, forKey: .nssGidOffset)
         try container.encode(authTerminateSessionOnExpiry, forKey: .authTerminateSessionOnExpiry)
         try container.encode(systemConfig, forKey: .systemConfig)
+        try container.encode(licenseStatus, forKey: .licenseStatus)
     }
 }
 

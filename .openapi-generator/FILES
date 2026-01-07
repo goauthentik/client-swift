@@ -307,6 +307,7 @@ Sources/authentikClient/Models/License.swift
 Sources/authentikClient/Models/LicenseFlagsEnum.swift
 Sources/authentikClient/Models/LicenseForecast.swift
 Sources/authentikClient/Models/LicenseRequest.swift
+Sources/authentikClient/Models/LicenseStatusEnum.swift
 Sources/authentikClient/Models/LicenseSummary.swift
 Sources/authentikClient/Models/LicenseSummaryStatusEnum.swift
 Sources/authentikClient/Models/Link.swift
@@ -1146,6 +1147,7 @@ docs/License.md
 docs/LicenseFlagsEnum.md
 docs/LicenseForecast.md
 docs/LicenseRequest.md
+docs/LicenseStatusEnum.md
 docs/LicenseSummary.md
 docs/LicenseSummaryStatusEnum.md
 docs/Link.md
