@@ -11,7 +11,7 @@ import Foundation
 public struct AuthenticatorStaticStage: Sendable, Codable, ParameterConvertible, Hashable {
 
     public static let tokenCountRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
-    public static let tokenLengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let tokenLengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 100, exclusiveMaximum: false, multipleOf: nil)
     public var pk: UUID
     public var name: String
     /** Get object type so that we know how to edit the object */

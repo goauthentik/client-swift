@@ -12,7 +12,7 @@ public struct AuthenticatorStaticStageRequest: Sendable, Codable, ParameterConve
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public static let tokenCountRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
-    public static let tokenLengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let tokenLengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 100, exclusiveMaximum: false, multipleOf: nil)
     public var name: String
     /** Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage. */
     public var configureFlow: UUID?

@@ -10,7 +10,7 @@ import Foundation
 /** Serializer for static device&#39;s tokens */
 public struct StaticDeviceToken: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let tokenRule = StringRule(minLength: nil, maxLength: 16, pattern: nil)
+    public static let tokenRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
     public var token: String
 
     public init(token: String) {
