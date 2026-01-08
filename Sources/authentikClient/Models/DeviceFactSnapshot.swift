@@ -13,12 +13,14 @@ public struct DeviceFactSnapshot: Sendable, Codable, ParameterConvertible, Hasha
     public var connection: UUID
     public var created: Date
     public var expires: Date?
+    public var vendor: VendorEnum
 
-    public init(data: DeviceFacts, connection: UUID, created: Date, expires: Date?) {
+    public init(data: DeviceFacts, connection: UUID, created: Date, expires: Date?, vendor: VendorEnum) {
         self.data = data
         self.connection = connection
         self.created = created
         self.expires = expires
+        self.vendor = vendor
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -26,6 +28,7 @@ public struct DeviceFactSnapshot: Sendable, Codable, ParameterConvertible, Hasha
         case connection
         case created
         case expires
+        case vendor
     }
 
     // Encodable protocol methods
@@ -36,6 +39,7 @@ public struct DeviceFactSnapshot: Sendable, Codable, ParameterConvertible, Hasha
         try container.encode(connection, forKey: .connection)
         try container.encode(created, forKey: .created)
         try container.encode(expires, forKey: .expires)
+        try container.encode(vendor, forKey: .vendor)
     }
 }
 

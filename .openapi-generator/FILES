@@ -864,6 +864,7 @@ Sources/authentikClient/Models/UserVerificationEnum.swift
 Sources/authentikClient/Models/UserWriteStage.swift
 Sources/authentikClient/Models/UserWriteStageRequest.swift
 Sources/authentikClient/Models/ValidationError.swift
+Sources/authentikClient/Models/VendorEnum.swift
 Sources/authentikClient/Models/Version.swift
 Sources/authentikClient/Models/VersionHistory.swift
 Sources/authentikClient/Models/WebAuthnDevice.swift
@@ -1720,6 +1721,7 @@ docs/UserVerificationEnum.md
 docs/UserWriteStage.md
 docs/UserWriteStageRequest.md
 docs/ValidationError.md
+docs/VendorEnum.md
 docs/Version.md
 docs/VersionHistory.md
 docs/WebAuthnDevice.md
