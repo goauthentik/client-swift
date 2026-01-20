@@ -10,6 +10,5 @@ import Foundation
 public enum KadminTypeEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case mit = "MIT"
     case heimdal = "Heimdal"
-    case other = "other"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

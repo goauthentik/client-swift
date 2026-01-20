@@ -2490,7 +2490,6 @@ open class SourcesAPI {
     public enum KadminType_sourcesKerberosList: String, Sendable, CaseIterable {
         case heimdal = "Heimdal"
         case mit = "MIT"
-        case other = "other"
     }
 
     /**
