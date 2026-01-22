@@ -702,6 +702,48 @@ open class CoreAPI {
 
     /**
 
+     - parameter userPks: (query) List of user IDs to revoke all sessions for 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SessionDeleteResponse
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func coreAuthenticatedSessionsBulkDelete(userPks: [Int], apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> SessionDeleteResponse {
+        return try await coreAuthenticatedSessionsBulkDeleteWithRequestBuilder(userPks: userPks, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /core/authenticated_sessions/bulk_delete/
+     - Bulk revoke all sessions for multiple users
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter userPks: (query) List of user IDs to revoke all sessions for 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SessionDeleteResponse> 
+     */
+    open class func coreAuthenticatedSessionsBulkDeleteWithRequestBuilder(userPks: [Int], apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<SessionDeleteResponse> {
+        let localVariablePath = "/core/authenticated_sessions/bulk_delete/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "user_pks": (wrappedValue: userPks.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SessionDeleteResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
      - parameter uuid: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void

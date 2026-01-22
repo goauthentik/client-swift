@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**coreApplicationsRetrieve**](CoreAPI.md#coreapplicationsretrieve) | **GET** /core/applications/{slug}/ | 
 [**coreApplicationsUpdate**](CoreAPI.md#coreapplicationsupdate) | **PUT** /core/applications/{slug}/ | 
 [**coreApplicationsUsedByList**](CoreAPI.md#coreapplicationsusedbylist) | **GET** /core/applications/{slug}/used_by/ | 
+[**coreAuthenticatedSessionsBulkDelete**](CoreAPI.md#coreauthenticatedsessionsbulkdelete) | **DELETE** /core/authenticated_sessions/bulk_delete/ | 
 [**coreAuthenticatedSessionsDestroy**](CoreAPI.md#coreauthenticatedsessionsdestroy) | **DELETE** /core/authenticated_sessions/{uuid}/ | 
 [**coreAuthenticatedSessionsList**](CoreAPI.md#coreauthenticatedsessionslist) | **GET** /core/authenticated_sessions/ | 
 [**coreAuthenticatedSessionsRetrieve**](CoreAPI.md#coreauthenticatedsessionsretrieve) | **GET** /core/authenticated_sessions/{uuid}/ | 
@@ -841,6 +842,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coreAuthenticatedSessionsBulkDelete**
+```swift
+    open class func coreAuthenticatedSessionsBulkDelete(userPks: [Int], completion: @escaping (_ data: SessionDeleteResponse?, _ error: Error?) -> Void)
+```
+
+
+
+Bulk revoke all sessions for multiple users
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let userPks = [123] // [Int] | List of user IDs to revoke all sessions for
+
+CoreAPI.coreAuthenticatedSessionsBulkDelete(userPks: userPks) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userPks** | [**[Int]**](Int.md) | List of user IDs to revoke all sessions for | 
+
+### Return type
+
+[**SessionDeleteResponse**](SessionDeleteResponse.md)
 
 ### Authorization
 

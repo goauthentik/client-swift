@@ -110,6 +110,7 @@ Sources/authentikClient/Models/BlueprintInstanceRequest.swift
 Sources/authentikClient/Models/BlueprintInstanceStatusEnum.swift
 Sources/authentikClient/Models/Brand.swift
 Sources/authentikClient/Models/BrandRequest.swift
+Sources/authentikClient/Models/BulkDeleteSession.swift
 Sources/authentikClient/Models/Cache.swift
 Sources/authentikClient/Models/CapabilitiesEnum.swift
 Sources/authentikClient/Models/CaptchaChallenge.swift
@@ -762,6 +763,7 @@ Sources/authentikClient/Models/ScopeMappingRequest.swift
 Sources/authentikClient/Models/SelectableStage.swift
 Sources/authentikClient/Models/ServiceConnection.swift
 Sources/authentikClient/Models/ServiceConnectionState.swift
+Sources/authentikClient/Models/SessionDeleteResponse.swift
 Sources/authentikClient/Models/SessionEndChallenge.swift
 Sources/authentikClient/Models/SessionUser.swift
 Sources/authentikClient/Models/Settings.swift
@@ -945,6 +947,7 @@ docs/BlueprintInstanceRequest.md
 docs/BlueprintInstanceStatusEnum.md
 docs/Brand.md
 docs/BrandRequest.md
+docs/BulkDeleteSession.md
 docs/Cache.md
 docs/CapabilitiesEnum.md
 docs/CaptchaChallenge.md
@@ -1614,6 +1617,7 @@ docs/ScopeMappingRequest.md
 docs/SelectableStage.md
 docs/ServiceConnection.md
 docs/ServiceConnectionState.md
+docs/SessionDeleteResponse.md
 docs/SessionEndChallenge.md
 docs/SessionUser.md
 docs/Settings.md
