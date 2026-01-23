@@ -113,6 +113,7 @@ public enum ModelEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefa
     case authentikTasksSchedulesPeriodSchedule = "authentik_tasks_schedules.schedule"
     case authentikBrandsPeriodBrand = "authentik_brands.brand"
     case authentikBlueprintsPeriodBlueprintinstance = "authentik_blueprints.blueprintinstance"
+    case authentikEndpointsConnectorsFleetPeriodFleetconnector = "authentik_endpoints_connectors_fleet.fleetconnector"
     case authentikPoliciesUniquePasswordPeriodUniquepasswordpolicy = "authentik_policies_unique_password.uniquepasswordpolicy"
     case authentikProvidersGoogleWorkspacePeriodGoogleworkspaceprovider = "authentik_providers_google_workspace.googleworkspaceprovider"
     case authentikProvidersGoogleWorkspacePeriodGoogleworkspaceprovidermapping = "authentik_providers_google_workspace.googleworkspaceprovidermapping"

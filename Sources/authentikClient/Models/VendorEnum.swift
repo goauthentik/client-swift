@@ -10,5 +10,6 @@ import Foundation
 public enum VendorEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case goauthentikPeriodIoSlashAtMerged = "goauthentik.io/@merged"
     case goauthentikPeriodIoSlashPlatform = "goauthentik.io/platform"
+    case fleetdmPeriodCom = "fleetdm.com"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

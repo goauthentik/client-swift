@@ -11,15 +11,18 @@ public struct DeviceAccessGroup: Sendable, Codable, ParameterConvertible, Hashab
 
     public var pbmUuid: UUID
     public var name: String
+    public var attributes: [String: JSONValue]?
 
-    public init(pbmUuid: UUID, name: String) {
+    public init(pbmUuid: UUID, name: String, attributes: [String: JSONValue]? = nil) {
         self.pbmUuid = pbmUuid
         self.name = name
+        self.attributes = attributes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pbmUuid = "pbm_uuid"
         case name
+        case attributes
     }
 
     // Encodable protocol methods
@@ -28,6 +31,7 @@ public struct DeviceAccessGroup: Sendable, Codable, ParameterConvertible, Hashab
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pbmUuid, forKey: .pbmUuid)
         try container.encode(name, forKey: .name)
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
 

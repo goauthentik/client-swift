@@ -53,6 +53,13 @@ Method | HTTP request | Description
 [**endpointsDevicesSummaryRetrieve**](EndpointsAPI.md#endpointsdevicessummaryretrieve) | **GET** /endpoints/devices/summary/ | 
 [**endpointsDevicesUpdate**](EndpointsAPI.md#endpointsdevicesupdate) | **PUT** /endpoints/devices/{device_uuid}/ | 
 [**endpointsDevicesUsedByList**](EndpointsAPI.md#endpointsdevicesusedbylist) | **GET** /endpoints/devices/{device_uuid}/used_by/ | 
+[**endpointsFleetConnectorsCreate**](EndpointsAPI.md#endpointsfleetconnectorscreate) | **POST** /endpoints/fleet/connectors/ | 
+[**endpointsFleetConnectorsDestroy**](EndpointsAPI.md#endpointsfleetconnectorsdestroy) | **DELETE** /endpoints/fleet/connectors/{connector_uuid}/ | 
+[**endpointsFleetConnectorsList**](EndpointsAPI.md#endpointsfleetconnectorslist) | **GET** /endpoints/fleet/connectors/ | 
+[**endpointsFleetConnectorsPartialUpdate**](EndpointsAPI.md#endpointsfleetconnectorspartialupdate) | **PATCH** /endpoints/fleet/connectors/{connector_uuid}/ | 
+[**endpointsFleetConnectorsRetrieve**](EndpointsAPI.md#endpointsfleetconnectorsretrieve) | **GET** /endpoints/fleet/connectors/{connector_uuid}/ | 
+[**endpointsFleetConnectorsUpdate**](EndpointsAPI.md#endpointsfleetconnectorsupdate) | **PUT** /endpoints/fleet/connectors/{connector_uuid}/ | 
+[**endpointsFleetConnectorsUsedByList**](EndpointsAPI.md#endpointsfleetconnectorsusedbylist) | **GET** /endpoints/fleet/connectors/{connector_uuid}/used_by/ | 
 
 
 # **endpointsAgentsConnectorsAgentConfigRetrieve**
@@ -1461,7 +1468,7 @@ DeviceAccessGroup Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example") // DeviceAccessGroupRequest | 
+let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example", attributes: "TODO") // DeviceAccessGroupRequest | 
 
 EndpointsAPI.endpointsDeviceAccessGroupsCreate(deviceAccessGroupRequest: deviceAccessGroupRequest) { (response, error) in
     guard error == nil else {
@@ -1619,7 +1626,7 @@ DeviceAccessGroup Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
-let patchedDeviceAccessGroupRequest = PatchedDeviceAccessGroupRequest(name: "name_example") // PatchedDeviceAccessGroupRequest |  (optional)
+let patchedDeviceAccessGroupRequest = PatchedDeviceAccessGroupRequest(name: "name_example", attributes: "TODO") // PatchedDeviceAccessGroupRequest |  (optional)
 
 EndpointsAPI.endpointsDeviceAccessGroupsPartialUpdate(pbmUuid: pbmUuid, patchedDeviceAccessGroupRequest: patchedDeviceAccessGroupRequest) { (response, error) in
     guard error == nil else {
@@ -1719,7 +1726,7 @@ DeviceAccessGroup Viewset
 import authentikClient
 
 let pbmUuid = 987 // UUID | A UUID string identifying this Device access group.
-let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example") // DeviceAccessGroupRequest | 
+let deviceAccessGroupRequest = DeviceAccessGroupRequest(name: "name_example", attributes: "TODO") // DeviceAccessGroupRequest | 
 
 EndpointsAPI.endpointsDeviceAccessGroupsUpdate(pbmUuid: pbmUuid, deviceAccessGroupRequest: deviceAccessGroupRequest) { (response, error) in
     guard error == nil else {
@@ -2294,7 +2301,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let deviceUuid = 987 // UUID | A UUID string identifying this Device.
-let patchedEndpointDeviceRequest = PatchedEndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // PatchedEndpointDeviceRequest |  (optional)
+let patchedEndpointDeviceRequest = PatchedEndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example", attributes: "TODO"), expiring: false, expires: Date(), attributes: "TODO") // PatchedEndpointDeviceRequest |  (optional)
 
 EndpointsAPI.endpointsDevicesPartialUpdate(deviceUuid: deviceUuid, patchedEndpointDeviceRequest: patchedEndpointDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2439,7 +2446,7 @@ Mixin to add a used_by endpoint to return a list of all objects using this objec
 import authentikClient
 
 let deviceUuid = 987 // UUID | A UUID string identifying this Device.
-let endpointDeviceRequest = EndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example"), expiring: false, expires: Date(), attributes: "TODO") // EndpointDeviceRequest | 
+let endpointDeviceRequest = EndpointDeviceRequest(deviceUuid: 123, name: "name_example", accessGroup: 123, accessGroupObj: DeviceAccessGroupRequest(name: "name_example", attributes: "TODO"), expiring: false, expires: Date(), attributes: "TODO") // EndpointDeviceRequest | 
 
 EndpointsAPI.endpointsDevicesUpdate(deviceUuid: deviceUuid, endpointDeviceRequest: endpointDeviceRequest) { (response, error) in
     guard error == nil else {
@@ -2508,6 +2515,361 @@ EndpointsAPI.endpointsDevicesUsedByList(deviceUuid: deviceUuid) { (response, err
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deviceUuid** | **UUID** | A UUID string identifying this Device. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsCreate**
+```swift
+    open class func endpointsFleetConnectorsCreate(fleetConnectorRequest: FleetConnectorRequest, completion: @escaping (_ data: FleetConnector?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let fleetConnectorRequest = FleetConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, url: "url_example", token: "token_example", headersMapping: 123, mapUsers: false, mapTeamsAccessGroup: false) // FleetConnectorRequest | 
+
+EndpointsAPI.endpointsFleetConnectorsCreate(fleetConnectorRequest: fleetConnectorRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fleetConnectorRequest** | [**FleetConnectorRequest**](FleetConnectorRequest.md) |  | 
+
+### Return type
+
+[**FleetConnector**](FleetConnector.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsDestroy**
+```swift
+    open class func endpointsFleetConnectorsDestroy(connectorUuid: UUID, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let connectorUuid = 987 // UUID | A UUID string identifying this Fleet Connector.
+
+EndpointsAPI.endpointsFleetConnectorsDestroy(connectorUuid: connectorUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorUuid** | **UUID** | A UUID string identifying this Fleet Connector. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsList**
+```swift
+    open class func endpointsFleetConnectorsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, completion: @escaping (_ data: PaginatedFleetConnectorList?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let name = "name_example" // String |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let search = "search_example" // String | A search term. (optional)
+
+EndpointsAPI.endpointsFleetConnectorsList(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **search** | **String** | A search term. | [optional] 
+
+### Return type
+
+[**PaginatedFleetConnectorList**](PaginatedFleetConnectorList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsPartialUpdate**
+```swift
+    open class func endpointsFleetConnectorsPartialUpdate(connectorUuid: UUID, patchedFleetConnectorRequest: PatchedFleetConnectorRequest? = nil, completion: @escaping (_ data: FleetConnector?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let connectorUuid = 987 // UUID | A UUID string identifying this Fleet Connector.
+let patchedFleetConnectorRequest = PatchedFleetConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, url: "url_example", token: "token_example", headersMapping: 123, mapUsers: false, mapTeamsAccessGroup: false) // PatchedFleetConnectorRequest |  (optional)
+
+EndpointsAPI.endpointsFleetConnectorsPartialUpdate(connectorUuid: connectorUuid, patchedFleetConnectorRequest: patchedFleetConnectorRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorUuid** | **UUID** | A UUID string identifying this Fleet Connector. | 
+ **patchedFleetConnectorRequest** | [**PatchedFleetConnectorRequest**](PatchedFleetConnectorRequest.md) |  | [optional] 
+
+### Return type
+
+[**FleetConnector**](FleetConnector.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsRetrieve**
+```swift
+    open class func endpointsFleetConnectorsRetrieve(connectorUuid: UUID, completion: @escaping (_ data: FleetConnector?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let connectorUuid = 987 // UUID | A UUID string identifying this Fleet Connector.
+
+EndpointsAPI.endpointsFleetConnectorsRetrieve(connectorUuid: connectorUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorUuid** | **UUID** | A UUID string identifying this Fleet Connector. | 
+
+### Return type
+
+[**FleetConnector**](FleetConnector.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsUpdate**
+```swift
+    open class func endpointsFleetConnectorsUpdate(connectorUuid: UUID, fleetConnectorRequest: FleetConnectorRequest, completion: @escaping (_ data: FleetConnector?, _ error: Error?) -> Void)
+```
+
+
+
+FleetConnector Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let connectorUuid = 987 // UUID | A UUID string identifying this Fleet Connector.
+let fleetConnectorRequest = FleetConnectorRequest(connectorUuid: 123, name: "name_example", enabled: false, url: "url_example", token: "token_example", headersMapping: 123, mapUsers: false, mapTeamsAccessGroup: false) // FleetConnectorRequest | 
+
+EndpointsAPI.endpointsFleetConnectorsUpdate(connectorUuid: connectorUuid, fleetConnectorRequest: fleetConnectorRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorUuid** | **UUID** | A UUID string identifying this Fleet Connector. | 
+ **fleetConnectorRequest** | [**FleetConnectorRequest**](FleetConnectorRequest.md) |  | 
+
+### Return type
+
+[**FleetConnector**](FleetConnector.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpointsFleetConnectorsUsedByList**
+```swift
+    open class func endpointsFleetConnectorsUsedByList(connectorUuid: UUID, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let connectorUuid = 987 // UUID | A UUID string identifying this Fleet Connector.
+
+EndpointsAPI.endpointsFleetConnectorsUsedByList(connectorUuid: connectorUuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorUuid** | **UUID** | A UUID string identifying this Fleet Connector. | 
 
 ### Return type
 

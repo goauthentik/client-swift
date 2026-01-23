@@ -7,10 +7,13 @@
 
 import Foundation
 
+/** For example: {\&quot;family\&quot;:\&quot;linux\&quot;,\&quot;name\&quot;:\&quot;Ubuntu\&quot;,\&quot;version\&quot;:\&quot;24.04.3 LTS (Noble Numbat)\&quot;,\&quot;arch\&quot;:\&quot;amd64\&quot;} {\&quot;family\&quot;: \&quot;windows\&quot;,\&quot;name\&quot;:\&quot;Server 2022 Datacenter\&quot;,\&quot;version\&quot;:\&quot;10.0.20348.4405\&quot;,\&quot;arch\&quot;:\&quot;amd64\&quot;} {\&quot;family\&quot;: \&quot;windows\&quot;,\&quot;name\&quot;:\&quot;Server 2022 Datacenter\&quot;,\&quot;version\&quot;:\&quot;10.0.20348.4405\&quot;,\&quot;arch\&quot;:\&quot;amd64\&quot;} {\&quot;family\&quot;: \&quot;mac_os\&quot;, \&quot;name\&quot;: \&quot;\&quot;, \&quot;version\&quot;: \&quot;26.2\&quot;, \&quot;arch\&quot;: \&quot;arm64\&quot;} */
 public struct OperatingSystem: Sendable, Codable, ParameterConvertible, Hashable {
 
     public var family: DeviceFactsOSFamily
+    /** Operating System name, such as 'Server 2022' or 'Ubuntu' */
     public var name: String?
+    /** Operating System version, must always be the version number but may contain build name */
     public var version: String?
     public var arch: String
 

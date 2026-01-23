@@ -378,6 +378,7 @@ open class RbacAPI {
         case authentikEndpointsConnectorsAgentPeriodAgentconnector = "authentik_endpoints_connectors_agent.agentconnector"
         case authentikEndpointsConnectorsAgentPeriodAgentdeviceuserbinding = "authentik_endpoints_connectors_agent.agentdeviceuserbinding"
         case authentikEndpointsConnectorsAgentPeriodEnrollmenttoken = "authentik_endpoints_connectors_agent.enrollmenttoken"
+        case authentikEndpointsConnectorsFleetPeriodFleetconnector = "authentik_endpoints_connectors_fleet.fleetconnector"
         case authentikEnterprisePeriodLicense = "authentik_enterprise.license"
         case authentikEventsPeriodEvent = "authentik_events.event"
         case authentikEventsPeriodNotification = "authentik_events.notification"

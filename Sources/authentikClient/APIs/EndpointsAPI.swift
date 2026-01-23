@@ -2120,4 +2120,311 @@ open class EndpointsAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
+
+    /**
+
+     - parameter fleetConnectorRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FleetConnector
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsCreate(fleetConnectorRequest: FleetConnectorRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> FleetConnector {
+        return try await endpointsFleetConnectorsCreateWithRequestBuilder(fleetConnectorRequest: fleetConnectorRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /endpoints/fleet/connectors/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter fleetConnectorRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FleetConnector> 
+     */
+    open class func endpointsFleetConnectorsCreateWithRequestBuilder(fleetConnectorRequest: FleetConnectorRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<FleetConnector> {
+        let localVariablePath = "/endpoints/fleet/connectors/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: fleetConnectorRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FleetConnector>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsDestroy(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await endpointsFleetConnectorsDestroyWithRequestBuilder(connectorUuid: connectorUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /endpoints/fleet/connectors/{connector_uuid}/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func endpointsFleetConnectorsDestroyWithRequestBuilder(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/endpoints/fleet/connectors/{connector_uuid}/"
+        let connectorUuidPreEscape = "\(APIHelper.mapValueToPathItem(connectorUuid))"
+        let connectorUuidPostEscape = connectorUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{connector_uuid}", with: connectorUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedFleetConnectorList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsList(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedFleetConnectorList {
+        return try await endpointsFleetConnectorsListWithRequestBuilder(name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/fleet/connectors/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter name: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedFleetConnectorList> 
+     */
+    open class func endpointsFleetConnectorsListWithRequestBuilder(name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedFleetConnectorList> {
+        let localVariablePath = "/endpoints/fleet/connectors/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedFleetConnectorList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter patchedFleetConnectorRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FleetConnector
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsPartialUpdate(connectorUuid: UUID, patchedFleetConnectorRequest: PatchedFleetConnectorRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> FleetConnector {
+        return try await endpointsFleetConnectorsPartialUpdateWithRequestBuilder(connectorUuid: connectorUuid, patchedFleetConnectorRequest: patchedFleetConnectorRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /endpoints/fleet/connectors/{connector_uuid}/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter patchedFleetConnectorRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FleetConnector> 
+     */
+    open class func endpointsFleetConnectorsPartialUpdateWithRequestBuilder(connectorUuid: UUID, patchedFleetConnectorRequest: PatchedFleetConnectorRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<FleetConnector> {
+        var localVariablePath = "/endpoints/fleet/connectors/{connector_uuid}/"
+        let connectorUuidPreEscape = "\(APIHelper.mapValueToPathItem(connectorUuid))"
+        let connectorUuidPostEscape = connectorUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{connector_uuid}", with: connectorUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedFleetConnectorRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FleetConnector>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FleetConnector
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsRetrieve(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> FleetConnector {
+        return try await endpointsFleetConnectorsRetrieveWithRequestBuilder(connectorUuid: connectorUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/fleet/connectors/{connector_uuid}/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FleetConnector> 
+     */
+    open class func endpointsFleetConnectorsRetrieveWithRequestBuilder(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<FleetConnector> {
+        var localVariablePath = "/endpoints/fleet/connectors/{connector_uuid}/"
+        let connectorUuidPreEscape = "\(APIHelper.mapValueToPathItem(connectorUuid))"
+        let connectorUuidPostEscape = connectorUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{connector_uuid}", with: connectorUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FleetConnector>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter fleetConnectorRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FleetConnector
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsUpdate(connectorUuid: UUID, fleetConnectorRequest: FleetConnectorRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> FleetConnector {
+        return try await endpointsFleetConnectorsUpdateWithRequestBuilder(connectorUuid: connectorUuid, fleetConnectorRequest: fleetConnectorRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /endpoints/fleet/connectors/{connector_uuid}/
+     - FleetConnector Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter fleetConnectorRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FleetConnector> 
+     */
+    open class func endpointsFleetConnectorsUpdateWithRequestBuilder(connectorUuid: UUID, fleetConnectorRequest: FleetConnectorRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<FleetConnector> {
+        var localVariablePath = "/endpoints/fleet/connectors/{connector_uuid}/"
+        let connectorUuidPreEscape = "\(APIHelper.mapValueToPathItem(connectorUuid))"
+        let connectorUuidPostEscape = connectorUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{connector_uuid}", with: connectorUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: fleetConnectorRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FleetConnector>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func endpointsFleetConnectorsUsedByList(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await endpointsFleetConnectorsUsedByListWithRequestBuilder(connectorUuid: connectorUuid, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /endpoints/fleet/connectors/{connector_uuid}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter connectorUuid: (path) A UUID string identifying this Fleet Connector. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func endpointsFleetConnectorsUsedByListWithRequestBuilder(connectorUuid: UUID, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/endpoints/fleet/connectors/{connector_uuid}/used_by/"
+        let connectorUuidPreEscape = "\(APIHelper.mapValueToPathItem(connectorUuid))"
+        let connectorUuidPostEscape = connectorUuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{connector_uuid}", with: connectorUuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
 }

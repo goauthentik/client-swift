@@ -11,13 +11,16 @@ public struct PatchedDeviceAccessGroupRequest: Sendable, Codable, ParameterConve
 
     public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String?
+    public var attributes: [String: JSONValue]?
 
-    public init(name: String? = nil) {
+    public init(name: String? = nil, attributes: [String: JSONValue]? = nil) {
         self.name = name
+        self.attributes = attributes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
+        case attributes
     }
 
     // Encodable protocol methods
@@ -25,6 +28,7 @@ public struct PatchedDeviceAccessGroupRequest: Sendable, Codable, ParameterConve
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(attributes, forKey: .attributes)
     }
 }
 
