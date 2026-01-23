@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**coreApplicationsRetrieve**](CoreAPI.md#coreapplicationsretrieve) | **GET** /core/applications/{slug}/ | 
 [**coreApplicationsUpdate**](CoreAPI.md#coreapplicationsupdate) | **PUT** /core/applications/{slug}/ | 
 [**coreApplicationsUsedByList**](CoreAPI.md#coreapplicationsusedbylist) | **GET** /core/applications/{slug}/used_by/ | 
-[**coreAuthenticatedSessionsBulkDelete**](CoreAPI.md#coreauthenticatedsessionsbulkdelete) | **DELETE** /core/authenticated_sessions/bulk_delete/ | 
+[**coreAuthenticatedSessionsBulkDeleteDestroy**](CoreAPI.md#coreauthenticatedsessionsbulkdeletedestroy) | **DELETE** /core/authenticated_sessions/bulk_delete/ | 
 [**coreAuthenticatedSessionsDestroy**](CoreAPI.md#coreauthenticatedsessionsdestroy) | **DELETE** /core/authenticated_sessions/{uuid}/ | 
 [**coreAuthenticatedSessionsList**](CoreAPI.md#coreauthenticatedsessionslist) | **GET** /core/authenticated_sessions/ | 
 [**coreAuthenticatedSessionsRetrieve**](CoreAPI.md#coreauthenticatedsessionsretrieve) | **GET** /core/authenticated_sessions/{uuid}/ | 
@@ -854,9 +854,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **coreAuthenticatedSessionsBulkDelete**
+# **coreAuthenticatedSessionsBulkDeleteDestroy**
 ```swift
-    open class func coreAuthenticatedSessionsBulkDelete(userPks: [Int], completion: @escaping (_ data: SessionDeleteResponse?, _ error: Error?) -> Void)
+    open class func coreAuthenticatedSessionsBulkDeleteDestroy(userPks: [Int], completion: @escaping (_ data: BulkDeleteSessionResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -870,7 +870,7 @@ import authentikClient
 
 let userPks = [123] // [Int] | List of user IDs to revoke all sessions for
 
-CoreAPI.coreAuthenticatedSessionsBulkDelete(userPks: userPks) { (response, error) in
+CoreAPI.coreAuthenticatedSessionsBulkDeleteDestroy(userPks: userPks) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -890,7 +890,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SessionDeleteResponse**](SessionDeleteResponse.md)
+[**BulkDeleteSessionResponse**](BulkDeleteSessionResponse.md)
 
 ### Authorization
 
