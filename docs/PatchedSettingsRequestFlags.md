@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**enterpriseAuditIncludeExpandedDiff** | **Bool** |  | 
 **policiesBufferedAccessView** | **Bool** |  | 
 **flowsRefreshOthers** | **Bool** |  | 
 
