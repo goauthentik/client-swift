@@ -19,9 +19,9 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
     /** Get object component so that we know how to edit the object */
     public var component: String
     /** Internal application name, used in URLs. */
-    public var assignedBackchannelApplicationSlug: String
+    public var assignedBackchannelApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedBackchannelApplicationName: String
+    public var assignedBackchannelApplicationName: String?
     /** Return object's verbose_name */
     public var verboseName: String
     /** Return object's plural verbose_name */
@@ -42,7 +42,7 @@ public struct MicrosoftEntraProvider: Sendable, Codable, ParameterConvertible, H
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientId: String, clientSecret: String, tenantId: String, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
+    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String?, assignedBackchannelApplicationName: String?, verboseName: String, verboseNamePlural: String, metaModelName: String, clientId: String, clientSecret: String, tenantId: String, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, userDeleteAction: OutgoingSyncDeleteAction? = nil, groupDeleteAction: OutgoingSyncDeleteAction? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.propertyMappings = propertyMappings

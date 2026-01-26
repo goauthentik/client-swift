@@ -24,13 +24,13 @@ public struct OAuth2Provider: Sendable, Codable, ParameterConvertible, Hashable 
     /** Get object component so that we know how to edit the object */
     public var component: String
     /** Internal application name, used in URLs. */
-    public var assignedApplicationSlug: String
+    public var assignedApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedApplicationName: String
+    public var assignedApplicationName: String?
     /** Internal application name, used in URLs. */
-    public var assignedBackchannelApplicationSlug: String
+    public var assignedBackchannelApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedBackchannelApplicationName: String
+    public var assignedBackchannelApplicationName: String?
     /** Return object's verbose_name */
     public var verboseName: String
     /** Return object's plural verbose_name */
@@ -66,7 +66,7 @@ public struct OAuth2Provider: Sendable, Codable, ParameterConvertible, Hashable 
     public var jwtFederationSources: [UUID]?
     public var jwtFederationProviders: [Int]?
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, refreshTokenThreshold: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURI], logoutUri: String? = nil, logoutMethod: OAuth2ProviderLogoutMethodEnum? = nil, subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String?, assignedApplicationName: String?, assignedBackchannelApplicationSlug: String?, assignedBackchannelApplicationName: String?, verboseName: String, verboseNamePlural: String, metaModelName: String, clientType: ClientTypeEnum? = nil, clientId: String? = nil, clientSecret: String? = nil, accessCodeValidity: String? = nil, accessTokenValidity: String? = nil, refreshTokenValidity: String? = nil, refreshTokenThreshold: String? = nil, includeClaimsInIdToken: Bool? = nil, signingKey: UUID? = nil, encryptionKey: UUID? = nil, redirectUris: [RedirectURI], logoutUri: String? = nil, logoutMethod: OAuth2ProviderLogoutMethodEnum? = nil, subMode: SubModeEnum? = nil, issuerMode: IssuerModeEnum? = nil, jwtFederationSources: [UUID]? = nil, jwtFederationProviders: [Int]? = nil) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow

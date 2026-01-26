@@ -17,7 +17,7 @@ public struct Outpost: Sendable, Codable, ParameterConvertible, Hashable {
     public var providersObj: [Provider]
     /** Select Service-Connection authentik should use to manage this outpost. Leave empty if authentik should not handle the deployment. */
     public var serviceConnection: UUID?
-    public var serviceConnectionObj: ServiceConnection
+    public var serviceConnectionObj: ServiceConnection?
     public var refreshIntervalS: Int
     /** Get Token identifier */
     public var tokenIdentifier: String
@@ -25,7 +25,7 @@ public struct Outpost: Sendable, Codable, ParameterConvertible, Hashable {
     /** Objects that are managed by authentik. These objects are created and updated automatically. This flag only indicates that an object can be overwritten by migrations. You can still modify the objects via the API, but expect changes to be overwritten in a later update. */
     public var managed: String?
 
-    public init(pk: UUID, name: String, type: OutpostTypeEnum, providers: [Int], providersObj: [Provider], serviceConnection: UUID? = nil, serviceConnectionObj: ServiceConnection, refreshIntervalS: Int, tokenIdentifier: String, config: [String: JSONValue], managed: String? = nil) {
+    public init(pk: UUID, name: String, type: OutpostTypeEnum, providers: [Int], providersObj: [Provider], serviceConnection: UUID? = nil, serviceConnectionObj: ServiceConnection?, refreshIntervalS: Int, tokenIdentifier: String, config: [String: JSONValue], managed: String? = nil) {
         self.pk = pk
         self.name = name
         self.type = type

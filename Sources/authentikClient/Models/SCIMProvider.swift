@@ -19,9 +19,9 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
     /** Get object component so that we know how to edit the object */
     public var component: String
     /** Internal application name, used in URLs. */
-    public var assignedBackchannelApplicationSlug: String
+    public var assignedBackchannelApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedBackchannelApplicationName: String
+    public var assignedBackchannelApplicationName: String?
     /** Return object's verbose_name */
     public var verboseName: String
     /** Return object's plural verbose_name */
@@ -51,7 +51,7 @@ public struct SCIMProvider: Sendable, Codable, ParameterConvertible, Hashable {
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, serviceProviderConfigCacheTimeout: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
+    public init(pk: Int, name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, component: String, assignedBackchannelApplicationSlug: String?, assignedBackchannelApplicationName: String?, verboseName: String, verboseNamePlural: String, metaModelName: String, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, serviceProviderConfigCacheTimeout: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.propertyMappings = propertyMappings
