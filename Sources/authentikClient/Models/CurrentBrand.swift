@@ -13,7 +13,9 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
     public var matchedDomain: String
     public var brandingTitle: String
     public var brandingLogo: String
+    public var brandingLogoThemedUrls: ThemedUrls?
     public var brandingFavicon: String
+    public var brandingFaviconThemedUrls: ThemedUrls?
     public var brandingCustomCss: String
     public var uiFooterLinks: [FooterLink]
     public var uiTheme: UiThemeEnum
@@ -26,11 +28,13 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
     public var defaultLocale: String
     public var flags: CurrentBrandFlags
 
-    public init(matchedDomain: String, brandingTitle: String, brandingLogo: String, brandingFavicon: String, brandingCustomCss: String, uiFooterLinks: [FooterLink], uiTheme: UiThemeEnum, flowAuthentication: String? = nil, flowInvalidation: String? = nil, flowRecovery: String? = nil, flowUnenrollment: String? = nil, flowUserSettings: String? = nil, flowDeviceCode: String? = nil, defaultLocale: String, flags: CurrentBrandFlags) {
+    public init(matchedDomain: String, brandingTitle: String, brandingLogo: String, brandingLogoThemedUrls: ThemedUrls?, brandingFavicon: String, brandingFaviconThemedUrls: ThemedUrls?, brandingCustomCss: String, uiFooterLinks: [FooterLink], uiTheme: UiThemeEnum, flowAuthentication: String? = nil, flowInvalidation: String? = nil, flowRecovery: String? = nil, flowUnenrollment: String? = nil, flowUserSettings: String? = nil, flowDeviceCode: String? = nil, defaultLocale: String, flags: CurrentBrandFlags) {
         self.matchedDomain = matchedDomain
         self.brandingTitle = brandingTitle
         self.brandingLogo = brandingLogo
+        self.brandingLogoThemedUrls = brandingLogoThemedUrls
         self.brandingFavicon = brandingFavicon
+        self.brandingFaviconThemedUrls = brandingFaviconThemedUrls
         self.brandingCustomCss = brandingCustomCss
         self.uiFooterLinks = uiFooterLinks
         self.uiTheme = uiTheme
@@ -48,7 +52,9 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
         case matchedDomain = "matched_domain"
         case brandingTitle = "branding_title"
         case brandingLogo = "branding_logo"
+        case brandingLogoThemedUrls = "branding_logo_themed_urls"
         case brandingFavicon = "branding_favicon"
+        case brandingFaviconThemedUrls = "branding_favicon_themed_urls"
         case brandingCustomCss = "branding_custom_css"
         case uiFooterLinks = "ui_footer_links"
         case uiTheme = "ui_theme"
@@ -69,7 +75,9 @@ public struct CurrentBrand: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(matchedDomain, forKey: .matchedDomain)
         try container.encode(brandingTitle, forKey: .brandingTitle)
         try container.encode(brandingLogo, forKey: .brandingLogo)
+        try container.encode(brandingLogoThemedUrls, forKey: .brandingLogoThemedUrls)
         try container.encode(brandingFavicon, forKey: .brandingFavicon)
+        try container.encode(brandingFaviconThemedUrls, forKey: .brandingFaviconThemedUrls)
         try container.encode(brandingCustomCss, forKey: .brandingCustomCss)
         try container.encode(uiFooterLinks, forKey: .uiFooterLinks)
         try container.encode(uiTheme, forKey: .uiTheme)

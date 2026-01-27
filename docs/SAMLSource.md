@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **userPathTemplate** | **String** |  | [optional] 
 **icon** | **String** |  | [optional] 
 **iconUrl** | **String** |  | [readonly] 
+**iconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **groupMatchingMode** | [**GroupMatchingModeEnum**](GroupMatchingModeEnum.md) | How the source determines if an existing group should be used or a new group created. | [optional] 
 **preAuthenticationFlow** | **UUID** | Flow used before authentication. | 
 **issuer** | **String** | Also known as Entity ID. Defaults the Metadata URL. | [optional] 

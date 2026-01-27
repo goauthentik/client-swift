@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **userPathTemplate** | **String** |  | [optional] 
 **icon** | **String** |  | [optional] 
 **iconUrl** | **String** |  | [readonly] 
+**iconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **groupMatchingMode** | [**GroupMatchingModeEnum**](GroupMatchingModeEnum.md) | How the source determines if an existing group should be used or a new group created. | [optional] 
 **realm** | **String** | Kerberos realm | 
 **krb5Conf** | **String** | Custom krb5.conf to use. Uses the system one by default | [optional] 

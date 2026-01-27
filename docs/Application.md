@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **metaLaunchUrl** | **String** |  | [optional] 
 **metaIcon** | **String** |  | [optional] 
 **metaIconUrl** | **String** | Get the URL to the App Icon image | [readonly] 
+**metaIconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **metaDescription** | **String** |  | [optional] 
 **metaPublisher** | **String** |  | [optional] 
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  | [optional] 

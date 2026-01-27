@@ -12,12 +12,14 @@ public struct ContextualFlowInfo: Sendable, Codable, ParameterConvertible, Hasha
 
     public var title: String?
     public var background: String?
+    public var backgroundThemedUrls: ThemedUrls?
     public var cancelUrl: String
     public var layout: ContextualFlowInfoLayoutEnum
 
-    public init(title: String? = nil, background: String? = nil, cancelUrl: String, layout: ContextualFlowInfoLayoutEnum) {
+    public init(title: String? = nil, background: String? = nil, backgroundThemedUrls: ThemedUrls? = nil, cancelUrl: String, layout: ContextualFlowInfoLayoutEnum) {
         self.title = title
         self.background = background
+        self.backgroundThemedUrls = backgroundThemedUrls
         self.cancelUrl = cancelUrl
         self.layout = layout
     }
@@ -25,6 +27,7 @@ public struct ContextualFlowInfo: Sendable, Codable, ParameterConvertible, Hasha
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case title
         case background
+        case backgroundThemedUrls = "background_themed_urls"
         case cancelUrl = "cancel_url"
         case layout
     }
@@ -35,6 +38,7 @@ public struct ContextualFlowInfo: Sendable, Codable, ParameterConvertible, Hasha
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(title, forKey: .title)
         try container.encodeIfPresent(background, forKey: .background)
+        try container.encodeIfPresent(backgroundThemedUrls, forKey: .backgroundThemedUrls)
         try container.encode(cancelUrl, forKey: .cancelUrl)
         try container.encode(layout, forKey: .layout)
     }

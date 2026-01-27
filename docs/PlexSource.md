@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **userPathTemplate** | **String** |  | [optional] 
 **icon** | **String** |  | [optional] 
 **iconUrl** | **String** |  | [readonly] 
+**iconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **groupMatchingMode** | [**GroupMatchingModeEnum**](GroupMatchingModeEnum.md) | How the source determines if an existing group should be used or a new group created. | [optional] 
 **clientId** | **String** | Client identifier used to talk to Plex. | [optional] 
 **allowedServers** | **[String]** | Which servers a user has to be a member of to be granted access. Empty list allows every server. | [optional] 

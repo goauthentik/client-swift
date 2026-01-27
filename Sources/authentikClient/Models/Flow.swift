@@ -24,6 +24,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
     public var background: String?
     /** Get the URL to the background image */
     public var backgroundUrl: String
+    public var backgroundThemedUrls: ThemedUrls?
     public var stages: [UUID]
     public var policies: [UUID]
     /** Get count of cached flows */
@@ -39,7 +40,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
     /** Required level of authentication and authorization to access a flow. */
     public var authentication: AuthenticationEnum?
 
-    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String? = nil, backgroundUrl: String, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
+    public init(pk: UUID, policybindingmodelPtrId: UUID, name: String, slug: String, title: String, designation: FlowDesignationEnum, background: String? = nil, backgroundUrl: String, backgroundThemedUrls: ThemedUrls?, stages: [UUID], policies: [UUID], cacheCount: Int, policyEngineMode: PolicyEngineMode? = nil, compatibilityMode: Bool? = nil, exportUrl: String, layout: FlowLayoutEnum? = nil, deniedAction: DeniedActionEnum? = nil, authentication: AuthenticationEnum? = nil) {
         self.pk = pk
         self.policybindingmodelPtrId = policybindingmodelPtrId
         self.name = name
@@ -48,6 +49,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         self.designation = designation
         self.background = background
         self.backgroundUrl = backgroundUrl
+        self.backgroundThemedUrls = backgroundThemedUrls
         self.stages = stages
         self.policies = policies
         self.cacheCount = cacheCount
@@ -68,6 +70,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         case designation
         case background
         case backgroundUrl = "background_url"
+        case backgroundThemedUrls = "background_themed_urls"
         case stages
         case policies
         case cacheCount = "cache_count"
@@ -91,6 +94,7 @@ public struct Flow: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(designation, forKey: .designation)
         try container.encodeIfPresent(background, forKey: .background)
         try container.encode(backgroundUrl, forKey: .backgroundUrl)
+        try container.encode(backgroundThemedUrls, forKey: .backgroundThemedUrls)
         try container.encode(stages, forKey: .stages)
         try container.encode(policies, forKey: .policies)
         try container.encode(cacheCount, forKey: .cacheCount)

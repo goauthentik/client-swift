@@ -811,6 +811,7 @@ Sources/authentikClient/Models/TenantAdminGroupRequestRequest.swift
 Sources/authentikClient/Models/TenantRecoveryKeyRequestRequest.swift
 Sources/authentikClient/Models/TenantRecoveryKeyResponse.swift
 Sources/authentikClient/Models/TenantRequest.swift
+Sources/authentikClient/Models/ThemedUrls.swift
 Sources/authentikClient/Models/Token.swift
 Sources/authentikClient/Models/TokenModel.swift
 Sources/authentikClient/Models/TokenRequest.swift
@@ -1673,6 +1674,7 @@ docs/TenantRecoveryKeyRequestRequest.md
 docs/TenantRecoveryKeyResponse.md
 docs/TenantRequest.md
 docs/TenantsAPI.md
+docs/ThemedUrls.md
 docs/Token.md
 docs/TokenModel.md
 docs/TokenRequest.md

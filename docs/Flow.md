@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **designation** | [**FlowDesignationEnum**](FlowDesignationEnum.md) | Decides what this Flow is used for. For example, the Authentication flow is redirect to when an un-authenticated user visits authentik. | 
 **background** | **String** | Background shown during execution | [optional] 
 **backgroundUrl** | **String** | Get the URL to the background image | [readonly] 
+**backgroundThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **stages** | **[UUID]** |  | [readonly] 
 **policies** | **[UUID]** |  | [readonly] 
 **cacheCount** | **Int** | Get count of cached flows | [readonly] 

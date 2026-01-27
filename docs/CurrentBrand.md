@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 **matchedDomain** | **String** |  | 
 **brandingTitle** | **String** |  | 
 **brandingLogo** | **String** |  | 
+**brandingLogoThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **brandingFavicon** | **String** |  | 
+**brandingFaviconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **brandingCustomCss** | **String** |  | 
 **uiFooterLinks** | [FooterLink] |  | [readonly] 
 **uiTheme** | [**UiThemeEnum**](UiThemeEnum.md) |  | [readonly] 

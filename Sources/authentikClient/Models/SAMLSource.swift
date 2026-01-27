@@ -41,6 +41,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var userPathTemplate: String?
     public var icon: String?
     public var iconUrl: String
+    public var iconThemedUrls: ThemedUrls?
     /** How the source determines if an existing group should be used or a new group created. */
     public var groupMatchingMode: GroupMatchingModeEnum?
     /** Flow used before authentication. */
@@ -69,7 +70,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var signedAssertion: Bool?
     public var signedResponse: Bool?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID, issuer: String? = nil, ssoUrl: String, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, iconThemedUrls: ThemedUrls?, groupMatchingMode: GroupMatchingModeEnum? = nil, preAuthenticationFlow: UUID, issuer: String? = nil, ssoUrl: String, sloUrl: String? = nil, allowIdpInitiated: Bool? = nil, nameIdPolicy: SAMLNameIDPolicyEnum? = nil, bindingType: BindingTypeEnum? = nil, verificationKp: UUID? = nil, signingKp: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, temporaryUserDeleteAfter: String? = nil, encryptionKp: UUID? = nil, signedAssertion: Bool? = nil, signedResponse: Bool? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -89,6 +90,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.userPathTemplate = userPathTemplate
         self.icon = icon
         self.iconUrl = iconUrl
+        self.iconThemedUrls = iconThemedUrls
         self.groupMatchingMode = groupMatchingMode
         self.preAuthenticationFlow = preAuthenticationFlow
         self.issuer = issuer
@@ -127,6 +129,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
         case userPathTemplate = "user_path_template"
         case icon
         case iconUrl = "icon_url"
+        case iconThemedUrls = "icon_themed_urls"
         case groupMatchingMode = "group_matching_mode"
         case preAuthenticationFlow = "pre_authentication_flow"
         case issuer
@@ -168,6 +171,7 @@ public struct SAMLSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
         try container.encodeIfPresent(icon, forKey: .icon)
         try container.encode(iconUrl, forKey: .iconUrl)
+        try container.encode(iconThemedUrls, forKey: .iconThemedUrls)
         try container.encodeIfPresent(groupMatchingMode, forKey: .groupMatchingMode)
         try container.encode(preAuthenticationFlow, forKey: .preAuthenticationFlow)
         try container.encodeIfPresent(issuer, forKey: .issuer)

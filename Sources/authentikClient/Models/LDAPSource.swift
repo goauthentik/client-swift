@@ -41,6 +41,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
     public var userPathTemplate: String?
     public var icon: String?
     public var iconUrl: String
+    public var iconThemedUrls: ThemedUrls?
     public var serverUri: String
     /** Optionally verify the LDAP Server's Certificate against the CA Chain in this keypair. */
     public var peerCertificate: UUID?
@@ -80,7 +81,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
     /** When to trigger sync for outgoing providers */
     public var syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil, syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum? = nil) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String, iconThemedUrls: ThemedUrls?, serverUri: String, peerCertificate: UUID? = nil, clientCertificate: UUID? = nil, bindCn: String? = nil, startTls: Bool? = nil, sni: Bool? = nil, baseDn: String, additionalUserDn: String? = nil, additionalGroupDn: String? = nil, userObjectFilter: String? = nil, groupObjectFilter: String? = nil, groupMembershipField: String? = nil, userMembershipAttribute: String? = nil, objectUniquenessField: String? = nil, passwordLoginUpdateInternalPassword: Bool? = nil, syncUsers: Bool? = nil, syncUsersPassword: Bool? = nil, syncGroups: Bool? = nil, syncParentGroup: UUID? = nil, connectivity: [String: [String: String]]?, lookupGroupsFromUser: Bool? = nil, deleteNotFoundObjects: Bool? = nil, syncOutgoingTriggerMode: SyncOutgoingTriggerModeEnum? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -100,6 +101,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         self.userPathTemplate = userPathTemplate
         self.icon = icon
         self.iconUrl = iconUrl
+        self.iconThemedUrls = iconThemedUrls
         self.serverUri = serverUri
         self.peerCertificate = peerCertificate
         self.clientCertificate = clientCertificate
@@ -145,6 +147,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         case userPathTemplate = "user_path_template"
         case icon
         case iconUrl = "icon_url"
+        case iconThemedUrls = "icon_themed_urls"
         case serverUri = "server_uri"
         case peerCertificate = "peer_certificate"
         case clientCertificate = "client_certificate"
@@ -193,6 +196,7 @@ public struct LDAPSource: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
         try container.encodeIfPresent(icon, forKey: .icon)
         try container.encode(iconUrl, forKey: .iconUrl)
+        try container.encode(iconThemedUrls, forKey: .iconThemedUrls)
         try container.encode(serverUri, forKey: .serverUri)
         try container.encodeIfPresent(peerCertificate, forKey: .peerCertificate)
         try container.encodeIfPresent(clientCertificate, forKey: .clientCertificate)

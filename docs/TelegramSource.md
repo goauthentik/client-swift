@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **userPathTemplate** | **String** |  | [optional] 
 **icon** | **String** |  | [optional] 
 **iconUrl** | **String** |  | [readonly] 
+**iconThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [readonly] 
 **botUsername** | **String** | Telegram bot username | 
 **requestMessageAccess** | **Bool** | Request access to send messages from your bot. | [optional] 
 **preAuthenticationFlow** | **UUID** | Flow used before authentication. | 

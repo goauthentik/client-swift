@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** |  | [optional] 
 **background** | **String** |  | [optional] 
+**backgroundThemedUrls** | [**ThemedUrls**](ThemedUrls.md) |  | [optional] 
 **cancelUrl** | **String** |  | 
 **layout** | [**ContextualFlowInfoLayoutEnum**](ContextualFlowInfoLayoutEnum.md) |  | 
 

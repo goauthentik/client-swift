@@ -13,17 +13,20 @@ public struct FileList: Sendable, Codable, ParameterConvertible, Hashable {
     public var name: String
     public var mimeType: String
     public var url: String
+    public var themedUrls: ThemedUrls?
 
-    public init(name: String, mimeType: String, url: String) {
+    public init(name: String, mimeType: String, url: String, themedUrls: ThemedUrls? = nil) {
         self.name = name
         self.mimeType = mimeType
         self.url = url
+        self.themedUrls = themedUrls
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case mimeType = "mime_type"
         case url
+        case themedUrls = "themed_urls"
     }
 
     // Encodable protocol methods
@@ -33,6 +36,7 @@ public struct FileList: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encode(name, forKey: .name)
         try container.encode(mimeType, forKey: .mimeType)
         try container.encode(url, forKey: .url)
+        try container.encodeIfPresent(themedUrls, forKey: .themedUrls)
     }
 }
 

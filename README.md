@@ -1893,6 +1893,7 @@ Class | Method | HTTP request | Description
  - [TenantRecoveryKeyRequestRequest](docs/TenantRecoveryKeyRequestRequest.md)
  - [TenantRecoveryKeyResponse](docs/TenantRecoveryKeyResponse.md)
  - [TenantRequest](docs/TenantRequest.md)
+ - [ThemedUrls](docs/ThemedUrls.md)
  - [Token](docs/Token.md)
  - [TokenModel](docs/TokenModel.md)
  - [TokenRequest](docs/TokenRequest.md)

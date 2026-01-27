@@ -28,12 +28,13 @@ public struct Application: Sendable, Codable, ParameterConvertible, Hashable {
     public var metaIcon: String?
     /** Get the URL to the App Icon image */
     public var metaIconUrl: String?
+    public var metaIconThemedUrls: ThemedUrls?
     public var metaDescription: String?
     public var metaPublisher: String?
     public var policyEngineMode: PolicyEngineMode?
     public var group: String?
 
-    public init(pk: UUID, name: String, slug: String, provider: Int? = nil, providerObj: Provider, backchannelProviders: [Int]? = nil, backchannelProvidersObj: [Provider], launchUrl: String?, openInNewTab: Bool? = nil, metaLaunchUrl: String? = nil, metaIcon: String? = nil, metaIconUrl: String?, metaDescription: String? = nil, metaPublisher: String? = nil, policyEngineMode: PolicyEngineMode? = nil, group: String? = nil) {
+    public init(pk: UUID, name: String, slug: String, provider: Int? = nil, providerObj: Provider, backchannelProviders: [Int]? = nil, backchannelProvidersObj: [Provider], launchUrl: String?, openInNewTab: Bool? = nil, metaLaunchUrl: String? = nil, metaIcon: String? = nil, metaIconUrl: String?, metaIconThemedUrls: ThemedUrls?, metaDescription: String? = nil, metaPublisher: String? = nil, policyEngineMode: PolicyEngineMode? = nil, group: String? = nil) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -46,6 +47,7 @@ public struct Application: Sendable, Codable, ParameterConvertible, Hashable {
         self.metaLaunchUrl = metaLaunchUrl
         self.metaIcon = metaIcon
         self.metaIconUrl = metaIconUrl
+        self.metaIconThemedUrls = metaIconThemedUrls
         self.metaDescription = metaDescription
         self.metaPublisher = metaPublisher
         self.policyEngineMode = policyEngineMode
@@ -65,6 +67,7 @@ public struct Application: Sendable, Codable, ParameterConvertible, Hashable {
         case metaLaunchUrl = "meta_launch_url"
         case metaIcon = "meta_icon"
         case metaIconUrl = "meta_icon_url"
+        case metaIconThemedUrls = "meta_icon_themed_urls"
         case metaDescription = "meta_description"
         case metaPublisher = "meta_publisher"
         case policyEngineMode = "policy_engine_mode"
@@ -87,6 +90,7 @@ public struct Application: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(metaLaunchUrl, forKey: .metaLaunchUrl)
         try container.encodeIfPresent(metaIcon, forKey: .metaIcon)
         try container.encode(metaIconUrl, forKey: .metaIconUrl)
+        try container.encode(metaIconThemedUrls, forKey: .metaIconThemedUrls)
         try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
         try container.encodeIfPresent(metaPublisher, forKey: .metaPublisher)
         try container.encodeIfPresent(policyEngineMode, forKey: .policyEngineMode)

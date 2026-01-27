@@ -42,8 +42,9 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
     public var icon: String?
     /** Get the URL to the source icon */
     public var iconUrl: String?
+    public var iconThemedUrls: ThemedUrls?
 
-    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String?) {
+    public init(pk: UUID, name: String, slug: String, enabled: Bool? = nil, promoted: Bool? = nil, authenticationFlow: UUID? = nil, enrollmentFlow: UUID? = nil, userPropertyMappings: [UUID]? = nil, groupPropertyMappings: [UUID]? = nil, component: String, verboseName: String, verboseNamePlural: String, metaModelName: String, policyEngineMode: PolicyEngineMode? = nil, userMatchingMode: UserMatchingModeEnum? = nil, managed: String?, userPathTemplate: String? = nil, icon: String? = nil, iconUrl: String?, iconThemedUrls: ThemedUrls?) {
         self.pk = pk
         self.name = name
         self.slug = slug
@@ -63,6 +64,7 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         self.userPathTemplate = userPathTemplate
         self.icon = icon
         self.iconUrl = iconUrl
+        self.iconThemedUrls = iconThemedUrls
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -85,6 +87,7 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         case userPathTemplate = "user_path_template"
         case icon
         case iconUrl = "icon_url"
+        case iconThemedUrls = "icon_themed_urls"
     }
 
     // Encodable protocol methods
@@ -110,6 +113,7 @@ public struct Source: Sendable, Codable, ParameterConvertible, Hashable {
         try container.encodeIfPresent(userPathTemplate, forKey: .userPathTemplate)
         try container.encodeIfPresent(icon, forKey: .icon)
         try container.encode(iconUrl, forKey: .iconUrl)
+        try container.encode(iconThemedUrls, forKey: .iconThemedUrls)
     }
 }
 
