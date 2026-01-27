@@ -56,6 +56,7 @@ Name | Type | Description | Notes
 **showSourceLabels** | **Bool** |  | 
 **enableRememberMe** | **Bool** |  | [optional] [default to true]
 **passkeyChallenge** | **[String: JSONValue]** |  | [optional] 
+**pendingUserIdentifier** | **String** |  | [optional] 
 **logoutUrls** | [[String: JSONValue]] |  | [optional] 
 **postUrl** | **String** |  | [optional] 
 **samlRequest** | **String** |  | [optional] 
