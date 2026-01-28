@@ -120,6 +120,15 @@ Method | HTTP request | Description
 [**providersSsfRetrieve**](ProvidersAPI.md#providersssfretrieve) | **GET** /providers/ssf/{id}/ | 
 [**providersSsfUpdate**](ProvidersAPI.md#providersssfupdate) | **PUT** /providers/ssf/{id}/ | 
 [**providersSsfUsedByList**](ProvidersAPI.md#providersssfusedbylist) | **GET** /providers/ssf/{id}/used_by/ | 
+[**providersWsfedCreate**](ProvidersAPI.md#providerswsfedcreate) | **POST** /providers/wsfed/ | 
+[**providersWsfedDestroy**](ProvidersAPI.md#providerswsfeddestroy) | **DELETE** /providers/wsfed/{id}/ | 
+[**providersWsfedList**](ProvidersAPI.md#providerswsfedlist) | **GET** /providers/wsfed/ | 
+[**providersWsfedMetadataRetrieve**](ProvidersAPI.md#providerswsfedmetadataretrieve) | **GET** /providers/wsfed/{id}/metadata/ | 
+[**providersWsfedPartialUpdate**](ProvidersAPI.md#providerswsfedpartialupdate) | **PATCH** /providers/wsfed/{id}/ | 
+[**providersWsfedPreviewUserRetrieve**](ProvidersAPI.md#providerswsfedpreviewuserretrieve) | **GET** /providers/wsfed/{id}/preview_user/ | 
+[**providersWsfedRetrieve**](ProvidersAPI.md#providerswsfedretrieve) | **GET** /providers/wsfed/{id}/ | 
+[**providersWsfedUpdate**](ProvidersAPI.md#providerswsfedupdate) | **PUT** /providers/wsfed/{id}/ | 
+[**providersWsfedUsedByList**](ProvidersAPI.md#providerswsfedusedbylist) | **GET** /providers/wsfed/{id}/used_by/ | 
 
 
 # **providersAllDestroy**
@@ -4286,7 +4295,7 @@ SAMLProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLLogoutMethods(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlCreate(sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4606,7 +4615,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // PatchedSAMLProviderRequest |  (optional)
+let patchedSAMLProviderRequest = PatchedSAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLLogoutMethods(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // PatchedSAMLProviderRequest |  (optional)
 
 ProvidersAPI.providersSamlPartialUpdate(id: id, patchedSAMLProviderRequest: patchedSAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -4757,7 +4766,7 @@ SAMLProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SAML Provider.
-let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLProviderLogoutMethodEnum(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
+let sAMLProviderRequest = SAMLProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], acsUrl: "acsUrl_example", slsUrl: "slsUrl_example", audience: "audience_example", issuer: "issuer_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, verificationKp: 123, encryptionKp: 123, signAssertion: false, signResponse: false, signLogoutRequest: false, spBinding: SAMLBindingsEnum(), slsBinding: nil, logoutMethod: SAMLLogoutMethods(), defaultRelayState: "defaultRelayState_example", defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // SAMLProviderRequest | 
 
 ProvidersAPI.providersSamlUpdate(id: id, sAMLProviderRequest: sAMLProviderRequest) { (response, error) in
     guard error == nil else {
@@ -6158,6 +6167,521 @@ ProvidersAPI.providersSsfUsedByList(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Int** | A unique integer value identifying this Shared Signals Framework Provider. | 
+
+### Return type
+
+[**[UsedBy]**](UsedBy.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedCreate**
+```swift
+    open class func providersWsfedCreate(wSFederationProviderRequest: WSFederationProviderRequest, completion: @escaping (_ data: WSFederationProvider?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let wSFederationProviderRequest = WSFederationProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], replyUrl: "replyUrl_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, encryptionKp: 123, signAssertion: false, signLogoutRequest: false, defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // WSFederationProviderRequest | 
+
+ProvidersAPI.providersWsfedCreate(wSFederationProviderRequest: wSFederationProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wSFederationProviderRequest** | [**WSFederationProviderRequest**](WSFederationProviderRequest.md) |  | 
+
+### Return type
+
+[**WSFederationProvider**](WSFederationProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedDestroy**
+```swift
+    open class func providersWsfedDestroy(id: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+
+ProvidersAPI.providersWsfedDestroy(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedList**
+```swift
+    open class func providersWsfedList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersWsfedList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersWsfedList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersWsfedList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersWsfedList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersWsfedList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersWsfedList? = nil, verificationKp: UUID? = nil, completion: @escaping (_ data: PaginatedWSFederationProviderList?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let acsUrl = "acsUrl_example" // String |  (optional)
+let assertionValidNotBefore = "assertionValidNotBefore_example" // String |  (optional)
+let assertionValidNotOnOrAfter = "assertionValidNotOnOrAfter_example" // String |  (optional)
+let audience = "audience_example" // String |  (optional)
+let authenticationFlow = 987 // UUID |  (optional)
+let authnContextClassRefMapping = 987 // UUID |  (optional)
+let authorizationFlow = 987 // UUID |  (optional)
+let backchannelApplication = 987 // UUID |  (optional)
+let defaultNameIdPolicy = "defaultNameIdPolicy_example" // String |  (optional)
+let defaultRelayState = "defaultRelayState_example" // String |  (optional)
+let digestAlgorithm = "digestAlgorithm_example" // String |  (optional)
+let encryptionKp = 987 // UUID |  (optional)
+let invalidationFlow = 987 // UUID |  (optional)
+let isBackchannel = true // Bool |  (optional)
+let issuer = "issuer_example" // String |  (optional)
+let logoutMethod = "logoutMethod_example" // String | Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
+let name = "name_example" // String |  (optional)
+let nameIdMapping = 987 // UUID |  (optional)
+let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
+let page = 987 // Int | A page number within the paginated result set. (optional)
+let pageSize = 987 // Int | Number of results to return per page. (optional)
+let propertyMappings = [123] // [UUID] |  (optional)
+let search = "search_example" // String | A search term. (optional)
+let sessionValidNotOnOrAfter = "sessionValidNotOnOrAfter_example" // String |  (optional)
+let signAssertion = true // Bool |  (optional)
+let signLogoutRequest = true // Bool |  (optional)
+let signResponse = true // Bool |  (optional)
+let signatureAlgorithm = "signatureAlgorithm_example" // String |  (optional)
+let signingKp = 987 // UUID |  (optional)
+let slsBinding = "slsBinding_example" // String | This determines how authentik sends the logout response back to the Service Provider.   (optional)
+let slsUrl = "slsUrl_example" // String |  (optional)
+let spBinding = "spBinding_example" // String | This determines how authentik sends the response back to the Service Provider.   (optional)
+let verificationKp = 987 // UUID |  (optional)
+
+ProvidersAPI.providersWsfedList(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, logoutMethod: logoutMethod, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signLogoutRequest: signLogoutRequest, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, slsBinding: slsBinding, slsUrl: slsUrl, spBinding: spBinding, verificationKp: verificationKp) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **acsUrl** | **String** |  | [optional] 
+ **assertionValidNotBefore** | **String** |  | [optional] 
+ **assertionValidNotOnOrAfter** | **String** |  | [optional] 
+ **audience** | **String** |  | [optional] 
+ **authenticationFlow** | **UUID** |  | [optional] 
+ **authnContextClassRefMapping** | **UUID** |  | [optional] 
+ **authorizationFlow** | **UUID** |  | [optional] 
+ **backchannelApplication** | **UUID** |  | [optional] 
+ **defaultNameIdPolicy** | **String** |  | [optional] 
+ **defaultRelayState** | **String** |  | [optional] 
+ **digestAlgorithm** | **String** |  | [optional] 
+ **encryptionKp** | **UUID** |  | [optional] 
+ **invalidationFlow** | **UUID** |  | [optional] 
+ **isBackchannel** | **Bool** |  | [optional] 
+ **issuer** | **String** |  | [optional] 
+ **logoutMethod** | **String** | Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   | [optional] 
+ **name** | **String** |  | [optional] 
+ **nameIdMapping** | **UUID** |  | [optional] 
+ **ordering** | **String** | Which field to use when ordering the results. | [optional] 
+ **page** | **Int** | A page number within the paginated result set. | [optional] 
+ **pageSize** | **Int** | Number of results to return per page. | [optional] 
+ **propertyMappings** | [**[UUID]**](UUID.md) |  | [optional] 
+ **search** | **String** | A search term. | [optional] 
+ **sessionValidNotOnOrAfter** | **String** |  | [optional] 
+ **signAssertion** | **Bool** |  | [optional] 
+ **signLogoutRequest** | **Bool** |  | [optional] 
+ **signResponse** | **Bool** |  | [optional] 
+ **signatureAlgorithm** | **String** |  | [optional] 
+ **signingKp** | **UUID** |  | [optional] 
+ **slsBinding** | **String** | This determines how authentik sends the logout response back to the Service Provider.   | [optional] 
+ **slsUrl** | **String** |  | [optional] 
+ **spBinding** | **String** | This determines how authentik sends the response back to the Service Provider.   | [optional] 
+ **verificationKp** | **UUID** |  | [optional] 
+
+### Return type
+
+[**PaginatedWSFederationProviderList**](PaginatedWSFederationProviderList.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedMetadataRetrieve**
+```swift
+    open class func providersWsfedMetadataRetrieve(id: Int, download: Bool? = nil, forceBinding: ForceBinding_providersWsfedMetadataRetrieve? = nil, completion: @escaping (_ data: SAMLMetadata?, _ error: Error?) -> Void)
+```
+
+
+
+Return metadata as XML string
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+let download = true // Bool |  (optional)
+let forceBinding = "forceBinding_example" // String | Optionally force the metadata to only include one binding. (optional)
+
+ProvidersAPI.providersWsfedMetadataRetrieve(id: id, download: download, forceBinding: forceBinding) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+ **download** | **Bool** |  | [optional] 
+ **forceBinding** | **String** | Optionally force the metadata to only include one binding. | [optional] 
+
+### Return type
+
+[**SAMLMetadata**](SAMLMetadata.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedPartialUpdate**
+```swift
+    open class func providersWsfedPartialUpdate(id: Int, patchedWSFederationProviderRequest: PatchedWSFederationProviderRequest? = nil, completion: @escaping (_ data: WSFederationProvider?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+let patchedWSFederationProviderRequest = PatchedWSFederationProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], replyUrl: "replyUrl_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, encryptionKp: 123, signAssertion: false, signLogoutRequest: false, defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // PatchedWSFederationProviderRequest |  (optional)
+
+ProvidersAPI.providersWsfedPartialUpdate(id: id, patchedWSFederationProviderRequest: patchedWSFederationProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+ **patchedWSFederationProviderRequest** | [**PatchedWSFederationProviderRequest**](PatchedWSFederationProviderRequest.md) |  | [optional] 
+
+### Return type
+
+[**WSFederationProvider**](WSFederationProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedPreviewUserRetrieve**
+```swift
+    open class func providersWsfedPreviewUserRetrieve(id: Int, forUser: Int? = nil, completion: @escaping (_ data: PropertyMappingPreview?, _ error: Error?) -> Void)
+```
+
+
+
+Preview user data for provider
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+let forUser = 987 // Int |  (optional)
+
+ProvidersAPI.providersWsfedPreviewUserRetrieve(id: id, forUser: forUser) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+ **forUser** | **Int** |  | [optional] 
+
+### Return type
+
+[**PropertyMappingPreview**](PropertyMappingPreview.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedRetrieve**
+```swift
+    open class func providersWsfedRetrieve(id: Int, completion: @escaping (_ data: WSFederationProvider?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+
+ProvidersAPI.providersWsfedRetrieve(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+
+### Return type
+
+[**WSFederationProvider**](WSFederationProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedUpdate**
+```swift
+    open class func providersWsfedUpdate(id: Int, wSFederationProviderRequest: WSFederationProviderRequest, completion: @escaping (_ data: WSFederationProvider?, _ error: Error?) -> Void)
+```
+
+
+
+WSFederationProvider Viewset
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+let wSFederationProviderRequest = WSFederationProviderRequest(name: "name_example", authenticationFlow: 123, authorizationFlow: 123, invalidationFlow: 123, propertyMappings: [123], replyUrl: "replyUrl_example", assertionValidNotBefore: "assertionValidNotBefore_example", assertionValidNotOnOrAfter: "assertionValidNotOnOrAfter_example", sessionValidNotOnOrAfter: "sessionValidNotOnOrAfter_example", nameIdMapping: 123, authnContextClassRefMapping: 123, digestAlgorithm: DigestAlgorithmEnum(), signatureAlgorithm: SignatureAlgorithmEnum(), signingKp: 123, encryptionKp: 123, signAssertion: false, signLogoutRequest: false, defaultNameIdPolicy: SAMLNameIDPolicyEnum()) // WSFederationProviderRequest | 
+
+ProvidersAPI.providersWsfedUpdate(id: id, wSFederationProviderRequest: wSFederationProviderRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
+ **wSFederationProviderRequest** | [**WSFederationProviderRequest**](WSFederationProviderRequest.md) |  | 
+
+### Return type
+
+[**WSFederationProvider**](WSFederationProvider.md)
+
+### Authorization
+
+[authentik](../README.md#authentik)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **providersWsfedUsedByList**
+```swift
+    open class func providersWsfedUsedByList(id: Int, completion: @escaping (_ data: [UsedBy]?, _ error: Error?) -> Void)
+```
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import authentikClient
+
+let id = 987 // Int | A unique integer value identifying this WS-Federation Provider.
+
+ProvidersAPI.providersWsfedUsedByList(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Int** | A unique integer value identifying this WS-Federation Provider. | 
 
 ### Return type
 

@@ -522,6 +522,7 @@ Sources/authentikClient/Models/PaginatedUserSAMLSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserTelegramSourceConnectionList.swift
 Sources/authentikClient/Models/PaginatedUserWriteStageList.swift
+Sources/authentikClient/Models/PaginatedWSFederationProviderList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceList.swift
 Sources/authentikClient/Models/PaginatedWebAuthnDeviceTypeList.swift
 Sources/authentikClient/Models/Pagination.swift
@@ -659,6 +660,7 @@ Sources/authentikClient/Models/PatchedUserSAMLSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserTelegramSourceConnectionRequest.swift
 Sources/authentikClient/Models/PatchedUserWriteStageRequest.swift
+Sources/authentikClient/Models/PatchedWSFederationProviderRequest.swift
 Sources/authentikClient/Models/PatchedWebAuthnDeviceRequest.swift
 Sources/authentikClient/Models/Permission.swift
 Sources/authentikClient/Models/PermissionAssignRequest.swift
@@ -727,12 +729,12 @@ Sources/authentikClient/Models/RoleModelPermission.swift
 Sources/authentikClient/Models/RoleObjectPermission.swift
 Sources/authentikClient/Models/RoleRequest.swift
 Sources/authentikClient/Models/SAMLBindingsEnum.swift
+Sources/authentikClient/Models/SAMLLogoutMethods.swift
 Sources/authentikClient/Models/SAMLMetadata.swift
 Sources/authentikClient/Models/SAMLNameIDPolicyEnum.swift
 Sources/authentikClient/Models/SAMLPropertyMapping.swift
 Sources/authentikClient/Models/SAMLPropertyMappingRequest.swift
 Sources/authentikClient/Models/SAMLProvider.swift
-Sources/authentikClient/Models/SAMLProviderLogoutMethodEnum.swift
 Sources/authentikClient/Models/SAMLProviderRequest.swift
 Sources/authentikClient/Models/SAMLSource.swift
 Sources/authentikClient/Models/SAMLSourcePropertyMapping.swift
@@ -873,6 +875,8 @@ Sources/authentikClient/Models/ValidationError.swift
 Sources/authentikClient/Models/VendorEnum.swift
 Sources/authentikClient/Models/Version.swift
 Sources/authentikClient/Models/VersionHistory.swift
+Sources/authentikClient/Models/WSFederationProvider.swift
+Sources/authentikClient/Models/WSFederationProviderRequest.swift
 Sources/authentikClient/Models/WebAuthnDevice.swift
 Sources/authentikClient/Models/WebAuthnDeviceRequest.swift
 Sources/authentikClient/Models/WebAuthnDeviceType.swift
@@ -1372,6 +1376,7 @@ docs/PaginatedUserSAMLSourceConnectionList.md
 docs/PaginatedUserSourceConnectionList.md
 docs/PaginatedUserTelegramSourceConnectionList.md
 docs/PaginatedUserWriteStageList.md
+docs/PaginatedWSFederationProviderList.md
 docs/PaginatedWebAuthnDeviceList.md
 docs/PaginatedWebAuthnDeviceTypeList.md
 docs/Pagination.md
@@ -1509,6 +1514,7 @@ docs/PatchedUserSAMLSourceConnectionRequest.md
 docs/PatchedUserSourceConnectionRequest.md
 docs/PatchedUserTelegramSourceConnectionRequest.md
 docs/PatchedUserWriteStageRequest.md
+docs/PatchedWSFederationProviderRequest.md
 docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
 docs/PermissionAssignRequest.md
@@ -1584,12 +1590,12 @@ docs/RoleObjectPermission.md
 docs/RoleRequest.md
 docs/RootAPI.md
 docs/SAMLBindingsEnum.md
+docs/SAMLLogoutMethods.md
 docs/SAMLMetadata.md
 docs/SAMLNameIDPolicyEnum.md
 docs/SAMLPropertyMapping.md
 docs/SAMLPropertyMappingRequest.md
 docs/SAMLProvider.md
-docs/SAMLProviderLogoutMethodEnum.md
 docs/SAMLProviderRequest.md
 docs/SAMLSource.md
 docs/SAMLSourcePropertyMapping.md
@@ -1736,6 +1742,8 @@ docs/ValidationError.md
 docs/VendorEnum.md
 docs/Version.md
 docs/VersionHistory.md
+docs/WSFederationProvider.md
+docs/WSFederationProviderRequest.md
 docs/WebAuthnDevice.md
 docs/WebAuthnDeviceRequest.md
 docs/WebAuthnDeviceType.md

@@ -57,12 +57,12 @@ public struct PatchedSAMLProviderRequest: Sendable, Codable, ParameterConvertibl
     /** This determines how authentik sends the logout response back to the Service Provider. */
     public var slsBinding: SAMLBindingsEnum?
     /** Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding). */
-    public var logoutMethod: SAMLProviderLogoutMethodEnum?
+    public var logoutMethod: SAMLLogoutMethods?
     /** Default relay_state value for IDP-initiated logins */
     public var defaultRelayState: String?
     public var defaultNameIdPolicy: SAMLNameIDPolicyEnum?
 
-    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, invalidationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, acsUrl: String? = nil, slsUrl: String? = nil, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signLogoutRequest: Bool? = nil, spBinding: SAMLBindingsEnum? = nil, slsBinding: SAMLBindingsEnum? = nil, logoutMethod: SAMLProviderLogoutMethodEnum? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil) {
+    public init(name: String? = nil, authenticationFlow: UUID? = nil, authorizationFlow: UUID? = nil, invalidationFlow: UUID? = nil, propertyMappings: [UUID]? = nil, acsUrl: String? = nil, slsUrl: String? = nil, audience: String? = nil, issuer: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, verificationKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signResponse: Bool? = nil, signLogoutRequest: Bool? = nil, spBinding: SAMLBindingsEnum? = nil, slsBinding: SAMLBindingsEnum? = nil, logoutMethod: SAMLLogoutMethods? = nil, defaultRelayState: String? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil) {
         self.name = name
         self.authenticationFlow = authenticationFlow
         self.authorizationFlow = authorizationFlow

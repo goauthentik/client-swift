@@ -18,5 +18,6 @@ public enum ProviderModelEnum: String, Sendable, Codable, CaseIterable, CaseIter
     case authentikProvidersSamlPeriodSamlprovider = "authentik_providers_saml.samlprovider"
     case authentikProvidersScimPeriodScimprovider = "authentik_providers_scim.scimprovider"
     case authentikProvidersSsfPeriodSsfprovider = "authentik_providers_ssf.ssfprovider"
+    case authentikProvidersWsFederationPeriodWsfederationprovider = "authentik_providers_ws_federation.wsfederationprovider"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }

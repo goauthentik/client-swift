@@ -18,6 +18,7 @@ public enum ModelRequest: Sendable, Codable, ParameterConvertible, Hashable {
     case typeSAMLProviderRequest(SAMLProviderRequest)
     case typeSCIMProviderRequest(SCIMProviderRequest)
     case typeSSFProviderRequest(SSFProviderRequest)
+    case typeWSFederationProviderRequest(WSFederationProviderRequest)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
@@ -41,6 +42,8 @@ public enum ModelRequest: Sendable, Codable, ParameterConvertible, Hashable {
         case .typeSCIMProviderRequest(let value):
             try container.encode(value)
         case .typeSSFProviderRequest(let value):
+            try container.encode(value)
+        case .typeWSFederationProviderRequest(let value):
             try container.encode(value)
         }
     }
@@ -67,6 +70,8 @@ public enum ModelRequest: Sendable, Codable, ParameterConvertible, Hashable {
             self = .typeSCIMProviderRequest(value)
         } else if let value = try? container.decode(SSFProviderRequest.self) {
             self = .typeSSFProviderRequest(value)
+        } else if let value = try? container.decode(WSFederationProviderRequest.self) {
+            self = .typeWSFederationProviderRequest(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of ModelRequest"))
         }

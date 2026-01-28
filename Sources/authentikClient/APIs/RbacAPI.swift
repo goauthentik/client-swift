@@ -417,6 +417,7 @@ open class RbacAPI {
         case authentikProvidersScimPeriodScimmapping = "authentik_providers_scim.scimmapping"
         case authentikProvidersScimPeriodScimprovider = "authentik_providers_scim.scimprovider"
         case authentikProvidersSsfPeriodSsfprovider = "authentik_providers_ssf.ssfprovider"
+        case authentikProvidersWsFederationPeriodWsfederationprovider = "authentik_providers_ws_federation.wsfederationprovider"
         case authentikRbacPeriodInitialpermissions = "authentik_rbac.initialpermissions"
         case authentikRbacPeriodRole = "authentik_rbac.role"
         case authentikReportsPeriodDataexport = "authentik_reports.dataexport"

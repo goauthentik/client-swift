@@ -5468,4 +5468,562 @@ open class ProvidersAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
+
+    /**
+
+     - parameter wSFederationProviderRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: WSFederationProvider
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedCreate(wSFederationProviderRequest: WSFederationProviderRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> WSFederationProvider {
+        return try await providersWsfedCreateWithRequestBuilder(wSFederationProviderRequest: wSFederationProviderRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - POST /providers/wsfed/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter wSFederationProviderRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<WSFederationProvider> 
+     */
+    open class func providersWsfedCreateWithRequestBuilder(wSFederationProviderRequest: WSFederationProviderRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<WSFederationProvider> {
+        let localVariablePath = "/providers/wsfed/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: wSFederationProviderRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WSFederationProvider>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: Void
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedDestroy(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await providersWsfedDestroyWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - DELETE /providers/wsfed/{id}/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<Void> 
+     */
+    open class func providersWsfedDestroyWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/providers/wsfed/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = apiConfiguration.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter defaultNameIdPolicy
+     */
+    public enum DefaultNameIdPolicy_providersWsfedList: String, Sendable, CaseIterable {
+        case urnOasisNamesTcSaml1Period1NameidFormatX509subjectname = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+        case urnOasisNamesTcSaml1Period1NameidFormatEmailaddress = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+        case urnOasisNamesTcSaml1Period1NameidFormatUnspecified = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+        case urnOasisNamesTcSaml2Period0NameidFormatWindowsdomainqualifiedname = "urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName"
+        case urnOasisNamesTcSaml2Period0NameidFormatPersistent = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+        case urnOasisNamesTcSaml2Period0NameidFormatTransient = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+    }
+
+    /**
+     * enum for parameter digestAlgorithm
+     */
+    public enum DigestAlgorithm_providersWsfedList: String, Sendable, CaseIterable {
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2000Slash09SlashXmldsigHashSha1 = "http://www.w3.org/2000/09/xmldsig#sha1"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashSha384 = "http://www.w3.org/2001/04/xmldsig-more#sha384"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmlencHashSha256 = "http://www.w3.org/2001/04/xmlenc#sha256"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmlencHashSha512 = "http://www.w3.org/2001/04/xmlenc#sha512"
+    }
+
+    /**
+     * enum for parameter logoutMethod
+     */
+    public enum LogoutMethod_providersWsfedList: String, Sendable, CaseIterable {
+        case backchannel = "backchannel"
+        case frontchannelIframe = "frontchannel_iframe"
+        case frontchannelNative = "frontchannel_native"
+    }
+
+    /**
+     * enum for parameter signatureAlgorithm
+     */
+    public enum SignatureAlgorithm_providersWsfedList: String, Sendable, CaseIterable {
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2000Slash09SlashXmldsigHashDsaSha1 = "http://www.w3.org/2000/09/xmldsig#dsa-sha1"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2000Slash09SlashXmldsigHashRsaSha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashEcdsaSha1 = "http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashEcdsaSha256 = "http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashEcdsaSha384 = "http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashEcdsaSha512 = "http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha384 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"
+        case httpSlashSlashWwwPeriodW3PeriodOrgSlash2001Slash04SlashXmldsigMoreHashRsaSha512 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+    }
+
+    /**
+     * enum for parameter slsBinding
+     */
+    public enum SlsBinding_providersWsfedList: String, Sendable, CaseIterable {
+        case post = "post"
+        case redirect = "redirect"
+    }
+
+    /**
+     * enum for parameter spBinding
+     */
+    public enum SpBinding_providersWsfedList: String, Sendable, CaseIterable {
+        case post = "post"
+        case redirect = "redirect"
+    }
+
+    /**
+
+     - parameter acsUrl: (query)  (optional)
+     - parameter assertionValidNotBefore: (query)  (optional)
+     - parameter assertionValidNotOnOrAfter: (query)  (optional)
+     - parameter audience: (query)  (optional)
+     - parameter authenticationFlow: (query)  (optional)
+     - parameter authnContextClassRefMapping: (query)  (optional)
+     - parameter authorizationFlow: (query)  (optional)
+     - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultNameIdPolicy: (query)  (optional)
+     - parameter defaultRelayState: (query)  (optional)
+     - parameter digestAlgorithm: (query)  (optional)
+     - parameter encryptionKp: (query)  (optional)
+     - parameter invalidationFlow: (query)  (optional)
+     - parameter isBackchannel: (query)  (optional)
+     - parameter issuer: (query)  (optional)
+     - parameter logoutMethod: (query) Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
+     - parameter name: (query)  (optional)
+     - parameter nameIdMapping: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter propertyMappings: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sessionValidNotOnOrAfter: (query)  (optional)
+     - parameter signAssertion: (query)  (optional)
+     - parameter signLogoutRequest: (query)  (optional)
+     - parameter signResponse: (query)  (optional)
+     - parameter signatureAlgorithm: (query)  (optional)
+     - parameter signingKp: (query)  (optional)
+     - parameter slsBinding: (query) This determines how authentik sends the logout response back to the Service Provider.   (optional)
+     - parameter slsUrl: (query)  (optional)
+     - parameter spBinding: (query) This determines how authentik sends the response back to the Service Provider.   (optional)
+     - parameter verificationKp: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedWSFederationProviderList
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedList(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersWsfedList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersWsfedList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersWsfedList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersWsfedList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersWsfedList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersWsfedList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedWSFederationProviderList {
+        return try await providersWsfedListWithRequestBuilder(acsUrl: acsUrl, assertionValidNotBefore: assertionValidNotBefore, assertionValidNotOnOrAfter: assertionValidNotOnOrAfter, audience: audience, authenticationFlow: authenticationFlow, authnContextClassRefMapping: authnContextClassRefMapping, authorizationFlow: authorizationFlow, backchannelApplication: backchannelApplication, defaultNameIdPolicy: defaultNameIdPolicy, defaultRelayState: defaultRelayState, digestAlgorithm: digestAlgorithm, encryptionKp: encryptionKp, invalidationFlow: invalidationFlow, isBackchannel: isBackchannel, issuer: issuer, logoutMethod: logoutMethod, name: name, nameIdMapping: nameIdMapping, ordering: ordering, page: page, pageSize: pageSize, propertyMappings: propertyMappings, search: search, sessionValidNotOnOrAfter: sessionValidNotOnOrAfter, signAssertion: signAssertion, signLogoutRequest: signLogoutRequest, signResponse: signResponse, signatureAlgorithm: signatureAlgorithm, signingKp: signingKp, slsBinding: slsBinding, slsUrl: slsUrl, spBinding: spBinding, verificationKp: verificationKp, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /providers/wsfed/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter acsUrl: (query)  (optional)
+     - parameter assertionValidNotBefore: (query)  (optional)
+     - parameter assertionValidNotOnOrAfter: (query)  (optional)
+     - parameter audience: (query)  (optional)
+     - parameter authenticationFlow: (query)  (optional)
+     - parameter authnContextClassRefMapping: (query)  (optional)
+     - parameter authorizationFlow: (query)  (optional)
+     - parameter backchannelApplication: (query)  (optional)
+     - parameter defaultNameIdPolicy: (query)  (optional)
+     - parameter defaultRelayState: (query)  (optional)
+     - parameter digestAlgorithm: (query)  (optional)
+     - parameter encryptionKp: (query)  (optional)
+     - parameter invalidationFlow: (query)  (optional)
+     - parameter isBackchannel: (query)  (optional)
+     - parameter issuer: (query)  (optional)
+     - parameter logoutMethod: (query) Method to use for logout. Front-channel iframe loads all logout URLs simultaneously in hidden iframes. Front-channel native uses your active browser tab to send post requests and redirect to providers. Back-channel sends logout requests directly from the server without user interaction (requires POST SLS binding).   (optional)
+     - parameter name: (query)  (optional)
+     - parameter nameIdMapping: (query)  (optional)
+     - parameter ordering: (query) Which field to use when ordering the results. (optional)
+     - parameter page: (query) A page number within the paginated result set. (optional)
+     - parameter pageSize: (query) Number of results to return per page. (optional)
+     - parameter propertyMappings: (query)  (optional)
+     - parameter search: (query) A search term. (optional)
+     - parameter sessionValidNotOnOrAfter: (query)  (optional)
+     - parameter signAssertion: (query)  (optional)
+     - parameter signLogoutRequest: (query)  (optional)
+     - parameter signResponse: (query)  (optional)
+     - parameter signatureAlgorithm: (query)  (optional)
+     - parameter signingKp: (query)  (optional)
+     - parameter slsBinding: (query) This determines how authentik sends the logout response back to the Service Provider.   (optional)
+     - parameter slsUrl: (query)  (optional)
+     - parameter spBinding: (query) This determines how authentik sends the response back to the Service Provider.   (optional)
+     - parameter verificationKp: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedWSFederationProviderList> 
+     */
+    open class func providersWsfedListWithRequestBuilder(acsUrl: String? = nil, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, audience: String? = nil, authenticationFlow: UUID? = nil, authnContextClassRefMapping: UUID? = nil, authorizationFlow: UUID? = nil, backchannelApplication: UUID? = nil, defaultNameIdPolicy: DefaultNameIdPolicy_providersWsfedList? = nil, defaultRelayState: String? = nil, digestAlgorithm: DigestAlgorithm_providersWsfedList? = nil, encryptionKp: UUID? = nil, invalidationFlow: UUID? = nil, isBackchannel: Bool? = nil, issuer: String? = nil, logoutMethod: LogoutMethod_providersWsfedList? = nil, name: String? = nil, nameIdMapping: UUID? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, propertyMappings: [UUID]? = nil, search: String? = nil, sessionValidNotOnOrAfter: String? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, signResponse: Bool? = nil, signatureAlgorithm: SignatureAlgorithm_providersWsfedList? = nil, signingKp: UUID? = nil, slsBinding: SlsBinding_providersWsfedList? = nil, slsUrl: String? = nil, spBinding: SpBinding_providersWsfedList? = nil, verificationKp: UUID? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedWSFederationProviderList> {
+        let localVariablePath = "/providers/wsfed/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "acs_url": (wrappedValue: acsUrl?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "assertion_valid_not_before": (wrappedValue: assertionValidNotBefore?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "assertion_valid_not_on_or_after": (wrappedValue: assertionValidNotOnOrAfter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "audience": (wrappedValue: audience?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "authentication_flow": (wrappedValue: authenticationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "authn_context_class_ref_mapping": (wrappedValue: authnContextClassRefMapping?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "authorization_flow": (wrappedValue: authorizationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "backchannel_application": (wrappedValue: backchannelApplication?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "default_name_id_policy": (wrappedValue: defaultNameIdPolicy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "default_relay_state": (wrappedValue: defaultRelayState?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "digest_algorithm": (wrappedValue: digestAlgorithm?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "encryption_kp": (wrappedValue: encryptionKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "invalidation_flow": (wrappedValue: invalidationFlow?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "is_backchannel": (wrappedValue: isBackchannel?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "issuer": (wrappedValue: issuer?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "logout_method": (wrappedValue: logoutMethod?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name_id_mapping": (wrappedValue: nameIdMapping?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "property_mappings": (wrappedValue: propertyMappings?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "session_valid_not_on_or_after": (wrappedValue: sessionValidNotOnOrAfter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sign_assertion": (wrappedValue: signAssertion?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sign_logout_request": (wrappedValue: signLogoutRequest?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sign_response": (wrappedValue: signResponse?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "signature_algorithm": (wrappedValue: signatureAlgorithm?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "signing_kp": (wrappedValue: signingKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sls_binding": (wrappedValue: slsBinding?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sls_url": (wrappedValue: slsUrl?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sp_binding": (wrappedValue: spBinding?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "verification_kp": (wrappedValue: verificationKp?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedWSFederationProviderList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     * enum for parameter forceBinding
+     */
+    public enum ForceBinding_providersWsfedMetadataRetrieve: String, Sendable, CaseIterable {
+        case urnOasisNamesTcSaml2Period0BindingsHttpPost = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        case urnOasisNamesTcSaml2Period0BindingsHttpRedirect = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter download: (query)  (optional)
+     - parameter forceBinding: (query) Optionally force the metadata to only include one binding. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SAMLMetadata
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedMetadataRetrieve(id: Int, download: Bool? = nil, forceBinding: ForceBinding_providersWsfedMetadataRetrieve? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> SAMLMetadata {
+        return try await providersWsfedMetadataRetrieveWithRequestBuilder(id: id, download: download, forceBinding: forceBinding, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /providers/wsfed/{id}/metadata/
+     - Return metadata as XML string
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter download: (query)  (optional)
+     - parameter forceBinding: (query) Optionally force the metadata to only include one binding. (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SAMLMetadata> 
+     */
+    open class func providersWsfedMetadataRetrieveWithRequestBuilder(id: Int, download: Bool? = nil, forceBinding: ForceBinding_providersWsfedMetadataRetrieve? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<SAMLMetadata> {
+        var localVariablePath = "/providers/wsfed/{id}/metadata/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "download": (wrappedValue: download?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "force_binding": (wrappedValue: forceBinding?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SAMLMetadata>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter patchedWSFederationProviderRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: WSFederationProvider
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedPartialUpdate(id: Int, patchedWSFederationProviderRequest: PatchedWSFederationProviderRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> WSFederationProvider {
+        return try await providersWsfedPartialUpdateWithRequestBuilder(id: id, patchedWSFederationProviderRequest: patchedWSFederationProviderRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PATCH /providers/wsfed/{id}/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter patchedWSFederationProviderRequest: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<WSFederationProvider> 
+     */
+    open class func providersWsfedPartialUpdateWithRequestBuilder(id: Int, patchedWSFederationProviderRequest: PatchedWSFederationProviderRequest? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<WSFederationProvider> {
+        var localVariablePath = "/providers/wsfed/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchedWSFederationProviderRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WSFederationProvider>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter forUser: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PropertyMappingPreview
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedPreviewUserRetrieve(id: Int, forUser: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PropertyMappingPreview {
+        return try await providersWsfedPreviewUserRetrieveWithRequestBuilder(id: id, forUser: forUser, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /providers/wsfed/{id}/preview_user/
+     - Preview user data for provider
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter forUser: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PropertyMappingPreview> 
+     */
+    open class func providersWsfedPreviewUserRetrieveWithRequestBuilder(id: Int, forUser: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PropertyMappingPreview> {
+        var localVariablePath = "/providers/wsfed/{id}/preview_user/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "for_user": (wrappedValue: forUser?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PropertyMappingPreview>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: WSFederationProvider
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedRetrieve(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> WSFederationProvider {
+        return try await providersWsfedRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /providers/wsfed/{id}/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<WSFederationProvider> 
+     */
+    open class func providersWsfedRetrieveWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<WSFederationProvider> {
+        var localVariablePath = "/providers/wsfed/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WSFederationProvider>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter wSFederationProviderRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: WSFederationProvider
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedUpdate(id: Int, wSFederationProviderRequest: WSFederationProviderRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> WSFederationProvider {
+        return try await providersWsfedUpdateWithRequestBuilder(id: id, wSFederationProviderRequest: wSFederationProviderRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - PUT /providers/wsfed/{id}/
+     - WSFederationProvider Viewset
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter wSFederationProviderRequest: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<WSFederationProvider> 
+     */
+    open class func providersWsfedUpdateWithRequestBuilder(id: Int, wSFederationProviderRequest: WSFederationProviderRequest, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<WSFederationProvider> {
+        var localVariablePath = "/providers/wsfed/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: wSFederationProviderRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WSFederationProvider>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: [UsedBy]
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func providersWsfedUsedByList(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UsedBy] {
+        return try await providersWsfedUsedByListWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     - GET /providers/wsfed/{id}/used_by/
+     - Get a list of all objects that use this object
+     - Bearer Token:
+       - type: http
+       - name: authentik
+     - parameter id: (path) A unique integer value identifying this WS-Federation Provider. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<[UsedBy]> 
+     */
+    open class func providersWsfedUsedByListWithRequestBuilder(id: Int, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<[UsedBy]> {
+        var localVariablePath = "/providers/wsfed/{id}/used_by/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<[UsedBy]>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
 }

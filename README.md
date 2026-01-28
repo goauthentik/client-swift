@@ -676,6 +676,15 @@ Class | Method | HTTP request | Description
 *ProvidersAPI* | [**providersSsfRetrieve**](docs/ProvidersAPI.md#providersssfretrieve) | **GET** /providers/ssf/{id}/ | 
 *ProvidersAPI* | [**providersSsfUpdate**](docs/ProvidersAPI.md#providersssfupdate) | **PUT** /providers/ssf/{id}/ | 
 *ProvidersAPI* | [**providersSsfUsedByList**](docs/ProvidersAPI.md#providersssfusedbylist) | **GET** /providers/ssf/{id}/used_by/ | 
+*ProvidersAPI* | [**providersWsfedCreate**](docs/ProvidersAPI.md#providerswsfedcreate) | **POST** /providers/wsfed/ | 
+*ProvidersAPI* | [**providersWsfedDestroy**](docs/ProvidersAPI.md#providerswsfeddestroy) | **DELETE** /providers/wsfed/{id}/ | 
+*ProvidersAPI* | [**providersWsfedList**](docs/ProvidersAPI.md#providerswsfedlist) | **GET** /providers/wsfed/ | 
+*ProvidersAPI* | [**providersWsfedMetadataRetrieve**](docs/ProvidersAPI.md#providerswsfedmetadataretrieve) | **GET** /providers/wsfed/{id}/metadata/ | 
+*ProvidersAPI* | [**providersWsfedPartialUpdate**](docs/ProvidersAPI.md#providerswsfedpartialupdate) | **PATCH** /providers/wsfed/{id}/ | 
+*ProvidersAPI* | [**providersWsfedPreviewUserRetrieve**](docs/ProvidersAPI.md#providerswsfedpreviewuserretrieve) | **GET** /providers/wsfed/{id}/preview_user/ | 
+*ProvidersAPI* | [**providersWsfedRetrieve**](docs/ProvidersAPI.md#providerswsfedretrieve) | **GET** /providers/wsfed/{id}/ | 
+*ProvidersAPI* | [**providersWsfedUpdate**](docs/ProvidersAPI.md#providerswsfedupdate) | **PUT** /providers/wsfed/{id}/ | 
+*ProvidersAPI* | [**providersWsfedUsedByList**](docs/ProvidersAPI.md#providerswsfedusedbylist) | **GET** /providers/wsfed/{id}/used_by/ | 
 *RacAPI* | [**racConnectionTokensDestroy**](docs/RacAPI.md#racconnectiontokensdestroy) | **DELETE** /rac/connection_tokens/{connection_token_uuid}/ | 
 *RacAPI* | [**racConnectionTokensList**](docs/RacAPI.md#racconnectiontokenslist) | **GET** /rac/connection_tokens/ | 
 *RacAPI* | [**racConnectionTokensPartialUpdate**](docs/RacAPI.md#racconnectiontokenspartialupdate) | **PATCH** /rac/connection_tokens/{connection_token_uuid}/ | 
@@ -1604,6 +1613,7 @@ Class | Method | HTTP request | Description
  - [PaginatedUserSourceConnectionList](docs/PaginatedUserSourceConnectionList.md)
  - [PaginatedUserTelegramSourceConnectionList](docs/PaginatedUserTelegramSourceConnectionList.md)
  - [PaginatedUserWriteStageList](docs/PaginatedUserWriteStageList.md)
+ - [PaginatedWSFederationProviderList](docs/PaginatedWSFederationProviderList.md)
  - [PaginatedWebAuthnDeviceList](docs/PaginatedWebAuthnDeviceList.md)
  - [PaginatedWebAuthnDeviceTypeList](docs/PaginatedWebAuthnDeviceTypeList.md)
  - [Pagination](docs/Pagination.md)
@@ -1741,6 +1751,7 @@ Class | Method | HTTP request | Description
  - [PatchedUserSourceConnectionRequest](docs/PatchedUserSourceConnectionRequest.md)
  - [PatchedUserTelegramSourceConnectionRequest](docs/PatchedUserTelegramSourceConnectionRequest.md)
  - [PatchedUserWriteStageRequest](docs/PatchedUserWriteStageRequest.md)
+ - [PatchedWSFederationProviderRequest](docs/PatchedWSFederationProviderRequest.md)
  - [PatchedWebAuthnDeviceRequest](docs/PatchedWebAuthnDeviceRequest.md)
  - [Permission](docs/Permission.md)
  - [PermissionAssignRequest](docs/PermissionAssignRequest.md)
@@ -1809,12 +1820,12 @@ Class | Method | HTTP request | Description
  - [RoleObjectPermission](docs/RoleObjectPermission.md)
  - [RoleRequest](docs/RoleRequest.md)
  - [SAMLBindingsEnum](docs/SAMLBindingsEnum.md)
+ - [SAMLLogoutMethods](docs/SAMLLogoutMethods.md)
  - [SAMLMetadata](docs/SAMLMetadata.md)
  - [SAMLNameIDPolicyEnum](docs/SAMLNameIDPolicyEnum.md)
  - [SAMLPropertyMapping](docs/SAMLPropertyMapping.md)
  - [SAMLPropertyMappingRequest](docs/SAMLPropertyMappingRequest.md)
  - [SAMLProvider](docs/SAMLProvider.md)
- - [SAMLProviderLogoutMethodEnum](docs/SAMLProviderLogoutMethodEnum.md)
  - [SAMLProviderRequest](docs/SAMLProviderRequest.md)
  - [SAMLSource](docs/SAMLSource.md)
  - [SAMLSourcePropertyMapping](docs/SAMLSourcePropertyMapping.md)
@@ -1955,6 +1966,8 @@ Class | Method | HTTP request | Description
  - [VendorEnum](docs/VendorEnum.md)
  - [Version](docs/Version.md)
  - [VersionHistory](docs/VersionHistory.md)
+ - [WSFederationProvider](docs/WSFederationProvider.md)
+ - [WSFederationProviderRequest](docs/WSFederationProviderRequest.md)
  - [WebAuthnDevice](docs/WebAuthnDevice.md)
  - [WebAuthnDeviceRequest](docs/WebAuthnDeviceRequest.md)
  - [WebAuthnDeviceType](docs/WebAuthnDeviceType.md)
