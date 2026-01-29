@@ -1087,6 +1087,7 @@ open class PoliciesAPI {
     public enum Action_policiesEventMatcherList: String, Sendable, CaseIterable {
         case authorizeApplication = "authorize_application"
         case configurationError = "configuration_error"
+        case configurationWarning = "configuration_warning"
         case custom = "custom_"
         case emailSent = "email_sent"
         case exportReady = "export_ready"

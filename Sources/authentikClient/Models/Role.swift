@@ -10,7 +10,6 @@ import Foundation
 /** Role serializer */
 public struct Role: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 150, pattern: nil)
     public var pk: UUID
     public var name: String
 

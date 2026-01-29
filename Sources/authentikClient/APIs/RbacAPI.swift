@@ -594,13 +594,12 @@ open class RbacAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter role: (query)  (optional)
      - parameter search: (query) A search term. (optional)
-     - parameter user: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedPermissionList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacPermissionsList(codename: String? = nil, contentTypeAppLabel: String? = nil, contentTypeModel: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, role: String? = nil, search: String? = nil, user: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPermissionList {
-        return try await rbacPermissionsListWithRequestBuilder(codename: codename, contentTypeAppLabel: contentTypeAppLabel, contentTypeModel: contentTypeModel, ordering: ordering, page: page, pageSize: pageSize, role: role, search: search, user: user, apiConfiguration: apiConfiguration).execute().body
+    open class func rbacPermissionsList(codename: String? = nil, contentTypeAppLabel: String? = nil, contentTypeModel: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, role: String? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedPermissionList {
+        return try await rbacPermissionsListWithRequestBuilder(codename: codename, contentTypeAppLabel: contentTypeAppLabel, contentTypeModel: contentTypeModel, ordering: ordering, page: page, pageSize: pageSize, role: role, search: search, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -617,11 +616,10 @@ open class RbacAPI {
      - parameter pageSize: (query) Number of results to return per page. (optional)
      - parameter role: (query)  (optional)
      - parameter search: (query) A search term. (optional)
-     - parameter user: (query)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedPermissionList> 
      */
-    open class func rbacPermissionsListWithRequestBuilder(codename: String? = nil, contentTypeAppLabel: String? = nil, contentTypeModel: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, role: String? = nil, search: String? = nil, user: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedPermissionList> {
+    open class func rbacPermissionsListWithRequestBuilder(codename: String? = nil, contentTypeAppLabel: String? = nil, contentTypeModel: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, role: String? = nil, search: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedPermissionList> {
         let localVariablePath = "/rbac/permissions/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -636,7 +634,6 @@ open class RbacAPI {
             "page_size": (wrappedValue: pageSize?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "role": (wrappedValue: role?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "search": (wrappedValue: search?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "user": (wrappedValue: user?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
@@ -873,8 +870,8 @@ open class RbacAPI {
 
     /**
 
-     - parameter akGroups: (query)  (optional)
-     - parameter inherited: (query) Include inherited roles (requires users or ak_groups filter) (optional)
+     - parameter groups: (query)  (optional)
+     - parameter inherited: (query) Include inherited roles (requires users or groups filter) (optional)
      - parameter managed: (query)  (optional)
      - parameter managedIsnull: (query)  (optional)
      - parameter name: (query)  (optional)
@@ -887,8 +884,8 @@ open class RbacAPI {
      - returns: PaginatedRoleList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func rbacRolesList(akGroups: UUID? = nil, inherited: Bool? = nil, managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedRoleList {
-        return try await rbacRolesListWithRequestBuilder(akGroups: akGroups, inherited: inherited, managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users, apiConfiguration: apiConfiguration).execute().body
+    open class func rbacRolesList(groups: UUID? = nil, inherited: Bool? = nil, managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedRoleList {
+        return try await rbacRolesListWithRequestBuilder(groups: groups, inherited: inherited, managed: managed, managedIsnull: managedIsnull, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, users: users, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -897,8 +894,8 @@ open class RbacAPI {
      - Bearer Token:
        - type: http
        - name: authentik
-     - parameter akGroups: (query)  (optional)
-     - parameter inherited: (query) Include inherited roles (requires users or ak_groups filter) (optional)
+     - parameter groups: (query)  (optional)
+     - parameter inherited: (query) Include inherited roles (requires users or groups filter) (optional)
      - parameter managed: (query)  (optional)
      - parameter managedIsnull: (query)  (optional)
      - parameter name: (query)  (optional)
@@ -910,14 +907,14 @@ open class RbacAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedRoleList> 
      */
-    open class func rbacRolesListWithRequestBuilder(akGroups: UUID? = nil, inherited: Bool? = nil, managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedRoleList> {
+    open class func rbacRolesListWithRequestBuilder(groups: UUID? = nil, inherited: Bool? = nil, managed: [String]? = nil, managedIsnull: Bool? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, users: Int? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedRoleList> {
         let localVariablePath = "/rbac/roles/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "ak_groups": (wrappedValue: akGroups?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "groups": (wrappedValue: groups?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "inherited": (wrappedValue: inherited?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "managed": (wrappedValue: managed?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "managed__isnull": (wrappedValue: managedIsnull?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

@@ -10,7 +10,7 @@ import Foundation
 /** Role serializer */
 public struct RoleRequest: Sendable, Codable, ParameterConvertible, Hashable {
 
-    public static let nameRule = StringRule(minLength: 1, maxLength: 150, pattern: nil)
+    public static let nameRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var name: String
 
     public init(name: String) {

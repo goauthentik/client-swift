@@ -29,6 +29,7 @@ public enum EventActions: String, Sendable, Codable, CaseIterable, CaseIterableD
     case systemTaskException = "system_task_exception"
     case systemException = "system_exception"
     case configurationError = "configuration_error"
+    case configurationWarning = "configuration_warning"
     case modelCreated = "model_created"
     case modelUpdated = "model_updated"
     case modelDeleted = "model_deleted"

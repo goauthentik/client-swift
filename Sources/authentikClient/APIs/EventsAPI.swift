@@ -133,6 +133,7 @@ open class EventsAPI {
     public enum Actions_eventsEventsExportCreate: String, Sendable, CaseIterable {
         case authorizeApplication = "authorize_application"
         case configurationError = "configuration_error"
+        case configurationWarning = "configuration_warning"
         case custom = "custom_"
         case emailSent = "email_sent"
         case exportReady = "export_ready"
@@ -239,6 +240,7 @@ open class EventsAPI {
     public enum Actions_eventsEventsList: String, Sendable, CaseIterable {
         case authorizeApplication = "authorize_application"
         case configurationError = "configuration_error"
+        case configurationWarning = "configuration_warning"
         case custom = "custom_"
         case emailSent = "email_sent"
         case exportReady = "export_ready"
@@ -526,6 +528,7 @@ open class EventsAPI {
     public enum Actions_eventsEventsVolumeList: String, Sendable, CaseIterable {
         case authorizeApplication = "authorize_application"
         case configurationError = "configuration_error"
+        case configurationWarning = "configuration_warning"
         case custom = "custom_"
         case emailSent = "email_sent"
         case exportReady = "export_ready"
