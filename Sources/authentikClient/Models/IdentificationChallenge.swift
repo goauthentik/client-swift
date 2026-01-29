@@ -14,6 +14,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
     public var component: String? = "ak-stage-identification"
     public var responseErrors: [String: [ErrorDetail]]?
     public var userFields: [String]?
+    public var pendingUserIdentifier: String?
     public var passwordFields: Bool
     public var allowShowPassword: Bool? = false
     public var applicationPre: String?
@@ -27,13 +28,13 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
     public var showSourceLabels: Bool
     public var enableRememberMe: Bool? = true
     public var passkeyChallenge: [String: JSONValue]?
-    public var pendingUserIdentifier: String?
 
-    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-identification", responseErrors: [String: [ErrorDetail]]? = nil, userFields: [String]?, passwordFields: Bool, allowShowPassword: Bool? = false, applicationPre: String? = nil, flowDesignation: FlowDesignationEnum, captchaStage: CaptchaChallenge? = nil, enrollUrl: String? = nil, recoveryUrl: String? = nil, passwordlessUrl: String? = nil, primaryAction: String, sources: [LoginSource]? = nil, showSourceLabels: Bool, enableRememberMe: Bool? = true, passkeyChallenge: [String: JSONValue]? = nil, pendingUserIdentifier: String? = nil) {
+    public init(flowInfo: ContextualFlowInfo? = nil, component: String? = "ak-stage-identification", responseErrors: [String: [ErrorDetail]]? = nil, userFields: [String]?, pendingUserIdentifier: String? = nil, passwordFields: Bool, allowShowPassword: Bool? = false, applicationPre: String? = nil, flowDesignation: FlowDesignationEnum, captchaStage: CaptchaChallenge? = nil, enrollUrl: String? = nil, recoveryUrl: String? = nil, passwordlessUrl: String? = nil, primaryAction: String, sources: [LoginSource]? = nil, showSourceLabels: Bool, enableRememberMe: Bool? = true, passkeyChallenge: [String: JSONValue]? = nil) {
         self.flowInfo = flowInfo
         self.component = component
         self.responseErrors = responseErrors
         self.userFields = userFields
+        self.pendingUserIdentifier = pendingUserIdentifier
         self.passwordFields = passwordFields
         self.allowShowPassword = allowShowPassword
         self.applicationPre = applicationPre
@@ -47,7 +48,6 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         self.showSourceLabels = showSourceLabels
         self.enableRememberMe = enableRememberMe
         self.passkeyChallenge = passkeyChallenge
-        self.pendingUserIdentifier = pendingUserIdentifier
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,6 +55,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         case component
         case responseErrors = "response_errors"
         case userFields = "user_fields"
+        case pendingUserIdentifier = "pending_user_identifier"
         case passwordFields = "password_fields"
         case allowShowPassword = "allow_show_password"
         case applicationPre = "application_pre"
@@ -68,7 +69,6 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         case showSourceLabels = "show_source_labels"
         case enableRememberMe = "enable_remember_me"
         case passkeyChallenge = "passkey_challenge"
-        case pendingUserIdentifier = "pending_user_identifier"
     }
 
     // Encodable protocol methods
@@ -79,6 +79,7 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         try container.encodeIfPresent(component, forKey: .component)
         try container.encodeIfPresent(responseErrors, forKey: .responseErrors)
         try container.encode(userFields, forKey: .userFields)
+        try container.encodeIfPresent(pendingUserIdentifier, forKey: .pendingUserIdentifier)
         try container.encode(passwordFields, forKey: .passwordFields)
         try container.encodeIfPresent(allowShowPassword, forKey: .allowShowPassword)
         try container.encodeIfPresent(applicationPre, forKey: .applicationPre)
@@ -92,7 +93,6 @@ public struct IdentificationChallenge: Sendable, Codable, ParameterConvertible, 
         try container.encode(showSourceLabels, forKey: .showSourceLabels)
         try container.encodeIfPresent(enableRememberMe, forKey: .enableRememberMe)
         try container.encodeIfPresent(passkeyChallenge, forKey: .passkeyChallenge)
-        try container.encodeIfPresent(pendingUserIdentifier, forKey: .pendingUserIdentifier)
     }
 }
 

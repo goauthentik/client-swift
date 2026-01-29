@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **component** | **String** |  | [optional] [default to "ak-stage-identification"]
 **responseErrors** | [String: [ErrorDetail]] |  | [optional] 
 **userFields** | **[String]** |  | 
+**pendingUserIdentifier** | **String** |  | [optional] 
 **passwordFields** | **Bool** |  | 
 **allowShowPassword** | **Bool** |  | [optional] [default to false]
 **applicationPre** | **String** |  | [optional] 
@@ -20,7 +21,6 @@ Name | Type | Description | Notes
 **showSourceLabels** | **Bool** |  | 
 **enableRememberMe** | **Bool** |  | [optional] [default to true]
 **passkeyChallenge** | **[String: JSONValue]** |  | [optional] 
-**pendingUserIdentifier** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

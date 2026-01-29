@@ -22,13 +22,13 @@ public struct WSFederationProvider: Sendable, Codable, ParameterConvertible, Has
     /** Get object component so that we know how to edit the object */
     public var component: String
     /** Internal application name, used in URLs. */
-    public var assignedApplicationSlug: String
+    public var assignedApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedApplicationName: String
+    public var assignedApplicationName: String?
     /** Internal application name, used in URLs. */
-    public var assignedBackchannelApplicationSlug: String
+    public var assignedBackchannelApplicationSlug: String?
     /** Application's display Name. */
-    public var assignedBackchannelApplicationName: String
+    public var assignedBackchannelApplicationName: String?
     /** Return object's verbose_name */
     public var verboseName: String
     /** Return object's plural verbose_name */
@@ -61,7 +61,7 @@ public struct WSFederationProvider: Sendable, Codable, ParameterConvertible, Has
     public var urlWsfed: String
     public var wtrealm: String
 
-    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String, assignedApplicationName: String, assignedBackchannelApplicationSlug: String, assignedBackchannelApplicationName: String, verboseName: String, verboseNamePlural: String, metaModelName: String, replyUrl: String, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil, urlDownloadMetadata: String, urlWsfed: String, wtrealm: String) {
+    public init(pk: Int, name: String, authenticationFlow: UUID? = nil, authorizationFlow: UUID, invalidationFlow: UUID, propertyMappings: [UUID]? = nil, component: String, assignedApplicationSlug: String?, assignedApplicationName: String?, assignedBackchannelApplicationSlug: String?, assignedBackchannelApplicationName: String?, verboseName: String, verboseNamePlural: String, metaModelName: String, replyUrl: String, assertionValidNotBefore: String? = nil, assertionValidNotOnOrAfter: String? = nil, sessionValidNotOnOrAfter: String? = nil, nameIdMapping: UUID? = nil, authnContextClassRefMapping: UUID? = nil, digestAlgorithm: DigestAlgorithmEnum? = nil, signatureAlgorithm: SignatureAlgorithmEnum? = nil, signingKp: UUID? = nil, encryptionKp: UUID? = nil, signAssertion: Bool? = nil, signLogoutRequest: Bool? = nil, defaultNameIdPolicy: SAMLNameIDPolicyEnum? = nil, urlDownloadMetadata: String, urlWsfed: String, wtrealm: String) {
         self.pk = pk
         self.name = name
         self.authenticationFlow = authenticationFlow

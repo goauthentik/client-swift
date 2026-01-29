@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **loadingOverlay** | **Bool** |  | [optional] [default to false]
 **loadingText** | **String** |  | 
 **userFields** | **[String]** |  | 
+**pendingUserIdentifier** | **String** |  | [optional] 
 **passwordFields** | **Bool** |  | 
 **allowShowPassword** | **Bool** |  | [optional] [default to false]
 **applicationPre** | **String** |  | [optional] 
@@ -56,7 +57,6 @@ Name | Type | Description | Notes
 **showSourceLabels** | **Bool** |  | 
 **enableRememberMe** | **Bool** |  | [optional] [default to true]
 **passkeyChallenge** | **[String: JSONValue]** |  | [optional] 
-**pendingUserIdentifier** | **String** |  | [optional] 
 **logoutUrls** | [[String: JSONValue]] |  | [optional] 
 **postUrl** | **String** |  | [optional] 
 **samlRequest** | **String** |  | [optional] 
