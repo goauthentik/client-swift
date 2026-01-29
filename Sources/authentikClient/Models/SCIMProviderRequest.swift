@@ -34,15 +34,16 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
     /** Cache duration for ServiceProviderConfig responses. Set minutes=0 to disable. */
     public var serviceProviderConfigCacheTimeout: String?
     public var excludeUsersServiceAccount: Bool?
-    public var filterGroup: UUID?
     /** Controls the number of objects synced in a single task */
     public var syncPageSize: Int?
     /** Timeout for synchronization of a single page */
     public var syncPageTimeout: String?
+    /** Group filters used to define sync-scope for groups. */
+    public var groupFilters: [UUID]?
     /** When enabled, provider will not modify or create objects in the remote system. */
     public var dryRun: Bool?
 
-    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, serviceProviderConfigCacheTimeout: String? = nil, excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, dryRun: Bool? = nil) {
+    public init(name: String, propertyMappings: [UUID]? = nil, propertyMappingsGroup: [UUID]? = nil, url: String, verifyCertificates: Bool? = nil, token: String? = nil, authMode: SCIMAuthenticationModeEnum? = nil, authOauth: UUID? = nil, authOauthParams: [String: JSONValue]? = nil, compatibilityMode: CompatibilityModeEnum? = nil, serviceProviderConfigCacheTimeout: String? = nil, excludeUsersServiceAccount: Bool? = nil, syncPageSize: Int? = nil, syncPageTimeout: String? = nil, groupFilters: [UUID]? = nil, dryRun: Bool? = nil) {
         self.name = name
         self.propertyMappings = propertyMappings
         self.propertyMappingsGroup = propertyMappingsGroup
@@ -55,9 +56,9 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         self.compatibilityMode = compatibilityMode
         self.serviceProviderConfigCacheTimeout = serviceProviderConfigCacheTimeout
         self.excludeUsersServiceAccount = excludeUsersServiceAccount
-        self.filterGroup = filterGroup
         self.syncPageSize = syncPageSize
         self.syncPageTimeout = syncPageTimeout
+        self.groupFilters = groupFilters
         self.dryRun = dryRun
     }
 
@@ -74,9 +75,9 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         case compatibilityMode = "compatibility_mode"
         case serviceProviderConfigCacheTimeout = "service_provider_config_cache_timeout"
         case excludeUsersServiceAccount = "exclude_users_service_account"
-        case filterGroup = "filter_group"
         case syncPageSize = "sync_page_size"
         case syncPageTimeout = "sync_page_timeout"
+        case groupFilters = "group_filters"
         case dryRun = "dry_run"
     }
 
@@ -96,9 +97,9 @@ public struct SCIMProviderRequest: Sendable, Codable, ParameterConvertible, Hash
         try container.encodeIfPresent(compatibilityMode, forKey: .compatibilityMode)
         try container.encodeIfPresent(serviceProviderConfigCacheTimeout, forKey: .serviceProviderConfigCacheTimeout)
         try container.encodeIfPresent(excludeUsersServiceAccount, forKey: .excludeUsersServiceAccount)
-        try container.encodeIfPresent(filterGroup, forKey: .filterGroup)
         try container.encodeIfPresent(syncPageSize, forKey: .syncPageSize)
         try container.encodeIfPresent(syncPageTimeout, forKey: .syncPageTimeout)
+        try container.encodeIfPresent(groupFilters, forKey: .groupFilters)
         try container.encodeIfPresent(dryRun, forKey: .dryRun)
     }
 }

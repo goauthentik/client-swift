@@ -4865,7 +4865,7 @@ SCIMProvider Viewset
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import authentikClient
 
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", groupFilters: [123], dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimCreate(sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5208,7 +5208,7 @@ Name | Type | Description  | Notes
 
 # **providersScimList**
 ```swift
-    open class func providersScimList(excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, completion: @escaping (_ data: PaginatedSCIMProviderList?, _ error: Error?) -> Void)
+    open class func providersScimList(excludeUsersServiceAccount: Bool? = nil, groupFilters: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, completion: @escaping (_ data: PaginatedSCIMProviderList?, _ error: Error?) -> Void)
 ```
 
 
@@ -5221,7 +5221,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let excludeUsersServiceAccount = true // Bool |  (optional)
-let filterGroup = 987 // UUID |  (optional)
+let groupFilters = [123] // [UUID] |  (optional)
 let name = "name_example" // String |  (optional)
 let ordering = "ordering_example" // String | Which field to use when ordering the results. (optional)
 let page = 987 // Int | A page number within the paginated result set. (optional)
@@ -5229,7 +5229,7 @@ let pageSize = 987 // Int | Number of results to return per page. (optional)
 let search = "search_example" // String | A search term. (optional)
 let url = "url_example" // String |  (optional)
 
-ProvidersAPI.providersScimList(excludeUsersServiceAccount: excludeUsersServiceAccount, filterGroup: filterGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, url: url) { (response, error) in
+ProvidersAPI.providersScimList(excludeUsersServiceAccount: excludeUsersServiceAccount, groupFilters: groupFilters, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, url: url) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -5246,7 +5246,7 @@ ProvidersAPI.providersScimList(excludeUsersServiceAccount: excludeUsersServiceAc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **excludeUsersServiceAccount** | **Bool** |  | [optional] 
- **filterGroup** | **UUID** |  | [optional] 
+ **groupFilters** | [**[UUID]**](UUID.md) |  | [optional] 
  **name** | **String** |  | [optional] 
  **ordering** | **String** | Which field to use when ordering the results. | [optional] 
  **page** | **Int** | A page number within the paginated result set. | [optional] 
@@ -5284,7 +5284,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // PatchedSCIMProviderRequest |  (optional)
+let patchedSCIMProviderRequest = PatchedSCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", groupFilters: [123], dryRun: false) // PatchedSCIMProviderRequest |  (optional)
 
 ProvidersAPI.providersScimPartialUpdate(id: id, patchedSCIMProviderRequest: patchedSCIMProviderRequest) { (response, error) in
     guard error == nil else {
@@ -5484,7 +5484,7 @@ SCIMProvider Viewset
 import authentikClient
 
 let id = 987 // Int | A unique integer value identifying this SCIM Provider.
-let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, filterGroup: 123, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", dryRun: false) // SCIMProviderRequest | 
+let sCIMProviderRequest = SCIMProviderRequest(name: "name_example", propertyMappings: [123], propertyMappingsGroup: [123], url: "url_example", verifyCertificates: false, token: "token_example", authMode: SCIMAuthenticationModeEnum(), authOauth: 123, authOauthParams: "TODO", compatibilityMode: CompatibilityModeEnum(), serviceProviderConfigCacheTimeout: "serviceProviderConfigCacheTimeout_example", excludeUsersServiceAccount: false, syncPageSize: 123, syncPageTimeout: "syncPageTimeout_example", groupFilters: [123], dryRun: false) // SCIMProviderRequest | 
 
 ProvidersAPI.providersScimUpdate(id: id, sCIMProviderRequest: sCIMProviderRequest) { (response, error) in
     guard error == nil else {

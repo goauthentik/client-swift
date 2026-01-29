@@ -4616,7 +4616,7 @@ open class ProvidersAPI {
     /**
 
      - parameter excludeUsersServiceAccount: (query)  (optional)
-     - parameter filterGroup: (query)  (optional)
+     - parameter groupFilters: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -4627,8 +4627,8 @@ open class ProvidersAPI {
      - returns: PaginatedSCIMProviderList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func providersScimList(excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSCIMProviderList {
-        return try await providersScimListWithRequestBuilder(excludeUsersServiceAccount: excludeUsersServiceAccount, filterGroup: filterGroup, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, url: url, apiConfiguration: apiConfiguration).execute().body
+    open class func providersScimList(excludeUsersServiceAccount: Bool? = nil, groupFilters: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedSCIMProviderList {
+        return try await providersScimListWithRequestBuilder(excludeUsersServiceAccount: excludeUsersServiceAccount, groupFilters: groupFilters, name: name, ordering: ordering, page: page, pageSize: pageSize, search: search, url: url, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -4638,7 +4638,7 @@ open class ProvidersAPI {
        - type: http
        - name: authentik
      - parameter excludeUsersServiceAccount: (query)  (optional)
-     - parameter filterGroup: (query)  (optional)
+     - parameter groupFilters: (query)  (optional)
      - parameter name: (query)  (optional)
      - parameter ordering: (query) Which field to use when ordering the results. (optional)
      - parameter page: (query) A page number within the paginated result set. (optional)
@@ -4648,7 +4648,7 @@ open class ProvidersAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedSCIMProviderList> 
      */
-    open class func providersScimListWithRequestBuilder(excludeUsersServiceAccount: Bool? = nil, filterGroup: UUID? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSCIMProviderList> {
+    open class func providersScimListWithRequestBuilder(excludeUsersServiceAccount: Bool? = nil, groupFilters: [UUID]? = nil, name: String? = nil, ordering: String? = nil, page: Int? = nil, pageSize: Int? = nil, search: String? = nil, url: String? = nil, apiConfiguration: authentikClientAPIConfiguration = authentikClientAPIConfiguration.shared) -> RequestBuilder<PaginatedSCIMProviderList> {
         let localVariablePath = "/providers/scim/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -4656,7 +4656,7 @@ open class ProvidersAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "exclude_users_service_account": (wrappedValue: excludeUsersServiceAccount?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "filter_group": (wrappedValue: filterGroup?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "group_filters": (wrappedValue: groupFilters?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "name": (wrappedValue: name?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ordering": (wrappedValue: ordering?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page": (wrappedValue: page?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),

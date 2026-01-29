@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 **compatibilityMode** | [**CompatibilityModeEnum**](CompatibilityModeEnum.md) | Alter authentik behavior for vendor-specific SCIM implementations. | [optional] 
 **serviceProviderConfigCacheTimeout** | **String** | Cache duration for ServiceProviderConfig responses. Set minutes&#x3D;0 to disable. | [optional] 
 **excludeUsersServiceAccount** | **Bool** |  | [optional] 
-**filterGroup** | **UUID** |  | [optional] 
 **syncPageSize** | **Int** | Controls the number of objects synced in a single task | [optional] 
 **syncPageTimeout** | **String** | Timeout for synchronization of a single page | [optional] 
+**groupFilters** | **[UUID]** | Group filters used to define sync-scope for groups. | [optional] 
 **dryRun** | **Bool** | When enabled, provider will not modify or create objects in the remote system. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
