@@ -10,5 +10,7 @@ import Foundation
 public enum AlgEnum: String, Sendable, Codable, CaseIterable, CaseIterableDefaultsLast {
     case rsa = "rsa"
     case ecdsa = "ecdsa"
+    case ed25519 = "ed25519"
+    case ed448 = "ed448"
     case unknownDefaultOpenApi = "unknown_default_open_api"
 }
